@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Oos\V20190601\Models\GetInventorySchemaResponseBody\schemas;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class attributes extends Model
 {
     /**
+     * @description The data type of the property.
+     *
+     * @example STRING
+     *
      * @var string
      */
     public $dataType;
 
     /**
+     * @description The name of the property.
+     *
+     * @example ApplicationType
+     *
      * @var string
      */
     public $name;
@@ -22,18 +30,14 @@ class attributes extends Model
         'name' => 'Name',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dataType) {
             $res['DataType'] = $this->dataType;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -41,18 +45,17 @@ class attributes extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return attributes
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DataType'])) {
             $model->dataType = $map['DataType'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

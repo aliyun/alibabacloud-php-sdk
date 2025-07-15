@@ -4,17 +4,23 @@
 
 namespace AlibabaCloud\SDK\Oos\V20190601\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Oos\V20190601\Models\GetServiceSettingsResponseBody\serviceSettings;
+use AlibabaCloud\Tea\Model;
 
 class GetServiceSettingsResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 9F755DC9-C0CF-4598-B2E3-2CC763F18CB2
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The information of service settings.
+     *
      * @var serviceSettings[]
      */
     public $serviceSettings;
@@ -23,27 +29,20 @@ class GetServiceSettingsResponseBody extends Model
         'serviceSettings' => 'ServiceSettings',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->serviceSettings)) {
-            Model::validateArray($this->serviceSettings);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->serviceSettings) {
-            if (\is_array($this->serviceSettings)) {
-                $res['ServiceSettings'] = [];
-                $n1 = 0;
-                foreach ($this->serviceSettings as $item1) {
-                    $res['ServiceSettings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['ServiceSettings'] = [];
+            if (null !== $this->serviceSettings && \is_array($this->serviceSettings)) {
+                $n = 0;
+                foreach ($this->serviceSettings as $item) {
+                    $res['ServiceSettings'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -51,24 +50,23 @@ class GetServiceSettingsResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetServiceSettingsResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['ServiceSettings'])) {
             if (!empty($map['ServiceSettings'])) {
                 $model->serviceSettings = [];
-                $n1 = 0;
-                foreach ($map['ServiceSettings'] as $item1) {
-                    $model->serviceSettings[$n1++] = serviceSettings::fromMap($item1);
+                $n = 0;
+                foreach ($map['ServiceSettings'] as $item) {
+                    $model->serviceSettings[$n++] = null !== $item ? serviceSettings::fromMap($item) : $item;
                 }
             }
         }

@@ -4,37 +4,61 @@
 
 namespace AlibabaCloud\SDK\Oos\V20190601\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateApplicationRequest\alarmConfig;
+use AlibabaCloud\Tea\Model;
 
 class UpdateApplicationRequest extends Model
 {
     /**
+     * @description The configurations of application alerts.
+     *
      * @var alarmConfig
      */
     public $alarmConfig;
 
     /**
+     * @description Specifies whether to delete existing alert rules before applying the alert template. Default value: false.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $deleteAlarmRulesBeforeUpdate;
 
     /**
+     * @description The description to be updated for the application.
+     *
+     * @example test application
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The application name.
+     *
+     * This parameter is required.
+     *
+     * @example My-Application
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The region ID. Set the value to cn-hangzhou.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The tags.
+     *
+     * @example {"k1":"v1","k2":"v2"}
+     *
      * @var mixed[]
      */
     public $tags;
@@ -47,87 +71,58 @@ class UpdateApplicationRequest extends Model
         'tags' => 'Tags',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->alarmConfig) {
-            $this->alarmConfig->validate();
-        }
-        if (\is_array($this->tags)) {
-            Model::validateArray($this->tags);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->alarmConfig) {
-            $res['AlarmConfig'] = null !== $this->alarmConfig ? $this->alarmConfig->toArray($noStream) : $this->alarmConfig;
+            $res['AlarmConfig'] = null !== $this->alarmConfig ? $this->alarmConfig->toMap() : null;
         }
-
         if (null !== $this->deleteAlarmRulesBeforeUpdate) {
             $res['DeleteAlarmRulesBeforeUpdate'] = $this->deleteAlarmRulesBeforeUpdate;
         }
-
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->tags) {
-            if (\is_array($this->tags)) {
-                $res['Tags'] = [];
-                foreach ($this->tags as $key1 => $value1) {
-                    $res['Tags'][$key1] = $value1;
-                }
-            }
+            $res['Tags'] = $this->tags;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateApplicationRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AlarmConfig'])) {
             $model->alarmConfig = alarmConfig::fromMap($map['AlarmConfig']);
         }
-
         if (isset($map['DeleteAlarmRulesBeforeUpdate'])) {
             $model->deleteAlarmRulesBeforeUpdate = $map['DeleteAlarmRulesBeforeUpdate'];
         }
-
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['Tags'])) {
-            if (!empty($map['Tags'])) {
-                $model->tags = [];
-                foreach ($map['Tags'] as $key1 => $value1) {
-                    $model->tags[$key1] = $value1;
-                }
-            }
+            $model->tags = $map['Tags'];
         }
 
         return $model;

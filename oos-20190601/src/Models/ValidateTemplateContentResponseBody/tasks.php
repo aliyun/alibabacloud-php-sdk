@@ -4,31 +4,51 @@
 
 namespace AlibabaCloud\SDK\Oos\V20190601\Models\ValidateTemplateContentResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class tasks extends Model
 {
     /**
+     * @description The description of the task.
+     *
+     * @example (Required) The status of the Ecs instance.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The name of the task.
+     *
+     * @example foo
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The outputs of the task.
+     *
+     * @example .instanceId
+     *
      * @var string
      */
     public $outputs;
 
     /**
+     * @description The properties of the task.
+     *
+     * @example {"API": "DescribeInstances","Parameters": {"Status": "{{ Status }}"},"Service": "Ecs"}
+     *
      * @var string
      */
     public $properties;
 
     /**
+     * @description The type of the task.
+     *
+     * @example ACS::ExecuteAPI
+     *
      * @var string
      */
     public $type;
@@ -40,30 +60,23 @@ class tasks extends Model
         'type' => 'Type',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->outputs) {
             $res['Outputs'] = $this->outputs;
         }
-
         if (null !== $this->properties) {
             $res['Properties'] = $this->properties;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -71,30 +84,26 @@ class tasks extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return tasks
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['Outputs'])) {
             $model->outputs = $map['Outputs'];
         }
-
         if (isset($map['Properties'])) {
             $model->properties = $map['Properties'];
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

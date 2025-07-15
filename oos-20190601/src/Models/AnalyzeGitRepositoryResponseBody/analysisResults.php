@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Oos\V20190601\Models\AnalyzeGitRepositoryResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Oos\V20190601\Models\AnalyzeGitRepositoryResponseBody\analysisResults\buildFiles;
+use AlibabaCloud\Tea\Model;
 
 class analysisResults extends Model
 {
@@ -29,31 +29,23 @@ class analysisResults extends Model
         'runtimeType' => 'RuntimeType',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->buildFiles)) {
-            Model::validateArray($this->buildFiles);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->buildFiles) {
-            if (\is_array($this->buildFiles)) {
-                $res['BuildFiles'] = [];
-                $n1 = 0;
-                foreach ($this->buildFiles as $item1) {
-                    $res['BuildFiles'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['BuildFiles'] = [];
+            if (null !== $this->buildFiles && \is_array($this->buildFiles)) {
+                $n = 0;
+                foreach ($this->buildFiles as $item) {
+                    $res['BuildFiles'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->buildType) {
             $res['BuildType'] = $this->buildType;
         }
-
         if (null !== $this->runtimeType) {
             $res['RuntimeType'] = $this->runtimeType;
         }
@@ -61,28 +53,26 @@ class analysisResults extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return analysisResults
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BuildFiles'])) {
             if (!empty($map['BuildFiles'])) {
                 $model->buildFiles = [];
-                $n1 = 0;
-                foreach ($map['BuildFiles'] as $item1) {
-                    $model->buildFiles[$n1++] = buildFiles::fromMap($item1);
+                $n = 0;
+                foreach ($map['BuildFiles'] as $item) {
+                    $model->buildFiles[$n++] = null !== $item ? buildFiles::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['BuildType'])) {
             $model->buildType = $map['BuildType'];
         }
-
         if (isset($map['RuntimeType'])) {
             $model->runtimeType = $map['RuntimeType'];
         }

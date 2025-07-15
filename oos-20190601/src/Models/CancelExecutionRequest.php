@@ -4,16 +4,26 @@
 
 namespace AlibabaCloud\SDK\Oos\V20190601\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CancelExecutionRequest extends Model
 {
     /**
+     * @description The ID of the execution.
+     *
+     * This parameter is required.
+     *
+     * @example exec-xxx
+     *
      * @var string
      */
     public $executionId;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -22,18 +32,14 @@ class CancelExecutionRequest extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->executionId) {
             $res['ExecutionId'] = $this->executionId;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -41,18 +47,17 @@ class CancelExecutionRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CancelExecutionRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExecutionId'])) {
             $model->executionId = $map['ExecutionId'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

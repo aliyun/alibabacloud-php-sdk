@@ -4,16 +4,22 @@
 
 namespace AlibabaCloud\SDK\Oos\V20190601\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GenerateOpsItemResponseBody extends Model
 {
     /**
+     * @description The O\\&M item list.
+     *
      * @var string[]
      */
     public $opsItemIds;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example DA4F08D4-DA54-5407-84B9-108C71D75B17
+     *
      * @var string
      */
     public $requestId;
@@ -22,27 +28,14 @@ class GenerateOpsItemResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->opsItemIds)) {
-            Model::validateArray($this->opsItemIds);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->opsItemIds) {
-            if (\is_array($this->opsItemIds)) {
-                $res['OpsItemIds'] = [];
-                $n1 = 0;
-                foreach ($this->opsItemIds as $item1) {
-                    $res['OpsItemIds'][$n1++] = $item1;
-                }
-            }
+            $res['OpsItemIds'] = $this->opsItemIds;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,24 +43,19 @@ class GenerateOpsItemResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GenerateOpsItemResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OpsItemIds'])) {
             if (!empty($map['OpsItemIds'])) {
-                $model->opsItemIds = [];
-                $n1 = 0;
-                foreach ($map['OpsItemIds'] as $item1) {
-                    $model->opsItemIds[$n1++] = $item1;
-                }
+                $model->opsItemIds = $map['OpsItemIds'];
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

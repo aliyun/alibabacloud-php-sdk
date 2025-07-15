@@ -4,16 +4,54 @@
 
 namespace AlibabaCloud\SDK\Oos\V20190601\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetTemplateParameterConstraintsResponseBody extends Model
 {
     /**
+     * @description The constraints of the parameters.
+     *
+     * @example [
+     * {
+     * "Type": "String",
+     * "AllowedValues": [
+     * "ecs.n1.tiny",
+     * "ecs.r8a.4xlarge",
+     * "ecs.n2.xlarge",
+     * "ecs.c7.2xlarge",
+     * "ecs.c8i.4xlarge",
+     * "ecs.g8i.48xlarge",
+     * "ecs.c8a.4xlarge",
+     * "ecs.i2.4xlarge",
+     * "ecs.r8y.2xlarge"
+     * ],
+     * "AssociationParameterNames": [
+     * "RegionId",
+     * "zoneId"
+     * ],
+     * "ParameterKey": "instanceType"
+     * },
+     * {
+     * "Type": "String",
+     * "AllowedValues": [],
+     * "AssociationParameterNames": [
+     * "RegionId",
+     * "zoneId",
+     * "InstanceType"
+     * ],
+     * "ParameterKey": "systemDiskCategory"
+     * }
+     * ]
+     *
      * @var mixed[]
      */
     public $parameterConstraints;
 
     /**
+     * @description The request ID.
+     *
+     * @example CBEC8072-BEC2-478E-8EAE-E723BA79CF19
+     *
      * @var string
      */
     public $requestId;
@@ -22,26 +60,14 @@ class GetTemplateParameterConstraintsResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->parameterConstraints)) {
-            Model::validateArray($this->parameterConstraints);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->parameterConstraints) {
-            if (\is_array($this->parameterConstraints)) {
-                $res['ParameterConstraints'] = [];
-                foreach ($this->parameterConstraints as $key1 => $value1) {
-                    $res['ParameterConstraints'][$key1] = $value1;
-                }
-            }
+            $res['ParameterConstraints'] = $this->parameterConstraints;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -49,23 +75,17 @@ class GetTemplateParameterConstraintsResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetTemplateParameterConstraintsResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ParameterConstraints'])) {
-            if (!empty($map['ParameterConstraints'])) {
-                $model->parameterConstraints = [];
-                foreach ($map['ParameterConstraints'] as $key1 => $value1) {
-                    $model->parameterConstraints[$key1] = $value1;
-                }
-            }
+            $model->parameterConstraints = $map['ParameterConstraints'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

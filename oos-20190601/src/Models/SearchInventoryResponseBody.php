@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Oos\V20190601\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class SearchInventoryResponseBody extends Model
 {
@@ -14,16 +14,28 @@ class SearchInventoryResponseBody extends Model
     public $entities;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The token that is used to retrieve the next page of results.
+     *
+     * @example gAAAAABfTgv5ewUWmNdJ3g7JVLvX70sPH90GZOVGC
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example A81E4B2E-6B33-4BAE-9856-55DB7C893E01
+     *
      * @var string
      */
     public $requestId;
@@ -34,40 +46,20 @@ class SearchInventoryResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->entities)) {
-            Model::validateArray($this->entities);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->entities) {
-            if (\is_array($this->entities)) {
-                $res['Entities'] = [];
-                $n1 = 0;
-                foreach ($this->entities as $item1) {
-                    if (\is_array($item1)) {
-                        $res['Entities'][$n1++] = [];
-                        foreach ($item1 as $key2 => $value2) {
-                            $res['Entities'][$n1++][$key2] = $value2;
-                        }
-                    }
-                }
-            }
+            $res['Entities'] = $this->entities;
         }
-
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
-
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -75,37 +67,25 @@ class SearchInventoryResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return SearchInventoryResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Entities'])) {
             if (!empty($map['Entities'])) {
-                $model->entities = [];
-                $n1 = 0;
-                foreach ($map['Entities'] as $item1) {
-                    if (!empty($item1)) {
-                        $model->entities[$n1++] = [];
-                        foreach ($item1 as $key2 => $value2) {
-                            $model->entities[$n1++][$key2] = $value2;
-                        }
-                    }
-                }
+                $model->entities = $map['Entities'];
             }
         }
-
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
-
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

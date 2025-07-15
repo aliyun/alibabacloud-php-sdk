@@ -4,22 +4,32 @@
 
 namespace AlibabaCloud\SDK\Oos\V20190601\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListStateConfigurationsResponseBody\stateConfigurations;
+use AlibabaCloud\Tea\Model;
 
 class ListStateConfigurationsResponseBody extends Model
 {
     /**
+     * @description The pagination token that was used in the next request to retrieve a new page of results.
+     *
+     * @example AAAAASO3cL82+b5iji7bfPNpMh8=
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The request ID.
+     *
+     * @example 1306108F-610C-40FD-AAD5-DA13E8B00BE9
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The information about the desired-state configurations.
+     *
      * @var stateConfigurations[]
      */
     public $stateConfigurations;
@@ -29,31 +39,23 @@ class ListStateConfigurationsResponseBody extends Model
         'stateConfigurations' => 'StateConfigurations',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->stateConfigurations)) {
-            Model::validateArray($this->stateConfigurations);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->stateConfigurations) {
-            if (\is_array($this->stateConfigurations)) {
-                $res['StateConfigurations'] = [];
-                $n1 = 0;
-                foreach ($this->stateConfigurations as $item1) {
-                    $res['StateConfigurations'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['StateConfigurations'] = [];
+            if (null !== $this->stateConfigurations && \is_array($this->stateConfigurations)) {
+                $n = 0;
+                foreach ($this->stateConfigurations as $item) {
+                    $res['StateConfigurations'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -61,28 +63,26 @@ class ListStateConfigurationsResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListStateConfigurationsResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['StateConfigurations'])) {
             if (!empty($map['StateConfigurations'])) {
                 $model->stateConfigurations = [];
-                $n1 = 0;
-                foreach ($map['StateConfigurations'] as $item1) {
-                    $model->stateConfigurations[$n1++] = stateConfigurations::fromMap($item1);
+                $n = 0;
+                foreach ($map['StateConfigurations'] as $item) {
+                    $model->stateConfigurations[$n++] = null !== $item ? stateConfigurations::fromMap($item) : $item;
                 }
             }
         }

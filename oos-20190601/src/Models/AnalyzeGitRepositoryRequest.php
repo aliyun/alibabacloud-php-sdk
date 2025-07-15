@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Oos\V20190601\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class AnalyzeGitRepositoryRequest extends Model
 {
@@ -24,11 +24,15 @@ class AnalyzeGitRepositoryRequest extends Model
     public $orgId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $owner;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $platform;
@@ -58,42 +62,32 @@ class AnalyzeGitRepositoryRequest extends Model
         'repoId' => 'RepoId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->branch) {
             $res['Branch'] = $this->branch;
         }
-
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
-
         if (null !== $this->orgId) {
             $res['OrgId'] = $this->orgId;
         }
-
         if (null !== $this->owner) {
             $res['Owner'] = $this->owner;
         }
-
         if (null !== $this->platform) {
             $res['Platform'] = $this->platform;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->repoFullName) {
             $res['RepoFullName'] = $this->repoFullName;
         }
-
         if (null !== $this->repoId) {
             $res['RepoId'] = $this->repoId;
         }
@@ -101,42 +95,35 @@ class AnalyzeGitRepositoryRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return AnalyzeGitRepositoryRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Branch'])) {
             $model->branch = $map['Branch'];
         }
-
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
-
         if (isset($map['OrgId'])) {
             $model->orgId = $map['OrgId'];
         }
-
         if (isset($map['Owner'])) {
             $model->owner = $map['Owner'];
         }
-
         if (isset($map['Platform'])) {
             $model->platform = $map['Platform'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['RepoFullName'])) {
             $model->repoFullName = $map['RepoFullName'];
         }
-
         if (isset($map['RepoId'])) {
             $model->repoId = $map['RepoId'];
         }

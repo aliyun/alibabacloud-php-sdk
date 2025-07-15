@@ -4,21 +4,29 @@
 
 namespace AlibabaCloud\SDK\Oos\V20190601\Models\CreateApplicationRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class alarmConfig extends Model
 {
     /**
+     * @description The alert contact groups.
+     *
      * @var string[]
      */
     public $contactGroups;
 
     /**
+     * @description The health check URL of the application.
+     *
+     * @example /healthcheck/tcp50122
+     *
      * @var string
      */
     public $healthCheckUrl;
 
     /**
+     * @description The alert templates.
+     *
      * @var string[]
      */
     public $templateIds;
@@ -28,76 +36,43 @@ class alarmConfig extends Model
         'templateIds' => 'TemplateIds',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->contactGroups)) {
-            Model::validateArray($this->contactGroups);
-        }
-        if (\is_array($this->templateIds)) {
-            Model::validateArray($this->templateIds);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->contactGroups) {
-            if (\is_array($this->contactGroups)) {
-                $res['ContactGroups'] = [];
-                $n1 = 0;
-                foreach ($this->contactGroups as $item1) {
-                    $res['ContactGroups'][$n1++] = $item1;
-                }
-            }
+            $res['ContactGroups'] = $this->contactGroups;
         }
-
         if (null !== $this->healthCheckUrl) {
             $res['HealthCheckUrl'] = $this->healthCheckUrl;
         }
-
         if (null !== $this->templateIds) {
-            if (\is_array($this->templateIds)) {
-                $res['TemplateIds'] = [];
-                $n1 = 0;
-                foreach ($this->templateIds as $item1) {
-                    $res['TemplateIds'][$n1++] = $item1;
-                }
-            }
+            $res['TemplateIds'] = $this->templateIds;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return alarmConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ContactGroups'])) {
             if (!empty($map['ContactGroups'])) {
-                $model->contactGroups = [];
-                $n1 = 0;
-                foreach ($map['ContactGroups'] as $item1) {
-                    $model->contactGroups[$n1++] = $item1;
-                }
+                $model->contactGroups = $map['ContactGroups'];
             }
         }
-
         if (isset($map['HealthCheckUrl'])) {
             $model->healthCheckUrl = $map['HealthCheckUrl'];
         }
-
         if (isset($map['TemplateIds'])) {
             if (!empty($map['TemplateIds'])) {
-                $model->templateIds = [];
-                $n1 = 0;
-                foreach ($map['TemplateIds'] as $item1) {
-                    $model->templateIds[$n1++] = $item1;
-                }
+                $model->templateIds = $map['TemplateIds'];
             }
         }
 

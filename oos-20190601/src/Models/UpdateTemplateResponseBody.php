@@ -4,17 +4,23 @@
 
 namespace AlibabaCloud\SDK\Oos\V20190601\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateTemplateResponseBody\template;
+use AlibabaCloud\Tea\Model;
 
 class UpdateTemplateResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 2075899A-585D-4A41-A9B2-28DF4F534F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The metadata of the template.
+     *
      * @var template
      */
     public $template;
@@ -23,40 +29,32 @@ class UpdateTemplateResponseBody extends Model
         'template' => 'Template',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->template) {
-            $this->template->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->template) {
-            $res['Template'] = null !== $this->template ? $this->template->toArray($noStream) : $this->template;
+            $res['Template'] = null !== $this->template ? $this->template->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateTemplateResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['Template'])) {
             $model->template = template::fromMap($map['Template']);
         }

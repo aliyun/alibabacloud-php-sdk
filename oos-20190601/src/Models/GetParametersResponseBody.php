@@ -4,22 +4,30 @@
 
 namespace AlibabaCloud\SDK\Oos\V20190601\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Oos\V20190601\Models\GetParametersResponseBody\parameters;
+use AlibabaCloud\Tea\Model;
 
 class GetParametersResponseBody extends Model
 {
     /**
+     * @description Invalid parameters.
+     *
      * @var string[]
      */
     public $invalidParameters;
 
     /**
+     * @description The information about the common parameters.
+     *
      * @var parameters[]
      */
     public $parameters;
 
     /**
+     * @description The request ID.
+     *
+     * @example 2597E94B-5346-42D1-BB58-D3333EDD0975
+     *
      * @var string
      */
     public $requestId;
@@ -29,40 +37,23 @@ class GetParametersResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->invalidParameters)) {
-            Model::validateArray($this->invalidParameters);
-        }
-        if (\is_array($this->parameters)) {
-            Model::validateArray($this->parameters);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->invalidParameters) {
-            if (\is_array($this->invalidParameters)) {
-                $res['InvalidParameters'] = [];
-                $n1 = 0;
-                foreach ($this->invalidParameters as $item1) {
-                    $res['InvalidParameters'][$n1++] = $item1;
-                }
-            }
+            $res['InvalidParameters'] = $this->invalidParameters;
         }
-
         if (null !== $this->parameters) {
-            if (\is_array($this->parameters)) {
-                $res['Parameters'] = [];
-                $n1 = 0;
-                foreach ($this->parameters as $item1) {
-                    $res['Parameters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Parameters'] = [];
+            if (null !== $this->parameters && \is_array($this->parameters)) {
+                $n = 0;
+                foreach ($this->parameters as $item) {
+                    $res['Parameters'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -70,34 +61,28 @@ class GetParametersResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetParametersResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InvalidParameters'])) {
             if (!empty($map['InvalidParameters'])) {
-                $model->invalidParameters = [];
-                $n1 = 0;
-                foreach ($map['InvalidParameters'] as $item1) {
-                    $model->invalidParameters[$n1++] = $item1;
-                }
+                $model->invalidParameters = $map['InvalidParameters'];
             }
         }
-
         if (isset($map['Parameters'])) {
             if (!empty($map['Parameters'])) {
                 $model->parameters = [];
-                $n1 = 0;
-                foreach ($map['Parameters'] as $item1) {
-                    $model->parameters[$n1++] = parameters::fromMap($item1);
+                $n = 0;
+                foreach ($map['Parameters'] as $item) {
+                    $model->parameters[$n++] = null !== $item ? parameters::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

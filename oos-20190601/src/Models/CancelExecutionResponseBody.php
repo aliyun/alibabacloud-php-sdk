@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Oos\V20190601\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CancelExecutionResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 14A07460-EBE7-47CA-9757-12CC4761D47A
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class CancelExecutionResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class CancelExecutionResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CancelExecutionResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

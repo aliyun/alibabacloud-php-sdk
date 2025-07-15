@@ -4,17 +4,23 @@
 
 namespace AlibabaCloud\SDK\Oos\V20190601\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateApplicationResponseBody\application;
+use AlibabaCloud\Tea\Model;
 
 class UpdateApplicationResponseBody extends Model
 {
     /**
+     * @description The information about the application.
+     *
      * @var application
      */
     public $application;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example F1F00F41-D24C-5377-831B-C97F739CE1AB
+     *
      * @var string
      */
     public $requestId;
@@ -23,21 +29,14 @@ class UpdateApplicationResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->application) {
-            $this->application->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->application) {
-            $res['Application'] = null !== $this->application ? $this->application->toArray($noStream) : $this->application;
+            $res['Application'] = null !== $this->application ? $this->application->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,18 +44,17 @@ class UpdateApplicationResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateApplicationResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Application'])) {
             $model->application = application::fromMap($map['Application']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

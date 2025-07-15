@@ -4,91 +4,153 @@
 
 namespace AlibabaCloud\SDK\Oos\V20190601\Models\GetOpsItemResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class opsItem extends Model
 {
     /**
+     * @description The information about the attributes of the O\\&M item.
+     *
      * @var mixed[]
      */
     public $attributes;
 
     /**
+     * @description The category of the O\\&M item.
+     *
+     * @example Security
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @description The user who created the O\\&M item.
+     *
+     * @example root(130900000)
+     *
      * @var string
      */
     public $createBy;
 
     /**
+     * @description The time when the O\\&M item was created.
+     *
+     * @example 2023-04-10T06:15Z
+     *
      * @var string
      */
     public $createDate;
 
     /**
+     * @description The description.
+     *
+     * @example test-update
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The user who last modified the O\\&M item.
+     *
+     * @example modifiedBy
+     *
      * @var string
      */
     public $lastModifiedBy;
 
     /**
+     * @description The O\\&M item ID.
+     *
+     * @example oi-d52b08695e2b46ae8413
+     *
      * @var string
      */
     public $opsItemId;
 
     /**
+     * @description The priority of the O\\&M item.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $priority;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-aekzxkofnlxtn2i
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The Alibaba Cloud Resource Names (ARNs) of the associated resources.
+     *
      * @var string[]
      */
     public $resources;
 
     /**
+     * @description The severity level of the O\\&M item.
+     *
+     * @example Medium
+     *
      * @var string
      */
     public $severity;
 
     /**
+     * @description The solutions to the O\\&M item.
+     *
      * @var mixed[][]
      */
     public $solutions;
 
     /**
+     * @description The source business of the O\\&M item.
+     *
+     * @example /aliyun/appManager
+     *
      * @var string
      */
     public $source;
 
     /**
+     * @description The status of the O\\&M item.
+     *
+     * @example Open
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The tags attached to the O\\&M item.
+     *
+     * @example {"K1":"V1"}
+     *
      * @var mixed[]
      */
     public $tags;
 
     /**
+     * @description The title of the O\\&M item.
+     *
+     * @example test
+     *
      * @var string
      */
     public $title;
 
     /**
+     * @description The time when the O\\&M item was updated.
+     *
+     * @example 2023-04-10T06:15Z
+     *
      * @var string
      */
     public $updateDate;
@@ -112,117 +174,59 @@ class opsItem extends Model
         'updateDate' => 'UpdateDate',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->attributes)) {
-            Model::validateArray($this->attributes);
-        }
-        if (\is_array($this->resources)) {
-            Model::validateArray($this->resources);
-        }
-        if (\is_array($this->solutions)) {
-            Model::validateArray($this->solutions);
-        }
-        if (\is_array($this->tags)) {
-            Model::validateArray($this->tags);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->attributes) {
-            if (\is_array($this->attributes)) {
-                $res['Attributes'] = [];
-                foreach ($this->attributes as $key1 => $value1) {
-                    $res['Attributes'][$key1] = $value1;
-                }
-            }
+            $res['Attributes'] = $this->attributes;
         }
-
         if (null !== $this->category) {
             $res['Category'] = $this->category;
         }
-
         if (null !== $this->createBy) {
             $res['CreateBy'] = $this->createBy;
         }
-
         if (null !== $this->createDate) {
             $res['CreateDate'] = $this->createDate;
         }
-
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-
         if (null !== $this->lastModifiedBy) {
             $res['LastModifiedBy'] = $this->lastModifiedBy;
         }
-
         if (null !== $this->opsItemId) {
             $res['OpsItemId'] = $this->opsItemId;
         }
-
         if (null !== $this->priority) {
             $res['Priority'] = $this->priority;
         }
-
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
-
         if (null !== $this->resources) {
-            if (\is_array($this->resources)) {
-                $res['Resources'] = [];
-                $n1 = 0;
-                foreach ($this->resources as $item1) {
-                    $res['Resources'][$n1++] = $item1;
-                }
-            }
+            $res['Resources'] = $this->resources;
         }
-
         if (null !== $this->severity) {
             $res['Severity'] = $this->severity;
         }
-
         if (null !== $this->solutions) {
-            if (\is_array($this->solutions)) {
-                $res['Solutions'] = [];
-                $n1 = 0;
-                foreach ($this->solutions as $item1) {
-                    if (\is_array($item1)) {
-                        $res['Solutions'][$n1++] = [];
-                        foreach ($item1 as $key2 => $value2) {
-                            $res['Solutions'][$n1++][$key2] = $value2;
-                        }
-                    }
-                }
-            }
+            $res['Solutions'] = $this->solutions;
         }
-
         if (null !== $this->source) {
             $res['Source'] = $this->source;
         }
-
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-
         if (null !== $this->tags) {
-            if (\is_array($this->tags)) {
-                $res['Tags'] = [];
-                foreach ($this->tags as $key1 => $value1) {
-                    $res['Tags'][$key1] = $value1;
-                }
-            }
+            $res['Tags'] = $this->tags;
         }
-
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
-
         if (null !== $this->updateDate) {
             $res['UpdateDate'] = $this->updateDate;
         }
@@ -230,105 +234,66 @@ class opsItem extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return opsItem
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Attributes'])) {
-            if (!empty($map['Attributes'])) {
-                $model->attributes = [];
-                foreach ($map['Attributes'] as $key1 => $value1) {
-                    $model->attributes[$key1] = $value1;
-                }
-            }
+            $model->attributes = $map['Attributes'];
         }
-
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
         }
-
         if (isset($map['CreateBy'])) {
             $model->createBy = $map['CreateBy'];
         }
-
         if (isset($map['CreateDate'])) {
             $model->createDate = $map['CreateDate'];
         }
-
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-
         if (isset($map['LastModifiedBy'])) {
             $model->lastModifiedBy = $map['LastModifiedBy'];
         }
-
         if (isset($map['OpsItemId'])) {
             $model->opsItemId = $map['OpsItemId'];
         }
-
         if (isset($map['Priority'])) {
             $model->priority = $map['Priority'];
         }
-
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
-
         if (isset($map['Resources'])) {
             if (!empty($map['Resources'])) {
-                $model->resources = [];
-                $n1 = 0;
-                foreach ($map['Resources'] as $item1) {
-                    $model->resources[$n1++] = $item1;
-                }
+                $model->resources = $map['Resources'];
             }
         }
-
         if (isset($map['Severity'])) {
             $model->severity = $map['Severity'];
         }
-
         if (isset($map['Solutions'])) {
             if (!empty($map['Solutions'])) {
-                $model->solutions = [];
-                $n1 = 0;
-                foreach ($map['Solutions'] as $item1) {
-                    if (!empty($item1)) {
-                        $model->solutions[$n1++] = [];
-                        foreach ($item1 as $key2 => $value2) {
-                            $model->solutions[$n1++][$key2] = $value2;
-                        }
-                    }
-                }
+                $model->solutions = $map['Solutions'];
             }
         }
-
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
         }
-
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-
         if (isset($map['Tags'])) {
-            if (!empty($map['Tags'])) {
-                $model->tags = [];
-                foreach ($map['Tags'] as $key1 => $value1) {
-                    $model->tags[$key1] = $value1;
-                }
-            }
+            $model->tags = $map['Tags'];
         }
-
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }
-
         if (isset($map['UpdateDate'])) {
             $model->updateDate = $map['UpdateDate'];
         }

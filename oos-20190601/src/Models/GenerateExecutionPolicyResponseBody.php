@@ -4,21 +4,33 @@
 
 namespace AlibabaCloud\SDK\Oos\V20190601\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GenerateExecutionPolicyResponseBody extends Model
 {
     /**
+     * @description The policies that are missing.
+     *
+     * @example [{\\"Action\\": [\\"ecs:DescribeInvocationResults\\", \\"ecs:DescribeInstances\\", \\"ecs:RunCommand\\", \\"ecs:DescribeInvocations\\"], \\"ServiceName\\": \\"ecs\\", \\"Resources\\": \\"*\\"}]
+     *
      * @var string
      */
     public $missingPolicy;
 
     /**
+     * @description The RAM policy.
+     *
+     * @example {}
+     *
      * @var string
      */
     public $policy;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 14A07460-EBE7-47CA-9757-12CC4761D47A
+     *
      * @var string
      */
     public $requestId;
@@ -28,22 +40,17 @@ class GenerateExecutionPolicyResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->missingPolicy) {
             $res['MissingPolicy'] = $this->missingPolicy;
         }
-
         if (null !== $this->policy) {
             $res['Policy'] = $this->policy;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -51,22 +58,20 @@ class GenerateExecutionPolicyResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GenerateExecutionPolicyResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MissingPolicy'])) {
             $model->missingPolicy = $map['MissingPolicy'];
         }
-
         if (isset($map['Policy'])) {
             $model->policy = $map['Policy'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
