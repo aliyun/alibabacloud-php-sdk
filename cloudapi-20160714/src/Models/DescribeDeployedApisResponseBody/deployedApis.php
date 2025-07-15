@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeDeployedApisResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeDeployedApisResponseBody\deployedApis\deployedApiItem;
+use AlibabaCloud\Tea\Model;
 
 class deployedApis extends Model
 {
@@ -17,24 +17,17 @@ class deployedApis extends Model
         'deployedApiItem' => 'DeployedApiItem',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->deployedApiItem)) {
-            Model::validateArray($this->deployedApiItem);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->deployedApiItem) {
-            if (\is_array($this->deployedApiItem)) {
-                $res['DeployedApiItem'] = [];
-                $n1 = 0;
-                foreach ($this->deployedApiItem as $item1) {
-                    $res['DeployedApiItem'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['DeployedApiItem'] = [];
+            if (null !== $this->deployedApiItem && \is_array($this->deployedApiItem)) {
+                $n = 0;
+                foreach ($this->deployedApiItem as $item) {
+                    $res['DeployedApiItem'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -42,21 +35,20 @@ class deployedApis extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return deployedApis
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeployedApiItem'])) {
             if (!empty($map['DeployedApiItem'])) {
                 $model->deployedApiItem = [];
-                $n1 = 0;
-                foreach ($map['DeployedApiItem'] as $item1) {
-                    $model->deployedApiItem[$n1] = deployedApiItem::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['DeployedApiItem'] as $item) {
+                    $model->deployedApiItem[$n++] = null !== $item ? deployedApiItem::fromMap($item) : $item;
                 }
             }
         }

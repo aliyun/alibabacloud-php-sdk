@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ValidateVpcConnectivityRequest extends Model
 {
     /**
+     * @description The ID of the API Gateway instance.
+     *
+     * This parameter is required.
+     *
+     * @example apigateway-hz-72bc18******
+     *
      * @var string
      */
     public $instanceId;
@@ -19,6 +25,12 @@ class ValidateVpcConnectivityRequest extends Model
     public $securityToken;
 
     /**
+     * @description The ID of the VPC access authorization.
+     *
+     * This parameter is required.
+     *
+     * @example 5f1b3216f9********e2c1297b6741dc
+     *
      * @var string
      */
     public $vpcAccessId;
@@ -28,22 +40,17 @@ class ValidateVpcConnectivityRequest extends Model
         'vpcAccessId' => 'VpcAccessId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
-
         if (null !== $this->vpcAccessId) {
             $res['VpcAccessId'] = $this->vpcAccessId;
         }
@@ -51,22 +58,20 @@ class ValidateVpcConnectivityRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ValidateVpcConnectivityRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }
-
         if (isset($map['VpcAccessId'])) {
             $model->vpcAccessId = $map['VpcAccessId'];
         }

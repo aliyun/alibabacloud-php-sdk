@@ -4,17 +4,23 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeInstanceQpsResponseBody\instanceQps;
+use AlibabaCloud\Tea\Model;
 
 class DescribeInstanceQpsResponseBody extends Model
 {
     /**
+     * @description The list of requests sent to the APIs in the instance.
+     *
      * @var instanceQps
      */
     public $instanceQps;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example CEF72CEB-54B6-4AE8-B225-F876FF7BZ004
+     *
      * @var string
      */
     public $requestId;
@@ -23,21 +29,14 @@ class DescribeInstanceQpsResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->instanceQps) {
-            $this->instanceQps->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceQps) {
-            $res['InstanceQps'] = null !== $this->instanceQps ? $this->instanceQps->toArray($noStream) : $this->instanceQps;
+            $res['InstanceQps'] = null !== $this->instanceQps ? $this->instanceQps->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,18 +44,17 @@ class DescribeInstanceQpsResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeInstanceQpsResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceQps'])) {
             $model->instanceQps = instanceQps::fromMap($map['InstanceQps']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

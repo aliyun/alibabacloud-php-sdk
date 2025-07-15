@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateBackendModelResponseBody extends Model
 {
     /**
+     * @example 4be6b110b7aa40b0bf0c83cc00b3bd86
+     *
      * @var string
      */
     public $backendModelId;
 
     /**
+     * @example 64411ECF-FAF7-5E3C-BA7B-E4A1F15A28CA
+     *
      * @var string
      */
     public $requestId;
@@ -22,18 +26,14 @@ class CreateBackendModelResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->backendModelId) {
             $res['BackendModelId'] = $this->backendModelId;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -41,18 +41,17 @@ class CreateBackendModelResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateBackendModelResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BackendModelId'])) {
             $model->backendModelId = $map['BackendModelId'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

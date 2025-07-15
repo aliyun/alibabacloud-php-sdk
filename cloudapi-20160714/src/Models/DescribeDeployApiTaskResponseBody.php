@@ -4,17 +4,23 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeDeployApiTaskResponseBody\deployedResults;
+use AlibabaCloud\Tea\Model;
 
 class DescribeDeployApiTaskResponseBody extends Model
 {
     /**
+     * @description The returned result.
+     *
      * @var deployedResults
      */
     public $deployedResults;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example CA4B3261-F14A-5E33-8608-F75A1DF27AD4
+     *
      * @var string
      */
     public $requestId;
@@ -23,21 +29,14 @@ class DescribeDeployApiTaskResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->deployedResults) {
-            $this->deployedResults->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->deployedResults) {
-            $res['DeployedResults'] = null !== $this->deployedResults ? $this->deployedResults->toArray($noStream) : $this->deployedResults;
+            $res['DeployedResults'] = null !== $this->deployedResults ? $this->deployedResults->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,18 +44,17 @@ class DescribeDeployApiTaskResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeDeployApiTaskResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeployedResults'])) {
             $model->deployedResults = deployedResults::fromMap($map['DeployedResults']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

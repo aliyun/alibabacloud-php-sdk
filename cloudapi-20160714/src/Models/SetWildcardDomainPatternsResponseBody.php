@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class SetWildcardDomainPatternsResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example D0075BDA-8AED-5073-A70A-FE44E86AB20F
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class SetWildcardDomainPatternsResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class SetWildcardDomainPatternsResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return SetWildcardDomainPatternsResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

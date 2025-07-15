@@ -4,16 +4,28 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeApiMarketAttributesRequest extends Model
 {
     /**
+     * @description The ID of the API.
+     *
+     * This parameter is required.
+     *
+     * @example 1f9b5e9ba80943099cac52e040b7e160
+     *
      * @var string
      */
     public $apiId;
 
     /**
+     * @description The ID of the API group.
+     *
+     * This parameter is required.
+     *
+     * @example b693252f3f19445e9a01dac177c4454c
+     *
      * @var string
      */
     public $groupId;
@@ -28,22 +40,17 @@ class DescribeApiMarketAttributesRequest extends Model
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->apiId) {
             $res['ApiId'] = $this->apiId;
         }
-
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
-
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
@@ -51,22 +58,20 @@ class DescribeApiMarketAttributesRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeApiMarketAttributesRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApiId'])) {
             $model->apiId = $map['ApiId'];
         }
-
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
-
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }

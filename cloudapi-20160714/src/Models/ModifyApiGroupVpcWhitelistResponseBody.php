@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyApiGroupVpcWhitelistResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example F8B9DC8C-D6E2-5065-BD1F-0401866E7F10
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class ModifyApiGroupVpcWhitelistResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class ModifyApiGroupVpcWhitelistResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyApiGroupVpcWhitelistResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,31 +4,41 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribePluginSchemasResponseBody\pluginSchemas;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class pluginSchema extends Model
 {
     /**
+     * @example plugin scheme description
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 4107**
+     *
      * @var string
      */
     public $documentId;
 
     /**
+     * @example VPC_C
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $supportClassic;
 
     /**
+     * @example plugin schema title
+     *
      * @var string
      */
     public $title;
@@ -40,30 +50,23 @@ class pluginSchema extends Model
         'title' => 'Title',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-
         if (null !== $this->documentId) {
             $res['DocumentId'] = $this->documentId;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->supportClassic) {
             $res['SupportClassic'] = $this->supportClassic;
         }
-
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
@@ -71,30 +74,26 @@ class pluginSchema extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return pluginSchema
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-
         if (isset($map['DocumentId'])) {
             $model->documentId = $map['DocumentId'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['SupportClassic'])) {
             $model->supportClassic = $map['SupportClassic'];
         }
-
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }

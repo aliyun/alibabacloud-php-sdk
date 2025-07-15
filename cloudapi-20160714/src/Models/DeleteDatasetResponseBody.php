@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteDatasetResponseBody extends Model
 {
     /**
+     * @example 048C8EFB-528F-5E97-8A3D-D17B********
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +18,9 @@ class DeleteDatasetResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +30,11 @@ class DeleteDatasetResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteDatasetResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

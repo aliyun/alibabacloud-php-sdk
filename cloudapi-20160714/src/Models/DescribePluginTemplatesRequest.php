@@ -4,16 +4,28 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribePluginTemplatesRequest extends Model
 {
     /**
+     * @description The language that is used to return the description of the system policy. Valid values:
+     *
+     *   en: English
+     *   zh-CN: Chinese.
+     *   ja: Japanese
+     *
+     * @example zh
+     *
      * @var string
      */
     public $language;
 
     /**
+     * @description The name of the plug-in.
+     *
+     * @example jwtAuth
+     *
      * @var string
      */
     public $pluginName;
@@ -28,22 +40,17 @@ class DescribePluginTemplatesRequest extends Model
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->language) {
             $res['Language'] = $this->language;
         }
-
         if (null !== $this->pluginName) {
             $res['PluginName'] = $this->pluginName;
         }
-
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
@@ -51,22 +58,20 @@ class DescribePluginTemplatesRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribePluginTemplatesRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
         }
-
         if (isset($map['PluginName'])) {
             $model->pluginName = $map['PluginName'];
         }
-
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }

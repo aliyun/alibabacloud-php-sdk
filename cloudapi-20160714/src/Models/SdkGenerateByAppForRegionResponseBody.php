@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class SdkGenerateByAppForRegionResponseBody extends Model
 {
     /**
+     * @description The code of the SDK by using the Base64 scheme. You can obtain the file by using the Base64 decoding scheme.
+     *
+     * @example UEsDBBQACAAIADdwnFQAAAAAAAAAAAAAAAA2AAAAQ0FTREtfSkFWQV8xMjI3NDY2NjY0MzM0MTMzXzE2NTExMjU3MD......
+     *
      * @var string
      */
     public $downloadLink;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example CE5722A6-AE78-4741-A9B0-6C817D360510
+     *
      * @var string
      */
     public $requestId;
@@ -22,18 +30,14 @@ class SdkGenerateByAppForRegionResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->downloadLink) {
             $res['DownloadLink'] = $this->downloadLink;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -41,18 +45,17 @@ class SdkGenerateByAppForRegionResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return SdkGenerateByAppForRegionResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DownloadLink'])) {
             $model->downloadLink = $map['DownloadLink'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApiProductsByAppResponseBody\apiProductInfoList;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class apiProductInfo extends Model
 {
     /**
+     * @description The ID of the API product.
+     *
+     * @example 117b7a64a8b3f064eaa4a47ac62aac5e
+     *
      * @var string
      */
     public $apiProductId;
@@ -16,12 +20,9 @@ class apiProductInfo extends Model
         'apiProductId' => 'ApiProductId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->apiProductId) {
@@ -31,11 +32,11 @@ class apiProductInfo extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return apiProductInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

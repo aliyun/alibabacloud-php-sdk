@@ -4,21 +4,37 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeApiLatencyDataRequest extends Model
 {
     /**
+     * @description The ID of the API.
+     *
+     * This parameter is required.
+     *
+     * @example d6f679aeb3be4b91b3688e887ca1fe16
+     *
      * @var string
      */
     public $apiId;
 
     /**
+     * @description The end time in UTC. Format: YYYY-MM-DDThh:mm:ssZ
+     *
+     * This parameter is required.
+     *
+     * @example 2016-07-23T09:28:48Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The ID of the API group.
+     *
+     * @example 63be9002440b4778a61122f14c2b2bbb
+     *
      * @var string
      */
     public $groupId;
@@ -29,11 +45,25 @@ class DescribeApiLatencyDataRequest extends Model
     public $securityToken;
 
     /**
+     * @description The environment. Valid values:
+     *
+     *   **RELEASE**
+     *   **PRE**: the pre-release environment
+     *   **TEST**
+     *
+     * @example RELEASE
+     *
      * @var string
      */
     public $stageName;
 
     /**
+     * @description The start time in UTC. Format: YYYY-MM-DDThh:mm:ssZ
+     *
+     * This parameter is required.
+     *
+     * @example 2016-07-23T08:28:48Z
+     *
      * @var string
      */
     public $startTime;
@@ -46,34 +76,26 @@ class DescribeApiLatencyDataRequest extends Model
         'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->apiId) {
             $res['ApiId'] = $this->apiId;
         }
-
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
-
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
-
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
-
         if (null !== $this->stageName) {
             $res['StageName'] = $this->stageName;
         }
-
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -81,34 +103,29 @@ class DescribeApiLatencyDataRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeApiLatencyDataRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApiId'])) {
             $model->apiId = $map['ApiId'];
         }
-
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
-
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
-
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }
-
         if (isset($map['StageName'])) {
             $model->stageName = $map['StageName'];
         }
-
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }

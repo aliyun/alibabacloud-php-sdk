@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\ImportOASResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class warningMessages extends Model
 {
@@ -16,47 +16,29 @@ class warningMessages extends Model
         'warningMessage' => 'WarningMessage',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->warningMessage)) {
-            Model::validateArray($this->warningMessage);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->warningMessage) {
-            if (\is_array($this->warningMessage)) {
-                $res['WarningMessage'] = [];
-                $n1 = 0;
-                foreach ($this->warningMessage as $item1) {
-                    $res['WarningMessage'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['WarningMessage'] = $this->warningMessage;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return warningMessages
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['WarningMessage'])) {
             if (!empty($map['WarningMessage'])) {
-                $model->warningMessage = [];
-                $n1 = 0;
-                foreach ($map['WarningMessage'] as $item1) {
-                    $model->warningMessage[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->warningMessage = $map['WarningMessage'];
             }
         }
 

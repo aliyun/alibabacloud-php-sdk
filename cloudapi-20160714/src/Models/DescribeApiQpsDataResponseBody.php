@@ -4,23 +4,31 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApiQpsDataResponseBody\callFails;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApiQpsDataResponseBody\callSuccesses;
+use AlibabaCloud\Tea\Model;
 
 class DescribeApiQpsDataResponseBody extends Model
 {
     /**
+     * @description The returned information about failed API calls. It is an array consisting of MonitorItem data.
+     *
      * @var callFails
      */
     public $callFails;
 
     /**
+     * @description The returned information about successful API calls. It is an array consisting of MonitorItem data.
+     *
      * @var callSuccesses
      */
     public $callSuccesses;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example CEF72CEB-54B6-4AE8-B225-F876FF7BZ001
+     *
      * @var string
      */
     public $requestId;
@@ -30,28 +38,17 @@ class DescribeApiQpsDataResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->callFails) {
-            $this->callFails->validate();
-        }
-        if (null !== $this->callSuccesses) {
-            $this->callSuccesses->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->callFails) {
-            $res['CallFails'] = null !== $this->callFails ? $this->callFails->toArray($noStream) : $this->callFails;
+            $res['CallFails'] = null !== $this->callFails ? $this->callFails->toMap() : null;
         }
-
         if (null !== $this->callSuccesses) {
-            $res['CallSuccesses'] = null !== $this->callSuccesses ? $this->callSuccesses->toArray($noStream) : $this->callSuccesses;
+            $res['CallSuccesses'] = null !== $this->callSuccesses ? $this->callSuccesses->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -59,22 +56,20 @@ class DescribeApiQpsDataResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeApiQpsDataResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CallFails'])) {
             $model->callFails = callFails::fromMap($map['CallFails']);
         }
-
         if (isset($map['CallSuccesses'])) {
             $model->callSuccesses = callSuccesses::fromMap($map['CallSuccesses']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

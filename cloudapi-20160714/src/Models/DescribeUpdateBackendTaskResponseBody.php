@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeUpdateBackendTaskResponseBody\apiUpdateBackendResults;
+use AlibabaCloud\Tea\Model;
 
 class DescribeUpdateBackendTaskResponseBody extends Model
 {
@@ -15,6 +15,8 @@ class DescribeUpdateBackendTaskResponseBody extends Model
     public $apiUpdateBackendResults;
 
     /**
+     * @example CEF72CEB-54B6-4AE8-B225-F876FF7BZ016
+     *
      * @var string
      */
     public $requestId;
@@ -23,21 +25,14 @@ class DescribeUpdateBackendTaskResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->apiUpdateBackendResults) {
-            $this->apiUpdateBackendResults->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->apiUpdateBackendResults) {
-            $res['ApiUpdateBackendResults'] = null !== $this->apiUpdateBackendResults ? $this->apiUpdateBackendResults->toArray($noStream) : $this->apiUpdateBackendResults;
+            $res['ApiUpdateBackendResults'] = null !== $this->apiUpdateBackendResults ? $this->apiUpdateBackendResults->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,18 +40,17 @@ class DescribeUpdateBackendTaskResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeUpdateBackendTaskResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApiUpdateBackendResults'])) {
             $model->apiUpdateBackendResults = apiUpdateBackendResults::fromMap($map['ApiUpdateBackendResults']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

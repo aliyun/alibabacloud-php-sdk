@@ -4,16 +4,26 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class RemoveApiProductsAuthoritiesShrinkRequest extends Model
 {
     /**
+     * @description The API products.
+     *
+     * This parameter is required.
+     *
      * @var string
      */
     public $apiProductIdsShrink;
 
     /**
+     * @description The application ID.
+     *
+     * This parameter is required.
+     *
+     * @example 110982490
+     *
      * @var int
      */
     public $appId;
@@ -28,22 +38,17 @@ class RemoveApiProductsAuthoritiesShrinkRequest extends Model
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->apiProductIdsShrink) {
             $res['ApiProductIds'] = $this->apiProductIdsShrink;
         }
-
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
-
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
@@ -51,22 +56,20 @@ class RemoveApiProductsAuthoritiesShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return RemoveApiProductsAuthoritiesShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApiProductIds'])) {
             $model->apiProductIdsShrink = $map['ApiProductIds'];
         }
-
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
-
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }

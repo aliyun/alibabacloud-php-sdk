@@ -4,26 +4,42 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeApiMarketAttributesResponseBody extends Model
 {
     /**
+     * @description The ID of the API.
+     *
+     * @example 6318cd8f6a304cac9318dea8d9a78f7a
+     *
      * @var string
      */
     public $apiId;
 
     /**
+     * @description The billing method used by the Alibaba Cloud Marketplace.
+     *
+     * @example PREPAID_BY_USAGE
+     *
      * @var string
      */
     public $marketChargingMode;
 
     /**
+     * @description Indicates whether fees are charged.
+     *
+     * @example true
+     *
      * @var string
      */
     public $needCharging;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 545D4E52-4F77-5EC4-BB7E-7344CEC7B5E6
+     *
      * @var string
      */
     public $requestId;
@@ -34,26 +50,20 @@ class DescribeApiMarketAttributesResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->apiId) {
             $res['ApiId'] = $this->apiId;
         }
-
         if (null !== $this->marketChargingMode) {
             $res['MarketChargingMode'] = $this->marketChargingMode;
         }
-
         if (null !== $this->needCharging) {
             $res['NeedCharging'] = $this->needCharging;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -61,26 +71,23 @@ class DescribeApiMarketAttributesResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeApiMarketAttributesResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApiId'])) {
             $model->apiId = $map['ApiId'];
         }
-
         if (isset($map['MarketChargingMode'])) {
             $model->marketChargingMode = $map['MarketChargingMode'];
         }
-
         if (isset($map['NeedCharging'])) {
             $model->needCharging = $map['NeedCharging'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

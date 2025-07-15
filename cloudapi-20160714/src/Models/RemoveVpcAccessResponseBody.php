@@ -4,17 +4,23 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\RemoveVpcAccessResponseBody\apis;
+use AlibabaCloud\Tea\Model;
 
 class RemoveVpcAccessResponseBody extends Model
 {
     /**
+     * @description API operations
+     *
      * @var apis
      */
     public $apis;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example CEF72CEB-54B6-4AE8-B225-F876FF7BZ015
+     *
      * @var string
      */
     public $requestId;
@@ -23,21 +29,14 @@ class RemoveVpcAccessResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->apis) {
-            $this->apis->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->apis) {
-            $res['Apis'] = null !== $this->apis ? $this->apis->toArray($noStream) : $this->apis;
+            $res['Apis'] = null !== $this->apis ? $this->apis->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,18 +44,17 @@ class RemoveVpcAccessResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return RemoveVpcAccessResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Apis'])) {
             $model->apis = apis::fromMap($map['Apis']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

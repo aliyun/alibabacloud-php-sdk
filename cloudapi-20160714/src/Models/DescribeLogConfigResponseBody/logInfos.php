@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeLogConfigResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeLogConfigResponseBody\logInfos\logInfo;
+use AlibabaCloud\Tea\Model;
 
 class logInfos extends Model
 {
@@ -17,24 +17,17 @@ class logInfos extends Model
         'logInfo' => 'LogInfo',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->logInfo)) {
-            Model::validateArray($this->logInfo);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->logInfo) {
-            if (\is_array($this->logInfo)) {
-                $res['LogInfo'] = [];
-                $n1 = 0;
-                foreach ($this->logInfo as $item1) {
-                    $res['LogInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['LogInfo'] = [];
+            if (null !== $this->logInfo && \is_array($this->logInfo)) {
+                $n = 0;
+                foreach ($this->logInfo as $item) {
+                    $res['LogInfo'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -42,21 +35,20 @@ class logInfos extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return logInfos
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LogInfo'])) {
             if (!empty($map['LogInfo'])) {
                 $model->logInfo = [];
-                $n1 = 0;
-                foreach ($map['LogInfo'] as $item1) {
-                    $model->logInfo[$n1] = logInfo::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['LogInfo'] as $item) {
+                    $model->logInfo[$n++] = null !== $item ? logInfo::fromMap($item) : $item;
                 }
             }
         }

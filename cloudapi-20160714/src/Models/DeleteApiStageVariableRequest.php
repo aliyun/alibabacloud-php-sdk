@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteApiStageVariableRequest extends Model
 {
     /**
+     * @description The ID of the API group.
+     *
+     * This parameter is required.
+     *
+     * @example 523e8dc7bbe04613b5b1d726c2a7889d
+     *
      * @var string
      */
     public $groupId;
@@ -19,11 +25,23 @@ class DeleteApiStageVariableRequest extends Model
     public $securityToken;
 
     /**
+     * @description The ID of the environment.
+     *
+     * This parameter is required.
+     *
+     * @example 6EF60BEC-0242-43AF-BB20-270359FB54A7
+     *
      * @var string
      */
     public $stageId;
 
     /**
+     * @description The name of the variable to be deleted. This parameter is case-sensitive.
+     *
+     * This parameter is required.
+     *
+     * @example serverName
+     *
      * @var string
      */
     public $variableName;
@@ -34,26 +52,20 @@ class DeleteApiStageVariableRequest extends Model
         'variableName' => 'VariableName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
-
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
-
         if (null !== $this->stageId) {
             $res['StageId'] = $this->stageId;
         }
-
         if (null !== $this->variableName) {
             $res['VariableName'] = $this->variableName;
         }
@@ -61,26 +73,23 @@ class DeleteApiStageVariableRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteApiStageVariableRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
-
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }
-
         if (isset($map['StageId'])) {
             $model->stageId = $map['StageId'];
         }
-
         if (isset($map['VariableName'])) {
             $model->variableName = $map['VariableName'];
         }

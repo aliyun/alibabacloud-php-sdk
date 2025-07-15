@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeletePrivateDNSResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example EF924FE4-2EDD-4CD3-89EC-34E4708574E7
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class DeletePrivateDNSResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class DeletePrivateDNSResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeletePrivateDNSResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

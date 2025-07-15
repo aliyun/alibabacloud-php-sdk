@@ -4,21 +4,33 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateAppResponseBody extends Model
 {
     /**
+     * @description The unique ID of the application.
+     *
+     * @example 20112314518278
+     *
      * @var int
      */
     public $appId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example BA20890E-75C7-41BC-9C8B-73276B58F550
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the tag exists. If the value is **true**, the tag exists. If the value is **false**, the tag does not exist.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $tagStatus;
@@ -28,22 +40,17 @@ class CreateAppResponseBody extends Model
         'tagStatus' => 'TagStatus',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->tagStatus) {
             $res['TagStatus'] = $this->tagStatus;
         }
@@ -51,22 +58,20 @@ class CreateAppResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateAppResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['TagStatus'])) {
             $model->tagStatus = $map['TagStatus'];
         }

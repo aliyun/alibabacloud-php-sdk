@@ -4,16 +4,32 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DetachApiProductRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class apis extends Model
 {
     /**
+     * @description The API ID.
+     *
+     * This parameter is required.
+     *
+     * @example ba84c55eca46488598da17c0609f3ead
+     *
      * @var string
      */
     public $apiId;
 
     /**
+     * @description The environment to which the API is published. Valid values:
+     *
+     *   **RELEASE**: the production environment
+     *   **PRE**: the pre-release environment
+     *   **TEST**: the test environment
+     *
+     * This parameter is required.
+     *
+     * @example RELEASE
+     *
      * @var string
      */
     public $stageName;
@@ -22,18 +38,14 @@ class apis extends Model
         'stageName' => 'StageName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->apiId) {
             $res['ApiId'] = $this->apiId;
         }
-
         if (null !== $this->stageName) {
             $res['StageName'] = $this->stageName;
         }
@@ -41,18 +53,17 @@ class apis extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return apis
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApiId'])) {
             $model->apiId = $map['ApiId'];
         }
-
         if (isset($map['StageName'])) {
             $model->stageName = $map['StageName'];
         }

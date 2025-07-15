@@ -4,26 +4,42 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeLogConfigResponseBody\logInfos;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class logInfo extends Model
 {
     /**
+     * @description The log type.
+     *
+     * @example PROVIDER
+     *
      * @var string
      */
     public $logType;
 
     /**
+     * @description The region ID of the Logstore.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The name of the Logstore in Log Service.
+     *
+     * @example slsstore
+     *
      * @var string
      */
     public $slsLogStore;
 
     /**
+     * @description The name of the Log Service project.
+     *
+     * @example slsproject
+     *
      * @var string
      */
     public $slsProject;
@@ -34,26 +50,20 @@ class logInfo extends Model
         'slsProject' => 'SlsProject',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->logType) {
             $res['LogType'] = $this->logType;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->slsLogStore) {
             $res['SlsLogStore'] = $this->slsLogStore;
         }
-
         if (null !== $this->slsProject) {
             $res['SlsProject'] = $this->slsProject;
         }
@@ -61,26 +71,23 @@ class logInfo extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return logInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LogType'])) {
             $model->logType = $map['LogType'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['SlsLogStore'])) {
             $model->slsLogStore = $map['SlsLogStore'];
         }
-
         if (isset($map['SlsProject'])) {
             $model->slsProject = $map['SlsProject'];
         }

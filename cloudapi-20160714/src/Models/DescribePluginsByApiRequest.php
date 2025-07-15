@@ -4,26 +4,46 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribePluginsByApiRequest extends Model
 {
     /**
+     * @description The ID of the API.
+     *
+     * This parameter is required.
+     *
+     * @example 93f4ead4080c4b2da70b7f81f50ae459
+     *
      * @var string
      */
     public $apiId;
 
     /**
+     * @description The ID of the group to which the API belongs.
+     *
+     * This parameter is required.
+     *
+     * @example 3c7a38392e764718ad7673e7b7f535d4
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The number of the page to return. Pages start from page 1. Default value: 1.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
@@ -34,6 +54,16 @@ class DescribePluginsByApiRequest extends Model
     public $securityToken;
 
     /**
+     * @description The environment in which the API is running. Valid values:
+     *
+     *   **RELEASE**: production
+     *   **PRE**: staging
+     *   **TEST**: test
+     *
+     * This parameter is required.
+     *
+     * @example RELEASE
+     *
      * @var string
      */
     public $stageName;
@@ -46,34 +76,26 @@ class DescribePluginsByApiRequest extends Model
         'stageName' => 'StageName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->apiId) {
             $res['ApiId'] = $this->apiId;
         }
-
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
-
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
-
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
-
         if (null !== $this->stageName) {
             $res['StageName'] = $this->stageName;
         }
@@ -81,34 +103,29 @@ class DescribePluginsByApiRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribePluginsByApiRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApiId'])) {
             $model->apiId = $map['ApiId'];
         }
-
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
-
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
-
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }
-
         if (isset($map['StageName'])) {
             $model->stageName = $map['StageName'];
         }

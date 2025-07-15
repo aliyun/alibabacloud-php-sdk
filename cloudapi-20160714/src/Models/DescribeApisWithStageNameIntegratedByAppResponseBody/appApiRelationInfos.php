@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApisWithStageNameIntegratedByAppResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApisWithStageNameIntegratedByAppResponseBody\appApiRelationInfos\appApiRelationInfo;
+use AlibabaCloud\Tea\Model;
 
 class appApiRelationInfos extends Model
 {
@@ -17,24 +17,17 @@ class appApiRelationInfos extends Model
         'appApiRelationInfo' => 'AppApiRelationInfo',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->appApiRelationInfo)) {
-            Model::validateArray($this->appApiRelationInfo);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appApiRelationInfo) {
-            if (\is_array($this->appApiRelationInfo)) {
-                $res['AppApiRelationInfo'] = [];
-                $n1 = 0;
-                foreach ($this->appApiRelationInfo as $item1) {
-                    $res['AppApiRelationInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['AppApiRelationInfo'] = [];
+            if (null !== $this->appApiRelationInfo && \is_array($this->appApiRelationInfo)) {
+                $n = 0;
+                foreach ($this->appApiRelationInfo as $item) {
+                    $res['AppApiRelationInfo'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -42,21 +35,20 @@ class appApiRelationInfos extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return appApiRelationInfos
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppApiRelationInfo'])) {
             if (!empty($map['AppApiRelationInfo'])) {
                 $model->appApiRelationInfo = [];
-                $n1 = 0;
-                foreach ($map['AppApiRelationInfo'] as $item1) {
-                    $model->appApiRelationInfo[$n1] = appApiRelationInfo::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['AppApiRelationInfo'] as $item) {
+                    $model->appApiRelationInfo[$n++] = null !== $item ? appApiRelationInfo::fromMap($item) : $item;
                 }
             }
         }

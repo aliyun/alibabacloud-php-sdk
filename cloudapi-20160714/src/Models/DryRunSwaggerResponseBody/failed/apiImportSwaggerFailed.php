@@ -4,21 +4,33 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DryRunSwaggerResponseBody\failed;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class apiImportSwaggerFailed extends Model
 {
     /**
+     * @description The error message returned when the API is created.
+     *
+     * @example api already exists : apiUid ===> 8e274ec61cf6468e83b68371956831cb
+     *
      * @var string
      */
     public $errorMsg;
 
     /**
+     * @description The HTTP method configured when the API is created.
+     *
+     * @example post
+     *
      * @var string
      */
     public $httpMethod;
 
     /**
+     * @description The request path configured when the API is created.
+     *
+     * @example /http/get/mapping
+     *
      * @var string
      */
     public $path;
@@ -28,22 +40,17 @@ class apiImportSwaggerFailed extends Model
         'path' => 'Path',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->errorMsg) {
             $res['ErrorMsg'] = $this->errorMsg;
         }
-
         if (null !== $this->httpMethod) {
             $res['HttpMethod'] = $this->httpMethod;
         }
-
         if (null !== $this->path) {
             $res['Path'] = $this->path;
         }
@@ -51,22 +58,20 @@ class apiImportSwaggerFailed extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return apiImportSwaggerFailed
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ErrorMsg'])) {
             $model->errorMsg = $map['ErrorMsg'];
         }
-
         if (isset($map['HttpMethod'])) {
             $model->httpMethod = $map['HttpMethod'];
         }
-
         if (isset($map['Path'])) {
             $model->path = $map['Path'];
         }

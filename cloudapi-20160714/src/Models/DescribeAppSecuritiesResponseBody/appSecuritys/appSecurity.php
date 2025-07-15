@@ -4,31 +4,51 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeAppSecuritiesResponseBody\appSecuritys;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class appSecurity extends Model
 {
     /**
+     * @description The application AppCode.
+     *
+     * @example d2350ecd62c44cbfbe35a7f182e35105
+     *
      * @var string
      */
     public $appCode;
 
     /**
+     * @description The application AppKey.
+     *
+     * @example 34379343
+     *
      * @var string
      */
     public $appKey;
 
     /**
+     * @description The application AppSecret.
+     *
+     * @example ea5291a7aff343769eb3139a2f6de8c9
+     *
      * @var string
      */
     public $appSecret;
 
     /**
+     * @description The time when the AppKey was created.
+     *
+     * @example 2021-09-14T18:50:59
+     *
      * @var string
      */
     public $createdTime;
 
     /**
+     * @description The time when the AppSecret was last modified. The time is displayed in UTC.
+     *
+     * @example 2023-08-14T18:03:00+08:00
+     *
      * @var string
      */
     public $modifiedTime;
@@ -40,30 +60,23 @@ class appSecurity extends Model
         'modifiedTime' => 'ModifiedTime',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appCode) {
             $res['AppCode'] = $this->appCode;
         }
-
         if (null !== $this->appKey) {
             $res['AppKey'] = $this->appKey;
         }
-
         if (null !== $this->appSecret) {
             $res['AppSecret'] = $this->appSecret;
         }
-
         if (null !== $this->createdTime) {
             $res['CreatedTime'] = $this->createdTime;
         }
-
         if (null !== $this->modifiedTime) {
             $res['ModifiedTime'] = $this->modifiedTime;
         }
@@ -71,30 +84,26 @@ class appSecurity extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return appSecurity
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppCode'])) {
             $model->appCode = $map['AppCode'];
         }
-
         if (isset($map['AppKey'])) {
             $model->appKey = $map['AppKey'];
         }
-
         if (isset($map['AppSecret'])) {
             $model->appSecret = $map['AppSecret'];
         }
-
         if (isset($map['CreatedTime'])) {
             $model->createdTime = $map['CreatedTime'];
         }
-
         if (isset($map['ModifiedTime'])) {
             $model->modifiedTime = $map['ModifiedTime'];
         }

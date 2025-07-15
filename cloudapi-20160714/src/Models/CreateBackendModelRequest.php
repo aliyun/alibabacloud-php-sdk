@@ -4,26 +4,34 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateBackendModelRequest extends Model
 {
     /**
+     * @example 34e94fcd3e2e47a49824a89b8f92cb5e
+     *
      * @var string
      */
     public $backendId;
 
     /**
+     * @example {\\"ServiceAddress\\":\\"http://apigateway-echo-redux.alicloudapi.com:8080\\"}
+     *
      * @var string
      */
     public $backendModelData;
 
     /**
+     * @example HTTP
+     *
      * @var string
      */
     public $backendType;
 
     /**
+     * @example model description
+     *
      * @var string
      */
     public $description;
@@ -34,6 +42,8 @@ class CreateBackendModelRequest extends Model
     public $securityToken;
 
     /**
+     * @example TEST
+     *
      * @var string
      */
     public $stageName;
@@ -46,34 +56,26 @@ class CreateBackendModelRequest extends Model
         'stageName' => 'StageName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->backendId) {
             $res['BackendId'] = $this->backendId;
         }
-
         if (null !== $this->backendModelData) {
             $res['BackendModelData'] = $this->backendModelData;
         }
-
         if (null !== $this->backendType) {
             $res['BackendType'] = $this->backendType;
         }
-
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
-
         if (null !== $this->stageName) {
             $res['StageName'] = $this->stageName;
         }
@@ -81,34 +83,29 @@ class CreateBackendModelRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateBackendModelRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BackendId'])) {
             $model->backendId = $map['BackendId'];
         }
-
         if (isset($map['BackendModelData'])) {
             $model->backendModelData = $map['BackendModelData'];
         }
-
         if (isset($map['BackendType'])) {
             $model->backendType = $map['BackendType'];
         }
-
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }
-
         if (isset($map['StageName'])) {
             $model->stageName = $map['StageName'];
         }

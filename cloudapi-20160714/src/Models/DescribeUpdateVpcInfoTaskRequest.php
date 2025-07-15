@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeUpdateVpcInfoTaskRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 7d341787517a47afaaef9cc1bdb7acce
+     *
      * @var string
      */
     public $operationUid;
@@ -22,18 +26,14 @@ class DescribeUpdateVpcInfoTaskRequest extends Model
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->operationUid) {
             $res['OperationUid'] = $this->operationUid;
         }
-
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
@@ -41,18 +41,17 @@ class DescribeUpdateVpcInfoTaskRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeUpdateVpcInfoTaskRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OperationUid'])) {
             $model->operationUid = $map['OperationUid'];
         }
-
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }

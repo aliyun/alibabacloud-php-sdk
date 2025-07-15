@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribePluginSchemasResponseBody\pluginSchemas;
+use AlibabaCloud\Tea\Model;
 
 class DescribePluginSchemasResponseBody extends Model
 {
@@ -15,6 +15,8 @@ class DescribePluginSchemasResponseBody extends Model
     public $pluginSchemas;
 
     /**
+     * @example 2D39D1B3-8548-508A-9CE2-7F4A3F2A7989
+     *
      * @var string
      */
     public $requestId;
@@ -23,21 +25,14 @@ class DescribePluginSchemasResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->pluginSchemas) {
-            $this->pluginSchemas->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->pluginSchemas) {
-            $res['PluginSchemas'] = null !== $this->pluginSchemas ? $this->pluginSchemas->toArray($noStream) : $this->pluginSchemas;
+            $res['PluginSchemas'] = null !== $this->pluginSchemas ? $this->pluginSchemas->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,18 +40,17 @@ class DescribePluginSchemasResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribePluginSchemasResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PluginSchemas'])) {
             $model->pluginSchemas = pluginSchemas::fromMap($map['PluginSchemas']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

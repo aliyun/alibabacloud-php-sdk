@@ -4,16 +4,26 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyDatasetRequest extends Model
 {
     /**
+     * @description The ID of the dataset.
+     *
+     * This parameter is required.
+     *
+     * @example a25a6589b2584ff490e891cc********
+     *
      * @var string
      */
     public $datasetId;
 
     /**
+     * @description The name of the dataset.
+     *
+     * @example NewDatasetName
+     *
      * @var string
      */
     public $datasetName;
@@ -34,26 +44,20 @@ class ModifyDatasetRequest extends Model
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->datasetId) {
             $res['DatasetId'] = $this->datasetId;
         }
-
         if (null !== $this->datasetName) {
             $res['DatasetName'] = $this->datasetName;
         }
-
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
@@ -61,26 +65,23 @@ class ModifyDatasetRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyDatasetRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DatasetId'])) {
             $model->datasetId = $map['DatasetId'];
         }
-
         if (isset($map['DatasetName'])) {
             $model->datasetName = $map['DatasetName'];
         }
-
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }

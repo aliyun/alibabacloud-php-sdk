@@ -4,21 +4,33 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeSignaturesByApiResponseBody\signatures;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class signatureItem extends Model
 {
     /**
+     * @description The time when the key was bound.
+     *
+     * @example 2016-07-23T08:28:48Z
+     *
      * @var string
      */
     public $boundTime;
 
     /**
+     * @description The ID of the backend signature key.
+     *
+     * @example dd05f1c54d6749eda95f9fa6d491449a
+     *
      * @var string
      */
     public $signatureId;
 
     /**
+     * @description The name of the backend signature key.
+     *
+     * @example mysecret
+     *
      * @var string
      */
     public $signatureName;
@@ -28,22 +40,17 @@ class signatureItem extends Model
         'signatureName' => 'SignatureName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->boundTime) {
             $res['BoundTime'] = $this->boundTime;
         }
-
         if (null !== $this->signatureId) {
             $res['SignatureId'] = $this->signatureId;
         }
-
         if (null !== $this->signatureName) {
             $res['SignatureName'] = $this->signatureName;
         }
@@ -51,22 +58,20 @@ class signatureItem extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return signatureItem
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BoundTime'])) {
             $model->boundTime = $map['BoundTime'];
         }
-
         if (isset($map['SignatureId'])) {
             $model->signatureId = $map['SignatureId'];
         }
-
         if (isset($map['SignatureName'])) {
             $model->signatureName = $map['SignatureName'];
         }

@@ -4,16 +4,26 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DissociateInstanceWithPrivateDNSRequest extends Model
 {
     /**
+     * @description The instance ID.
+     *
+     * This parameter is required.
+     *
+     * @example apigateway-hz-ead4f4b0bac8
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The internal domain names included in the resolution.
+     *
+     * This parameter is required.
+     *
      * @var string[]
      */
     public $intranetDomains;
@@ -28,32 +38,17 @@ class DissociateInstanceWithPrivateDNSRequest extends Model
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->intranetDomains)) {
-            Model::validateArray($this->intranetDomains);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->intranetDomains) {
-            if (\is_array($this->intranetDomains)) {
-                $res['IntranetDomains'] = [];
-                $n1 = 0;
-                foreach ($this->intranetDomains as $item1) {
-                    $res['IntranetDomains'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['IntranetDomains'] = $this->intranetDomains;
         }
-
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
@@ -61,29 +56,22 @@ class DissociateInstanceWithPrivateDNSRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DissociateInstanceWithPrivateDNSRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['IntranetDomains'])) {
             if (!empty($map['IntranetDomains'])) {
-                $model->intranetDomains = [];
-                $n1 = 0;
-                foreach ($map['IntranetDomains'] as $item1) {
-                    $model->intranetDomains[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->intranetDomains = $map['IntranetDomains'];
             }
         }
-
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }

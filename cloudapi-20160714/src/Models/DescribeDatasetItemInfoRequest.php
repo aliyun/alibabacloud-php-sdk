@@ -4,16 +4,26 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeDatasetItemInfoRequest extends Model
 {
     /**
+     * @description The ID of the dataset.
+     *
+     * This parameter is required.
+     *
+     * @example 62b91a790a693238********
+     *
      * @var string
      */
     public $datasetId;
 
     /**
+     * @description The ID of the data entry.
+     *
+     * @example 5045****
+     *
      * @var string
      */
     public $datasetItemId;
@@ -24,6 +34,10 @@ class DescribeDatasetItemInfoRequest extends Model
     public $securityToken;
 
     /**
+     * @description The value of the data entry.
+     *
+     * @example 106.43.XXX.XXX
+     *
      * @var string
      */
     public $value;
@@ -34,26 +48,20 @@ class DescribeDatasetItemInfoRequest extends Model
         'value' => 'Value',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->datasetId) {
             $res['DatasetId'] = $this->datasetId;
         }
-
         if (null !== $this->datasetItemId) {
             $res['DatasetItemId'] = $this->datasetItemId;
         }
-
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
-
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -61,26 +69,23 @@ class DescribeDatasetItemInfoRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeDatasetItemInfoRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DatasetId'])) {
             $model->datasetId = $map['DatasetId'];
         }
-
         if (isset($map['DatasetItemId'])) {
             $model->datasetItemId = $map['DatasetItemId'];
         }
-
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }
-
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

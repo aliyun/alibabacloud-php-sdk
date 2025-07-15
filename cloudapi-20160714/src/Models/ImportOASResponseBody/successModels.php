@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\ImportOASResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ImportOASResponseBody\successModels\successModel;
+use AlibabaCloud\Tea\Model;
 
 class successModels extends Model
 {
@@ -17,24 +17,17 @@ class successModels extends Model
         'successModel' => 'SuccessModel',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->successModel)) {
-            Model::validateArray($this->successModel);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->successModel) {
-            if (\is_array($this->successModel)) {
-                $res['SuccessModel'] = [];
-                $n1 = 0;
-                foreach ($this->successModel as $item1) {
-                    $res['SuccessModel'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['SuccessModel'] = [];
+            if (null !== $this->successModel && \is_array($this->successModel)) {
+                $n = 0;
+                foreach ($this->successModel as $item) {
+                    $res['SuccessModel'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -42,21 +35,20 @@ class successModels extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return successModels
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SuccessModel'])) {
             if (!empty($map['SuccessModel'])) {
                 $model->successModel = [];
-                $n1 = 0;
-                foreach ($map['SuccessModel'] as $item1) {
-                    $model->successModel[$n1] = successModel::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['SuccessModel'] as $item) {
+                    $model->successModel[$n++] = null !== $item ? successModel::fromMap($item) : $item;
                 }
             }
         }

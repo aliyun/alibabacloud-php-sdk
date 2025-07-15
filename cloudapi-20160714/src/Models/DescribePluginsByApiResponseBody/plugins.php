@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribePluginsByApiResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribePluginsByApiResponseBody\plugins\pluginAttribute;
+use AlibabaCloud\Tea\Model;
 
 class plugins extends Model
 {
@@ -17,24 +17,17 @@ class plugins extends Model
         'pluginAttribute' => 'PluginAttribute',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->pluginAttribute)) {
-            Model::validateArray($this->pluginAttribute);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->pluginAttribute) {
-            if (\is_array($this->pluginAttribute)) {
-                $res['PluginAttribute'] = [];
-                $n1 = 0;
-                foreach ($this->pluginAttribute as $item1) {
-                    $res['PluginAttribute'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['PluginAttribute'] = [];
+            if (null !== $this->pluginAttribute && \is_array($this->pluginAttribute)) {
+                $n = 0;
+                foreach ($this->pluginAttribute as $item) {
+                    $res['PluginAttribute'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -42,21 +35,20 @@ class plugins extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return plugins
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PluginAttribute'])) {
             if (!empty($map['PluginAttribute'])) {
                 $model->pluginAttribute = [];
-                $n1 = 0;
-                foreach ($map['PluginAttribute'] as $item1) {
-                    $model->pluginAttribute[$n1] = pluginAttribute::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['PluginAttribute'] as $item) {
+                    $model->pluginAttribute[$n++] = null !== $item ? pluginAttribute::fromMap($item) : $item;
                 }
             }
         }

@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class AttachGroupPluginResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example D6E46F10-F26C-4AA0-BB69-FE2743D9AE62
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class AttachGroupPluginResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class AttachGroupPluginResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return AttachGroupPluginResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

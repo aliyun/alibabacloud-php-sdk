@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApiResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApiResponseBody\requestParameters\requestParameter;
+use AlibabaCloud\Tea\Model;
 
 class requestParameters extends Model
 {
@@ -17,24 +17,17 @@ class requestParameters extends Model
         'requestParameter' => 'RequestParameter',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->requestParameter)) {
-            Model::validateArray($this->requestParameter);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestParameter) {
-            if (\is_array($this->requestParameter)) {
-                $res['RequestParameter'] = [];
-                $n1 = 0;
-                foreach ($this->requestParameter as $item1) {
-                    $res['RequestParameter'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['RequestParameter'] = [];
+            if (null !== $this->requestParameter && \is_array($this->requestParameter)) {
+                $n = 0;
+                foreach ($this->requestParameter as $item) {
+                    $res['RequestParameter'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -42,21 +35,20 @@ class requestParameters extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return requestParameters
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestParameter'])) {
             if (!empty($map['RequestParameter'])) {
                 $model->requestParameter = [];
-                $n1 = 0;
-                foreach ($map['RequestParameter'] as $item1) {
-                    $model->requestParameter[$n1] = requestParameter::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['RequestParameter'] as $item) {
+                    $model->requestParameter[$n++] = null !== $item ? requestParameter::fromMap($item) : $item;
                 }
             }
         }
