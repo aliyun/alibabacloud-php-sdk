@@ -4,21 +4,27 @@
 
 namespace AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\FaceCompareResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class result extends Model
 {
     /**
+     * @example 98
+     *
      * @var float
      */
     public $faceComparisonScore;
 
     /**
+     * @example Y
+     *
      * @var string
      */
     public $passed;
 
     /**
+     * @example 08573be80f944d95ac812e019e3655a8
+     *
      * @var string
      */
     public $transactionId;
@@ -28,22 +34,17 @@ class result extends Model
         'transactionId' => 'TransactionId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->faceComparisonScore) {
             $res['FaceComparisonScore'] = $this->faceComparisonScore;
         }
-
         if (null !== $this->passed) {
             $res['Passed'] = $this->passed;
         }
-
         if (null !== $this->transactionId) {
             $res['TransactionId'] = $this->transactionId;
         }
@@ -51,22 +52,20 @@ class result extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return result
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FaceComparisonScore'])) {
             $model->faceComparisonScore = $map['FaceComparisonScore'];
         }
-
         if (isset($map['Passed'])) {
             $model->passed = $map['Passed'];
         }
-
         if (isset($map['TransactionId'])) {
             $model->transactionId = $map['TransactionId'];
         }

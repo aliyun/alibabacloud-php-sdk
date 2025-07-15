@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\FaceGuardRiskResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class result extends Model
 {
@@ -19,11 +19,15 @@ class result extends Model
     public $riskExtends;
 
     /**
+     * @example ROOT,VPN,HOOK
+     *
      * @var string
      */
     public $riskTags;
 
     /**
+     * @example hk573be80f944d95ac812e019e3655a8
+     *
      * @var string
      */
     public $transactionId;
@@ -34,26 +38,20 @@ class result extends Model
         'transactionId' => 'TransactionId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->guardRiskScore) {
             $res['GuardRiskScore'] = $this->guardRiskScore;
         }
-
         if (null !== $this->riskExtends) {
             $res['RiskExtends'] = $this->riskExtends;
         }
-
         if (null !== $this->riskTags) {
             $res['RiskTags'] = $this->riskTags;
         }
-
         if (null !== $this->transactionId) {
             $res['TransactionId'] = $this->transactionId;
         }
@@ -61,26 +59,23 @@ class result extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return result
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GuardRiskScore'])) {
             $model->guardRiskScore = $map['GuardRiskScore'];
         }
-
         if (isset($map['RiskExtends'])) {
             $model->riskExtends = $map['RiskExtends'];
         }
-
         if (isset($map['RiskTags'])) {
             $model->riskTags = $map['RiskTags'];
         }
-
         if (isset($map['TransactionId'])) {
             $model->transactionId = $map['TransactionId'];
         }

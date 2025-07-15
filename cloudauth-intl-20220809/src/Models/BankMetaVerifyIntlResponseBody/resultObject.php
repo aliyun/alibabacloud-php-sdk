@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\BankMetaVerifyIntlResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class resultObject extends Model
 {
     /**
+     * @example 1
+     *
      * @var string
      */
     public $bizCode;
 
     /**
+     * @example 101
+     *
      * @var string
      */
     public $subCode;
@@ -22,18 +26,14 @@ class resultObject extends Model
         'subCode' => 'SubCode',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->bizCode) {
             $res['BizCode'] = $this->bizCode;
         }
-
         if (null !== $this->subCode) {
             $res['SubCode'] = $this->subCode;
         }
@@ -41,18 +41,17 @@ class resultObject extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return resultObject
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BizCode'])) {
             $model->bizCode = $map['BizCode'];
         }
-
         if (isset($map['SubCode'])) {
             $model->subCode = $map['SubCode'];
         }

@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\InitializeResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class result extends Model
 {
     /**
+     * @example ***
+     *
      * @var string
      */
     public $clientCfg;
@@ -19,11 +21,15 @@ class result extends Model
     public $protocol;
 
     /**
+     * @example 08573be80f944d95ac812e019e3655a8
+     *
      * @var string
      */
     public $transactionId;
 
     /**
+     * @example http****
+     *
      * @var string
      */
     public $transactionUrl;
@@ -34,26 +40,20 @@ class result extends Model
         'transactionUrl' => 'TransactionUrl',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->clientCfg) {
             $res['ClientCfg'] = $this->clientCfg;
         }
-
         if (null !== $this->protocol) {
             $res['Protocol'] = $this->protocol;
         }
-
         if (null !== $this->transactionId) {
             $res['TransactionId'] = $this->transactionId;
         }
-
         if (null !== $this->transactionUrl) {
             $res['TransactionUrl'] = $this->transactionUrl;
         }
@@ -61,26 +61,23 @@ class result extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return result
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientCfg'])) {
             $model->clientCfg = $map['ClientCfg'];
         }
-
         if (isset($map['Protocol'])) {
             $model->protocol = $map['Protocol'];
         }
-
         if (isset($map['TransactionId'])) {
             $model->transactionId = $map['TransactionId'];
         }
-
         if (isset($map['TransactionUrl'])) {
             $model->transactionUrl = $map['TransactionUrl'];
         }

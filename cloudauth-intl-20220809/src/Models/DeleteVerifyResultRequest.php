@@ -4,21 +4,27 @@
 
 namespace AlibabaCloud\SDK\Cloudauthintl\V20220809\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteVerifyResultRequest extends Model
 {
     /**
+     * @example Y / N
+     *
      * @var string
      */
     public $deleteAfterQuery;
 
     /**
+     * @example Img / Text / All
+     *
      * @var string
      */
     public $deleteType;
 
     /**
+     * @example 4ab0b***cbde97
+     *
      * @var string
      */
     public $transactionId;
@@ -28,22 +34,17 @@ class DeleteVerifyResultRequest extends Model
         'transactionId' => 'TransactionId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->deleteAfterQuery) {
             $res['DeleteAfterQuery'] = $this->deleteAfterQuery;
         }
-
         if (null !== $this->deleteType) {
             $res['DeleteType'] = $this->deleteType;
         }
-
         if (null !== $this->transactionId) {
             $res['TransactionId'] = $this->transactionId;
         }
@@ -51,22 +52,20 @@ class DeleteVerifyResultRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteVerifyResultRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeleteAfterQuery'])) {
             $model->deleteAfterQuery = $map['DeleteAfterQuery'];
         }
-
         if (isset($map['DeleteType'])) {
             $model->deleteType = $map['DeleteType'];
         }
-
         if (isset($map['TransactionId'])) {
             $model->transactionId = $map['TransactionId'];
         }

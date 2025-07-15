@@ -1,16 +1,24 @@
 {
   "name": "alibabacloud/cloudauth-intl-20220809",
-  "type": "library",
   "description": "Alibaba Cloud Cloudauth-intl (20220809) SDK Library for PHP",
-  "github": "https://github.com/aliyun/alibabacloud-php-sdk",
-  "main": "src/Client.php",
+  "type": "library",
+  "license": "Apache-2.0",
   "authors": [
     {
       "name": "Alibaba Cloud SDK",
       "email": "sdk-team@alibabacloud.com"
     }
   ],
-  "license": "Apache-2.0",
+  "require": {
+    "php": ">5.5",
+    "alibabacloud/tea-utils": "^0.2.21",
+    "alibabacloud/tea-xml": "^0.2",
+    "alibabacloud/credentials": "^1.2.2",
+    "alibabacloud/tea-fileform": "^0.3.0",
+    "alibabacloud/darabonba-openapi": "^0.2.15",
+    "alibabacloud/openapi-util": "^0.1.10|^0.2.1",
+    "alibabacloud/endpoint-util": "^0.1.0"
+  },
   "autoload": {
     "psr-4": {
       "AlibabaCloud\\SDK\\Cloudauthintl\\V20220809\\": "src"
@@ -23,12 +31,6 @@
     "sort-packages": true,
     "preferred-install": "dist",
     "optimize-autoloader": true
-  },
-  "require": {
-    "php": ">5.5",
-    "alibabacloud/darabonba": "^1.0.0",
-    "alibabacloud/credentials": "^1.2.2",
-    "alibabacloud/openapi-core": "^1.0.0"
   },
   "prefer-stable": true
 }

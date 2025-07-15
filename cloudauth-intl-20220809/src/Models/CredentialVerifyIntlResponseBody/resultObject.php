@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CredentialVerifyIntlResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class resultObject extends Model
 {
@@ -14,6 +14,8 @@ class resultObject extends Model
     public $materialInfo;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $result;
@@ -24,6 +26,8 @@ class resultObject extends Model
     public $riskScore;
 
     /**
+     * @example PS
+     *
      * @var string
      */
     public $riskTag;
@@ -34,34 +38,20 @@ class resultObject extends Model
         'riskTag' => 'RiskTag',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->riskScore)) {
-            Model::validateArray($this->riskScore);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->materialInfo) {
             $res['MaterialInfo'] = $this->materialInfo;
         }
-
         if (null !== $this->result) {
             $res['Result'] = $this->result;
         }
-
         if (null !== $this->riskScore) {
-            if (\is_array($this->riskScore)) {
-                $res['RiskScore'] = [];
-                foreach ($this->riskScore as $key1 => $value1) {
-                    $res['RiskScore'][$key1] = $value1;
-                }
-            }
+            $res['RiskScore'] = $this->riskScore;
         }
-
         if (null !== $this->riskTag) {
             $res['RiskTag'] = $this->riskTag;
         }
@@ -69,31 +59,23 @@ class resultObject extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return resultObject
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MaterialInfo'])) {
             $model->materialInfo = $map['MaterialInfo'];
         }
-
         if (isset($map['Result'])) {
             $model->result = $map['Result'];
         }
-
         if (isset($map['RiskScore'])) {
-            if (!empty($map['RiskScore'])) {
-                $model->riskScore = [];
-                foreach ($map['RiskScore'] as $key1 => $value1) {
-                    $model->riskScore[$key1] = $value1;
-                }
-            }
+            $model->riskScore = $map['RiskScore'];
         }
-
         if (isset($map['RiskTag'])) {
             $model->riskTag = $map['RiskTag'];
         }

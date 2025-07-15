@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Cloudauthintl\V20220809\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class FraudResultCallBackRequest extends Model
 {
     /**
+     * @example shs2b27333914876c01de4cb22f5841f
+     *
      * @var string
      */
     public $certifyId;
@@ -19,11 +21,15 @@ class FraudResultCallBackRequest extends Model
     public $extParams;
 
     /**
+     * @example PASS
+     *
      * @var string
      */
     public $resultCode;
 
     /**
+     * @example production
+     *
      * @var string
      */
     public $verifyDeployEnv;
@@ -34,26 +40,20 @@ class FraudResultCallBackRequest extends Model
         'verifyDeployEnv' => 'VerifyDeployEnv',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->certifyId) {
             $res['CertifyId'] = $this->certifyId;
         }
-
         if (null !== $this->extParams) {
             $res['ExtParams'] = $this->extParams;
         }
-
         if (null !== $this->resultCode) {
             $res['ResultCode'] = $this->resultCode;
         }
-
         if (null !== $this->verifyDeployEnv) {
             $res['VerifyDeployEnv'] = $this->verifyDeployEnv;
         }
@@ -61,26 +61,23 @@ class FraudResultCallBackRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return FraudResultCallBackRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CertifyId'])) {
             $model->certifyId = $map['CertifyId'];
         }
-
         if (isset($map['ExtParams'])) {
             $model->extParams = $map['ExtParams'];
         }
-
         if (isset($map['ResultCode'])) {
             $model->resultCode = $map['ResultCode'];
         }
-
         if (isset($map['VerifyDeployEnv'])) {
             $model->verifyDeployEnv = $map['VerifyDeployEnv'];
         }

@@ -4,13 +4,8 @@
 
 namespace AlibabaCloud\SDK\Cloudauthintl\V20220809;
 
-use AlibabaCloud\Dara\Dara;
-use AlibabaCloud\Dara\Models\FileField;
-use AlibabaCloud\Dara\Models\RuntimeOptions;
-use AlibabaCloud\Dara\Request;
-use AlibabaCloud\Dara\Util\FormUtil;
-use AlibabaCloud\Dara\Util\StreamUtil;
-use AlibabaCloud\Dara\Util\XML;
+use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\AddressVerifyIntlRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\AddressVerifyIntlResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\BankMetaVerifyIntlRequest;
@@ -52,12 +47,18 @@ use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\InitializeShrinkRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\KeepaliveIntlResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\Mobile3MetaVerifyIntlRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\Mobile3MetaVerifyIntlResponse;
-use Darabonba\OpenApi\Exceptions\ClientException;
+use AlibabaCloud\Tea\Exception\TeaError;
+use AlibabaCloud\Tea\FileForm\FileForm;
+use AlibabaCloud\Tea\FileForm\FileForm\FileField;
+use AlibabaCloud\Tea\Request;
+use AlibabaCloud\Tea\Tea;
+use AlibabaCloud\Tea\Utils\Utils;
+use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
+use AlibabaCloud\Tea\XML\XML;
 use Darabonba\OpenApi\Models\Config;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
-use Darabonba\OpenApi\Utils;
 
 class Cloudauthintl extends OpenApiClient
 {
@@ -71,47 +72,49 @@ class Cloudauthintl extends OpenApiClient
 
     /**
      * @param string  $bucketName
-     * @param mixed[] $form
+     * @param mixed[] $data
      *
-     * @return mixed[]
+     * @return array
+     *
+     * @throws TeaError
      */
-    public function _postOSSObject($bucketName, $form)
+    public function _postOSSObject($bucketName, $data)
     {
         $_request = new Request();
-        $boundary = FormUtil::getBoundary();
+        $form = Utils::assertAsMap($data);
+        $boundary = FileForm::getBoundary();
+        $host = Utils::assertAsString(@$form['host']);
         $_request->protocol = 'HTTPS';
         $_request->method = 'POST';
         $_request->pathname = '/';
         $_request->headers = [
-            'host' => '' . @$form['host'],
+            'host' => $host,
             'date' => Utils::getDateUTCString(),
             'user-agent' => Utils::getUserAgent(''),
         ];
-        @$_request->headers['content-type'] = 'multipart/form-data; boundary=' . $boundary . '';
-        $_request->body = FormUtil::toFileForm($form, $boundary);
-        $_response = Dara::send($_request);
-
+        $_request->headers['content-type'] = 'multipart/form-data; boundary=' . $boundary . '';
+        $_request->body = FileForm::toFileForm($form, $boundary);
+        $_lastRequest = $_request;
+        $_response = Tea::send($_request);
         $respMap = null;
-        $bodyStr = StreamUtil::readAsString($_response->body);
-        if (($_response->statusCode >= 400) && ($_response->statusCode < 600)) {
+        $bodyStr = Utils::readAsString($_response->body);
+        if (Utils::is4xx($_response->statusCode) || Utils::is5xx($_response->statusCode)) {
             $respMap = XML::parseXml($bodyStr, null);
-            $err = @$respMap['Error'];
+            $err = Utils::assertAsMap(@$respMap['Error']);
 
-            throw new ClientException([
-                'code' => '' . @$err['Code'],
-                'message' => '' . @$err['Message'],
+            throw new TeaError([
+                'code' => @$err['Code'],
+                'message' => @$err['Message'],
                 'data' => [
                     'httpCode' => $_response->statusCode,
-                    'requestId' => '' . @$err['RequestId'],
-                    'hostId' => '' . @$err['HostId'],
+                    'requestId' => @$err['RequestId'],
+                    'hostId' => @$err['HostId'],
                 ],
             ]);
         }
-
         $respMap = XML::parseXml($bodyStr, null);
 
-        return Dara::merge([
-        ], $respMap);
+        return Tea::merge($respMap);
     }
 
     /**
@@ -127,80 +130,63 @@ class Cloudauthintl extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (null !== $endpoint) {
+        if (!Utils::empty_($endpoint)) {
             return $endpoint;
         }
-
-        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
+        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
             return @$endpointMap[$regionId];
         }
 
-        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * 地址核验.
+     * @summary 地址核验
+     *  *
+     * @param AddressVerifyIntlRequest $request AddressVerifyIntlRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - AddressVerifyIntlRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns AddressVerifyIntlResponse
-     *
-     * @param AddressVerifyIntlRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return AddressVerifyIntlResponse
+     * @return AddressVerifyIntlResponse AddressVerifyIntlResponse
      */
     public function addressVerifyIntlWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->addressType) {
-            @$query['AddressType'] = $request->addressType;
+        if (!Utils::isUnset($request->addressType)) {
+            $query['AddressType'] = $request->addressType;
         }
-
-        if (null !== $request->defaultCity) {
-            @$query['DefaultCity'] = $request->defaultCity;
+        if (!Utils::isUnset($request->defaultCity)) {
+            $query['DefaultCity'] = $request->defaultCity;
         }
-
-        if (null !== $request->defaultCountry) {
-            @$query['DefaultCountry'] = $request->defaultCountry;
+        if (!Utils::isUnset($request->defaultCountry)) {
+            $query['DefaultCountry'] = $request->defaultCountry;
         }
-
-        if (null !== $request->defaultDistrict) {
-            @$query['DefaultDistrict'] = $request->defaultDistrict;
+        if (!Utils::isUnset($request->defaultDistrict)) {
+            $query['DefaultDistrict'] = $request->defaultDistrict;
         }
-
-        if (null !== $request->defaultProvince) {
-            @$query['DefaultProvince'] = $request->defaultProvince;
+        if (!Utils::isUnset($request->defaultProvince)) {
+            $query['DefaultProvince'] = $request->defaultProvince;
         }
-
-        if (null !== $request->latitude) {
-            @$query['Latitude'] = $request->latitude;
+        if (!Utils::isUnset($request->latitude)) {
+            $query['Latitude'] = $request->latitude;
         }
-
-        if (null !== $request->longitude) {
-            @$query['Longitude'] = $request->longitude;
+        if (!Utils::isUnset($request->longitude)) {
+            $query['Longitude'] = $request->longitude;
         }
-
-        if (null !== $request->mobile) {
-            @$query['Mobile'] = $request->mobile;
+        if (!Utils::isUnset($request->mobile)) {
+            $query['Mobile'] = $request->mobile;
         }
-
-        if (null !== $request->productCode) {
-            @$query['ProductCode'] = $request->productCode;
+        if (!Utils::isUnset($request->productCode)) {
+            $query['ProductCode'] = $request->productCode;
         }
-
-        if (null !== $request->text) {
-            @$query['Text'] = $request->text;
+        if (!Utils::isUnset($request->text)) {
+            $query['Text'] = $request->text;
         }
-
-        if (null !== $request->verifyType) {
-            @$query['VerifyType'] = $request->verifyType;
+        if (!Utils::isUnset($request->verifyType)) {
+            $query['VerifyType'] = $request->verifyType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'AddressVerifyIntl',
@@ -218,15 +204,11 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 地址核验.
+     * @summary 地址核验
+     *  *
+     * @param AddressVerifyIntlRequest $request AddressVerifyIntlRequest
      *
-     * @param Request - AddressVerifyIntlRequest
-     *
-     * @returns AddressVerifyIntlResponse
-     *
-     * @param AddressVerifyIntlRequest $request
-     *
-     * @return AddressVerifyIntlResponse
+     * @return AddressVerifyIntlResponse AddressVerifyIntlResponse
      */
     public function addressVerifyIntl($request)
     {
@@ -236,60 +218,46 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 银行卡核验.
+     * @summary 银行卡核验
+     *  *
+     * @param BankMetaVerifyIntlRequest $request BankMetaVerifyIntlRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - BankMetaVerifyIntlRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns BankMetaVerifyIntlResponse
-     *
-     * @param BankMetaVerifyIntlRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return BankMetaVerifyIntlResponse
+     * @return BankMetaVerifyIntlResponse BankMetaVerifyIntlResponse
      */
     public function bankMetaVerifyIntlWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->bankCard) {
-            @$query['BankCard'] = $request->bankCard;
+        if (!Utils::isUnset($request->bankCard)) {
+            $query['BankCard'] = $request->bankCard;
         }
-
-        if (null !== $request->identifyNum) {
-            @$query['IdentifyNum'] = $request->identifyNum;
+        if (!Utils::isUnset($request->identifyNum)) {
+            $query['IdentifyNum'] = $request->identifyNum;
         }
-
-        if (null !== $request->identityType) {
-            @$query['IdentityType'] = $request->identityType;
+        if (!Utils::isUnset($request->identityType)) {
+            $query['IdentityType'] = $request->identityType;
         }
-
-        if (null !== $request->mobile) {
-            @$query['Mobile'] = $request->mobile;
+        if (!Utils::isUnset($request->mobile)) {
+            $query['Mobile'] = $request->mobile;
         }
-
-        if (null !== $request->paramType) {
-            @$query['ParamType'] = $request->paramType;
+        if (!Utils::isUnset($request->paramType)) {
+            $query['ParamType'] = $request->paramType;
         }
-
-        if (null !== $request->productCode) {
-            @$query['ProductCode'] = $request->productCode;
+        if (!Utils::isUnset($request->productCode)) {
+            $query['ProductCode'] = $request->productCode;
         }
-
-        if (null !== $request->productType) {
-            @$query['ProductType'] = $request->productType;
+        if (!Utils::isUnset($request->productType)) {
+            $query['ProductType'] = $request->productType;
         }
-
-        if (null !== $request->userName) {
-            @$query['UserName'] = $request->userName;
+        if (!Utils::isUnset($request->userName)) {
+            $query['UserName'] = $request->userName;
         }
-
-        if (null !== $request->verifyMode) {
-            @$query['VerifyMode'] = $request->verifyMode;
+        if (!Utils::isUnset($request->verifyMode)) {
+            $query['VerifyMode'] = $request->verifyMode;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'BankMetaVerifyIntl',
@@ -307,15 +275,11 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 银行卡核验.
+     * @summary 银行卡核验
+     *  *
+     * @param BankMetaVerifyIntlRequest $request BankMetaVerifyIntlRequest
      *
-     * @param Request - BankMetaVerifyIntlRequest
-     *
-     * @returns BankMetaVerifyIntlResponse
-     *
-     * @param BankMetaVerifyIntlRequest $request
-     *
-     * @return BankMetaVerifyIntlResponse
+     * @return BankMetaVerifyIntlResponse BankMetaVerifyIntlResponse
      */
     public function bankMetaVerifyIntl($request)
     {
@@ -324,66 +288,53 @@ class Cloudauthintl extends OpenApiClient
         return $this->bankMetaVerifyIntlWithOptions($request, $runtime);
     }
 
-    // Deprecated
     /**
-     * 证件OCR识别纯服务端接口.
-     *
      * @deprecated openAPI CardOcr is deprecated, please use Cloudauth-intl::2022-08-09::DocOcr instead
+     *  *
+     * @summary 证件OCR识别纯服务端接口
+     *  *
+     * Deprecated
      *
-     * @param Request - CardOcrRequest
-     * @param runtime - runtime options for this request RuntimeOptions
+     * @param CardOcrRequest $request CardOcrRequest
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @returns CardOcrResponse
-     *
-     * @param CardOcrRequest $request
-     * @param RuntimeOptions $runtime
-     *
-     * @return CardOcrResponse
+     * @return CardOcrResponse CardOcrResponse
      */
     public function cardOcrWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->docType) {
-            @$query['DocType'] = $request->docType;
+        if (!Utils::isUnset($request->docType)) {
+            $query['DocType'] = $request->docType;
         }
-
-        if (null !== $request->idFaceQuality) {
-            @$query['IdFaceQuality'] = $request->idFaceQuality;
+        if (!Utils::isUnset($request->idFaceQuality)) {
+            $query['IdFaceQuality'] = $request->idFaceQuality;
         }
-
-        if (null !== $request->idOcrPictureUrl) {
-            @$query['IdOcrPictureUrl'] = $request->idOcrPictureUrl;
+        if (!Utils::isUnset($request->idOcrPictureUrl)) {
+            $query['IdOcrPictureUrl'] = $request->idOcrPictureUrl;
         }
-
-        if (null !== $request->merchantBizId) {
-            @$query['MerchantBizId'] = $request->merchantBizId;
+        if (!Utils::isUnset($request->merchantBizId)) {
+            $query['MerchantBizId'] = $request->merchantBizId;
         }
-
-        if (null !== $request->merchantUserId) {
-            @$query['MerchantUserId'] = $request->merchantUserId;
+        if (!Utils::isUnset($request->merchantUserId)) {
+            $query['MerchantUserId'] = $request->merchantUserId;
         }
-
-        if (null !== $request->ocr) {
-            @$query['Ocr'] = $request->ocr;
+        if (!Utils::isUnset($request->ocr)) {
+            $query['Ocr'] = $request->ocr;
         }
-
-        if (null !== $request->productCode) {
-            @$query['ProductCode'] = $request->productCode;
+        if (!Utils::isUnset($request->productCode)) {
+            $query['ProductCode'] = $request->productCode;
         }
-
-        if (null !== $request->spoof) {
-            @$query['Spoof'] = $request->spoof;
+        if (!Utils::isUnset($request->spoof)) {
+            $query['Spoof'] = $request->spoof;
         }
-
         $body = [];
-        if (null !== $request->idOcrPictureBase64) {
-            @$body['IdOcrPictureBase64'] = $request->idOcrPictureBase64;
+        if (!Utils::isUnset($request->idOcrPictureBase64)) {
+            $body['IdOcrPictureBase64'] = $request->idOcrPictureBase64;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CardOcr',
@@ -400,19 +351,16 @@ class Cloudauthintl extends OpenApiClient
         return CardOcrResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
-    // Deprecated
     /**
-     * 证件OCR识别纯服务端接口.
-     *
      * @deprecated openAPI CardOcr is deprecated, please use Cloudauth-intl::2022-08-09::DocOcr instead
+     *  *
+     * @summary 证件OCR识别纯服务端接口
+     *  *
+     * Deprecated
      *
-     * @param Request - CardOcrRequest
+     * @param CardOcrRequest $request CardOcrRequest
      *
-     * @returns CardOcrResponse
-     *
-     * @param CardOcrRequest $request
-     *
-     * @return CardOcrResponse
+     * @return CardOcrResponse CardOcrResponse
      */
     public function cardOcr($request)
     {
@@ -422,44 +370,34 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 结果查询.
+     * @summary 结果查询
+     *  *
+     * @param CheckResultRequest $request CheckResultRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - CheckResultRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CheckResultResponse
-     *
-     * @param CheckResultRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return CheckResultResponse
+     * @return CheckResultResponse CheckResultResponse
      */
     public function checkResultWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->extraImageControlList) {
-            @$query['ExtraImageControlList'] = $request->extraImageControlList;
+        if (!Utils::isUnset($request->extraImageControlList)) {
+            $query['ExtraImageControlList'] = $request->extraImageControlList;
         }
-
-        if (null !== $request->isReturnImage) {
-            @$query['IsReturnImage'] = $request->isReturnImage;
+        if (!Utils::isUnset($request->isReturnImage)) {
+            $query['IsReturnImage'] = $request->isReturnImage;
         }
-
-        if (null !== $request->merchantBizId) {
-            @$query['MerchantBizId'] = $request->merchantBizId;
+        if (!Utils::isUnset($request->merchantBizId)) {
+            $query['MerchantBizId'] = $request->merchantBizId;
         }
-
-        if (null !== $request->returnFiveCategorySpoofResult) {
-            @$query['ReturnFiveCategorySpoofResult'] = $request->returnFiveCategorySpoofResult;
+        if (!Utils::isUnset($request->returnFiveCategorySpoofResult)) {
+            $query['ReturnFiveCategorySpoofResult'] = $request->returnFiveCategorySpoofResult;
         }
-
-        if (null !== $request->transactionId) {
-            @$query['TransactionId'] = $request->transactionId;
+        if (!Utils::isUnset($request->transactionId)) {
+            $query['TransactionId'] = $request->transactionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CheckResult',
@@ -477,15 +415,11 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 结果查询.
+     * @summary 结果查询
+     *  *
+     * @param CheckResultRequest $request CheckResultRequest
      *
-     * @param Request - CheckResultRequest
-     *
-     * @returns CheckResultResponse
-     *
-     * @param CheckResultRequest $request
-     *
-     * @return CheckResultResponse
+     * @return CheckResultResponse CheckResultResponse
      */
     public function checkResult($request)
     {
@@ -495,32 +429,25 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 认证日志查询接口.
+     * @summary 认证日志查询接口
+     *  *
+     * @param CheckVerifyLogRequest $request CheckVerifyLogRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - CheckVerifyLogRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CheckVerifyLogResponse
-     *
-     * @param CheckVerifyLogRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return CheckVerifyLogResponse
+     * @return CheckVerifyLogResponse CheckVerifyLogResponse
      */
     public function checkVerifyLogWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->merchantBizId) {
-            @$body['MerchantBizId'] = $request->merchantBizId;
+        if (!Utils::isUnset($request->merchantBizId)) {
+            $body['MerchantBizId'] = $request->merchantBizId;
         }
-
-        if (null !== $request->transactionId) {
-            @$body['TransactionId'] = $request->transactionId;
+        if (!Utils::isUnset($request->transactionId)) {
+            $body['TransactionId'] = $request->transactionId;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CheckVerifyLog',
@@ -538,15 +465,11 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 认证日志查询接口.
+     * @summary 认证日志查询接口
+     *  *
+     * @param CheckVerifyLogRequest $request CheckVerifyLogRequest
      *
-     * @param Request - CheckVerifyLogRequest
-     *
-     * @returns CheckVerifyLogResponse
-     *
-     * @param CheckVerifyLogRequest $request
-     *
-     * @return CheckVerifyLogResponse
+     * @return CheckVerifyLogResponse CheckVerifyLogResponse
      */
     public function checkVerifyLog($request)
     {
@@ -556,46 +479,36 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 凭证核验.
+     * @summary 凭证核验
+     *  *
+     * @param CredentialVerifyIntlRequest $request CredentialVerifyIntlRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - CredentialVerifyIntlRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CredentialVerifyIntlResponse
-     *
-     * @param CredentialVerifyIntlRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return CredentialVerifyIntlResponse
+     * @return CredentialVerifyIntlResponse CredentialVerifyIntlResponse
      */
     public function credentialVerifyIntlWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->credName) {
-            @$query['CredName'] = $request->credName;
+        if (!Utils::isUnset($request->credName)) {
+            $query['CredName'] = $request->credName;
         }
-
-        if (null !== $request->credType) {
-            @$query['CredType'] = $request->credType;
+        if (!Utils::isUnset($request->credType)) {
+            $query['CredType'] = $request->credType;
         }
-
-        if (null !== $request->imageUrl) {
-            @$query['ImageUrl'] = $request->imageUrl;
+        if (!Utils::isUnset($request->imageUrl)) {
+            $query['ImageUrl'] = $request->imageUrl;
         }
-
-        if (null !== $request->productCode) {
-            @$query['ProductCode'] = $request->productCode;
+        if (!Utils::isUnset($request->productCode)) {
+            $query['ProductCode'] = $request->productCode;
         }
-
         $body = [];
-        if (null !== $request->imageFile) {
-            @$body['ImageFile'] = $request->imageFile;
+        if (!Utils::isUnset($request->imageFile)) {
+            $body['ImageFile'] = $request->imageFile;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CredentialVerifyIntl',
@@ -613,15 +526,11 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 凭证核验.
+     * @summary 凭证核验
+     *  *
+     * @param CredentialVerifyIntlRequest $request CredentialVerifyIntlRequest
      *
-     * @param Request - CredentialVerifyIntlRequest
-     *
-     * @returns CredentialVerifyIntlResponse
-     *
-     * @param CredentialVerifyIntlRequest $request
-     *
-     * @return CredentialVerifyIntlResponse
+     * @return CredentialVerifyIntlResponse CredentialVerifyIntlResponse
      */
     public function credentialVerifyIntl($request)
     {
@@ -635,31 +544,31 @@ class Cloudauthintl extends OpenApiClient
      * @param RuntimeOptions                     $runtime
      *
      * @return CredentialVerifyIntlResponse
+     *
+     * @throws TeaError
      */
     public function credentialVerifyIntlAdvance($request, $runtime)
     {
         // Step 0: init client
-        if (null === $this->_credential) {
-            throw new ClientException([
+        $credentialModel = null;
+        if (Utils::isUnset($this->_credential)) {
+            throw new TeaError([
                 'code' => 'InvalidCredentials',
                 'message' => 'Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.',
             ]);
         }
-
         $credentialModel = $this->_credential->getCredential();
         $accessKeyId = $credentialModel->accessKeyId;
         $accessKeySecret = $credentialModel->accessKeySecret;
         $securityToken = $credentialModel->securityToken;
         $credentialType = $credentialModel->type;
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (null === $openPlatformEndpoint || '' == $openPlatformEndpoint) {
+        if (Utils::empty_($openPlatformEndpoint)) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
-
-        if (null === $credentialType) {
+        if (Utils::isUnset($credentialType)) {
             $credentialType = 'access_key';
         }
-
         $authConfig = new Config([
             'accessKeyId' => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
@@ -675,7 +584,7 @@ class Cloudauthintl extends OpenApiClient
             'RegionId' => $this->_regionId,
         ];
         $authReq = new OpenApiRequest([
-            'query' => Utils::query($authRequest),
+            'query' => OpenApiUtilClient::query($authRequest),
         ]);
         $authParams = new Params([
             'action' => 'AuthorizeFileUpload',
@@ -695,11 +604,12 @@ class Cloudauthintl extends OpenApiClient
         $useAccelerate = false;
         $authResponseBody = [];
         $credentialVerifyIntlReq = new CredentialVerifyIntlRequest([]);
-        Utils::convert($request, $credentialVerifyIntlReq);
-        if (null !== $request->imageFileObject) {
-            $authResponse = $authClient->callApi($authParams, $authReq, $runtime);
-            $tmpBody = @$authResponse['body'];
-            $useAccelerate = (bool) (@$tmpBody['UseAccelerate']);
+        OpenApiUtilClient::convert($request, $credentialVerifyIntlReq);
+        if (!Utils::isUnset($request->imageFileObject)) {
+            $tmpResp0 = $authClient->callApi($authParams, $authReq, $runtime);
+            $authResponse = Utils::assertAsMap($tmpResp0);
+            $tmpBody = Utils::assertAsMap(@$authResponse['body']);
+            $useAccelerate = Utils::assertAsBoolean(@$tmpBody['UseAccelerate']);
             $authResponseBody = Utils::stringifyMapValue($tmpBody);
             $fileObj = new FileField([
                 'filename' => @$authResponseBody['ObjectKey'],
@@ -707,7 +617,7 @@ class Cloudauthintl extends OpenApiClient
                 'contentType' => '',
             ]);
             $ossHeader = [
-                'host' => '' . @$authResponseBody['Bucket'] . '.' . Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
+                'host' => '' . @$authResponseBody['Bucket'] . '.' . OpenApiUtilClient::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
                 'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
                 'policy' => @$authResponseBody['EncodedPolicy'],
                 'Signature' => @$authResponseBody['Signature'],
@@ -723,50 +633,39 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 人脸凭证核验.
+     * @summary 人脸凭证核验
+     *  *
+     * @param DeepfakeDetectIntlRequest $request DeepfakeDetectIntlRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DeepfakeDetectIntlRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeepfakeDetectIntlResponse
-     *
-     * @param DeepfakeDetectIntlRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DeepfakeDetectIntlResponse
+     * @return DeepfakeDetectIntlResponse DeepfakeDetectIntlResponse
      */
     public function deepfakeDetectIntlWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->faceInputType) {
-            @$query['FaceInputType'] = $request->faceInputType;
+        if (!Utils::isUnset($request->faceInputType)) {
+            $query['FaceInputType'] = $request->faceInputType;
         }
-
-        if (null !== $request->faceUrl) {
-            @$query['FaceUrl'] = $request->faceUrl;
+        if (!Utils::isUnset($request->faceUrl)) {
+            $query['FaceUrl'] = $request->faceUrl;
         }
-
-        if (null !== $request->merchantBizId) {
-            @$query['MerchantBizId'] = $request->merchantBizId;
+        if (!Utils::isUnset($request->merchantBizId)) {
+            $query['MerchantBizId'] = $request->merchantBizId;
         }
-
-        if (null !== $request->productCode) {
-            @$query['ProductCode'] = $request->productCode;
+        if (!Utils::isUnset($request->productCode)) {
+            $query['ProductCode'] = $request->productCode;
         }
-
-        if (null !== $request->sceneCode) {
-            @$query['SceneCode'] = $request->sceneCode;
+        if (!Utils::isUnset($request->sceneCode)) {
+            $query['SceneCode'] = $request->sceneCode;
         }
-
         $body = [];
-        if (null !== $request->faceBase64) {
-            @$body['FaceBase64'] = $request->faceBase64;
+        if (!Utils::isUnset($request->faceBase64)) {
+            $body['FaceBase64'] = $request->faceBase64;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DeepfakeDetectIntl',
@@ -784,15 +683,11 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 人脸凭证核验.
+     * @summary 人脸凭证核验
+     *  *
+     * @param DeepfakeDetectIntlRequest $request DeepfakeDetectIntlRequest
      *
-     * @param Request - DeepfakeDetectIntlRequest
-     *
-     * @returns DeepfakeDetectIntlResponse
-     *
-     * @param DeepfakeDetectIntlRequest $request
-     *
-     * @return DeepfakeDetectIntlResponse
+     * @return DeepfakeDetectIntlResponse DeepfakeDetectIntlResponse
      */
     public function deepfakeDetectIntl($request)
     {
@@ -802,36 +697,28 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 删除用户认证记录结果.
+     * @summary 删除用户认证记录结果
+     *  *
+     * @param DeleteVerifyResultRequest $request DeleteVerifyResultRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DeleteVerifyResultRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteVerifyResultResponse
-     *
-     * @param DeleteVerifyResultRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DeleteVerifyResultResponse
+     * @return DeleteVerifyResultResponse DeleteVerifyResultResponse
      */
     public function deleteVerifyResultWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->deleteAfterQuery) {
-            @$query['DeleteAfterQuery'] = $request->deleteAfterQuery;
+        if (!Utils::isUnset($request->deleteAfterQuery)) {
+            $query['DeleteAfterQuery'] = $request->deleteAfterQuery;
         }
-
-        if (null !== $request->deleteType) {
-            @$query['DeleteType'] = $request->deleteType;
+        if (!Utils::isUnset($request->deleteType)) {
+            $query['DeleteType'] = $request->deleteType;
         }
-
-        if (null !== $request->transactionId) {
-            @$query['TransactionId'] = $request->transactionId;
+        if (!Utils::isUnset($request->transactionId)) {
+            $query['TransactionId'] = $request->transactionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteVerifyResult',
@@ -849,15 +736,11 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 删除用户认证记录结果.
+     * @summary 删除用户认证记录结果
+     *  *
+     * @param DeleteVerifyResultRequest $request DeleteVerifyResultRequest
      *
-     * @param Request - DeleteVerifyResultRequest
-     *
-     * @returns DeleteVerifyResultResponse
-     *
-     * @param DeleteVerifyResultRequest $request
-     *
-     * @return DeleteVerifyResultResponse
+     * @return DeleteVerifyResultResponse DeleteVerifyResultResponse
      */
     public function deleteVerifyResult($request)
     {
@@ -867,70 +750,54 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 卡证ocr纯服务端.
+     * @summary 卡证ocr纯服务端
+     *  *
+     * @param DocOcrRequest  $request DocOcrRequest
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DocOcrRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DocOcrResponse
-     *
-     * @param DocOcrRequest  $request
-     * @param RuntimeOptions $runtime
-     *
-     * @return DocOcrResponse
+     * @return DocOcrResponse DocOcrResponse
      */
     public function docOcrWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->cardSide) {
-            @$query['CardSide'] = $request->cardSide;
+        if (!Utils::isUnset($request->cardSide)) {
+            $query['CardSide'] = $request->cardSide;
         }
-
-        if (null !== $request->docType) {
-            @$query['DocType'] = $request->docType;
+        if (!Utils::isUnset($request->docType)) {
+            $query['DocType'] = $request->docType;
         }
-
-        if (null !== $request->idFaceQuality) {
-            @$query['IdFaceQuality'] = $request->idFaceQuality;
+        if (!Utils::isUnset($request->idFaceQuality)) {
+            $query['IdFaceQuality'] = $request->idFaceQuality;
         }
-
-        if (null !== $request->idOcrPictureUrl) {
-            @$query['IdOcrPictureUrl'] = $request->idOcrPictureUrl;
+        if (!Utils::isUnset($request->idOcrPictureUrl)) {
+            $query['IdOcrPictureUrl'] = $request->idOcrPictureUrl;
         }
-
-        if (null !== $request->idThreshold) {
-            @$query['IdThreshold'] = $request->idThreshold;
+        if (!Utils::isUnset($request->idThreshold)) {
+            $query['IdThreshold'] = $request->idThreshold;
         }
-
-        if (null !== $request->merchantBizId) {
-            @$query['MerchantBizId'] = $request->merchantBizId;
+        if (!Utils::isUnset($request->merchantBizId)) {
+            $query['MerchantBizId'] = $request->merchantBizId;
         }
-
-        if (null !== $request->merchantUserId) {
-            @$query['MerchantUserId'] = $request->merchantUserId;
+        if (!Utils::isUnset($request->merchantUserId)) {
+            $query['MerchantUserId'] = $request->merchantUserId;
         }
-
-        if (null !== $request->ocr) {
-            @$query['Ocr'] = $request->ocr;
+        if (!Utils::isUnset($request->ocr)) {
+            $query['Ocr'] = $request->ocr;
         }
-
-        if (null !== $request->productCode) {
-            @$query['ProductCode'] = $request->productCode;
+        if (!Utils::isUnset($request->productCode)) {
+            $query['ProductCode'] = $request->productCode;
         }
-
-        if (null !== $request->spoof) {
-            @$query['Spoof'] = $request->spoof;
+        if (!Utils::isUnset($request->spoof)) {
+            $query['Spoof'] = $request->spoof;
         }
-
         $body = [];
-        if (null !== $request->idOcrPictureBase64) {
-            @$body['IdOcrPictureBase64'] = $request->idOcrPictureBase64;
+        if (!Utils::isUnset($request->idOcrPictureBase64)) {
+            $body['IdOcrPictureBase64'] = $request->idOcrPictureBase64;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DocOcr',
@@ -948,15 +815,11 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 卡证ocr纯服务端.
+     * @summary 卡证ocr纯服务端
+     *  *
+     * @param DocOcrRequest $request DocOcrRequest
      *
-     * @param Request - DocOcrRequest
-     *
-     * @returns DocOcrResponse
-     *
-     * @param DocOcrRequest $request
-     *
-     * @return DocOcrResponse
+     * @return DocOcrResponse DocOcrResponse
      */
     public function docOcr($request)
     {
@@ -966,72 +829,58 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 全球证件ocr识别接口.
+     * @summary 全球证件ocr识别接口
+     *  *
+     * @param DocOcrMaxRequest $request DocOcrMaxRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DocOcrMaxRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DocOcrMaxResponse
-     *
-     * @param DocOcrMaxRequest $request
-     * @param RuntimeOptions   $runtime
-     *
-     * @return DocOcrMaxResponse
+     * @return DocOcrMaxResponse DocOcrMaxResponse
      */
     public function docOcrMaxWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->docType) {
-            @$body['DocType'] = $request->docType;
+        if (!Utils::isUnset($request->docPage)) {
+            $body['DocPage'] = $request->docPage;
         }
-
-        if (null !== $request->idOcrPictureBase64) {
-            @$body['IdOcrPictureBase64'] = $request->idOcrPictureBase64;
+        if (!Utils::isUnset($request->docType)) {
+            $body['DocType'] = $request->docType;
         }
-
-        if (null !== $request->idOcrPictureUrl) {
-            @$body['IdOcrPictureUrl'] = $request->idOcrPictureUrl;
+        if (!Utils::isUnset($request->idOcrPictureBase64)) {
+            $body['IdOcrPictureBase64'] = $request->idOcrPictureBase64;
         }
-
-        if (null !== $request->idSpoof) {
-            @$body['IdSpoof'] = $request->idSpoof;
+        if (!Utils::isUnset($request->idOcrPictureUrl)) {
+            $body['IdOcrPictureUrl'] = $request->idOcrPictureUrl;
         }
-
-        if (null !== $request->idThreshold) {
-            @$body['IdThreshold'] = $request->idThreshold;
+        if (!Utils::isUnset($request->idSpoof)) {
+            $body['IdSpoof'] = $request->idSpoof;
         }
-
-        if (null !== $request->merchantBizId) {
-            @$body['MerchantBizId'] = $request->merchantBizId;
+        if (!Utils::isUnset($request->idThreshold)) {
+            $body['IdThreshold'] = $request->idThreshold;
         }
-
-        if (null !== $request->merchantUserId) {
-            @$body['MerchantUserId'] = $request->merchantUserId;
+        if (!Utils::isUnset($request->merchantBizId)) {
+            $body['MerchantBizId'] = $request->merchantBizId;
         }
-
-        if (null !== $request->ocrModel) {
-            @$body['OcrModel'] = $request->ocrModel;
+        if (!Utils::isUnset($request->merchantUserId)) {
+            $body['MerchantUserId'] = $request->merchantUserId;
         }
-
-        if (null !== $request->productCode) {
-            @$body['ProductCode'] = $request->productCode;
+        if (!Utils::isUnset($request->ocrModel)) {
+            $body['OcrModel'] = $request->ocrModel;
         }
-
-        if (null !== $request->prompt) {
-            @$body['Prompt'] = $request->prompt;
+        if (!Utils::isUnset($request->productCode)) {
+            $body['ProductCode'] = $request->productCode;
         }
-
-        if (null !== $request->sceneCode) {
-            @$body['SceneCode'] = $request->sceneCode;
+        if (!Utils::isUnset($request->prompt)) {
+            $body['Prompt'] = $request->prompt;
         }
-
-        if (null !== $request->spoof) {
-            @$body['Spoof'] = $request->spoof;
+        if (!Utils::isUnset($request->sceneCode)) {
+            $body['SceneCode'] = $request->sceneCode;
         }
-
+        if (!Utils::isUnset($request->spoof)) {
+            $body['Spoof'] = $request->spoof;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DocOcrMax',
@@ -1049,15 +898,11 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 全球证件ocr识别接口.
+     * @summary 全球证件ocr识别接口
+     *  *
+     * @param DocOcrMaxRequest $request DocOcrMaxRequest
      *
-     * @param Request - DocOcrMaxRequest
-     *
-     * @returns DocOcrMaxResponse
-     *
-     * @param DocOcrMaxRequest $request
-     *
-     * @return DocOcrMaxResponse
+     * @return DocOcrMaxResponse DocOcrMaxResponse
      */
     public function docOcrMax($request)
     {
@@ -1067,78 +912,60 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * ekyc纯服务端接口.
+     * @summary ekyc纯服务端接口
+     *  *
+     * @param EkycVerifyRequest $request EkycVerifyRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - EkycVerifyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns EkycVerifyResponse
-     *
-     * @param EkycVerifyRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return EkycVerifyResponse
+     * @return EkycVerifyResponse EkycVerifyResponse
      */
     public function ekycVerifyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->authorize) {
-            @$query['Authorize'] = $request->authorize;
+        if (!Utils::isUnset($request->authorize)) {
+            $query['Authorize'] = $request->authorize;
         }
-
-        if (null !== $request->crop) {
-            @$query['Crop'] = $request->crop;
+        if (!Utils::isUnset($request->crop)) {
+            $query['Crop'] = $request->crop;
         }
-
-        if (null !== $request->docName) {
-            @$query['DocName'] = $request->docName;
+        if (!Utils::isUnset($request->docName)) {
+            $query['DocName'] = $request->docName;
         }
-
-        if (null !== $request->docNo) {
-            @$query['DocNo'] = $request->docNo;
+        if (!Utils::isUnset($request->docNo)) {
+            $query['DocNo'] = $request->docNo;
         }
-
-        if (null !== $request->docType) {
-            @$query['DocType'] = $request->docType;
+        if (!Utils::isUnset($request->docType)) {
+            $query['DocType'] = $request->docType;
         }
-
-        if (null !== $request->facePictureUrl) {
-            @$query['FacePictureUrl'] = $request->facePictureUrl;
+        if (!Utils::isUnset($request->facePictureUrl)) {
+            $query['FacePictureUrl'] = $request->facePictureUrl;
         }
-
-        if (null !== $request->idOcrPictureUrl) {
-            @$query['IdOcrPictureUrl'] = $request->idOcrPictureUrl;
+        if (!Utils::isUnset($request->idOcrPictureUrl)) {
+            $query['IdOcrPictureUrl'] = $request->idOcrPictureUrl;
         }
-
-        if (null !== $request->idThreshold) {
-            @$query['IdThreshold'] = $request->idThreshold;
+        if (!Utils::isUnset($request->idThreshold)) {
+            $query['IdThreshold'] = $request->idThreshold;
         }
-
-        if (null !== $request->merchantBizId) {
-            @$query['MerchantBizId'] = $request->merchantBizId;
+        if (!Utils::isUnset($request->merchantBizId)) {
+            $query['MerchantBizId'] = $request->merchantBizId;
         }
-
-        if (null !== $request->merchantUserId) {
-            @$query['MerchantUserId'] = $request->merchantUserId;
+        if (!Utils::isUnset($request->merchantUserId)) {
+            $query['MerchantUserId'] = $request->merchantUserId;
         }
-
-        if (null !== $request->productCode) {
-            @$query['ProductCode'] = $request->productCode;
+        if (!Utils::isUnset($request->productCode)) {
+            $query['ProductCode'] = $request->productCode;
         }
-
         $body = [];
-        if (null !== $request->facePictureBase64) {
-            @$body['FacePictureBase64'] = $request->facePictureBase64;
+        if (!Utils::isUnset($request->facePictureBase64)) {
+            $body['FacePictureBase64'] = $request->facePictureBase64;
         }
-
-        if (null !== $request->idOcrPictureBase64) {
-            @$body['IdOcrPictureBase64'] = $request->idOcrPictureBase64;
+        if (!Utils::isUnset($request->idOcrPictureBase64)) {
+            $body['IdOcrPictureBase64'] = $request->idOcrPictureBase64;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'EkycVerify',
@@ -1156,15 +983,11 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * ekyc纯服务端接口.
+     * @summary ekyc纯服务端接口
+     *  *
+     * @param EkycVerifyRequest $request EkycVerifyRequest
      *
-     * @param Request - EkycVerifyRequest
-     *
-     * @returns EkycVerifyResponse
-     *
-     * @param EkycVerifyRequest $request
-     *
-     * @return EkycVerifyResponse
+     * @return EkycVerifyResponse EkycVerifyResponse
      */
     public function ekycVerify($request)
     {
@@ -1174,46 +997,36 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 人脸比对.
+     * @summary 人脸比对
+     *  *
+     * @param FaceCompareRequest $request FaceCompareRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - FaceCompareRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns FaceCompareResponse
-     *
-     * @param FaceCompareRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return FaceCompareResponse
+     * @return FaceCompareResponse FaceCompareResponse
      */
     public function faceCompareWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->merchantBizId) {
-            @$query['MerchantBizId'] = $request->merchantBizId;
+        if (!Utils::isUnset($request->merchantBizId)) {
+            $query['MerchantBizId'] = $request->merchantBizId;
         }
-
-        if (null !== $request->sourceFacePictureUrl) {
-            @$query['SourceFacePictureUrl'] = $request->sourceFacePictureUrl;
+        if (!Utils::isUnset($request->sourceFacePictureUrl)) {
+            $query['SourceFacePictureUrl'] = $request->sourceFacePictureUrl;
         }
-
-        if (null !== $request->targetFacePictureUrl) {
-            @$query['TargetFacePictureUrl'] = $request->targetFacePictureUrl;
+        if (!Utils::isUnset($request->targetFacePictureUrl)) {
+            $query['TargetFacePictureUrl'] = $request->targetFacePictureUrl;
         }
-
         $body = [];
-        if (null !== $request->sourceFacePicture) {
-            @$body['SourceFacePicture'] = $request->sourceFacePicture;
+        if (!Utils::isUnset($request->sourceFacePicture)) {
+            $body['SourceFacePicture'] = $request->sourceFacePicture;
         }
-
-        if (null !== $request->targetFacePicture) {
-            @$body['TargetFacePicture'] = $request->targetFacePicture;
+        if (!Utils::isUnset($request->targetFacePicture)) {
+            $body['TargetFacePicture'] = $request->targetFacePicture;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'FaceCompare',
@@ -1231,15 +1044,11 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 人脸比对.
+     * @summary 人脸比对
+     *  *
+     * @param FaceCompareRequest $request FaceCompareRequest
      *
-     * @param Request - FaceCompareRequest
-     *
-     * @returns FaceCompareResponse
-     *
-     * @param FaceCompareRequest $request
-     *
-     * @return FaceCompareResponse
+     * @return FaceCompareResponse FaceCompareResponse
      */
     public function faceCompare($request)
     {
@@ -1249,40 +1058,31 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 国际人脸保镖纯服务端接口.
+     * @summary 国际人脸保镖纯服务端接口
+     *  *
+     * @param FaceGuardRiskRequest $request FaceGuardRiskRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - FaceGuardRiskRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns FaceGuardRiskResponse
-     *
-     * @param FaceGuardRiskRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return FaceGuardRiskResponse
+     * @return FaceGuardRiskResponse FaceGuardRiskResponse
      */
     public function faceGuardRiskWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->bizId) {
-            @$query['BizId'] = $request->bizId;
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
         }
-
-        if (null !== $request->deviceToken) {
-            @$query['DeviceToken'] = $request->deviceToken;
+        if (!Utils::isUnset($request->deviceToken)) {
+            $query['DeviceToken'] = $request->deviceToken;
         }
-
-        if (null !== $request->merchantBizId) {
-            @$query['MerchantBizId'] = $request->merchantBizId;
+        if (!Utils::isUnset($request->merchantBizId)) {
+            $query['MerchantBizId'] = $request->merchantBizId;
         }
-
-        if (null !== $request->productCode) {
-            @$query['ProductCode'] = $request->productCode;
+        if (!Utils::isUnset($request->productCode)) {
+            $query['ProductCode'] = $request->productCode;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'FaceGuardRisk',
@@ -1300,15 +1100,11 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 国际人脸保镖纯服务端接口.
+     * @summary 国际人脸保镖纯服务端接口
+     *  *
+     * @param FaceGuardRiskRequest $request FaceGuardRiskRequest
      *
-     * @param Request - FaceGuardRiskRequest
-     *
-     * @returns FaceGuardRiskResponse
-     *
-     * @param FaceGuardRiskRequest $request
-     *
-     * @return FaceGuardRiskResponse
+     * @return FaceGuardRiskResponse FaceGuardRiskResponse
      */
     public function faceGuardRisk($request)
     {
@@ -1318,58 +1114,45 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 静默活体API 纯服务端.
+     * @summary 静默活体API 纯服务端
+     *  *
+     * @param FaceLivenessRequest $request FaceLivenessRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - FaceLivenessRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns FaceLivenessResponse
-     *
-     * @param FaceLivenessRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return FaceLivenessResponse
+     * @return FaceLivenessResponse FaceLivenessResponse
      */
     public function faceLivenessWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->crop) {
-            @$query['Crop'] = $request->crop;
+        if (!Utils::isUnset($request->crop)) {
+            $query['Crop'] = $request->crop;
         }
-
-        if (null !== $request->facePictureUrl) {
-            @$query['FacePictureUrl'] = $request->facePictureUrl;
+        if (!Utils::isUnset($request->facePictureUrl)) {
+            $query['FacePictureUrl'] = $request->facePictureUrl;
         }
-
-        if (null !== $request->faceQuality) {
-            @$query['FaceQuality'] = $request->faceQuality;
+        if (!Utils::isUnset($request->faceQuality)) {
+            $query['FaceQuality'] = $request->faceQuality;
         }
-
-        if (null !== $request->merchantBizId) {
-            @$query['MerchantBizId'] = $request->merchantBizId;
+        if (!Utils::isUnset($request->merchantBizId)) {
+            $query['MerchantBizId'] = $request->merchantBizId;
         }
-
-        if (null !== $request->merchantUserId) {
-            @$query['MerchantUserId'] = $request->merchantUserId;
+        if (!Utils::isUnset($request->merchantUserId)) {
+            $query['MerchantUserId'] = $request->merchantUserId;
         }
-
-        if (null !== $request->occlusion) {
-            @$query['Occlusion'] = $request->occlusion;
+        if (!Utils::isUnset($request->occlusion)) {
+            $query['Occlusion'] = $request->occlusion;
         }
-
-        if (null !== $request->productCode) {
-            @$query['ProductCode'] = $request->productCode;
+        if (!Utils::isUnset($request->productCode)) {
+            $query['ProductCode'] = $request->productCode;
         }
-
         $body = [];
-        if (null !== $request->facePictureBase64) {
-            @$body['FacePictureBase64'] = $request->facePictureBase64;
+        if (!Utils::isUnset($request->facePictureBase64)) {
+            $body['FacePictureBase64'] = $request->facePictureBase64;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'FaceLiveness',
@@ -1387,15 +1170,11 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 静默活体API 纯服务端.
+     * @summary 静默活体API 纯服务端
+     *  *
+     * @param FaceLivenessRequest $request FaceLivenessRequest
      *
-     * @param Request - FaceLivenessRequest
-     *
-     * @returns FaceLivenessResponse
-     *
-     * @param FaceLivenessRequest $request
-     *
-     * @return FaceLivenessResponse
+     * @return FaceLivenessResponse FaceLivenessResponse
      */
     public function faceLiveness($request)
     {
@@ -1405,40 +1184,31 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 防伪回调接口.
+     * @summary 防伪回调接口
+     *  *
+     * @param FraudResultCallBackRequest $request FraudResultCallBackRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - FraudResultCallBackRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns FraudResultCallBackResponse
-     *
-     * @param FraudResultCallBackRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return FraudResultCallBackResponse
+     * @return FraudResultCallBackResponse FraudResultCallBackResponse
      */
     public function fraudResultCallBackWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->certifyId) {
-            @$query['CertifyId'] = $request->certifyId;
+        if (!Utils::isUnset($request->certifyId)) {
+            $query['CertifyId'] = $request->certifyId;
         }
-
-        if (null !== $request->extParams) {
-            @$query['ExtParams'] = $request->extParams;
+        if (!Utils::isUnset($request->extParams)) {
+            $query['ExtParams'] = $request->extParams;
         }
-
-        if (null !== $request->resultCode) {
-            @$query['ResultCode'] = $request->resultCode;
+        if (!Utils::isUnset($request->resultCode)) {
+            $query['ResultCode'] = $request->resultCode;
         }
-
-        if (null !== $request->verifyDeployEnv) {
-            @$query['VerifyDeployEnv'] = $request->verifyDeployEnv;
+        if (!Utils::isUnset($request->verifyDeployEnv)) {
+            $query['VerifyDeployEnv'] = $request->verifyDeployEnv;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'FraudResultCallBack',
@@ -1456,15 +1226,11 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 防伪回调接口.
+     * @summary 防伪回调接口
+     *  *
+     * @param FraudResultCallBackRequest $request FraudResultCallBackRequest
      *
-     * @param Request - FraudResultCallBackRequest
-     *
-     * @returns FraudResultCallBackResponse
-     *
-     * @param FraudResultCallBackRequest $request
-     *
-     * @return FraudResultCallBackResponse
+     * @return FraudResultCallBackResponse FraudResultCallBackResponse
      */
     public function fraudResultCallBack($request)
     {
@@ -1474,60 +1240,46 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 身份二要素有效期核验.
+     * @summary 身份二要素有效期核验
+     *  *
+     * @param Id2MetaPeriodVerifyIntlRequest $request Id2MetaPeriodVerifyIntlRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - Id2MetaPeriodVerifyIntlRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns Id2MetaPeriodVerifyIntlResponse
-     *
-     * @param Id2MetaPeriodVerifyIntlRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return Id2MetaPeriodVerifyIntlResponse
+     * @return Id2MetaPeriodVerifyIntlResponse Id2MetaPeriodVerifyIntlResponse
      */
     public function id2MetaPeriodVerifyIntlWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->docName) {
-            @$body['DocName'] = $request->docName;
+        if (!Utils::isUnset($request->docName)) {
+            $body['DocName'] = $request->docName;
         }
-
-        if (null !== $request->docNo) {
-            @$body['DocNo'] = $request->docNo;
+        if (!Utils::isUnset($request->docNo)) {
+            $body['DocNo'] = $request->docNo;
         }
-
-        if (null !== $request->docType) {
-            @$body['DocType'] = $request->docType;
+        if (!Utils::isUnset($request->docType)) {
+            $body['DocType'] = $request->docType;
         }
-
-        if (null !== $request->merchantBizId) {
-            @$body['MerchantBizId'] = $request->merchantBizId;
+        if (!Utils::isUnset($request->merchantBizId)) {
+            $body['MerchantBizId'] = $request->merchantBizId;
         }
-
-        if (null !== $request->merchantUserId) {
-            @$body['MerchantUserId'] = $request->merchantUserId;
+        if (!Utils::isUnset($request->merchantUserId)) {
+            $body['MerchantUserId'] = $request->merchantUserId;
         }
-
-        if (null !== $request->productCode) {
-            @$body['ProductCode'] = $request->productCode;
+        if (!Utils::isUnset($request->productCode)) {
+            $body['ProductCode'] = $request->productCode;
         }
-
-        if (null !== $request->sceneCode) {
-            @$body['SceneCode'] = $request->sceneCode;
+        if (!Utils::isUnset($request->sceneCode)) {
+            $body['SceneCode'] = $request->sceneCode;
         }
-
-        if (null !== $request->validityEndDate) {
-            @$body['ValidityEndDate'] = $request->validityEndDate;
+        if (!Utils::isUnset($request->validityEndDate)) {
+            $body['ValidityEndDate'] = $request->validityEndDate;
         }
-
-        if (null !== $request->validityStartDate) {
-            @$body['ValidityStartDate'] = $request->validityStartDate;
+        if (!Utils::isUnset($request->validityStartDate)) {
+            $body['ValidityStartDate'] = $request->validityStartDate;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'Id2MetaPeriodVerifyIntl',
@@ -1545,15 +1297,11 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 身份二要素有效期核验.
+     * @summary 身份二要素有效期核验
+     *  *
+     * @param Id2MetaPeriodVerifyIntlRequest $request Id2MetaPeriodVerifyIntlRequest
      *
-     * @param Request - Id2MetaPeriodVerifyIntlRequest
-     *
-     * @returns Id2MetaPeriodVerifyIntlResponse
-     *
-     * @param Id2MetaPeriodVerifyIntlRequest $request
-     *
-     * @return Id2MetaPeriodVerifyIntlResponse
+     * @return Id2MetaPeriodVerifyIntlResponse Id2MetaPeriodVerifyIntlResponse
      */
     public function id2MetaPeriodVerifyIntl($request)
     {
@@ -1563,40 +1311,31 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 身份二要素国际版接口.
+     * @summary 身份二要素国际版接口
+     *  *
+     * @param Id2MetaVerifyIntlRequest $request Id2MetaVerifyIntlRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - Id2MetaVerifyIntlRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns Id2MetaVerifyIntlResponse
-     *
-     * @param Id2MetaVerifyIntlRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return Id2MetaVerifyIntlResponse
+     * @return Id2MetaVerifyIntlResponse Id2MetaVerifyIntlResponse
      */
     public function id2MetaVerifyIntlWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->identifyNum) {
-            @$query['IdentifyNum'] = $request->identifyNum;
+        if (!Utils::isUnset($request->identifyNum)) {
+            $query['IdentifyNum'] = $request->identifyNum;
         }
-
-        if (null !== $request->paramType) {
-            @$query['ParamType'] = $request->paramType;
+        if (!Utils::isUnset($request->paramType)) {
+            $query['ParamType'] = $request->paramType;
         }
-
-        if (null !== $request->productCode) {
-            @$query['ProductCode'] = $request->productCode;
+        if (!Utils::isUnset($request->productCode)) {
+            $query['ProductCode'] = $request->productCode;
         }
-
-        if (null !== $request->userName) {
-            @$query['UserName'] = $request->userName;
+        if (!Utils::isUnset($request->userName)) {
+            $query['UserName'] = $request->userName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'Id2MetaVerifyIntl',
@@ -1614,15 +1353,11 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 身份二要素国际版接口.
+     * @summary 身份二要素国际版接口
+     *  *
+     * @param Id2MetaVerifyIntlRequest $request Id2MetaVerifyIntlRequest
      *
-     * @param Request - Id2MetaVerifyIntlRequest
-     *
-     * @returns Id2MetaVerifyIntlResponse
-     *
-     * @param Id2MetaVerifyIntlRequest $request
-     *
-     * @return Id2MetaVerifyIntlResponse
+     * @return Id2MetaVerifyIntlResponse Id2MetaVerifyIntlResponse
      */
     public function id2MetaVerifyIntl($request)
     {
@@ -1632,192 +1367,146 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 认证初始化.
+     * @summary 认证初始化
+     *  *
+     * @param InitializeRequest $tmpReq  InitializeRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - InitializeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns InitializeResponse
-     *
-     * @param InitializeRequest $tmpReq
-     * @param RuntimeOptions    $runtime
-     *
-     * @return InitializeResponse
+     * @return InitializeResponse InitializeResponse
      */
     public function initializeWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new InitializeShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->docPageConfig) {
-            $request->docPageConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->docPageConfig, 'DocPageConfig', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->docPageConfig)) {
+            $request->docPageConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->docPageConfig, 'DocPageConfig', 'json');
         }
-
         $query = [];
-        if (null !== $request->appQualityCheck) {
-            @$query['AppQualityCheck'] = $request->appQualityCheck;
+        if (!Utils::isUnset($request->appQualityCheck)) {
+            $query['AppQualityCheck'] = $request->appQualityCheck;
         }
-
-        if (null !== $request->authorize) {
-            @$query['Authorize'] = $request->authorize;
+        if (!Utils::isUnset($request->authorize)) {
+            $query['Authorize'] = $request->authorize;
         }
-
-        if (null !== $request->callbackToken) {
-            @$query['CallbackToken'] = $request->callbackToken;
+        if (!Utils::isUnset($request->callbackToken)) {
+            $query['CallbackToken'] = $request->callbackToken;
         }
-
-        if (null !== $request->callbackUrl) {
-            @$query['CallbackUrl'] = $request->callbackUrl;
+        if (!Utils::isUnset($request->callbackUrl)) {
+            $query['CallbackUrl'] = $request->callbackUrl;
         }
-
-        if (null !== $request->chameleonFrameEnable) {
-            @$query['ChameleonFrameEnable'] = $request->chameleonFrameEnable;
+        if (!Utils::isUnset($request->chameleonFrameEnable)) {
+            $query['ChameleonFrameEnable'] = $request->chameleonFrameEnable;
         }
-
-        if (null !== $request->crop) {
-            @$query['Crop'] = $request->crop;
+        if (!Utils::isUnset($request->crop)) {
+            $query['Crop'] = $request->crop;
         }
-
-        if (null !== $request->dateOfBirth) {
-            @$query['DateOfBirth'] = $request->dateOfBirth;
+        if (!Utils::isUnset($request->dateOfBirth)) {
+            $query['DateOfBirth'] = $request->dateOfBirth;
         }
-
-        if (null !== $request->dateOfExpiry) {
-            @$query['DateOfExpiry'] = $request->dateOfExpiry;
+        if (!Utils::isUnset($request->dateOfExpiry)) {
+            $query['DateOfExpiry'] = $request->dateOfExpiry;
         }
-
-        if (null !== $request->docName) {
-            @$query['DocName'] = $request->docName;
+        if (!Utils::isUnset($request->docName)) {
+            $query['DocName'] = $request->docName;
         }
-
-        if (null !== $request->docNo) {
-            @$query['DocNo'] = $request->docNo;
+        if (!Utils::isUnset($request->docNo)) {
+            $query['DocNo'] = $request->docNo;
         }
-
-        if (null !== $request->docPageConfigShrink) {
-            @$query['DocPageConfig'] = $request->docPageConfigShrink;
+        if (!Utils::isUnset($request->docPageConfigShrink)) {
+            $query['DocPageConfig'] = $request->docPageConfigShrink;
         }
-
-        if (null !== $request->docScanMode) {
-            @$query['DocScanMode'] = $request->docScanMode;
+        if (!Utils::isUnset($request->docScanMode)) {
+            $query['DocScanMode'] = $request->docScanMode;
         }
-
-        if (null !== $request->docType) {
-            @$query['DocType'] = $request->docType;
+        if (!Utils::isUnset($request->docType)) {
+            $query['DocType'] = $request->docType;
         }
-
-        if (null !== $request->docVideo) {
-            @$query['DocVideo'] = $request->docVideo;
+        if (!Utils::isUnset($request->docVideo)) {
+            $query['DocVideo'] = $request->docVideo;
         }
-
-        if (null !== $request->documentNumber) {
-            @$query['DocumentNumber'] = $request->documentNumber;
+        if (!Utils::isUnset($request->documentNumber)) {
+            $query['DocumentNumber'] = $request->documentNumber;
         }
-
-        if (null !== $request->experienceCode) {
-            @$query['ExperienceCode'] = $request->experienceCode;
+        if (!Utils::isUnset($request->experienceCode)) {
+            $query['ExperienceCode'] = $request->experienceCode;
         }
-
-        if (null !== $request->facePictureUrl) {
-            @$query['FacePictureUrl'] = $request->facePictureUrl;
+        if (!Utils::isUnset($request->facePictureUrl)) {
+            $query['FacePictureUrl'] = $request->facePictureUrl;
         }
-
-        if (null !== $request->idFaceQuality) {
-            @$query['IdFaceQuality'] = $request->idFaceQuality;
+        if (!Utils::isUnset($request->idFaceQuality)) {
+            $query['IdFaceQuality'] = $request->idFaceQuality;
         }
-
-        if (null !== $request->idSpoof) {
-            @$query['IdSpoof'] = $request->idSpoof;
+        if (!Utils::isUnset($request->idSpoof)) {
+            $query['IdSpoof'] = $request->idSpoof;
         }
-
-        if (null !== $request->idThreshold) {
-            @$query['IdThreshold'] = $request->idThreshold;
+        if (!Utils::isUnset($request->idThreshold)) {
+            $query['IdThreshold'] = $request->idThreshold;
         }
-
-        if (null !== $request->languageConfig) {
-            @$query['LanguageConfig'] = $request->languageConfig;
+        if (!Utils::isUnset($request->languageConfig)) {
+            $query['LanguageConfig'] = $request->languageConfig;
         }
-
-        if (null !== $request->MRTDInput) {
-            @$query['MRTDInput'] = $request->MRTDInput;
+        if (!Utils::isUnset($request->MRTDInput)) {
+            $query['MRTDInput'] = $request->MRTDInput;
         }
-
-        if (null !== $request->merchantBizId) {
-            @$query['MerchantBizId'] = $request->merchantBizId;
+        if (!Utils::isUnset($request->merchantBizId)) {
+            $query['MerchantBizId'] = $request->merchantBizId;
         }
-
-        if (null !== $request->merchantUserId) {
-            @$query['MerchantUserId'] = $request->merchantUserId;
+        if (!Utils::isUnset($request->merchantUserId)) {
+            $query['MerchantUserId'] = $request->merchantUserId;
         }
-
-        if (null !== $request->metaInfo) {
-            @$query['MetaInfo'] = $request->metaInfo;
+        if (!Utils::isUnset($request->metaInfo)) {
+            $query['MetaInfo'] = $request->metaInfo;
         }
-
-        if (null !== $request->model) {
-            @$query['Model'] = $request->model;
+        if (!Utils::isUnset($request->model)) {
+            $query['Model'] = $request->model;
         }
-
-        if (null !== $request->ocr) {
-            @$query['Ocr'] = $request->ocr;
+        if (!Utils::isUnset($request->ocr)) {
+            $query['Ocr'] = $request->ocr;
         }
-
-        if (null !== $request->pages) {
-            @$query['Pages'] = $request->pages;
+        if (!Utils::isUnset($request->pages)) {
+            $query['Pages'] = $request->pages;
         }
-
-        if (null !== $request->procedurePriority) {
-            @$query['ProcedurePriority'] = $request->procedurePriority;
+        if (!Utils::isUnset($request->procedurePriority)) {
+            $query['ProcedurePriority'] = $request->procedurePriority;
         }
-
-        if (null !== $request->productCode) {
-            @$query['ProductCode'] = $request->productCode;
+        if (!Utils::isUnset($request->productCode)) {
+            $query['ProductCode'] = $request->productCode;
         }
-
-        if (null !== $request->productFlow) {
-            @$query['ProductFlow'] = $request->productFlow;
+        if (!Utils::isUnset($request->productFlow)) {
+            $query['ProductFlow'] = $request->productFlow;
         }
-
-        if (null !== $request->returnUrl) {
-            @$query['ReturnUrl'] = $request->returnUrl;
+        if (!Utils::isUnset($request->returnUrl)) {
+            $query['ReturnUrl'] = $request->returnUrl;
         }
-
-        if (null !== $request->sceneCode) {
-            @$query['SceneCode'] = $request->sceneCode;
+        if (!Utils::isUnset($request->sceneCode)) {
+            $query['SceneCode'] = $request->sceneCode;
         }
-
-        if (null !== $request->securityLevel) {
-            @$query['SecurityLevel'] = $request->securityLevel;
+        if (!Utils::isUnset($request->securityLevel)) {
+            $query['SecurityLevel'] = $request->securityLevel;
         }
-
-        if (null !== $request->showAlbumIcon) {
-            @$query['ShowAlbumIcon'] = $request->showAlbumIcon;
+        if (!Utils::isUnset($request->showAlbumIcon)) {
+            $query['ShowAlbumIcon'] = $request->showAlbumIcon;
         }
-
-        if (null !== $request->showGuidePage) {
-            @$query['ShowGuidePage'] = $request->showGuidePage;
+        if (!Utils::isUnset($request->showGuidePage)) {
+            $query['ShowGuidePage'] = $request->showGuidePage;
         }
-
-        if (null !== $request->showOcrResult) {
-            @$query['ShowOcrResult'] = $request->showOcrResult;
+        if (!Utils::isUnset($request->showOcrResult)) {
+            $query['ShowOcrResult'] = $request->showOcrResult;
         }
-
-        if (null !== $request->styleConfig) {
-            @$query['StyleConfig'] = $request->styleConfig;
+        if (!Utils::isUnset($request->styleConfig)) {
+            $query['StyleConfig'] = $request->styleConfig;
         }
-
-        if (null !== $request->useNFC) {
-            @$query['UseNFC'] = $request->useNFC;
+        if (!Utils::isUnset($request->useNFC)) {
+            $query['UseNFC'] = $request->useNFC;
         }
-
         $body = [];
-        if (null !== $request->facePictureBase64) {
-            @$body['FacePictureBase64'] = $request->facePictureBase64;
+        if (!Utils::isUnset($request->facePictureBase64)) {
+            $body['FacePictureBase64'] = $request->facePictureBase64;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'Initialize',
@@ -1835,15 +1524,11 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 认证初始化.
+     * @summary 认证初始化
+     *  *
+     * @param InitializeRequest $request InitializeRequest
      *
-     * @param Request - InitializeRequest
-     *
-     * @returns InitializeResponse
-     *
-     * @param InitializeRequest $request
-     *
-     * @return InitializeResponse
+     * @return InitializeResponse InitializeResponse
      */
     public function initialize($request)
     {
@@ -1853,16 +1538,11 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 客户端连接保持
+     * @summary 客户端连接保持
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - KeepaliveIntlRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns KeepaliveIntlResponse
-     *
-     * @param RuntimeOptions $runtime
-     *
-     * @return KeepaliveIntlResponse
+     * @return KeepaliveIntlResponse KeepaliveIntlResponse
      */
     public function keepaliveIntlWithOptions($runtime)
     {
@@ -1883,11 +1563,9 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 客户端连接保持
-     *
-     * @returns KeepaliveIntlResponse
-     *
-     * @return KeepaliveIntlResponse
+     * @summary 客户端连接保持
+     *  *
+     * @return KeepaliveIntlResponse KeepaliveIntlResponse
      */
     public function keepaliveIntl()
     {
@@ -1897,44 +1575,34 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 手机号三要素国际版接口.
+     * @summary 手机号三要素国际版接口
+     *  *
+     * @param Mobile3MetaVerifyIntlRequest $request Mobile3MetaVerifyIntlRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - Mobile3MetaVerifyIntlRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns Mobile3MetaVerifyIntlResponse
-     *
-     * @param Mobile3MetaVerifyIntlRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return Mobile3MetaVerifyIntlResponse
+     * @return Mobile3MetaVerifyIntlResponse Mobile3MetaVerifyIntlResponse
      */
     public function mobile3MetaVerifyIntlWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->identifyNum) {
-            @$query['IdentifyNum'] = $request->identifyNum;
+        if (!Utils::isUnset($request->identifyNum)) {
+            $query['IdentifyNum'] = $request->identifyNum;
         }
-
-        if (null !== $request->mobile) {
-            @$query['Mobile'] = $request->mobile;
+        if (!Utils::isUnset($request->mobile)) {
+            $query['Mobile'] = $request->mobile;
         }
-
-        if (null !== $request->paramType) {
-            @$query['ParamType'] = $request->paramType;
+        if (!Utils::isUnset($request->paramType)) {
+            $query['ParamType'] = $request->paramType;
         }
-
-        if (null !== $request->productCode) {
-            @$query['ProductCode'] = $request->productCode;
+        if (!Utils::isUnset($request->productCode)) {
+            $query['ProductCode'] = $request->productCode;
         }
-
-        if (null !== $request->userName) {
-            @$query['UserName'] = $request->userName;
+        if (!Utils::isUnset($request->userName)) {
+            $query['UserName'] = $request->userName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'Mobile3MetaVerifyIntl',
@@ -1952,15 +1620,11 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 手机号三要素国际版接口.
+     * @summary 手机号三要素国际版接口
+     *  *
+     * @param Mobile3MetaVerifyIntlRequest $request Mobile3MetaVerifyIntlRequest
      *
-     * @param Request - Mobile3MetaVerifyIntlRequest
-     *
-     * @returns Mobile3MetaVerifyIntlResponse
-     *
-     * @param Mobile3MetaVerifyIntlRequest $request
-     *
-     * @return Mobile3MetaVerifyIntlResponse
+     * @return Mobile3MetaVerifyIntlResponse Mobile3MetaVerifyIntlResponse
      */
     public function mobile3MetaVerifyIntl($request)
     {

@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\Id2MetaVerifyIntlResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class result extends Model
 {
     /**
+     * @example 1
+     *
      * @var string
      */
     public $bizCode;
@@ -16,12 +18,9 @@ class result extends Model
         'bizCode' => 'BizCode',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->bizCode) {
@@ -31,11 +30,11 @@ class result extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return result
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
