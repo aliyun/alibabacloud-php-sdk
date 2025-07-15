@@ -17,6 +17,11 @@ class executors extends Model
     public $arrayIndex;
 
     /**
+     * @var int
+     */
+    public $blockDuration;
+
+    /**
      * @example 2024-02-20 10:04:10
      *
      * @var string
@@ -56,6 +61,11 @@ class executors extends Model
     public $ipAddress;
 
     /**
+     * @var bool
+     */
+    public $preemptible;
+
+    /**
      * @var string
      */
     public $startTime;
@@ -80,6 +90,7 @@ class executors extends Model
     public $tags;
     protected $_name = [
         'arrayIndex' => 'ArrayIndex',
+        'blockDuration' => 'BlockDuration',
         'createTime' => 'CreateTime',
         'endTime' => 'EndTime',
         'executorId' => 'ExecutorId',
@@ -87,6 +98,7 @@ class executors extends Model
         'externalIpAddress' => 'ExternalIpAddress',
         'hostName' => 'HostName',
         'ipAddress' => 'IpAddress',
+        'preemptible' => 'Preemptible',
         'startTime' => 'StartTime',
         'status' => 'Status',
         'statusReason' => 'StatusReason',
@@ -100,6 +112,9 @@ class executors extends Model
         $res = [];
         if (null !== $this->arrayIndex) {
             $res['ArrayIndex'] = $this->arrayIndex;
+        }
+        if (null !== $this->blockDuration) {
+            $res['BlockDuration'] = $this->blockDuration;
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
@@ -121,6 +136,9 @@ class executors extends Model
         }
         if (null !== $this->ipAddress) {
             $res['IpAddress'] = $this->ipAddress;
+        }
+        if (null !== $this->preemptible) {
+            $res['Preemptible'] = $this->preemptible;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -155,6 +173,9 @@ class executors extends Model
         if (isset($map['ArrayIndex'])) {
             $model->arrayIndex = $map['ArrayIndex'];
         }
+        if (isset($map['BlockDuration'])) {
+            $model->blockDuration = $map['BlockDuration'];
+        }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
@@ -181,6 +202,9 @@ class executors extends Model
             if (!empty($map['IpAddress'])) {
                 $model->ipAddress = $map['IpAddress'];
             }
+        }
+        if (isset($map['Preemptible'])) {
+            $model->preemptible = $map['Preemptible'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

@@ -23,6 +23,11 @@ class executors extends Model
     public $arrayIndex;
 
     /**
+     * @var int
+     */
+    public $blockDuration;
+
+    /**
      * @example 2024-02-20 10:04:10
      *
      * @var string
@@ -83,6 +88,11 @@ class executors extends Model
     public $jobName;
 
     /**
+     * @var bool
+     */
+    public $preemptible;
+
+    /**
      * @var resource
      */
     public $resource;
@@ -135,6 +145,7 @@ class executors extends Model
     protected $_name = [
         'appName' => 'AppName',
         'arrayIndex' => 'ArrayIndex',
+        'blockDuration' => 'BlockDuration',
         'createTime' => 'CreateTime',
         'endTime' => 'EndTime',
         'executorId' => 'ExecutorId',
@@ -145,6 +156,7 @@ class executors extends Model
         'ipAddress' => 'IpAddress',
         'jobId' => 'JobId',
         'jobName' => 'JobName',
+        'preemptible' => 'Preemptible',
         'resource' => 'Resource',
         'resourceType' => 'ResourceType',
         'startTime' => 'StartTime',
@@ -166,6 +178,9 @@ class executors extends Model
         }
         if (null !== $this->arrayIndex) {
             $res['ArrayIndex'] = $this->arrayIndex;
+        }
+        if (null !== $this->blockDuration) {
+            $res['BlockDuration'] = $this->blockDuration;
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
@@ -196,6 +211,9 @@ class executors extends Model
         }
         if (null !== $this->jobName) {
             $res['JobName'] = $this->jobName;
+        }
+        if (null !== $this->preemptible) {
+            $res['Preemptible'] = $this->preemptible;
         }
         if (null !== $this->resource) {
             $res['Resource'] = null !== $this->resource ? $this->resource->toMap() : null;
@@ -248,6 +266,9 @@ class executors extends Model
         if (isset($map['ArrayIndex'])) {
             $model->arrayIndex = $map['ArrayIndex'];
         }
+        if (isset($map['BlockDuration'])) {
+            $model->blockDuration = $map['BlockDuration'];
+        }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
@@ -283,6 +304,9 @@ class executors extends Model
         }
         if (isset($map['JobName'])) {
             $model->jobName = $map['JobName'];
+        }
+        if (isset($map['Preemptible'])) {
+            $model->preemptible = $map['Preemptible'];
         }
         if (isset($map['Resource'])) {
             $model->resource = resource::fromMap($map['Resource']);
