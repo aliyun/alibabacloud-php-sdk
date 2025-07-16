@@ -4,16 +4,22 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnRegionAndIspResponseBody\regions;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class region extends Model
 {
     /**
+     * @description The English name of the region.
+     *
+     * @example liaoning
+     *
      * @var string
      */
     public $nameEn;
 
     /**
+     * @description The Chinese name of the region.
+     *
      * @var string
      */
     public $nameZh;
@@ -22,18 +28,14 @@ class region extends Model
         'nameZh' => 'NameZh',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->nameEn) {
             $res['NameEn'] = $this->nameEn;
         }
-
         if (null !== $this->nameZh) {
             $res['NameZh'] = $this->nameZh;
         }
@@ -41,18 +43,17 @@ class region extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return region
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NameEn'])) {
             $model->nameEn = $map['NameEn'];
         }
-
         if (isset($map['NameZh'])) {
             $model->nameZh = $map['NameZh'];
         }

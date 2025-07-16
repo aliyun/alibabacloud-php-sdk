@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models\ListUserCustomLogConfigResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class configIds extends Model
 {
@@ -16,47 +16,29 @@ class configIds extends Model
         'configId' => 'ConfigId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->configId)) {
-            Model::validateArray($this->configId);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->configId) {
-            if (\is_array($this->configId)) {
-                $res['ConfigId'] = [];
-                $n1 = 0;
-                foreach ($this->configId as $item1) {
-                    $res['ConfigId'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['ConfigId'] = $this->configId;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return configIds
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConfigId'])) {
             if (!empty($map['ConfigId'])) {
-                $model->configId = [];
-                $n1 = 0;
-                foreach ($map['ConfigId'] as $item1) {
-                    $model->configId[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->configId = $map['ConfigId'];
             }
         }
 

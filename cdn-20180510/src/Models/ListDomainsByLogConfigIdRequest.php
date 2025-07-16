@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListDomainsByLogConfigIdRequest extends Model
 {
     /**
+     * @description The ID of the custom configuration.
+     *
+     * This parameter is required.
+     *
+     * @example 123
+     *
      * @var string
      */
     public $configId;
@@ -16,12 +22,9 @@ class ListDomainsByLogConfigIdRequest extends Model
         'configId' => 'ConfigId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->configId) {
@@ -31,11 +34,11 @@ class ListDomainsByLogConfigIdRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListDomainsByLogConfigIdRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

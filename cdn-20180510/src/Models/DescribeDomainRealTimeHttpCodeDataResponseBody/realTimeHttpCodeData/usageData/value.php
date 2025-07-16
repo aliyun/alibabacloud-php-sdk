@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainRealTimeHttpCodeDataResponseBody\realTimeHttpCodeData\usageData;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainRealTimeHttpCodeDataResponseBody\realTimeHttpCodeData\usageData\value\realTimeCodeProportionData;
+use AlibabaCloud\Tea\Model;
 
 class value extends Model
 {
@@ -17,24 +17,17 @@ class value extends Model
         'realTimeCodeProportionData' => 'RealTimeCodeProportionData',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->realTimeCodeProportionData)) {
-            Model::validateArray($this->realTimeCodeProportionData);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->realTimeCodeProportionData) {
-            if (\is_array($this->realTimeCodeProportionData)) {
-                $res['RealTimeCodeProportionData'] = [];
-                $n1 = 0;
-                foreach ($this->realTimeCodeProportionData as $item1) {
-                    $res['RealTimeCodeProportionData'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['RealTimeCodeProportionData'] = [];
+            if (null !== $this->realTimeCodeProportionData && \is_array($this->realTimeCodeProportionData)) {
+                $n = 0;
+                foreach ($this->realTimeCodeProportionData as $item) {
+                    $res['RealTimeCodeProportionData'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -42,21 +35,20 @@ class value extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return value
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RealTimeCodeProportionData'])) {
             if (!empty($map['RealTimeCodeProportionData'])) {
                 $model->realTimeCodeProportionData = [];
-                $n1 = 0;
-                foreach ($map['RealTimeCodeProportionData'] as $item1) {
-                    $model->realTimeCodeProportionData[$n1] = realTimeCodeProportionData::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['RealTimeCodeProportionData'] as $item) {
+                    $model->realTimeCodeProportionData[$n++] = null !== $item ? realTimeCodeProportionData::fromMap($item) : $item;
                 }
             }
         }

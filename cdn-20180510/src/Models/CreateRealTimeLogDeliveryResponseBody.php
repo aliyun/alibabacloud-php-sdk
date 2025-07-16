@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateRealTimeLogDeliveryResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example F32C57AA-7BF8-49AE-A2CC-9F42390F5A19
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class CreateRealTimeLogDeliveryResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class CreateRealTimeLogDeliveryResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateRealTimeLogDeliveryResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

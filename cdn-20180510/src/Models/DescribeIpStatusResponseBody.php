@@ -4,17 +4,23 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeIpStatusResponseBody\ipStatus;
+use AlibabaCloud\Tea\Model;
 
 class DescribeIpStatusResponseBody extends Model
 {
     /**
+     * @description The status of the IP addresses of the POPs.
+     *
      * @var ipStatus[]
      */
     public $ipStatus;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example F61CDR30-E83C-4FDA-BF73-9A94CDD44229
+     *
      * @var string
      */
     public $requestId;
@@ -23,28 +29,20 @@ class DescribeIpStatusResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->ipStatus)) {
-            Model::validateArray($this->ipStatus);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->ipStatus) {
-            if (\is_array($this->ipStatus)) {
-                $res['IpStatus'] = [];
-                $n1 = 0;
-                foreach ($this->ipStatus as $item1) {
-                    $res['IpStatus'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['IpStatus'] = [];
+            if (null !== $this->ipStatus && \is_array($this->ipStatus)) {
+                $n = 0;
+                foreach ($this->ipStatus as $item) {
+                    $res['IpStatus'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,25 +50,23 @@ class DescribeIpStatusResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeIpStatusResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IpStatus'])) {
             if (!empty($map['IpStatus'])) {
                 $model->ipStatus = [];
-                $n1 = 0;
-                foreach ($map['IpStatus'] as $item1) {
-                    $model->ipStatus[$n1] = ipStatus::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['IpStatus'] as $item) {
+                    $model->ipStatus[$n++] = null !== $item ? ipStatus::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,27 +4,41 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainBpsDataByTimeStampResponseBody\bpsDataList;
+use AlibabaCloud\Tea\Model;
 
 class DescribeDomainBpsDataByTimeStampResponseBody extends Model
 {
     /**
+     * @description A list of bandwidth values by ISP and region.
+     *
      * @var bpsDataList
      */
     public $bpsDataList;
 
     /**
+     * @description The accelerated domain name.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 16A96B9A-F203-4EC5-8E43-CB92E68F4CD8
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The point in time.
+     *
+     * @example 2019-11-30T05:40:00Z
+     *
      * @var string
      */
     public $timeStamp;
@@ -35,29 +49,20 @@ class DescribeDomainBpsDataByTimeStampResponseBody extends Model
         'timeStamp' => 'TimeStamp',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->bpsDataList) {
-            $this->bpsDataList->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->bpsDataList) {
-            $res['BpsDataList'] = null !== $this->bpsDataList ? $this->bpsDataList->toArray($noStream) : $this->bpsDataList;
+            $res['BpsDataList'] = null !== $this->bpsDataList ? $this->bpsDataList->toMap() : null;
         }
-
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->timeStamp) {
             $res['TimeStamp'] = $this->timeStamp;
         }
@@ -65,26 +70,23 @@ class DescribeDomainBpsDataByTimeStampResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeDomainBpsDataByTimeStampResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BpsDataList'])) {
             $model->bpsDataList = bpsDataList::fromMap($map['BpsDataList']);
         }
-
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['TimeStamp'])) {
             $model->timeStamp = $map['TimeStamp'];
         }

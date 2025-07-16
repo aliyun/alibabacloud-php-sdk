@@ -4,21 +4,33 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainRealTimeHttpCodeDataResponseBody\realTimeHttpCodeData\usageData\value;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class realTimeCodeProportionData extends Model
 {
     /**
+     * @description The HTTP status code returned.
+     *
+     * @example 500
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The total number of entries.
+     *
+     * @example 100
+     *
      * @var string
      */
     public $count;
 
     /**
+     * @description The proportion of the HTTP status code.
+     *
+     * @example 28.4496124031008
+     *
      * @var string
      */
     public $proportion;
@@ -28,22 +40,17 @@ class realTimeCodeProportionData extends Model
         'proportion' => 'Proportion',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
-
         if (null !== $this->proportion) {
             $res['Proportion'] = $this->proportion;
         }
@@ -51,22 +58,20 @@ class realTimeCodeProportionData extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return realTimeCodeProportionData
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }
-
         if (isset($map['Proportion'])) {
             $model->proportion = $map['Proportion'];
         }

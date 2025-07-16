@@ -4,26 +4,46 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainUsageDataResponseBody\usageDataPerInterval;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class dataModule extends Model
 {
     /**
+     * @description The time of the peak bandwidth value if the **Field** parameter in the request is set to **bps**. Otherwise, this parameter returns the same value as the **TimeStamp** parameter.
+     *
+     * @example 2015-12-10T21:30:00Z
+     *
      * @var string
      */
     public $peakTime;
 
     /**
+     * @description The resource usage in a specific scenario.
+     *
+     * > SpecialValue indicates the data usage in a specific scenario. If no special billable item is specified, ignore this parameter.
+     *
+     * @example 423304182
+     *
      * @var string
      */
     public $specialValue;
 
     /**
+     * @description The timestamp of the data returned.
+     *
+     * > **TimeStamp** indicates the timestamp of the data returned at each interval.
+     *
+     * @example 2015-12-10T21:30:00Z
+     *
      * @var string
      */
     public $timeStamp;
 
     /**
+     * @description The amount of resource usage.
+     *
+     * @example 423304182
+     *
      * @var string
      */
     public $value;
@@ -34,26 +54,20 @@ class dataModule extends Model
         'value' => 'Value',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->peakTime) {
             $res['PeakTime'] = $this->peakTime;
         }
-
         if (null !== $this->specialValue) {
             $res['SpecialValue'] = $this->specialValue;
         }
-
         if (null !== $this->timeStamp) {
             $res['TimeStamp'] = $this->timeStamp;
         }
-
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -61,26 +75,23 @@ class dataModule extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return dataModule
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PeakTime'])) {
             $model->peakTime = $map['PeakTime'];
         }
-
         if (isset($map['SpecialValue'])) {
             $model->specialValue = $map['SpecialValue'];
         }
-
         if (isset($map['TimeStamp'])) {
             $model->timeStamp = $map['TimeStamp'];
         }
-
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

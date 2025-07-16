@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeDomainsBySourceRequest extends Model
 {
@@ -19,6 +19,12 @@ class DescribeDomainsBySourceRequest extends Model
     public $securityToken;
 
     /**
+     * @description The origin servers. Separate multiple origin servers with commas (,). Fuzzy match is not supported.
+     *
+     * This parameter is required.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $sources;
@@ -28,22 +34,17 @@ class DescribeDomainsBySourceRequest extends Model
         'sources' => 'Sources',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
-
         if (null !== $this->sources) {
             $res['Sources'] = $this->sources;
         }
@@ -51,22 +52,20 @@ class DescribeDomainsBySourceRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeDomainsBySourceRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }
-
         if (isset($map['Sources'])) {
             $model->sources = $map['Sources'];
         }

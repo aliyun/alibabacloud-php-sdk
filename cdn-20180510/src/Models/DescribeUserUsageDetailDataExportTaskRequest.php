@@ -4,16 +4,26 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeUserUsageDetailDataExportTaskRequest extends Model
 {
     /**
+     * @description The number of the page to return. Valid values: **1** to **100000**.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Default value: **20**. Maximum value: **50**.
+     *
+     * Valid values: an integer from **1** to **50**.
+     *
+     * @example 10
+     *
      * @var string
      */
     public $pageSize;
@@ -22,18 +32,14 @@ class DescribeUserUsageDetailDataExportTaskRequest extends Model
         'pageSize' => 'PageSize',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
-
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -41,18 +47,17 @@ class DescribeUserUsageDetailDataExportTaskRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeUserUsageDetailDataExportTaskRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
-
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }

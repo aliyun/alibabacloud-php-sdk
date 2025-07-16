@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainsUsageByDayResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainsUsageByDayResponseBody\usageByDays\usageByDay;
+use AlibabaCloud\Tea\Model;
 
 class usageByDays extends Model
 {
@@ -17,24 +17,17 @@ class usageByDays extends Model
         'usageByDay' => 'UsageByDay',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->usageByDay)) {
-            Model::validateArray($this->usageByDay);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->usageByDay) {
-            if (\is_array($this->usageByDay)) {
-                $res['UsageByDay'] = [];
-                $n1 = 0;
-                foreach ($this->usageByDay as $item1) {
-                    $res['UsageByDay'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['UsageByDay'] = [];
+            if (null !== $this->usageByDay && \is_array($this->usageByDay)) {
+                $n = 0;
+                foreach ($this->usageByDay as $item) {
+                    $res['UsageByDay'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -42,21 +35,20 @@ class usageByDays extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return usageByDays
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['UsageByDay'])) {
             if (!empty($map['UsageByDay'])) {
                 $model->usageByDay = [];
-                $n1 = 0;
-                foreach ($map['UsageByDay'] as $item1) {
-                    $model->usageByDay[$n1] = usageByDay::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['UsageByDay'] as $item) {
+                    $model->usageByDay[$n++] = null !== $item ? usageByDay::fromMap($item) : $item;
                 }
             }
         }

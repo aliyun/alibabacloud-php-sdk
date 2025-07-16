@@ -4,21 +4,33 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeBlockedRegionsResponseBody\infoList;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class infoItem extends Model
 {
     /**
+     * @description The district to which the country or region belongs.
+     *
+     * @example Asia
+     *
      * @var string
      */
     public $continent;
 
     /**
+     * @description The abbreviation of the name of the country or region.
+     *
+     * @example AF
+     *
      * @var string
      */
     public $countriesAndRegions;
 
     /**
+     * @description The name of the country or region.
+     *
+     * @example Afghanistan
+     *
      * @var string
      */
     public $countriesAndRegionsName;
@@ -28,22 +40,17 @@ class infoItem extends Model
         'countriesAndRegionsName' => 'CountriesAndRegionsName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->continent) {
             $res['Continent'] = $this->continent;
         }
-
         if (null !== $this->countriesAndRegions) {
             $res['CountriesAndRegions'] = $this->countriesAndRegions;
         }
-
         if (null !== $this->countriesAndRegionsName) {
             $res['CountriesAndRegionsName'] = $this->countriesAndRegionsName;
         }
@@ -51,22 +58,20 @@ class infoItem extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return infoItem
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Continent'])) {
             $model->continent = $map['Continent'];
         }
-
         if (isset($map['CountriesAndRegions'])) {
             $model->countriesAndRegions = $map['CountriesAndRegions'];
         }
-
         if (isset($map['CountriesAndRegionsName'])) {
             $model->countriesAndRegionsName = $map['CountriesAndRegionsName'];
         }

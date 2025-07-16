@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteUsageDetailDataExportTaskRequest extends Model
 {
     /**
+     * @description The ID of the task. You can call the [DescribeUserUsageDataExportTask](https://help.aliyun.com/document_detail/91062.html) operation to query tasks.
+     *
+     * This parameter is required.
+     *
+     * @example 10
+     *
      * @var string
      */
     public $taskId;
@@ -16,12 +22,9 @@ class DeleteUsageDetailDataExportTaskRequest extends Model
         'taskId' => 'TaskId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->taskId) {
@@ -31,11 +34,11 @@ class DeleteUsageDetailDataExportTaskRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteUsageDetailDataExportTaskRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

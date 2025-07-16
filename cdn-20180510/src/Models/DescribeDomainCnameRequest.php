@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeDomainCnameRequest extends Model
 {
     /**
+     * @description The accelerated domain name that you want to query. Separate multiple domain names with commas (,). This parameter cannot be left empty.
+     *
+     * This parameter is required.
+     *
+     * @example pay.slci6c.mbolsos.com,mch.b7r2v7.mbolsos.com,p.h99e.mbolsos.com,p.xmko.mbolsos.com,p.f2kd.mbolsos.com
+     *
      * @var string
      */
     public $domainName;
@@ -16,12 +22,9 @@ class DescribeDomainCnameRequest extends Model
         'domainName' => 'DomainName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->domainName) {
@@ -31,11 +34,11 @@ class DescribeDomainCnameRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeDomainCnameRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

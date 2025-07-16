@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CdnMigrateRegisterRequest extends Model
 {
     /**
+     * @description The accelerated domain name for which you want to register the dynamic routing feature. You can specify only one domain name in each request.
+     *
+     * This parameter is required.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
@@ -16,12 +22,9 @@ class CdnMigrateRegisterRequest extends Model
         'domainName' => 'DomainName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->domainName) {
@@ -31,11 +34,11 @@ class CdnMigrateRegisterRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CdnMigrateRegisterRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

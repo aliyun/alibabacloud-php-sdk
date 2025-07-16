@@ -4,16 +4,27 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeDomainVerifyDataResponseBody extends Model
 {
     /**
+     * @description The verification content.
+     *
+     * @example {
+     * "verifiCode": "uy0-DbxL4HBmUtSUXpkXctaSnCAUKhhNH6WKl-JnJY4",
+     * "verifyKey": "_acme-challenge"
+     * }
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example F61CDR30-E83C-4FDA-BF73-9A94CDD44229
+     *
      * @var string
      */
     public $requestId;
@@ -22,18 +33,14 @@ class DescribeDomainVerifyDataResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -41,18 +48,17 @@ class DescribeDomainVerifyDataResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeDomainVerifyDataResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,36 +4,60 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models\ListFCTriggerResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class FCTriggers extends Model
 {
     /**
+     * @description The name of the event.
+     *
+     * @example LogFileCreated
+     *
      * @var string
      */
     public $eventMetaName;
 
     /**
+     * @description The version of the event.
+     *
+     * @example 1.0.0
+     *
      * @var string
      */
     public $eventMetaVersion;
 
     /**
+     * @description The remarks.
+     *
+     * @example Test
+     *
      * @var string
      */
     public $notes;
 
     /**
+     * @description The Resource Access Management (RAM) role.
+     *
+     * @example acs:ram:: 1234567890:role/aliyuncdneventnotificationrole
+     *
      * @var string
      */
     public $roleARN;
 
     /**
+     * @description The resources and filters for event listening.
+     *
+     * @example acs:cdn:*:1234567890:domain/example.com
+     *
      * @var string
      */
     public $sourceArn;
 
     /**
+     * @description The trigger that corresponds to the Function Compute service.
+     *
+     * @example acs:fc:cn-beijing: 1234567890:services/FCTestService/functions/printEvent/triggers/testtrigger
+     *
      * @var string
      */
     public $triggerARN;
@@ -46,34 +70,26 @@ class FCTriggers extends Model
         'triggerARN' => 'TriggerARN',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->eventMetaName) {
             $res['EventMetaName'] = $this->eventMetaName;
         }
-
         if (null !== $this->eventMetaVersion) {
             $res['EventMetaVersion'] = $this->eventMetaVersion;
         }
-
         if (null !== $this->notes) {
             $res['Notes'] = $this->notes;
         }
-
         if (null !== $this->roleARN) {
             $res['RoleARN'] = $this->roleARN;
         }
-
         if (null !== $this->sourceArn) {
             $res['SourceArn'] = $this->sourceArn;
         }
-
         if (null !== $this->triggerARN) {
             $res['TriggerARN'] = $this->triggerARN;
         }
@@ -81,34 +97,29 @@ class FCTriggers extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return FCTriggers
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EventMetaName'])) {
             $model->eventMetaName = $map['EventMetaName'];
         }
-
         if (isset($map['EventMetaVersion'])) {
             $model->eventMetaVersion = $map['EventMetaVersion'];
         }
-
         if (isset($map['Notes'])) {
             $model->notes = $map['Notes'];
         }
-
         if (isset($map['RoleARN'])) {
             $model->roleARN = $map['RoleARN'];
         }
-
         if (isset($map['SourceArn'])) {
             $model->sourceArn = $map['SourceArn'];
         }
-
         if (isset($map['TriggerARN'])) {
             $model->triggerARN = $map['TriggerARN'];
         }

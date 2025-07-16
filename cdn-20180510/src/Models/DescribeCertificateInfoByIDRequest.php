@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeCertificateInfoByIDRequest extends Model
 {
     /**
+     * @description The ID of the certificate. You can query only one certificate in each call.
+     *
+     * This parameter is required.
+     *
+     * @example 1644xx
+     *
      * @var string
      */
     public $certId;
@@ -16,12 +22,9 @@ class DescribeCertificateInfoByIDRequest extends Model
         'certId' => 'CertId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->certId) {
@@ -31,11 +34,11 @@ class DescribeCertificateInfoByIDRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeCertificateInfoByIDRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

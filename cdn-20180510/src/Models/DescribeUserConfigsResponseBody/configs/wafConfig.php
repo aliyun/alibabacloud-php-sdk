@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeUserConfigsResponseBody\configs;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class wafConfig extends Model
 {
     /**
+     * @description Indicates whether WAF is enabled.
+     *
+     * @example on
+     *
      * @var string
      */
     public $enable;
@@ -16,12 +20,9 @@ class wafConfig extends Model
         'enable' => 'Enable',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->enable) {
@@ -31,11 +32,11 @@ class wafConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return wafConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,21 +4,33 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainRealTimeSrcHttpCodeDataResponseBody\realTimeSrcHttpCodeData\usageData\value;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class realTimeSrcCodeProportionData extends Model
 {
     /**
+     * @description The HTTP status code returned.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The count of each HTTP status code.
+     *
+     * @example 100
+     *
      * @var string
      */
     public $count;
 
     /**
+     * @description The proportion of the HTTP status code.
+     *
+     * @example 0.62015503875969
+     *
      * @var string
      */
     public $proportion;
@@ -28,22 +40,17 @@ class realTimeSrcCodeProportionData extends Model
         'proportion' => 'Proportion',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
-
         if (null !== $this->proportion) {
             $res['Proportion'] = $this->proportion;
         }
@@ -51,22 +58,20 @@ class realTimeSrcCodeProportionData extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return realTimeSrcCodeProportionData
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }
-
         if (isset($map['Proportion'])) {
             $model->proportion = $map['Proportion'];
         }

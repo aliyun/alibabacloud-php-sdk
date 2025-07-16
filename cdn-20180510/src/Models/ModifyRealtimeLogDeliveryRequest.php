@@ -4,26 +4,50 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyRealtimeLogDeliveryRequest extends Model
 {
     /**
+     * @description The accelerated domain name for which you want to modify the configurations of real-time log delivery. Only one domain name is supported.
+     *
+     * This parameter is required.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @description The name of the Logstore where log entries are stored.
+     *
+     * This parameter is required.
+     *
+     * @example TestLog
+     *
      * @var string
      */
     public $logstore;
 
     /**
+     * @description The name of the Log Service project that is used for real-time log delivery.
+     *
+     * This parameter is required.
+     *
+     * @example testProject
+     *
      * @var string
      */
     public $project;
 
     /**
+     * @description The ID of the region where the Log Service project is deployed. For more information, see [Regions that support real-time log delivery](https://help.aliyun.com/document_detail/144883.html).
+     *
+     * This parameter is required.
+     *
+     * @example ch-shanghai
+     *
      * @var string
      */
     public $region;
@@ -34,26 +58,20 @@ class ModifyRealtimeLogDeliveryRequest extends Model
         'region' => 'Region',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
-
         if (null !== $this->logstore) {
             $res['Logstore'] = $this->logstore;
         }
-
         if (null !== $this->project) {
             $res['Project'] = $this->project;
         }
-
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
@@ -61,26 +79,23 @@ class ModifyRealtimeLogDeliveryRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyRealtimeLogDeliveryRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
-
         if (isset($map['Logstore'])) {
             $model->logstore = $map['Logstore'];
         }
-
         if (isset($map['Project'])) {
             $model->project = $map['Project'];
         }
-
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }

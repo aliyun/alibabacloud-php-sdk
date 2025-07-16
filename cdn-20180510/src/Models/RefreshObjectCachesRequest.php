@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class RefreshObjectCachesRequest extends Model
 {
@@ -14,6 +14,8 @@ class RefreshObjectCachesRequest extends Model
     public $force;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $objectPath;
@@ -40,30 +42,23 @@ class RefreshObjectCachesRequest extends Model
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->force) {
             $res['Force'] = $this->force;
         }
-
         if (null !== $this->objectPath) {
             $res['ObjectPath'] = $this->objectPath;
         }
-
         if (null !== $this->objectType) {
             $res['ObjectType'] = $this->objectType;
         }
-
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
@@ -71,30 +66,26 @@ class RefreshObjectCachesRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return RefreshObjectCachesRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Force'])) {
             $model->force = $map['Force'];
         }
-
         if (isset($map['ObjectPath'])) {
             $model->objectPath = $map['ObjectPath'];
         }
-
         if (isset($map['ObjectType'])) {
             $model->objectType = $map['ObjectType'];
         }
-
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }

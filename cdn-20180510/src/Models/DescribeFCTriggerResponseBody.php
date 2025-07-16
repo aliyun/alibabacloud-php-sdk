@@ -4,17 +4,23 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeFCTriggerResponseBody\FCTrigger;
+use AlibabaCloud\Tea\Model;
 
 class DescribeFCTriggerResponseBody extends Model
 {
     /**
+     * @description The Function Compute trigger that you want to query.
+     *
      * @var FCTrigger
      */
     public $FCTrigger;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example EC046C5D-8CB4-4B6B-B7F8-B335E51EF90E
+     *
      * @var string
      */
     public $requestId;
@@ -23,21 +29,14 @@ class DescribeFCTriggerResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->FCTrigger) {
-            $this->FCTrigger->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->FCTrigger) {
-            $res['FCTrigger'] = null !== $this->FCTrigger ? $this->FCTrigger->toArray($noStream) : $this->FCTrigger;
+            $res['FCTrigger'] = null !== $this->FCTrigger ? $this->FCTrigger->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,18 +44,17 @@ class DescribeFCTriggerResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeFCTriggerResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FCTrigger'])) {
             $model->FCTrigger = FCTrigger::fromMap($map['FCTrigger']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

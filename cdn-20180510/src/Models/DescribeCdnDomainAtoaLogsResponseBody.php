@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnDomainAtoaLogsResponseBody\domainLogDetails;
+use AlibabaCloud\Tea\Model;
 
 class DescribeCdnDomainAtoaLogsResponseBody extends Model
 {
@@ -23,21 +23,14 @@ class DescribeCdnDomainAtoaLogsResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->domainLogDetails) {
-            $this->domainLogDetails->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->domainLogDetails) {
-            $res['DomainLogDetails'] = null !== $this->domainLogDetails ? $this->domainLogDetails->toArray($noStream) : $this->domainLogDetails;
+            $res['DomainLogDetails'] = null !== $this->domainLogDetails ? $this->domainLogDetails->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,18 +38,17 @@ class DescribeCdnDomainAtoaLogsResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeCdnDomainAtoaLogsResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainLogDetails'])) {
             $model->domainLogDetails = domainLogDetails::fromMap($map['DomainLogDetails']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

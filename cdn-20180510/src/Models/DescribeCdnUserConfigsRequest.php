@@ -4,11 +4,20 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeCdnUserConfigsRequest extends Model
 {
     /**
+     * @description The configuration that you want to query. Valid values:
+     *
+     *   **domain_business_control**: user configurations
+     *   **waf**: Web Application Firewall (WAF) configurations
+     *
+     * This parameter is required.
+     *
+     * @example domain_business_control
+     *
      * @var string
      */
     public $functionName;
@@ -16,12 +25,9 @@ class DescribeCdnUserConfigsRequest extends Model
         'functionName' => 'FunctionName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->functionName) {
@@ -31,11 +37,11 @@ class DescribeCdnUserConfigsRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeCdnUserConfigsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

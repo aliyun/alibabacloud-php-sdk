@@ -4,21 +4,33 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainBpsDataByLayerResponseBody\bpsDataInterval;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class dataModule extends Model
 {
     /**
+     * @description The timestamp of the returned data.
+     *
+     * @example 2020-05-06T07:10:00Z
+     *
      * @var string
      */
     public $timeStamp;
 
     /**
+     * @description The total amount of network traffic. Unit: bytes.
+     *
+     * @example 2838
+     *
      * @var string
      */
     public $trafficValue;
 
     /**
+     * @description The peak bandwidth value. Unit: bit/s.
+     *
+     * @example 75.68
+     *
      * @var string
      */
     public $value;
@@ -28,22 +40,17 @@ class dataModule extends Model
         'value' => 'Value',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->timeStamp) {
             $res['TimeStamp'] = $this->timeStamp;
         }
-
         if (null !== $this->trafficValue) {
             $res['TrafficValue'] = $this->trafficValue;
         }
-
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -51,22 +58,20 @@ class dataModule extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return dataModule
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TimeStamp'])) {
             $model->timeStamp = $map['TimeStamp'];
         }
-
         if (isset($map['TrafficValue'])) {
             $model->trafficValue = $map['TrafficValue'];
         }
-
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

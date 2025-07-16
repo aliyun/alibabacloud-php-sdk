@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeFCTriggerRequest extends Model
 {
     /**
+     * @description The trigger that corresponds to the Function Compute service.
+     *
+     * This parameter is required.
+     *
+     * @example acs:cdn:{RegionID}:{AccountID}:{Filter}
+     *
      * @var string
      */
     public $triggerARN;
@@ -16,12 +22,9 @@ class DescribeFCTriggerRequest extends Model
         'triggerARN' => 'TriggerARN',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->triggerARN) {
@@ -31,11 +34,11 @@ class DescribeFCTriggerRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeFCTriggerRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnTypesResponseBody\cdnTypes;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class cdnType extends Model
 {
     /**
+     * @description The description of the domain name type.
+     *
+     * @example Download Acceleration
+     *
      * @var string
      */
     public $desc;
 
     /**
+     * @description The type of the domain name.
+     *
+     * @example download
+     *
      * @var string
      */
     public $type;
@@ -22,18 +30,14 @@ class cdnType extends Model
         'type' => 'Type',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->desc) {
             $res['Desc'] = $this->desc;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -41,18 +45,17 @@ class cdnType extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return cdnType
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Desc'])) {
             $model->desc = $map['Desc'];
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

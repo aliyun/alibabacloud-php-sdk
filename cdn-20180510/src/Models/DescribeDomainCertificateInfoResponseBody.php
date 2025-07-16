@@ -4,17 +4,23 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainCertificateInfoResponseBody\certInfos;
+use AlibabaCloud\Tea\Model;
 
 class DescribeDomainCertificateInfoResponseBody extends Model
 {
     /**
+     * @description The information about the certificate.
+     *
      * @var certInfos
      */
     public $certInfos;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 5C1E43DC-9E51-4771-82C0-7D5ECEB547A1
+     *
      * @var string
      */
     public $requestId;
@@ -23,21 +29,14 @@ class DescribeDomainCertificateInfoResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->certInfos) {
-            $this->certInfos->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->certInfos) {
-            $res['CertInfos'] = null !== $this->certInfos ? $this->certInfos->toArray($noStream) : $this->certInfos;
+            $res['CertInfos'] = null !== $this->certInfos ? $this->certInfos->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,18 +44,17 @@ class DescribeDomainCertificateInfoResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeDomainCertificateInfoResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CertInfos'])) {
             $model->certInfos = certInfos::fromMap($map['CertInfos']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

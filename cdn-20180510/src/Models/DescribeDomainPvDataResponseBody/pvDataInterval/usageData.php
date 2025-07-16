@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainPvDataResponseBody\pvDataInterval;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class usageData extends Model
 {
     /**
+     * @description The timestamp of the returned data.
+     *
+     * @example 2015-11-28T03:00:00Z
+     *
      * @var string
      */
     public $timeStamp;
 
     /**
+     * @description The number of PVs.
+     *
+     * @example 9292
+     *
      * @var string
      */
     public $value;
@@ -22,18 +30,14 @@ class usageData extends Model
         'value' => 'Value',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->timeStamp) {
             $res['TimeStamp'] = $this->timeStamp;
         }
-
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -41,18 +45,17 @@ class usageData extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return usageData
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TimeStamp'])) {
             $model->timeStamp = $map['TimeStamp'];
         }
-
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

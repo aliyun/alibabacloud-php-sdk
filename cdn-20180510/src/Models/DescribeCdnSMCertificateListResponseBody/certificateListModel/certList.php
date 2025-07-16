@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnSMCertificateListResponseBody\certificateListModel;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnSMCertificateListResponseBody\certificateListModel\certList\cert;
+use AlibabaCloud\Tea\Model;
 
 class certList extends Model
 {
@@ -17,24 +17,17 @@ class certList extends Model
         'cert' => 'Cert',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->cert)) {
-            Model::validateArray($this->cert);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->cert) {
-            if (\is_array($this->cert)) {
-                $res['Cert'] = [];
-                $n1 = 0;
-                foreach ($this->cert as $item1) {
-                    $res['Cert'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Cert'] = [];
+            if (null !== $this->cert && \is_array($this->cert)) {
+                $n = 0;
+                foreach ($this->cert as $item) {
+                    $res['Cert'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -42,21 +35,20 @@ class certList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return certList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Cert'])) {
             if (!empty($map['Cert'])) {
                 $model->cert = [];
-                $n1 = 0;
-                foreach ($map['Cert'] as $item1) {
-                    $model->cert[$n1] = cert::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Cert'] as $item) {
+                    $model->cert[$n++] = null !== $item ? cert::fromMap($item) : $item;
                 }
             }
         }

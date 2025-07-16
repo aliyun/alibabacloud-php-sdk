@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeUserVipsByDomainResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class vips extends Model
 {
@@ -16,47 +16,29 @@ class vips extends Model
         'vip' => 'Vip',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->vip)) {
-            Model::validateArray($this->vip);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->vip) {
-            if (\is_array($this->vip)) {
-                $res['Vip'] = [];
-                $n1 = 0;
-                foreach ($this->vip as $item1) {
-                    $res['Vip'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['Vip'] = $this->vip;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return vips
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Vip'])) {
             if (!empty($map['Vip'])) {
-                $model->vip = [];
-                $n1 = 0;
-                foreach ($map['Vip'] as $item1) {
-                    $model->vip[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->vip = $map['Vip'];
             }
         }
 

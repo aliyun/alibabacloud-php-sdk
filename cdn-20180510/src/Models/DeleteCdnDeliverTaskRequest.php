@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteCdnDeliverTaskRequest extends Model
 {
     /**
+     * @description The ID of the tracking task that you want to delete. You can call the [DescribeCdnDeliverList](https://help.aliyun.com/document_detail/270877.html) operation to query task IDs.
+     *
+     * This parameter is required.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $deliverId;
@@ -16,12 +22,9 @@ class DeleteCdnDeliverTaskRequest extends Model
         'deliverId' => 'DeliverId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->deliverId) {
@@ -31,11 +34,11 @@ class DeleteCdnDeliverTaskRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteCdnDeliverTaskRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

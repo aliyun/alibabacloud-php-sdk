@@ -4,21 +4,33 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeUserConfigsResponseBody\configs;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ossLogConfig extends Model
 {
     /**
+     * @description The name of the bucket.
+     *
+     * @example Buckettest
+     *
      * @var string
      */
     public $bucket;
 
     /**
+     * @description Indicates whether the OSS bucket is enabled.
+     *
+     * @example off
+     *
      * @var string
      */
     public $enable;
 
     /**
+     * @description The prefix.
+     *
+     * @example test
+     *
      * @var string
      */
     public $prefix;
@@ -28,22 +40,17 @@ class ossLogConfig extends Model
         'prefix' => 'Prefix',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->bucket) {
             $res['Bucket'] = $this->bucket;
         }
-
         if (null !== $this->enable) {
             $res['Enable'] = $this->enable;
         }
-
         if (null !== $this->prefix) {
             $res['Prefix'] = $this->prefix;
         }
@@ -51,22 +58,20 @@ class ossLogConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ossLogConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Bucket'])) {
             $model->bucket = $map['Bucket'];
         }
-
         if (isset($map['Enable'])) {
             $model->enable = $map['Enable'];
         }
-
         if (isset($map['Prefix'])) {
             $model->prefix = $map['Prefix'];
         }

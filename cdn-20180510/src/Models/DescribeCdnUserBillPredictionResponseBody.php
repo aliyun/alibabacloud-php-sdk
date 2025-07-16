@@ -4,32 +4,64 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnUserBillPredictionResponseBody\billPredictionData;
+use AlibabaCloud\Tea\Model;
 
 class DescribeCdnUserBillPredictionResponseBody extends Model
 {
     /**
+     * @description The estimated bill data.
+     *
      * @var billPredictionData
      */
     public $billPredictionData;
 
     /**
+     * @description The metering method.
+     *
+     * > If the metering method ends with _overseas, the billable region is outside the Chinese mainland. For example, BillType": "month_avg_day_bandwidth_overseas specifies a billable region outside the Chinese mainland and that the metering method is pay by daily peak bandwidth per month.
+     *
+     * Valid values:
+     *
+     *   hour_flow: pay by hourly data transfer
+     *   day_bandwidth: pay by daily bandwidth
+     *   month_95: pay by monthly 95th percentile bandwidth.
+     *   month_avg_day_bandwidth: pay by average daily peak bandwidth per month
+     *   month_4th_day_bandwidth: pay by monthly 4th peak bandwidth
+     *   month_avg_day_95: pay by average daily 95th percentile bandwidth per month
+     *   month_95_night_half: pay by 95th percentile bandwidth with 50% off from 00:00 to 08:00.
+     *   hour_vas: pay by value-added services per hour
+     *   day_count: pay by daily requests
+     *
+     * @example month_95
+     *
      * @var string
      */
     public $billType;
 
     /**
+     * @description The end time of the estimation.
+     *
+     * @example 2018-10-25T10:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example C370DAF1-C838-4288-A1A0-9A87633D248E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The start time of the estimation.
+     *
+     * @example 2018-09-30T16:00:00Z
+     *
      * @var string
      */
     public $startTime;
@@ -41,33 +73,23 @@ class DescribeCdnUserBillPredictionResponseBody extends Model
         'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->billPredictionData) {
-            $this->billPredictionData->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->billPredictionData) {
-            $res['BillPredictionData'] = null !== $this->billPredictionData ? $this->billPredictionData->toArray($noStream) : $this->billPredictionData;
+            $res['BillPredictionData'] = null !== $this->billPredictionData ? $this->billPredictionData->toMap() : null;
         }
-
         if (null !== $this->billType) {
             $res['BillType'] = $this->billType;
         }
-
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -75,30 +97,26 @@ class DescribeCdnUserBillPredictionResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeCdnUserBillPredictionResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BillPredictionData'])) {
             $model->billPredictionData = billPredictionData::fromMap($map['BillPredictionData']);
         }
-
         if (isset($map['BillType'])) {
             $model->billType = $map['BillType'];
         }
-
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }

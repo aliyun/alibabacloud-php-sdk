@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainsBySourceResponseBody\domainsList\domainsData;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class domains extends Model
 {
@@ -16,47 +16,29 @@ class domains extends Model
         'domainNames' => 'domainNames',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->domainNames)) {
-            Model::validateArray($this->domainNames);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->domainNames) {
-            if (\is_array($this->domainNames)) {
-                $res['domainNames'] = [];
-                $n1 = 0;
-                foreach ($this->domainNames as $item1) {
-                    $res['domainNames'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['domainNames'] = $this->domainNames;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return domains
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['domainNames'])) {
             if (!empty($map['domainNames'])) {
-                $model->domainNames = [];
-                $n1 = 0;
-                foreach ($map['domainNames'] as $item1) {
-                    $model->domainNames[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->domainNames = $map['domainNames'];
             }
         }
 

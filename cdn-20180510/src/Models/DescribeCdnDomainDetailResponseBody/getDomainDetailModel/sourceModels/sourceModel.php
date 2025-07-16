@@ -4,36 +4,65 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnDomainDetailResponseBody\getDomainDetailModel\sourceModels;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class sourceModel extends Model
 {
     /**
+     * @description The address of the origin server.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @description The status.
+     *
+     * @example online
+     *
      * @var string
      */
     public $enabled;
 
     /**
+     * @description The port over which requests are redirected to the origin server. Ports 443 and 80 are supported.
+     *
+     * @example 80
+     *
      * @var int
      */
     public $port;
 
     /**
+     * @description The priority.
+     *
+     * @example 20
+     *
      * @var string
      */
     public $priority;
 
     /**
+     * @description The type of the origin server. Valid values:
+     *
+     *   **ipaddr**: an origin IP address
+     *   **domain**: an origin domain name
+     *   **oss**: the domain name of an Object Storage Service (OSS) bucket
+     *   **fc_domain:** a Function Compute domain name
+     *
+     * @example domain
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The weight of the origin server if multiple origin servers have been specified.
+     *
+     * @example 10
+     *
      * @var string
      */
     public $weight;
@@ -46,34 +75,26 @@ class sourceModel extends Model
         'weight' => 'Weight',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
-
         if (null !== $this->enabled) {
             $res['Enabled'] = $this->enabled;
         }
-
         if (null !== $this->port) {
             $res['Port'] = $this->port;
         }
-
         if (null !== $this->priority) {
             $res['Priority'] = $this->priority;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
-
         if (null !== $this->weight) {
             $res['Weight'] = $this->weight;
         }
@@ -81,34 +102,29 @@ class sourceModel extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return sourceModel
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
-
         if (isset($map['Enabled'])) {
             $model->enabled = $map['Enabled'];
         }
-
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
         }
-
         if (isset($map['Priority'])) {
             $model->priority = $map['Priority'];
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
-
         if (isset($map['Weight'])) {
             $model->weight = $map['Weight'];
         }

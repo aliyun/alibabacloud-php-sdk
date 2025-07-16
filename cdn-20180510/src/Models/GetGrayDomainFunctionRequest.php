@@ -4,16 +4,22 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetGrayDomainFunctionRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example domain_status,https_option
+     *
      * @var string
      */
     public $functionNames;
@@ -22,18 +28,14 @@ class GetGrayDomainFunctionRequest extends Model
         'functionNames' => 'FunctionNames',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
-
         if (null !== $this->functionNames) {
             $res['FunctionNames'] = $this->functionNames;
         }
@@ -41,18 +43,17 @@ class GetGrayDomainFunctionRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetGrayDomainFunctionRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
-
         if (isset($map['FunctionNames'])) {
             $model->functionNames = $map['FunctionNames'];
         }

@@ -4,26 +4,50 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeCdnUserDomainsByFuncRequest extends Model
 {
     /**
+     * @description The ID of the feature.
+     *
+     * For example, the ID of the origin host feature (set_req_host_header) is 18.
+     *
+     * This parameter is required.
+     *
+     * @example 7
+     *
      * @var int
      */
     public $funcId;
 
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
+     * Valid values: **1** to **100000**.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of domain names to return on each page. Default value: **20**.
+     *
+     * Valid values: **1** to **50**.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-xxxxx
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -34,26 +58,20 @@ class DescribeCdnUserDomainsByFuncRequest extends Model
         'resourceGroupId' => 'ResourceGroupId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->funcId) {
             $res['FuncId'] = $this->funcId;
         }
-
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
-
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
@@ -61,26 +79,23 @@ class DescribeCdnUserDomainsByFuncRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeCdnUserDomainsByFuncRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FuncId'])) {
             $model->funcId = $map['FuncId'];
         }
-
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
-
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }

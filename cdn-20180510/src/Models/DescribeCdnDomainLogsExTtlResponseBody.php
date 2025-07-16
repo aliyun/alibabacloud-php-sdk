@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnDomainLogsExTtlResponseBody\domainLogDetails;
+use AlibabaCloud\Tea\Model;
 
 class DescribeCdnDomainLogsExTtlResponseBody extends Model
 {
@@ -15,6 +15,8 @@ class DescribeCdnDomainLogsExTtlResponseBody extends Model
     public $domainLogDetails;
 
     /**
+     * @example 64D28B53-5902-409B-94F6-FD46680144FE
+     *
      * @var string
      */
     public $requestId;
@@ -23,21 +25,14 @@ class DescribeCdnDomainLogsExTtlResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->domainLogDetails) {
-            $this->domainLogDetails->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->domainLogDetails) {
-            $res['DomainLogDetails'] = null !== $this->domainLogDetails ? $this->domainLogDetails->toArray($noStream) : $this->domainLogDetails;
+            $res['DomainLogDetails'] = null !== $this->domainLogDetails ? $this->domainLogDetails->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,18 +40,17 @@ class DescribeCdnDomainLogsExTtlResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeCdnDomainLogsExTtlResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainLogDetails'])) {
             $model->domainLogDetails = domainLogDetails::fromMap($map['DomainLogDetails']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

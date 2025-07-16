@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteRealTimeLogLogstoreResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 9732E117-8A37-49FD-A36F-ABBB87556CA7
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class DeleteRealTimeLogLogstoreResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class DeleteRealTimeLogLogstoreResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteRealTimeLogLogstoreResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

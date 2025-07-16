@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeCdnReportListRequest extends Model
 {
     /**
+     * @description The ID of the operations report that you want to query. If you do not specify an ID, all operations reports are queried.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $reportId;
@@ -16,12 +20,9 @@ class DescribeCdnReportListRequest extends Model
         'reportId' => 'ReportId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->reportId) {
@@ -31,11 +32,11 @@ class DescribeCdnReportListRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeCdnReportListRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

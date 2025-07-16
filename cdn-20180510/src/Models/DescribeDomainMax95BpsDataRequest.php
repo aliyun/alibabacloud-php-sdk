@@ -4,31 +4,64 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeDomainMax95BpsDataRequest extends Model
 {
     /**
+     * @description The cycle to query the 95th percentile bandwidth data. Default value: **day**. Valid values:
+     *
+     *   **day**: queries the 95th percentile bandwidth data by day.
+     *   **month**: queries the 95th percentile bandwidth data by month.
+     *
+     * @example month
+     *
      * @var string
      */
     public $cycle;
 
     /**
+     * @description The accelerated domain name. If you do not specify a domain name, data of all domain names is queried.
+     *
+     * > You cannot specify multiple domain names in a DescribeDomainMax95BpsData request.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The end of the time range to query.
+     *
+     * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
+     * > The end time must be later than the start time.
+     *
+     * @example 2017-12-22T08:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The beginning of the time range to query.
+     *
+     * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
+     * @example 2017-12-21T08:00:00Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The beginning of the time range to query.
+     *
+     * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
+     * @example 2017-12-21T10:00:00Z
+     *
      * @var string
      */
     public $timePoint;
@@ -40,30 +73,23 @@ class DescribeDomainMax95BpsDataRequest extends Model
         'timePoint' => 'TimePoint',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->cycle) {
             $res['Cycle'] = $this->cycle;
         }
-
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
-
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
-
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
-
         if (null !== $this->timePoint) {
             $res['TimePoint'] = $this->timePoint;
         }
@@ -71,30 +97,26 @@ class DescribeDomainMax95BpsDataRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeDomainMax95BpsDataRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Cycle'])) {
             $model->cycle = $map['Cycle'];
         }
-
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
-
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
-
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
-
         if (isset($map['TimePoint'])) {
             $model->timePoint = $map['TimePoint'];
         }

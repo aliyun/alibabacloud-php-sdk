@@ -4,11 +4,24 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeCdnConditionIPBInfoRequest extends Model
 {
     /**
+     * @description The configuration ID. Valid values:
+     *
+     *   condition_region_config_cn
+     *   condition_region_config_en
+     *   condition_isp_config_cn
+     *   condition_isp_config_en
+     *   condition_country_config_cn
+     *   condition_country_config_en
+     *
+     * This parameter is required.
+     *
+     * @example condition_region_config_cn
+     *
      * @var string
      */
     public $dataId;
@@ -16,12 +29,9 @@ class DescribeCdnConditionIPBInfoRequest extends Model
         'dataId' => 'DataId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dataId) {
@@ -31,11 +41,11 @@ class DescribeCdnConditionIPBInfoRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeCdnConditionIPBInfoRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

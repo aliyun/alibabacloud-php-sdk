@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\GetGrayDomainFunctionResponseBody\domainConfigList;
+use AlibabaCloud\Tea\Model;
 
 class GetGrayDomainFunctionResponseBody extends Model
 {
@@ -15,6 +15,8 @@ class GetGrayDomainFunctionResponseBody extends Model
     public $domainConfigList;
 
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
@@ -25,6 +27,8 @@ class GetGrayDomainFunctionResponseBody extends Model
     public $progression;
 
     /**
+     * @example C80705BF-0F76-41FA-BAD1-5B59296A4E59
+     *
      * @var string
      */
     public $requestId;
@@ -41,40 +45,29 @@ class GetGrayDomainFunctionResponseBody extends Model
         'status' => 'Status',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->domainConfigList)) {
-            Model::validateArray($this->domainConfigList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->domainConfigList) {
-            if (\is_array($this->domainConfigList)) {
-                $res['DomainConfigList'] = [];
-                $n1 = 0;
-                foreach ($this->domainConfigList as $item1) {
-                    $res['DomainConfigList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['DomainConfigList'] = [];
+            if (null !== $this->domainConfigList && \is_array($this->domainConfigList)) {
+                $n = 0;
+                foreach ($this->domainConfigList as $item) {
+                    $res['DomainConfigList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
-
         if (null !== $this->progression) {
             $res['Progression'] = $this->progression;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -82,37 +75,32 @@ class GetGrayDomainFunctionResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetGrayDomainFunctionResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainConfigList'])) {
             if (!empty($map['DomainConfigList'])) {
                 $model->domainConfigList = [];
-                $n1 = 0;
-                foreach ($map['DomainConfigList'] as $item1) {
-                    $model->domainConfigList[$n1] = domainConfigList::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['DomainConfigList'] as $item) {
+                    $model->domainConfigList[$n++] = null !== $item ? domainConfigList::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
-
         if (isset($map['Progression'])) {
             $model->progression = $map['Progression'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

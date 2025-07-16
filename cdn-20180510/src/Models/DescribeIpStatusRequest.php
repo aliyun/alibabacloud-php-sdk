@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeIpStatusRequest extends Model
 {
     /**
+     * @description The IP addresses that you want to query. Separate IP addresses with underscores (_), such as Ips=ip1_ip2.
+     *
+     * This parameter is required.
+     *
+     * @example ip1_ip2
+     *
      * @var string
      */
     public $ips;
@@ -16,12 +22,9 @@ class DescribeIpStatusRequest extends Model
         'ips' => 'Ips',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->ips) {
@@ -31,11 +34,11 @@ class DescribeIpStatusRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeIpStatusRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

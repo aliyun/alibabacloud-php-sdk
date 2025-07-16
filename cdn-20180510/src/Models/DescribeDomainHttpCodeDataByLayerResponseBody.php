@@ -4,22 +4,32 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainHttpCodeDataByLayerResponseBody\httpCodeDataInterval;
+use AlibabaCloud\Tea\Model;
 
 class DescribeDomainHttpCodeDataByLayerResponseBody extends Model
 {
     /**
+     * @description The time interval between the data entries returned. Unit: seconds.
+     *
+     * @example 300
+     *
      * @var string
      */
     public $dataInterval;
 
     /**
+     * @description The statistics of HTTP status codes returned at each time interval.
+     *
      * @var httpCodeDataInterval
      */
     public $httpCodeDataInterval;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example BEA5625F-8FCF-48F4-851B-CA63946DA664
+     *
      * @var string
      */
     public $requestId;
@@ -29,25 +39,17 @@ class DescribeDomainHttpCodeDataByLayerResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->httpCodeDataInterval) {
-            $this->httpCodeDataInterval->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dataInterval) {
             $res['DataInterval'] = $this->dataInterval;
         }
-
         if (null !== $this->httpCodeDataInterval) {
-            $res['HttpCodeDataInterval'] = null !== $this->httpCodeDataInterval ? $this->httpCodeDataInterval->toArray($noStream) : $this->httpCodeDataInterval;
+            $res['HttpCodeDataInterval'] = null !== $this->httpCodeDataInterval ? $this->httpCodeDataInterval->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -55,22 +57,20 @@ class DescribeDomainHttpCodeDataByLayerResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeDomainHttpCodeDataByLayerResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DataInterval'])) {
             $model->dataInterval = $map['DataInterval'];
         }
-
         if (isset($map['HttpCodeDataInterval'])) {
             $model->httpCodeDataInterval = httpCodeDataInterval::fromMap($map['HttpCodeDataInterval']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

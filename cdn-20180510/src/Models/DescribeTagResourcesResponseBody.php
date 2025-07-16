@@ -4,17 +4,23 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeTagResourcesResponseBody\tagResources;
+use AlibabaCloud\Tea\Model;
 
 class DescribeTagResourcesResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 34AB41F1-04A5-496F-8C8D-634BDBE6A9FB
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The tags that are attached to the specified resource.
+     *
      * @var tagResources[]
      */
     public $tagResources;
@@ -23,28 +29,20 @@ class DescribeTagResourcesResponseBody extends Model
         'tagResources' => 'TagResources',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->tagResources)) {
-            Model::validateArray($this->tagResources);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->tagResources) {
-            if (\is_array($this->tagResources)) {
-                $res['TagResources'] = [];
-                $n1 = 0;
-                foreach ($this->tagResources as $item1) {
-                    $res['TagResources'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['TagResources'] = [];
+            if (null !== $this->tagResources && \is_array($this->tagResources)) {
+                $n = 0;
+                foreach ($this->tagResources as $item) {
+                    $res['TagResources'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -52,25 +50,23 @@ class DescribeTagResourcesResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeTagResourcesResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['TagResources'])) {
             if (!empty($map['TagResources'])) {
                 $model->tagResources = [];
-                $n1 = 0;
-                foreach ($map['TagResources'] as $item1) {
-                    $model->tagResources[$n1] = tagResources::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['TagResources'] as $item) {
+                    $model->tagResources[$n++] = null !== $item ? tagResources::fromMap($item) : $item;
                 }
             }
         }

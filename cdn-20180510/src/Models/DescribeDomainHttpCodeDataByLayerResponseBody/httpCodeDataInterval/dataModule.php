@@ -4,21 +4,33 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainHttpCodeDataByLayerResponseBody\httpCodeDataInterval;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class dataModule extends Model
 {
     /**
+     * @description The timestamp of the data returned.
+     *
+     * @example 2015-12-10T20:35:00Z
+     *
      * @var string
      */
     public $timeStamp;
 
     /**
+     * @description The total number of times that HTTP status codes were returned.
+     *
+     * @example 110
+     *
      * @var string
      */
     public $totalValue;
 
     /**
+     * @description The number of times that the HTTP status code was returned.
+     *
+     * @example { "200": 10, "206": 100}
+     *
      * @var string
      */
     public $value;
@@ -28,22 +40,17 @@ class dataModule extends Model
         'value' => 'Value',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->timeStamp) {
             $res['TimeStamp'] = $this->timeStamp;
         }
-
         if (null !== $this->totalValue) {
             $res['TotalValue'] = $this->totalValue;
         }
-
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -51,22 +58,20 @@ class dataModule extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return dataModule
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TimeStamp'])) {
             $model->timeStamp = $map['TimeStamp'];
         }
-
         if (isset($map['TotalValue'])) {
             $model->totalValue = $map['TotalValue'];
         }
-
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

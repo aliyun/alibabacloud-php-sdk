@@ -4,17 +4,23 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeBlockedRegionsResponseBody\infoList;
+use AlibabaCloud\Tea\Model;
 
 class DescribeBlockedRegionsResponseBody extends Model
 {
     /**
+     * @description The information returned.
+     *
      * @var infoList
      */
     public $infoList;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example BFFCDFAD-DACC-484E-9BE6-0AF3B3A0DD23
+     *
      * @var string
      */
     public $requestId;
@@ -23,21 +29,14 @@ class DescribeBlockedRegionsResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->infoList) {
-            $this->infoList->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->infoList) {
-            $res['InfoList'] = null !== $this->infoList ? $this->infoList->toArray($noStream) : $this->infoList;
+            $res['InfoList'] = null !== $this->infoList ? $this->infoList->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,18 +44,17 @@ class DescribeBlockedRegionsResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeBlockedRegionsResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InfoList'])) {
             $model->infoList = infoList::fromMap($map['InfoList']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

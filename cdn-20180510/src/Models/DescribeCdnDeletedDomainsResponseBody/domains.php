@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnDeletedDomainsResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnDeletedDomainsResponseBody\domains\pageData;
+use AlibabaCloud\Tea\Model;
 
 class domains extends Model
 {
@@ -17,24 +17,17 @@ class domains extends Model
         'pageData' => 'PageData',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->pageData)) {
-            Model::validateArray($this->pageData);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->pageData) {
-            if (\is_array($this->pageData)) {
-                $res['PageData'] = [];
-                $n1 = 0;
-                foreach ($this->pageData as $item1) {
-                    $res['PageData'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['PageData'] = [];
+            if (null !== $this->pageData && \is_array($this->pageData)) {
+                $n = 0;
+                foreach ($this->pageData as $item) {
+                    $res['PageData'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -42,21 +35,20 @@ class domains extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return domains
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PageData'])) {
             if (!empty($map['PageData'])) {
                 $model->pageData = [];
-                $n1 = 0;
-                foreach ($map['PageData'] as $item1) {
-                    $model->pageData[$n1] = pageData::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['PageData'] as $item) {
+                    $model->pageData[$n++] = null !== $item ? pageData::fromMap($item) : $item;
                 }
             }
         }

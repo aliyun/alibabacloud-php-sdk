@@ -4,22 +4,32 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnDomainStagingConfigResponseBody\domainConfigs;
+use AlibabaCloud\Tea\Model;
 
 class DescribeCdnDomainStagingConfigResponseBody extends Model
 {
     /**
+     * @description The domain name configurations.
+     *
      * @var domainConfigs[]
      */
     public $domainConfigs;
 
     /**
+     * @description The accelerated domain name.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The request ID.
+     *
+     * @example C80705BF-0F76-41FA-BAD1-5B59296A4E59
+     *
      * @var string
      */
     public $requestId;
@@ -29,32 +39,23 @@ class DescribeCdnDomainStagingConfigResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->domainConfigs)) {
-            Model::validateArray($this->domainConfigs);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->domainConfigs) {
-            if (\is_array($this->domainConfigs)) {
-                $res['DomainConfigs'] = [];
-                $n1 = 0;
-                foreach ($this->domainConfigs as $item1) {
-                    $res['DomainConfigs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['DomainConfigs'] = [];
+            if (null !== $this->domainConfigs && \is_array($this->domainConfigs)) {
+                $n = 0;
+                foreach ($this->domainConfigs as $item) {
+                    $res['DomainConfigs'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -62,29 +63,26 @@ class DescribeCdnDomainStagingConfigResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeCdnDomainStagingConfigResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainConfigs'])) {
             if (!empty($map['DomainConfigs'])) {
                 $model->domainConfigs = [];
-                $n1 = 0;
-                foreach ($map['DomainConfigs'] as $item1) {
-                    $model->domainConfigs[$n1] = domainConfigs::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['DomainConfigs'] as $item) {
+                    $model->domainConfigs[$n++] = null !== $item ? domainConfigs::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainBpsDataByTimeStampResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainBpsDataByTimeStampResponseBody\bpsDataList\bpsDataModel;
+use AlibabaCloud\Tea\Model;
 
 class bpsDataList extends Model
 {
@@ -17,24 +17,17 @@ class bpsDataList extends Model
         'bpsDataModel' => 'BpsDataModel',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->bpsDataModel)) {
-            Model::validateArray($this->bpsDataModel);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->bpsDataModel) {
-            if (\is_array($this->bpsDataModel)) {
-                $res['BpsDataModel'] = [];
-                $n1 = 0;
-                foreach ($this->bpsDataModel as $item1) {
-                    $res['BpsDataModel'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['BpsDataModel'] = [];
+            if (null !== $this->bpsDataModel && \is_array($this->bpsDataModel)) {
+                $n = 0;
+                foreach ($this->bpsDataModel as $item) {
+                    $res['BpsDataModel'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -42,21 +35,20 @@ class bpsDataList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return bpsDataList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BpsDataModel'])) {
             if (!empty($map['BpsDataModel'])) {
                 $model->bpsDataModel = [];
-                $n1 = 0;
-                foreach ($map['BpsDataModel'] as $item1) {
-                    $model->bpsDataModel[$n1] = bpsDataModel::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['BpsDataModel'] as $item) {
+                    $model->bpsDataModel[$n++] = null !== $item ? bpsDataModel::fromMap($item) : $item;
                 }
             }
         }

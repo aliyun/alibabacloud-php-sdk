@@ -4,11 +4,20 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyCdnServiceRequest extends Model
 {
     /**
+     * @description The new metering method for Alibaba Cloud CDN. Valid values:
+     *
+     *   **PayByTraffic**: pay-by-data-transfer
+     *   **PayByBandwidth**: pay-by-bandwidth
+     *
+     * This parameter is required.
+     *
+     * @example PayByTraffic
+     *
      * @var string
      */
     public $internetChargeType;
@@ -28,22 +37,17 @@ class ModifyCdnServiceRequest extends Model
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->internetChargeType) {
             $res['InternetChargeType'] = $this->internetChargeType;
         }
-
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
@@ -51,22 +55,20 @@ class ModifyCdnServiceRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyCdnServiceRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InternetChargeType'])) {
             $model->internetChargeType = $map['InternetChargeType'];
         }
-
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }

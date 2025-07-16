@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class SetCdnDomainSMCertificateResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 0AEDAF20-4DDF-4165-8750-47FF9C1929C8
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class SetCdnDomainSMCertificateResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class SetCdnDomainSMCertificateResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return SetCdnDomainSMCertificateResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

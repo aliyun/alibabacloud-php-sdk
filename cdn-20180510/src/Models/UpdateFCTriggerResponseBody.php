@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateFCTriggerResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example EC046C5D-8CB4-4B6B-B7F8-B335E51EF90E
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class UpdateFCTriggerResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class UpdateFCTriggerResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateFCTriggerResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

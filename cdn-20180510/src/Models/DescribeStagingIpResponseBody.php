@@ -4,17 +4,23 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeStagingIpResponseBody\IPV4s;
+use AlibabaCloud\Tea\Model;
 
 class DescribeStagingIpResponseBody extends Model
 {
     /**
+     * @description IPv4 addresses.
+     *
      * @var IPV4s
      */
     public $IPV4s;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1B9E0E83-24AC-49F4-9EE0-BF5EB03E8381
+     *
      * @var string
      */
     public $requestId;
@@ -23,21 +29,14 @@ class DescribeStagingIpResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->IPV4s) {
-            $this->IPV4s->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->IPV4s) {
-            $res['IPV4s'] = null !== $this->IPV4s ? $this->IPV4s->toArray($noStream) : $this->IPV4s;
+            $res['IPV4s'] = null !== $this->IPV4s ? $this->IPV4s->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,18 +44,17 @@ class DescribeStagingIpResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeStagingIpResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IPV4s'])) {
             $model->IPV4s = IPV4s::fromMap($map['IPV4s']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

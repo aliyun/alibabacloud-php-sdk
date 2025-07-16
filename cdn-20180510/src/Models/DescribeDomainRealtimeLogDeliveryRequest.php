@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeDomainRealtimeLogDeliveryRequest extends Model
 {
     /**
+     * @description The accelerated domain name for which real-time log delivery is enabled. You can specify only one domain name.
+     *
+     * This parameter is required.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domain;
@@ -16,12 +22,9 @@ class DescribeDomainRealtimeLogDeliveryRequest extends Model
         'domain' => 'Domain',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->domain) {
@@ -31,11 +34,11 @@ class DescribeDomainRealtimeLogDeliveryRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeDomainRealtimeLogDeliveryRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeCdnSMCertificateDetailRequest extends Model
 {
     /**
+     * @description The ID of the certificate.
+     *
+     * This parameter is required.
+     *
+     * @example 648****-cn-hangzhou
+     *
      * @var string
      */
     public $certIdentifier;
@@ -28,22 +34,17 @@ class DescribeCdnSMCertificateDetailRequest extends Model
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->certIdentifier) {
             $res['CertIdentifier'] = $this->certIdentifier;
         }
-
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
@@ -51,22 +52,20 @@ class DescribeCdnSMCertificateDetailRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeCdnSMCertificateDetailRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CertIdentifier'])) {
             $model->certIdentifier = $map['CertIdentifier'];
         }
-
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }

@@ -4,16 +4,31 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeCdnCertificateDetailByIdRequest extends Model
 {
     /**
+     * @description The ID of the certificate.
+     *
+     * This parameter is required.
+     *
+     * @example 12345
+     *
      * @var string
      */
     public $certId;
 
     /**
+     * @description The region of the certificate. Valid values:
+     *
+     *   **ap-southeast-1**: Singapore
+     *   **cn-hangzhou**: China (Hangzhou)
+     *
+     * Default value: **cn-hangzhou**
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $certRegion;
@@ -34,26 +49,20 @@ class DescribeCdnCertificateDetailByIdRequest extends Model
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->certId) {
             $res['CertId'] = $this->certId;
         }
-
         if (null !== $this->certRegion) {
             $res['CertRegion'] = $this->certRegion;
         }
-
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
@@ -61,26 +70,23 @@ class DescribeCdnCertificateDetailByIdRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeCdnCertificateDetailByIdRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CertId'])) {
             $model->certId = $map['CertId'];
         }
-
         if (isset($map['CertRegion'])) {
             $model->certRegion = $map['CertRegion'];
         }
-
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }
