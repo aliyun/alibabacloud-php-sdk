@@ -54,6 +54,11 @@ class DescribeResourceResponseBody extends Model
     public $extraData;
 
     /**
+     * @var string[]
+     */
+    public $features;
+
+    /**
      * @description The total number of GPUs.
      *
      * @example 1
@@ -79,6 +84,21 @@ class DescribeResourceResponseBody extends Model
      * @var int
      */
     public $instanceCount;
+
+    /**
+     * @var int
+     */
+    public $instanceMaxAllocatableCPU;
+
+    /**
+     * @var float
+     */
+    public $instanceMaxAllocatableGPU;
+
+    /**
+     * @var int
+     */
+    public $instanceMaxAllocatableMemory;
 
     /**
      * @description The total memory size. Unit: MB.
@@ -196,9 +216,13 @@ class DescribeResourceResponseBody extends Model
         'cpuUsed' => 'CpuUsed',
         'createTime' => 'CreateTime',
         'extraData' => 'ExtraData',
+        'features' => 'Features',
         'gpuCount' => 'GpuCount',
         'gpuUsed' => 'GpuUsed',
         'instanceCount' => 'InstanceCount',
+        'instanceMaxAllocatableCPU' => 'InstanceMaxAllocatableCPU',
+        'instanceMaxAllocatableGPU' => 'InstanceMaxAllocatableGPU',
+        'instanceMaxAllocatableMemory' => 'InstanceMaxAllocatableMemory',
         'memory' => 'Memory',
         'memoryUsed' => 'MemoryUsed',
         'message' => 'Message',
@@ -233,6 +257,9 @@ class DescribeResourceResponseBody extends Model
         if (null !== $this->extraData) {
             $res['ExtraData'] = $this->extraData;
         }
+        if (null !== $this->features) {
+            $res['Features'] = $this->features;
+        }
         if (null !== $this->gpuCount) {
             $res['GpuCount'] = $this->gpuCount;
         }
@@ -241,6 +268,15 @@ class DescribeResourceResponseBody extends Model
         }
         if (null !== $this->instanceCount) {
             $res['InstanceCount'] = $this->instanceCount;
+        }
+        if (null !== $this->instanceMaxAllocatableCPU) {
+            $res['InstanceMaxAllocatableCPU'] = $this->instanceMaxAllocatableCPU;
+        }
+        if (null !== $this->instanceMaxAllocatableGPU) {
+            $res['InstanceMaxAllocatableGPU'] = $this->instanceMaxAllocatableGPU;
+        }
+        if (null !== $this->instanceMaxAllocatableMemory) {
+            $res['InstanceMaxAllocatableMemory'] = $this->instanceMaxAllocatableMemory;
         }
         if (null !== $this->memory) {
             $res['Memory'] = $this->memory;
@@ -305,6 +341,11 @@ class DescribeResourceResponseBody extends Model
         if (isset($map['ExtraData'])) {
             $model->extraData = $map['ExtraData'];
         }
+        if (isset($map['Features'])) {
+            if (!empty($map['Features'])) {
+                $model->features = $map['Features'];
+            }
+        }
         if (isset($map['GpuCount'])) {
             $model->gpuCount = $map['GpuCount'];
         }
@@ -313,6 +354,15 @@ class DescribeResourceResponseBody extends Model
         }
         if (isset($map['InstanceCount'])) {
             $model->instanceCount = $map['InstanceCount'];
+        }
+        if (isset($map['InstanceMaxAllocatableCPU'])) {
+            $model->instanceMaxAllocatableCPU = $map['InstanceMaxAllocatableCPU'];
+        }
+        if (isset($map['InstanceMaxAllocatableGPU'])) {
+            $model->instanceMaxAllocatableGPU = $map['InstanceMaxAllocatableGPU'];
+        }
+        if (isset($map['InstanceMaxAllocatableMemory'])) {
+            $model->instanceMaxAllocatableMemory = $map['InstanceMaxAllocatableMemory'];
         }
         if (isset($map['Memory'])) {
             $model->memory = $map['Memory'];

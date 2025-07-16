@@ -28,6 +28,11 @@ class DescribeVirtualResourceResponseBody extends Model
     public $disableSpotProtectionPeriod;
 
     /**
+     * @var string[]
+     */
+    public $features;
+
+    /**
      * @description The ID of the request.
      *
      * @example 40325405-579C-4D82****
@@ -81,6 +86,7 @@ class DescribeVirtualResourceResponseBody extends Model
     protected $_name = [
         'createTime' => 'CreateTime',
         'disableSpotProtectionPeriod' => 'DisableSpotProtectionPeriod',
+        'features' => 'Features',
         'requestId' => 'RequestId',
         'resources' => 'Resources',
         'serviceCount' => 'ServiceCount',
@@ -99,6 +105,9 @@ class DescribeVirtualResourceResponseBody extends Model
         }
         if (null !== $this->disableSpotProtectionPeriod) {
             $res['DisableSpotProtectionPeriod'] = $this->disableSpotProtectionPeriod;
+        }
+        if (null !== $this->features) {
+            $res['Features'] = $this->features;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -141,6 +150,11 @@ class DescribeVirtualResourceResponseBody extends Model
         }
         if (isset($map['DisableSpotProtectionPeriod'])) {
             $model->disableSpotProtectionPeriod = $map['DisableSpotProtectionPeriod'];
+        }
+        if (isset($map['Features'])) {
+            if (!empty($map['Features'])) {
+                $model->features = $map['Features'];
+            }
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

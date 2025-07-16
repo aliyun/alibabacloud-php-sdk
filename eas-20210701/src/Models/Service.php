@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Eas\V20210701\Models;
 
+use AlibabaCloud\SDK\Eas\V20210701\Models\Service\instanceCountInResource;
 use AlibabaCloud\SDK\Eas\V20210701\Models\Service\labels;
 use AlibabaCloud\Tea\Model;
 
@@ -35,6 +36,11 @@ class Service extends Model
     public $appVersion;
 
     /**
+     * @var bool
+     */
+    public $autoscalerEnabled;
+
+    /**
      * @var string
      */
     public $callerUid;
@@ -50,6 +56,11 @@ class Service extends Model
     public $createTime;
 
     /**
+     * @var bool
+     */
+    public $cronscalerEnabled;
+
+    /**
      * @var int
      */
     public $currentVersion;
@@ -58,6 +69,16 @@ class Service extends Model
      * @var string
      */
     public $extraData;
+
+    /**
+     * @var int
+     */
+    public $GPUCorePercentage;
+
+    /**
+     * @var int
+     */
+    public $GPUMemory;
 
     /**
      * @var string
@@ -73,6 +94,11 @@ class Service extends Model
      * @var string
      */
     public $image;
+
+    /**
+     * @var instanceCountInResource
+     */
+    public $instanceCountInResource;
 
     /**
      * @var string
@@ -148,6 +174,11 @@ class Service extends Model
      * @var string
      */
     public $resourceAlias;
+
+    /**
+     * @var bool
+     */
+    public $resourceBurstable;
 
     /**
      * @var string
@@ -244,14 +275,19 @@ class Service extends Model
         'appSpecName' => 'AppSpecName',
         'appType' => 'AppType',
         'appVersion' => 'AppVersion',
+        'autoscalerEnabled' => 'AutoscalerEnabled',
         'callerUid' => 'CallerUid',
         'cpu' => 'Cpu',
         'createTime' => 'CreateTime',
+        'cronscalerEnabled' => 'CronscalerEnabled',
         'currentVersion' => 'CurrentVersion',
         'extraData' => 'ExtraData',
+        'GPUCorePercentage' => 'GPUCorePercentage',
+        'GPUMemory' => 'GPUMemory',
         'gateway' => 'Gateway',
         'gpu' => 'Gpu',
         'image' => 'Image',
+        'instanceCountInResource' => 'InstanceCountInResource',
         'internetEndpoint' => 'InternetEndpoint',
         'intranetEndpoint' => 'IntranetEndpoint',
         'labels' => 'Labels',
@@ -267,6 +303,7 @@ class Service extends Model
         'requestId' => 'RequestId',
         'resource' => 'Resource',
         'resourceAlias' => 'ResourceAlias',
+        'resourceBurstable' => 'ResourceBurstable',
         'role' => 'Role',
         'roleAttrs' => 'RoleAttrs',
         'runningInstance' => 'RunningInstance',
@@ -307,6 +344,9 @@ class Service extends Model
         if (null !== $this->appVersion) {
             $res['AppVersion'] = $this->appVersion;
         }
+        if (null !== $this->autoscalerEnabled) {
+            $res['AutoscalerEnabled'] = $this->autoscalerEnabled;
+        }
         if (null !== $this->callerUid) {
             $res['CallerUid'] = $this->callerUid;
         }
@@ -316,11 +356,20 @@ class Service extends Model
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+        if (null !== $this->cronscalerEnabled) {
+            $res['CronscalerEnabled'] = $this->cronscalerEnabled;
+        }
         if (null !== $this->currentVersion) {
             $res['CurrentVersion'] = $this->currentVersion;
         }
         if (null !== $this->extraData) {
             $res['ExtraData'] = $this->extraData;
+        }
+        if (null !== $this->GPUCorePercentage) {
+            $res['GPUCorePercentage'] = $this->GPUCorePercentage;
+        }
+        if (null !== $this->GPUMemory) {
+            $res['GPUMemory'] = $this->GPUMemory;
         }
         if (null !== $this->gateway) {
             $res['Gateway'] = $this->gateway;
@@ -330,6 +379,9 @@ class Service extends Model
         }
         if (null !== $this->image) {
             $res['Image'] = $this->image;
+        }
+        if (null !== $this->instanceCountInResource) {
+            $res['InstanceCountInResource'] = null !== $this->instanceCountInResource ? $this->instanceCountInResource->toMap() : null;
         }
         if (null !== $this->internetEndpoint) {
             $res['InternetEndpoint'] = $this->internetEndpoint;
@@ -381,6 +433,9 @@ class Service extends Model
         }
         if (null !== $this->resourceAlias) {
             $res['ResourceAlias'] = $this->resourceAlias;
+        }
+        if (null !== $this->resourceBurstable) {
+            $res['ResourceBurstable'] = $this->resourceBurstable;
         }
         if (null !== $this->role) {
             $res['Role'] = $this->role;
@@ -463,6 +518,9 @@ class Service extends Model
         if (isset($map['AppVersion'])) {
             $model->appVersion = $map['AppVersion'];
         }
+        if (isset($map['AutoscalerEnabled'])) {
+            $model->autoscalerEnabled = $map['AutoscalerEnabled'];
+        }
         if (isset($map['CallerUid'])) {
             $model->callerUid = $map['CallerUid'];
         }
@@ -472,11 +530,20 @@ class Service extends Model
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+        if (isset($map['CronscalerEnabled'])) {
+            $model->cronscalerEnabled = $map['CronscalerEnabled'];
+        }
         if (isset($map['CurrentVersion'])) {
             $model->currentVersion = $map['CurrentVersion'];
         }
         if (isset($map['ExtraData'])) {
             $model->extraData = $map['ExtraData'];
+        }
+        if (isset($map['GPUCorePercentage'])) {
+            $model->GPUCorePercentage = $map['GPUCorePercentage'];
+        }
+        if (isset($map['GPUMemory'])) {
+            $model->GPUMemory = $map['GPUMemory'];
         }
         if (isset($map['Gateway'])) {
             $model->gateway = $map['Gateway'];
@@ -486,6 +553,9 @@ class Service extends Model
         }
         if (isset($map['Image'])) {
             $model->image = $map['Image'];
+        }
+        if (isset($map['InstanceCountInResource'])) {
+            $model->instanceCountInResource = instanceCountInResource::fromMap($map['InstanceCountInResource']);
         }
         if (isset($map['InternetEndpoint'])) {
             $model->internetEndpoint = $map['InternetEndpoint'];
@@ -537,6 +607,9 @@ class Service extends Model
         }
         if (isset($map['ResourceAlias'])) {
             $model->resourceAlias = $map['ResourceAlias'];
+        }
+        if (isset($map['ResourceBurstable'])) {
+            $model->resourceBurstable = $map['ResourceBurstable'];
         }
         if (isset($map['Role'])) {
             $model->role = $map['Role'];

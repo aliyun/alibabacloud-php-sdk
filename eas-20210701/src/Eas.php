@@ -4320,6 +4320,12 @@ class Eas extends OpenApiClient
             $request->labelShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->label, 'Label', 'json');
         }
         $query = [];
+        if (!Utils::isUnset($request->autoscalerEnabled)) {
+            $query['AutoscalerEnabled'] = $request->autoscalerEnabled;
+        }
+        if (!Utils::isUnset($request->cronscalerEnabled)) {
+            $query['CronscalerEnabled'] = $request->cronscalerEnabled;
+        }
         if (!Utils::isUnset($request->filter)) {
             $query['Filter'] = $request->filter;
         }
@@ -4352,6 +4358,9 @@ class Eas extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceAliasName)) {
             $query['ResourceAliasName'] = $request->resourceAliasName;
+        }
+        if (!Utils::isUnset($request->resourceBurstable)) {
+            $query['ResourceBurstable'] = $request->resourceBurstable;
         }
         if (!Utils::isUnset($request->resourceId)) {
             $query['ResourceId'] = $request->resourceId;

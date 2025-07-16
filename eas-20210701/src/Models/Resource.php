@@ -19,6 +19,11 @@ class Resource extends Model
     public $cpuCount;
 
     /**
+     * @var int
+     */
+    public $cpuUsed;
+
+    /**
      * @var string
      */
     public $createTime;
@@ -29,14 +34,49 @@ class Resource extends Model
     public $extraData;
 
     /**
+     * @var string[]
+     */
+    public $features;
+
+    /**
      * @var int
      */
     public $gpuCount;
 
     /**
+     * @var float
+     */
+    public $gpuUsed;
+
+    /**
      * @var int
      */
     public $instanceCount;
+
+    /**
+     * @var int
+     */
+    public $instanceMaxAllocatableCPU;
+
+    /**
+     * @var float
+     */
+    public $instanceMaxAllocatableGPU;
+
+    /**
+     * @var int
+     */
+    public $instanceMaxAllocatableMemory;
+
+    /**
+     * @var int
+     */
+    public $memory;
+
+    /**
+     * @var int
+     */
+    public $memoryUsed;
 
     /**
      * @var string
@@ -85,10 +125,18 @@ class Resource extends Model
     protected $_name = [
         'clusterId' => 'ClusterId',
         'cpuCount' => 'CpuCount',
+        'cpuUsed' => 'CpuUsed',
         'createTime' => 'CreateTime',
         'extraData' => 'ExtraData',
+        'features' => 'Features',
         'gpuCount' => 'GpuCount',
+        'gpuUsed' => 'GpuUsed',
         'instanceCount' => 'InstanceCount',
+        'instanceMaxAllocatableCPU' => 'InstanceMaxAllocatableCPU',
+        'instanceMaxAllocatableGPU' => 'InstanceMaxAllocatableGPU',
+        'instanceMaxAllocatableMemory' => 'InstanceMaxAllocatableMemory',
+        'memory' => 'Memory',
+        'memoryUsed' => 'MemoryUsed',
         'message' => 'Message',
         'postPaidInstanceCount' => 'PostPaidInstanceCount',
         'prePaidInstanceCount' => 'PrePaidInstanceCount',
@@ -111,17 +159,41 @@ class Resource extends Model
         if (null !== $this->cpuCount) {
             $res['CpuCount'] = $this->cpuCount;
         }
+        if (null !== $this->cpuUsed) {
+            $res['CpuUsed'] = $this->cpuUsed;
+        }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
         if (null !== $this->extraData) {
             $res['ExtraData'] = $this->extraData;
         }
+        if (null !== $this->features) {
+            $res['Features'] = $this->features;
+        }
         if (null !== $this->gpuCount) {
             $res['GpuCount'] = $this->gpuCount;
         }
+        if (null !== $this->gpuUsed) {
+            $res['GpuUsed'] = $this->gpuUsed;
+        }
         if (null !== $this->instanceCount) {
             $res['InstanceCount'] = $this->instanceCount;
+        }
+        if (null !== $this->instanceMaxAllocatableCPU) {
+            $res['InstanceMaxAllocatableCPU'] = $this->instanceMaxAllocatableCPU;
+        }
+        if (null !== $this->instanceMaxAllocatableGPU) {
+            $res['InstanceMaxAllocatableGPU'] = $this->instanceMaxAllocatableGPU;
+        }
+        if (null !== $this->instanceMaxAllocatableMemory) {
+            $res['InstanceMaxAllocatableMemory'] = $this->instanceMaxAllocatableMemory;
+        }
+        if (null !== $this->memory) {
+            $res['Memory'] = $this->memory;
+        }
+        if (null !== $this->memoryUsed) {
+            $res['MemoryUsed'] = $this->memoryUsed;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -168,17 +240,43 @@ class Resource extends Model
         if (isset($map['CpuCount'])) {
             $model->cpuCount = $map['CpuCount'];
         }
+        if (isset($map['CpuUsed'])) {
+            $model->cpuUsed = $map['CpuUsed'];
+        }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
         if (isset($map['ExtraData'])) {
             $model->extraData = $map['ExtraData'];
         }
+        if (isset($map['Features'])) {
+            if (!empty($map['Features'])) {
+                $model->features = $map['Features'];
+            }
+        }
         if (isset($map['GpuCount'])) {
             $model->gpuCount = $map['GpuCount'];
         }
+        if (isset($map['GpuUsed'])) {
+            $model->gpuUsed = $map['GpuUsed'];
+        }
         if (isset($map['InstanceCount'])) {
             $model->instanceCount = $map['InstanceCount'];
+        }
+        if (isset($map['InstanceMaxAllocatableCPU'])) {
+            $model->instanceMaxAllocatableCPU = $map['InstanceMaxAllocatableCPU'];
+        }
+        if (isset($map['InstanceMaxAllocatableGPU'])) {
+            $model->instanceMaxAllocatableGPU = $map['InstanceMaxAllocatableGPU'];
+        }
+        if (isset($map['InstanceMaxAllocatableMemory'])) {
+            $model->instanceMaxAllocatableMemory = $map['InstanceMaxAllocatableMemory'];
+        }
+        if (isset($map['Memory'])) {
+            $model->memory = $map['Memory'];
+        }
+        if (isset($map['MemoryUsed'])) {
+            $model->memoryUsed = $map['MemoryUsed'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];

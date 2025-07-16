@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class ListServicesRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $autoscalerEnabled;
+
+    /**
+     * @var bool
+     */
+    public $cronscalerEnabled;
+
+    /**
      * @description The field that is used for fuzzy matches. The system performs fuzzy matches only by service name.
      *
      * @example foo
@@ -99,6 +109,11 @@ class ListServicesRequest extends Model
      * @var string
      */
     public $resourceAliasName;
+
+    /**
+     * @var bool
+     */
+    public $resourceBurstable;
 
     /**
      * @var string
@@ -381,6 +396,8 @@ class ListServicesRequest extends Model
      */
     public $workspaceId;
     protected $_name = [
+        'autoscalerEnabled' => 'AutoscalerEnabled',
+        'cronscalerEnabled' => 'CronscalerEnabled',
         'filter' => 'Filter',
         'gateway' => 'Gateway',
         'groupName' => 'GroupName',
@@ -392,6 +409,7 @@ class ListServicesRequest extends Model
         'parentServiceUid' => 'ParentServiceUid',
         'quotaId' => 'QuotaId',
         'resourceAliasName' => 'ResourceAliasName',
+        'resourceBurstable' => 'ResourceBurstable',
         'resourceId' => 'ResourceId',
         'resourceName' => 'ResourceName',
         'resourceType' => 'ResourceType',
@@ -409,6 +427,12 @@ class ListServicesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->autoscalerEnabled) {
+            $res['AutoscalerEnabled'] = $this->autoscalerEnabled;
+        }
+        if (null !== $this->cronscalerEnabled) {
+            $res['CronscalerEnabled'] = $this->cronscalerEnabled;
+        }
         if (null !== $this->filter) {
             $res['Filter'] = $this->filter;
         }
@@ -441,6 +465,9 @@ class ListServicesRequest extends Model
         }
         if (null !== $this->resourceAliasName) {
             $res['ResourceAliasName'] = $this->resourceAliasName;
+        }
+        if (null !== $this->resourceBurstable) {
+            $res['ResourceBurstable'] = $this->resourceBurstable;
         }
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
@@ -484,6 +511,12 @@ class ListServicesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AutoscalerEnabled'])) {
+            $model->autoscalerEnabled = $map['AutoscalerEnabled'];
+        }
+        if (isset($map['CronscalerEnabled'])) {
+            $model->cronscalerEnabled = $map['CronscalerEnabled'];
+        }
         if (isset($map['Filter'])) {
             $model->filter = $map['Filter'];
         }
@@ -516,6 +549,9 @@ class ListServicesRequest extends Model
         }
         if (isset($map['ResourceAliasName'])) {
             $model->resourceAliasName = $map['ResourceAliasName'];
+        }
+        if (isset($map['ResourceBurstable'])) {
+            $model->resourceBurstable = $map['ResourceBurstable'];
         }
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
