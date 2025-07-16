@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\Polardbx\V20200202\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeScaleOutMigrateTaskListResponseBody extends Model
 {
     /**
+     * @example 32
+     *
      * @var int
      */
     public $progress;
 
     /**
+     * @example C458B1E8-1683-3645-B154-6BA32080EEA
+     *
      * @var string
      */
     public $requestId;
@@ -22,18 +26,14 @@ class DescribeScaleOutMigrateTaskListResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->progress) {
             $res['Progress'] = $this->progress;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -41,18 +41,17 @@ class DescribeScaleOutMigrateTaskListResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeScaleOutMigrateTaskListResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Progress'])) {
             $model->progress = $map['Progress'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

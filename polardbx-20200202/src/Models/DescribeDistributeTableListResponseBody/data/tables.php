@@ -4,26 +4,34 @@
 
 namespace AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDistributeTableListResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class tables extends Model
 {
     /**
+     * @example id
+     *
      * @var string
      */
     public $dbKey;
 
     /**
+     * @example sbtest1
+     *
      * @var string
      */
     public $tableName;
 
     /**
+     * @example multi
+     *
      * @var string
      */
     public $tableType;
 
     /**
+     * @example “”
+     *
      * @var string
      */
     public $tbKey;
@@ -34,26 +42,20 @@ class tables extends Model
         'tbKey' => 'TbKey',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dbKey) {
             $res['DbKey'] = $this->dbKey;
         }
-
         if (null !== $this->tableName) {
             $res['TableName'] = $this->tableName;
         }
-
         if (null !== $this->tableType) {
             $res['TableType'] = $this->tableType;
         }
-
         if (null !== $this->tbKey) {
             $res['TbKey'] = $this->tbKey;
         }
@@ -61,26 +63,23 @@ class tables extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return tables
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DbKey'])) {
             $model->dbKey = $map['DbKey'];
         }
-
         if (isset($map['TableName'])) {
             $model->tableName = $map['TableName'];
         }
-
         if (isset($map['TableType'])) {
             $model->tableType = $map['TableType'];
         }
-
         if (isset($map['TbKey'])) {
             $model->tbKey = $map['TbKey'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Polardbx\V20200202\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\UpdateDBInstanceSSLResponseBody\data;
+use AlibabaCloud\Tea\Model;
 
 class UpdateDBInstanceSSLResponseBody extends Model
 {
@@ -15,6 +15,8 @@ class UpdateDBInstanceSSLResponseBody extends Model
     public $data;
 
     /**
+     * @example FEA5DC20-6D8A-5979-97AA-FC57546ADC20
+     *
      * @var string
      */
     public $requestId;
@@ -23,21 +25,14 @@ class UpdateDBInstanceSSLResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->data) {
-            $this->data->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,18 +40,17 @@ class UpdateDBInstanceSSLResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateDBInstanceSSLResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Data'])) {
             $model->data = data::fromMap($map['Data']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

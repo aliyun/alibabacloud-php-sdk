@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDBInstanceAttributeResponseBody\DBInstance;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class gdnMemberList extends Model
 {
@@ -28,22 +28,17 @@ class gdnMemberList extends Model
         'status' => 'Status',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->memberName) {
             $res['MemberName'] = $this->memberName;
         }
-
         if (null !== $this->role) {
             $res['Role'] = $this->role;
         }
-
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -51,22 +46,20 @@ class gdnMemberList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return gdnMemberList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MemberName'])) {
             $model->memberName = $map['MemberName'];
         }
-
         if (isset($map['Role'])) {
             $model->role = $map['Role'];
         }
-
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

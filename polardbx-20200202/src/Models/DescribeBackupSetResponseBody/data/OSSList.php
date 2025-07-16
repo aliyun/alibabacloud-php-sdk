@@ -4,26 +4,34 @@
 
 namespace AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeBackupSetResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class OSSList extends Model
 {
     /**
+     * @example hins3084_data_20220418110623_qp.xb
+     *
      * @var string
      */
     public $backupSetFile;
 
     /**
+     * @example https://pre-rdsbak-cn-xxx.oss-cn-beijing.aliyuncs.com/custins2255/hins3084_data_20220418110623_qp.xb?OSSAccessKeyId=LTAI5tJEmRFdJ8aBPDR7****&Expires=1650441697&dd=7KJzkUSbXf6dwy
+     *
      * @var string
      */
     public $downloadLink;
 
     /**
+     * @example http://pre-rdsbak-cn-beijing.oss-cn-beijing-internal.aliyuncs.com/custins2255/hins3084_data_20220418110623_qp.xb?
+     *
      * @var string
      */
     public $intranetDownloadLink;
 
     /**
+     * @example 2022-04-20T08:01:37Z
+     *
      * @var string
      */
     public $linkExpiredTime;
@@ -34,26 +42,20 @@ class OSSList extends Model
         'linkExpiredTime' => 'LinkExpiredTime',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->backupSetFile) {
             $res['BackupSetFile'] = $this->backupSetFile;
         }
-
         if (null !== $this->downloadLink) {
             $res['DownloadLink'] = $this->downloadLink;
         }
-
         if (null !== $this->intranetDownloadLink) {
             $res['IntranetDownloadLink'] = $this->intranetDownloadLink;
         }
-
         if (null !== $this->linkExpiredTime) {
             $res['LinkExpiredTime'] = $this->linkExpiredTime;
         }
@@ -61,26 +63,23 @@ class OSSList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return OSSList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BackupSetFile'])) {
             $model->backupSetFile = $map['BackupSetFile'];
         }
-
         if (isset($map['DownloadLink'])) {
             $model->downloadLink = $map['DownloadLink'];
         }
-
         if (isset($map['IntranetDownloadLink'])) {
             $model->intranetDownloadLink = $map['IntranetDownloadLink'];
         }
-
         if (isset($map['LinkExpiredTime'])) {
             $model->linkExpiredTime = $map['LinkExpiredTime'];
         }

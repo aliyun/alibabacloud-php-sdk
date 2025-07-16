@@ -4,21 +4,29 @@
 
 namespace AlibabaCloud\SDK\Polardbx\V20200202\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeActiveOperationTaskCountRequest extends Model
 {
     /**
+     * @example Category
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @example polarx
+     *
      * @var string
      */
     public $product;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -28,22 +36,17 @@ class DescribeActiveOperationTaskCountRequest extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->category) {
             $res['Category'] = $this->category;
         }
-
         if (null !== $this->product) {
             $res['Product'] = $this->product;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -51,22 +54,20 @@ class DescribeActiveOperationTaskCountRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeActiveOperationTaskCountRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
         }
-
         if (isset($map['Product'])) {
             $model->product = $map['Product'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

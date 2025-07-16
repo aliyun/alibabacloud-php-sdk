@@ -4,22 +4,28 @@
 
 namespace AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeParameterTemplatesResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeParameterTemplatesResponseBody\data\parameters;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @example polarx
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @example 2.0
+     *
      * @var string
      */
     public $engineVersion;
 
     /**
+     * @example 218
+     *
      * @var int
      */
     public $parameterCount;
@@ -35,36 +41,26 @@ class data extends Model
         'parameters' => 'Parameters',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->parameters)) {
-            Model::validateArray($this->parameters);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->engine) {
             $res['Engine'] = $this->engine;
         }
-
         if (null !== $this->engineVersion) {
             $res['EngineVersion'] = $this->engineVersion;
         }
-
         if (null !== $this->parameterCount) {
             $res['ParameterCount'] = $this->parameterCount;
         }
-
         if (null !== $this->parameters) {
-            if (\is_array($this->parameters)) {
-                $res['Parameters'] = [];
-                $n1 = 0;
-                foreach ($this->parameters as $item1) {
-                    $res['Parameters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Parameters'] = [];
+            if (null !== $this->parameters && \is_array($this->parameters)) {
+                $n = 0;
+                foreach ($this->parameters as $item) {
+                    $res['Parameters'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -72,33 +68,29 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Engine'])) {
             $model->engine = $map['Engine'];
         }
-
         if (isset($map['EngineVersion'])) {
             $model->engineVersion = $map['EngineVersion'];
         }
-
         if (isset($map['ParameterCount'])) {
             $model->parameterCount = $map['ParameterCount'];
         }
-
         if (isset($map['Parameters'])) {
             if (!empty($map['Parameters'])) {
                 $model->parameters = [];
-                $n1 = 0;
-                foreach ($map['Parameters'] as $item1) {
-                    $model->parameters[$n1] = parameters::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Parameters'] as $item) {
+                    $model->parameters[$n++] = null !== $item ? parameters::fromMap($item) : $item;
                 }
             }
         }

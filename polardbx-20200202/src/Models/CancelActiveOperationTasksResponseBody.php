@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\Polardbx\V20200202\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CancelActiveOperationTasksResponseBody extends Model
 {
     /**
+     * @example 111,1223
+     *
      * @var string
      */
     public $ids;
 
     /**
+     * @example AE4F6C34-065F-45AA-B5DC-4B8D816F6305
+     *
      * @var string
      */
     public $requestId;
@@ -22,18 +26,14 @@ class CancelActiveOperationTasksResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->ids) {
             $res['Ids'] = $this->ids;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -41,18 +41,17 @@ class CancelActiveOperationTasksResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CancelActiveOperationTasksResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Ids'])) {
             $model->ids = $map['Ids'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

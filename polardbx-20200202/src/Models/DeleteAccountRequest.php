@@ -4,31 +4,47 @@
 
 namespace AlibabaCloud\SDK\Polardbx\V20200202\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteAccountRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example testaccount
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example pxc-*********
+     *
      * @var string
      */
     public $DBInstanceName;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example securityAccount
+     *
      * @var string
      */
     public $securityAccountName;
 
     /**
+     * @example securityPassword
+     *
      * @var string
      */
     public $securityAccountPassword;
@@ -40,30 +56,23 @@ class DeleteAccountRequest extends Model
         'securityAccountPassword' => 'SecurityAccountPassword',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->accountName) {
             $res['AccountName'] = $this->accountName;
         }
-
         if (null !== $this->DBInstanceName) {
             $res['DBInstanceName'] = $this->DBInstanceName;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->securityAccountName) {
             $res['SecurityAccountName'] = $this->securityAccountName;
         }
-
         if (null !== $this->securityAccountPassword) {
             $res['SecurityAccountPassword'] = $this->securityAccountPassword;
         }
@@ -71,30 +80,26 @@ class DeleteAccountRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteAccountRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccountName'])) {
             $model->accountName = $map['AccountName'];
         }
-
         if (isset($map['DBInstanceName'])) {
             $model->DBInstanceName = $map['DBInstanceName'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['SecurityAccountName'])) {
             $model->securityAccountName = $map['SecurityAccountName'];
         }
-
         if (isset($map['SecurityAccountPassword'])) {
             $model->securityAccountPassword = $map['SecurityAccountPassword'];
         }

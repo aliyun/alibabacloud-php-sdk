@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDBNodePerformanceResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDBNodePerformanceResponseBody\performanceKeys\performanceItem;
+use AlibabaCloud\Tea\Model;
 
 class performanceKeys extends Model
 {
@@ -17,24 +17,17 @@ class performanceKeys extends Model
         'performanceItem' => 'PerformanceItem',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->performanceItem)) {
-            Model::validateArray($this->performanceItem);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->performanceItem) {
-            if (\is_array($this->performanceItem)) {
-                $res['PerformanceItem'] = [];
-                $n1 = 0;
-                foreach ($this->performanceItem as $item1) {
-                    $res['PerformanceItem'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['PerformanceItem'] = [];
+            if (null !== $this->performanceItem && \is_array($this->performanceItem)) {
+                $n = 0;
+                foreach ($this->performanceItem as $item) {
+                    $res['PerformanceItem'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -42,21 +35,20 @@ class performanceKeys extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return performanceKeys
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PerformanceItem'])) {
             if (!empty($map['PerformanceItem'])) {
                 $model->performanceItem = [];
-                $n1 = 0;
-                foreach ($map['PerformanceItem'] as $item1) {
-                    $model->performanceItem[$n1] = performanceItem::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['PerformanceItem'] as $item) {
+                    $model->performanceItem[$n++] = null !== $item ? performanceItem::fromMap($item) : $item;
                 }
             }
         }

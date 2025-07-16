@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Polardbx\V20200202\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDBInstanceAttributeResponseBody\DBInstance;
+use AlibabaCloud\Tea\Model;
 
 class DescribeDBInstanceAttributeResponseBody extends Model
 {
@@ -15,6 +15,8 @@ class DescribeDBInstanceAttributeResponseBody extends Model
     public $DBInstance;
 
     /**
+     * @example 9B2F3840-5C98-475C-B269-2D5C3A31797C
+     *
      * @var string
      */
     public $requestId;
@@ -23,21 +25,14 @@ class DescribeDBInstanceAttributeResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->DBInstance) {
-            $this->DBInstance->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->DBInstance) {
-            $res['DBInstance'] = null !== $this->DBInstance ? $this->DBInstance->toArray($noStream) : $this->DBInstance;
+            $res['DBInstance'] = null !== $this->DBInstance ? $this->DBInstance->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,18 +40,17 @@ class DescribeDBInstanceAttributeResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeDBInstanceAttributeResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBInstance'])) {
             $model->DBInstance = DBInstance::fromMap($map['DBInstance']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

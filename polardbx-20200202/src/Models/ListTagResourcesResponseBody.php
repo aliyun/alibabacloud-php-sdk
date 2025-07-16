@@ -4,17 +4,21 @@
 
 namespace AlibabaCloud\SDK\Polardbx\V20200202\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ListTagResourcesResponseBody\tagResources;
+use AlibabaCloud\Tea\Model;
 
 class ListTagResourcesResponseBody extends Model
 {
     /**
+     * @example xxdd
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example xxxx-xxxxxx
+     *
      * @var string
      */
     public $requestId;
@@ -29,48 +33,38 @@ class ListTagResourcesResponseBody extends Model
         'tagResources' => 'TagResources',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->tagResources) {
-            $this->tagResources->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->tagResources) {
-            $res['TagResources'] = null !== $this->tagResources ? $this->tagResources->toArray($noStream) : $this->tagResources;
+            $res['TagResources'] = null !== $this->tagResources ? $this->tagResources->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListTagResourcesResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['TagResources'])) {
             $model->tagResources = tagResources::fromMap($map['TagResources']);
         }

@@ -4,22 +4,28 @@
 
 namespace AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeGdnInstancesResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeGdnInstancesResponseBody\data\gdnInstanceList\memberList;
+use AlibabaCloud\Tea\Model;
 
 class gdnInstanceList extends Model
 {
     /**
+     * @example test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example gdn-***
+     *
      * @var string
      */
     public $gdnInstanceName;
 
     /**
+     * @example 2025-01-02T13:11:10.000+0000
+     *
      * @var string
      */
     public $gmtCreated;
@@ -30,16 +36,22 @@ class gdnInstanceList extends Model
     public $memberList;
 
     /**
+     * @example 5.7
+     *
      * @var string
      */
     public $mysqlVersion;
 
     /**
+     * @example Creating
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $switchHistory;
@@ -53,48 +65,35 @@ class gdnInstanceList extends Model
         'switchHistory' => 'SwitchHistory',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->memberList)) {
-            Model::validateArray($this->memberList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-
         if (null !== $this->gdnInstanceName) {
             $res['GdnInstanceName'] = $this->gdnInstanceName;
         }
-
         if (null !== $this->gmtCreated) {
             $res['GmtCreated'] = $this->gmtCreated;
         }
-
         if (null !== $this->memberList) {
-            if (\is_array($this->memberList)) {
-                $res['MemberList'] = [];
-                $n1 = 0;
-                foreach ($this->memberList as $item1) {
-                    $res['MemberList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['MemberList'] = [];
+            if (null !== $this->memberList && \is_array($this->memberList)) {
+                $n = 0;
+                foreach ($this->memberList as $item) {
+                    $res['MemberList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->mysqlVersion) {
             $res['MysqlVersion'] = $this->mysqlVersion;
         }
-
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-
         if (null !== $this->switchHistory) {
             $res['SwitchHistory'] = $this->switchHistory;
         }
@@ -102,45 +101,38 @@ class gdnInstanceList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return gdnInstanceList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-
         if (isset($map['GdnInstanceName'])) {
             $model->gdnInstanceName = $map['GdnInstanceName'];
         }
-
         if (isset($map['GmtCreated'])) {
             $model->gmtCreated = $map['GmtCreated'];
         }
-
         if (isset($map['MemberList'])) {
             if (!empty($map['MemberList'])) {
                 $model->memberList = [];
-                $n1 = 0;
-                foreach ($map['MemberList'] as $item1) {
-                    $model->memberList[$n1] = memberList::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['MemberList'] as $item) {
+                    $model->memberList[$n++] = null !== $item ? memberList::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['MysqlVersion'])) {
             $model->mysqlVersion = $map['MysqlVersion'];
         }
-
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-
         if (isset($map['SwitchHistory'])) {
             $model->switchHistory = $map['SwitchHistory'];
         }

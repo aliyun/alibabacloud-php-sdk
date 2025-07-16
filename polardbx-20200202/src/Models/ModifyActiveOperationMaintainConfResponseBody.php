@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Polardbx\V20200202\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyActiveOperationMaintainConfResponseBody extends Model
 {
     /**
+     * @example 4035409E-7297-4115-ABC9-C1C3942BC069
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +18,9 @@ class ModifyActiveOperationMaintainConfResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +30,11 @@ class ModifyActiveOperationMaintainConfResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyActiveOperationMaintainConfResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDistributeTableListResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDistributeTableListResponseBody\data\tables;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -17,24 +17,17 @@ class data extends Model
         'tables' => 'Tables',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->tables)) {
-            Model::validateArray($this->tables);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->tables) {
-            if (\is_array($this->tables)) {
-                $res['Tables'] = [];
-                $n1 = 0;
-                foreach ($this->tables as $item1) {
-                    $res['Tables'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Tables'] = [];
+            if (null !== $this->tables && \is_array($this->tables)) {
+                $n = 0;
+                foreach ($this->tables as $item) {
+                    $res['Tables'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -42,21 +35,20 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Tables'])) {
             if (!empty($map['Tables'])) {
                 $model->tables = [];
-                $n1 = 0;
-                foreach ($map['Tables'] as $item1) {
-                    $model->tables[$n1] = tables::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Tables'] as $item) {
+                    $model->tables[$n++] = null !== $item ? tables::fromMap($item) : $item;
                 }
             }
         }

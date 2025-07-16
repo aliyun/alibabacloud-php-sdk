@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeRegionsResponseBody\regions\region\zones;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class zone extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $vpcEnabled;
 
     /**
+     * @example cn-hangzhou-a
+     *
      * @var string
      */
     public $zoneId;
@@ -22,18 +26,14 @@ class zone extends Model
         'zoneId' => 'ZoneId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->vpcEnabled) {
             $res['VpcEnabled'] = $this->vpcEnabled;
         }
-
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
@@ -41,18 +41,17 @@ class zone extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return zone
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['VpcEnabled'])) {
             $model->vpcEnabled = $map['VpcEnabled'];
         }
-
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
         }

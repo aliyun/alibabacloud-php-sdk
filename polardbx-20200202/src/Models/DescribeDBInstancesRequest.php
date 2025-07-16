@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Polardbx\V20200202\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeDBInstancesRequest extends Model
 {
@@ -14,6 +14,8 @@ class DescribeDBInstancesRequest extends Model
     public $dbVersion;
 
     /**
+     * @example dinga93c84f4d***
+     *
      * @var string
      */
     public $instanceId;
@@ -24,31 +26,45 @@ class DescribeDBInstancesRequest extends Model
     public $mustHasCdc;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-acfmyst47hjw***
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example enterprise
+     *
      * @var string
      */
     public $series;
 
     /**
+     * @example [{\\"TagKey\\":\\"test\\",\\"TagValue\\":\\"test-value\\"}]
+     *
      * @var string
      */
     public $tags;
@@ -64,46 +80,35 @@ class DescribeDBInstancesRequest extends Model
         'tags' => 'Tags',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dbVersion) {
             $res['DbVersion'] = $this->dbVersion;
         }
-
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->mustHasCdc) {
             $res['MustHasCdc'] = $this->mustHasCdc;
         }
-
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
-
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
-
         if (null !== $this->series) {
             $res['Series'] = $this->series;
         }
-
         if (null !== $this->tags) {
             $res['Tags'] = $this->tags;
         }
@@ -111,46 +116,38 @@ class DescribeDBInstancesRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeDBInstancesRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DbVersion'])) {
             $model->dbVersion = $map['DbVersion'];
         }
-
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['MustHasCdc'])) {
             $model->mustHasCdc = $map['MustHasCdc'];
         }
-
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
-
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
-
         if (isset($map['Series'])) {
             $model->series = $map['Series'];
         }
-
         if (isset($map['Tags'])) {
             $model->tags = $map['Tags'];
         }

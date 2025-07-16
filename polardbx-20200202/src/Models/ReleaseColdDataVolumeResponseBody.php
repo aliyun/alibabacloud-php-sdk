@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Polardbx\V20200202\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ReleaseColdDataVolumeResponseBody extends Model
 {
     /**
+     * @example EA330983-C895-57C0-AE82-5A63106EBB10
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +18,9 @@ class ReleaseColdDataVolumeResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +30,11 @@ class ReleaseColdDataVolumeResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ReleaseColdDataVolumeResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeSecurityIpsResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class groupItems extends Model
 {
     /**
+     * @example defaultGroup
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @example 127.0.0.1,172.168.0.0
+     *
      * @var string
      */
     public $securityIPList;
@@ -22,18 +26,14 @@ class groupItems extends Model
         'securityIPList' => 'SecurityIPList',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
-
         if (null !== $this->securityIPList) {
             $res['SecurityIPList'] = $this->securityIPList;
         }
@@ -41,18 +41,17 @@ class groupItems extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return groupItems
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }
-
         if (isset($map['SecurityIPList'])) {
             $model->securityIPList = $map['SecurityIPList'];
         }

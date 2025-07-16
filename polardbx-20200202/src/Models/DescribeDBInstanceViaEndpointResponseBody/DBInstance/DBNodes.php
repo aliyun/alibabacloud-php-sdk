@@ -4,36 +4,48 @@
 
 namespace AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDBInstanceViaEndpointResponseBody\DBInstance;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DBNodes extends Model
 {
     /**
+     * @example pxc-i-********
+     *
      * @var string
      */
     public $computeNodeId;
 
     /**
+     * @example pxc-xdb-xxxxxx
+     *
      * @var string
      */
     public $dataNodeId;
 
     /**
+     * @example pxi-*********
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example polarx.x4.large.2e
+     *
      * @var string
      */
     public $nodeClass;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example cn-hangzhou-a
+     *
      * @var string
      */
     public $zoneId;
@@ -46,34 +58,26 @@ class DBNodes extends Model
         'zoneId' => 'ZoneId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->computeNodeId) {
             $res['ComputeNodeId'] = $this->computeNodeId;
         }
-
         if (null !== $this->dataNodeId) {
             $res['DataNodeId'] = $this->dataNodeId;
         }
-
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->nodeClass) {
             $res['NodeClass'] = $this->nodeClass;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
@@ -81,34 +85,29 @@ class DBNodes extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DBNodes
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ComputeNodeId'])) {
             $model->computeNodeId = $map['ComputeNodeId'];
         }
-
         if (isset($map['DataNodeId'])) {
             $model->dataNodeId = $map['DataNodeId'];
         }
-
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['NodeClass'])) {
             $model->nodeClass = $map['NodeClass'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
         }

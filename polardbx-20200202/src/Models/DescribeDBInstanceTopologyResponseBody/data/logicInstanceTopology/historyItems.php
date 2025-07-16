@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDBInstanceTopologyResponseBody\data\logicInstanceTopology;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class historyItems extends Model
 {
@@ -58,42 +58,32 @@ class historyItems extends Model
         'role' => 'Role',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->activated) {
             $res['Activated'] = $this->activated;
         }
-
         if (null !== $this->azone) {
             $res['Azone'] = $this->azone;
         }
-
         if (null !== $this->characterType) {
             $res['CharacterType'] = $this->characterType;
         }
-
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
-
         if (null !== $this->DBInstanceName) {
             $res['DBInstanceName'] = $this->DBInstanceName;
         }
-
         if (null !== $this->phyInstanceName) {
             $res['PhyInstanceName'] = $this->phyInstanceName;
         }
-
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
-
         if (null !== $this->role) {
             $res['Role'] = $this->role;
         }
@@ -101,42 +91,35 @@ class historyItems extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return historyItems
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Activated'])) {
             $model->activated = $map['Activated'];
         }
-
         if (isset($map['Azone'])) {
             $model->azone = $map['Azone'];
         }
-
         if (isset($map['CharacterType'])) {
             $model->characterType = $map['CharacterType'];
         }
-
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
-
         if (isset($map['DBInstanceName'])) {
             $model->DBInstanceName = $map['DBInstanceName'];
         }
-
         if (isset($map['PhyInstanceName'])) {
             $model->phyInstanceName = $map['PhyInstanceName'];
         }
-
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }
-
         if (isset($map['Role'])) {
             $model->role = $map['Role'];
         }
