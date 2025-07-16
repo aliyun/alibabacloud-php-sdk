@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListDatasourceFeatureViewsResponseBody\featureViews;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListDatasourceFeatureViewsResponseBody\totalUsageStatistics;
+use AlibabaCloud\Tea\Model;
 
 class ListDatasourceFeatureViewsResponseBody extends Model
 {
@@ -16,6 +16,8 @@ class ListDatasourceFeatureViewsResponseBody extends Model
     public $featureViews;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $totalCount;
@@ -26,6 +28,10 @@ class ListDatasourceFeatureViewsResponseBody extends Model
     public $totalUsageStatistics;
 
     /**
+     * @description Id of the request
+     *
+     * @example 514F82AF-3C04-5C3D-8F38-A11261BF37B0
+     *
      * @var string
      */
     public $requestId;
@@ -36,38 +42,26 @@ class ListDatasourceFeatureViewsResponseBody extends Model
         'requestId' => 'requestId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->featureViews)) {
-            Model::validateArray($this->featureViews);
-        }
-        if (null !== $this->totalUsageStatistics) {
-            $this->totalUsageStatistics->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->featureViews) {
-            if (\is_array($this->featureViews)) {
-                $res['FeatureViews'] = [];
-                $n1 = 0;
-                foreach ($this->featureViews as $item1) {
-                    $res['FeatureViews'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['FeatureViews'] = [];
+            if (null !== $this->featureViews && \is_array($this->featureViews)) {
+                $n = 0;
+                foreach ($this->featureViews as $item) {
+                    $res['FeatureViews'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
-
         if (null !== $this->totalUsageStatistics) {
-            $res['TotalUsageStatistics'] = null !== $this->totalUsageStatistics ? $this->totalUsageStatistics->toArray($noStream) : $this->totalUsageStatistics;
+            $res['TotalUsageStatistics'] = null !== $this->totalUsageStatistics ? $this->totalUsageStatistics->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -75,32 +69,29 @@ class ListDatasourceFeatureViewsResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListDatasourceFeatureViewsResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FeatureViews'])) {
             if (!empty($map['FeatureViews'])) {
                 $model->featureViews = [];
-                $n1 = 0;
-                foreach ($map['FeatureViews'] as $item1) {
-                    $model->featureViews[$n1++] = featureViews::fromMap($item1);
+                $n = 0;
+                foreach ($map['FeatureViews'] as $item) {
+                    $model->featureViews[$n++] = null !== $item ? featureViews::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }
-
         if (isset($map['TotalUsageStatistics'])) {
             $model->totalUsageStatistics = totalUsageStatistics::fromMap($map['TotalUsageStatistics']);
         }
-
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }

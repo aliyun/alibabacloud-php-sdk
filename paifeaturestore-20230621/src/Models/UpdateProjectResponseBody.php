@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateProjectResponseBody extends Model
 {
     /**
+     * @example 2150233F-A1F7-54D2-B5B5-8A70567549BD
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +18,9 @@ class UpdateProjectResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +30,11 @@ class UpdateProjectResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateProjectResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

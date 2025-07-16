@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\CheckModelFeatureFGFeatureResponseBody\FGCheckResults;
+use AlibabaCloud\Tea\Model;
 
 class CheckModelFeatureFGFeatureResponseBody extends Model
 {
@@ -15,6 +15,8 @@ class CheckModelFeatureFGFeatureResponseBody extends Model
     public $FGCheckResults;
 
     /**
+     * @example ED4DEA2F-F216-57F0-AE28-08D791233280
+     *
      * @var string
      */
     public $requestId;
@@ -23,27 +25,20 @@ class CheckModelFeatureFGFeatureResponseBody extends Model
         'requestId' => 'requestId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->FGCheckResults)) {
-            Model::validateArray($this->FGCheckResults);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->FGCheckResults) {
-            if (\is_array($this->FGCheckResults)) {
-                $res['FGCheckResults'] = [];
-                $n1 = 0;
-                foreach ($this->FGCheckResults as $item1) {
-                    $res['FGCheckResults'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['FGCheckResults'] = [];
+            if (null !== $this->FGCheckResults && \is_array($this->FGCheckResults)) {
+                $n = 0;
+                foreach ($this->FGCheckResults as $item) {
+                    $res['FGCheckResults'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -51,24 +46,23 @@ class CheckModelFeatureFGFeatureResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CheckModelFeatureFGFeatureResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FGCheckResults'])) {
             if (!empty($map['FGCheckResults'])) {
                 $model->FGCheckResults = [];
-                $n1 = 0;
-                foreach ($map['FGCheckResults'] as $item1) {
-                    $model->FGCheckResults[$n1++] = FGCheckResults::fromMap($item1);
+                $n = 0;
+                foreach ($map['FGCheckResults'] as $item) {
+                    $model->FGCheckResults[$n++] = null !== $item ? FGCheckResults::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }

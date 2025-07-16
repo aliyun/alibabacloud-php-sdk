@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListFeatureViewsResponseBody\featureViews;
+use AlibabaCloud\Tea\Model;
 
 class ListFeatureViewsResponseBody extends Model
 {
@@ -15,11 +15,15 @@ class ListFeatureViewsResponseBody extends Model
     public $featureViews;
 
     /**
+     * @example C03B2680-AC9C-59CD-93C5-8142B92537FA
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $totalCount;
@@ -29,31 +33,23 @@ class ListFeatureViewsResponseBody extends Model
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->featureViews)) {
-            Model::validateArray($this->featureViews);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->featureViews) {
-            if (\is_array($this->featureViews)) {
-                $res['FeatureViews'] = [];
-                $n1 = 0;
-                foreach ($this->featureViews as $item1) {
-                    $res['FeatureViews'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['FeatureViews'] = [];
+            if (null !== $this->featureViews && \is_array($this->featureViews)) {
+                $n = 0;
+                foreach ($this->featureViews as $item) {
+                    $res['FeatureViews'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -61,28 +57,26 @@ class ListFeatureViewsResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListFeatureViewsResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FeatureViews'])) {
             if (!empty($map['FeatureViews'])) {
                 $model->featureViews = [];
-                $n1 = 0;
-                foreach ($map['FeatureViews'] as $item1) {
-                    $model->featureViews[$n1++] = featureViews::fromMap($item1);
+                $n = 0;
+                foreach ($map['FeatureViews'] as $item) {
+                    $model->featureViews[$n++] = null !== $item ? featureViews::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

@@ -4,12 +4,14 @@
 
 namespace AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListFeatureViewRelationshipsResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListFeatureViewRelationshipsResponseBody\relationships\models;
+use AlibabaCloud\Tea\Model;
 
 class relationships extends Model
 {
     /**
+     * @example fv1
+     *
      * @var string
      */
     public $featureViewName;
@@ -20,6 +22,8 @@ class relationships extends Model
     public $models;
 
     /**
+     * @example project1
+     *
      * @var string
      */
     public $projectName;
@@ -29,31 +33,23 @@ class relationships extends Model
         'projectName' => 'ProjectName',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->models)) {
-            Model::validateArray($this->models);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->featureViewName) {
             $res['FeatureViewName'] = $this->featureViewName;
         }
-
         if (null !== $this->models) {
-            if (\is_array($this->models)) {
-                $res['Models'] = [];
-                $n1 = 0;
-                foreach ($this->models as $item1) {
-                    $res['Models'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Models'] = [];
+            if (null !== $this->models && \is_array($this->models)) {
+                $n = 0;
+                foreach ($this->models as $item) {
+                    $res['Models'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
         }
@@ -61,28 +57,26 @@ class relationships extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return relationships
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FeatureViewName'])) {
             $model->featureViewName = $map['FeatureViewName'];
         }
-
         if (isset($map['Models'])) {
             if (!empty($map['Models'])) {
                 $model->models = [];
-                $n1 = 0;
-                foreach ($map['Models'] as $item1) {
-                    $model->models[$n1++] = models::fromMap($item1);
+                $n = 0;
+                foreach ($map['Models'] as $item) {
+                    $model->models[$n++] = null !== $item ? models::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
         }

@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListDatasourceTablesResponseBody extends Model
 {
     /**
+     * @example C03B2680-AC9C-59CD-93C5-8142B92537FA
+     *
      * @var string
      */
     public $requestId;
@@ -19,6 +21,8 @@ class ListDatasourceTablesResponseBody extends Model
     public $tables;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $totalCount;
@@ -28,31 +32,17 @@ class ListDatasourceTablesResponseBody extends Model
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->tables)) {
-            Model::validateArray($this->tables);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->tables) {
-            if (\is_array($this->tables)) {
-                $res['Tables'] = [];
-                $n1 = 0;
-                foreach ($this->tables as $item1) {
-                    $res['Tables'][$n1++] = $item1;
-                }
-            }
+            $res['Tables'] = $this->tables;
         }
-
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -60,28 +50,22 @@ class ListDatasourceTablesResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListDatasourceTablesResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['Tables'])) {
             if (!empty($map['Tables'])) {
-                $model->tables = [];
-                $n1 = 0;
-                foreach ($map['Tables'] as $item1) {
-                    $model->tables[$n1++] = $item1;
-                }
+                $model->tables = $map['Tables'];
             }
         }
-
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

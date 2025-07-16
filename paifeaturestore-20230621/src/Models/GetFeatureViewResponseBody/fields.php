@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\GetFeatureViewResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\GetFeatureViewResponseBody\fields\transform;
+use AlibabaCloud\Tea\Model;
 
 class fields extends Model
 {
@@ -15,6 +15,8 @@ class fields extends Model
     public $attributes;
 
     /**
+     * @example user
+     *
      * @var string
      */
     public $name;
@@ -25,6 +27,8 @@ class fields extends Model
     public $transform;
 
     /**
+     * @example int
+     *
      * @var string
      */
     public $type;
@@ -35,44 +39,26 @@ class fields extends Model
         'type' => 'Type',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->attributes)) {
-            Model::validateArray($this->attributes);
-        }
-        if (\is_array($this->transform)) {
-            Model::validateArray($this->transform);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->attributes) {
-            if (\is_array($this->attributes)) {
-                $res['Attributes'] = [];
-                $n1 = 0;
-                foreach ($this->attributes as $item1) {
-                    $res['Attributes'][$n1++] = $item1;
-                }
-            }
+            $res['Attributes'] = $this->attributes;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->transform) {
-            if (\is_array($this->transform)) {
-                $res['Transform'] = [];
-                $n1 = 0;
-                foreach ($this->transform as $item1) {
-                    $res['Transform'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Transform'] = [];
+            if (null !== $this->transform && \is_array($this->transform)) {
+                $n = 0;
+                foreach ($this->transform as $item) {
+                    $res['Transform'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -80,38 +66,31 @@ class fields extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return fields
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Attributes'])) {
             if (!empty($map['Attributes'])) {
-                $model->attributes = [];
-                $n1 = 0;
-                foreach ($map['Attributes'] as $item1) {
-                    $model->attributes[$n1++] = $item1;
-                }
+                $model->attributes = $map['Attributes'];
             }
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['Transform'])) {
             if (!empty($map['Transform'])) {
                 $model->transform = [];
-                $n1 = 0;
-                foreach ($map['Transform'] as $item1) {
-                    $model->transform[$n1++] = transform::fromMap($item1);
+                $n = 0;
+                foreach ($map['Transform'] as $item) {
+                    $model->transform[$n++] = null !== $item ? transform::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

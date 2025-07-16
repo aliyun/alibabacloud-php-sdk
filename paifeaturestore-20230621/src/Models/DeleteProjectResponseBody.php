@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteProjectResponseBody extends Model
 {
     /**
+     * @example 0DA35264-0877-5852-8971-7735B547C969
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +18,9 @@ class DeleteProjectResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +30,11 @@ class DeleteProjectResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteProjectResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

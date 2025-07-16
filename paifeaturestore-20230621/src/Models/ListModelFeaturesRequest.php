@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListModelFeaturesRequest extends Model
 {
@@ -14,36 +14,50 @@ class ListModelFeaturesRequest extends Model
     public $modelFeatureIds;
 
     /**
+     * @example model_feature1
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example ASC
+     *
      * @var string
      */
     public $order;
 
     /**
+     * @example 12323143****
+     *
      * @var string
      */
     public $owner;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 4
+     *
      * @var string
      */
     public $projectId;
 
     /**
+     * @example DESC
+     *
      * @var string
      */
     public $sortBy;
@@ -58,51 +72,32 @@ class ListModelFeaturesRequest extends Model
         'sortBy' => 'SortBy',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->modelFeatureIds)) {
-            Model::validateArray($this->modelFeatureIds);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->modelFeatureIds) {
-            if (\is_array($this->modelFeatureIds)) {
-                $res['ModelFeatureIds'] = [];
-                $n1 = 0;
-                foreach ($this->modelFeatureIds as $item1) {
-                    $res['ModelFeatureIds'][$n1++] = $item1;
-                }
-            }
+            $res['ModelFeatureIds'] = $this->modelFeatureIds;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->order) {
             $res['Order'] = $this->order;
         }
-
         if (null !== $this->owner) {
             $res['Owner'] = $this->owner;
         }
-
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
-
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
-
         if (null !== $this->sortBy) {
             $res['SortBy'] = $this->sortBy;
         }
@@ -110,48 +105,37 @@ class ListModelFeaturesRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListModelFeaturesRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ModelFeatureIds'])) {
             if (!empty($map['ModelFeatureIds'])) {
-                $model->modelFeatureIds = [];
-                $n1 = 0;
-                foreach ($map['ModelFeatureIds'] as $item1) {
-                    $model->modelFeatureIds[$n1++] = $item1;
-                }
+                $model->modelFeatureIds = $map['ModelFeatureIds'];
             }
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['Order'])) {
             $model->order = $map['Order'];
         }
-
         if (isset($map['Owner'])) {
             $model->owner = $map['Owner'];
         }
-
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
-
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
-
         if (isset($map['SortBy'])) {
             $model->sortBy = $map['SortBy'];
         }

@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListFeatureViewOnlineFeaturesShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $joinIdsShrink;
@@ -16,12 +18,9 @@ class ListFeatureViewOnlineFeaturesShrinkRequest extends Model
         'joinIdsShrink' => 'JoinIds',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->joinIdsShrink) {
@@ -31,11 +30,11 @@ class ListFeatureViewOnlineFeaturesShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListFeatureViewOnlineFeaturesShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

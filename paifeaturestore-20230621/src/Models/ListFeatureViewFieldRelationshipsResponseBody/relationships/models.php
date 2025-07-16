@@ -4,21 +4,27 @@
 
 namespace AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListFeatureViewFieldRelationshipsResponseBody\relationships;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class models extends Model
 {
     /**
+     * @example f1
+     *
      * @var string
      */
     public $featureAliasName;
 
     /**
+     * @example 3
+     *
      * @var string
      */
     public $modelId;
 
     /**
+     * @example dbmtl
+     *
      * @var string
      */
     public $modelName;
@@ -28,22 +34,17 @@ class models extends Model
         'modelName' => 'ModelName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->featureAliasName) {
             $res['FeatureAliasName'] = $this->featureAliasName;
         }
-
         if (null !== $this->modelId) {
             $res['ModelId'] = $this->modelId;
         }
-
         if (null !== $this->modelName) {
             $res['ModelName'] = $this->modelName;
         }
@@ -51,22 +52,20 @@ class models extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return models
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FeatureAliasName'])) {
             $model->featureAliasName = $map['FeatureAliasName'];
         }
-
         if (isset($map['ModelId'])) {
             $model->modelId = $map['ModelId'];
         }
-
         if (isset($map['ModelName'])) {
             $model->modelName = $map['ModelName'];
         }

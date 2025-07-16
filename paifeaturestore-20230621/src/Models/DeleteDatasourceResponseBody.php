@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteDatasourceResponseBody extends Model
 {
     /**
+     * @example E2E1575F-29D1-5579-B649-B7883A793562
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +18,9 @@ class DeleteDatasourceResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +30,11 @@ class DeleteDatasourceResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteDatasourceResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListModelFeatureAvailableFeaturesRequest extends Model
 {
     /**
+     * @example f1
+     *
      * @var string
      */
     public $featureName;
@@ -16,12 +18,9 @@ class ListModelFeatureAvailableFeaturesRequest extends Model
         'featureName' => 'FeatureName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->featureName) {
@@ -31,11 +30,11 @@ class ListModelFeatureAvailableFeaturesRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListModelFeatureAvailableFeaturesRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

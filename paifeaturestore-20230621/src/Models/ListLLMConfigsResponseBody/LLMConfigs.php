@@ -4,66 +4,90 @@
 
 namespace AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListLLMConfigsResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class LLMConfigs extends Model
 {
     /**
+     * @example apikey-abcdxy
+     *
      * @var string
      */
     public $apiKey;
 
     /**
+     * @example https://dashscope.aliyuncs.com/compatible-mode/v1
+     *
      * @var string
      */
     public $baseUrl;
 
     /**
+     * @example 8
+     *
      * @var int
      */
     public $batchSize;
 
     /**
+     * @example 2023-07-04T11:26:09.036+08:00
+     *
      * @var string
      */
     public $gmtCreateTime;
 
     /**
+     * @example 2023-07-04T11:26:09.036+08:00
+     *
      * @var string
      */
     public $gmtModifiedTime;
 
     /**
+     * @example llm_config1
+     *
      * @var string
      */
     public $LLMConfigId;
 
     /**
+     * @example 2048
+     *
      * @var int
      */
     public $maxTokens;
 
     /**
+     * @example text-embedding-v1
+     *
      * @var string
      */
     public $model;
 
     /**
+     * @example llm_config_name1
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example rg-aek2vtzqjaohzqi
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $rps;
 
     /**
+     * @example 234
+     *
      * @var string
      */
     public $workspaceId;
@@ -82,58 +106,44 @@ class LLMConfigs extends Model
         'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->apiKey) {
             $res['ApiKey'] = $this->apiKey;
         }
-
         if (null !== $this->baseUrl) {
             $res['BaseUrl'] = $this->baseUrl;
         }
-
         if (null !== $this->batchSize) {
             $res['BatchSize'] = $this->batchSize;
         }
-
         if (null !== $this->gmtCreateTime) {
             $res['GmtCreateTime'] = $this->gmtCreateTime;
         }
-
         if (null !== $this->gmtModifiedTime) {
             $res['GmtModifiedTime'] = $this->gmtModifiedTime;
         }
-
         if (null !== $this->LLMConfigId) {
             $res['LLMConfigId'] = $this->LLMConfigId;
         }
-
         if (null !== $this->maxTokens) {
             $res['MaxTokens'] = $this->maxTokens;
         }
-
         if (null !== $this->model) {
             $res['Model'] = $this->model;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
-
         if (null !== $this->rps) {
             $res['Rps'] = $this->rps;
         }
-
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -141,58 +151,47 @@ class LLMConfigs extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return LLMConfigs
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApiKey'])) {
             $model->apiKey = $map['ApiKey'];
         }
-
         if (isset($map['BaseUrl'])) {
             $model->baseUrl = $map['BaseUrl'];
         }
-
         if (isset($map['BatchSize'])) {
             $model->batchSize = $map['BatchSize'];
         }
-
         if (isset($map['GmtCreateTime'])) {
             $model->gmtCreateTime = $map['GmtCreateTime'];
         }
-
         if (isset($map['GmtModifiedTime'])) {
             $model->gmtModifiedTime = $map['GmtModifiedTime'];
         }
-
         if (isset($map['LLMConfigId'])) {
             $model->LLMConfigId = $map['LLMConfigId'];
         }
-
         if (isset($map['MaxTokens'])) {
             $model->maxTokens = $map['MaxTokens'];
         }
-
         if (isset($map['Model'])) {
             $model->model = $map['Model'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
-
         if (isset($map['Rps'])) {
             $model->rps = $map['Rps'];
         }
-
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

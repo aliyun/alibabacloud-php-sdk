@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListDatasourceTablesRequest extends Model
 {
     /**
+     * @example table1
+     *
      * @var string
      */
     public $tableName;
@@ -16,12 +18,9 @@ class ListDatasourceTablesRequest extends Model
         'tableName' => 'TableName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->tableName) {
@@ -31,11 +30,11 @@ class ListDatasourceTablesRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListDatasourceTablesRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

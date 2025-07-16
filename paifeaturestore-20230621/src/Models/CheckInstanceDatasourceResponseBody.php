@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CheckInstanceDatasourceResponseBody extends Model
 {
     /**
+     * @example C03B2680-AC9C-59CD-93C5-8142B92537FA
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example Success
+     *
      * @var string
      */
     public $status;
@@ -22,18 +26,14 @@ class CheckInstanceDatasourceResponseBody extends Model
         'status' => 'Status',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -41,18 +41,17 @@ class CheckInstanceDatasourceResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CheckInstanceDatasourceResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

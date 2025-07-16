@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteLabelTableResponseBody extends Model
 {
     /**
+     * @example FFD39C0F-DD8D-51B2-864E-2842206DB0E8
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +18,9 @@ class DeleteLabelTableResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +30,11 @@ class DeleteLabelTableResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteLabelTableResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

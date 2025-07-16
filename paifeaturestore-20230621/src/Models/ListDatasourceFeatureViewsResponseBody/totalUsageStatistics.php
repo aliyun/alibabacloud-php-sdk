@@ -4,17 +4,21 @@
 
 namespace AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListDatasourceFeatureViewsResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListDatasourceFeatureViewsResponseBody\totalUsageStatistics\totalReadWriteCount;
+use AlibabaCloud\Tea\Model;
 
 class totalUsageStatistics extends Model
 {
     /**
+     * @example 12.3
+     *
      * @var float
      */
     public $totalDiskUsage;
 
     /**
+     * @example 1.23
+     *
      * @var float
      */
     public $totalMemoryUsage;
@@ -29,31 +33,23 @@ class totalUsageStatistics extends Model
         'totalReadWriteCount' => 'TotalReadWriteCount',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->totalReadWriteCount)) {
-            Model::validateArray($this->totalReadWriteCount);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->totalDiskUsage) {
             $res['TotalDiskUsage'] = $this->totalDiskUsage;
         }
-
         if (null !== $this->totalMemoryUsage) {
             $res['TotalMemoryUsage'] = $this->totalMemoryUsage;
         }
-
         if (null !== $this->totalReadWriteCount) {
-            if (\is_array($this->totalReadWriteCount)) {
-                $res['TotalReadWriteCount'] = [];
-                $n1 = 0;
-                foreach ($this->totalReadWriteCount as $item1) {
-                    $res['TotalReadWriteCount'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['TotalReadWriteCount'] = [];
+            if (null !== $this->totalReadWriteCount && \is_array($this->totalReadWriteCount)) {
+                $n = 0;
+                foreach ($this->totalReadWriteCount as $item) {
+                    $res['TotalReadWriteCount'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -61,28 +57,26 @@ class totalUsageStatistics extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return totalUsageStatistics
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TotalDiskUsage'])) {
             $model->totalDiskUsage = $map['TotalDiskUsage'];
         }
-
         if (isset($map['TotalMemoryUsage'])) {
             $model->totalMemoryUsage = $map['TotalMemoryUsage'];
         }
-
         if (isset($map['TotalReadWriteCount'])) {
             if (!empty($map['TotalReadWriteCount'])) {
                 $model->totalReadWriteCount = [];
-                $n1 = 0;
-                foreach ($map['TotalReadWriteCount'] as $item1) {
-                    $model->totalReadWriteCount[$n1++] = totalReadWriteCount::fromMap($item1);
+                $n = 0;
+                foreach ($map['TotalReadWriteCount'] as $item) {
+                    $model->totalReadWriteCount[$n++] = null !== $item ? totalReadWriteCount::fromMap($item) : $item;
                 }
             }
         }

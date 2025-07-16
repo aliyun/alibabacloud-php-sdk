@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateModelFeatureFGFeatureResponseBody extends Model
 {
     /**
+     * @example 7D497816-607C-5B67-97B1-61354B6ACB2B
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +18,9 @@ class UpdateModelFeatureFGFeatureResponseBody extends Model
         'requestId' => 'requestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +30,11 @@ class UpdateModelFeatureFGFeatureResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateModelFeatureFGFeatureResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

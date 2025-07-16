@@ -4,32 +4,48 @@
 
 namespace AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\CreateModelFeatureRequest\features;
+use AlibabaCloud\Tea\Model;
 
 class CreateModelFeatureRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var features[]
      */
     public $features;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $labelPriorityLevel;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 4
+     *
      * @var string
      */
     public $labelTableId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example model_feature_1
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 3
+     *
      * @var string
      */
     public $projectId;
@@ -47,100 +63,71 @@ class CreateModelFeatureRequest extends Model
         'sequenceFeatureViewIds' => 'SequenceFeatureViewIds',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->features)) {
-            Model::validateArray($this->features);
-        }
-        if (\is_array($this->sequenceFeatureViewIds)) {
-            Model::validateArray($this->sequenceFeatureViewIds);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->features) {
-            if (\is_array($this->features)) {
-                $res['Features'] = [];
-                $n1 = 0;
-                foreach ($this->features as $item1) {
-                    $res['Features'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Features'] = [];
+            if (null !== $this->features && \is_array($this->features)) {
+                $n = 0;
+                foreach ($this->features as $item) {
+                    $res['Features'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->labelPriorityLevel) {
             $res['LabelPriorityLevel'] = $this->labelPriorityLevel;
         }
-
         if (null !== $this->labelTableId) {
             $res['LabelTableId'] = $this->labelTableId;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
-
         if (null !== $this->sequenceFeatureViewIds) {
-            if (\is_array($this->sequenceFeatureViewIds)) {
-                $res['SequenceFeatureViewIds'] = [];
-                $n1 = 0;
-                foreach ($this->sequenceFeatureViewIds as $item1) {
-                    $res['SequenceFeatureViewIds'][$n1++] = $item1;
-                }
-            }
+            $res['SequenceFeatureViewIds'] = $this->sequenceFeatureViewIds;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateModelFeatureRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Features'])) {
             if (!empty($map['Features'])) {
                 $model->features = [];
-                $n1 = 0;
-                foreach ($map['Features'] as $item1) {
-                    $model->features[$n1++] = features::fromMap($item1);
+                $n = 0;
+                foreach ($map['Features'] as $item) {
+                    $model->features[$n++] = null !== $item ? features::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['LabelPriorityLevel'])) {
             $model->labelPriorityLevel = $map['LabelPriorityLevel'];
         }
-
         if (isset($map['LabelTableId'])) {
             $model->labelTableId = $map['LabelTableId'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
-
         if (isset($map['SequenceFeatureViewIds'])) {
             if (!empty($map['SequenceFeatureViewIds'])) {
-                $model->sequenceFeatureViewIds = [];
-                $n1 = 0;
-                foreach ($map['SequenceFeatureViewIds'] as $item1) {
-                    $model->sequenceFeatureViewIds[$n1++] = $item1;
-                }
+                $model->sequenceFeatureViewIds = $map['SequenceFeatureViewIds'];
             }
         }
 

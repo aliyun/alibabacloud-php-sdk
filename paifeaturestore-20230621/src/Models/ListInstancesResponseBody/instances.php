@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListInstancesResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListInstancesResponseBody\instances\featureDBInstanceInfo;
+use AlibabaCloud\Tea\Model;
 
 class instances extends Model
 {
@@ -15,31 +15,43 @@ class instances extends Model
     public $featureDBInstanceInfo;
 
     /**
+     * @example 2023-07-04T11:26:09.036+08:00
+     *
      * @var string
      */
     public $gmtCreateTime;
 
     /**
+     * @example 2023-07-04T11:26:09.036+08:00
+     *
      * @var string
      */
     public $gmtModifiedTime;
 
     /**
+     * @example featureStore-cn-7mz2xfu****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example Initializing
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example Basic
+     *
      * @var string
      */
     public $type;
@@ -53,41 +65,29 @@ class instances extends Model
         'type' => 'Type',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->featureDBInstanceInfo) {
-            $this->featureDBInstanceInfo->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->featureDBInstanceInfo) {
-            $res['FeatureDBInstanceInfo'] = null !== $this->featureDBInstanceInfo ? $this->featureDBInstanceInfo->toArray($noStream) : $this->featureDBInstanceInfo;
+            $res['FeatureDBInstanceInfo'] = null !== $this->featureDBInstanceInfo ? $this->featureDBInstanceInfo->toMap() : null;
         }
-
         if (null !== $this->gmtCreateTime) {
             $res['GmtCreateTime'] = $this->gmtCreateTime;
         }
-
         if (null !== $this->gmtModifiedTime) {
             $res['GmtModifiedTime'] = $this->gmtModifiedTime;
         }
-
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -95,38 +95,32 @@ class instances extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return instances
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FeatureDBInstanceInfo'])) {
             $model->featureDBInstanceInfo = featureDBInstanceInfo::fromMap($map['FeatureDBInstanceInfo']);
         }
-
         if (isset($map['GmtCreateTime'])) {
             $model->gmtCreateTime = $map['GmtCreateTime'];
         }
-
         if (isset($map['GmtModifiedTime'])) {
             $model->gmtModifiedTime = $map['GmtModifiedTime'];
         }
-
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

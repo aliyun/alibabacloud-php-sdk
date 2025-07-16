@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class FeatureViewConfigValuePartitionsValue extends Model
 {
@@ -34,35 +34,20 @@ class FeatureViewConfigValuePartitionsValue extends Model
         'endValue' => 'EndValue',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->values)) {
-            Model::validateArray($this->values);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
-
         if (null !== $this->values) {
-            if (\is_array($this->values)) {
-                $res['Values'] = [];
-                $n1 = 0;
-                foreach ($this->values as $item1) {
-                    $res['Values'][$n1++] = $item1;
-                }
-            }
+            $res['Values'] = $this->values;
         }
-
         if (null !== $this->startValue) {
             $res['StartValue'] = $this->startValue;
         }
-
         if (null !== $this->endValue) {
             $res['EndValue'] = $this->endValue;
         }
@@ -70,32 +55,25 @@ class FeatureViewConfigValuePartitionsValue extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return FeatureViewConfigValuePartitionsValue
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }
-
         if (isset($map['Values'])) {
             if (!empty($map['Values'])) {
-                $model->values = [];
-                $n1 = 0;
-                foreach ($map['Values'] as $item1) {
-                    $model->values[$n1++] = $item1;
-                }
+                $model->values = $map['Values'];
             }
         }
-
         if (isset($map['StartValue'])) {
             $model->startValue = $map['StartValue'];
         }
-
         if (isset($map['EndValue'])) {
             $model->endValue = $map['EndValue'];
         }

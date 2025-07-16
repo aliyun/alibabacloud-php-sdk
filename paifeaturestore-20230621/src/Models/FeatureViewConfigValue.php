@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class FeatureViewConfigValue extends Model
 {
@@ -34,34 +34,25 @@ class FeatureViewConfigValue extends Model
         'useMock' => 'UseMock',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->partitions)) {
-            Model::validateArray($this->partitions);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->partitions) {
-            if (\is_array($this->partitions)) {
-                $res['Partitions'] = [];
-                foreach ($this->partitions as $key1 => $value1) {
-                    $res['Partitions'][$key1] = null !== $value1 ? $value1->toArray($noStream) : $value1;
+            $res['Partitions'] = [];
+            if (null !== $this->partitions && \is_array($this->partitions)) {
+                foreach ($this->partitions as $key => $val) {
+                    $res['Partitions'][$key] = null !== $val ? $val->toMap() : $val;
                 }
             }
         }
-
         if (null !== $this->eventTime) {
             $res['EventTime'] = $this->eventTime;
         }
-
         if (null !== $this->equal) {
             $res['Equal'] = $this->equal;
         }
-
         if (null !== $this->useMock) {
             $res['UseMock'] = $this->useMock;
         }
@@ -69,31 +60,23 @@ class FeatureViewConfigValue extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return FeatureViewConfigValue
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Partitions'])) {
-            if (!empty($map['Partitions'])) {
-                $model->partitions = [];
-                foreach ($map['Partitions'] as $key1 => $value1) {
-                    $model->partitions[$key1] = FeatureViewConfigValuePartitionsValue::fromMap($value1);
-                }
-            }
+            $model->partitions = $map['Partitions'];
         }
-
         if (isset($map['EventTime'])) {
             $model->eventTime = $map['EventTime'];
         }
-
         if (isset($map['Equal'])) {
             $model->equal = $map['Equal'];
         }
-
         if (isset($map['UseMock'])) {
             $model->useMock = $map['UseMock'];
         }

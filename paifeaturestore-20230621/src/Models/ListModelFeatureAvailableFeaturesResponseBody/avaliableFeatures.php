@@ -4,26 +4,34 @@
 
 namespace AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListModelFeatureAvailableFeaturesResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class avaliableFeatures extends Model
 {
     /**
+     * @example age
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example user_fea
+     *
      * @var string
      */
     public $sourceName;
 
     /**
+     * @example FeatureView
+     *
      * @var string
      */
     public $sourceType;
 
     /**
+     * @example STRING
+     *
      * @var string
      */
     public $type;
@@ -34,26 +42,20 @@ class avaliableFeatures extends Model
         'type' => 'Type',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->sourceName) {
             $res['SourceName'] = $this->sourceName;
         }
-
         if (null !== $this->sourceType) {
             $res['SourceType'] = $this->sourceType;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -61,26 +63,23 @@ class avaliableFeatures extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return avaliableFeatures
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['SourceName'])) {
             $model->sourceName = $map['SourceName'];
         }
-
         if (isset($map['SourceType'])) {
             $model->sourceType = $map['SourceType'];
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
