@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\DlfNext\V20250310\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetUserRequest extends Model
 {
     /**
+     * @example acs:ram::[accountId]:user/user_name
+     *
      * @var string
      */
     public $userPrincipal;
@@ -16,12 +18,9 @@ class GetUserRequest extends Model
         'userPrincipal' => 'userPrincipal',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->userPrincipal) {
@@ -31,11 +30,11 @@ class GetUserRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetUserRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

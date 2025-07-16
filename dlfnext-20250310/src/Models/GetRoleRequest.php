@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\DlfNext\V20250310\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetRoleRequest extends Model
 {
     /**
+     * @example acs:dlf::[accountId]:role/role_name
+     *
      * @var string
      */
     public $rolePrincipal;
@@ -16,12 +18,9 @@ class GetRoleRequest extends Model
         'rolePrincipal' => 'rolePrincipal',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->rolePrincipal) {
@@ -31,11 +30,11 @@ class GetRoleRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetRoleRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

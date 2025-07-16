@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\DlfNext\V20250310\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class TableSnapshot extends Model
 {
@@ -40,64 +40,50 @@ class TableSnapshot extends Model
         'snapshot' => 'snapshot',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->snapshot) {
-            $this->snapshot->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->fileCount) {
             $res['fileCount'] = $this->fileCount;
         }
-
         if (null !== $this->fileSizeInBytes) {
             $res['fileSizeInBytes'] = $this->fileSizeInBytes;
         }
-
         if (null !== $this->lastFileCreationTime) {
             $res['lastFileCreationTime'] = $this->lastFileCreationTime;
         }
-
         if (null !== $this->recordCount) {
             $res['recordCount'] = $this->recordCount;
         }
-
         if (null !== $this->snapshot) {
-            $res['snapshot'] = null !== $this->snapshot ? $this->snapshot->toArray($noStream) : $this->snapshot;
+            $res['snapshot'] = null !== $this->snapshot ? $this->snapshot->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return TableSnapshot
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['fileCount'])) {
             $model->fileCount = $map['fileCount'];
         }
-
         if (isset($map['fileSizeInBytes'])) {
             $model->fileSizeInBytes = $map['fileSizeInBytes'];
         }
-
         if (isset($map['lastFileCreationTime'])) {
             $model->lastFileCreationTime = $map['lastFileCreationTime'];
         }
-
         if (isset($map['recordCount'])) {
             $model->recordCount = $map['recordCount'];
         }
-
         if (isset($map['snapshot'])) {
             $model->snapshot = Snapshot::fromMap($map['snapshot']);
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\DlfNext\V20250310\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\Permission\columns;
+use AlibabaCloud\Tea\Model;
 
 class Permission extends Model
 {
@@ -59,45 +59,32 @@ class Permission extends Model
         'view' => 'view',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->columns) {
-            $this->columns->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->access) {
             $res['access'] = $this->access;
         }
-
         if (null !== $this->columns) {
-            $res['columns'] = null !== $this->columns ? $this->columns->toArray($noStream) : $this->columns;
+            $res['columns'] = null !== $this->columns ? $this->columns->toMap() : null;
         }
-
         if (null !== $this->database) {
             $res['database'] = $this->database;
         }
-
         if (null !== $this->function) {
             $res['function'] = $this->function;
         }
-
         if (null !== $this->principal) {
             $res['principal'] = $this->principal;
         }
-
         if (null !== $this->resourceType) {
             $res['resourceType'] = $this->resourceType;
         }
-
         if (null !== $this->table) {
             $res['table'] = $this->table;
         }
-
         if (null !== $this->view) {
             $res['view'] = $this->view;
         }
@@ -105,42 +92,35 @@ class Permission extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return Permission
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['access'])) {
             $model->access = $map['access'];
         }
-
         if (isset($map['columns'])) {
             $model->columns = columns::fromMap($map['columns']);
         }
-
         if (isset($map['database'])) {
             $model->database = $map['database'];
         }
-
         if (isset($map['function'])) {
             $model->function = $map['function'];
         }
-
         if (isset($map['principal'])) {
             $model->principal = $map['principal'];
         }
-
         if (isset($map['resourceType'])) {
             $model->resourceType = $map['resourceType'];
         }
-
         if (isset($map['table'])) {
             $model->table = $map['table'];
         }
-
         if (isset($map['view'])) {
             $model->view = $map['view'];
         }

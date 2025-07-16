@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\DlfNext\V20250310\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class IcebergPartitionField extends Model
 {
@@ -34,26 +34,20 @@ class IcebergPartitionField extends Model
         'transform' => 'transform',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->fieldId) {
             $res['fieldId'] = $this->fieldId;
         }
-
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
-
         if (null !== $this->sourceId) {
             $res['sourceId'] = $this->sourceId;
         }
-
         if (null !== $this->transform) {
             $res['transform'] = $this->transform;
         }
@@ -61,26 +55,23 @@ class IcebergPartitionField extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return IcebergPartitionField
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['fieldId'])) {
             $model->fieldId = $map['fieldId'];
         }
-
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
-
         if (isset($map['sourceId'])) {
             $model->sourceId = $map['sourceId'];
         }
-
         if (isset($map['transform'])) {
             $model->transform = $map['transform'];
         }

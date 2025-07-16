@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\DlfNext\V20250310\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class IcebergSnapshot extends Model
 {
@@ -58,50 +58,32 @@ class IcebergSnapshot extends Model
         'timestampMillis' => 'timestampMillis',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->summary)) {
-            Model::validateArray($this->summary);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->addedRows) {
             $res['addedRows'] = $this->addedRows;
         }
-
         if (null !== $this->id) {
             $res['id'] = $this->id;
         }
-
         if (null !== $this->operation) {
             $res['operation'] = $this->operation;
         }
-
         if (null !== $this->parentId) {
             $res['parentId'] = $this->parentId;
         }
-
         if (null !== $this->schemaId) {
             $res['schemaId'] = $this->schemaId;
         }
-
         if (null !== $this->sequenceNumber) {
             $res['sequenceNumber'] = $this->sequenceNumber;
         }
-
         if (null !== $this->summary) {
-            if (\is_array($this->summary)) {
-                $res['summary'] = [];
-                foreach ($this->summary as $key1 => $value1) {
-                    $res['summary'][$key1] = $value1;
-                }
-            }
+            $res['summary'] = $this->summary;
         }
-
         if (null !== $this->timestampMillis) {
             $res['timestampMillis'] = $this->timestampMillis;
         }
@@ -109,47 +91,35 @@ class IcebergSnapshot extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return IcebergSnapshot
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['addedRows'])) {
             $model->addedRows = $map['addedRows'];
         }
-
         if (isset($map['id'])) {
             $model->id = $map['id'];
         }
-
         if (isset($map['operation'])) {
             $model->operation = $map['operation'];
         }
-
         if (isset($map['parentId'])) {
             $model->parentId = $map['parentId'];
         }
-
         if (isset($map['schemaId'])) {
             $model->schemaId = $map['schemaId'];
         }
-
         if (isset($map['sequenceNumber'])) {
             $model->sequenceNumber = $map['sequenceNumber'];
         }
-
         if (isset($map['summary'])) {
-            if (!empty($map['summary'])) {
-                $model->summary = [];
-                foreach ($map['summary'] as $key1 => $value1) {
-                    $model->summary[$key1] = $value1;
-                }
-            }
+            $model->summary = $map['summary'];
         }
-
         if (isset($map['timestampMillis'])) {
             $model->timestampMillis = $map['timestampMillis'];
         }

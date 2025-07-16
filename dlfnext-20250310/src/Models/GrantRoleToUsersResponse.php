@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\DlfNext\V20250310\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GrantRoleToUsersResponse extends Model
 {
@@ -22,26 +22,14 @@ class GrantRoleToUsersResponse extends Model
         'statusCode' => 'statusCode',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->headers)) {
-            Model::validateArray($this->headers);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->headers) {
-            if (\is_array($this->headers)) {
-                $res['headers'] = [];
-                foreach ($this->headers as $key1 => $value1) {
-                    $res['headers'][$key1] = $value1;
-                }
-            }
+            $res['headers'] = $this->headers;
         }
-
         if (null !== $this->statusCode) {
             $res['statusCode'] = $this->statusCode;
         }
@@ -49,23 +37,17 @@ class GrantRoleToUsersResponse extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GrantRoleToUsersResponse
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['headers'])) {
-            if (!empty($map['headers'])) {
-                $model->headers = [];
-                foreach ($map['headers'] as $key1 => $value1) {
-                    $model->headers[$key1] = $value1;
-                }
-            }
+            $model->headers = $map['headers'];
         }
-
         if (isset($map['statusCode'])) {
             $model->statusCode = $map['statusCode'];
         }

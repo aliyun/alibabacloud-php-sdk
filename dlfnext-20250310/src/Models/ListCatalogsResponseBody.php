@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\DlfNext\V20250310\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListCatalogsResponseBody extends Model
 {
@@ -14,6 +14,8 @@ class ListCatalogsResponseBody extends Model
     public $catalogs;
 
     /**
+     * @example E8ABEB1C3DB893D16576269017992F57
+     *
      * @var string
      */
     public $nextPageToken;
@@ -22,28 +24,20 @@ class ListCatalogsResponseBody extends Model
         'nextPageToken' => 'nextPageToken',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->catalogs)) {
-            Model::validateArray($this->catalogs);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->catalogs) {
-            if (\is_array($this->catalogs)) {
-                $res['catalogs'] = [];
-                $n1 = 0;
-                foreach ($this->catalogs as $item1) {
-                    $res['catalogs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['catalogs'] = [];
+            if (null !== $this->catalogs && \is_array($this->catalogs)) {
+                $n = 0;
+                foreach ($this->catalogs as $item) {
+                    $res['catalogs'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->nextPageToken) {
             $res['nextPageToken'] = $this->nextPageToken;
         }
@@ -51,25 +45,23 @@ class ListCatalogsResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListCatalogsResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['catalogs'])) {
             if (!empty($map['catalogs'])) {
                 $model->catalogs = [];
-                $n1 = 0;
-                foreach ($map['catalogs'] as $item1) {
-                    $model->catalogs[$n1] = Catalog::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['catalogs'] as $item) {
+                    $model->catalogs[$n++] = null !== $item ? Catalog::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['nextPageToken'])) {
             $model->nextPageToken = $map['nextPageToken'];
         }

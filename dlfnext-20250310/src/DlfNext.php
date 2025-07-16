@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\DlfNext\V20250310;
 
-use AlibabaCloud\Dara\Models\RuntimeOptions;
-use AlibabaCloud\Dara\Url;
+use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\AlterCatalogRequest;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\AlterCatalogResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\BatchGrantPermissionsRequest;
@@ -55,10 +55,11 @@ use AlibabaCloud\SDK\DlfNext\V20250310\Models\UpdateRoleRequest;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\UpdateRoleResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\UpdateRoleUsersRequest;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\UpdateRoleUsersResponse;
+use AlibabaCloud\Tea\Utils\Utils;
+use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
-use Darabonba\OpenApi\Utils;
 
 class DlfNext extends OpenApiClient
 {
@@ -83,54 +84,45 @@ class DlfNext extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (null !== $endpoint) {
+        if (!Utils::empty_($endpoint)) {
             return $endpoint;
         }
-
-        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
+        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
             return @$endpointMap[$regionId];
         }
 
-        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * 更新数据目录.
-     *
-     * @param request - AlterCatalogRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns AlterCatalogResponse
-     *
+     * @summary 更新数据目录
+     *  *
      * @param string              $catalog
-     * @param AlterCatalogRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @param AlterCatalogRequest $request AlterCatalogRequest
+     * @param string[]            $headers map
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return AlterCatalogResponse
+     * @return AlterCatalogResponse AlterCatalogResponse
      */
     public function alterCatalogWithOptions($catalog, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->removals) {
-            @$body['removals'] = $request->removals;
+        if (!Utils::isUnset($request->removals)) {
+            $body['removals'] = $request->removals;
         }
-
-        if (null !== $request->updates) {
-            @$body['updates'] = $request->updates;
+        if (!Utils::isUnset($request->updates)) {
+            $body['updates'] = $request->updates;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'AlterCatalog',
             'version' => '2025-03-10',
             'protocol' => 'HTTPS',
-            'pathname' => '/dlf/v1/catalogs/' . Url::percentEncode($catalog) . '',
+            'pathname' => '/dlf/v1/catalogs/' . OpenApiUtilClient::getEncodeParam($catalog) . '',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -142,16 +134,12 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 更新数据目录.
-     *
-     * @param request - AlterCatalogRequest
-     *
-     * @returns AlterCatalogResponse
-     *
+     * @summary 更新数据目录
+     *  *
      * @param string              $catalog
-     * @param AlterCatalogRequest $request
+     * @param AlterCatalogRequest $request AlterCatalogRequest
      *
-     * @return AlterCatalogResponse
+     * @return AlterCatalogResponse AlterCatalogResponse
      */
     public function alterCatalog($catalog, $request)
     {
@@ -162,38 +150,31 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 批量授权.
-     *
-     * @param request - BatchGrantPermissionsRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns BatchGrantPermissionsResponse
-     *
+     * @summary 批量授权
+     *  *
      * @param string                       $catalogId
-     * @param BatchGrantPermissionsRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @param BatchGrantPermissionsRequest $request   BatchGrantPermissionsRequest
+     * @param string[]                     $headers   map
+     * @param RuntimeOptions               $runtime   runtime options for this request RuntimeOptions
      *
-     * @return BatchGrantPermissionsResponse
+     * @return BatchGrantPermissionsResponse BatchGrantPermissionsResponse
      */
     public function batchGrantPermissionsWithOptions($catalogId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->permissions) {
-            @$body['permissions'] = $request->permissions;
+        if (!Utils::isUnset($request->permissions)) {
+            $body['permissions'] = $request->permissions;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'BatchGrantPermissions',
             'version' => '2025-03-10',
             'protocol' => 'HTTPS',
-            'pathname' => '/dlf/v1/auth/permissions/' . Url::percentEncode($catalogId) . '/batchgrant',
+            'pathname' => '/dlf/v1/auth/permissions/' . OpenApiUtilClient::getEncodeParam($catalogId) . '/batchgrant',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -205,16 +186,12 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 批量授权.
-     *
-     * @param request - BatchGrantPermissionsRequest
-     *
-     * @returns BatchGrantPermissionsResponse
-     *
+     * @summary 批量授权
+     *  *
      * @param string                       $catalogId
-     * @param BatchGrantPermissionsRequest $request
+     * @param BatchGrantPermissionsRequest $request   BatchGrantPermissionsRequest
      *
-     * @return BatchGrantPermissionsResponse
+     * @return BatchGrantPermissionsResponse BatchGrantPermissionsResponse
      */
     public function batchGrantPermissions($catalogId, $request)
     {
@@ -225,38 +202,31 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 批量取消授权.
-     *
-     * @param request - BatchRevokePermissionsRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns BatchRevokePermissionsResponse
-     *
+     * @summary 批量取消授权
+     *  *
      * @param string                        $catalogId
-     * @param BatchRevokePermissionsRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @param BatchRevokePermissionsRequest $request   BatchRevokePermissionsRequest
+     * @param string[]                      $headers   map
+     * @param RuntimeOptions                $runtime   runtime options for this request RuntimeOptions
      *
-     * @return BatchRevokePermissionsResponse
+     * @return BatchRevokePermissionsResponse BatchRevokePermissionsResponse
      */
     public function batchRevokePermissionsWithOptions($catalogId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->permissions) {
-            @$body['permissions'] = $request->permissions;
+        if (!Utils::isUnset($request->permissions)) {
+            $body['permissions'] = $request->permissions;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'BatchRevokePermissions',
             'version' => '2025-03-10',
             'protocol' => 'HTTPS',
-            'pathname' => '/dlf/v1/auth/permissions/' . Url::percentEncode($catalogId) . '/batchrevoke',
+            'pathname' => '/dlf/v1/auth/permissions/' . OpenApiUtilClient::getEncodeParam($catalogId) . '/batchrevoke',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -268,16 +238,12 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 批量取消授权.
-     *
-     * @param request - BatchRevokePermissionsRequest
-     *
-     * @returns BatchRevokePermissionsResponse
-     *
+     * @summary 批量取消授权
+     *  *
      * @param string                        $catalogId
-     * @param BatchRevokePermissionsRequest $request
+     * @param BatchRevokePermissionsRequest $request   BatchRevokePermissionsRequest
      *
-     * @return BatchRevokePermissionsResponse
+     * @return BatchRevokePermissionsResponse BatchRevokePermissionsResponse
      */
     public function batchRevokePermissions($catalogId, $request)
     {
@@ -288,43 +254,30 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 创建数据目录.
+     * @summary 创建数据目录
+     *  *
+     * @param CreateCatalogRequest $request CreateCatalogRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateCatalogRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateCatalogResponse
-     *
-     * @param CreateCatalogRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
-     *
-     * @return CreateCatalogResponse
+     * @return CreateCatalogResponse CreateCatalogResponse
      */
     public function createCatalogWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->name) {
-            @$body['name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $body['name'] = $request->name;
         }
-
-        if (null !== $request->optimizationConfig) {
-            @$body['optimizationConfig'] = $request->optimizationConfig;
+        if (!Utils::isUnset($request->options)) {
+            $body['options'] = $request->options;
         }
-
-        if (null !== $request->options) {
-            @$body['options'] = $request->options;
+        if (!Utils::isUnset($request->type)) {
+            $body['type'] = $request->type;
         }
-
-        if (null !== $request->type) {
-            @$body['type'] = $request->type;
-        }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateCatalog',
@@ -342,15 +295,11 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 创建数据目录.
+     * @summary 创建数据目录
+     *  *
+     * @param CreateCatalogRequest $request CreateCatalogRequest
      *
-     * @param request - CreateCatalogRequest
-     *
-     * @returns CreateCatalogResponse
-     *
-     * @param CreateCatalogRequest $request
-     *
-     * @return CreateCatalogResponse
+     * @return CreateCatalogResponse CreateCatalogResponse
      */
     public function createCatalog($request)
     {
@@ -361,39 +310,30 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 创建角色.
+     * @summary 创建角色
+     *  *
+     * @param CreateRoleRequest $request CreateRoleRequest
+     * @param string[]          $headers map
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateRoleRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateRoleResponse
-     *
-     * @param CreateRoleRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
-     *
-     * @return CreateRoleResponse
+     * @return CreateRoleResponse CreateRoleResponse
      */
     public function createRoleWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->description) {
-            @$body['description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $body['description'] = $request->description;
         }
-
-        if (null !== $request->displayName) {
-            @$body['displayName'] = $request->displayName;
+        if (!Utils::isUnset($request->displayName)) {
+            $body['displayName'] = $request->displayName;
         }
-
-        if (null !== $request->roleName) {
-            @$body['roleName'] = $request->roleName;
+        if (!Utils::isUnset($request->roleName)) {
+            $body['roleName'] = $request->roleName;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateRole',
@@ -411,15 +351,11 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 创建角色.
+     * @summary 创建角色
+     *  *
+     * @param CreateRoleRequest $request CreateRoleRequest
      *
-     * @param request - CreateRoleRequest
-     *
-     * @returns CreateRoleResponse
-     *
-     * @param CreateRoleRequest $request
-     *
-     * @return CreateRoleResponse
+     * @return CreateRoleResponse CreateRoleResponse
      */
     public function createRole($request)
     {
@@ -430,31 +366,24 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 删除角色.
+     * @summary 删除角色
+     *  *
+     * @param DeleteRoleRequest $request DeleteRoleRequest
+     * @param string[]          $headers map
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteRoleRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteRoleResponse
-     *
-     * @param DeleteRoleRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
-     *
-     * @return DeleteRoleResponse
+     * @return DeleteRoleResponse DeleteRoleResponse
      */
     public function deleteRoleWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->rolePrincipal) {
-            @$query['rolePrincipal'] = $request->rolePrincipal;
+        if (!Utils::isUnset($request->rolePrincipal)) {
+            $query['rolePrincipal'] = $request->rolePrincipal;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteRole',
@@ -472,15 +401,11 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 删除角色.
+     * @summary 删除角色
+     *  *
+     * @param DeleteRoleRequest $request DeleteRoleRequest
      *
-     * @param request - DeleteRoleRequest
-     *
-     * @returns DeleteRoleResponse
-     *
-     * @param DeleteRoleRequest $request
-     *
-     * @return DeleteRoleResponse
+     * @return DeleteRoleResponse DeleteRoleResponse
      */
     public function deleteRole($request)
     {
@@ -491,17 +416,12 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 查询 DLF 开通地域
+     * @summary 查询 DLF 开通地域
+     *  *
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeRegionsResponse
-     *
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
-     *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($headers, $runtime)
     {
@@ -524,11 +444,9 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 查询 DLF 开通地域
-     *
-     * @returns DescribeRegionsResponse
-     *
-     * @return DescribeRegionsResponse
+     * @summary 查询 DLF 开通地域
+     *  *
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegions()
     {
@@ -539,18 +457,13 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 创建数据湖Catalog.
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DropCatalogResponse
-     *
+     * @summary 创建数据湖Catalog
+     *  *
      * @param string         $catalog
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DropCatalogResponse
+     * @return DropCatalogResponse DropCatalogResponse
      */
     public function dropCatalogWithOptions($catalog, $headers, $runtime)
     {
@@ -561,7 +474,7 @@ class DlfNext extends OpenApiClient
             'action' => 'DropCatalog',
             'version' => '2025-03-10',
             'protocol' => 'HTTPS',
-            'pathname' => '/dlf/v1/catalogs/' . Url::percentEncode($catalog) . '',
+            'pathname' => '/dlf/v1/catalogs/' . OpenApiUtilClient::getEncodeParam($catalog) . '',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -573,13 +486,11 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 创建数据湖Catalog.
-     *
-     * @returns DropCatalogResponse
-     *
+     * @summary 创建数据湖Catalog
+     *  *
      * @param string $catalog
      *
-     * @return DropCatalogResponse
+     * @return DropCatalogResponse DropCatalogResponse
      */
     public function dropCatalog($catalog)
     {
@@ -590,18 +501,13 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 查看数据湖Catalog.
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetCatalogResponse
-     *
+     * @summary 查看数据湖Catalog
+     *  *
      * @param string         $catalog
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetCatalogResponse
+     * @return GetCatalogResponse GetCatalogResponse
      */
     public function getCatalogWithOptions($catalog, $headers, $runtime)
     {
@@ -612,7 +518,7 @@ class DlfNext extends OpenApiClient
             'action' => 'GetCatalog',
             'version' => '2025-03-10',
             'protocol' => 'HTTPS',
-            'pathname' => '/dlf/v1/catalogs/' . Url::percentEncode($catalog) . '',
+            'pathname' => '/dlf/v1/catalogs/' . OpenApiUtilClient::getEncodeParam($catalog) . '',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -624,13 +530,11 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 查看数据湖Catalog.
-     *
-     * @returns GetCatalogResponse
-     *
+     * @summary 查看数据湖Catalog
+     *  *
      * @param string $catalog
      *
-     * @return GetCatalogResponse
+     * @return GetCatalogResponse GetCatalogResponse
      */
     public function getCatalog($catalog)
     {
@@ -641,18 +545,13 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 查看表.
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetCatalogSummaryResponse
-     *
+     * @summary 查看表
+     *  *
      * @param string         $catalogId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
      *
-     * @return GetCatalogSummaryResponse
+     * @return GetCatalogSummaryResponse GetCatalogSummaryResponse
      */
     public function getCatalogSummaryWithOptions($catalogId, $headers, $runtime)
     {
@@ -663,7 +562,7 @@ class DlfNext extends OpenApiClient
             'action' => 'GetCatalogSummary',
             'version' => '2025-03-10',
             'protocol' => 'HTTPS',
-            'pathname' => '/dlf/v1/' . Url::percentEncode($catalogId) . '/storage-summary',
+            'pathname' => '/dlf/v1/' . OpenApiUtilClient::getEncodeParam($catalogId) . '/storage-summary',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -675,13 +574,11 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 查看表.
-     *
-     * @returns GetCatalogSummaryResponse
-     *
+     * @summary 查看表
+     *  *
      * @param string $catalogId
      *
-     * @return GetCatalogSummaryResponse
+     * @return GetCatalogSummaryResponse GetCatalogSummaryResponse
      */
     public function getCatalogSummary($catalogId)
     {
@@ -692,42 +589,34 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 查看表.
-     *
-     * @param request - GetCatalogSummaryTrendRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetCatalogSummaryTrendResponse
-     *
+     * @summary 查看表
+     *  *
      * @param string                        $catalogId
-     * @param GetCatalogSummaryTrendRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @param GetCatalogSummaryTrendRequest $request   GetCatalogSummaryTrendRequest
+     * @param string[]                      $headers   map
+     * @param RuntimeOptions                $runtime   runtime options for this request RuntimeOptions
      *
-     * @return GetCatalogSummaryTrendResponse
+     * @return GetCatalogSummaryTrendResponse GetCatalogSummaryTrendResponse
      */
     public function getCatalogSummaryTrendWithOptions($catalogId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->endDate) {
-            @$query['endDate'] = $request->endDate;
+        if (!Utils::isUnset($request->endDate)) {
+            $query['endDate'] = $request->endDate;
         }
-
-        if (null !== $request->startDate) {
-            @$query['startDate'] = $request->startDate;
+        if (!Utils::isUnset($request->startDate)) {
+            $query['startDate'] = $request->startDate;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetCatalogSummaryTrend',
             'version' => '2025-03-10',
             'protocol' => 'HTTPS',
-            'pathname' => '/dlf/v1/' . Url::percentEncode($catalogId) . '/storage-summary/trend',
+            'pathname' => '/dlf/v1/' . OpenApiUtilClient::getEncodeParam($catalogId) . '/storage-summary/trend',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -739,16 +628,12 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 查看表.
-     *
-     * @param request - GetCatalogSummaryTrendRequest
-     *
-     * @returns GetCatalogSummaryTrendResponse
-     *
+     * @summary 查看表
+     *  *
      * @param string                        $catalogId
-     * @param GetCatalogSummaryTrendRequest $request
+     * @param GetCatalogSummaryTrendRequest $request   GetCatalogSummaryTrendRequest
      *
-     * @return GetCatalogSummaryTrendResponse
+     * @return GetCatalogSummaryTrendResponse GetCatalogSummaryTrendResponse
      */
     public function getCatalogSummaryTrend($catalogId, $request)
     {
@@ -759,18 +644,13 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 获取数据湖Catalog的临时访问凭证
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetCatalogTokenResponse
-     *
+     * @summary 获取数据湖Catalog的临时访问凭证
+     *  *
      * @param string         $catalog
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetCatalogTokenResponse
+     * @return GetCatalogTokenResponse GetCatalogTokenResponse
      */
     public function getCatalogTokenWithOptions($catalog, $headers, $runtime)
     {
@@ -781,7 +661,7 @@ class DlfNext extends OpenApiClient
             'action' => 'GetCatalogToken',
             'version' => '2025-03-10',
             'protocol' => 'HTTPS',
-            'pathname' => '/dlf/v1/catalogs/' . Url::percentEncode($catalog) . '/token',
+            'pathname' => '/dlf/v1/catalogs/' . OpenApiUtilClient::getEncodeParam($catalog) . '/token',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -793,13 +673,11 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 获取数据湖Catalog的临时访问凭证
-     *
-     * @returns GetCatalogTokenResponse
-     *
+     * @summary 获取数据湖Catalog的临时访问凭证
+     *  *
      * @param string $catalog
      *
-     * @return GetCatalogTokenResponse
+     * @return GetCatalogTokenResponse GetCatalogTokenResponse
      */
     public function getCatalogToken($catalog)
     {
@@ -810,19 +688,14 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 查看表.
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetDatabaseSummaryResponse
-     *
+     * @summary 查看表
+     *  *
      * @param string         $catalogId
      * @param string         $database
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
      *
-     * @return GetDatabaseSummaryResponse
+     * @return GetDatabaseSummaryResponse GetDatabaseSummaryResponse
      */
     public function getDatabaseSummaryWithOptions($catalogId, $database, $headers, $runtime)
     {
@@ -833,7 +706,7 @@ class DlfNext extends OpenApiClient
             'action' => 'GetDatabaseSummary',
             'version' => '2025-03-10',
             'protocol' => 'HTTPS',
-            'pathname' => '/dlf/v1/' . Url::percentEncode($catalogId) . '/databases/' . Url::percentEncode($database) . '/storage-summary',
+            'pathname' => '/dlf/v1/' . OpenApiUtilClient::getEncodeParam($catalogId) . '/databases/' . OpenApiUtilClient::getEncodeParam($database) . '/storage-summary',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -845,14 +718,12 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 查看表.
-     *
-     * @returns GetDatabaseSummaryResponse
-     *
+     * @summary 查看表
+     *  *
      * @param string $catalogId
      * @param string $database
      *
-     * @return GetDatabaseSummaryResponse
+     * @return GetDatabaseSummaryResponse GetDatabaseSummaryResponse
      */
     public function getDatabaseSummary($catalogId, $database)
     {
@@ -863,17 +734,12 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 查询 DLF 当前地域开通状态
+     * @summary 查询 DLF 当前地域开通状态
+     *  *
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetRegionStatusResponse
-     *
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
-     *
-     * @return GetRegionStatusResponse
+     * @return GetRegionStatusResponse GetRegionStatusResponse
      */
     public function getRegionStatusWithOptions($headers, $runtime)
     {
@@ -896,11 +762,9 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 查询 DLF 当前地域开通状态
-     *
-     * @returns GetRegionStatusResponse
-     *
-     * @return GetRegionStatusResponse
+     * @summary 查询 DLF 当前地域开通状态
+     *  *
+     * @return GetRegionStatusResponse GetRegionStatusResponse
      */
     public function getRegionStatus()
     {
@@ -911,31 +775,24 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 获取角色.
+     * @summary 获取角色
+     *  *
+     * @param GetRoleRequest $request GetRoleRequest
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetRoleRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetRoleResponse
-     *
-     * @param GetRoleRequest $request
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
-     *
-     * @return GetRoleResponse
+     * @return GetRoleResponse GetRoleResponse
      */
     public function getRoleWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->rolePrincipal) {
-            @$query['rolePrincipal'] = $request->rolePrincipal;
+        if (!Utils::isUnset($request->rolePrincipal)) {
+            $query['rolePrincipal'] = $request->rolePrincipal;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetRole',
@@ -953,15 +810,11 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 获取角色.
+     * @summary 获取角色
+     *  *
+     * @param GetRoleRequest $request GetRoleRequest
      *
-     * @param request - GetRoleRequest
-     *
-     * @returns GetRoleResponse
-     *
-     * @param GetRoleRequest $request
-     *
-     * @return GetRoleResponse
+     * @return GetRoleResponse GetRoleResponse
      */
     public function getRole($request)
     {
@@ -972,20 +825,15 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 查看表.
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetTableSummaryResponse
-     *
+     * @summary 查看表
+     *  *
      * @param string         $catalogId
      * @param string         $database
      * @param string         $table
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
      *
-     * @return GetTableSummaryResponse
+     * @return GetTableSummaryResponse GetTableSummaryResponse
      */
     public function getTableSummaryWithOptions($catalogId, $database, $table, $headers, $runtime)
     {
@@ -996,7 +844,7 @@ class DlfNext extends OpenApiClient
             'action' => 'GetTableSummary',
             'version' => '2025-03-10',
             'protocol' => 'HTTPS',
-            'pathname' => '/dlf/v1/' . Url::percentEncode($catalogId) . '/databases/' . Url::percentEncode($database) . '/tables/' . Url::percentEncode($table) . '/storage-summary',
+            'pathname' => '/dlf/v1/' . OpenApiUtilClient::getEncodeParam($catalogId) . '/databases/' . OpenApiUtilClient::getEncodeParam($database) . '/tables/' . OpenApiUtilClient::getEncodeParam($table) . '/storage-summary',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -1008,15 +856,13 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 查看表.
-     *
-     * @returns GetTableSummaryResponse
-     *
+     * @summary 查看表
+     *  *
      * @param string $catalogId
      * @param string $database
      * @param string $table
      *
-     * @return GetTableSummaryResponse
+     * @return GetTableSummaryResponse GetTableSummaryResponse
      */
     public function getTableSummary($catalogId, $database, $table)
     {
@@ -1027,31 +873,24 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 获取用户.
+     * @summary 获取用户
+     *  *
+     * @param GetUserRequest $request GetUserRequest
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetUserRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetUserResponse
-     *
-     * @param GetUserRequest $request
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
-     *
-     * @return GetUserResponse
+     * @return GetUserResponse GetUserResponse
      */
     public function getUserWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->userPrincipal) {
-            @$query['userPrincipal'] = $request->userPrincipal;
+        if (!Utils::isUnset($request->userPrincipal)) {
+            $query['userPrincipal'] = $request->userPrincipal;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetUser',
@@ -1069,15 +908,11 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 获取用户.
+     * @summary 获取用户
+     *  *
+     * @param GetUserRequest $request GetUserRequest
      *
-     * @param request - GetUserRequest
-     *
-     * @returns GetUserResponse
-     *
-     * @param GetUserRequest $request
-     *
-     * @return GetUserResponse
+     * @return GetUserResponse GetUserResponse
      */
     public function getUser($request)
     {
@@ -1088,35 +923,27 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 批量授予角色权限给用户.
+     * @summary 批量授予角色权限给用户
+     *  *
+     * @param GrantRoleToUsersRequest $request GrantRoleToUsersRequest
+     * @param string[]                $headers map
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GrantRoleToUsersRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GrantRoleToUsersResponse
-     *
-     * @param GrantRoleToUsersRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
-     *
-     * @return GrantRoleToUsersResponse
+     * @return GrantRoleToUsersResponse GrantRoleToUsersResponse
      */
     public function grantRoleToUsersWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->rolePrincipal) {
-            @$body['rolePrincipal'] = $request->rolePrincipal;
+        if (!Utils::isUnset($request->rolePrincipal)) {
+            $body['rolePrincipal'] = $request->rolePrincipal;
         }
-
-        if (null !== $request->userPrincipals) {
-            @$body['userPrincipals'] = $request->userPrincipals;
+        if (!Utils::isUnset($request->userPrincipals)) {
+            $body['userPrincipals'] = $request->userPrincipals;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GrantRoleToUsers',
@@ -1134,15 +961,11 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 批量授予角色权限给用户.
+     * @summary 批量授予角色权限给用户
+     *  *
+     * @param GrantRoleToUsersRequest $request GrantRoleToUsersRequest
      *
-     * @param request - GrantRoleToUsersRequest
-     *
-     * @returns GrantRoleToUsersResponse
-     *
-     * @param GrantRoleToUsersRequest $request
-     *
-     * @return GrantRoleToUsersResponse
+     * @return GrantRoleToUsersResponse GrantRoleToUsersResponse
      */
     public function grantRoleToUsers($request)
     {
@@ -1153,39 +976,30 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 查看数据目录列表.
+     * @summary 查看数据目录列表
+     *  *
+     * @param ListCatalogsRequest $request ListCatalogsRequest
+     * @param string[]            $headers map
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListCatalogsRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListCatalogsResponse
-     *
-     * @param ListCatalogsRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
-     *
-     * @return ListCatalogsResponse
+     * @return ListCatalogsResponse ListCatalogsResponse
      */
     public function listCatalogsWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->catalogNamePattern) {
-            @$query['catalogNamePattern'] = $request->catalogNamePattern;
+        if (!Utils::isUnset($request->catalogNamePattern)) {
+            $query['catalogNamePattern'] = $request->catalogNamePattern;
         }
-
-        if (null !== $request->maxResults) {
-            @$query['maxResults'] = $request->maxResults;
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['maxResults'] = $request->maxResults;
         }
-
-        if (null !== $request->pageToken) {
-            @$query['pageToken'] = $request->pageToken;
+        if (!Utils::isUnset($request->pageToken)) {
+            $query['pageToken'] = $request->pageToken;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListCatalogs',
@@ -1203,15 +1017,11 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 查看数据目录列表.
+     * @summary 查看数据目录列表
+     *  *
+     * @param ListCatalogsRequest $request ListCatalogsRequest
      *
-     * @param request - ListCatalogsRequest
-     *
-     * @returns ListCatalogsResponse
-     *
-     * @param ListCatalogsRequest $request
-     *
-     * @return ListCatalogsResponse
+     * @return ListCatalogsResponse ListCatalogsResponse
      */
     public function listCatalogs($request)
     {
@@ -1222,48 +1032,39 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 查看表.
-     *
-     * @param request - ListPartitionSummariesRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListPartitionSummariesResponse
-     *
+     * @summary 查看表
+     *  *
      * @param string                        $catalogId
      * @param string                        $database
      * @param string                        $table
-     * @param ListPartitionSummariesRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @param ListPartitionSummariesRequest $request   ListPartitionSummariesRequest
+     * @param string[]                      $headers   map
+     * @param RuntimeOptions                $runtime   runtime options for this request RuntimeOptions
      *
-     * @return ListPartitionSummariesResponse
+     * @return ListPartitionSummariesResponse ListPartitionSummariesResponse
      */
     public function listPartitionSummariesWithOptions($catalogId, $database, $table, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->maxResults) {
-            @$query['maxResults'] = $request->maxResults;
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['maxResults'] = $request->maxResults;
         }
-
-        if (null !== $request->pageToken) {
-            @$query['pageToken'] = $request->pageToken;
+        if (!Utils::isUnset($request->pageToken)) {
+            $query['pageToken'] = $request->pageToken;
         }
-
-        if (null !== $request->partitionNamePattern) {
-            @$query['partitionNamePattern'] = $request->partitionNamePattern;
+        if (!Utils::isUnset($request->partitionNamePattern)) {
+            $query['partitionNamePattern'] = $request->partitionNamePattern;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListPartitionSummaries',
             'version' => '2025-03-10',
             'protocol' => 'HTTPS',
-            'pathname' => '/dlf/v1/' . Url::percentEncode($catalogId) . '/databases/' . Url::percentEncode($database) . '/tables/' . Url::percentEncode($table) . '/partitions/storage-summary',
+            'pathname' => '/dlf/v1/' . OpenApiUtilClient::getEncodeParam($catalogId) . '/databases/' . OpenApiUtilClient::getEncodeParam($database) . '/tables/' . OpenApiUtilClient::getEncodeParam($table) . '/partitions/storage-summary',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -1275,18 +1076,14 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 查看表.
-     *
-     * @param request - ListPartitionSummariesRequest
-     *
-     * @returns ListPartitionSummariesResponse
-     *
+     * @summary 查看表
+     *  *
      * @param string                        $catalogId
      * @param string                        $database
      * @param string                        $table
-     * @param ListPartitionSummariesRequest $request
+     * @param ListPartitionSummariesRequest $request   ListPartitionSummariesRequest
      *
-     * @return ListPartitionSummariesResponse
+     * @return ListPartitionSummariesResponse ListPartitionSummariesResponse
      */
     public function listPartitionSummaries($catalogId, $database, $table, $request)
     {
@@ -1297,66 +1094,52 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 获取指定资源或指定Principal的权限信息.
-     *
-     * @param request - ListPermissionsRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListPermissionsResponse
-     *
+     * @summary 获取指定资源或指定Principal的权限信息
+     *  *
      * @param string                 $catalogId
-     * @param ListPermissionsRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param ListPermissionsRequest $request   ListPermissionsRequest
+     * @param string[]               $headers   map
+     * @param RuntimeOptions         $runtime   runtime options for this request RuntimeOptions
      *
-     * @return ListPermissionsResponse
+     * @return ListPermissionsResponse ListPermissionsResponse
      */
     public function listPermissionsWithOptions($catalogId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->database) {
-            @$query['database'] = $request->database;
+        if (!Utils::isUnset($request->database)) {
+            $query['database'] = $request->database;
         }
-
-        if (null !== $request->function) {
-            @$query['function'] = $request->function;
+        if (!Utils::isUnset($request->function_)) {
+            $query['function'] = $request->function_;
         }
-
-        if (null !== $request->maxResults) {
-            @$query['maxResults'] = $request->maxResults;
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['maxResults'] = $request->maxResults;
         }
-
-        if (null !== $request->pageToken) {
-            @$query['pageToken'] = $request->pageToken;
+        if (!Utils::isUnset($request->pageToken)) {
+            $query['pageToken'] = $request->pageToken;
         }
-
-        if (null !== $request->principal) {
-            @$query['principal'] = $request->principal;
+        if (!Utils::isUnset($request->principal)) {
+            $query['principal'] = $request->principal;
         }
-
-        if (null !== $request->resourceType) {
-            @$query['resourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['resourceType'] = $request->resourceType;
         }
-
-        if (null !== $request->table) {
-            @$query['table'] = $request->table;
+        if (!Utils::isUnset($request->table)) {
+            $query['table'] = $request->table;
         }
-
-        if (null !== $request->view) {
-            @$query['view'] = $request->view;
+        if (!Utils::isUnset($request->view)) {
+            $query['view'] = $request->view;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListPermissions',
             'version' => '2025-03-10',
             'protocol' => 'HTTPS',
-            'pathname' => '/dlf/v1/auth/permissions/' . Url::percentEncode($catalogId) . '/list',
+            'pathname' => '/dlf/v1/auth/permissions/' . OpenApiUtilClient::getEncodeParam($catalogId) . '/list',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -1368,16 +1151,12 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 获取指定资源或指定Principal的权限信息.
-     *
-     * @param request - ListPermissionsRequest
-     *
-     * @returns ListPermissionsResponse
-     *
+     * @summary 获取指定资源或指定Principal的权限信息
+     *  *
      * @param string                 $catalogId
-     * @param ListPermissionsRequest $request
+     * @param ListPermissionsRequest $request   ListPermissionsRequest
      *
-     * @return ListPermissionsResponse
+     * @return ListPermissionsResponse ListPermissionsResponse
      */
     public function listPermissions($catalogId, $request)
     {
@@ -1388,39 +1167,30 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 获取角色用户列表.
+     * @summary 获取角色用户列表
+     *  *
+     * @param ListRoleUsersRequest $request ListRoleUsersRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListRoleUsersRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListRoleUsersResponse
-     *
-     * @param ListRoleUsersRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
-     *
-     * @return ListRoleUsersResponse
+     * @return ListRoleUsersResponse ListRoleUsersResponse
      */
     public function listRoleUsersWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->maxResults) {
-            @$query['maxResults'] = $request->maxResults;
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['maxResults'] = $request->maxResults;
         }
-
-        if (null !== $request->pageToken) {
-            @$query['pageToken'] = $request->pageToken;
+        if (!Utils::isUnset($request->pageToken)) {
+            $query['pageToken'] = $request->pageToken;
         }
-
-        if (null !== $request->rolePrincipal) {
-            @$query['rolePrincipal'] = $request->rolePrincipal;
+        if (!Utils::isUnset($request->rolePrincipal)) {
+            $query['rolePrincipal'] = $request->rolePrincipal;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListRoleUsers',
@@ -1438,15 +1208,11 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 获取角色用户列表.
+     * @summary 获取角色用户列表
+     *  *
+     * @param ListRoleUsersRequest $request ListRoleUsersRequest
      *
-     * @param request - ListRoleUsersRequest
-     *
-     * @returns ListRoleUsersResponse
-     *
-     * @param ListRoleUsersRequest $request
-     *
-     * @return ListRoleUsersResponse
+     * @return ListRoleUsersResponse ListRoleUsersResponse
      */
     public function listRoleUsers($request)
     {
@@ -1457,39 +1223,30 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 获取角色列表.
+     * @summary 获取角色列表
+     *  *
+     * @param ListRolesRequest $request ListRolesRequest
+     * @param string[]         $headers map
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListRolesRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListRolesResponse
-     *
-     * @param ListRolesRequest $request
-     * @param string[]         $headers
-     * @param RuntimeOptions   $runtime
-     *
-     * @return ListRolesResponse
+     * @return ListRolesResponse ListRolesResponse
      */
     public function listRolesWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->maxResults) {
-            @$query['maxResults'] = $request->maxResults;
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['maxResults'] = $request->maxResults;
         }
-
-        if (null !== $request->pageToken) {
-            @$query['pageToken'] = $request->pageToken;
+        if (!Utils::isUnset($request->pageToken)) {
+            $query['pageToken'] = $request->pageToken;
         }
-
-        if (null !== $request->roleName) {
-            @$query['roleName'] = $request->roleName;
+        if (!Utils::isUnset($request->roleName)) {
+            $query['roleName'] = $request->roleName;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListRoles',
@@ -1507,15 +1264,11 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 获取角色列表.
+     * @summary 获取角色列表
+     *  *
+     * @param ListRolesRequest $request ListRolesRequest
      *
-     * @param request - ListRolesRequest
-     *
-     * @returns ListRolesResponse
-     *
-     * @param ListRolesRequest $request
-     *
-     * @return ListRolesResponse
+     * @return ListRolesResponse ListRolesResponse
      */
     public function listRoles($request)
     {
@@ -1526,39 +1279,30 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 获取用户角色列表.
+     * @summary 获取用户角色列表
+     *  *
+     * @param ListUserRolesRequest $request ListUserRolesRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListUserRolesRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListUserRolesResponse
-     *
-     * @param ListUserRolesRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
-     *
-     * @return ListUserRolesResponse
+     * @return ListUserRolesResponse ListUserRolesResponse
      */
     public function listUserRolesWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->maxResults) {
-            @$query['maxResults'] = $request->maxResults;
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['maxResults'] = $request->maxResults;
         }
-
-        if (null !== $request->pageToken) {
-            @$query['pageToken'] = $request->pageToken;
+        if (!Utils::isUnset($request->pageToken)) {
+            $query['pageToken'] = $request->pageToken;
         }
-
-        if (null !== $request->userPrincipal) {
-            @$query['userPrincipal'] = $request->userPrincipal;
+        if (!Utils::isUnset($request->userPrincipal)) {
+            $query['userPrincipal'] = $request->userPrincipal;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListUserRoles',
@@ -1576,15 +1320,11 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 获取用户角色列表.
+     * @summary 获取用户角色列表
+     *  *
+     * @param ListUserRolesRequest $request ListUserRolesRequest
      *
-     * @param request - ListUserRolesRequest
-     *
-     * @returns ListUserRolesResponse
-     *
-     * @param ListUserRolesRequest $request
-     *
-     * @return ListUserRolesResponse
+     * @return ListUserRolesResponse ListUserRolesResponse
      */
     public function listUserRoles($request)
     {
@@ -1595,43 +1335,33 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 获取用户列表.
+     * @summary 获取用户列表
+     *  *
+     * @param ListUsersRequest $request ListUsersRequest
+     * @param string[]         $headers map
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListUsersRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListUsersResponse
-     *
-     * @param ListUsersRequest $request
-     * @param string[]         $headers
-     * @param RuntimeOptions   $runtime
-     *
-     * @return ListUsersResponse
+     * @return ListUsersResponse ListUsersResponse
      */
     public function listUsersWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->maxResults) {
-            @$query['maxResults'] = $request->maxResults;
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['maxResults'] = $request->maxResults;
         }
-
-        if (null !== $request->pageToken) {
-            @$query['pageToken'] = $request->pageToken;
+        if (!Utils::isUnset($request->pageToken)) {
+            $query['pageToken'] = $request->pageToken;
         }
-
-        if (null !== $request->type) {
-            @$query['type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $query['type'] = $request->type;
         }
-
-        if (null !== $request->userName) {
-            @$query['userName'] = $request->userName;
+        if (!Utils::isUnset($request->userName)) {
+            $query['userName'] = $request->userName;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListUsers',
@@ -1649,15 +1379,11 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 获取用户列表.
+     * @summary 获取用户列表
+     *  *
+     * @param ListUsersRequest $request ListUsersRequest
      *
-     * @param request - ListUsersRequest
-     *
-     * @returns ListUsersResponse
-     *
-     * @param ListUsersRequest $request
-     *
-     * @return ListUsersResponse
+     * @return ListUsersResponse ListUsersResponse
      */
     public function listUsers($request)
     {
@@ -1668,35 +1394,27 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 批量取消授予角色权限给用户.
+     * @summary 批量取消授予角色权限给用户
+     *  *
+     * @param RevokeRoleFromUsersRequest $request RevokeRoleFromUsersRequest
+     * @param string[]                   $headers map
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - RevokeRoleFromUsersRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns RevokeRoleFromUsersResponse
-     *
-     * @param RevokeRoleFromUsersRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
-     *
-     * @return RevokeRoleFromUsersResponse
+     * @return RevokeRoleFromUsersResponse RevokeRoleFromUsersResponse
      */
     public function revokeRoleFromUsersWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->rolePrincipal) {
-            @$body['rolePrincipal'] = $request->rolePrincipal;
+        if (!Utils::isUnset($request->rolePrincipal)) {
+            $body['rolePrincipal'] = $request->rolePrincipal;
         }
-
-        if (null !== $request->userPrincipals) {
-            @$body['userPrincipals'] = $request->userPrincipals;
+        if (!Utils::isUnset($request->userPrincipals)) {
+            $body['userPrincipals'] = $request->userPrincipals;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'RevokeRoleFromUsers',
@@ -1714,15 +1432,11 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 批量取消授予角色权限给用户.
+     * @summary 批量取消授予角色权限给用户
+     *  *
+     * @param RevokeRoleFromUsersRequest $request RevokeRoleFromUsersRequest
      *
-     * @param request - RevokeRoleFromUsersRequest
-     *
-     * @returns RevokeRoleFromUsersResponse
-     *
-     * @param RevokeRoleFromUsersRequest $request
-     *
-     * @return RevokeRoleFromUsersResponse
+     * @return RevokeRoleFromUsersResponse RevokeRoleFromUsersResponse
      */
     public function revokeRoleFromUsers($request)
     {
@@ -1733,17 +1447,12 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 订阅当前地域的 DLF.
+     * @summary 订阅当前地域的 DLF
+     *  *
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns SubscribeResponse
-     *
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
-     *
-     * @return SubscribeResponse
+     * @return SubscribeResponse SubscribeResponse
      */
     public function subscribeWithOptions($headers, $runtime)
     {
@@ -1766,11 +1475,9 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 订阅当前地域的 DLF.
-     *
-     * @returns SubscribeResponse
-     *
-     * @return SubscribeResponse
+     * @summary 订阅当前地域的 DLF
+     *  *
+     * @return SubscribeResponse SubscribeResponse
      */
     public function subscribe()
     {
@@ -1781,39 +1488,30 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 更新角色.
+     * @summary 更新角色
+     *  *
+     * @param UpdateRoleRequest $request UpdateRoleRequest
+     * @param string[]          $headers map
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateRoleRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateRoleResponse
-     *
-     * @param UpdateRoleRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
-     *
-     * @return UpdateRoleResponse
+     * @return UpdateRoleResponse UpdateRoleResponse
      */
     public function updateRoleWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->description) {
-            @$body['description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $body['description'] = $request->description;
         }
-
-        if (null !== $request->displayName) {
-            @$body['displayName'] = $request->displayName;
+        if (!Utils::isUnset($request->displayName)) {
+            $body['displayName'] = $request->displayName;
         }
-
-        if (null !== $request->rolePrincipal) {
-            @$body['rolePrincipal'] = $request->rolePrincipal;
+        if (!Utils::isUnset($request->rolePrincipal)) {
+            $body['rolePrincipal'] = $request->rolePrincipal;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateRole',
@@ -1831,15 +1529,11 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 更新角色.
+     * @summary 更新角色
+     *  *
+     * @param UpdateRoleRequest $request UpdateRoleRequest
      *
-     * @param request - UpdateRoleRequest
-     *
-     * @returns UpdateRoleResponse
-     *
-     * @param UpdateRoleRequest $request
-     *
-     * @return UpdateRoleResponse
+     * @return UpdateRoleResponse UpdateRoleResponse
      */
     public function updateRole($request)
     {
@@ -1850,35 +1544,27 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 更新角色用户.
+     * @summary 更新角色用户
+     *  *
+     * @param UpdateRoleUsersRequest $request UpdateRoleUsersRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateRoleUsersRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateRoleUsersResponse
-     *
-     * @param UpdateRoleUsersRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
-     *
-     * @return UpdateRoleUsersResponse
+     * @return UpdateRoleUsersResponse UpdateRoleUsersResponse
      */
     public function updateRoleUsersWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->rolePrincipal) {
-            @$body['rolePrincipal'] = $request->rolePrincipal;
+        if (!Utils::isUnset($request->rolePrincipal)) {
+            $body['rolePrincipal'] = $request->rolePrincipal;
         }
-
-        if (null !== $request->userPrincipals) {
-            @$body['userPrincipals'] = $request->userPrincipals;
+        if (!Utils::isUnset($request->userPrincipals)) {
+            $body['userPrincipals'] = $request->userPrincipals;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateRoleUsers',
@@ -1896,15 +1582,11 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 更新角色用户.
+     * @summary 更新角色用户
+     *  *
+     * @param UpdateRoleUsersRequest $request UpdateRoleUsersRequest
      *
-     * @param request - UpdateRoleUsersRequest
-     *
-     * @returns UpdateRoleUsersResponse
-     *
-     * @param UpdateRoleUsersRequest $request
-     *
-     * @return UpdateRoleUsersResponse
+     * @return UpdateRoleUsersResponse UpdateRoleUsersResponse
      */
     public function updateRoleUsers($request)
     {

@@ -4,21 +4,27 @@
 
 namespace AlibabaCloud\SDK\DlfNext\V20250310\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListRoleUsersRequest extends Model
 {
     /**
-     * @var string
+     * @example 10
+     *
+     * @var int
      */
     public $maxResults;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $pageToken;
 
     /**
+     * @example acs:dlf::[accountId]:role/role_name
+     *
      * @var string
      */
     public $rolePrincipal;
@@ -28,22 +34,17 @@ class ListRoleUsersRequest extends Model
         'rolePrincipal' => 'rolePrincipal',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->maxResults) {
             $res['maxResults'] = $this->maxResults;
         }
-
         if (null !== $this->pageToken) {
             $res['pageToken'] = $this->pageToken;
         }
-
         if (null !== $this->rolePrincipal) {
             $res['rolePrincipal'] = $this->rolePrincipal;
         }
@@ -51,22 +52,20 @@ class ListRoleUsersRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListRoleUsersRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['maxResults'])) {
             $model->maxResults = $map['maxResults'];
         }
-
         if (isset($map['pageToken'])) {
             $model->pageToken = $map['pageToken'];
         }
-
         if (isset($map['rolePrincipal'])) {
             $model->rolePrincipal = $map['rolePrincipal'];
         }

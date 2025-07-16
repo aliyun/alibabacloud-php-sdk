@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\DlfNext\V20250310\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class Table extends Model
 {
@@ -76,57 +76,41 @@ class Table extends Model
         'updatedBy' => 'updatedBy',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->schema) {
-            $this->schema->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->createdAt) {
             $res['createdAt'] = $this->createdAt;
         }
-
         if (null !== $this->createdBy) {
             $res['createdBy'] = $this->createdBy;
         }
-
         if (null !== $this->id) {
             $res['id'] = $this->id;
         }
-
         if (null !== $this->isExternal) {
             $res['isExternal'] = $this->isExternal;
         }
-
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
-
         if (null !== $this->owner) {
             $res['owner'] = $this->owner;
         }
-
         if (null !== $this->path) {
             $res['path'] = $this->path;
         }
-
         if (null !== $this->schema) {
-            $res['schema'] = null !== $this->schema ? $this->schema->toArray($noStream) : $this->schema;
+            $res['schema'] = null !== $this->schema ? $this->schema->toMap() : null;
         }
-
         if (null !== $this->schemaId) {
             $res['schemaId'] = $this->schemaId;
         }
-
         if (null !== $this->updatedAt) {
             $res['updatedAt'] = $this->updatedAt;
         }
-
         if (null !== $this->updatedBy) {
             $res['updatedBy'] = $this->updatedBy;
         }
@@ -134,54 +118,44 @@ class Table extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return Table
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['createdAt'])) {
             $model->createdAt = $map['createdAt'];
         }
-
         if (isset($map['createdBy'])) {
             $model->createdBy = $map['createdBy'];
         }
-
         if (isset($map['id'])) {
             $model->id = $map['id'];
         }
-
         if (isset($map['isExternal'])) {
             $model->isExternal = $map['isExternal'];
         }
-
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
-
         if (isset($map['owner'])) {
             $model->owner = $map['owner'];
         }
-
         if (isset($map['path'])) {
             $model->path = $map['path'];
         }
-
         if (isset($map['schema'])) {
             $model->schema = Schema::fromMap($map['schema']);
         }
-
         if (isset($map['schemaId'])) {
             $model->schemaId = $map['schemaId'];
         }
-
         if (isset($map['updatedAt'])) {
             $model->updatedAt = $map['updatedAt'];
         }
-
         if (isset($map['updatedBy'])) {
             $model->updatedBy = $map['updatedBy'];
         }

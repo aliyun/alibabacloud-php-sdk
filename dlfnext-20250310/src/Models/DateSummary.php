@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\DlfNext\V20250310\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DateSummary extends Model
 {
@@ -14,6 +14,8 @@ class DateSummary extends Model
     public $date;
 
     /**
+     * @description Metric value at corresponding date
+     *
      * @var int
      */
     public $value;
@@ -22,18 +24,14 @@ class DateSummary extends Model
         'value' => 'value',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->date) {
             $res['date'] = $this->date;
         }
-
         if (null !== $this->value) {
             $res['value'] = $this->value;
         }
@@ -41,18 +39,17 @@ class DateSummary extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DateSummary
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['date'])) {
             $model->date = $map['date'];
         }
-
         if (isset($map['value'])) {
             $model->value = $map['value'];
         }

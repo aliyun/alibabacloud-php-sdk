@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\DlfNext\V20250310\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class FullInstant extends Model
 {
@@ -28,22 +28,17 @@ class FullInstant extends Model
         'type' => 'type',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->snapshotId) {
             $res['snapshotId'] = $this->snapshotId;
         }
-
         if (null !== $this->tagName) {
             $res['tagName'] = $this->tagName;
         }
-
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -51,22 +46,20 @@ class FullInstant extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return FullInstant
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['snapshotId'])) {
             $model->snapshotId = $map['snapshotId'];
         }
-
         if (isset($map['tagName'])) {
             $model->tagName = $map['tagName'];
         }
-
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }
