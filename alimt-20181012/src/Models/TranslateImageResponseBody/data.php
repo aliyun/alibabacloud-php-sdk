@@ -4,21 +4,27 @@
 
 namespace AlibabaCloud\SDK\Alimt\V20181012\Models\TranslateImageResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @example https://example.com/example.jpg
+     *
      * @var string
      */
     public $finalImageUrl;
 
     /**
+     * @example https://example.com/example.jpg
+     *
      * @var string
      */
     public $inPaintingUrl;
 
     /**
+     * @example Editor Template Json String
+     *
      * @var string
      */
     public $templateJson;
@@ -28,22 +34,17 @@ class data extends Model
         'templateJson' => 'TemplateJson',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->finalImageUrl) {
             $res['FinalImageUrl'] = $this->finalImageUrl;
         }
-
         if (null !== $this->inPaintingUrl) {
             $res['InPaintingUrl'] = $this->inPaintingUrl;
         }
-
         if (null !== $this->templateJson) {
             $res['TemplateJson'] = $this->templateJson;
         }
@@ -51,22 +52,20 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FinalImageUrl'])) {
             $model->finalImageUrl = $map['FinalImageUrl'];
         }
-
         if (isset($map['InPaintingUrl'])) {
             $model->inPaintingUrl = $map['InPaintingUrl'];
         }
-
         if (isset($map['TemplateJson'])) {
             $model->templateJson = $map['TemplateJson'];
         }

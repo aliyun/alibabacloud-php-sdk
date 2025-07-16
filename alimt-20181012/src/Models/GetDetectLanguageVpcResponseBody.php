@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Alimt\V20181012\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetDetectLanguageVpcResponseBody extends Model
 {
@@ -28,22 +28,17 @@ class GetDetectLanguageVpcResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->detectedLanguage) {
             $res['DetectedLanguage'] = $this->detectedLanguage;
         }
-
         if (null !== $this->languageProbabilities) {
             $res['LanguageProbabilities'] = $this->languageProbabilities;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -51,22 +46,20 @@ class GetDetectLanguageVpcResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetDetectLanguageVpcResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DetectedLanguage'])) {
             $model->detectedLanguage = $map['DetectedLanguage'];
         }
-
         if (isset($map['LanguageProbabilities'])) {
             $model->languageProbabilities = $map['LanguageProbabilities'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

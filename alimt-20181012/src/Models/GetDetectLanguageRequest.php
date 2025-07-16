@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Alimt\V20181012\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetDetectLanguageRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $sourceText;
@@ -16,12 +18,9 @@ class GetDetectLanguageRequest extends Model
         'sourceText' => 'SourceText',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->sourceText) {
@@ -31,11 +30,11 @@ class GetDetectLanguageRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetDetectLanguageRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

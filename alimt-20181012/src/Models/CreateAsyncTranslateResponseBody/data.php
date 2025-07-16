@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Alimt\V20181012\Models\CreateAsyncTranslateResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 98bbb007-71bb-448b-bab0-2695ce8f8599
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example ready
+     *
      * @var string
      */
     public $status;
@@ -22,18 +30,14 @@ class data extends Model
         'status' => 'Status',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
         }
-
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -41,18 +45,17 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
         }
-
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

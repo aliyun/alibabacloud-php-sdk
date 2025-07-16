@@ -4,26 +4,40 @@
 
 namespace AlibabaCloud\SDK\Alimt\V20181012\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetImageTranslateRequest extends Model
 {
     /**
+     * @example {"have_ocr": "false", "without_text":"true", "have_psd": "false", "ignore_entity": "false"}
+     *
      * @var string
      */
     public $extra;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example zh
+     *
      * @var string
      */
     public $sourceLanguage;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example en
+     *
      * @var string
      */
     public $targetLanguage;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example http://xxxxxxx.oss-cn-shenzhen.aliyuncs.com/xxxxxx.jpg
+     *
      * @var string
      */
     public $url;
@@ -34,26 +48,20 @@ class GetImageTranslateRequest extends Model
         'url' => 'Url',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->extra) {
             $res['Extra'] = $this->extra;
         }
-
         if (null !== $this->sourceLanguage) {
             $res['SourceLanguage'] = $this->sourceLanguage;
         }
-
         if (null !== $this->targetLanguage) {
             $res['TargetLanguage'] = $this->targetLanguage;
         }
-
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
@@ -61,26 +69,23 @@ class GetImageTranslateRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetImageTranslateRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Extra'])) {
             $model->extra = $map['Extra'];
         }
-
         if (isset($map['SourceLanguage'])) {
             $model->sourceLanguage = $map['SourceLanguage'];
         }
-
         if (isset($map['TargetLanguage'])) {
             $model->targetLanguage = $map['TargetLanguage'];
         }
-
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }

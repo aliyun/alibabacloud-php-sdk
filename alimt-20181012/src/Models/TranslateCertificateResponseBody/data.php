@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Alimt\V20181012\Models\TranslateCertificateResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alimt\V20181012\Models\TranslateCertificateResponseBody\data\translatedValues;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -17,24 +17,17 @@ class data extends Model
         'translatedValues' => 'TranslatedValues',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->translatedValues)) {
-            Model::validateArray($this->translatedValues);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->translatedValues) {
-            if (\is_array($this->translatedValues)) {
-                $res['TranslatedValues'] = [];
-                $n1 = 0;
-                foreach ($this->translatedValues as $item1) {
-                    $res['TranslatedValues'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['TranslatedValues'] = [];
+            if (null !== $this->translatedValues && \is_array($this->translatedValues)) {
+                $n = 0;
+                foreach ($this->translatedValues as $item) {
+                    $res['TranslatedValues'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -42,21 +35,20 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TranslatedValues'])) {
             if (!empty($map['TranslatedValues'])) {
                 $model->translatedValues = [];
-                $n1 = 0;
-                foreach ($map['TranslatedValues'] as $item1) {
-                    $model->translatedValues[$n1] = translatedValues::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['TranslatedValues'] as $item) {
+                    $model->translatedValues[$n++] = null !== $item ? translatedValues::fromMap($item) : $item;
                 }
             }
         }

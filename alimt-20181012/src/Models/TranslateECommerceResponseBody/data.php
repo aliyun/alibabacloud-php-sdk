@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Alimt\V20181012\Models\TranslateECommerceResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -19,6 +19,8 @@ class data extends Model
     public $translated;
 
     /**
+     * @example 10
+     *
      * @var string
      */
     public $wordCount;
@@ -28,22 +30,17 @@ class data extends Model
         'wordCount' => 'WordCount',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->detectedLanguage) {
             $res['DetectedLanguage'] = $this->detectedLanguage;
         }
-
         if (null !== $this->translated) {
             $res['Translated'] = $this->translated;
         }
-
         if (null !== $this->wordCount) {
             $res['WordCount'] = $this->wordCount;
         }
@@ -51,22 +48,20 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DetectedLanguage'])) {
             $model->detectedLanguage = $map['DetectedLanguage'];
         }
-
         if (isset($map['Translated'])) {
             $model->translated = $map['Translated'];
         }
-
         if (isset($map['WordCount'])) {
             $model->wordCount = $map['WordCount'];
         }

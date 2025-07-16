@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Alimt\V20181012\Models\GetTitleIntelligenceResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @example Custom Hello Kitty PVC Cartoon Apple for Home Garden Complete Apple Bath Shower
+     *
      * @var string
      */
     public $titles;
@@ -16,12 +18,9 @@ class data extends Model
         'titles' => 'Titles',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->titles) {
@@ -31,11 +30,11 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

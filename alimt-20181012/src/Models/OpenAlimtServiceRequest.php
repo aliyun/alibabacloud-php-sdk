@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Alimt\V20181012\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class OpenAlimtServiceRequest extends Model
 {
@@ -14,6 +14,8 @@ class OpenAlimtServiceRequest extends Model
     public $ownerId;
 
     /**
+     * @example id
+     *
      * @var string
      */
     public $type;
@@ -22,18 +24,14 @@ class OpenAlimtServiceRequest extends Model
         'type' => 'Type',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -41,18 +39,17 @@ class OpenAlimtServiceRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return OpenAlimtServiceRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
