@@ -4,36 +4,56 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class BatchRemovalByFormInstanceIdListRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example APP_XCE0EVXS6DYG3YDYC5RD
+     *
      * @var string
      */
     public $appType;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $asynchronousExecution;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $executeExpression;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example []
+     *
      * @var string[]
      */
     public $formInstanceIdList;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example FORM-GX866MC1NC1VOFF6WVQW33FD16E23L3CPMKVKA
+     *
      * @var string
      */
     public $formUuid;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 09866181UTZVVD4R3DC955FNKIM52HVPU5WWK7
+     *
      * @var string
      */
     public $systemToken;
@@ -46,44 +66,26 @@ class BatchRemovalByFormInstanceIdListRequest extends Model
         'systemToken' => 'SystemToken',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->formInstanceIdList)) {
-            Model::validateArray($this->formInstanceIdList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appType) {
             $res['AppType'] = $this->appType;
         }
-
         if (null !== $this->asynchronousExecution) {
             $res['AsynchronousExecution'] = $this->asynchronousExecution;
         }
-
         if (null !== $this->executeExpression) {
             $res['ExecuteExpression'] = $this->executeExpression;
         }
-
         if (null !== $this->formInstanceIdList) {
-            if (\is_array($this->formInstanceIdList)) {
-                $res['FormInstanceIdList'] = [];
-                $n1 = 0;
-                foreach ($this->formInstanceIdList as $item1) {
-                    $res['FormInstanceIdList'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['FormInstanceIdList'] = $this->formInstanceIdList;
         }
-
         if (null !== $this->formUuid) {
             $res['FormUuid'] = $this->formUuid;
         }
-
         if (null !== $this->systemToken) {
             $res['SystemToken'] = $this->systemToken;
         }
@@ -91,41 +93,31 @@ class BatchRemovalByFormInstanceIdListRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return BatchRemovalByFormInstanceIdListRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppType'])) {
             $model->appType = $map['AppType'];
         }
-
         if (isset($map['AsynchronousExecution'])) {
             $model->asynchronousExecution = $map['AsynchronousExecution'];
         }
-
         if (isset($map['ExecuteExpression'])) {
             $model->executeExpression = $map['ExecuteExpression'];
         }
-
         if (isset($map['FormInstanceIdList'])) {
             if (!empty($map['FormInstanceIdList'])) {
-                $model->formInstanceIdList = [];
-                $n1 = 0;
-                foreach ($map['FormInstanceIdList'] as $item1) {
-                    $model->formInstanceIdList[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->formInstanceIdList = $map['FormInstanceIdList'];
             }
         }
-
         if (isset($map['FormUuid'])) {
             $model->formUuid = $map['FormUuid'];
         }
-
         if (isset($map['SystemToken'])) {
             $model->systemToken = $map['SystemToken'];
         }

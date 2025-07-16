@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetWorkspaceShrinkRequest extends Model
 {
@@ -14,11 +14,17 @@ class GetWorkspaceShrinkRequest extends Model
     public $tenantContextShrink;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $withPermissionRole;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example MJ0pDSKMV9dO20E4
+     *
      * @var string
      */
     public $workspaceId;
@@ -28,22 +34,17 @@ class GetWorkspaceShrinkRequest extends Model
         'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->tenantContextShrink) {
             $res['TenantContext'] = $this->tenantContextShrink;
         }
-
         if (null !== $this->withPermissionRole) {
             $res['WithPermissionRole'] = $this->withPermissionRole;
         }
-
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -51,22 +52,20 @@ class GetWorkspaceShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetWorkspaceShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TenantContext'])) {
             $model->tenantContextShrink = $map['TenantContext'];
         }
-
         if (isset($map['WithPermissionRole'])) {
             $model->withPermissionRole = $map['WithPermissionRole'];
         }
-
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

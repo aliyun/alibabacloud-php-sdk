@@ -4,16 +4,22 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\InviteUsersRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class inviteeList extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 测试用户
+     *
      * @var string
      */
     public $nick;
 
     /**
+     * @example 012345
+     *
      * @var string
      */
     public $userId;
@@ -22,18 +28,14 @@ class inviteeList extends Model
         'userId' => 'UserId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->nick) {
             $res['Nick'] = $this->nick;
         }
-
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
@@ -41,18 +43,17 @@ class inviteeList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return inviteeList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Nick'])) {
             $model->nick = $map['Nick'];
         }
-
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }

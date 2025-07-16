@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateScheduleConfSettingsShrinkRequest extends Model
 {
@@ -14,6 +14,8 @@ class UpdateScheduleConfSettingsShrinkRequest extends Model
     public $scheduleConfSettingModelShrink;
 
     /**
+     * @example f6fb627e-a7e8-403e-b1f8-26e85450f4a9
+     *
      * @var string
      */
     public $scheduleConferenceId;
@@ -28,22 +30,17 @@ class UpdateScheduleConfSettingsShrinkRequest extends Model
         'tenantContextShrink' => 'TenantContext',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->scheduleConfSettingModelShrink) {
             $res['ScheduleConfSettingModel'] = $this->scheduleConfSettingModelShrink;
         }
-
         if (null !== $this->scheduleConferenceId) {
             $res['ScheduleConferenceId'] = $this->scheduleConferenceId;
         }
-
         if (null !== $this->tenantContextShrink) {
             $res['TenantContext'] = $this->tenantContextShrink;
         }
@@ -51,22 +48,20 @@ class UpdateScheduleConfSettingsShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateScheduleConfSettingsShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ScheduleConfSettingModel'])) {
             $model->scheduleConfSettingModelShrink = $map['ScheduleConfSettingModel'];
         }
-
         if (isset($map['ScheduleConferenceId'])) {
             $model->scheduleConferenceId = $map['ScheduleConferenceId'];
         }
-
         if (isset($map['TenantContext'])) {
             $model->tenantContextShrink = $map['TenantContext'];
         }

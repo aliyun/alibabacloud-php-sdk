@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\GetRangeResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class hyperlinks extends Model
 {
@@ -28,22 +28,17 @@ class hyperlinks extends Model
         'text' => 'text',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
-
         if (null !== $this->link) {
             $res['link'] = $this->link;
         }
-
         if (null !== $this->text) {
             $res['text'] = $this->text;
         }
@@ -51,22 +46,20 @@ class hyperlinks extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return hyperlinks
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }
-
         if (isset($map['link'])) {
             $model->link = $map['link'];
         }
-
         if (isset($map['text'])) {
             $model->text = $map['text'];
         }

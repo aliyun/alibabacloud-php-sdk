@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\CreateTodoTaskRequest;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateTodoTaskRequest\actionList\param;
+use AlibabaCloud\Tea\Model;
 
 class actionList extends Model
 {
@@ -53,41 +53,29 @@ class actionList extends Model
         'url' => 'url',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->param) {
-            $this->param->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->actionKey) {
             $res['actionKey'] = $this->actionKey;
         }
-
         if (null !== $this->actionType) {
             $res['actionType'] = $this->actionType;
         }
-
         if (null !== $this->buttonStyleType) {
             $res['buttonStyleType'] = $this->buttonStyleType;
         }
-
         if (null !== $this->param) {
-            $res['param'] = null !== $this->param ? $this->param->toArray($noStream) : $this->param;
+            $res['param'] = null !== $this->param ? $this->param->toMap() : null;
         }
-
         if (null !== $this->pcUrl) {
             $res['pcUrl'] = $this->pcUrl;
         }
-
         if (null !== $this->title) {
             $res['title'] = $this->title;
         }
-
         if (null !== $this->url) {
             $res['url'] = $this->url;
         }
@@ -95,38 +83,32 @@ class actionList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return actionList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['actionKey'])) {
             $model->actionKey = $map['actionKey'];
         }
-
         if (isset($map['actionType'])) {
             $model->actionType = $map['actionType'];
         }
-
         if (isset($map['buttonStyleType'])) {
             $model->buttonStyleType = $map['buttonStyleType'];
         }
-
         if (isset($map['param'])) {
             $model->param = param::fromMap($map['param']);
         }
-
         if (isset($map['pcUrl'])) {
             $model->pcUrl = $map['pcUrl'];
         }
-
         if (isset($map['title'])) {
             $model->title = $map['title'];
         }
-
         if (isset($map['url'])) {
             $model->url = $map['url'];
         }

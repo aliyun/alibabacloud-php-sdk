@@ -4,22 +4,34 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\RespondEventRequest\tenantContext;
+use AlibabaCloud\Tea\Model;
 
 class RespondEventRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example primary
+     *
      * @var string
      */
     public $calendarId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example RHN2REJFc2w4VHNiUUlvcVB0ejFydz09
+     *
      * @var string
      */
     public $eventId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example accepted
+     *
      * @var string
      */
     public $responseStatus;
@@ -35,56 +47,44 @@ class RespondEventRequest extends Model
         'tenantContext' => 'TenantContext',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->tenantContext) {
-            $this->tenantContext->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->calendarId) {
             $res['CalendarId'] = $this->calendarId;
         }
-
         if (null !== $this->eventId) {
             $res['EventId'] = $this->eventId;
         }
-
         if (null !== $this->responseStatus) {
             $res['ResponseStatus'] = $this->responseStatus;
         }
-
         if (null !== $this->tenantContext) {
-            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toArray($noStream) : $this->tenantContext;
+            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return RespondEventRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CalendarId'])) {
             $model->calendarId = $map['CalendarId'];
         }
-
         if (isset($map['EventId'])) {
             $model->eventId = $map['EventId'];
         }
-
         if (isset($map['ResponseStatus'])) {
             $model->responseStatus = $map['ResponseStatus'];
         }
-
         if (isset($map['TenantContext'])) {
             $model->tenantContext = tenantContext::fromMap($map['TenantContext']);
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\SearchFormDataSecondGenerationResponseBody\data\originator;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class name extends Model
 {
@@ -14,6 +14,8 @@ class name extends Model
     public $nameInChinese;
 
     /**
+     * @example English
+     *
      * @var string
      */
     public $nameInEnglish;
@@ -22,18 +24,14 @@ class name extends Model
         'nameInEnglish' => 'NameInEnglish',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->nameInChinese) {
             $res['NameInChinese'] = $this->nameInChinese;
         }
-
         if (null !== $this->nameInEnglish) {
             $res['NameInEnglish'] = $this->nameInEnglish;
         }
@@ -41,18 +39,17 @@ class name extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return name
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NameInChinese'])) {
             $model->nameInChinese = $map['NameInChinese'];
         }
-
         if (isset($map['NameInEnglish'])) {
             $model->nameInEnglish = $map['NameInEnglish'];
         }

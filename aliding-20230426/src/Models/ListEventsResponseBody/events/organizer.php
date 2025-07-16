@@ -4,21 +4,27 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\ListEventsResponseBody\events;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class organizer extends Model
 {
     /**
+     * @example tony
+     *
      * @var string
      */
     public $displayName;
 
     /**
+     * @example accepted
+     *
      * @var string
      */
     public $responseStatus;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $self;
@@ -28,22 +34,17 @@ class organizer extends Model
         'self' => 'Self',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->displayName) {
             $res['DisplayName'] = $this->displayName;
         }
-
         if (null !== $this->responseStatus) {
             $res['ResponseStatus'] = $this->responseStatus;
         }
-
         if (null !== $this->self) {
             $res['Self'] = $this->self;
         }
@@ -51,22 +52,20 @@ class organizer extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return organizer
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DisplayName'])) {
             $model->displayName = $map['DisplayName'];
         }
-
         if (isset($map['ResponseStatus'])) {
             $model->responseStatus = $map['ResponseStatus'];
         }
-
         if (isset($map['Self'])) {
             $model->self = $map['Self'];
         }

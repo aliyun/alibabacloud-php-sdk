@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\GetFormListInAppResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class title extends Model
 {
     /**
+     * @example form
+     *
      * @var string
      */
     public $enUS;
@@ -22,18 +24,14 @@ class title extends Model
         'zhCN' => 'ZhCN',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->enUS) {
             $res['EnUS'] = $this->enUS;
         }
-
         if (null !== $this->zhCN) {
             $res['ZhCN'] = $this->zhCN;
         }
@@ -41,18 +39,17 @@ class title extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return title
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EnUS'])) {
             $model->enUS = $map['EnUS'];
         }
-
         if (isset($map['ZhCN'])) {
             $model->zhCN = $map['ZhCN'];
         }

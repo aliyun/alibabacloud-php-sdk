@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\ListEventsViewResponseBody\events\extendedProperties;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class sharedProperties extends Model
 {
     /**
+     * @example dingd8*****1231
+     *
      * @var string
      */
     public $belongCorpId;
 
     /**
+     * @example zxcvasdfa123===
+     *
      * @var string
      */
     public $sourceOpenCid;
@@ -22,18 +26,14 @@ class sharedProperties extends Model
         'sourceOpenCid' => 'SourceOpenCid',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->belongCorpId) {
             $res['BelongCorpId'] = $this->belongCorpId;
         }
-
         if (null !== $this->sourceOpenCid) {
             $res['SourceOpenCid'] = $this->sourceOpenCid;
         }
@@ -41,18 +41,17 @@ class sharedProperties extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return sharedProperties
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BelongCorpId'])) {
             $model->belongCorpId = $map['BelongCorpId'];
         }
-
         if (isset($map['SourceOpenCid'])) {
             $model->sourceOpenCid = $map['SourceOpenCid'];
         }

@@ -4,21 +4,27 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\ListNavigationByFormTypeResponseBody\result;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class title extends Model
 {
     /**
+     * @example 张三
+     *
      * @var string
      */
     public $nameInChinese;
 
     /**
+     * @example ZhangSan
+     *
      * @var string
      */
     public $nameInEnglish;
 
     /**
+     * @example 未知
+     *
      * @var string
      */
     public $type;
@@ -28,22 +34,17 @@ class title extends Model
         'type' => 'Type',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->nameInChinese) {
             $res['NameInChinese'] = $this->nameInChinese;
         }
-
         if (null !== $this->nameInEnglish) {
             $res['NameInEnglish'] = $this->nameInEnglish;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -51,22 +52,20 @@ class title extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return title
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NameInChinese'])) {
             $model->nameInChinese = $map['NameInChinese'];
         }
-
         if (isset($map['NameInEnglish'])) {
             $model->nameInEnglish = $map['NameInEnglish'];
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

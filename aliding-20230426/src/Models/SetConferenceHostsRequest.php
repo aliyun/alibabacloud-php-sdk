@@ -4,12 +4,16 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\SetConferenceHostsRequest\tenantContext;
+use AlibabaCloud\Tea\Model;
 
 class SetConferenceHostsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example add
+     *
      * @var string
      */
     public $operationType;
@@ -20,11 +24,19 @@ class SetConferenceHostsRequest extends Model
     public $tenantContext;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example [ "012345"]
+     *
      * @var string[]
      */
     public $userIds;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 607452e01401526ee39609e1
+     *
      * @var string
      */
     public $conferenceId;
@@ -35,39 +47,20 @@ class SetConferenceHostsRequest extends Model
         'conferenceId' => 'conferenceId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->tenantContext) {
-            $this->tenantContext->validate();
-        }
-        if (\is_array($this->userIds)) {
-            Model::validateArray($this->userIds);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->operationType) {
             $res['OperationType'] = $this->operationType;
         }
-
         if (null !== $this->tenantContext) {
-            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toArray($noStream) : $this->tenantContext;
+            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toMap() : null;
         }
-
         if (null !== $this->userIds) {
-            if (\is_array($this->userIds)) {
-                $res['UserIds'] = [];
-                $n1 = 0;
-                foreach ($this->userIds as $item1) {
-                    $res['UserIds'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['UserIds'] = $this->userIds;
         }
-
         if (null !== $this->conferenceId) {
             $res['conferenceId'] = $this->conferenceId;
         }
@@ -75,33 +68,25 @@ class SetConferenceHostsRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return SetConferenceHostsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OperationType'])) {
             $model->operationType = $map['OperationType'];
         }
-
         if (isset($map['TenantContext'])) {
             $model->tenantContext = tenantContext::fromMap($map['TenantContext']);
         }
-
         if (isset($map['UserIds'])) {
             if (!empty($map['UserIds'])) {
-                $model->userIds = [];
-                $n1 = 0;
-                foreach ($map['UserIds'] as $item1) {
-                    $model->userIds[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->userIds = $map['UserIds'];
             }
         }
-
         if (isset($map['conferenceId'])) {
             $model->conferenceId = $map['conferenceId'];
         }

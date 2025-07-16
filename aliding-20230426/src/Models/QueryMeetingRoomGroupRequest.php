@@ -4,12 +4,16 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryMeetingRoomGroupRequest\tenantContext;
+use AlibabaCloud\Tea\Model;
 
 class QueryMeetingRoomGroupRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 172
+     *
      * @var string
      */
     public $groupId;
@@ -23,40 +27,32 @@ class QueryMeetingRoomGroupRequest extends Model
         'tenantContext' => 'TenantContext',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->tenantContext) {
-            $this->tenantContext->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
-
         if (null !== $this->tenantContext) {
-            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toArray($noStream) : $this->tenantContext;
+            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return QueryMeetingRoomGroupRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
-
         if (isset($map['TenantContext'])) {
             $model->tenantContext = tenantContext::fromMap($map['TenantContext']);
         }

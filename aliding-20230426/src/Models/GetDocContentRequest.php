@@ -4,17 +4,23 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetDocContentRequest\tenantContext;
+use AlibabaCloud\Tea\Model;
 
 class GetDocContentRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example dentry_uuid
+     *
      * @var string
      */
     public $dentryUuid;
 
     /**
+     * @example markdown
+     *
      * @var string
      */
     public $targetFormat;
@@ -25,6 +31,8 @@ class GetDocContentRequest extends Model
     public $tenantContext;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $userToken;
@@ -35,29 +43,20 @@ class GetDocContentRequest extends Model
         'userToken' => 'userToken',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->tenantContext) {
-            $this->tenantContext->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dentryUuid) {
             $res['DentryUuid'] = $this->dentryUuid;
         }
-
         if (null !== $this->targetFormat) {
             $res['TargetFormat'] = $this->targetFormat;
         }
-
         if (null !== $this->tenantContext) {
-            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toArray($noStream) : $this->tenantContext;
+            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toMap() : null;
         }
-
         if (null !== $this->userToken) {
             $res['userToken'] = $this->userToken;
         }
@@ -65,26 +64,23 @@ class GetDocContentRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetDocContentRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DentryUuid'])) {
             $model->dentryUuid = $map['DentryUuid'];
         }
-
         if (isset($map['TargetFormat'])) {
             $model->targetFormat = $map['TargetFormat'];
         }
-
         if (isset($map['TenantContext'])) {
             $model->tenantContext = tenantContext::fromMap($map['TenantContext']);
         }
-
         if (isset($map['userToken'])) {
             $model->userToken = $map['userToken'];
         }

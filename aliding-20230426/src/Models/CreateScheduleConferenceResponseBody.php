@@ -4,31 +4,43 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateScheduleConferenceResponseBody extends Model
 {
     /**
+     * @example +861234567
+     *
      * @var string[]
      */
     public $phones;
 
     /**
+     * @description requestId
+     *
+     * @example 1234567
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 83150xxxxxx
+     *
      * @var string
      */
     public $roomCode;
 
     /**
+     * @example 5c7c9bb1-b256-4dc5-xxxx-xxxxxxxxxxxx
+     *
      * @var string
      */
     public $scheduleConferenceId;
 
     /**
+     * @example https://meeting.dingtalk.com/j/knvMq1ixxxx
+     *
      * @var string
      */
     public $url;
@@ -40,40 +52,23 @@ class CreateScheduleConferenceResponseBody extends Model
         'url' => 'url',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->phones)) {
-            Model::validateArray($this->phones);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->phones) {
-            if (\is_array($this->phones)) {
-                $res['phones'] = [];
-                $n1 = 0;
-                foreach ($this->phones as $item1) {
-                    $res['phones'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['phones'] = $this->phones;
         }
-
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
-
         if (null !== $this->roomCode) {
             $res['roomCode'] = $this->roomCode;
         }
-
         if (null !== $this->scheduleConferenceId) {
             $res['scheduleConferenceId'] = $this->scheduleConferenceId;
         }
-
         if (null !== $this->url) {
             $res['url'] = $this->url;
         }
@@ -81,37 +76,28 @@ class CreateScheduleConferenceResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateScheduleConferenceResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['phones'])) {
             if (!empty($map['phones'])) {
-                $model->phones = [];
-                $n1 = 0;
-                foreach ($map['phones'] as $item1) {
-                    $model->phones[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->phones = $map['phones'];
             }
         }
-
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
-
         if (isset($map['roomCode'])) {
             $model->roomCode = $map['roomCode'];
         }
-
         if (isset($map['scheduleConferenceId'])) {
             $model->scheduleConferenceId = $map['scheduleConferenceId'];
         }
-
         if (isset($map['url'])) {
             $model->url = $map['url'];
         }

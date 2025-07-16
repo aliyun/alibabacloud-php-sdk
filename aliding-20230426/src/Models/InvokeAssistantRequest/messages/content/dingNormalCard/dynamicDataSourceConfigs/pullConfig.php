@@ -4,21 +4,27 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\InvokeAssistantRequest\messages\content\dingNormalCard\dynamicDataSourceConfigs;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class pullConfig extends Model
 {
     /**
+     * @example 3
+     *
      * @var int
      */
     public $interval;
 
     /**
+     * @example NONE
+     *
      * @var string
      */
     public $pullStrategy;
 
     /**
+     * @example SECONDS
+     *
      * @var string
      */
     public $timeUnit;
@@ -28,22 +34,17 @@ class pullConfig extends Model
         'timeUnit' => 'timeUnit',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->interval) {
             $res['interval'] = $this->interval;
         }
-
         if (null !== $this->pullStrategy) {
             $res['pullStrategy'] = $this->pullStrategy;
         }
-
         if (null !== $this->timeUnit) {
             $res['timeUnit'] = $this->timeUnit;
         }
@@ -51,22 +52,20 @@ class pullConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return pullConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['interval'])) {
             $model->interval = $map['interval'];
         }
-
         if (isset($map['pullStrategy'])) {
             $model->pullStrategy = $map['pullStrategy'];
         }
-
         if (isset($map['timeUnit'])) {
             $model->timeUnit = $map['timeUnit'];
         }

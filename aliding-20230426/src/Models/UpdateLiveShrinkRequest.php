@@ -4,31 +4,47 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateLiveShrinkRequest extends Model
 {
     /**
+     * @example http://sss/sss
+     *
      * @var string
      */
     public $coverUrl;
 
     /**
+     * @example 这是一个直播
+     *
      * @var string
      */
     public $introduction;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 4d38xxxxx
+     *
      * @var string
      */
     public $liveId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 1698596800000
+     *
      * @var int
      */
     public $preEndTime;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 1691596800000
+     *
      * @var int
      */
     public $preStartTime;
@@ -39,6 +55,10 @@ class UpdateLiveShrinkRequest extends Model
     public $tenantContextShrink;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 标题
+     *
      * @var string
      */
     public $title;
@@ -52,38 +72,29 @@ class UpdateLiveShrinkRequest extends Model
         'title' => 'Title',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->coverUrl) {
             $res['CoverUrl'] = $this->coverUrl;
         }
-
         if (null !== $this->introduction) {
             $res['Introduction'] = $this->introduction;
         }
-
         if (null !== $this->liveId) {
             $res['LiveId'] = $this->liveId;
         }
-
         if (null !== $this->preEndTime) {
             $res['PreEndTime'] = $this->preEndTime;
         }
-
         if (null !== $this->preStartTime) {
             $res['PreStartTime'] = $this->preStartTime;
         }
-
         if (null !== $this->tenantContextShrink) {
             $res['TenantContext'] = $this->tenantContextShrink;
         }
-
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
@@ -91,38 +102,32 @@ class UpdateLiveShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateLiveShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CoverUrl'])) {
             $model->coverUrl = $map['CoverUrl'];
         }
-
         if (isset($map['Introduction'])) {
             $model->introduction = $map['Introduction'];
         }
-
         if (isset($map['LiveId'])) {
             $model->liveId = $map['LiveId'];
         }
-
         if (isset($map['PreEndTime'])) {
             $model->preEndTime = $map['PreEndTime'];
         }
-
         if (isset($map['PreStartTime'])) {
             $model->preStartTime = $map['PreStartTime'];
         }
-
         if (isset($map['TenantContext'])) {
             $model->tenantContextShrink = $map['TenantContext'];
         }
-
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }

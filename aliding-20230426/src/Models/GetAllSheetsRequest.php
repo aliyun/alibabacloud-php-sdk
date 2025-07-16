@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetAllSheetsRequest\tenantContext;
+use AlibabaCloud\Tea\Model;
 
 class GetAllSheetsRequest extends Model
 {
@@ -15,6 +15,10 @@ class GetAllSheetsRequest extends Model
     public $tenantContext;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example stxxxx
+     *
      * @var string
      */
     public $workbookId;
@@ -23,21 +27,14 @@ class GetAllSheetsRequest extends Model
         'workbookId' => 'WorkbookId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->tenantContext) {
-            $this->tenantContext->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->tenantContext) {
-            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toArray($noStream) : $this->tenantContext;
+            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toMap() : null;
         }
-
         if (null !== $this->workbookId) {
             $res['WorkbookId'] = $this->workbookId;
         }
@@ -45,18 +42,17 @@ class GetAllSheetsRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetAllSheetsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TenantContext'])) {
             $model->tenantContext = tenantContext::fromMap($map['TenantContext']);
         }
-
         if (isset($map['WorkbookId'])) {
             $model->workbookId = $map['WorkbookId'];
         }

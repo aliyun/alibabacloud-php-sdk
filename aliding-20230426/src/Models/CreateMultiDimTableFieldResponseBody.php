@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateMultiDimTableFieldResponseBody extends Model
 {
     /**
+     * @example UhfysgH
+     *
      * @var string
      */
     public $id;
@@ -24,21 +26,29 @@ class CreateMultiDimTableFieldResponseBody extends Model
     public $property;
 
     /**
+     * @example text
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+     *
      * @var string
      */
     public $vendorRequestId;
 
     /**
+     * @example dingtalk
+     *
      * @var string
      */
     public $vendorType;
@@ -52,46 +62,29 @@ class CreateMultiDimTableFieldResponseBody extends Model
         'vendorType' => 'vendorType',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->property)) {
-            Model::validateArray($this->property);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->property) {
-            if (\is_array($this->property)) {
-                $res['Property'] = [];
-                foreach ($this->property as $key1 => $value1) {
-                    $res['Property'][$key1] = $value1;
-                }
-            }
+            $res['Property'] = $this->property;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
-
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
-
         if (null !== $this->vendorRequestId) {
             $res['vendorRequestId'] = $this->vendorRequestId;
         }
-
         if (null !== $this->vendorType) {
             $res['vendorType'] = $this->vendorType;
         }
@@ -99,43 +92,32 @@ class CreateMultiDimTableFieldResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateMultiDimTableFieldResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['Property'])) {
-            if (!empty($map['Property'])) {
-                $model->property = [];
-                foreach ($map['Property'] as $key1 => $value1) {
-                    $model->property[$key1] = $value1;
-                }
-            }
+            $model->property = $map['Property'];
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
-
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
-
         if (isset($map['vendorRequestId'])) {
             $model->vendorRequestId = $map['vendorRequestId'];
         }
-
         if (isset($map['vendorType'])) {
             $model->vendorType = $map['vendorType'];
         }

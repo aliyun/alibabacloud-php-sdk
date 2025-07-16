@@ -4,16 +4,22 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteSubscribedCalendarResponseBody extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $result;
 
     /**
+     * @description requestId
+     *
+     * @example 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+     *
      * @var string
      */
     public $requestId;
@@ -22,18 +28,14 @@ class DeleteSubscribedCalendarResponseBody extends Model
         'requestId' => 'requestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->result) {
             $res['Result'] = $this->result;
         }
-
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -41,18 +43,17 @@ class DeleteSubscribedCalendarResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteSubscribedCalendarResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Result'])) {
             $model->result = $map['Result'];
         }
-
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }

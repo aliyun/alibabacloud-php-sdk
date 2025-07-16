@@ -4,21 +4,27 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\CopyDentryResponseBody\space;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class visitorInfo extends Model
 {
     /**
+     * @example GET_DENTRY
+     *
      * @var string[]
      */
     public $dentryActions;
 
     /**
+     * @example 3
+     *
      * @var string
      */
     public $roleCode;
 
     /**
+     * @example GET_SPACE
+     *
      * @var string[]
      */
     public $spaceActions;
@@ -28,80 +34,43 @@ class visitorInfo extends Model
         'spaceActions' => 'SpaceActions',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->dentryActions)) {
-            Model::validateArray($this->dentryActions);
-        }
-        if (\is_array($this->spaceActions)) {
-            Model::validateArray($this->spaceActions);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dentryActions) {
-            if (\is_array($this->dentryActions)) {
-                $res['DentryActions'] = [];
-                $n1 = 0;
-                foreach ($this->dentryActions as $item1) {
-                    $res['DentryActions'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['DentryActions'] = $this->dentryActions;
         }
-
         if (null !== $this->roleCode) {
             $res['RoleCode'] = $this->roleCode;
         }
-
         if (null !== $this->spaceActions) {
-            if (\is_array($this->spaceActions)) {
-                $res['SpaceActions'] = [];
-                $n1 = 0;
-                foreach ($this->spaceActions as $item1) {
-                    $res['SpaceActions'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['SpaceActions'] = $this->spaceActions;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return visitorInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DentryActions'])) {
             if (!empty($map['DentryActions'])) {
-                $model->dentryActions = [];
-                $n1 = 0;
-                foreach ($map['DentryActions'] as $item1) {
-                    $model->dentryActions[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->dentryActions = $map['DentryActions'];
             }
         }
-
         if (isset($map['RoleCode'])) {
             $model->roleCode = $map['RoleCode'];
         }
-
         if (isset($map['SpaceActions'])) {
             if (!empty($map['SpaceActions'])) {
-                $model->spaceActions = [];
-                $n1 = 0;
-                foreach ($map['SpaceActions'] as $item1) {
-                    $model->spaceActions[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->spaceActions = $map['SpaceActions'];
             }
         }
 

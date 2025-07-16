@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\AddPermissionRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class option extends Model
 {
     /**
+     * @example 3600
+     *
      * @var int
      */
     public $duration;
@@ -16,12 +18,9 @@ class option extends Model
         'duration' => 'Duration',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->duration) {
@@ -31,11 +30,11 @@ class option extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return option
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

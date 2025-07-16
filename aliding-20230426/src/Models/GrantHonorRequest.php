@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GrantHonorRequest\tenantContext;
+use AlibabaCloud\Tea\Model;
 
 class GrantHonorRequest extends Model
 {
@@ -15,31 +15,45 @@ class GrantHonorRequest extends Model
     public $tenantContext;
 
     /**
+     * @example null
+     *
      * @var int
      */
     public $expirationTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $grantReason;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $granterName;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 21659398
+     *
      * @var string
      */
     public $honorId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $noticeAnnouncer;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $noticeSingle;
@@ -50,16 +64,26 @@ class GrantHonorRequest extends Model
     public $openConversationIds;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 345391052
+     *
      * @var int
      */
     public $orgId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $receiverUserIds;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 363784
+     *
      * @var string
      */
     public $senderUserId;
@@ -77,77 +101,41 @@ class GrantHonorRequest extends Model
         'senderUserId' => 'senderUserId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->tenantContext) {
-            $this->tenantContext->validate();
-        }
-        if (\is_array($this->openConversationIds)) {
-            Model::validateArray($this->openConversationIds);
-        }
-        if (\is_array($this->receiverUserIds)) {
-            Model::validateArray($this->receiverUserIds);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->tenantContext) {
-            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toArray($noStream) : $this->tenantContext;
+            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toMap() : null;
         }
-
         if (null !== $this->expirationTime) {
             $res['expirationTime'] = $this->expirationTime;
         }
-
         if (null !== $this->grantReason) {
             $res['grantReason'] = $this->grantReason;
         }
-
         if (null !== $this->granterName) {
             $res['granterName'] = $this->granterName;
         }
-
         if (null !== $this->honorId) {
             $res['honorId'] = $this->honorId;
         }
-
         if (null !== $this->noticeAnnouncer) {
             $res['noticeAnnouncer'] = $this->noticeAnnouncer;
         }
-
         if (null !== $this->noticeSingle) {
             $res['noticeSingle'] = $this->noticeSingle;
         }
-
         if (null !== $this->openConversationIds) {
-            if (\is_array($this->openConversationIds)) {
-                $res['openConversationIds'] = [];
-                $n1 = 0;
-                foreach ($this->openConversationIds as $item1) {
-                    $res['openConversationIds'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['openConversationIds'] = $this->openConversationIds;
         }
-
         if (null !== $this->orgId) {
             $res['orgId'] = $this->orgId;
         }
-
         if (null !== $this->receiverUserIds) {
-            if (\is_array($this->receiverUserIds)) {
-                $res['receiverUserIds'] = [];
-                $n1 = 0;
-                foreach ($this->receiverUserIds as $item1) {
-                    $res['receiverUserIds'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['receiverUserIds'] = $this->receiverUserIds;
         }
-
         if (null !== $this->senderUserId) {
             $res['senderUserId'] = $this->senderUserId;
         }
@@ -155,68 +143,48 @@ class GrantHonorRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GrantHonorRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TenantContext'])) {
             $model->tenantContext = tenantContext::fromMap($map['TenantContext']);
         }
-
         if (isset($map['expirationTime'])) {
             $model->expirationTime = $map['expirationTime'];
         }
-
         if (isset($map['grantReason'])) {
             $model->grantReason = $map['grantReason'];
         }
-
         if (isset($map['granterName'])) {
             $model->granterName = $map['granterName'];
         }
-
         if (isset($map['honorId'])) {
             $model->honorId = $map['honorId'];
         }
-
         if (isset($map['noticeAnnouncer'])) {
             $model->noticeAnnouncer = $map['noticeAnnouncer'];
         }
-
         if (isset($map['noticeSingle'])) {
             $model->noticeSingle = $map['noticeSingle'];
         }
-
         if (isset($map['openConversationIds'])) {
             if (!empty($map['openConversationIds'])) {
-                $model->openConversationIds = [];
-                $n1 = 0;
-                foreach ($map['openConversationIds'] as $item1) {
-                    $model->openConversationIds[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->openConversationIds = $map['openConversationIds'];
             }
         }
-
         if (isset($map['orgId'])) {
             $model->orgId = $map['orgId'];
         }
-
         if (isset($map['receiverUserIds'])) {
             if (!empty($map['receiverUserIds'])) {
-                $model->receiverUserIds = [];
-                $n1 = 0;
-                foreach ($map['receiverUserIds'] as $item1) {
-                    $model->receiverUserIds[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->receiverUserIds = $map['receiverUserIds'];
             }
         }
-
         if (isset($map['senderUserId'])) {
             $model->senderUserId = $map['senderUserId'];
         }

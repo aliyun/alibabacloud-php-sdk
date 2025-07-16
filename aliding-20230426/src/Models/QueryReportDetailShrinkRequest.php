@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class QueryReportDetailShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 18054XXX
+     *
      * @var string
      */
     public $reportId;
@@ -22,18 +26,14 @@ class QueryReportDetailShrinkRequest extends Model
         'tenantContextShrink' => 'TenantContext',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->reportId) {
             $res['ReportId'] = $this->reportId;
         }
-
         if (null !== $this->tenantContextShrink) {
             $res['TenantContext'] = $this->tenantContextShrink;
         }
@@ -41,18 +41,17 @@ class QueryReportDetailShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return QueryReportDetailShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ReportId'])) {
             $model->reportId = $map['ReportId'];
         }
-
         if (isset($map['TenantContext'])) {
             $model->tenantContextShrink = $map['TenantContext'];
         }

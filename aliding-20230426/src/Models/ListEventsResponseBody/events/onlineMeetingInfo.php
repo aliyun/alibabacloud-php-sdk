@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\ListEventsResponseBody\events;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class onlineMeetingInfo extends Model
 {
     /**
+     * @example 5c4df21dxxxx-a6db402b9f3a
+     *
      * @var string
      */
     public $conferenceId;
@@ -19,11 +21,15 @@ class onlineMeetingInfo extends Model
     public $extraInfo;
 
     /**
+     * @example dingtalk
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example dingtalk://dingtalkclient/page/videoCoxxxxndar?confId=5c4df21dxxxx2b9f3a&calendarId=92xxxx36
+     *
      * @var string
      */
     public $url;
@@ -34,34 +40,20 @@ class onlineMeetingInfo extends Model
         'url' => 'Url',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->extraInfo)) {
-            Model::validateArray($this->extraInfo);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->conferenceId) {
             $res['ConferenceId'] = $this->conferenceId;
         }
-
         if (null !== $this->extraInfo) {
-            if (\is_array($this->extraInfo)) {
-                $res['ExtraInfo'] = [];
-                foreach ($this->extraInfo as $key1 => $value1) {
-                    $res['ExtraInfo'][$key1] = $value1;
-                }
-            }
+            $res['ExtraInfo'] = $this->extraInfo;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
-
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
@@ -69,31 +61,23 @@ class onlineMeetingInfo extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return onlineMeetingInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConferenceId'])) {
             $model->conferenceId = $map['ConferenceId'];
         }
-
         if (isset($map['ExtraInfo'])) {
-            if (!empty($map['ExtraInfo'])) {
-                $model->extraInfo = [];
-                foreach ($map['ExtraInfo'] as $key1 => $value1) {
-                    $model->extraInfo[$key1] = $value1;
-                }
-            }
+            $model->extraInfo = $map['ExtraInfo'];
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
-
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }

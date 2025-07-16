@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class StopCloudRecordShrinkRequest extends Model
 {
@@ -14,6 +14,10 @@ class StopCloudRecordShrinkRequest extends Model
     public $tenantContextShrink;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 61289fxxx
+     *
      * @var string
      */
     public $conferenceId;
@@ -22,18 +26,14 @@ class StopCloudRecordShrinkRequest extends Model
         'conferenceId' => 'conferenceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->tenantContextShrink) {
             $res['TenantContext'] = $this->tenantContextShrink;
         }
-
         if (null !== $this->conferenceId) {
             $res['conferenceId'] = $this->conferenceId;
         }
@@ -41,18 +41,17 @@ class StopCloudRecordShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return StopCloudRecordShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TenantContext'])) {
             $model->tenantContextShrink = $map['TenantContext'];
         }
-
         if (isset($map['conferenceId'])) {
             $model->conferenceId = $map['conferenceId'];
         }

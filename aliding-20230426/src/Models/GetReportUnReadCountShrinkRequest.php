@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetReportUnReadCountShrinkRequest extends Model
 {
     /**
+     * @example null
+     *
      * @var string
      */
     public $requestShrink;
@@ -22,18 +24,14 @@ class GetReportUnReadCountShrinkRequest extends Model
         'tenantContextShrink' => 'TenantContext',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestShrink) {
             $res['Request'] = $this->requestShrink;
         }
-
         if (null !== $this->tenantContextShrink) {
             $res['TenantContext'] = $this->tenantContextShrink;
         }
@@ -41,18 +39,17 @@ class GetReportUnReadCountShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetReportUnReadCountShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Request'])) {
             $model->requestShrink = $map['Request'];
         }
-
         if (isset($map['TenantContext'])) {
             $model->tenantContextShrink = $map['TenantContext'];
         }

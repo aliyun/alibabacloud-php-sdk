@@ -4,21 +4,29 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateMultiDimTableShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example r1R7q3QmWew5lo02fxB7noNyJxxxxxx
+     *
      * @var string
      */
     public $baseId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $sheetIdOrName;
@@ -34,26 +42,20 @@ class UpdateMultiDimTableShrinkRequest extends Model
         'tenantContextShrink' => 'TenantContext',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->baseId) {
             $res['BaseId'] = $this->baseId;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->sheetIdOrName) {
             $res['SheetIdOrName'] = $this->sheetIdOrName;
         }
-
         if (null !== $this->tenantContextShrink) {
             $res['TenantContext'] = $this->tenantContextShrink;
         }
@@ -61,26 +63,23 @@ class UpdateMultiDimTableShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateMultiDimTableShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BaseId'])) {
             $model->baseId = $map['BaseId'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['SheetIdOrName'])) {
             $model->sheetIdOrName = $map['SheetIdOrName'];
         }
-
         if (isset($map['TenantContext'])) {
             $model->tenantContextShrink = $map['TenantContext'];
         }

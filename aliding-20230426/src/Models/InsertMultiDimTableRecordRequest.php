@@ -4,23 +4,31 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\InsertMultiDimTableRecordRequest\records;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\InsertMultiDimTableRecordRequest\tenantContext;
+use AlibabaCloud\Tea\Model;
 
 class InsertMultiDimTableRecordRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example r1R7q3QmWew5lo02fxB7nxxxxxxxx
+     *
      * @var string
      */
     public $baseId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var records[]
      */
     public $records;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $sheetIdOrName;
@@ -36,73 +44,56 @@ class InsertMultiDimTableRecordRequest extends Model
         'tenantContext' => 'TenantContext',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->records)) {
-            Model::validateArray($this->records);
-        }
-        if (null !== $this->tenantContext) {
-            $this->tenantContext->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->baseId) {
             $res['BaseId'] = $this->baseId;
         }
-
         if (null !== $this->records) {
-            if (\is_array($this->records)) {
-                $res['Records'] = [];
-                $n1 = 0;
-                foreach ($this->records as $item1) {
-                    $res['Records'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Records'] = [];
+            if (null !== $this->records && \is_array($this->records)) {
+                $n = 0;
+                foreach ($this->records as $item) {
+                    $res['Records'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->sheetIdOrName) {
             $res['SheetIdOrName'] = $this->sheetIdOrName;
         }
-
         if (null !== $this->tenantContext) {
-            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toArray($noStream) : $this->tenantContext;
+            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return InsertMultiDimTableRecordRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BaseId'])) {
             $model->baseId = $map['BaseId'];
         }
-
         if (isset($map['Records'])) {
             if (!empty($map['Records'])) {
                 $model->records = [];
-                $n1 = 0;
-                foreach ($map['Records'] as $item1) {
-                    $model->records[$n1] = records::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Records'] as $item) {
+                    $model->records[$n++] = null !== $item ? records::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['SheetIdOrName'])) {
             $model->sheetIdOrName = $map['SheetIdOrName'];
         }
-
         if (isset($map['TenantContext'])) {
             $model->tenantContext = tenantContext::fromMap($map['TenantContext']);
         }

@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\QueryRecordMinutesUrlResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class recordMinutesUrls extends Model
 {
     /**
+     * @example url
+     *
      * @var string
      */
     public $recordMinutesUrl;
@@ -16,12 +18,9 @@ class recordMinutesUrls extends Model
         'recordMinutesUrl' => 'RecordMinutesUrl',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->recordMinutesUrl) {
@@ -31,11 +30,11 @@ class recordMinutesUrls extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return recordMinutesUrls
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

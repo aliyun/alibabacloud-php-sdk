@@ -4,23 +4,31 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreatePersonalTodoTaskRequest\notifyConfigs;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreatePersonalTodoTaskRequest\tenantContext;
+use AlibabaCloud\Tea\Model;
 
 class CreatePersonalTodoTaskRequest extends Model
 {
     /**
+     * @example 待办备注信息
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 1703750708595
+     *
      * @var int
      */
     public $dueTime;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example [ "012345" ]
+     *
      * @var string[]
      */
     public $executorIds;
@@ -31,16 +39,24 @@ class CreatePersonalTodoTaskRequest extends Model
     public $notifyConfigs;
 
     /**
+     * @example [ "012345" ]
+     *
      * @var string[]
      */
     public $participantIds;
 
     /**
+     * @example 1703750708595
+     *
      * @var int
      */
     public $reminderTimeStamp;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 待办标题
+     *
      * @var string
      */
     public $subject;
@@ -60,125 +76,72 @@ class CreatePersonalTodoTaskRequest extends Model
         'tenantContext' => 'TenantContext',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->executorIds)) {
-            Model::validateArray($this->executorIds);
-        }
-        if (null !== $this->notifyConfigs) {
-            $this->notifyConfigs->validate();
-        }
-        if (\is_array($this->participantIds)) {
-            Model::validateArray($this->participantIds);
-        }
-        if (null !== $this->tenantContext) {
-            $this->tenantContext->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-
         if (null !== $this->dueTime) {
             $res['DueTime'] = $this->dueTime;
         }
-
         if (null !== $this->executorIds) {
-            if (\is_array($this->executorIds)) {
-                $res['ExecutorIds'] = [];
-                $n1 = 0;
-                foreach ($this->executorIds as $item1) {
-                    $res['ExecutorIds'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['ExecutorIds'] = $this->executorIds;
         }
-
         if (null !== $this->notifyConfigs) {
-            $res['NotifyConfigs'] = null !== $this->notifyConfigs ? $this->notifyConfigs->toArray($noStream) : $this->notifyConfigs;
+            $res['NotifyConfigs'] = null !== $this->notifyConfigs ? $this->notifyConfigs->toMap() : null;
         }
-
         if (null !== $this->participantIds) {
-            if (\is_array($this->participantIds)) {
-                $res['ParticipantIds'] = [];
-                $n1 = 0;
-                foreach ($this->participantIds as $item1) {
-                    $res['ParticipantIds'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['ParticipantIds'] = $this->participantIds;
         }
-
         if (null !== $this->reminderTimeStamp) {
             $res['ReminderTimeStamp'] = $this->reminderTimeStamp;
         }
-
         if (null !== $this->subject) {
             $res['Subject'] = $this->subject;
         }
-
         if (null !== $this->tenantContext) {
-            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toArray($noStream) : $this->tenantContext;
+            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreatePersonalTodoTaskRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-
         if (isset($map['DueTime'])) {
             $model->dueTime = $map['DueTime'];
         }
-
         if (isset($map['ExecutorIds'])) {
             if (!empty($map['ExecutorIds'])) {
-                $model->executorIds = [];
-                $n1 = 0;
-                foreach ($map['ExecutorIds'] as $item1) {
-                    $model->executorIds[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->executorIds = $map['ExecutorIds'];
             }
         }
-
         if (isset($map['NotifyConfigs'])) {
             $model->notifyConfigs = notifyConfigs::fromMap($map['NotifyConfigs']);
         }
-
         if (isset($map['ParticipantIds'])) {
             if (!empty($map['ParticipantIds'])) {
-                $model->participantIds = [];
-                $n1 = 0;
-                foreach ($map['ParticipantIds'] as $item1) {
-                    $model->participantIds[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->participantIds = $map['ParticipantIds'];
             }
         }
-
         if (isset($map['ReminderTimeStamp'])) {
             $model->reminderTimeStamp = $map['ReminderTimeStamp'];
         }
-
         if (isset($map['Subject'])) {
             $model->subject = $map['Subject'];
         }
-
         if (isset($map['TenantContext'])) {
             $model->tenantContext = tenantContext::fromMap($map['TenantContext']);
         }

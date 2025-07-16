@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\SearchFormDataSecondGenerationResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\SearchFormDataSecondGenerationResponseBody\data\originator\name;
+use AlibabaCloud\Tea\Model;
 
 class originator extends Model
 {
@@ -15,6 +15,8 @@ class originator extends Model
     public $name;
 
     /**
+     * @example 012345
+     *
      * @var string
      */
     public $userId;
@@ -23,21 +25,14 @@ class originator extends Model
         'userId' => 'UserId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->name) {
-            $this->name->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->name) {
-            $res['Name'] = null !== $this->name ? $this->name->toArray($noStream) : $this->name;
+            $res['Name'] = null !== $this->name ? $this->name->toMap() : null;
         }
-
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
@@ -45,18 +40,17 @@ class originator extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return originator
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = name::fromMap($map['Name']);
         }
-
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }

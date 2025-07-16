@@ -4,12 +4,14 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetRelatedWorkspacesRequest\tenantContext;
+use AlibabaCloud\Tea\Model;
 
 class GetRelatedWorkspacesRequest extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $includeRecent;
@@ -23,40 +25,32 @@ class GetRelatedWorkspacesRequest extends Model
         'tenantContext' => 'TenantContext',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->tenantContext) {
-            $this->tenantContext->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->includeRecent) {
             $res['IncludeRecent'] = $this->includeRecent;
         }
-
         if (null !== $this->tenantContext) {
-            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toArray($noStream) : $this->tenantContext;
+            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetRelatedWorkspacesRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IncludeRecent'])) {
             $model->includeRecent = $map['IncludeRecent'];
         }
-
         if (isset($map['TenantContext'])) {
             $model->tenantContext = tenantContext::fromMap($map['TenantContext']);
         }

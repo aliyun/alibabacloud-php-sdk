@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class AddScenegroupMemberRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example cidt*****Xa4K10w==
+     *
      * @var string
      */
     public $openConversationId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 123xx,224xx
+     *
      * @var string
      */
     public $userIds;
@@ -22,18 +30,14 @@ class AddScenegroupMemberRequest extends Model
         'userIds' => 'UserIds',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->openConversationId) {
             $res['OpenConversationId'] = $this->openConversationId;
         }
-
         if (null !== $this->userIds) {
             $res['UserIds'] = $this->userIds;
         }
@@ -41,18 +45,17 @@ class AddScenegroupMemberRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return AddScenegroupMemberRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OpenConversationId'])) {
             $model->openConversationId = $map['OpenConversationId'];
         }
-
         if (isset($map['UserIds'])) {
             $model->userIds = $map['UserIds'];
         }

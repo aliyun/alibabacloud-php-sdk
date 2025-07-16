@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\GetMultipartFileUploadInfosResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetMultipartFileUploadInfosResponseBody\multipartHeaderSignatureInfos\headerSignatureInfo;
+use AlibabaCloud\Tea\Model;
 
 class multipartHeaderSignatureInfos extends Model
 {
@@ -15,6 +15,8 @@ class multipartHeaderSignatureInfos extends Model
     public $headerSignatureInfo;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $partNumber;
@@ -23,21 +25,14 @@ class multipartHeaderSignatureInfos extends Model
         'partNumber' => 'PartNumber',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->headerSignatureInfo) {
-            $this->headerSignatureInfo->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->headerSignatureInfo) {
-            $res['HeaderSignatureInfo'] = null !== $this->headerSignatureInfo ? $this->headerSignatureInfo->toArray($noStream) : $this->headerSignatureInfo;
+            $res['HeaderSignatureInfo'] = null !== $this->headerSignatureInfo ? $this->headerSignatureInfo->toMap() : null;
         }
-
         if (null !== $this->partNumber) {
             $res['PartNumber'] = $this->partNumber;
         }
@@ -45,18 +40,17 @@ class multipartHeaderSignatureInfos extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return multipartHeaderSignatureInfos
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HeaderSignatureInfo'])) {
             $model->headerSignatureInfo = headerSignatureInfo::fromMap($map['HeaderSignatureInfo']);
         }
-
         if (isset($map['PartNumber'])) {
             $model->partNumber = $map['PartNumber'];
         }

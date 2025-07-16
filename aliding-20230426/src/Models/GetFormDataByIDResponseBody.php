@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetFormDataByIDResponseBody\originator;
+use AlibabaCloud\Tea\Model;
 
 class GetFormDataByIDResponseBody extends Model
 {
@@ -15,11 +15,15 @@ class GetFormDataByIDResponseBody extends Model
     public $formData;
 
     /**
+     * @example FORM_INST_12345
+     *
      * @var string
      */
     public $formInstId;
 
     /**
+     * @example 2021-05-01
+     *
      * @var string
      */
     public $modifiedTimeGMT;
@@ -30,16 +34,22 @@ class GetFormDataByIDResponseBody extends Model
     public $originator;
 
     /**
+     * @example 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+     *
      * @var string
      */
     public $vendorRequestId;
 
     /**
+     * @example dingtalk
+     *
      * @var string
      */
     public $vendorType;
@@ -53,49 +63,29 @@ class GetFormDataByIDResponseBody extends Model
         'vendorType' => 'vendorType',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->formData)) {
-            Model::validateArray($this->formData);
-        }
-        if (null !== $this->originator) {
-            $this->originator->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->formData) {
-            if (\is_array($this->formData)) {
-                $res['formData'] = [];
-                foreach ($this->formData as $key1 => $value1) {
-                    $res['formData'][$key1] = $value1;
-                }
-            }
+            $res['formData'] = $this->formData;
         }
-
         if (null !== $this->formInstId) {
             $res['formInstId'] = $this->formInstId;
         }
-
         if (null !== $this->modifiedTimeGMT) {
             $res['modifiedTimeGMT'] = $this->modifiedTimeGMT;
         }
-
         if (null !== $this->originator) {
-            $res['originator'] = null !== $this->originator ? $this->originator->toArray($noStream) : $this->originator;
+            $res['originator'] = null !== $this->originator ? $this->originator->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
-
         if (null !== $this->vendorRequestId) {
             $res['vendorRequestId'] = $this->vendorRequestId;
         }
-
         if (null !== $this->vendorType) {
             $res['vendorType'] = $this->vendorType;
         }
@@ -103,43 +93,32 @@ class GetFormDataByIDResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetFormDataByIDResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['formData'])) {
-            if (!empty($map['formData'])) {
-                $model->formData = [];
-                foreach ($map['formData'] as $key1 => $value1) {
-                    $model->formData[$key1] = $value1;
-                }
-            }
+            $model->formData = $map['formData'];
         }
-
         if (isset($map['formInstId'])) {
             $model->formInstId = $map['formInstId'];
         }
-
         if (isset($map['modifiedTimeGMT'])) {
             $model->modifiedTimeGMT = $map['modifiedTimeGMT'];
         }
-
         if (isset($map['originator'])) {
             $model->originator = originator::fromMap($map['originator']);
         }
-
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
-
         if (isset($map['vendorRequestId'])) {
             $model->vendorRequestId = $map['vendorRequestId'];
         }
-
         if (isset($map['vendorType'])) {
             $model->vendorType = $map['vendorType'];
         }

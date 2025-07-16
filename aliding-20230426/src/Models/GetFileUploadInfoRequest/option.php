@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\GetFileUploadInfoRequest;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetFileUploadInfoRequest\option\preCheckParam;
+use AlibabaCloud\Tea\Model;
 
 class option extends Model
 {
@@ -15,16 +15,22 @@ class option extends Model
     public $preCheckParam;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $preferIntranet;
 
     /**
+     * @example ZHANGJIAKOU
+     *
      * @var string
      */
     public $preferRegion;
 
     /**
+     * @example DINGTALK
+     *
      * @var string
      */
     public $storageDriver;
@@ -35,29 +41,20 @@ class option extends Model
         'storageDriver' => 'StorageDriver',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->preCheckParam) {
-            $this->preCheckParam->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->preCheckParam) {
-            $res['PreCheckParam'] = null !== $this->preCheckParam ? $this->preCheckParam->toArray($noStream) : $this->preCheckParam;
+            $res['PreCheckParam'] = null !== $this->preCheckParam ? $this->preCheckParam->toMap() : null;
         }
-
         if (null !== $this->preferIntranet) {
             $res['PreferIntranet'] = $this->preferIntranet;
         }
-
         if (null !== $this->preferRegion) {
             $res['PreferRegion'] = $this->preferRegion;
         }
-
         if (null !== $this->storageDriver) {
             $res['StorageDriver'] = $this->storageDriver;
         }
@@ -65,26 +62,23 @@ class option extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return option
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PreCheckParam'])) {
             $model->preCheckParam = preCheckParam::fromMap($map['PreCheckParam']);
         }
-
         if (isset($map['PreferIntranet'])) {
             $model->preferIntranet = $map['PreferIntranet'];
         }
-
         if (isset($map['PreferRegion'])) {
             $model->preferRegion = $map['PreferRegion'];
         }
-
         if (isset($map['StorageDriver'])) {
             $model->storageDriver = $map['StorageDriver'];
         }

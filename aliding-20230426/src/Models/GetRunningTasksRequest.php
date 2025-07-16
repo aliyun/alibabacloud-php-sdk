@@ -4,31 +4,45 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetRunningTasksRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example APP_PBKxxx
+     *
      * @var string
      */
     public $appType;
 
     /**
+     * @example zh-CN
+     *
      * @var string
      */
     public $language;
 
     /**
+     * @example ["xx","xxx"]
+     *
      * @var string
      */
     public $processCodes;
 
     /**
+     * @example instxxxxx
+     *
      * @var string
      */
     public $processInstanceId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example hexxxx
+     *
      * @var string
      */
     public $systemToken;
@@ -40,30 +54,23 @@ class GetRunningTasksRequest extends Model
         'systemToken' => 'SystemToken',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appType) {
             $res['AppType'] = $this->appType;
         }
-
         if (null !== $this->language) {
             $res['Language'] = $this->language;
         }
-
         if (null !== $this->processCodes) {
             $res['ProcessCodes'] = $this->processCodes;
         }
-
         if (null !== $this->processInstanceId) {
             $res['ProcessInstanceId'] = $this->processInstanceId;
         }
-
         if (null !== $this->systemToken) {
             $res['SystemToken'] = $this->systemToken;
         }
@@ -71,30 +78,26 @@ class GetRunningTasksRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetRunningTasksRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppType'])) {
             $model->appType = $map['AppType'];
         }
-
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
         }
-
         if (isset($map['ProcessCodes'])) {
             $model->processCodes = $map['ProcessCodes'];
         }
-
         if (isset($map['ProcessInstanceId'])) {
             $model->processInstanceId = $map['ProcessInstanceId'];
         }
-
         if (isset($map['SystemToken'])) {
             $model->systemToken = $map['SystemToken'];
         }

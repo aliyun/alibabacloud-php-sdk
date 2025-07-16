@@ -4,12 +4,16 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetWorkspaceResponseBody\workspace;
+use AlibabaCloud\Tea\Model;
 
 class GetWorkspaceResponseBody extends Model
 {
     /**
+     * @description requestId
+     *
+     * @example 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+     *
      * @var string
      */
     public $requestId;
@@ -23,40 +27,32 @@ class GetWorkspaceResponseBody extends Model
         'workspace' => 'workspace',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->workspace) {
-            $this->workspace->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
-
         if (null !== $this->workspace) {
-            $res['workspace'] = null !== $this->workspace ? $this->workspace->toArray($noStream) : $this->workspace;
+            $res['workspace'] = null !== $this->workspace ? $this->workspace->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetWorkspaceResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
-
         if (isset($map['workspace'])) {
             $model->workspace = workspace::fromMap($map['workspace']);
         }

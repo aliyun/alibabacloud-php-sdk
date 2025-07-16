@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\CreateEventRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class onlineMeetingInfo extends Model
 {
     /**
+     * @example dingtalk
+     *
      * @var string
      */
     public $type;
@@ -16,12 +18,9 @@ class onlineMeetingInfo extends Model
         'type' => 'type',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->type) {
@@ -31,11 +30,11 @@ class onlineMeetingInfo extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return onlineMeetingInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

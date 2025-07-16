@@ -4,12 +4,16 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteAlidingAssistantRequest\tenantContext;
+use AlibabaCloud\Tea\Model;
 
 class DeleteAlidingAssistantRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 1234
+     *
      * @var string
      */
     public $assistantId;
@@ -23,40 +27,32 @@ class DeleteAlidingAssistantRequest extends Model
         'tenantContext' => 'TenantContext',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->tenantContext) {
-            $this->tenantContext->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->assistantId) {
             $res['AssistantId'] = $this->assistantId;
         }
-
         if (null !== $this->tenantContext) {
-            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toArray($noStream) : $this->tenantContext;
+            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteAlidingAssistantRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AssistantId'])) {
             $model->assistantId = $map['AssistantId'];
         }
-
         if (isset($map['TenantContext'])) {
             $model->tenantContext = tenantContext::fromMap($map['TenantContext']);
         }

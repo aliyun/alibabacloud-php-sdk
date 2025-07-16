@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateUserAvatarRequest extends Model
 {
     /**
+     * @example @lADPDfYH3A-xxxx
+     *
      * @var string
      */
     public $avatarMediaId;
@@ -16,12 +18,9 @@ class UpdateUserAvatarRequest extends Model
         'avatarMediaId' => 'AvatarMediaId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->avatarMediaId) {
@@ -31,11 +30,11 @@ class UpdateUserAvatarRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateUserAvatarRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

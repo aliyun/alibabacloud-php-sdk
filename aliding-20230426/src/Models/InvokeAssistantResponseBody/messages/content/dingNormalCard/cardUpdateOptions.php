@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\InvokeAssistantResponseBody\messages\content\dingNormalCard;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class cardUpdateOptions extends Model
 {
     /**
+     * @example {}
+     *
      * @var bool
      */
     public $updateCardDataByKey;
 
     /**
+     * @example {}
+     *
      * @var bool
      */
     public $updatePrivateDataByKey;
@@ -22,18 +26,14 @@ class cardUpdateOptions extends Model
         'updatePrivateDataByKey' => 'updatePrivateDataByKey',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->updateCardDataByKey) {
             $res['updateCardDataByKey'] = $this->updateCardDataByKey;
         }
-
         if (null !== $this->updatePrivateDataByKey) {
             $res['updatePrivateDataByKey'] = $this->updatePrivateDataByKey;
         }
@@ -41,18 +41,17 @@ class cardUpdateOptions extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return cardUpdateOptions
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['updateCardDataByKey'])) {
             $model->updateCardDataByKey = $map['updateCardDataByKey'];
         }
-
         if (isset($map['updatePrivateDataByKey'])) {
             $model->updatePrivateDataByKey = $map['updatePrivateDataByKey'];
         }

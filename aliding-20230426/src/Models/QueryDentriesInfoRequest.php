@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryDentriesInfoRequest\tenantContext;
+use AlibabaCloud\Tea\Model;
 
 class QueryDentriesInfoRequest extends Model
 {
@@ -15,11 +15,19 @@ class QueryDentriesInfoRequest extends Model
     public $appIdsForAppProperties;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 140901622636
+     *
      * @var string
      */
     public $dentryId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 22443475065
+     *
      * @var string
      */
     public $spaceId;
@@ -30,11 +38,17 @@ class QueryDentriesInfoRequest extends Model
     public $tenantContext;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example urv3ZIAtcmmIgQzHq08YcAiEiE
+     *
      * @var string
      */
     public $unionId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $withThumbnail;
@@ -47,47 +61,26 @@ class QueryDentriesInfoRequest extends Model
         'withThumbnail' => 'WithThumbnail',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->appIdsForAppProperties)) {
-            Model::validateArray($this->appIdsForAppProperties);
-        }
-        if (null !== $this->tenantContext) {
-            $this->tenantContext->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appIdsForAppProperties) {
-            if (\is_array($this->appIdsForAppProperties)) {
-                $res['AppIdsForAppProperties'] = [];
-                $n1 = 0;
-                foreach ($this->appIdsForAppProperties as $item1) {
-                    $res['AppIdsForAppProperties'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['AppIdsForAppProperties'] = $this->appIdsForAppProperties;
         }
-
         if (null !== $this->dentryId) {
             $res['DentryId'] = $this->dentryId;
         }
-
         if (null !== $this->spaceId) {
             $res['SpaceId'] = $this->spaceId;
         }
-
         if (null !== $this->tenantContext) {
-            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toArray($noStream) : $this->tenantContext;
+            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toMap() : null;
         }
-
         if (null !== $this->unionId) {
             $res['UnionId'] = $this->unionId;
         }
-
         if (null !== $this->withThumbnail) {
             $res['WithThumbnail'] = $this->withThumbnail;
         }
@@ -95,41 +88,31 @@ class QueryDentriesInfoRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return QueryDentriesInfoRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppIdsForAppProperties'])) {
             if (!empty($map['AppIdsForAppProperties'])) {
-                $model->appIdsForAppProperties = [];
-                $n1 = 0;
-                foreach ($map['AppIdsForAppProperties'] as $item1) {
-                    $model->appIdsForAppProperties[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->appIdsForAppProperties = $map['AppIdsForAppProperties'];
             }
         }
-
         if (isset($map['DentryId'])) {
             $model->dentryId = $map['DentryId'];
         }
-
         if (isset($map['SpaceId'])) {
             $model->spaceId = $map['SpaceId'];
         }
-
         if (isset($map['TenantContext'])) {
             $model->tenantContext = tenantContext::fromMap($map['TenantContext']);
         }
-
         if (isset($map['UnionId'])) {
             $model->unionId = $map['UnionId'];
         }
-
         if (isset($map['WithThumbnail'])) {
             $model->withThumbnail = $map['WithThumbnail'];
         }

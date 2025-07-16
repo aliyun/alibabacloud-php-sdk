@@ -4,21 +4,25 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\CopyDentryResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CopyDentryResponseBody\space\hdIconVO;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CopyDentryResponseBody\space\iconVO;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CopyDentryResponseBody\space\owner;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CopyDentryResponseBody\space\recentList;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CopyDentryResponseBody\space\visitorInfo;
+use AlibabaCloud\Tea\Model;
 
 class space extends Model
 {
     /**
+     * @example https://img.alicdn.com/imgextra/i1/O1xxxxx.png
+     *
      * @var string
      */
     public $cover;
 
     /**
+     * @example 这是简介
+     *
      * @var string
      */
     public $description;
@@ -34,6 +38,8 @@ class space extends Model
     public $iconVO;
 
     /**
+     * @example n9XJxxxxx
+     *
      * @var string
      */
     public $id;
@@ -44,6 +50,8 @@ class space extends Model
     public $name;
 
     /**
+     * @example 测试知识库
+     *
      * @var owner
      */
     public $owner;
@@ -54,11 +62,15 @@ class space extends Model
     public $recentList;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $type;
 
     /**
+     * @example https://alidocs.dingtalk.com/i/spaces/n9XJ*******Xy/overview
+     *
      * @var string
      */
     public $url;
@@ -81,138 +93,98 @@ class space extends Model
         'visitorInfo' => 'VisitorInfo',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->hdIconVO) {
-            $this->hdIconVO->validate();
-        }
-        if (null !== $this->iconVO) {
-            $this->iconVO->validate();
-        }
-        if (null !== $this->owner) {
-            $this->owner->validate();
-        }
-        if (\is_array($this->recentList)) {
-            Model::validateArray($this->recentList);
-        }
-        if (null !== $this->visitorInfo) {
-            $this->visitorInfo->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->cover) {
             $res['Cover'] = $this->cover;
         }
-
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-
         if (null !== $this->hdIconVO) {
-            $res['HdIconVO'] = null !== $this->hdIconVO ? $this->hdIconVO->toArray($noStream) : $this->hdIconVO;
+            $res['HdIconVO'] = null !== $this->hdIconVO ? $this->hdIconVO->toMap() : null;
         }
-
         if (null !== $this->iconVO) {
-            $res['IconVO'] = null !== $this->iconVO ? $this->iconVO->toArray($noStream) : $this->iconVO;
+            $res['IconVO'] = null !== $this->iconVO ? $this->iconVO->toMap() : null;
         }
-
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->owner) {
-            $res['Owner'] = null !== $this->owner ? $this->owner->toArray($noStream) : $this->owner;
+            $res['Owner'] = null !== $this->owner ? $this->owner->toMap() : null;
         }
-
         if (null !== $this->recentList) {
-            if (\is_array($this->recentList)) {
-                $res['RecentList'] = [];
-                $n1 = 0;
-                foreach ($this->recentList as $item1) {
-                    $res['RecentList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['RecentList'] = [];
+            if (null !== $this->recentList && \is_array($this->recentList)) {
+                $n = 0;
+                foreach ($this->recentList as $item) {
+                    $res['RecentList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
-
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
-
         if (null !== $this->visitorInfo) {
-            $res['VisitorInfo'] = null !== $this->visitorInfo ? $this->visitorInfo->toArray($noStream) : $this->visitorInfo;
+            $res['VisitorInfo'] = null !== $this->visitorInfo ? $this->visitorInfo->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return space
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Cover'])) {
             $model->cover = $map['Cover'];
         }
-
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-
         if (isset($map['HdIconVO'])) {
             $model->hdIconVO = hdIconVO::fromMap($map['HdIconVO']);
         }
-
         if (isset($map['IconVO'])) {
             $model->iconVO = iconVO::fromMap($map['IconVO']);
         }
-
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['Owner'])) {
             $model->owner = owner::fromMap($map['Owner']);
         }
-
         if (isset($map['RecentList'])) {
             if (!empty($map['RecentList'])) {
                 $model->recentList = [];
-                $n1 = 0;
-                foreach ($map['RecentList'] as $item1) {
-                    $model->recentList[$n1] = recentList::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['RecentList'] as $item) {
+                    $model->recentList[$n++] = null !== $item ? recentList::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
-
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }
-
         if (isset($map['VisitorInfo'])) {
             $model->visitorInfo = visitorInfo::fromMap($map['VisitorInfo']);
         }

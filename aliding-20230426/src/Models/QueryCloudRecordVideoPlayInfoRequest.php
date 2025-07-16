@@ -4,22 +4,34 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryCloudRecordVideoPlayInfoRequest\tenantContext;
+use AlibabaCloud\Tea\Model;
 
 class QueryCloudRecordVideoPlayInfoRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 6139b4xxx
+     *
      * @var string
      */
     public $conferenceId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 44444444
+     *
      * @var string
      */
     public $mediaId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example cn-shenzhen
+     *
      * @var string
      */
     public $regionId;
@@ -35,56 +47,44 @@ class QueryCloudRecordVideoPlayInfoRequest extends Model
         'tenantContext' => 'TenantContext',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->tenantContext) {
-            $this->tenantContext->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->conferenceId) {
             $res['ConferenceId'] = $this->conferenceId;
         }
-
         if (null !== $this->mediaId) {
             $res['MediaId'] = $this->mediaId;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->tenantContext) {
-            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toArray($noStream) : $this->tenantContext;
+            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return QueryCloudRecordVideoPlayInfoRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConferenceId'])) {
             $model->conferenceId = $map['ConferenceId'];
         }
-
         if (isset($map['MediaId'])) {
             $model->mediaId = $map['MediaId'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['TenantContext'])) {
             $model->tenantContext = tenantContext::fromMap($map['TenantContext']);
         }

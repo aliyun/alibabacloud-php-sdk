@@ -4,31 +4,49 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ExecuteBatchTaskRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example APP_PBKTxxx
+     *
      * @var string
      */
     public $appType;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example disagree
+     *
      * @var string
      */
     public $outResult;
 
     /**
+     * @example remark
+     *
      * @var string
      */
     public $remark;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example hexxxx
+     *
      * @var string
      */
     public $systemToken;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example [{"taskId":"2291xxx","formInstId":"d84a79xxx"}, {"taskId":"2291xxx","formInstId":"f8035e2axxx"}]
+     *
      * @var string
      */
     public $taskInformationList;
@@ -40,30 +58,23 @@ class ExecuteBatchTaskRequest extends Model
         'taskInformationList' => 'TaskInformationList',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appType) {
             $res['AppType'] = $this->appType;
         }
-
         if (null !== $this->outResult) {
             $res['OutResult'] = $this->outResult;
         }
-
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
         }
-
         if (null !== $this->systemToken) {
             $res['SystemToken'] = $this->systemToken;
         }
-
         if (null !== $this->taskInformationList) {
             $res['TaskInformationList'] = $this->taskInformationList;
         }
@@ -71,30 +82,26 @@ class ExecuteBatchTaskRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ExecuteBatchTaskRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppType'])) {
             $model->appType = $map['AppType'];
         }
-
         if (isset($map['OutResult'])) {
             $model->outResult = $map['OutResult'];
         }
-
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
         }
-
         if (isset($map['SystemToken'])) {
             $model->systemToken = $map['SystemToken'];
         }
-
         if (isset($map['TaskInformationList'])) {
             $model->taskInformationList = $map['TaskInformationList'];
         }

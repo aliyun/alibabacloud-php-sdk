@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListCalendarsRequest extends Model
 {
     /**
+     * @example {}
+     *
      * @var mixed[]
      */
     public $request;
@@ -16,44 +18,28 @@ class ListCalendarsRequest extends Model
         'request' => 'Request',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->request)) {
-            Model::validateArray($this->request);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->request) {
-            if (\is_array($this->request)) {
-                $res['Request'] = [];
-                foreach ($this->request as $key1 => $value1) {
-                    $res['Request'][$key1] = $value1;
-                }
-            }
+            $res['Request'] = $this->request;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListCalendarsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Request'])) {
-            if (!empty($map['Request'])) {
-                $model->request = [];
-                foreach ($map['Request'] as $key1 => $value1) {
-                    $model->request[$key1] = $value1;
-                }
-            }
+            $model->request = $map['Request'];
         }
 
         return $model;

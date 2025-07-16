@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CheckAlibabaStaffShrinkRequest extends Model
 {
     /**
+     * @example 156****9665
+     *
      * @var string
      */
     public $mobile;
@@ -22,18 +24,14 @@ class CheckAlibabaStaffShrinkRequest extends Model
         'tenantContextShrink' => 'TenantContext',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->mobile) {
             $res['Mobile'] = $this->mobile;
         }
-
         if (null !== $this->tenantContextShrink) {
             $res['TenantContext'] = $this->tenantContextShrink;
         }
@@ -41,18 +39,17 @@ class CheckAlibabaStaffShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CheckAlibabaStaffShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Mobile'])) {
             $model->mobile = $map['Mobile'];
         }
-
         if (isset($map['TenantContext'])) {
             $model->tenantContextShrink = $map['TenantContext'];
         }

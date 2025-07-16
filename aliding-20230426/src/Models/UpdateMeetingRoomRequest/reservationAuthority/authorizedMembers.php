@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateMeetingRoomRequest\reservationAuthority;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class authorizedMembers extends Model
 {
@@ -28,22 +28,17 @@ class authorizedMembers extends Model
         'memberType' => 'MemberType',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->memberId) {
             $res['MemberId'] = $this->memberId;
         }
-
         if (null !== $this->memberName) {
             $res['MemberName'] = $this->memberName;
         }
-
         if (null !== $this->memberType) {
             $res['MemberType'] = $this->memberType;
         }
@@ -51,22 +46,20 @@ class authorizedMembers extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return authorizedMembers
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MemberId'])) {
             $model->memberId = $map['MemberId'];
         }
-
         if (isset($map['MemberName'])) {
             $model->memberName = $map['MemberName'];
         }
-
         if (isset($map['MemberType'])) {
             $model->memberType = $map['MemberType'];
         }

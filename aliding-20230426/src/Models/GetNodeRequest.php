@@ -4,12 +4,16 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetNodeRequest\tenantContext;
+use AlibabaCloud\Tea\Model;
 
 class GetNodeRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example a9E05BDRVQ9K600yf1NplNDxV63zgkYA
+     *
      * @var string
      */
     public $nodeId;
@@ -20,11 +24,15 @@ class GetNodeRequest extends Model
     public $tenantContext;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $withPermissionRole;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $withStatisticalInfo;
@@ -35,29 +43,20 @@ class GetNodeRequest extends Model
         'withStatisticalInfo' => 'WithStatisticalInfo',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->tenantContext) {
-            $this->tenantContext->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
         }
-
         if (null !== $this->tenantContext) {
-            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toArray($noStream) : $this->tenantContext;
+            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toMap() : null;
         }
-
         if (null !== $this->withPermissionRole) {
             $res['WithPermissionRole'] = $this->withPermissionRole;
         }
-
         if (null !== $this->withStatisticalInfo) {
             $res['WithStatisticalInfo'] = $this->withStatisticalInfo;
         }
@@ -65,26 +64,23 @@ class GetNodeRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetNodeRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
         }
-
         if (isset($map['TenantContext'])) {
             $model->tenantContext = tenantContext::fromMap($map['TenantContext']);
         }
-
         if (isset($map['WithPermissionRole'])) {
             $model->withPermissionRole = $map['WithPermissionRole'];
         }
-
         if (isset($map['WithStatisticalInfo'])) {
             $model->withStatisticalInfo = $map['WithStatisticalInfo'];
         }

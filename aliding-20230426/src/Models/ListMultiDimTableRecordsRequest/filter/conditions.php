@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\ListMultiDimTableRecordsRequest\filter;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class conditions extends Model
 {
     /**
+     * @example Sandbox
+     *
      * @var string
      */
     public $field;
 
     /**
+     * @example equal
+     *
      * @var string
      */
     public $operator;
@@ -28,63 +32,41 @@ class conditions extends Model
         'value' => 'Value',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->value)) {
-            Model::validateArray($this->value);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->field) {
             $res['Field'] = $this->field;
         }
-
         if (null !== $this->operator) {
             $res['Operator'] = $this->operator;
         }
-
         if (null !== $this->value) {
-            if (\is_array($this->value)) {
-                $res['Value'] = [];
-                $n1 = 0;
-                foreach ($this->value as $item1) {
-                    $res['Value'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['Value'] = $this->value;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return conditions
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Field'])) {
             $model->field = $map['Field'];
         }
-
         if (isset($map['Operator'])) {
             $model->operator = $map['Operator'];
         }
-
         if (isset($map['Value'])) {
             if (!empty($map['Value'])) {
-                $model->value = [];
-                $n1 = 0;
-                foreach ($map['Value'] as $item1) {
-                    $model->value[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->value = $map['Value'];
             }
         }
 

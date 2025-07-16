@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\QueryLiveWatchUserListResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class orgUsesList extends Model
 {
@@ -19,21 +19,29 @@ class orgUsesList extends Model
     public $name;
 
     /**
+     * @example 1234
+     *
      * @var string
      */
     public $userId;
 
     /**
+     * @example 19999
+     *
      * @var int
      */
     public $watchLiveTime;
 
     /**
+     * @example 131312312
+     *
      * @var int
      */
     public $watchPlaybackTime;
 
     /**
+     * @example 1323132
+     *
      * @var int
      */
     public $watchProgressMs;
@@ -46,34 +54,26 @@ class orgUsesList extends Model
         'watchProgressMs' => 'WatchProgressMs',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->deptName) {
             $res['DeptName'] = $this->deptName;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
-
         if (null !== $this->watchLiveTime) {
             $res['WatchLiveTime'] = $this->watchLiveTime;
         }
-
         if (null !== $this->watchPlaybackTime) {
             $res['WatchPlaybackTime'] = $this->watchPlaybackTime;
         }
-
         if (null !== $this->watchProgressMs) {
             $res['WatchProgressMs'] = $this->watchProgressMs;
         }
@@ -81,34 +81,29 @@ class orgUsesList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return orgUsesList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeptName'])) {
             $model->deptName = $map['DeptName'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }
-
         if (isset($map['WatchLiveTime'])) {
             $model->watchLiveTime = $map['WatchLiveTime'];
         }
-
         if (isset($map['WatchPlaybackTime'])) {
             $model->watchPlaybackTime = $map['WatchPlaybackTime'];
         }
-
         if (isset($map['WatchProgressMs'])) {
             $model->watchProgressMs = $map['WatchProgressMs'];
         }

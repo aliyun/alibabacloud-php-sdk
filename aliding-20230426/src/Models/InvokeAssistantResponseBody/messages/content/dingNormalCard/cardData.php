@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\InvokeAssistantResponseBody\messages\content\dingNormalCard;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class cardData extends Model
 {
     /**
+     * @example {}
+     *
      * @var mixed[]
      */
     public $cardParamMap;
@@ -16,44 +18,28 @@ class cardData extends Model
         'cardParamMap' => 'cardParamMap',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->cardParamMap)) {
-            Model::validateArray($this->cardParamMap);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->cardParamMap) {
-            if (\is_array($this->cardParamMap)) {
-                $res['cardParamMap'] = [];
-                foreach ($this->cardParamMap as $key1 => $value1) {
-                    $res['cardParamMap'][$key1] = $value1;
-                }
-            }
+            $res['cardParamMap'] = $this->cardParamMap;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return cardData
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['cardParamMap'])) {
-            if (!empty($map['cardParamMap'])) {
-                $model->cardParamMap = [];
-                foreach ($map['cardParamMap'] as $key1 => $value1) {
-                    $model->cardParamMap[$key1] = $value1;
-                }
-            }
+            $model->cardParamMap = $map['cardParamMap'];
         }
 
         return $model;

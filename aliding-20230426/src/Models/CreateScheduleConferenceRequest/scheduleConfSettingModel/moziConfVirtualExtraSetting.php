@@ -4,17 +4,21 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\CreateScheduleConferenceRequest\scheduleConfSettingModel;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateScheduleConferenceRequest\scheduleConfSettingModel\moziConfVirtualExtraSetting\moziConfExtensionAppSettings;
+use AlibabaCloud\Tea\Model;
 
 class moziConfVirtualExtraSetting extends Model
 {
     /**
+     * @example 2iPOLbpUNMLzB5LuwggiiqiPwiEiE
+     *
      * @var string
      */
     public $cloudRecordOwnerUserId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $enableChat;
@@ -25,16 +29,22 @@ class moziConfVirtualExtraSetting extends Model
     public $enableWebAnonymousJoin;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $joinBeforeHost;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $lockMediaStatusMicMute;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $lockNick;
@@ -65,6 +75,8 @@ class moziConfVirtualExtraSetting extends Model
     public $pushMinutesCard;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $waitingRoom;
@@ -83,68 +95,50 @@ class moziConfVirtualExtraSetting extends Model
         'waitingRoom' => 'WaitingRoom',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->moziConfExtensionAppSettings)) {
-            Model::validateArray($this->moziConfExtensionAppSettings);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->cloudRecordOwnerUserId) {
             $res['CloudRecordOwnerUserId'] = $this->cloudRecordOwnerUserId;
         }
-
         if (null !== $this->enableChat) {
             $res['EnableChat'] = $this->enableChat;
         }
-
         if (null !== $this->enableWebAnonymousJoin) {
             $res['EnableWebAnonymousJoin'] = $this->enableWebAnonymousJoin;
         }
-
         if (null !== $this->joinBeforeHost) {
             $res['JoinBeforeHost'] = $this->joinBeforeHost;
         }
-
         if (null !== $this->lockMediaStatusMicMute) {
             $res['LockMediaStatusMicMute'] = $this->lockMediaStatusMicMute;
         }
-
         if (null !== $this->lockNick) {
             $res['LockNick'] = $this->lockNick;
         }
-
         if (null !== $this->minutesOwnerUserId) {
             $res['MinutesOwnerUserId'] = $this->minutesOwnerUserId;
         }
-
         if (null !== $this->moziConfExtensionAppSettings) {
-            if (\is_array($this->moziConfExtensionAppSettings)) {
-                $res['MoziConfExtensionAppSettings'] = [];
-                $n1 = 0;
-                foreach ($this->moziConfExtensionAppSettings as $item1) {
-                    $res['MoziConfExtensionAppSettings'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['MoziConfExtensionAppSettings'] = [];
+            if (null !== $this->moziConfExtensionAppSettings && \is_array($this->moziConfExtensionAppSettings)) {
+                $n = 0;
+                foreach ($this->moziConfExtensionAppSettings as $item) {
+                    $res['MoziConfExtensionAppSettings'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->pushAllMeetingRecords) {
             $res['PushAllMeetingRecords'] = $this->pushAllMeetingRecords;
         }
-
         if (null !== $this->pushCloudRecordCard) {
             $res['PushCloudRecordCard'] = $this->pushCloudRecordCard;
         }
-
         if (null !== $this->pushMinutesCard) {
             $res['PushMinutesCard'] = $this->pushMinutesCard;
         }
-
         if (null !== $this->waitingRoom) {
             $res['WaitingRoom'] = $this->waitingRoom;
         }
@@ -152,65 +146,53 @@ class moziConfVirtualExtraSetting extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return moziConfVirtualExtraSetting
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CloudRecordOwnerUserId'])) {
             $model->cloudRecordOwnerUserId = $map['CloudRecordOwnerUserId'];
         }
-
         if (isset($map['EnableChat'])) {
             $model->enableChat = $map['EnableChat'];
         }
-
         if (isset($map['EnableWebAnonymousJoin'])) {
             $model->enableWebAnonymousJoin = $map['EnableWebAnonymousJoin'];
         }
-
         if (isset($map['JoinBeforeHost'])) {
             $model->joinBeforeHost = $map['JoinBeforeHost'];
         }
-
         if (isset($map['LockMediaStatusMicMute'])) {
             $model->lockMediaStatusMicMute = $map['LockMediaStatusMicMute'];
         }
-
         if (isset($map['LockNick'])) {
             $model->lockNick = $map['LockNick'];
         }
-
         if (isset($map['MinutesOwnerUserId'])) {
             $model->minutesOwnerUserId = $map['MinutesOwnerUserId'];
         }
-
         if (isset($map['MoziConfExtensionAppSettings'])) {
             if (!empty($map['MoziConfExtensionAppSettings'])) {
                 $model->moziConfExtensionAppSettings = [];
-                $n1 = 0;
-                foreach ($map['MoziConfExtensionAppSettings'] as $item1) {
-                    $model->moziConfExtensionAppSettings[$n1] = moziConfExtensionAppSettings::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['MoziConfExtensionAppSettings'] as $item) {
+                    $model->moziConfExtensionAppSettings[$n++] = null !== $item ? moziConfExtensionAppSettings::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['PushAllMeetingRecords'])) {
             $model->pushAllMeetingRecords = $map['PushAllMeetingRecords'];
         }
-
         if (isset($map['PushCloudRecordCard'])) {
             $model->pushCloudRecordCard = $map['PushCloudRecordCard'];
         }
-
         if (isset($map['PushMinutesCard'])) {
             $model->pushMinutesCard = $map['PushMinutesCard'];
         }
-
         if (isset($map['WaitingRoom'])) {
             $model->waitingRoom = $map['WaitingRoom'];
         }

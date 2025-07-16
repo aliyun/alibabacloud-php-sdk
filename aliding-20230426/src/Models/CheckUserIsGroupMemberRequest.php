@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CheckUserIsGroupMemberRequest extends Model
 {
     /**
+     * @example cidB8Pz*******FIWPv2PMA==
+     *
      * @var string
      */
     public $openConversationId;
@@ -16,12 +18,9 @@ class CheckUserIsGroupMemberRequest extends Model
         'openConversationId' => 'OpenConversationId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->openConversationId) {
@@ -31,11 +30,11 @@ class CheckUserIsGroupMemberRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CheckUserIsGroupMemberRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

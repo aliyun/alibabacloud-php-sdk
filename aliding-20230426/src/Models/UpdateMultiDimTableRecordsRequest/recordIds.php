@@ -4,16 +4,22 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateMultiDimTableRecordsRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class recordIds extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var mixed[]
      */
     public $fields;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example HyDGtSj
+     *
      * @var string
      */
     public $id;
@@ -22,26 +28,14 @@ class recordIds extends Model
         'id' => 'Id',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->fields)) {
-            Model::validateArray($this->fields);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->fields) {
-            if (\is_array($this->fields)) {
-                $res['Fields'] = [];
-                foreach ($this->fields as $key1 => $value1) {
-                    $res['Fields'][$key1] = $value1;
-                }
-            }
+            $res['Fields'] = $this->fields;
         }
-
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
@@ -49,23 +43,17 @@ class recordIds extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return recordIds
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Fields'])) {
-            if (!empty($map['Fields'])) {
-                $model->fields = [];
-                foreach ($map['Fields'] as $key1 => $value1) {
-                    $model->fields[$key1] = $value1;
-                }
-            }
+            $model->fields = $map['Fields'];
         }
-
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }

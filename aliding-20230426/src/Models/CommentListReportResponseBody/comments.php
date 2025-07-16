@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\CommentListReportResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class comments extends Model
 {
@@ -14,11 +14,15 @@ class comments extends Model
     public $content;
 
     /**
+     * @example 1678442466000
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 012345
+     *
      * @var string
      */
     public $userid;
@@ -28,22 +32,17 @@ class comments extends Model
         'userid' => 'Userid',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
-
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-
         if (null !== $this->userid) {
             $res['Userid'] = $this->userid;
         }
@@ -51,22 +50,20 @@ class comments extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return comments
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
-
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
-
         if (isset($map['Userid'])) {
             $model->userid = $map['Userid'];
         }

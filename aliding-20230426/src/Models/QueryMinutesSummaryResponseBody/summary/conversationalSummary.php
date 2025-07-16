@@ -4,21 +4,27 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\QueryMinutesSummaryResponseBody\summary;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class conversationalSummary extends Model
 {
     /**
+     * @example 012345
+     *
      * @var string
      */
     public $speakerId;
 
     /**
+     * @example 发言人姓名
+     *
      * @var string
      */
     public $speakerName;
 
     /**
+     * @example 发言人对应的总结
+     *
      * @var string
      */
     public $summary;
@@ -28,22 +34,17 @@ class conversationalSummary extends Model
         'summary' => 'Summary',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->speakerId) {
             $res['SpeakerId'] = $this->speakerId;
         }
-
         if (null !== $this->speakerName) {
             $res['SpeakerName'] = $this->speakerName;
         }
-
         if (null !== $this->summary) {
             $res['Summary'] = $this->summary;
         }
@@ -51,22 +52,20 @@ class conversationalSummary extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return conversationalSummary
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SpeakerId'])) {
             $model->speakerId = $map['SpeakerId'];
         }
-
         if (isset($map['SpeakerName'])) {
             $model->speakerName = $map['SpeakerName'];
         }
-
         if (isset($map['Summary'])) {
             $model->summary = $map['Summary'];
         }

@@ -4,22 +4,34 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\SetColumnsVisibilityRequest\tenantContext;
+use AlibabaCloud\Tea\Model;
 
 class SetColumnsVisibilityRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $column;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $columnCount;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example Sheet1
+     *
      * @var string
      */
     public $sheetId;
@@ -30,11 +42,19 @@ class SetColumnsVisibilityRequest extends Model
     public $tenantContext;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example hidden
+     *
      * @var string
      */
     public $visibility;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example stxxxx
+     *
      * @var string
      */
     public $workbookId;
@@ -47,37 +67,26 @@ class SetColumnsVisibilityRequest extends Model
         'workbookId' => 'WorkbookId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->tenantContext) {
-            $this->tenantContext->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->column) {
             $res['Column'] = $this->column;
         }
-
         if (null !== $this->columnCount) {
             $res['ColumnCount'] = $this->columnCount;
         }
-
         if (null !== $this->sheetId) {
             $res['SheetId'] = $this->sheetId;
         }
-
         if (null !== $this->tenantContext) {
-            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toArray($noStream) : $this->tenantContext;
+            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toMap() : null;
         }
-
         if (null !== $this->visibility) {
             $res['Visibility'] = $this->visibility;
         }
-
         if (null !== $this->workbookId) {
             $res['WorkbookId'] = $this->workbookId;
         }
@@ -85,34 +94,29 @@ class SetColumnsVisibilityRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return SetColumnsVisibilityRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Column'])) {
             $model->column = $map['Column'];
         }
-
         if (isset($map['ColumnCount'])) {
             $model->columnCount = $map['ColumnCount'];
         }
-
         if (isset($map['SheetId'])) {
             $model->sheetId = $map['SheetId'];
         }
-
         if (isset($map['TenantContext'])) {
             $model->tenantContext = tenantContext::fromMap($map['TenantContext']);
         }
-
         if (isset($map['Visibility'])) {
             $model->visibility = $map['Visibility'];
         }
-
         if (isset($map['WorkbookId'])) {
             $model->workbookId = $map['WorkbookId'];
         }

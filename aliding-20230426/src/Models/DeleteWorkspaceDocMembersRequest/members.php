@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteWorkspaceDocMembersRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class members extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 012345
+     *
      * @var string
      */
     public $memberId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example USER
+     *
      * @var string
      */
     public $memberType;
@@ -22,18 +30,14 @@ class members extends Model
         'memberType' => 'MemberType',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->memberId) {
             $res['MemberId'] = $this->memberId;
         }
-
         if (null !== $this->memberType) {
             $res['MemberType'] = $this->memberType;
         }
@@ -41,18 +45,17 @@ class members extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return members
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MemberId'])) {
             $model->memberId = $map['MemberId'];
         }
-
         if (isset($map['MemberType'])) {
             $model->memberType = $map['MemberType'];
         }

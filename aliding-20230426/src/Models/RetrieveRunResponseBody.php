@@ -4,12 +4,14 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\RetrieveRunResponseBody\run;
+use AlibabaCloud\Tea\Model;
 
 class RetrieveRunResponseBody extends Model
 {
     /**
+     * @example 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+     *
      * @var string
      */
     public $requestId;
@@ -23,40 +25,32 @@ class RetrieveRunResponseBody extends Model
         'run' => 'run',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->run) {
-            $this->run->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
-
         if (null !== $this->run) {
-            $res['run'] = null !== $this->run ? $this->run->toArray($noStream) : $this->run;
+            $res['run'] = null !== $this->run ? $this->run->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return RetrieveRunResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
-
         if (isset($map['run'])) {
             $model->run = run::fromMap($map['run']);
         }

@@ -4,31 +4,41 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetAlidingAssistantInfoResponseBody extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $approvalStatus;
 
     /**
+     * @example 123
+     *
      * @var string
      */
     public $processInstanceId;
 
     /**
+     * @example 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+     *
      * @var string
      */
     public $vendorRequestId;
 
     /**
+     * @example dingtalk
+     *
      * @var string
      */
     public $vendorType;
@@ -40,30 +50,23 @@ class GetAlidingAssistantInfoResponseBody extends Model
         'vendorType' => 'vendorType',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->approvalStatus) {
             $res['approvalStatus'] = $this->approvalStatus;
         }
-
         if (null !== $this->processInstanceId) {
             $res['processInstanceId'] = $this->processInstanceId;
         }
-
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
-
         if (null !== $this->vendorRequestId) {
             $res['vendorRequestId'] = $this->vendorRequestId;
         }
-
         if (null !== $this->vendorType) {
             $res['vendorType'] = $this->vendorType;
         }
@@ -71,30 +74,26 @@ class GetAlidingAssistantInfoResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetAlidingAssistantInfoResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['approvalStatus'])) {
             $model->approvalStatus = $map['approvalStatus'];
         }
-
         if (isset($map['processInstanceId'])) {
             $model->processInstanceId = $map['processInstanceId'];
         }
-
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
-
         if (isset($map['vendorRequestId'])) {
             $model->vendorRequestId = $map['vendorRequestId'];
         }
-
         if (isset($map['vendorType'])) {
             $model->vendorType = $map['vendorType'];
         }

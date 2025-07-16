@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\CreateRunResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateRunResponseBody\messages\content;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateRunResponseBody\messages\contentStruct;
+use AlibabaCloud\Tea\Model;
 
 class messages extends Model
 {
@@ -16,6 +16,8 @@ class messages extends Model
     public $content;
 
     /**
+     * @example 这是一张小猫钓鱼图
+     *
      * @var string
      */
     public $contentDesc;
@@ -26,26 +28,36 @@ class messages extends Model
     public $contentStruct;
 
     /**
+     * @example 1642448000000
+     *
      * @var int
      */
     public $createAt;
 
     /**
+     * @example messageId1
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example user
+     *
      * @var string
      */
     public $role;
 
     /**
+     * @example runId1
+     *
      * @var string
      */
     public $runId;
 
     /**
+     * @example threadId1
+     *
      * @var string
      */
     public $threadId;
@@ -60,48 +72,32 @@ class messages extends Model
         'threadId' => 'threadId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->content) {
-            $this->content->validate();
-        }
-        if (null !== $this->contentStruct) {
-            $this->contentStruct->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->content) {
-            $res['content'] = null !== $this->content ? $this->content->toArray($noStream) : $this->content;
+            $res['content'] = null !== $this->content ? $this->content->toMap() : null;
         }
-
         if (null !== $this->contentDesc) {
             $res['contentDesc'] = $this->contentDesc;
         }
-
         if (null !== $this->contentStruct) {
-            $res['contentStruct'] = null !== $this->contentStruct ? $this->contentStruct->toArray($noStream) : $this->contentStruct;
+            $res['contentStruct'] = null !== $this->contentStruct ? $this->contentStruct->toMap() : null;
         }
-
         if (null !== $this->createAt) {
             $res['createAt'] = $this->createAt;
         }
-
         if (null !== $this->id) {
             $res['id'] = $this->id;
         }
-
         if (null !== $this->role) {
             $res['role'] = $this->role;
         }
-
         if (null !== $this->runId) {
             $res['runId'] = $this->runId;
         }
-
         if (null !== $this->threadId) {
             $res['threadId'] = $this->threadId;
         }
@@ -109,42 +105,35 @@ class messages extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return messages
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['content'])) {
             $model->content = content::fromMap($map['content']);
         }
-
         if (isset($map['contentDesc'])) {
             $model->contentDesc = $map['contentDesc'];
         }
-
         if (isset($map['contentStruct'])) {
             $model->contentStruct = contentStruct::fromMap($map['contentStruct']);
         }
-
         if (isset($map['createAt'])) {
             $model->createAt = $map['createAt'];
         }
-
         if (isset($map['id'])) {
             $model->id = $map['id'];
         }
-
         if (isset($map['role'])) {
             $model->role = $map['role'];
         }
-
         if (isset($map['runId'])) {
             $model->runId = $map['runId'];
         }
-
         if (isset($map['threadId'])) {
             $model->threadId = $map['threadId'];
         }

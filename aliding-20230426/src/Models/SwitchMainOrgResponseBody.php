@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\SwitchMainOrgResponseBody\content;
+use AlibabaCloud\Tea\Model;
 
 class SwitchMainOrgResponseBody extends Model
 {
@@ -15,6 +15,8 @@ class SwitchMainOrgResponseBody extends Model
     public $content;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $errorCode;
@@ -30,16 +32,22 @@ class SwitchMainOrgResponseBody extends Model
     public $errorMsg;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @example 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
@@ -53,49 +61,29 @@ class SwitchMainOrgResponseBody extends Model
         'success' => 'success',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->content) {
-            $this->content->validate();
-        }
-        if (\is_array($this->errorCtx)) {
-            Model::validateArray($this->errorCtx);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->content) {
-            $res['content'] = null !== $this->content ? $this->content->toArray($noStream) : $this->content;
+            $res['content'] = null !== $this->content ? $this->content->toMap() : null;
         }
-
         if (null !== $this->errorCode) {
             $res['errorCode'] = $this->errorCode;
         }
-
         if (null !== $this->errorCtx) {
-            if (\is_array($this->errorCtx)) {
-                $res['errorCtx'] = [];
-                foreach ($this->errorCtx as $key1 => $value1) {
-                    $res['errorCtx'][$key1] = $value1;
-                }
-            }
+            $res['errorCtx'] = $this->errorCtx;
         }
-
         if (null !== $this->errorMsg) {
             $res['errorMsg'] = $this->errorMsg;
         }
-
         if (null !== $this->httpStatusCode) {
             $res['httpStatusCode'] = $this->httpStatusCode;
         }
-
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
-
         if (null !== $this->success) {
             $res['success'] = $this->success;
         }
@@ -103,43 +91,32 @@ class SwitchMainOrgResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return SwitchMainOrgResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['content'])) {
             $model->content = content::fromMap($map['content']);
         }
-
         if (isset($map['errorCode'])) {
             $model->errorCode = $map['errorCode'];
         }
-
         if (isset($map['errorCtx'])) {
-            if (!empty($map['errorCtx'])) {
-                $model->errorCtx = [];
-                foreach ($map['errorCtx'] as $key1 => $value1) {
-                    $model->errorCtx[$key1] = $value1;
-                }
-            }
+            $model->errorCtx = $map['errorCtx'];
         }
-
         if (isset($map['errorMsg'])) {
             $model->errorMsg = $map['errorMsg'];
         }
-
         if (isset($map['httpStatusCode'])) {
             $model->httpStatusCode = $map['httpStatusCode'];
         }
-
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
-
         if (isset($map['success'])) {
             $model->success = $map['success'];
         }

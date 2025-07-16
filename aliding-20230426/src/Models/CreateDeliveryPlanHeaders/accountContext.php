@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\CreateDeliveryPlanHeaders;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class accountContext extends Model
 {
     /**
+     * @example ba3a9b612345678d8fedf544ef69d19e
+     *
      * @var string
      */
     public $userToken;
@@ -16,12 +18,9 @@ class accountContext extends Model
         'userToken' => 'userToken',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->userToken) {
@@ -31,11 +30,11 @@ class accountContext extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return accountContext
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

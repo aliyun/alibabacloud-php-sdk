@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdatePermissionShrinkRequest extends Model
 {
     /**
+     * @example kDnRL6jAJMLgNkw7tBnw5aY4VyMoPYe1
+     *
      * @var string
      */
     public $dentryUuid;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $membersShrink;
@@ -24,6 +28,8 @@ class UpdatePermissionShrinkRequest extends Model
     public $optionShrink;
 
     /**
+     * @example READER
+     *
      * @var string
      */
     public $roleId;
@@ -40,30 +46,23 @@ class UpdatePermissionShrinkRequest extends Model
         'tenantContextShrink' => 'TenantContext',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dentryUuid) {
             $res['DentryUuid'] = $this->dentryUuid;
         }
-
         if (null !== $this->membersShrink) {
             $res['Members'] = $this->membersShrink;
         }
-
         if (null !== $this->optionShrink) {
             $res['Option'] = $this->optionShrink;
         }
-
         if (null !== $this->roleId) {
             $res['RoleId'] = $this->roleId;
         }
-
         if (null !== $this->tenantContextShrink) {
             $res['TenantContext'] = $this->tenantContextShrink;
         }
@@ -71,30 +70,26 @@ class UpdatePermissionShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdatePermissionShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DentryUuid'])) {
             $model->dentryUuid = $map['DentryUuid'];
         }
-
         if (isset($map['Members'])) {
             $model->membersShrink = $map['Members'];
         }
-
         if (isset($map['Option'])) {
             $model->optionShrink = $map['Option'];
         }
-
         if (isset($map['RoleId'])) {
             $model->roleId = $map['RoleId'];
         }
-
         if (isset($map['TenantContext'])) {
             $model->tenantContextShrink = $map['TenantContext'];
         }

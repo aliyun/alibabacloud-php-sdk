@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetWorkspaceRequest\tenantContext;
+use AlibabaCloud\Tea\Model;
 
 class GetWorkspaceRequest extends Model
 {
@@ -15,11 +15,17 @@ class GetWorkspaceRequest extends Model
     public $tenantContext;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $withPermissionRole;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example MJ0pDSKMV9dO20E4
+     *
      * @var string
      */
     public $workspaceId;
@@ -29,25 +35,17 @@ class GetWorkspaceRequest extends Model
         'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->tenantContext) {
-            $this->tenantContext->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->tenantContext) {
-            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toArray($noStream) : $this->tenantContext;
+            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toMap() : null;
         }
-
         if (null !== $this->withPermissionRole) {
             $res['WithPermissionRole'] = $this->withPermissionRole;
         }
-
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -55,22 +53,20 @@ class GetWorkspaceRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetWorkspaceRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TenantContext'])) {
             $model->tenantContext = tenantContext::fromMap($map['TenantContext']);
         }
-
         if (isset($map['WithPermissionRole'])) {
             $model->withPermissionRole = $map['WithPermissionRole'];
         }
-
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

@@ -4,22 +4,34 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CommentListReportRequest\tenantContext;
+use AlibabaCloud\Tea\Model;
 
 class CommentListReportRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $offset;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 173xxxx
+     *
      * @var string
      */
     public $reportId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $size;
@@ -35,56 +47,44 @@ class CommentListReportRequest extends Model
         'tenantContext' => 'TenantContext',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->tenantContext) {
-            $this->tenantContext->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->offset) {
             $res['Offset'] = $this->offset;
         }
-
         if (null !== $this->reportId) {
             $res['ReportId'] = $this->reportId;
         }
-
         if (null !== $this->size) {
             $res['Size'] = $this->size;
         }
-
         if (null !== $this->tenantContext) {
-            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toArray($noStream) : $this->tenantContext;
+            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CommentListReportRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Offset'])) {
             $model->offset = $map['Offset'];
         }
-
         if (isset($map['ReportId'])) {
             $model->reportId = $map['ReportId'];
         }
-
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
         }
-
         if (isset($map['TenantContext'])) {
             $model->tenantContext = tenantContext::fromMap($map['TenantContext']);
         }

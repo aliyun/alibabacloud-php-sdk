@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\GetFileDownloadInfoRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class option extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $preferIntranet;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $version;
@@ -22,18 +26,14 @@ class option extends Model
         'version' => 'Version',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->preferIntranet) {
             $res['PreferIntranet'] = $this->preferIntranet;
         }
-
         if (null !== $this->version) {
             $res['Version'] = $this->version;
         }
@@ -41,18 +41,17 @@ class option extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return option
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PreferIntranet'])) {
             $model->preferIntranet = $map['PreferIntranet'];
         }
-
         if (isset($map['Version'])) {
             $model->version = $map['Version'];
         }

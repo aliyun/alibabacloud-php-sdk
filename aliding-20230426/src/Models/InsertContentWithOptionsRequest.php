@@ -4,27 +4,39 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\InsertContentWithOptionsRequest\tenantContext;
+use AlibabaCloud\Tea\Model;
 
 class InsertContentWithOptionsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example content
+     *
      * @var mixed[]
      */
     public $content;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example documentId
+     *
      * @var string
      */
     public $documentId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $index;
 
     /**
+     * @example [0,0]
+     *
      * @var int[]
      */
     public $path;
@@ -41,94 +53,52 @@ class InsertContentWithOptionsRequest extends Model
         'tenantContext' => 'TenantContext',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->content)) {
-            Model::validateArray($this->content);
-        }
-        if (\is_array($this->path)) {
-            Model::validateArray($this->path);
-        }
-        if (null !== $this->tenantContext) {
-            $this->tenantContext->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->content) {
-            if (\is_array($this->content)) {
-                $res['Content'] = [];
-                foreach ($this->content as $key1 => $value1) {
-                    $res['Content'][$key1] = $value1;
-                }
-            }
+            $res['Content'] = $this->content;
         }
-
         if (null !== $this->documentId) {
             $res['DocumentId'] = $this->documentId;
         }
-
         if (null !== $this->index) {
             $res['Index'] = $this->index;
         }
-
         if (null !== $this->path) {
-            if (\is_array($this->path)) {
-                $res['Path'] = [];
-                $n1 = 0;
-                foreach ($this->path as $item1) {
-                    $res['Path'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['Path'] = $this->path;
         }
-
         if (null !== $this->tenantContext) {
-            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toArray($noStream) : $this->tenantContext;
+            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return InsertContentWithOptionsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Content'])) {
-            if (!empty($map['Content'])) {
-                $model->content = [];
-                foreach ($map['Content'] as $key1 => $value1) {
-                    $model->content[$key1] = $value1;
-                }
-            }
+            $model->content = $map['Content'];
         }
-
         if (isset($map['DocumentId'])) {
             $model->documentId = $map['DocumentId'];
         }
-
         if (isset($map['Index'])) {
             $model->index = $map['Index'];
         }
-
         if (isset($map['Path'])) {
             if (!empty($map['Path'])) {
-                $model->path = [];
-                $n1 = 0;
-                foreach ($map['Path'] as $item1) {
-                    $model->path[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->path = $map['Path'];
             }
         }
-
         if (isset($map['TenantContext'])) {
             $model->tenantContext = tenantContext::fromMap($map['TenantContext']);
         }

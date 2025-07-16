@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\ListPermissionsRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class option extends Model
 {
@@ -14,11 +14,15 @@ class option extends Model
     public $filterRoleIds;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example 2
+     *
      * @var string
      */
     public $nextToken;
@@ -28,32 +32,17 @@ class option extends Model
         'nextToken' => 'NextToken',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->filterRoleIds)) {
-            Model::validateArray($this->filterRoleIds);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->filterRoleIds) {
-            if (\is_array($this->filterRoleIds)) {
-                $res['FilterRoleIds'] = [];
-                $n1 = 0;
-                foreach ($this->filterRoleIds as $item1) {
-                    $res['FilterRoleIds'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['FilterRoleIds'] = $this->filterRoleIds;
         }
-
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
-
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
@@ -61,29 +50,22 @@ class option extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return option
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FilterRoleIds'])) {
             if (!empty($map['FilterRoleIds'])) {
-                $model->filterRoleIds = [];
-                $n1 = 0;
-                foreach ($map['FilterRoleIds'] as $item1) {
-                    $model->filterRoleIds[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->filterRoleIds = $map['FilterRoleIds'];
             }
         }
-
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
-
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }

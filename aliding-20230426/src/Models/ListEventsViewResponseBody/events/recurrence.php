@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\ListEventsViewResponseBody\events;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListEventsViewResponseBody\events\recurrence\pattern;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListEventsViewResponseBody\events\recurrence\range;
+use AlibabaCloud\Tea\Model;
 
 class recurrence extends Model
 {
@@ -24,43 +24,32 @@ class recurrence extends Model
         'range' => 'Range',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->pattern) {
-            $this->pattern->validate();
-        }
-        if (null !== $this->range) {
-            $this->range->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->pattern) {
-            $res['Pattern'] = null !== $this->pattern ? $this->pattern->toArray($noStream) : $this->pattern;
+            $res['Pattern'] = null !== $this->pattern ? $this->pattern->toMap() : null;
         }
-
         if (null !== $this->range) {
-            $res['Range'] = null !== $this->range ? $this->range->toArray($noStream) : $this->range;
+            $res['Range'] = null !== $this->range ? $this->range->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return recurrence
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Pattern'])) {
             $model->pattern = pattern::fromMap($map['Pattern']);
         }
-
         if (isset($map['Range'])) {
             $model->range = range::fromMap($map['Range']);
         }

@@ -4,22 +4,30 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListNodesRequest\tenantContext;
+use AlibabaCloud\Tea\Model;
 
 class ListNodesRequest extends Model
 {
     /**
+     * @example 50
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example next_token
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example MNDoBb60VLBPraakI1Ywxyyn8lemrZQ3
+     *
      * @var string
      */
     public $parentNodeId;
@@ -30,6 +38,8 @@ class ListNodesRequest extends Model
     public $tenantContext;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $withPermissionRole;
@@ -41,33 +51,23 @@ class ListNodesRequest extends Model
         'withPermissionRole' => 'WithPermissionRole',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->tenantContext) {
-            $this->tenantContext->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
-
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
-
         if (null !== $this->parentNodeId) {
             $res['ParentNodeId'] = $this->parentNodeId;
         }
-
         if (null !== $this->tenantContext) {
-            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toArray($noStream) : $this->tenantContext;
+            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toMap() : null;
         }
-
         if (null !== $this->withPermissionRole) {
             $res['WithPermissionRole'] = $this->withPermissionRole;
         }
@@ -75,30 +75,26 @@ class ListNodesRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListNodesRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
-
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
-
         if (isset($map['ParentNodeId'])) {
             $model->parentNodeId = $map['ParentNodeId'];
         }
-
         if (isset($map['TenantContext'])) {
             $model->tenantContext = tenantContext::fromMap($map['TenantContext']);
         }
-
         if (isset($map['WithPermissionRole'])) {
             $model->withPermissionRole = $map['WithPermissionRole'];
         }

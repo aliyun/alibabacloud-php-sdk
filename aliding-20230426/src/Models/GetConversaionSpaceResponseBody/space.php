@@ -4,26 +4,34 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\GetConversaionSpaceResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class space extends Model
 {
     /**
+     * @example ding1234xxxxx
+     *
      * @var string
      */
     public $corpId;
 
     /**
+     * @example 2022-01-01T10:00:00Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 2022-01-01T10:00:00Z
+     *
      * @var string
      */
     public $modifiedTime;
 
     /**
+     * @example 798xxxxx
+     *
      * @var string
      */
     public $spaceId;
@@ -34,26 +42,20 @@ class space extends Model
         'spaceId' => 'SpaceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->corpId) {
             $res['CorpId'] = $this->corpId;
         }
-
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-
         if (null !== $this->modifiedTime) {
             $res['ModifiedTime'] = $this->modifiedTime;
         }
-
         if (null !== $this->spaceId) {
             $res['SpaceId'] = $this->spaceId;
         }
@@ -61,26 +63,23 @@ class space extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return space
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CorpId'])) {
             $model->corpId = $map['CorpId'];
         }
-
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
-
         if (isset($map['ModifiedTime'])) {
             $model->modifiedTime = $map['ModifiedTime'];
         }
-
         if (isset($map['SpaceId'])) {
             $model->spaceId = $map['SpaceId'];
         }

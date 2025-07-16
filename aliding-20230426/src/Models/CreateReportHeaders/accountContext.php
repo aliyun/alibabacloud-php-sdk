@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\CreateReportHeaders;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class accountContext extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 012345
+     *
      * @var string
      */
     public $accountId;
@@ -16,12 +20,9 @@ class accountContext extends Model
         'accountId' => 'accountId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->accountId) {
@@ -31,11 +32,11 @@ class accountContext extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return accountContext
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

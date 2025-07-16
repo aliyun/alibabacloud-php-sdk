@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\CreateTodoTaskRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class detailUrl extends Model
 {
     /**
+     * @example https://www.dingtalk.com
+     *
      * @var string
      */
     public $appUrl;
 
     /**
+     * @example https://www.dingtalk.com
+     *
      * @var string
      */
     public $pcUrl;
@@ -22,18 +26,14 @@ class detailUrl extends Model
         'pcUrl' => 'pcUrl',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appUrl) {
             $res['appUrl'] = $this->appUrl;
         }
-
         if (null !== $this->pcUrl) {
             $res['pcUrl'] = $this->pcUrl;
         }
@@ -41,18 +41,17 @@ class detailUrl extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return detailUrl
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['appUrl'])) {
             $model->appUrl = $map['appUrl'];
         }
-
         if (isset($map['pcUrl'])) {
             $model->pcUrl = $map['pcUrl'];
         }

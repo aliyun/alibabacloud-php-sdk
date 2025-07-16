@@ -4,23 +4,35 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\SaveContentRequest\contents;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\SaveContentRequest\tenantContext;
+use AlibabaCloud\Tea\Model;
 
 class SaveContentRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example []
+     *
      * @var contents[]
      */
     public $contents;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example client
+     *
      * @var string
      */
     public $ddFrom;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example sdfafdsfsafdfsaf
+     *
      * @var string
      */
     public $templateId;
@@ -36,73 +48,56 @@ class SaveContentRequest extends Model
         'tenantContext' => 'TenantContext',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->contents)) {
-            Model::validateArray($this->contents);
-        }
-        if (null !== $this->tenantContext) {
-            $this->tenantContext->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->contents) {
-            if (\is_array($this->contents)) {
-                $res['Contents'] = [];
-                $n1 = 0;
-                foreach ($this->contents as $item1) {
-                    $res['Contents'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Contents'] = [];
+            if (null !== $this->contents && \is_array($this->contents)) {
+                $n = 0;
+                foreach ($this->contents as $item) {
+                    $res['Contents'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->ddFrom) {
             $res['DdFrom'] = $this->ddFrom;
         }
-
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
-
         if (null !== $this->tenantContext) {
-            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toArray($noStream) : $this->tenantContext;
+            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return SaveContentRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Contents'])) {
             if (!empty($map['Contents'])) {
                 $model->contents = [];
-                $n1 = 0;
-                foreach ($map['Contents'] as $item1) {
-                    $model->contents[$n1] = contents::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Contents'] as $item) {
+                    $model->contents[$n++] = null !== $item ? contents::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['DdFrom'])) {
             $model->ddFrom = $map['DdFrom'];
         }
-
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }
-
         if (isset($map['TenantContext'])) {
             $model->tenantContext = tenantContext::fromMap($map['TenantContext']);
         }

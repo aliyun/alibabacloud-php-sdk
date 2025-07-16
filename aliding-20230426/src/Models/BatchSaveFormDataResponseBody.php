@@ -4,26 +4,34 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class BatchSaveFormDataResponseBody extends Model
 {
     /**
+     * @example 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example [ "FINST-SASNOO39NSIFF780" ]
+     *
      * @var string[]
      */
     public $result;
 
     /**
+     * @example 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+     *
      * @var string
      */
     public $vendorRequestId;
 
     /**
+     * @example dingtalk
+     *
      * @var string
      */
     public $vendorType;
@@ -34,36 +42,20 @@ class BatchSaveFormDataResponseBody extends Model
         'vendorType' => 'vendorType',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->result)) {
-            Model::validateArray($this->result);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
-
         if (null !== $this->result) {
-            if (\is_array($this->result)) {
-                $res['result'] = [];
-                $n1 = 0;
-                foreach ($this->result as $item1) {
-                    $res['result'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['result'] = $this->result;
         }
-
         if (null !== $this->vendorRequestId) {
             $res['vendorRequestId'] = $this->vendorRequestId;
         }
-
         if (null !== $this->vendorType) {
             $res['vendorType'] = $this->vendorType;
         }
@@ -71,33 +63,25 @@ class BatchSaveFormDataResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return BatchSaveFormDataResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
-
         if (isset($map['result'])) {
             if (!empty($map['result'])) {
-                $model->result = [];
-                $n1 = 0;
-                foreach ($map['result'] as $item1) {
-                    $model->result[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->result = $map['result'];
             }
         }
-
         if (isset($map['vendorRequestId'])) {
             $model->vendorRequestId = $map['vendorRequestId'];
         }
-
         if (isset($map['vendorType'])) {
             $model->vendorType = $map['vendorType'];
         }

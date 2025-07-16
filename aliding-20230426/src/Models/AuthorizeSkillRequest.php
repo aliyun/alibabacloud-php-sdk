@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class AuthorizeSkillRequest extends Model
 {
@@ -16,47 +16,29 @@ class AuthorizeSkillRequest extends Model
         'permissionCodes' => 'PermissionCodes',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->permissionCodes)) {
-            Model::validateArray($this->permissionCodes);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->permissionCodes) {
-            if (\is_array($this->permissionCodes)) {
-                $res['PermissionCodes'] = [];
-                $n1 = 0;
-                foreach ($this->permissionCodes as $item1) {
-                    $res['PermissionCodes'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['PermissionCodes'] = $this->permissionCodes;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return AuthorizeSkillRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PermissionCodes'])) {
             if (!empty($map['PermissionCodes'])) {
-                $model->permissionCodes = [];
-                $n1 = 0;
-                foreach ($map['PermissionCodes'] as $item1) {
-                    $model->permissionCodes[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->permissionCodes = $map['PermissionCodes'];
             }
         }
 

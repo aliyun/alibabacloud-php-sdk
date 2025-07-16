@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryDentriesInfoResponseBody\dentry;
+use AlibabaCloud\Tea\Model;
 
 class QueryDentriesInfoResponseBody extends Model
 {
@@ -15,16 +15,22 @@ class QueryDentriesInfoResponseBody extends Model
     public $dentry;
 
     /**
+     * @example 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+     *
      * @var string
      */
     public $vendorRequestId;
 
     /**
+     * @example dingtalk
+     *
      * @var string
      */
     public $vendorType;
@@ -35,29 +41,20 @@ class QueryDentriesInfoResponseBody extends Model
         'vendorType' => 'vendorType',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->dentry) {
-            $this->dentry->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dentry) {
-            $res['Dentry'] = null !== $this->dentry ? $this->dentry->toArray($noStream) : $this->dentry;
+            $res['Dentry'] = null !== $this->dentry ? $this->dentry->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
-
         if (null !== $this->vendorRequestId) {
             $res['vendorRequestId'] = $this->vendorRequestId;
         }
-
         if (null !== $this->vendorType) {
             $res['vendorType'] = $this->vendorType;
         }
@@ -65,26 +62,23 @@ class QueryDentriesInfoResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return QueryDentriesInfoResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Dentry'])) {
             $model->dentry = dentry::fromMap($map['Dentry']);
         }
-
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
-
         if (isset($map['vendorRequestId'])) {
             $model->vendorRequestId = $map['vendorRequestId'];
         }
-
         if (isset($map['vendorType'])) {
             $model->vendorType = $map['vendorType'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryReportDetailResponseBody\content;
+use AlibabaCloud\Tea\Model;
 
 class QueryReportDetailResponseBody extends Model
 {
@@ -15,11 +15,15 @@ class QueryReportDetailResponseBody extends Model
     public $content;
 
     /**
+     * @example 1691980997000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example 012345
+     *
      * @var string
      */
     public $creatorId;
@@ -35,6 +39,8 @@ class QueryReportDetailResponseBody extends Model
     public $deptName;
 
     /**
+     * @example 1691980997000
+     *
      * @var int
      */
     public $modifiedTime;
@@ -45,11 +51,15 @@ class QueryReportDetailResponseBody extends Model
     public $remark;
 
     /**
+     * @example 1231232134
+     *
      * @var string
      */
     public $reportId;
 
     /**
+     * @example 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+     *
      * @var string
      */
     public $requestId;
@@ -60,11 +70,15 @@ class QueryReportDetailResponseBody extends Model
     public $templateName;
 
     /**
+     * @example 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+     *
      * @var string
      */
     public $vendorRequestId;
 
     /**
+     * @example dingtalk
+     *
      * @var string
      */
     public $vendorType;
@@ -83,68 +97,50 @@ class QueryReportDetailResponseBody extends Model
         'vendorType' => 'vendorType',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->content)) {
-            Model::validateArray($this->content);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->content) {
-            if (\is_array($this->content)) {
-                $res['content'] = [];
-                $n1 = 0;
-                foreach ($this->content as $item1) {
-                    $res['content'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['content'] = [];
+            if (null !== $this->content && \is_array($this->content)) {
+                $n = 0;
+                foreach ($this->content as $item) {
+                    $res['content'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->createTime) {
             $res['createTime'] = $this->createTime;
         }
-
         if (null !== $this->creatorId) {
             $res['creatorId'] = $this->creatorId;
         }
-
         if (null !== $this->creatorName) {
             $res['creatorName'] = $this->creatorName;
         }
-
         if (null !== $this->deptName) {
             $res['deptName'] = $this->deptName;
         }
-
         if (null !== $this->modifiedTime) {
             $res['modifiedTime'] = $this->modifiedTime;
         }
-
         if (null !== $this->remark) {
             $res['remark'] = $this->remark;
         }
-
         if (null !== $this->reportId) {
             $res['reportId'] = $this->reportId;
         }
-
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
-
         if (null !== $this->templateName) {
             $res['templateName'] = $this->templateName;
         }
-
         if (null !== $this->vendorRequestId) {
             $res['vendorRequestId'] = $this->vendorRequestId;
         }
-
         if (null !== $this->vendorType) {
             $res['vendorType'] = $this->vendorType;
         }
@@ -152,65 +148,53 @@ class QueryReportDetailResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return QueryReportDetailResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['content'])) {
             if (!empty($map['content'])) {
                 $model->content = [];
-                $n1 = 0;
-                foreach ($map['content'] as $item1) {
-                    $model->content[$n1] = content::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['content'] as $item) {
+                    $model->content[$n++] = null !== $item ? content::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['createTime'])) {
             $model->createTime = $map['createTime'];
         }
-
         if (isset($map['creatorId'])) {
             $model->creatorId = $map['creatorId'];
         }
-
         if (isset($map['creatorName'])) {
             $model->creatorName = $map['creatorName'];
         }
-
         if (isset($map['deptName'])) {
             $model->deptName = $map['deptName'];
         }
-
         if (isset($map['modifiedTime'])) {
             $model->modifiedTime = $map['modifiedTime'];
         }
-
         if (isset($map['remark'])) {
             $model->remark = $map['remark'];
         }
-
         if (isset($map['reportId'])) {
             $model->reportId = $map['reportId'];
         }
-
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
-
         if (isset($map['templateName'])) {
             $model->templateName = $map['templateName'];
         }
-
         if (isset($map['vendorRequestId'])) {
             $model->vendorRequestId = $map['vendorRequestId'];
         }
-
         if (isset($map['vendorType'])) {
             $model->vendorType = $map['vendorType'];
         }

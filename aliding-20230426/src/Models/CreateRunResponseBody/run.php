@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\CreateRunResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class run extends Model
 {
@@ -70,50 +70,38 @@ class run extends Model
         'threadId' => 'threadId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->cancelledAt) {
             $res['cancelledAt'] = $this->cancelledAt;
         }
-
         if (null !== $this->completedAt) {
             $res['completedAt'] = $this->completedAt;
         }
-
         if (null !== $this->createAt) {
             $res['createAt'] = $this->createAt;
         }
-
         if (null !== $this->expiresAt) {
             $res['expiresAt'] = $this->expiresAt;
         }
-
         if (null !== $this->failedAt) {
             $res['failedAt'] = $this->failedAt;
         }
-
         if (null !== $this->id) {
             $res['id'] = $this->id;
         }
-
         if (null !== $this->lastErrorMsg) {
             $res['lastErrorMsg'] = $this->lastErrorMsg;
         }
-
         if (null !== $this->startedAt) {
             $res['startedAt'] = $this->startedAt;
         }
-
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
-
         if (null !== $this->threadId) {
             $res['threadId'] = $this->threadId;
         }
@@ -121,50 +109,41 @@ class run extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return run
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['cancelledAt'])) {
             $model->cancelledAt = $map['cancelledAt'];
         }
-
         if (isset($map['completedAt'])) {
             $model->completedAt = $map['completedAt'];
         }
-
         if (isset($map['createAt'])) {
             $model->createAt = $map['createAt'];
         }
-
         if (isset($map['expiresAt'])) {
             $model->expiresAt = $map['expiresAt'];
         }
-
         if (isset($map['failedAt'])) {
             $model->failedAt = $map['failedAt'];
         }
-
         if (isset($map['id'])) {
             $model->id = $map['id'];
         }
-
         if (isset($map['lastErrorMsg'])) {
             $model->lastErrorMsg = $map['lastErrorMsg'];
         }
-
         if (isset($map['startedAt'])) {
             $model->startedAt = $map['startedAt'];
         }
-
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }
-
         if (isset($map['threadId'])) {
             $model->threadId = $map['threadId'];
         }

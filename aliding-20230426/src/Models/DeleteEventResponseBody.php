@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteEventResponseBody\content;
+use AlibabaCloud\Tea\Model;
 
 class DeleteEventResponseBody extends Model
 {
@@ -15,6 +15,8 @@ class DeleteEventResponseBody extends Model
     public $content;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $errorCode;
@@ -25,21 +27,31 @@ class DeleteEventResponseBody extends Model
     public $errorCtx;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $errorMsg;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @description requestId
+     *
+     * @example 4248DCC9-785F-5A14-8BE0-830FD52E1261
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example True
+     *
      * @var bool
      */
     public $success;
@@ -53,49 +65,29 @@ class DeleteEventResponseBody extends Model
         'success' => 'success',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->content) {
-            $this->content->validate();
-        }
-        if (\is_array($this->errorCtx)) {
-            Model::validateArray($this->errorCtx);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->content) {
-            $res['content'] = null !== $this->content ? $this->content->toArray($noStream) : $this->content;
+            $res['content'] = null !== $this->content ? $this->content->toMap() : null;
         }
-
         if (null !== $this->errorCode) {
             $res['errorCode'] = $this->errorCode;
         }
-
         if (null !== $this->errorCtx) {
-            if (\is_array($this->errorCtx)) {
-                $res['errorCtx'] = [];
-                foreach ($this->errorCtx as $key1 => $value1) {
-                    $res['errorCtx'][$key1] = $value1;
-                }
-            }
+            $res['errorCtx'] = $this->errorCtx;
         }
-
         if (null !== $this->errorMsg) {
             $res['errorMsg'] = $this->errorMsg;
         }
-
         if (null !== $this->httpStatusCode) {
             $res['httpStatusCode'] = $this->httpStatusCode;
         }
-
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
-
         if (null !== $this->success) {
             $res['success'] = $this->success;
         }
@@ -103,43 +95,32 @@ class DeleteEventResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteEventResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['content'])) {
             $model->content = content::fromMap($map['content']);
         }
-
         if (isset($map['errorCode'])) {
             $model->errorCode = $map['errorCode'];
         }
-
         if (isset($map['errorCtx'])) {
-            if (!empty($map['errorCtx'])) {
-                $model->errorCtx = [];
-                foreach ($map['errorCtx'] as $key1 => $value1) {
-                    $model->errorCtx[$key1] = $value1;
-                }
-            }
+            $model->errorCtx = $map['errorCtx'];
         }
-
         if (isset($map['errorMsg'])) {
             $model->errorMsg = $map['errorMsg'];
         }
-
         if (isset($map['httpStatusCode'])) {
             $model->httpStatusCode = $map['httpStatusCode'];
         }
-
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
-
         if (isset($map['success'])) {
             $model->success = $map['success'];
         }

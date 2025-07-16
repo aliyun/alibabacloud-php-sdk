@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\SendSearchShadeRequest\tenantContext;
+use AlibabaCloud\Tea\Model;
 
 class SendSearchShadeRequest extends Model
 {
@@ -15,11 +15,15 @@ class SendSearchShadeRequest extends Model
     public $content;
 
     /**
+     * @example 1693881641000
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @example 1693881641000
+     *
      * @var int
      */
     public $startTime;
@@ -35,69 +39,44 @@ class SendSearchShadeRequest extends Model
         'tenantContext' => 'TenantContext',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->content)) {
-            Model::validateArray($this->content);
-        }
-        if (null !== $this->tenantContext) {
-            $this->tenantContext->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->content) {
-            if (\is_array($this->content)) {
-                $res['Content'] = [];
-                foreach ($this->content as $key1 => $value1) {
-                    $res['Content'][$key1] = $value1;
-                }
-            }
+            $res['Content'] = $this->content;
         }
-
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
-
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
-
         if (null !== $this->tenantContext) {
-            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toArray($noStream) : $this->tenantContext;
+            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return SendSearchShadeRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Content'])) {
-            if (!empty($map['Content'])) {
-                $model->content = [];
-                foreach ($map['Content'] as $key1 => $value1) {
-                    $model->content[$key1] = $value1;
-                }
-            }
+            $model->content = $map['Content'];
         }
-
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
-
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
-
         if (isset($map['TenantContext'])) {
             $model->tenantContext = tenantContext::fromMap($map['TenantContext']);
         }

@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\GetUserResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class roleList extends Model
 {
     /**
+     * @example 职务
+     *
      * @var string
      */
     public $groupName;
@@ -19,6 +21,8 @@ class roleList extends Model
     public $id;
 
     /**
+     * @example 张三
+     *
      * @var string
      */
     public $name;
@@ -28,22 +32,17 @@ class roleList extends Model
         'name' => 'name',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->groupName) {
             $res['groupName'] = $this->groupName;
         }
-
         if (null !== $this->id) {
             $res['id'] = $this->id;
         }
-
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
@@ -51,22 +50,20 @@ class roleList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return roleList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['groupName'])) {
             $model->groupName = $map['groupName'];
         }
-
         if (isset($map['id'])) {
             $model->id = $map['id'];
         }
-
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }

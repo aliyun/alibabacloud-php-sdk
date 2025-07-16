@@ -4,21 +4,27 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\CommitFileRequest\option;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class appProperties extends Model
 {
     /**
+     * @example property_name
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example property_value
+     *
      * @var string
      */
     public $value;
 
     /**
+     * @example PUBLIC
+     *
      * @var string
      */
     public $visibility;
@@ -28,22 +34,17 @@ class appProperties extends Model
         'visibility' => 'Visibility',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
-
         if (null !== $this->visibility) {
             $res['Visibility'] = $this->visibility;
         }
@@ -51,22 +52,20 @@ class appProperties extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return appProperties
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }
-
         if (isset($map['Visibility'])) {
             $model->visibility = $map['Visibility'];
         }

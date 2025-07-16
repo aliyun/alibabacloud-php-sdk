@@ -4,22 +4,32 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\SyncDingTypeRequest\tenantContext;
+use AlibabaCloud\Tea\Model;
 
 class SyncDingTypeRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example ANT_DING
+     *
      * @var string
      */
     public $dingType;
 
     /**
+     * @example y
+     *
      * @var string
      */
     public $isDimission;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example antding
+     *
      * @var string
      */
     public $source;
@@ -30,6 +40,10 @@ class SyncDingTypeRequest extends Model
     public $tenantContext;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 012345
+     *
      * @var string
      */
     public $workNo;
@@ -41,33 +55,23 @@ class SyncDingTypeRequest extends Model
         'workNo' => 'WorkNo',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->tenantContext) {
-            $this->tenantContext->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dingType) {
             $res['DingType'] = $this->dingType;
         }
-
         if (null !== $this->isDimission) {
             $res['IsDimission'] = $this->isDimission;
         }
-
         if (null !== $this->source) {
             $res['Source'] = $this->source;
         }
-
         if (null !== $this->tenantContext) {
-            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toArray($noStream) : $this->tenantContext;
+            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toMap() : null;
         }
-
         if (null !== $this->workNo) {
             $res['WorkNo'] = $this->workNo;
         }
@@ -75,30 +79,26 @@ class SyncDingTypeRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return SyncDingTypeRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DingType'])) {
             $model->dingType = $map['DingType'];
         }
-
         if (isset($map['IsDimission'])) {
             $model->isDimission = $map['IsDimission'];
         }
-
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
         }
-
         if (isset($map['TenantContext'])) {
             $model->tenantContext = tenantContext::fromMap($map['TenantContext']);
         }
-
         if (isset($map['WorkNo'])) {
             $model->workNo = $map['WorkNo'];
         }

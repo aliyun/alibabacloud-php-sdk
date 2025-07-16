@@ -4,22 +4,30 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateMultiDimTableFieldRequest\tenantContext;
+use AlibabaCloud\Tea\Model;
 
 class UpdateMultiDimTableFieldRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example r1R7q3QmWew5lo02fxB7noNyJxxxxxx
+     *
      * @var string
      */
     public $baseId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $fieldIdOrName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $name;
@@ -30,6 +38,8 @@ class UpdateMultiDimTableFieldRequest extends Model
     public $property;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $sheetIdOrName;
@@ -47,85 +57,56 @@ class UpdateMultiDimTableFieldRequest extends Model
         'tenantContext' => 'TenantContext',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->property)) {
-            Model::validateArray($this->property);
-        }
-        if (null !== $this->tenantContext) {
-            $this->tenantContext->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->baseId) {
             $res['BaseId'] = $this->baseId;
         }
-
         if (null !== $this->fieldIdOrName) {
             $res['FieldIdOrName'] = $this->fieldIdOrName;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->property) {
-            if (\is_array($this->property)) {
-                $res['Property'] = [];
-                foreach ($this->property as $key1 => $value1) {
-                    $res['Property'][$key1] = $value1;
-                }
-            }
+            $res['Property'] = $this->property;
         }
-
         if (null !== $this->sheetIdOrName) {
             $res['SheetIdOrName'] = $this->sheetIdOrName;
         }
-
         if (null !== $this->tenantContext) {
-            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toArray($noStream) : $this->tenantContext;
+            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateMultiDimTableFieldRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BaseId'])) {
             $model->baseId = $map['BaseId'];
         }
-
         if (isset($map['FieldIdOrName'])) {
             $model->fieldIdOrName = $map['FieldIdOrName'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['Property'])) {
-            if (!empty($map['Property'])) {
-                $model->property = [];
-                foreach ($map['Property'] as $key1 => $value1) {
-                    $model->property[$key1] = $value1;
-                }
-            }
+            $model->property = $map['Property'];
         }
-
         if (isset($map['SheetIdOrName'])) {
             $model->sheetIdOrName = $map['SheetIdOrName'];
         }
-
         if (isset($map['TenantContext'])) {
             $model->tenantContext = tenantContext::fromMap($map['TenantContext']);
         }

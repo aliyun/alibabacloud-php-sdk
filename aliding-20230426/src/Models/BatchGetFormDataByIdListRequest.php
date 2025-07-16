@@ -4,31 +4,49 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class BatchGetFormDataByIdListRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example APP_PBKT0xxx
+     *
      * @var string
      */
     public $appType;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example FORM-xxxxx
+     *
      * @var string[]
      */
     public $formInstanceIdList;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example FORM-xxxxx
+     *
      * @var string
      */
     public $formUuid;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $needFormInstanceValue;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example hexxxx
+     *
      * @var string
      */
     public $systemToken;
@@ -40,40 +58,23 @@ class BatchGetFormDataByIdListRequest extends Model
         'systemToken' => 'SystemToken',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->formInstanceIdList)) {
-            Model::validateArray($this->formInstanceIdList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appType) {
             $res['AppType'] = $this->appType;
         }
-
         if (null !== $this->formInstanceIdList) {
-            if (\is_array($this->formInstanceIdList)) {
-                $res['FormInstanceIdList'] = [];
-                $n1 = 0;
-                foreach ($this->formInstanceIdList as $item1) {
-                    $res['FormInstanceIdList'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['FormInstanceIdList'] = $this->formInstanceIdList;
         }
-
         if (null !== $this->formUuid) {
             $res['FormUuid'] = $this->formUuid;
         }
-
         if (null !== $this->needFormInstanceValue) {
             $res['NeedFormInstanceValue'] = $this->needFormInstanceValue;
         }
-
         if (null !== $this->systemToken) {
             $res['SystemToken'] = $this->systemToken;
         }
@@ -81,37 +82,28 @@ class BatchGetFormDataByIdListRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return BatchGetFormDataByIdListRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppType'])) {
             $model->appType = $map['AppType'];
         }
-
         if (isset($map['FormInstanceIdList'])) {
             if (!empty($map['FormInstanceIdList'])) {
-                $model->formInstanceIdList = [];
-                $n1 = 0;
-                foreach ($map['FormInstanceIdList'] as $item1) {
-                    $model->formInstanceIdList[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->formInstanceIdList = $map['FormInstanceIdList'];
             }
         }
-
         if (isset($map['FormUuid'])) {
             $model->formUuid = $map['FormUuid'];
         }
-
         if (isset($map['NeedFormInstanceValue'])) {
             $model->needFormInstanceValue = $map['NeedFormInstanceValue'];
         }
-
         if (isset($map['SystemToken'])) {
             $model->systemToken = $map['SystemToken'];
         }

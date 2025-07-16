@@ -4,21 +4,27 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\GetEventResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class meetingRooms extends Model
 {
     /**
+     * @example room 1-2-3
+     *
      * @var string
      */
     public $displayName;
 
     /**
+     * @example accepted
+     *
      * @var string
      */
     public $responseStatus;
 
     /**
+     * @example c10315a8b4e740a317813ab6fxxxxxx
+     *
      * @var string
      */
     public $roomId;
@@ -28,22 +34,17 @@ class meetingRooms extends Model
         'roomId' => 'RoomId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->displayName) {
             $res['DisplayName'] = $this->displayName;
         }
-
         if (null !== $this->responseStatus) {
             $res['ResponseStatus'] = $this->responseStatus;
         }
-
         if (null !== $this->roomId) {
             $res['RoomId'] = $this->roomId;
         }
@@ -51,22 +52,20 @@ class meetingRooms extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return meetingRooms
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DisplayName'])) {
             $model->displayName = $map['DisplayName'];
         }
-
         if (isset($map['ResponseStatus'])) {
             $model->responseStatus = $map['ResponseStatus'];
         }
-
         if (isset($map['RoomId'])) {
             $model->roomId = $map['RoomId'];
         }

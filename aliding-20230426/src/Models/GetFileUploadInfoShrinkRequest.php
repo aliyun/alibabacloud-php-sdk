@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetFileUploadInfoShrinkRequest extends Model
 {
@@ -14,11 +14,15 @@ class GetFileUploadInfoShrinkRequest extends Model
     public $optionShrink;
 
     /**
+     * @example dentryUuid
+     *
      * @var string
      */
     public $parentDentryUuid;
 
     /**
+     * @example HEADER_SIGNATURE
+     *
      * @var string
      */
     public $protocol;
@@ -34,26 +38,20 @@ class GetFileUploadInfoShrinkRequest extends Model
         'tenantContextShrink' => 'TenantContext',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->optionShrink) {
             $res['Option'] = $this->optionShrink;
         }
-
         if (null !== $this->parentDentryUuid) {
             $res['ParentDentryUuid'] = $this->parentDentryUuid;
         }
-
         if (null !== $this->protocol) {
             $res['Protocol'] = $this->protocol;
         }
-
         if (null !== $this->tenantContextShrink) {
             $res['TenantContext'] = $this->tenantContextShrink;
         }
@@ -61,26 +59,23 @@ class GetFileUploadInfoShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetFileUploadInfoShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Option'])) {
             $model->optionShrink = $map['Option'];
         }
-
         if (isset($map['ParentDentryUuid'])) {
             $model->parentDentryUuid = $map['ParentDentryUuid'];
         }
-
         if (isset($map['Protocol'])) {
             $model->protocol = $map['Protocol'];
         }
-
         if (isset($map['TenantContext'])) {
             $model->tenantContextShrink = $map['TenantContext'];
         }

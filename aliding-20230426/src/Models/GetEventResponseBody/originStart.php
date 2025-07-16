@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\GetEventResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class originStart extends Model
 {
     /**
+     * @example 2023-01-01T00:00:00Z
+     *
      * @var string
      */
     public $dateTime;
@@ -16,12 +18,9 @@ class originStart extends Model
         'dateTime' => 'DateTime',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dateTime) {
@@ -31,11 +30,11 @@ class originStart extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return originStart
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

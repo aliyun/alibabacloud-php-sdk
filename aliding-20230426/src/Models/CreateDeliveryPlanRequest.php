@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateDeliveryPlanRequest\tenantContext;
+use AlibabaCloud\Tea\Model;
 
 class CreateDeliveryPlanRequest extends Model
 {
@@ -15,16 +15,22 @@ class CreateDeliveryPlanRequest extends Model
     public $content;
 
     /**
+     * @example 1699265024987
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @example 1028
+     *
      * @var string
      */
     public $resId;
 
     /**
+     * @example 1699265024987
+     *
      * @var int
      */
     public $startTime;
@@ -47,103 +53,59 @@ class CreateDeliveryPlanRequest extends Model
         'userIdList' => 'UserIdList',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->content)) {
-            Model::validateArray($this->content);
-        }
-        if (null !== $this->tenantContext) {
-            $this->tenantContext->validate();
-        }
-        if (\is_array($this->userIdList)) {
-            Model::validateArray($this->userIdList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->content) {
-            if (\is_array($this->content)) {
-                $res['Content'] = [];
-                foreach ($this->content as $key1 => $value1) {
-                    $res['Content'][$key1] = $value1;
-                }
-            }
+            $res['Content'] = $this->content;
         }
-
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
-
         if (null !== $this->resId) {
             $res['ResId'] = $this->resId;
         }
-
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
-
         if (null !== $this->tenantContext) {
-            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toArray($noStream) : $this->tenantContext;
+            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toMap() : null;
         }
-
         if (null !== $this->userIdList) {
-            if (\is_array($this->userIdList)) {
-                $res['UserIdList'] = [];
-                $n1 = 0;
-                foreach ($this->userIdList as $item1) {
-                    $res['UserIdList'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['UserIdList'] = $this->userIdList;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateDeliveryPlanRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Content'])) {
-            if (!empty($map['Content'])) {
-                $model->content = [];
-                foreach ($map['Content'] as $key1 => $value1) {
-                    $model->content[$key1] = $value1;
-                }
-            }
+            $model->content = $map['Content'];
         }
-
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
-
         if (isset($map['ResId'])) {
             $model->resId = $map['ResId'];
         }
-
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
-
         if (isset($map['TenantContext'])) {
             $model->tenantContext = tenantContext::fromMap($map['TenantContext']);
         }
-
         if (isset($map['UserIdList'])) {
             if (!empty($map['UserIdList'])) {
-                $model->userIdList = [];
-                $n1 = 0;
-                foreach ($map['UserIdList'] as $item1) {
-                    $model->userIdList[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->userIdList = $map['UserIdList'];
             }
         }
 

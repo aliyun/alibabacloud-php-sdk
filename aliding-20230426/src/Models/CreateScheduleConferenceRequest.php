@@ -4,13 +4,17 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateScheduleConferenceRequest\scheduleConfSettingModel;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateScheduleConferenceRequest\tenantContext;
+use AlibabaCloud\Tea\Model;
 
 class CreateScheduleConferenceRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 1687928400000L
+     *
      * @var int
      */
     public $endTime;
@@ -21,6 +25,10 @@ class CreateScheduleConferenceRequest extends Model
     public $scheduleConfSettingModel;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 1687924800000L
+     *
      * @var int
      */
     public $startTime;
@@ -31,6 +39,10 @@ class CreateScheduleConferenceRequest extends Model
     public $tenantContext;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 预约会议标题
+     *
      * @var string
      */
     public $title;
@@ -42,36 +54,23 @@ class CreateScheduleConferenceRequest extends Model
         'title' => 'Title',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->scheduleConfSettingModel) {
-            $this->scheduleConfSettingModel->validate();
-        }
-        if (null !== $this->tenantContext) {
-            $this->tenantContext->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
-
         if (null !== $this->scheduleConfSettingModel) {
-            $res['ScheduleConfSettingModel'] = null !== $this->scheduleConfSettingModel ? $this->scheduleConfSettingModel->toArray($noStream) : $this->scheduleConfSettingModel;
+            $res['ScheduleConfSettingModel'] = null !== $this->scheduleConfSettingModel ? $this->scheduleConfSettingModel->toMap() : null;
         }
-
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
-
         if (null !== $this->tenantContext) {
-            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toArray($noStream) : $this->tenantContext;
+            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toMap() : null;
         }
-
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
@@ -79,30 +78,26 @@ class CreateScheduleConferenceRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateScheduleConferenceRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
-
         if (isset($map['ScheduleConfSettingModel'])) {
             $model->scheduleConfSettingModel = scheduleConfSettingModel::fromMap($map['ScheduleConfSettingModel']);
         }
-
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
-
         if (isset($map['TenantContext'])) {
             $model->tenantContext = tenantContext::fromMap($map['TenantContext']);
         }
-
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }

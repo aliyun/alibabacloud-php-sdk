@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\GetReportTemplateByNameResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class defaultReceivedConvs extends Model
 {
     /**
+     * @example cid12334##2341
+     *
      * @var string
      */
     public $conversationId;
@@ -22,18 +24,14 @@ class defaultReceivedConvs extends Model
         'title' => 'Title',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->conversationId) {
             $res['ConversationId'] = $this->conversationId;
         }
-
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
@@ -41,18 +39,17 @@ class defaultReceivedConvs extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return defaultReceivedConvs
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConversationId'])) {
             $model->conversationId = $map['ConversationId'];
         }
-
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }

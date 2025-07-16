@@ -4,13 +4,15 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\ListPermissionsResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListPermissionsResponseBody\permissions\member;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListPermissionsResponseBody\permissions\role;
+use AlibabaCloud\Tea\Model;
 
 class permissions extends Model
 {
     /**
+     * @example 123456
+     *
      * @var string
      */
     public $dentryUuid;
@@ -30,51 +32,38 @@ class permissions extends Model
         'role' => 'Role',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->member) {
-            $this->member->validate();
-        }
-        if (null !== $this->role) {
-            $this->role->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dentryUuid) {
             $res['DentryUuid'] = $this->dentryUuid;
         }
-
         if (null !== $this->member) {
-            $res['Member'] = null !== $this->member ? $this->member->toArray($noStream) : $this->member;
+            $res['Member'] = null !== $this->member ? $this->member->toMap() : null;
         }
-
         if (null !== $this->role) {
-            $res['Role'] = null !== $this->role ? $this->role->toArray($noStream) : $this->role;
+            $res['Role'] = null !== $this->role ? $this->role->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return permissions
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DentryUuid'])) {
             $model->dentryUuid = $map['DentryUuid'];
         }
-
         if (isset($map['Member'])) {
             $model->member = member::fromMap($map['Member']);
         }
-
         if (isset($map['Role'])) {
             $model->role = role::fromMap($map['Role']);
         }

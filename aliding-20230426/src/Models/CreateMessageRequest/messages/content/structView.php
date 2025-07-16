@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\CreateMessageRequest\messages\content;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateMessageRequest\messages\content\structView\parts;
+use AlibabaCloud\Tea\Model;
 
 class structView extends Model
 {
@@ -17,24 +17,17 @@ class structView extends Model
         'parts' => 'parts',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->parts)) {
-            Model::validateArray($this->parts);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->parts) {
-            if (\is_array($this->parts)) {
-                $res['parts'] = [];
-                $n1 = 0;
-                foreach ($this->parts as $item1) {
-                    $res['parts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['parts'] = [];
+            if (null !== $this->parts && \is_array($this->parts)) {
+                $n = 0;
+                foreach ($this->parts as $item) {
+                    $res['parts'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -42,21 +35,20 @@ class structView extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return structView
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['parts'])) {
             if (!empty($map['parts'])) {
                 $model->parts = [];
-                $n1 = 0;
-                foreach ($map['parts'] as $item1) {
-                    $model->parts[$n1] = parts::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['parts'] as $item) {
+                    $model->parts[$n++] = null !== $item ? parts::fromMap($item) : $item;
                 }
             }
         }

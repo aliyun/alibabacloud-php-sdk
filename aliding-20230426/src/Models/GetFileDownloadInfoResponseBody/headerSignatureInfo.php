@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\GetFileDownloadInfoResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class headerSignatureInfo extends Model
 {
     /**
+     * @example 900
+     *
      * @var int
      */
     public $expirationSeconds;
@@ -24,6 +26,8 @@ class headerSignatureInfo extends Model
     public $internalResourceUrls;
 
     /**
+     * @example ZHANGJIAKOU
+     *
      * @var string
      */
     public $region;
@@ -40,109 +44,55 @@ class headerSignatureInfo extends Model
         'resourceUrls' => 'ResourceUrls',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->headers)) {
-            Model::validateArray($this->headers);
-        }
-        if (\is_array($this->internalResourceUrls)) {
-            Model::validateArray($this->internalResourceUrls);
-        }
-        if (\is_array($this->resourceUrls)) {
-            Model::validateArray($this->resourceUrls);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->expirationSeconds) {
             $res['ExpirationSeconds'] = $this->expirationSeconds;
         }
-
         if (null !== $this->headers) {
-            if (\is_array($this->headers)) {
-                $res['Headers'] = [];
-                foreach ($this->headers as $key1 => $value1) {
-                    $res['Headers'][$key1] = $value1;
-                }
-            }
+            $res['Headers'] = $this->headers;
         }
-
         if (null !== $this->internalResourceUrls) {
-            if (\is_array($this->internalResourceUrls)) {
-                $res['InternalResourceUrls'] = [];
-                $n1 = 0;
-                foreach ($this->internalResourceUrls as $item1) {
-                    $res['InternalResourceUrls'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['InternalResourceUrls'] = $this->internalResourceUrls;
         }
-
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
-
         if (null !== $this->resourceUrls) {
-            if (\is_array($this->resourceUrls)) {
-                $res['ResourceUrls'] = [];
-                $n1 = 0;
-                foreach ($this->resourceUrls as $item1) {
-                    $res['ResourceUrls'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['ResourceUrls'] = $this->resourceUrls;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return headerSignatureInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExpirationSeconds'])) {
             $model->expirationSeconds = $map['ExpirationSeconds'];
         }
-
         if (isset($map['Headers'])) {
-            if (!empty($map['Headers'])) {
-                $model->headers = [];
-                foreach ($map['Headers'] as $key1 => $value1) {
-                    $model->headers[$key1] = $value1;
-                }
-            }
+            $model->headers = $map['Headers'];
         }
-
         if (isset($map['InternalResourceUrls'])) {
             if (!empty($map['InternalResourceUrls'])) {
-                $model->internalResourceUrls = [];
-                $n1 = 0;
-                foreach ($map['InternalResourceUrls'] as $item1) {
-                    $model->internalResourceUrls[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->internalResourceUrls = $map['InternalResourceUrls'];
             }
         }
-
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }
-
         if (isset($map['ResourceUrls'])) {
             if (!empty($map['ResourceUrls'])) {
-                $model->resourceUrls = [];
-                $n1 = 0;
-                foreach ($map['ResourceUrls'] as $item1) {
-                    $model->resourceUrls[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->resourceUrls = $map['ResourceUrls'];
             }
         }
 

@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\GetMeetingRoomsScheduleResponseBody\scheduleInformation\scheduleItems;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class end extends Model
 {
     /**
+     * @example 2020-01-02T10:15:30+08:00
+     *
      * @var string
      */
     public $dateTime;
 
     /**
+     * @example Asia/Shanghai
+     *
      * @var string
      */
     public $timeZone;
@@ -22,18 +26,14 @@ class end extends Model
         'timeZone' => 'TimeZone',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dateTime) {
             $res['DateTime'] = $this->dateTime;
         }
-
         if (null !== $this->timeZone) {
             $res['TimeZone'] = $this->timeZone;
         }
@@ -41,18 +41,17 @@ class end extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return end
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DateTime'])) {
             $model->dateTime = $map['DateTime'];
         }
-
         if (isset($map['TimeZone'])) {
             $model->timeZone = $map['TimeZone'];
         }

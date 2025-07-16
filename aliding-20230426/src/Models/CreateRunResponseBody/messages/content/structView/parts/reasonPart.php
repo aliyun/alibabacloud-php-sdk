@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\CreateRunResponseBody\messages\content\structView\parts;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class reasonPart extends Model
 {
     /**
+     * @example 123123
+     *
      * @var string
      */
     public $reason;
@@ -16,12 +18,9 @@ class reasonPart extends Model
         'reason' => 'reason',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->reason) {
@@ -31,11 +30,11 @@ class reasonPart extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return reasonPart
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

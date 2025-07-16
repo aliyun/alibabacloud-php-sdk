@@ -4,11 +4,14 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\InvokeAssistantRequest\messages\content;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class markdown extends Model
 {
     /**
+     * @example 1. markdown内容
+     * 2. markdown内容
+     *
      * @var string
      */
     public $value;
@@ -16,12 +19,9 @@ class markdown extends Model
         'value' => 'value',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->value) {
@@ -31,11 +31,11 @@ class markdown extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return markdown
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

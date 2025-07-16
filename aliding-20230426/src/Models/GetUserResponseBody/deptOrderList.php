@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\GetUserResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class deptOrderList extends Model
 {
@@ -22,18 +22,14 @@ class deptOrderList extends Model
         'order' => 'order',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->deptId) {
             $res['deptId'] = $this->deptId;
         }
-
         if (null !== $this->order) {
             $res['order'] = $this->order;
         }
@@ -41,18 +37,17 @@ class deptOrderList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return deptOrderList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['deptId'])) {
             $model->deptId = $map['deptId'];
         }
-
         if (isset($map['order'])) {
             $model->order = $map['order'];
         }

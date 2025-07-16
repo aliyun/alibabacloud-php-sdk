@@ -4,26 +4,34 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\QueryMinutesSummaryResponseBody\summary;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class questionsAnsweringSummary extends Model
 {
     /**
+     * @example 问题
+     *
      * @var string
      */
     public $answer;
 
     /**
+     * @example 回答
+     *
      * @var string
      */
     public $question;
 
     /**
+     * @example []
+     *
      * @var int[]
      */
     public $sentenceIdsOfAnswer;
 
     /**
+     * @example []
+     *
      * @var int[]
      */
     public $sentenceIdsOfQuestion;
@@ -34,88 +42,49 @@ class questionsAnsweringSummary extends Model
         'sentenceIdsOfQuestion' => 'SentenceIdsOfQuestion',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->sentenceIdsOfAnswer)) {
-            Model::validateArray($this->sentenceIdsOfAnswer);
-        }
-        if (\is_array($this->sentenceIdsOfQuestion)) {
-            Model::validateArray($this->sentenceIdsOfQuestion);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->answer) {
             $res['Answer'] = $this->answer;
         }
-
         if (null !== $this->question) {
             $res['Question'] = $this->question;
         }
-
         if (null !== $this->sentenceIdsOfAnswer) {
-            if (\is_array($this->sentenceIdsOfAnswer)) {
-                $res['SentenceIdsOfAnswer'] = [];
-                $n1 = 0;
-                foreach ($this->sentenceIdsOfAnswer as $item1) {
-                    $res['SentenceIdsOfAnswer'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['SentenceIdsOfAnswer'] = $this->sentenceIdsOfAnswer;
         }
-
         if (null !== $this->sentenceIdsOfQuestion) {
-            if (\is_array($this->sentenceIdsOfQuestion)) {
-                $res['SentenceIdsOfQuestion'] = [];
-                $n1 = 0;
-                foreach ($this->sentenceIdsOfQuestion as $item1) {
-                    $res['SentenceIdsOfQuestion'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['SentenceIdsOfQuestion'] = $this->sentenceIdsOfQuestion;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return questionsAnsweringSummary
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Answer'])) {
             $model->answer = $map['Answer'];
         }
-
         if (isset($map['Question'])) {
             $model->question = $map['Question'];
         }
-
         if (isset($map['SentenceIdsOfAnswer'])) {
             if (!empty($map['SentenceIdsOfAnswer'])) {
-                $model->sentenceIdsOfAnswer = [];
-                $n1 = 0;
-                foreach ($map['SentenceIdsOfAnswer'] as $item1) {
-                    $model->sentenceIdsOfAnswer[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->sentenceIdsOfAnswer = $map['SentenceIdsOfAnswer'];
             }
         }
-
         if (isset($map['SentenceIdsOfQuestion'])) {
             if (!empty($map['SentenceIdsOfQuestion'])) {
-                $model->sentenceIdsOfQuestion = [];
-                $n1 = 0;
-                foreach ($map['SentenceIdsOfQuestion'] as $item1) {
-                    $model->sentenceIdsOfQuestion[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->sentenceIdsOfQuestion = $map['SentenceIdsOfQuestion'];
             }
         }
 

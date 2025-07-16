@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetSheetContentJobIdShrinkRequest extends Model
 {
     /**
+     * @example MNDoBb60VLYDGNPytQe7Gzp4JlemrZQ3
+     *
      * @var string
      */
     public $dentryUuid;
 
     /**
+     * @example dingTalksheetToxlsx
+     *
      * @var string
      */
     public $exportType;
@@ -28,22 +32,17 @@ class GetSheetContentJobIdShrinkRequest extends Model
         'tenantContextShrink' => 'TenantContext',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dentryUuid) {
             $res['DentryUuid'] = $this->dentryUuid;
         }
-
         if (null !== $this->exportType) {
             $res['ExportType'] = $this->exportType;
         }
-
         if (null !== $this->tenantContextShrink) {
             $res['TenantContext'] = $this->tenantContextShrink;
         }
@@ -51,22 +50,20 @@ class GetSheetContentJobIdShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetSheetContentJobIdShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DentryUuid'])) {
             $model->dentryUuid = $map['DentryUuid'];
         }
-
         if (isset($map['ExportType'])) {
             $model->exportType = $map['ExportType'];
         }
-
         if (isset($map['TenantContext'])) {
             $model->tenantContextShrink = $map['TenantContext'];
         }

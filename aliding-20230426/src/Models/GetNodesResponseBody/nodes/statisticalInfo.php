@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\GetNodesResponseBody\nodes;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class statisticalInfo extends Model
 {
     /**
+     * @example 123
+     *
      * @var int
      */
     public $wordCount;
@@ -16,12 +18,9 @@ class statisticalInfo extends Model
         'wordCount' => 'WordCount',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->wordCount) {
@@ -31,11 +30,11 @@ class statisticalInfo extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return statisticalInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

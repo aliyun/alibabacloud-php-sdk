@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\CreateThreadResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class thread extends Model
 {
@@ -22,18 +22,14 @@ class thread extends Model
         'id' => 'id',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->createAt) {
             $res['createAt'] = $this->createAt;
         }
-
         if (null !== $this->id) {
             $res['id'] = $this->id;
         }
@@ -41,18 +37,17 @@ class thread extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return thread
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['createAt'])) {
             $model->createAt = $map['createAt'];
         }
-
         if (isset($map['id'])) {
             $model->id = $map['id'];
         }

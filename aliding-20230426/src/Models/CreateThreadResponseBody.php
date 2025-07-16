@@ -4,12 +4,14 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateThreadResponseBody\thread;
+use AlibabaCloud\Tea\Model;
 
 class CreateThreadResponseBody extends Model
 {
     /**
+     * @example 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+     *
      * @var string
      */
     public $requestId;
@@ -23,40 +25,32 @@ class CreateThreadResponseBody extends Model
         'thread' => 'thread',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->thread) {
-            $this->thread->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
-
         if (null !== $this->thread) {
-            $res['thread'] = null !== $this->thread ? $this->thread->toArray($noStream) : $this->thread;
+            $res['thread'] = null !== $this->thread ? $this->thread->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateThreadResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
-
         if (isset($map['thread'])) {
             $model->thread = thread::fromMap($map['thread']);
         }

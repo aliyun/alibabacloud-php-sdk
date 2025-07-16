@@ -4,21 +4,29 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateDingtalkPersonalTodoTaskShrinkRequest extends Model
 {
     /**
+     * @example 待办备注信息
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 1703750708595
+     *
      * @var int
      */
     public $dueTime;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example [ "012345" ]
+     *
      * @var string
      */
     public $executorIdsShrink;
@@ -29,11 +37,17 @@ class CreateDingtalkPersonalTodoTaskShrinkRequest extends Model
     public $notifyConfigsShrink;
 
     /**
+     * @example [ "012345" ]
+     *
      * @var string
      */
     public $participantIdsShrink;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 待办标题
+     *
      * @var string
      */
     public $subject;
@@ -44,6 +58,8 @@ class CreateDingtalkPersonalTodoTaskShrinkRequest extends Model
     public $tenantContextShrink;
 
     /**
+     * @example 用户token
+     *
      * @var string
      */
     public $userToken;
@@ -58,42 +74,32 @@ class CreateDingtalkPersonalTodoTaskShrinkRequest extends Model
         'userToken' => 'UserToken',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-
         if (null !== $this->dueTime) {
             $res['DueTime'] = $this->dueTime;
         }
-
         if (null !== $this->executorIdsShrink) {
             $res['ExecutorIds'] = $this->executorIdsShrink;
         }
-
         if (null !== $this->notifyConfigsShrink) {
             $res['NotifyConfigs'] = $this->notifyConfigsShrink;
         }
-
         if (null !== $this->participantIdsShrink) {
             $res['ParticipantIds'] = $this->participantIdsShrink;
         }
-
         if (null !== $this->subject) {
             $res['Subject'] = $this->subject;
         }
-
         if (null !== $this->tenantContextShrink) {
             $res['TenantContext'] = $this->tenantContextShrink;
         }
-
         if (null !== $this->userToken) {
             $res['UserToken'] = $this->userToken;
         }
@@ -101,42 +107,35 @@ class CreateDingtalkPersonalTodoTaskShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateDingtalkPersonalTodoTaskShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-
         if (isset($map['DueTime'])) {
             $model->dueTime = $map['DueTime'];
         }
-
         if (isset($map['ExecutorIds'])) {
             $model->executorIdsShrink = $map['ExecutorIds'];
         }
-
         if (isset($map['NotifyConfigs'])) {
             $model->notifyConfigsShrink = $map['NotifyConfigs'];
         }
-
         if (isset($map['ParticipantIds'])) {
             $model->participantIdsShrink = $map['ParticipantIds'];
         }
-
         if (isset($map['Subject'])) {
             $model->subject = $map['Subject'];
         }
-
         if (isset($map['TenantContext'])) {
             $model->tenantContextShrink = $map['TenantContext'];
         }
-
         if (isset($map['UserToken'])) {
             $model->userToken = $map['UserToken'];
         }

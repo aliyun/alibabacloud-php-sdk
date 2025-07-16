@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class PatchEventShrinkRequest extends Model
 {
@@ -14,6 +14,10 @@ class PatchEventShrinkRequest extends Model
     public $attendeesShrink;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example primary
+     *
      * @var string
      */
     public $calendarId;
@@ -34,6 +38,10 @@ class PatchEventShrinkRequest extends Model
     public $endShrink;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example iiiP35sJadba8aBSgjrwPRKgiEiF
+     *
      * @var string
      */
     public $eventId;
@@ -44,6 +52,8 @@ class PatchEventShrinkRequest extends Model
     public $extraShrink;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isAllDay;
@@ -88,62 +98,47 @@ class PatchEventShrinkRequest extends Model
         'summary' => 'Summary',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->attendeesShrink) {
             $res['Attendees'] = $this->attendeesShrink;
         }
-
         if (null !== $this->calendarId) {
             $res['CalendarId'] = $this->calendarId;
         }
-
         if (null !== $this->cardInstancesShrink) {
             $res['CardInstances'] = $this->cardInstancesShrink;
         }
-
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-
         if (null !== $this->endShrink) {
             $res['End'] = $this->endShrink;
         }
-
         if (null !== $this->eventId) {
             $res['EventId'] = $this->eventId;
         }
-
         if (null !== $this->extraShrink) {
             $res['Extra'] = $this->extraShrink;
         }
-
         if (null !== $this->isAllDay) {
             $res['IsAllDay'] = $this->isAllDay;
         }
-
         if (null !== $this->locationShrink) {
             $res['Location'] = $this->locationShrink;
         }
-
         if (null !== $this->recurrenceShrink) {
             $res['Recurrence'] = $this->recurrenceShrink;
         }
-
         if (null !== $this->remindersShrink) {
             $res['Reminders'] = $this->remindersShrink;
         }
-
         if (null !== $this->startShrink) {
             $res['Start'] = $this->startShrink;
         }
-
         if (null !== $this->summary) {
             $res['Summary'] = $this->summary;
         }
@@ -151,62 +146,50 @@ class PatchEventShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return PatchEventShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Attendees'])) {
             $model->attendeesShrink = $map['Attendees'];
         }
-
         if (isset($map['CalendarId'])) {
             $model->calendarId = $map['CalendarId'];
         }
-
         if (isset($map['CardInstances'])) {
             $model->cardInstancesShrink = $map['CardInstances'];
         }
-
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-
         if (isset($map['End'])) {
             $model->endShrink = $map['End'];
         }
-
         if (isset($map['EventId'])) {
             $model->eventId = $map['EventId'];
         }
-
         if (isset($map['Extra'])) {
             $model->extraShrink = $map['Extra'];
         }
-
         if (isset($map['IsAllDay'])) {
             $model->isAllDay = $map['IsAllDay'];
         }
-
         if (isset($map['Location'])) {
             $model->locationShrink = $map['Location'];
         }
-
         if (isset($map['Recurrence'])) {
             $model->recurrenceShrink = $map['Recurrence'];
         }
-
         if (isset($map['Reminders'])) {
             $model->remindersShrink = $map['Reminders'];
         }
-
         if (isset($map['Start'])) {
             $model->startShrink = $map['Start'];
         }
-
         if (isset($map['Summary'])) {
             $model->summary = $map['Summary'];
         }

@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateStatusShrinkRequest extends Model
 {
     /**
+     * @example APP_PBKT0MFBEBTDO8T7SLVP
+     *
      * @var string
      */
     public $appType;
@@ -19,21 +21,29 @@ class UpdateStatusShrinkRequest extends Model
     public $errorLinesShrink;
 
     /**
+     * @example seq-123
+     *
      * @var string
      */
     public $importSequence;
 
     /**
+     * @example zh_CN
+     *
      * @var string
      */
     public $language;
 
     /**
+     * @example running
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example hexxxx
+     *
      * @var string
      */
     public $systemToken;
@@ -46,34 +56,26 @@ class UpdateStatusShrinkRequest extends Model
         'systemToken' => 'SystemToken',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appType) {
             $res['AppType'] = $this->appType;
         }
-
         if (null !== $this->errorLinesShrink) {
             $res['ErrorLines'] = $this->errorLinesShrink;
         }
-
         if (null !== $this->importSequence) {
             $res['ImportSequence'] = $this->importSequence;
         }
-
         if (null !== $this->language) {
             $res['Language'] = $this->language;
         }
-
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-
         if (null !== $this->systemToken) {
             $res['SystemToken'] = $this->systemToken;
         }
@@ -81,34 +83,29 @@ class UpdateStatusShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateStatusShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppType'])) {
             $model->appType = $map['AppType'];
         }
-
         if (isset($map['ErrorLines'])) {
             $model->errorLinesShrink = $map['ErrorLines'];
         }
-
         if (isset($map['ImportSequence'])) {
             $model->importSequence = $map['ImportSequence'];
         }
-
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
         }
-
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-
         if (isset($map['SystemToken'])) {
             $model->systemToken = $map['SystemToken'];
         }

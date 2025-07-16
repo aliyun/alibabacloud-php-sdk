@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\ListMessageResponseBody\messages\content\structView\parts;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class textPart extends Model
 {
     /**
+     * @example 123123
+     *
      * @var string
      */
     public $text;
@@ -16,12 +18,9 @@ class textPart extends Model
         'text' => 'text',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->text) {
@@ -31,11 +30,11 @@ class textPart extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return textPart
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryScheduleConferenceRequest\tenantContext;
+use AlibabaCloud\Tea\Model;
 
 class QueryScheduleConferenceRequest extends Model
 {
@@ -15,6 +15,10 @@ class QueryScheduleConferenceRequest extends Model
     public $tenantContext;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 2a489c68-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+     *
      * @var string
      */
     public $scheduleConferenceId;
@@ -23,21 +27,14 @@ class QueryScheduleConferenceRequest extends Model
         'scheduleConferenceId' => 'scheduleConferenceId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->tenantContext) {
-            $this->tenantContext->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->tenantContext) {
-            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toArray($noStream) : $this->tenantContext;
+            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toMap() : null;
         }
-
         if (null !== $this->scheduleConferenceId) {
             $res['scheduleConferenceId'] = $this->scheduleConferenceId;
         }
@@ -45,18 +42,17 @@ class QueryScheduleConferenceRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return QueryScheduleConferenceRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TenantContext'])) {
             $model->tenantContext = tenantContext::fromMap($map['TenantContext']);
         }
-
         if (isset($map['scheduleConferenceId'])) {
             $model->scheduleConferenceId = $map['scheduleConferenceId'];
         }

@@ -4,12 +4,14 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\QueryDentryResponseBody\space\recentList;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryDentryResponseBody\space\recentList\linkSourceInfo\iconUrl;
+use AlibabaCloud\Tea\Model;
 
 class linkSourceInfo extends Model
 {
     /**
+     * @example docx
+     *
      * @var string
      */
     public $extension;
@@ -20,16 +22,22 @@ class linkSourceInfo extends Model
     public $iconUrl;
 
     /**
+     * @example def
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $linkType;
 
     /**
+     * @example def
+     *
      * @var string
      */
     public $spaceId;
@@ -41,33 +49,23 @@ class linkSourceInfo extends Model
         'spaceId' => 'SpaceId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->iconUrl) {
-            $this->iconUrl->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->extension) {
             $res['Extension'] = $this->extension;
         }
-
         if (null !== $this->iconUrl) {
-            $res['IconUrl'] = null !== $this->iconUrl ? $this->iconUrl->toArray($noStream) : $this->iconUrl;
+            $res['IconUrl'] = null !== $this->iconUrl ? $this->iconUrl->toMap() : null;
         }
-
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->linkType) {
             $res['LinkType'] = $this->linkType;
         }
-
         if (null !== $this->spaceId) {
             $res['SpaceId'] = $this->spaceId;
         }
@@ -75,30 +73,26 @@ class linkSourceInfo extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return linkSourceInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Extension'])) {
             $model->extension = $map['Extension'];
         }
-
         if (isset($map['IconUrl'])) {
             $model->iconUrl = iconUrl::fromMap($map['IconUrl']);
         }
-
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['LinkType'])) {
             $model->linkType = $map['LinkType'];
         }
-
         if (isset($map['SpaceId'])) {
             $model->spaceId = $map['SpaceId'];
         }

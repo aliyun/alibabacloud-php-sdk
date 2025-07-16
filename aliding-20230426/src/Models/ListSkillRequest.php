@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListSkillRequest extends Model
 {
     /**
+     * @example qweq-1231-jbarr-9940-asdf
+     *
      * @var string
      */
     public $groupId;
@@ -16,12 +18,9 @@ class ListSkillRequest extends Model
         'groupId' => 'groupId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->groupId) {
@@ -31,11 +30,11 @@ class ListSkillRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListSkillRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,32 +4,46 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateWorkspaceDocRequest\tenantContext;
+use AlibabaCloud\Tea\Model;
 
 class CreateWorkspaceDocRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example DOC
+     *
      * @var string
      */
     public $docType;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 测试文档
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example YRBGv0Ye
+     *
      * @var string
      */
     public $parentNodeId;
 
     /**
+     * @example 123243
+     *
      * @var string
      */
     public $templateId;
 
     /**
+     * @example team_template
+     *
      * @var string
      */
     public $templateType;
@@ -40,6 +54,10 @@ class CreateWorkspaceDocRequest extends Model
     public $tenantContext;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 123
+     *
      * @var string
      */
     public $workspaceId;
@@ -53,41 +71,29 @@ class CreateWorkspaceDocRequest extends Model
         'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->tenantContext) {
-            $this->tenantContext->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->docType) {
             $res['DocType'] = $this->docType;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->parentNodeId) {
             $res['ParentNodeId'] = $this->parentNodeId;
         }
-
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
-
         if (null !== $this->templateType) {
             $res['TemplateType'] = $this->templateType;
         }
-
         if (null !== $this->tenantContext) {
-            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toArray($noStream) : $this->tenantContext;
+            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toMap() : null;
         }
-
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -95,38 +101,32 @@ class CreateWorkspaceDocRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateWorkspaceDocRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DocType'])) {
             $model->docType = $map['DocType'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['ParentNodeId'])) {
             $model->parentNodeId = $map['ParentNodeId'];
         }
-
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }
-
         if (isset($map['TemplateType'])) {
             $model->templateType = $map['TemplateType'];
         }
-
         if (isset($map['TenantContext'])) {
             $model->tenantContext = tenantContext::fromMap($map['TenantContext']);
         }
-
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

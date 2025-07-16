@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\AddPermissionRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class tenantContext extends Model
 {
     /**
+     * @example xxxxxx
+     *
      * @var string
      */
     public $tenantId;
@@ -16,12 +18,9 @@ class tenantContext extends Model
         'tenantId' => 'tenantId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->tenantId) {
@@ -31,11 +30,11 @@ class tenantContext extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return tenantContext
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

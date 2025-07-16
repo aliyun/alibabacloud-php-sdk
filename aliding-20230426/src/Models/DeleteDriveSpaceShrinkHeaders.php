@@ -4,44 +4,30 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteDriveSpaceShrinkHeaders extends Model
 {
-    /**
-     * @var string[]
-     */
     public $commonHeaders;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $accountContextShrink;
     protected $_name = [
-        'commonHeaders' => 'commonHeaders',
         'accountContextShrink' => 'AccountContext',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->commonHeaders)) {
-            Model::validateArray($this->commonHeaders);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->commonHeaders) {
-            if (\is_array($this->commonHeaders)) {
-                $res['commonHeaders'] = [];
-                foreach ($this->commonHeaders as $key1 => $value1) {
-                    $res['commonHeaders'][$key1] = $value1;
-                }
-            }
+            $res['commonHeaders'] = $this->commonHeaders;
         }
-
         if (null !== $this->accountContextShrink) {
             $res['AccountContext'] = $this->accountContextShrink;
         }
@@ -49,23 +35,17 @@ class DeleteDriveSpaceShrinkHeaders extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteDriveSpaceShrinkHeaders
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['commonHeaders'])) {
-            if (!empty($map['commonHeaders'])) {
-                $model->commonHeaders = [];
-                foreach ($map['commonHeaders'] as $key1 => $value1) {
-                    $model->commonHeaders[$key1] = $value1;
-                }
-            }
+            $model->commonHeaders = $map['commonHeaders'];
         }
-
         if (isset($map['AccountContext'])) {
             $model->accountContextShrink = $map['AccountContext'];
         }

@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\InitMultipartFileUploadRequest\option;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\InitMultipartFileUploadRequest\tenantContext;
+use AlibabaCloud\Tea\Model;
 
 class InitMultipartFileUploadRequest extends Model
 {
@@ -16,6 +16,8 @@ class InitMultipartFileUploadRequest extends Model
     public $option;
 
     /**
+     * @example dentryUuid
+     *
      * @var string
      */
     public $parentDentryUuid;
@@ -30,51 +32,38 @@ class InitMultipartFileUploadRequest extends Model
         'tenantContext' => 'TenantContext',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->option) {
-            $this->option->validate();
-        }
-        if (null !== $this->tenantContext) {
-            $this->tenantContext->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->option) {
-            $res['Option'] = null !== $this->option ? $this->option->toArray($noStream) : $this->option;
+            $res['Option'] = null !== $this->option ? $this->option->toMap() : null;
         }
-
         if (null !== $this->parentDentryUuid) {
             $res['ParentDentryUuid'] = $this->parentDentryUuid;
         }
-
         if (null !== $this->tenantContext) {
-            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toArray($noStream) : $this->tenantContext;
+            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return InitMultipartFileUploadRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Option'])) {
             $model->option = option::fromMap($map['Option']);
         }
-
         if (isset($map['ParentDentryUuid'])) {
             $model->parentDentryUuid = $map['ParentDentryUuid'];
         }
-
         if (isset($map['TenantContext'])) {
             $model->tenantContext = tenantContext::fromMap($map['TenantContext']);
         }

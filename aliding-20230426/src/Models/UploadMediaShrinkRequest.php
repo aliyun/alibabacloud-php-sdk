@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UploadMediaShrinkRequest extends Model
 {
@@ -14,21 +14,35 @@ class UploadMediaShrinkRequest extends Model
     public $tenantContextShrink;
 
     /**
+     * @example test.jpg
+     *
      * @var string
      */
     public $mediaName;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example image
+     *
      * @var string
      */
     public $mediaType;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 1234567
+     *
      * @var int
      */
     public $orgId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example https://alicdn.com/xxx.jpg
+     *
      * @var string
      */
     public $url;
@@ -40,30 +54,23 @@ class UploadMediaShrinkRequest extends Model
         'url' => 'url',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->tenantContextShrink) {
             $res['TenantContext'] = $this->tenantContextShrink;
         }
-
         if (null !== $this->mediaName) {
             $res['mediaName'] = $this->mediaName;
         }
-
         if (null !== $this->mediaType) {
             $res['mediaType'] = $this->mediaType;
         }
-
         if (null !== $this->orgId) {
             $res['orgId'] = $this->orgId;
         }
-
         if (null !== $this->url) {
             $res['url'] = $this->url;
         }
@@ -71,30 +78,26 @@ class UploadMediaShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UploadMediaShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TenantContext'])) {
             $model->tenantContextShrink = $map['TenantContext'];
         }
-
         if (isset($map['mediaName'])) {
             $model->mediaName = $map['mediaName'];
         }
-
         if (isset($map['mediaType'])) {
             $model->mediaType = $map['mediaType'];
         }
-
         if (isset($map['orgId'])) {
             $model->orgId = $map['orgId'];
         }
-
         if (isset($map['url'])) {
             $model->url = $map['url'];
         }

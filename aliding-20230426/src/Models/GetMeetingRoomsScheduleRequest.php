@@ -4,21 +4,33 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetMeetingRoomsScheduleRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 2020-01-01T10:15:30+08:00
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example ["4002xxxxx"]
+     *
      * @var string[]
      */
     public $roomIds;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 2020-01-01T10:15:30+08:00
+     *
      * @var string
      */
     public $startTime;
@@ -28,32 +40,17 @@ class GetMeetingRoomsScheduleRequest extends Model
         'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->roomIds)) {
-            Model::validateArray($this->roomIds);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
-
         if (null !== $this->roomIds) {
-            if (\is_array($this->roomIds)) {
-                $res['RoomIds'] = [];
-                $n1 = 0;
-                foreach ($this->roomIds as $item1) {
-                    $res['RoomIds'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['RoomIds'] = $this->roomIds;
         }
-
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -61,29 +58,22 @@ class GetMeetingRoomsScheduleRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetMeetingRoomsScheduleRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
-
         if (isset($map['RoomIds'])) {
             if (!empty($map['RoomIds'])) {
-                $model->roomIds = [];
-                $n1 = 0;
-                foreach ($map['RoomIds'] as $item1) {
-                    $model->roomIds[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->roomIds = $map['RoomIds'];
             }
         }
-
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteTodoTaskRequest\tenantContext;
+use AlibabaCloud\Tea\Model;
 
 class DeleteTodoTaskRequest extends Model
 {
@@ -15,11 +15,17 @@ class DeleteTodoTaskRequest extends Model
     public $tenantContext;
 
     /**
+     * @example 12345
+     *
      * @var string
      */
     public $operatorId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 63edc8da7e917d6ecdaab11b
+     *
      * @var string
      */
     public $taskId;
@@ -29,25 +35,17 @@ class DeleteTodoTaskRequest extends Model
         'taskId' => 'taskId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->tenantContext) {
-            $this->tenantContext->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->tenantContext) {
-            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toArray($noStream) : $this->tenantContext;
+            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toMap() : null;
         }
-
         if (null !== $this->operatorId) {
             $res['operatorId'] = $this->operatorId;
         }
-
         if (null !== $this->taskId) {
             $res['taskId'] = $this->taskId;
         }
@@ -55,22 +53,20 @@ class DeleteTodoTaskRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteTodoTaskRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TenantContext'])) {
             $model->tenantContext = tenantContext::fromMap($map['TenantContext']);
         }
-
         if (isset($map['operatorId'])) {
             $model->operatorId = $map['operatorId'];
         }
-
         if (isset($map['taskId'])) {
             $model->taskId = $map['taskId'];
         }

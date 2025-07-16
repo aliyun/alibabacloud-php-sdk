@@ -4,21 +4,29 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ReceiverListReportResponseBody extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $hasMore;
 
     /**
+     * @example 132131312312
+     *
      * @var int
      */
     public $nextCursor;
 
     /**
+     * @description requestId
+     *
+     * @example 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+     *
      * @var string
      */
     public $requestId;
@@ -34,71 +42,47 @@ class ReceiverListReportResponseBody extends Model
         'useridList' => 'useridList',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->useridList)) {
-            Model::validateArray($this->useridList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->hasMore) {
             $res['hasMore'] = $this->hasMore;
         }
-
         if (null !== $this->nextCursor) {
             $res['nextCursor'] = $this->nextCursor;
         }
-
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
-
         if (null !== $this->useridList) {
-            if (\is_array($this->useridList)) {
-                $res['useridList'] = [];
-                $n1 = 0;
-                foreach ($this->useridList as $item1) {
-                    $res['useridList'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['useridList'] = $this->useridList;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ReceiverListReportResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['hasMore'])) {
             $model->hasMore = $map['hasMore'];
         }
-
         if (isset($map['nextCursor'])) {
             $model->nextCursor = $map['nextCursor'];
         }
-
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
-
         if (isset($map['useridList'])) {
             if (!empty($map['useridList'])) {
-                $model->useridList = [];
-                $n1 = 0;
-                foreach ($map['useridList'] as $item1) {
-                    $model->useridList[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->useridList = $map['useridList'];
             }
         }
 

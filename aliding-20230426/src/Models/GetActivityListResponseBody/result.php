@@ -4,21 +4,27 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\GetActivityListResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class result extends Model
 {
     /**
+     * @example 0q8gsudxxx
+     *
      * @var string
      */
     public $activityId;
 
     /**
+     * @example activity123
+     *
      * @var string
      */
     public $activityName;
 
     /**
+     * @example activity123
+     *
      * @var string
      */
     public $activityNameInEnglish;
@@ -28,22 +34,17 @@ class result extends Model
         'activityNameInEnglish' => 'ActivityNameInEnglish',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->activityId) {
             $res['ActivityId'] = $this->activityId;
         }
-
         if (null !== $this->activityName) {
             $res['ActivityName'] = $this->activityName;
         }
-
         if (null !== $this->activityNameInEnglish) {
             $res['ActivityNameInEnglish'] = $this->activityNameInEnglish;
         }
@@ -51,22 +52,20 @@ class result extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return result
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ActivityId'])) {
             $model->activityId = $map['ActivityId'];
         }
-
         if (isset($map['ActivityName'])) {
             $model->activityName = $map['ActivityName'];
         }
-
         if (isset($map['ActivityNameInEnglish'])) {
             $model->activityNameInEnglish = $map['ActivityNameInEnglish'];
         }

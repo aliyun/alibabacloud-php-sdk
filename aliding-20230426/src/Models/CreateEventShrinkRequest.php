@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateEventShrinkRequest extends Model
 {
@@ -34,6 +34,8 @@ class CreateEventShrinkRequest extends Model
     public $extraShrink;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isAllDay;
@@ -64,6 +66,8 @@ class CreateEventShrinkRequest extends Model
     public $richTextDescriptionShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $summary;
@@ -74,11 +78,17 @@ class CreateEventShrinkRequest extends Model
     public $uiConfigsShrink;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example primary
+     *
      * @var string
      */
     public $calendarId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $startShrink;
@@ -100,70 +110,53 @@ class CreateEventShrinkRequest extends Model
         'startShrink' => 'start',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->attendeesShrink) {
             $res['Attendees'] = $this->attendeesShrink;
         }
-
         if (null !== $this->cardInstancesShrink) {
             $res['CardInstances'] = $this->cardInstancesShrink;
         }
-
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-
         if (null !== $this->endShrink) {
             $res['End'] = $this->endShrink;
         }
-
         if (null !== $this->extraShrink) {
             $res['Extra'] = $this->extraShrink;
         }
-
         if (null !== $this->isAllDay) {
             $res['IsAllDay'] = $this->isAllDay;
         }
-
         if (null !== $this->locationShrink) {
             $res['Location'] = $this->locationShrink;
         }
-
         if (null !== $this->onlineMeetingInfoShrink) {
             $res['OnlineMeetingInfo'] = $this->onlineMeetingInfoShrink;
         }
-
         if (null !== $this->recurrenceShrink) {
             $res['Recurrence'] = $this->recurrenceShrink;
         }
-
         if (null !== $this->remindersShrink) {
             $res['Reminders'] = $this->remindersShrink;
         }
-
         if (null !== $this->richTextDescriptionShrink) {
             $res['RichTextDescription'] = $this->richTextDescriptionShrink;
         }
-
         if (null !== $this->summary) {
             $res['Summary'] = $this->summary;
         }
-
         if (null !== $this->uiConfigsShrink) {
             $res['UiConfigs'] = $this->uiConfigsShrink;
         }
-
         if (null !== $this->calendarId) {
             $res['calendarId'] = $this->calendarId;
         }
-
         if (null !== $this->startShrink) {
             $res['start'] = $this->startShrink;
         }
@@ -171,70 +164,56 @@ class CreateEventShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateEventShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Attendees'])) {
             $model->attendeesShrink = $map['Attendees'];
         }
-
         if (isset($map['CardInstances'])) {
             $model->cardInstancesShrink = $map['CardInstances'];
         }
-
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-
         if (isset($map['End'])) {
             $model->endShrink = $map['End'];
         }
-
         if (isset($map['Extra'])) {
             $model->extraShrink = $map['Extra'];
         }
-
         if (isset($map['IsAllDay'])) {
             $model->isAllDay = $map['IsAllDay'];
         }
-
         if (isset($map['Location'])) {
             $model->locationShrink = $map['Location'];
         }
-
         if (isset($map['OnlineMeetingInfo'])) {
             $model->onlineMeetingInfoShrink = $map['OnlineMeetingInfo'];
         }
-
         if (isset($map['Recurrence'])) {
             $model->recurrenceShrink = $map['Recurrence'];
         }
-
         if (isset($map['Reminders'])) {
             $model->remindersShrink = $map['Reminders'];
         }
-
         if (isset($map['RichTextDescription'])) {
             $model->richTextDescriptionShrink = $map['RichTextDescription'];
         }
-
         if (isset($map['Summary'])) {
             $model->summary = $map['Summary'];
         }
-
         if (isset($map['UiConfigs'])) {
             $model->uiConfigsShrink = $map['UiConfigs'];
         }
-
         if (isset($map['calendarId'])) {
             $model->calendarId = $map['calendarId'];
         }
-
         if (isset($map['start'])) {
             $model->startShrink = $map['start'];
         }

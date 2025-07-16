@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryOrgTodoTasksRequest\tenantContext;
+use AlibabaCloud\Tea\Model;
 
 class QueryOrgTodoTasksRequest extends Model
 {
@@ -15,11 +15,15 @@ class QueryOrgTodoTasksRequest extends Model
     public $tenantContext;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isDone;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $nextToken;
@@ -29,25 +33,17 @@ class QueryOrgTodoTasksRequest extends Model
         'nextToken' => 'nextToken',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->tenantContext) {
-            $this->tenantContext->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->tenantContext) {
-            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toArray($noStream) : $this->tenantContext;
+            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toMap() : null;
         }
-
         if (null !== $this->isDone) {
             $res['isDone'] = $this->isDone;
         }
-
         if (null !== $this->nextToken) {
             $res['nextToken'] = $this->nextToken;
         }
@@ -55,22 +51,20 @@ class QueryOrgTodoTasksRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return QueryOrgTodoTasksRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TenantContext'])) {
             $model->tenantContext = tenantContext::fromMap($map['TenantContext']);
         }
-
         if (isset($map['isDone'])) {
             $model->isDone = $map['isDone'];
         }
-
         if (isset($map['nextToken'])) {
             $model->nextToken = $map['nextToken'];
         }

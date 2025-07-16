@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\FinishTicketRequest\ticketMemo;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class attachments extends Model
 {
     /**
+     * @example wahaha.txt
+     *
      * @var string
      */
     public $fileName;
 
     /**
+     * @example ticket/image/44xxxx9/43003/e27xxxx1640499.txt
+     *
      * @var string
      */
     public $key;
@@ -22,18 +26,14 @@ class attachments extends Model
         'key' => 'Key',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->fileName) {
             $res['FileName'] = $this->fileName;
         }
-
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
@@ -41,18 +41,17 @@ class attachments extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return attachments
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FileName'])) {
             $model->fileName = $map['FileName'];
         }
-
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }

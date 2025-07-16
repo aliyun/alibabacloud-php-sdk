@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\QueryDentryResponseBody\space;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class iconVO extends Model
 {
     /**
+     * @example http://
+     *
      * @var string
      */
     public $icon;
 
     /**
+     * @example type
+     *
      * @var string
      */
     public $type;
@@ -22,18 +26,14 @@ class iconVO extends Model
         'type' => 'Type',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->icon) {
             $res['Icon'] = $this->icon;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -41,18 +41,17 @@ class iconVO extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return iconVO
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Icon'])) {
             $model->icon = $map['Icon'];
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

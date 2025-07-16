@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\GetNodeByUrlRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class option extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $withPermissionRole;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $withStatisticalInfo;
@@ -22,18 +26,14 @@ class option extends Model
         'withStatisticalInfo' => 'WithStatisticalInfo',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->withPermissionRole) {
             $res['WithPermissionRole'] = $this->withPermissionRole;
         }
-
         if (null !== $this->withStatisticalInfo) {
             $res['WithStatisticalInfo'] = $this->withStatisticalInfo;
         }
@@ -41,18 +41,17 @@ class option extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return option
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['WithPermissionRole'])) {
             $model->withPermissionRole = $map['WithPermissionRole'];
         }
-
         if (isset($map['WithStatisticalInfo'])) {
             $model->withStatisticalInfo = $map['WithStatisticalInfo'];
         }

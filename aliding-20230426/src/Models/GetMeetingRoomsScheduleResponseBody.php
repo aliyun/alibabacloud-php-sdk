@@ -4,12 +4,16 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetMeetingRoomsScheduleResponseBody\scheduleInformation;
+use AlibabaCloud\Tea\Model;
 
 class GetMeetingRoomsScheduleResponseBody extends Model
 {
     /**
+     * @description requestId
+     *
+     * @example 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+     *
      * @var string
      */
     public $requestId;
@@ -23,28 +27,20 @@ class GetMeetingRoomsScheduleResponseBody extends Model
         'scheduleInformation' => 'scheduleInformation',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->scheduleInformation)) {
-            Model::validateArray($this->scheduleInformation);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
-
         if (null !== $this->scheduleInformation) {
-            if (\is_array($this->scheduleInformation)) {
-                $res['scheduleInformation'] = [];
-                $n1 = 0;
-                foreach ($this->scheduleInformation as $item1) {
-                    $res['scheduleInformation'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['scheduleInformation'] = [];
+            if (null !== $this->scheduleInformation && \is_array($this->scheduleInformation)) {
+                $n = 0;
+                foreach ($this->scheduleInformation as $item) {
+                    $res['scheduleInformation'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -52,25 +48,23 @@ class GetMeetingRoomsScheduleResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetMeetingRoomsScheduleResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
-
         if (isset($map['scheduleInformation'])) {
             if (!empty($map['scheduleInformation'])) {
                 $model->scheduleInformation = [];
-                $n1 = 0;
-                foreach ($map['scheduleInformation'] as $item1) {
-                    $model->scheduleInformation[$n1] = scheduleInformation::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['scheduleInformation'] as $item) {
+                    $model->scheduleInformation[$n++] = null !== $item ? scheduleInformation::fromMap($item) : $item;
                 }
             }
         }
