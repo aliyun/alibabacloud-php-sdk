@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Eas\V20210701\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeBenchmarkTaskReportRequest extends Model
 {
     /**
+     * @description The report type of the stress testing task. Valid values: RAW and Report.
+     *
+     * @example report
+     *
      * @var string
      */
     public $reportType;
@@ -16,12 +20,9 @@ class DescribeBenchmarkTaskReportRequest extends Model
         'reportType' => 'ReportType',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->reportType) {
@@ -31,11 +32,11 @@ class DescribeBenchmarkTaskReportRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeBenchmarkTaskReportRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

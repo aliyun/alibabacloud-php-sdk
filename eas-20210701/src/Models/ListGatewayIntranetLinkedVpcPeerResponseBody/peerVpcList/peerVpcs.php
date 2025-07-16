@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Eas\V20210701\Models\ListGatewayIntranetLinkedVpcPeerResponseBody\peerVpcList;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class peerVpcs extends Model
 {
     /**
+     * @description The region where the VPC peer resides.
+     *
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $region;
@@ -19,6 +23,10 @@ class peerVpcs extends Model
     public $status;
 
     /**
+     * @description The ID of the VPC peer.
+     *
+     * @example vpc-uf66uio7md****
+     *
      * @var string
      */
     public $vpcId;
@@ -28,22 +36,17 @@ class peerVpcs extends Model
         'vpcId' => 'VpcId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
-
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
@@ -51,22 +54,20 @@ class peerVpcs extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return peerVpcs
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }
-
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }

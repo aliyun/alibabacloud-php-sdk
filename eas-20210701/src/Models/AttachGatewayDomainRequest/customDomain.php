@@ -4,21 +4,42 @@
 
 namespace AlibabaCloud\SDK\Eas\V20210701\Models\AttachGatewayDomainRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class customDomain extends Model
 {
     /**
+     * @description The ID of the SSL certificate bound to the domain name. Obtain the certificate ID after you upload or purchase a certificate in the [Certificate Management Service](https://yundunnext.console.aliyun.com/?spm=5176.2020520163.console-base_help.2.4b3baJixaJixOc\\&p=cas) console.
+     *
+     * @example 1473**25
+     *
      * @var string
      */
     public $certificateId;
 
     /**
+     * @description The custom domain name.
+     *
+     * This parameter is required.
+     *
+     * @example test.com
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @description The domain name type.
+     *
+     * Valid value:
+     *
+     *   intranet: internal network.
+     *   internet: public network.
+     *
+     * This parameter is required.
+     *
+     * @example intranet
+     *
      * @var string
      */
     public $type;
@@ -28,22 +49,17 @@ class customDomain extends Model
         'type' => 'Type',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->certificateId) {
             $res['CertificateId'] = $this->certificateId;
         }
-
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -51,22 +67,20 @@ class customDomain extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return customDomain
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CertificateId'])) {
             $model->certificateId = $map['CertificateId'];
         }
-
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

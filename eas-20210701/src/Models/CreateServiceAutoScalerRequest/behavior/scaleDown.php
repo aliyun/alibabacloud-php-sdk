@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Eas\V20210701\Models\CreateServiceAutoScalerRequest\behavior;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class scaleDown extends Model
 {
     /**
+     * @description The time window that is required before the scale-in operation is performed. The scale-in operation can be performed only if the specified metric drops below the specified threshold in the specified time window. Default value: 300.
+     *
+     * @example 300
+     *
      * @var int
      */
     public $stabilizationWindowSeconds;
@@ -16,12 +20,9 @@ class scaleDown extends Model
         'stabilizationWindowSeconds' => 'stabilizationWindowSeconds',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->stabilizationWindowSeconds) {
@@ -31,11 +32,11 @@ class scaleDown extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return scaleDown
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

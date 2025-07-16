@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Eas\V20210701\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteGatewayIntranetLinkedVpcRequest extends Model
 {
     /**
+     * @description The ID of the vSwitch.
+     *
+     * @example vsw-8vbqn2at0kljjxxxx****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @description The virtual private cloud (VPC) ID.
+     *
+     * @example vpc-uf66uio7md****
+     *
      * @var string
      */
     public $vpcId;
@@ -22,18 +30,14 @@ class DeleteGatewayIntranetLinkedVpcRequest extends Model
         'vpcId' => 'VpcId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
-
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
@@ -41,18 +45,17 @@ class DeleteGatewayIntranetLinkedVpcRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteGatewayIntranetLinkedVpcRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
         }
-
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }

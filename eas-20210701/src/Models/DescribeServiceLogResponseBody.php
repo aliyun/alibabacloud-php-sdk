@@ -4,31 +4,49 @@
 
 namespace AlibabaCloud\SDK\Eas\V20210701\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeServiceLogResponseBody extends Model
 {
     /**
+     * @description The returned logs.
+     *
      * @var string[]
      */
     public $logs;
 
     /**
+     * @description The page number.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @description The request ID.
+     *
+     * @example 40325405-579C-4D82********
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;
 
     /**
+     * @description The total number of pages returned.
+     *
+     * @example 500
+     *
      * @var int
      */
     public $totalPageNum;
@@ -40,40 +58,23 @@ class DescribeServiceLogResponseBody extends Model
         'totalPageNum' => 'TotalPageNum',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->logs)) {
-            Model::validateArray($this->logs);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->logs) {
-            if (\is_array($this->logs)) {
-                $res['Logs'] = [];
-                $n1 = 0;
-                foreach ($this->logs as $item1) {
-                    $res['Logs'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['Logs'] = $this->logs;
         }
-
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
-
         if (null !== $this->totalPageNum) {
             $res['TotalPageNum'] = $this->totalPageNum;
         }
@@ -81,37 +82,28 @@ class DescribeServiceLogResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeServiceLogResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Logs'])) {
             if (!empty($map['Logs'])) {
-                $model->logs = [];
-                $n1 = 0;
-                foreach ($map['Logs'] as $item1) {
-                    $model->logs[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->logs = $map['Logs'];
             }
         }
-
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }
-
         if (isset($map['TotalPageNum'])) {
             $model->totalPageNum = $map['TotalPageNum'];
         }

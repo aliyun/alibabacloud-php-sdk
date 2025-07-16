@@ -4,11 +4,21 @@
 
 namespace AlibabaCloud\SDK\Eas\V20210701\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateResourceInstanceRequest extends Model
 {
     /**
+     * @description The operation that updates the scheduling state of the instance in a dedicated resource group. Valid values:
+     *
+     *   Uncordon: allows scheduling the service to this instance.
+     *   Cordon: prohibits scheduling the service to this instance.
+     *   Drain: evicts the service that has been scheduled to this instance.
+     *
+     * This parameter is required.
+     *
+     * @example Cordon
+     *
      * @var string
      */
     public $action;
@@ -16,12 +26,9 @@ class UpdateResourceInstanceRequest extends Model
         'action' => 'Action',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->action) {
@@ -31,11 +38,11 @@ class UpdateResourceInstanceRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateResourceInstanceRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,17 +4,23 @@
 
 namespace AlibabaCloud\SDK\Eas\V20210701\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteGatewayIntranetLinkedVpcPeerRequest\peerVpcs;
+use AlibabaCloud\Tea\Model;
 
 class DeleteGatewayIntranetLinkedVpcPeerRequest extends Model
 {
     /**
+     * @description The VPC peer.
+     *
      * @var peerVpcs[]
      */
     public $peerVpcs;
 
     /**
+     * @description The ID of the associated VPC. To obtain the VPC ID, see [ListGatewayIntranetLinkedVpc](https://help.aliyun.com/document_detail/2621223.html).
+     *
+     * @example vpc-2zetuli9ws0qgjd******
+     *
      * @var string
      */
     public $vpcId;
@@ -23,28 +29,20 @@ class DeleteGatewayIntranetLinkedVpcPeerRequest extends Model
         'vpcId' => 'VpcId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->peerVpcs)) {
-            Model::validateArray($this->peerVpcs);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->peerVpcs) {
-            if (\is_array($this->peerVpcs)) {
-                $res['PeerVpcs'] = [];
-                $n1 = 0;
-                foreach ($this->peerVpcs as $item1) {
-                    $res['PeerVpcs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['PeerVpcs'] = [];
+            if (null !== $this->peerVpcs && \is_array($this->peerVpcs)) {
+                $n = 0;
+                foreach ($this->peerVpcs as $item) {
+                    $res['PeerVpcs'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
@@ -52,25 +50,23 @@ class DeleteGatewayIntranetLinkedVpcPeerRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteGatewayIntranetLinkedVpcPeerRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PeerVpcs'])) {
             if (!empty($map['PeerVpcs'])) {
                 $model->peerVpcs = [];
-                $n1 = 0;
-                foreach ($map['PeerVpcs'] as $item1) {
-                    $model->peerVpcs[$n1] = peerVpcs::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['PeerVpcs'] as $item) {
+                    $model->peerVpcs[$n++] = null !== $item ? peerVpcs::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }

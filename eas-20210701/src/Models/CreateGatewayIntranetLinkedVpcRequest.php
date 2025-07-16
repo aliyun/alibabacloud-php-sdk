@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Eas\V20210701\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateGatewayIntranetLinkedVpcRequest extends Model
 {
@@ -19,11 +19,19 @@ class CreateGatewayIntranetLinkedVpcRequest extends Model
     public $enableAuthoritativeDns;
 
     /**
+     * @description The vSwitch ID.
+     *
+     * @example vsw-8vbqn2at0kljjxxxx****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @description The virtual private cloud (VPC) ID.
+     *
+     * @example vpc-uf66uio7md****
+     *
      * @var string
      */
     public $vpcId;
@@ -34,26 +42,20 @@ class CreateGatewayIntranetLinkedVpcRequest extends Model
         'vpcId' => 'VpcId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->accountId) {
             $res['AccountId'] = $this->accountId;
         }
-
         if (null !== $this->enableAuthoritativeDns) {
             $res['EnableAuthoritativeDns'] = $this->enableAuthoritativeDns;
         }
-
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
-
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
@@ -61,26 +63,23 @@ class CreateGatewayIntranetLinkedVpcRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateGatewayIntranetLinkedVpcRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccountId'])) {
             $model->accountId = $map['AccountId'];
         }
-
         if (isset($map['EnableAuthoritativeDns'])) {
             $model->enableAuthoritativeDns = $map['EnableAuthoritativeDns'];
         }
-
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
         }
-
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }

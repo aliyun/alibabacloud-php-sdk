@@ -4,11 +4,30 @@
 
 namespace AlibabaCloud\SDK\Eas\V20210701\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateBenchmarkTaskRequest extends Model
 {
     /**
+     * @description The request body. The body includes the parameters that are set to create a stress testing task.
+     *
+     * @example {
+     * "base": {
+     * "duration": 600
+     * },
+     * "service": {
+     * "serviceName": "test_service",
+     * "requestToken": "test_token"
+     * },
+     * "data": {
+     * "path": "https://larec-benchmark-cd.oss-cn-chengdu.aliyuncs.com/youbei/sv_dbmtl/data/youbei.warmup.tf.bin",
+     * "dataType": "binary"
+     * },
+     * "optional": {
+     * "maxRt": 100
+     * }
+     * }
+     *
      * @var string
      */
     public $body;
@@ -16,12 +35,9 @@ class CreateBenchmarkTaskRequest extends Model
         'body' => 'body',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->body) {
@@ -31,11 +47,11 @@ class CreateBenchmarkTaskRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateBenchmarkTaskRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

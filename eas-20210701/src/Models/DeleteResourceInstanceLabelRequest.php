@@ -4,21 +4,27 @@
 
 namespace AlibabaCloud\SDK\Eas\V20210701\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteResourceInstanceLabelRequest extends Model
 {
     /**
+     * @description Specifies whether the delete operation takes effect on all instances in the resource group. If you set this parameter to true, the InstanceIds parameter does not take effect.
+     *
      * @var bool
      */
     public $allInstances;
 
     /**
+     * @description The instance IDs.
+     *
      * @var string[]
      */
     public $instanceIds;
 
     /**
+     * @description The keys of the tags that you want to delete.
+     *
      * @var string[]
      */
     public $keys;
@@ -28,80 +34,43 @@ class DeleteResourceInstanceLabelRequest extends Model
         'keys' => 'Keys',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->instanceIds)) {
-            Model::validateArray($this->instanceIds);
-        }
-        if (\is_array($this->keys)) {
-            Model::validateArray($this->keys);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->allInstances) {
             $res['AllInstances'] = $this->allInstances;
         }
-
         if (null !== $this->instanceIds) {
-            if (\is_array($this->instanceIds)) {
-                $res['InstanceIds'] = [];
-                $n1 = 0;
-                foreach ($this->instanceIds as $item1) {
-                    $res['InstanceIds'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['InstanceIds'] = $this->instanceIds;
         }
-
         if (null !== $this->keys) {
-            if (\is_array($this->keys)) {
-                $res['Keys'] = [];
-                $n1 = 0;
-                foreach ($this->keys as $item1) {
-                    $res['Keys'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['Keys'] = $this->keys;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteResourceInstanceLabelRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AllInstances'])) {
             $model->allInstances = $map['AllInstances'];
         }
-
         if (isset($map['InstanceIds'])) {
             if (!empty($map['InstanceIds'])) {
-                $model->instanceIds = [];
-                $n1 = 0;
-                foreach ($map['InstanceIds'] as $item1) {
-                    $model->instanceIds[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->instanceIds = $map['InstanceIds'];
             }
         }
-
         if (isset($map['Keys'])) {
             if (!empty($map['Keys'])) {
-                $model->keys = [];
-                $n1 = 0;
-                foreach ($map['Keys'] as $item1) {
-                    $model->keys[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->keys = $map['Keys'];
             }
         }
 

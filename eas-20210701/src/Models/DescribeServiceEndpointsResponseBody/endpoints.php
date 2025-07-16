@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Eas\V20210701\Models\DescribeServiceEndpointsResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class endpoints extends Model
 {
@@ -46,54 +46,26 @@ class endpoints extends Model
         'port' => 'Port',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->internetEndpoints)) {
-            Model::validateArray($this->internetEndpoints);
-        }
-        if (\is_array($this->intranetEndpoints)) {
-            Model::validateArray($this->intranetEndpoints);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->backendId) {
             $res['BackendId'] = $this->backendId;
         }
-
         if (null !== $this->endpointType) {
             $res['EndpointType'] = $this->endpointType;
         }
-
         if (null !== $this->internetEndpoints) {
-            if (\is_array($this->internetEndpoints)) {
-                $res['InternetEndpoints'] = [];
-                $n1 = 0;
-                foreach ($this->internetEndpoints as $item1) {
-                    $res['InternetEndpoints'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['InternetEndpoints'] = $this->internetEndpoints;
         }
-
         if (null !== $this->intranetEndpoints) {
-            if (\is_array($this->intranetEndpoints)) {
-                $res['IntranetEndpoints'] = [];
-                $n1 = 0;
-                foreach ($this->intranetEndpoints as $item1) {
-                    $res['IntranetEndpoints'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['IntranetEndpoints'] = $this->intranetEndpoints;
         }
-
         if (null !== $this->pathType) {
             $res['PathType'] = $this->pathType;
         }
-
         if (null !== $this->port) {
             $res['Port'] = $this->port;
         }
@@ -101,48 +73,33 @@ class endpoints extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return endpoints
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BackendId'])) {
             $model->backendId = $map['BackendId'];
         }
-
         if (isset($map['EndpointType'])) {
             $model->endpointType = $map['EndpointType'];
         }
-
         if (isset($map['InternetEndpoints'])) {
             if (!empty($map['InternetEndpoints'])) {
-                $model->internetEndpoints = [];
-                $n1 = 0;
-                foreach ($map['InternetEndpoints'] as $item1) {
-                    $model->internetEndpoints[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->internetEndpoints = $map['InternetEndpoints'];
             }
         }
-
         if (isset($map['IntranetEndpoints'])) {
             if (!empty($map['IntranetEndpoints'])) {
-                $model->intranetEndpoints = [];
-                $n1 = 0;
-                foreach ($map['IntranetEndpoints'] as $item1) {
-                    $model->intranetEndpoints[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->intranetEndpoints = $map['IntranetEndpoints'];
             }
         }
-
         if (isset($map['PathType'])) {
             $model->pathType = $map['PathType'];
         }
-
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
         }

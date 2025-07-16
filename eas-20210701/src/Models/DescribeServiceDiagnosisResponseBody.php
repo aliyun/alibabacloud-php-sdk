@@ -4,17 +4,23 @@
 
 namespace AlibabaCloud\SDK\Eas\V20210701\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeServiceDiagnosisResponseBody\diagnosisList;
+use AlibabaCloud\Tea\Model;
 
 class DescribeServiceDiagnosisResponseBody extends Model
 {
     /**
+     * @description The diagnostics list.
+     *
      * @var diagnosisList[]
      */
     public $diagnosisList;
 
     /**
+     * @description The request ID.
+     *
+     * @example 40325405-579C-4D82****
+     *
      * @var string
      */
     public $requestId;
@@ -23,28 +29,20 @@ class DescribeServiceDiagnosisResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->diagnosisList)) {
-            Model::validateArray($this->diagnosisList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->diagnosisList) {
-            if (\is_array($this->diagnosisList)) {
-                $res['DiagnosisList'] = [];
-                $n1 = 0;
-                foreach ($this->diagnosisList as $item1) {
-                    $res['DiagnosisList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['DiagnosisList'] = [];
+            if (null !== $this->diagnosisList && \is_array($this->diagnosisList)) {
+                $n = 0;
+                foreach ($this->diagnosisList as $item) {
+                    $res['DiagnosisList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,25 +50,23 @@ class DescribeServiceDiagnosisResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeServiceDiagnosisResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DiagnosisList'])) {
             if (!empty($map['DiagnosisList'])) {
                 $model->diagnosisList = [];
-                $n1 = 0;
-                foreach ($map['DiagnosisList'] as $item1) {
-                    $model->diagnosisList[$n1] = diagnosisList::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['DiagnosisList'] as $item) {
+                    $model->diagnosisList[$n++] = null !== $item ? diagnosisList::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

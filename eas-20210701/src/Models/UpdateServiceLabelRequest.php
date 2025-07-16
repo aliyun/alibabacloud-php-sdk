@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Eas\V20210701\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateServiceLabelRequest extends Model
 {
     /**
+     * @description The custom service tags.
+     *
+     * This parameter is required.
+     *
      * @var string[]
      */
     public $labels;
@@ -16,44 +20,28 @@ class UpdateServiceLabelRequest extends Model
         'labels' => 'Labels',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->labels)) {
-            Model::validateArray($this->labels);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->labels) {
-            if (\is_array($this->labels)) {
-                $res['Labels'] = [];
-                foreach ($this->labels as $key1 => $value1) {
-                    $res['Labels'][$key1] = $value1;
-                }
-            }
+            $res['Labels'] = $this->labels;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateServiceLabelRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Labels'])) {
-            if (!empty($map['Labels'])) {
-                $model->labels = [];
-                foreach ($map['Labels'] as $key1 => $value1) {
-                    $model->labels[$key1] = $value1;
-                }
-            }
+            $model->labels = $map['Labels'];
         }
 
         return $model;

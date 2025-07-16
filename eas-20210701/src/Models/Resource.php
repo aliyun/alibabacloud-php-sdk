@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Eas\V20210701\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class Resource extends Model
 {
@@ -100,78 +100,53 @@ class Resource extends Model
         'vendor' => 'Vendor',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->extraData)) {
-            Model::validateArray($this->extraData);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
-
         if (null !== $this->cpuCount) {
             $res['CpuCount'] = $this->cpuCount;
         }
-
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-
         if (null !== $this->extraData) {
-            if (\is_array($this->extraData)) {
-                $res['ExtraData'] = [];
-                foreach ($this->extraData as $key1 => $value1) {
-                    $res['ExtraData'][$key1] = $value1;
-                }
-            }
+            $res['ExtraData'] = $this->extraData;
         }
-
         if (null !== $this->gpuCount) {
             $res['GpuCount'] = $this->gpuCount;
         }
-
         if (null !== $this->instanceCount) {
             $res['InstanceCount'] = $this->instanceCount;
         }
-
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
-
         if (null !== $this->postPaidInstanceCount) {
             $res['PostPaidInstanceCount'] = $this->postPaidInstanceCount;
         }
-
         if (null !== $this->prePaidInstanceCount) {
             $res['PrePaidInstanceCount'] = $this->prePaidInstanceCount;
         }
-
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
         }
-
         if (null !== $this->resourceName) {
             $res['ResourceName'] = $this->resourceName;
         }
-
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
-
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-
         if (null !== $this->updateTime) {
             $res['UpdateTime'] = $this->updateTime;
         }
-
         if (null !== $this->vendor) {
             $res['Vendor'] = $this->vendor;
         }
@@ -179,75 +154,56 @@ class Resource extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return resource
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
-
         if (isset($map['CpuCount'])) {
             $model->cpuCount = $map['CpuCount'];
         }
-
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
-
         if (isset($map['ExtraData'])) {
-            if (!empty($map['ExtraData'])) {
-                $model->extraData = [];
-                foreach ($map['ExtraData'] as $key1 => $value1) {
-                    $model->extraData[$key1] = $value1;
-                }
-            }
+            $model->extraData = $map['ExtraData'];
         }
-
         if (isset($map['GpuCount'])) {
             $model->gpuCount = $map['GpuCount'];
         }
-
         if (isset($map['InstanceCount'])) {
             $model->instanceCount = $map['InstanceCount'];
         }
-
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
-
         if (isset($map['PostPaidInstanceCount'])) {
             $model->postPaidInstanceCount = $map['PostPaidInstanceCount'];
         }
-
         if (isset($map['PrePaidInstanceCount'])) {
             $model->prePaidInstanceCount = $map['PrePaidInstanceCount'];
         }
-
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
         }
-
         if (isset($map['ResourceName'])) {
             $model->resourceName = $map['ResourceName'];
         }
-
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }
-
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];
         }
-
         if (isset($map['Vendor'])) {
             $model->vendor = $map['Vendor'];
         }

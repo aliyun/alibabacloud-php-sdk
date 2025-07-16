@@ -4,26 +4,42 @@
 
 namespace AlibabaCloud\SDK\Eas\V20210701\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateBenchmarkTaskResponseBody extends Model
 {
     /**
+     * @description The returned message.
+     *
+     * @example Benchmark  task [foo] is Creating
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the region where the stress testing task is performed.
+     *
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @description The request ID.
+     *
+     * @example 40325405-579C-4D82********
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The name of the stress testing task.
+     *
+     * @example benchmark-larec-test-1076
+     *
      * @var string
      */
     public $taskName;
@@ -34,26 +50,20 @@ class CreateBenchmarkTaskResponseBody extends Model
         'taskName' => 'TaskName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
-
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->taskName) {
             $res['TaskName'] = $this->taskName;
         }
@@ -61,26 +71,23 @@ class CreateBenchmarkTaskResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateBenchmarkTaskResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
-
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['TaskName'])) {
             $model->taskName = $map['TaskName'];
         }

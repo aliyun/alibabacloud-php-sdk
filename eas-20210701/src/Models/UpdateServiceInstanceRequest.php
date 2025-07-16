@@ -4,11 +4,18 @@
 
 namespace AlibabaCloud\SDK\Eas\V20210701\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateServiceInstanceRequest extends Model
 {
     /**
+     * @description Specifies whether to isolate the service instance. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isolate;
@@ -16,12 +23,9 @@ class UpdateServiceInstanceRequest extends Model
         'isolate' => 'Isolate',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->isolate) {
@@ -31,11 +35,11 @@ class UpdateServiceInstanceRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateServiceInstanceRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

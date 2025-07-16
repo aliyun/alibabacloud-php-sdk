@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Eas\V20210701\Models\UpdateServiceAutoScalerRequest\behavior;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class scaleUp extends Model
 {
     /**
+     * @description The time window that is required before the scale-out operation is performed. Default value: 0. The scale-out operation can be performed only if the specified metric exceeds the specified threshold in the specified time window.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $stabilizationWindowSeconds;
@@ -16,12 +20,9 @@ class scaleUp extends Model
         'stabilizationWindowSeconds' => 'stabilizationWindowSeconds',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->stabilizationWindowSeconds) {
@@ -31,11 +32,11 @@ class scaleUp extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return scaleUp
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

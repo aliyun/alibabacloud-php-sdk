@@ -4,47 +4,77 @@
 
 namespace AlibabaCloud\SDK\Eas\V20210701\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeVirtualResourceResponseBody\resources;
+use AlibabaCloud\Tea\Model;
 
 class DescribeVirtualResourceResponseBody extends Model
 {
     /**
+     * @description The time when the virtual resource group was created.
+     *
+     * @example 2024-10-16T17:52:49Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description Indicates whether the retention period of preemptible instances was disabled.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $disableSpotProtectionPeriod;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 40325405-579C-4D82****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The list of resources in the virtual resource group.
+     *
      * @var resources[]
      */
     public $resources;
 
     /**
+     * @description The number of deployed services.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $serviceCount;
 
     /**
+     * @description The time when the virtual resource group was last updated.
+     *
+     * @example 2024-10-16T19:52:49Z
+     *
      * @var string
      */
     public $updateTime;
 
     /**
+     * @description The ID of the virtual resource group.
+     *
+     * @example eas-vr-npovr28onap1xxxxxx
+     *
      * @var string
      */
     public $virtualResourceId;
 
     /**
+     * @description The name of the virtual resource group.
+     *
+     * @example MyVirtualResource
+     *
      * @var string
      */
     public $virtualResourceName;
@@ -59,52 +89,38 @@ class DescribeVirtualResourceResponseBody extends Model
         'virtualResourceName' => 'VirtualResourceName',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->resources)) {
-            Model::validateArray($this->resources);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-
         if (null !== $this->disableSpotProtectionPeriod) {
             $res['DisableSpotProtectionPeriod'] = $this->disableSpotProtectionPeriod;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->resources) {
-            if (\is_array($this->resources)) {
-                $res['Resources'] = [];
-                $n1 = 0;
-                foreach ($this->resources as $item1) {
-                    $res['Resources'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Resources'] = [];
+            if (null !== $this->resources && \is_array($this->resources)) {
+                $n = 0;
+                foreach ($this->resources as $item) {
+                    $res['Resources'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->serviceCount) {
             $res['ServiceCount'] = $this->serviceCount;
         }
-
         if (null !== $this->updateTime) {
             $res['UpdateTime'] = $this->updateTime;
         }
-
         if (null !== $this->virtualResourceId) {
             $res['VirtualResourceId'] = $this->virtualResourceId;
         }
-
         if (null !== $this->virtualResourceName) {
             $res['VirtualResourceName'] = $this->virtualResourceName;
         }
@@ -112,49 +128,41 @@ class DescribeVirtualResourceResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeVirtualResourceResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
-
         if (isset($map['DisableSpotProtectionPeriod'])) {
             $model->disableSpotProtectionPeriod = $map['DisableSpotProtectionPeriod'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['Resources'])) {
             if (!empty($map['Resources'])) {
                 $model->resources = [];
-                $n1 = 0;
-                foreach ($map['Resources'] as $item1) {
-                    $model->resources[$n1] = resources::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Resources'] as $item) {
+                    $model->resources[$n++] = null !== $item ? resources::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['ServiceCount'])) {
             $model->serviceCount = $map['ServiceCount'];
         }
-
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];
         }
-
         if (isset($map['VirtualResourceId'])) {
             $model->virtualResourceId = $map['VirtualResourceId'];
         }
-
         if (isset($map['VirtualResourceName'])) {
             $model->virtualResourceName = $map['VirtualResourceName'];
         }

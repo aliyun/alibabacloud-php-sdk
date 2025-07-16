@@ -4,16 +4,22 @@
 
 namespace AlibabaCloud\SDK\Eas\V20210701\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteAclPolicyShrinkRequest extends Model
 {
     /**
+     * @description The whitelisted IP CIDR blocks in the VPC that can access the private gateway.
+     *
      * @var string
      */
     public $aclPolicyListShrink;
 
     /**
+     * @description The ID of the virtual private cloud (VPC). For more information about how to obtain the VPC ID, see DescribeVpcs.
+     *
+     * @example vpc-uf66uio7md****
+     *
      * @var string
      */
     public $vpcId;
@@ -22,18 +28,14 @@ class DeleteAclPolicyShrinkRequest extends Model
         'vpcId' => 'VpcId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->aclPolicyListShrink) {
             $res['AclPolicyList'] = $this->aclPolicyListShrink;
         }
-
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
@@ -41,18 +43,17 @@ class DeleteAclPolicyShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteAclPolicyShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AclPolicyList'])) {
             $model->aclPolicyListShrink = $map['AclPolicyList'];
         }
-
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }

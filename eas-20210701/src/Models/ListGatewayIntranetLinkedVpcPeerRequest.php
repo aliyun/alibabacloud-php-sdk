@@ -4,11 +4,18 @@
 
 namespace AlibabaCloud\SDK\Eas\V20210701\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListGatewayIntranetLinkedVpcPeerRequest extends Model
 {
     /**
+     * @description The ID of the associated VPC. To obtain the VPC ID, see [ListGatewayIntranetLinkedVpc](https://help.aliyun.com/document_detail/2621223.html).
+     *
+     *   If you specify a VPC ID, only VPC peers corresponding to the ID are queried.
+     *   Otherwise, all VPC peers are queried.
+     *
+     * @example vpc-2zetuli9ws0qgjd******
+     *
      * @var string
      */
     public $vpcId;
@@ -16,12 +23,9 @@ class ListGatewayIntranetLinkedVpcPeerRequest extends Model
         'vpcId' => 'VpcId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->vpcId) {
@@ -31,11 +35,11 @@ class ListGatewayIntranetLinkedVpcPeerRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListGatewayIntranetLinkedVpcPeerRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -1,3 +1,6 @@
+2025-07-16 Version: 7.1.2
+- Generated php 2021-07-01 for eas.
+
 2025-06-13 Version: 7.1.1
 - Update API DescribeGateway: add response parameters Body.ChargeType.
 - Update API ListGatewayDomains: add response parameters Body.CustomDomains.$.CertificateEndDate.

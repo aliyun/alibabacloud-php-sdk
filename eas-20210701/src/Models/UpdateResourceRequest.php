@@ -4,17 +4,23 @@
 
 namespace AlibabaCloud\SDK\Eas\V20210701\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateResourceRequest\selfManagedResourceOptions;
+use AlibabaCloud\Tea\Model;
 
 class UpdateResourceRequest extends Model
 {
     /**
+     * @description The new name of the resource group after the update. The name can be up to 27 characters in length.
+     *
+     * @example iot
+     *
      * @var string
      */
     public $resourceName;
 
     /**
+     * @description The configuration items of the self-managed resource group.
+     *
      * @var selfManagedResourceOptions
      */
     public $selfManagedResourceOptions;
@@ -23,40 +29,32 @@ class UpdateResourceRequest extends Model
         'selfManagedResourceOptions' => 'SelfManagedResourceOptions',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->selfManagedResourceOptions) {
-            $this->selfManagedResourceOptions->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->resourceName) {
             $res['ResourceName'] = $this->resourceName;
         }
-
         if (null !== $this->selfManagedResourceOptions) {
-            $res['SelfManagedResourceOptions'] = null !== $this->selfManagedResourceOptions ? $this->selfManagedResourceOptions->toArray($noStream) : $this->selfManagedResourceOptions;
+            $res['SelfManagedResourceOptions'] = null !== $this->selfManagedResourceOptions ? $this->selfManagedResourceOptions->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateResourceRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ResourceName'])) {
             $model->resourceName = $map['ResourceName'];
         }
-
         if (isset($map['SelfManagedResourceOptions'])) {
             $model->selfManagedResourceOptions = selfManagedResourceOptions::fromMap($map['SelfManagedResourceOptions']);
         }

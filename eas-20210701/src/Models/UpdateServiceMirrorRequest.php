@@ -4,16 +4,22 @@
 
 namespace AlibabaCloud\SDK\Eas\V20210701\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateServiceMirrorRequest extends Model
 {
     /**
+     * @description The percentage of traffic that you want to mirror. Valid values: 0 to 100.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $ratio;
 
     /**
+     * @description The service instances.
+     *
      * @var string[]
      */
     public $target;
@@ -22,55 +28,35 @@ class UpdateServiceMirrorRequest extends Model
         'target' => 'Target',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->target)) {
-            Model::validateArray($this->target);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->ratio) {
             $res['Ratio'] = $this->ratio;
         }
-
         if (null !== $this->target) {
-            if (\is_array($this->target)) {
-                $res['Target'] = [];
-                $n1 = 0;
-                foreach ($this->target as $item1) {
-                    $res['Target'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['Target'] = $this->target;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateServiceMirrorRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Ratio'])) {
             $model->ratio = $map['Ratio'];
         }
-
         if (isset($map['Target'])) {
             if (!empty($map['Target'])) {
-                $model->target = [];
-                $n1 = 0;
-                foreach ($map['Target'] as $item1) {
-                    $model->target[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->target = $map['Target'];
             }
         }
 

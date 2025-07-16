@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Eas\V20210701\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DetachGatewayDomainShrinkRequest extends Model
 {
     /**
+     * @description The custom domain name information.
+     *
+     * This parameter is required.
+     *
      * @var string
      */
     public $customDomainShrink;
@@ -16,12 +20,9 @@ class DetachGatewayDomainShrinkRequest extends Model
         'customDomainShrink' => 'CustomDomain',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->customDomainShrink) {
@@ -31,11 +32,11 @@ class DetachGatewayDomainShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DetachGatewayDomainShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,16 +4,27 @@
 
 namespace AlibabaCloud\SDK\Eas\V20210701\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ReleaseServiceRequest extends Model
 {
     /**
+     * @description The traffic state. Valid values:
+     *
+     *   standalone: independent traffic.
+     *   grouping: grouped traffic.
+     *
+     * @example grouping
+     *
      * @var string
      */
     public $trafficState;
 
     /**
+     * @description The weight of the service. Valid values: [-1, 1000].
+     *
+     * @example 100
+     *
      * @var int
      */
     public $weight;
@@ -22,18 +33,14 @@ class ReleaseServiceRequest extends Model
         'weight' => 'Weight',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->trafficState) {
             $res['TrafficState'] = $this->trafficState;
         }
-
         if (null !== $this->weight) {
             $res['Weight'] = $this->weight;
         }
@@ -41,18 +48,17 @@ class ReleaseServiceRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ReleaseServiceRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TrafficState'])) {
             $model->trafficState = $map['TrafficState'];
         }
-
         if (isset($map['Weight'])) {
             $model->weight = $map['Weight'];
         }

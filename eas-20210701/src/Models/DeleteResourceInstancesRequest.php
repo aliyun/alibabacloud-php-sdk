@@ -4,16 +4,27 @@
 
 namespace AlibabaCloud\SDK\Eas\V20210701\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteResourceInstancesRequest extends Model
 {
     /**
+     * @description Specifies whether to delete all the instances that fail to be created. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example true
+     *
      * @var bool
      */
     public $allFailed;
 
     /**
+     * @description The instances. Separate multiple instances with commas (,), such as `instanceId1,instanceId2`. For more information about how to query the instances, see [ListResourceInstances](https://help.aliyun.com/document_detail/412129.html).
+     *
+     * @example eas-i-xxxxxxx,eas-i-xxxxxxx
+     *
      * @var string
      */
     public $instanceList;
@@ -22,18 +33,14 @@ class DeleteResourceInstancesRequest extends Model
         'instanceList' => 'InstanceList',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->allFailed) {
             $res['AllFailed'] = $this->allFailed;
         }
-
         if (null !== $this->instanceList) {
             $res['InstanceList'] = $this->instanceList;
         }
@@ -41,18 +48,17 @@ class DeleteResourceInstancesRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteResourceInstancesRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AllFailed'])) {
             $model->allFailed = $map['AllFailed'];
         }
-
         if (isset($map['InstanceList'])) {
             $model->instanceList = $map['InstanceList'];
         }

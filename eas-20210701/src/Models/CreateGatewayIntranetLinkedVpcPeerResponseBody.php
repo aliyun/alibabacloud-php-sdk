@@ -4,21 +4,33 @@
 
 namespace AlibabaCloud\SDK\Eas\V20210701\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateGatewayIntranetLinkedVpcPeerResponseBody extends Model
 {
     /**
+     * @description The ID of the private gateway.
+     *
+     * @example gw-1uhcqmsc7x22******
+     *
      * @var string
      */
     public $gatewayId;
 
     /**
+     * @description The message that is returned.
+     *
+     * @example Successfully add intranet linked vpc Peer for gateway
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 40325405-579C-4D82****
+     *
      * @var string
      */
     public $requestId;
@@ -28,22 +40,17 @@ class CreateGatewayIntranetLinkedVpcPeerResponseBody extends Model
         'requestId' => 'requestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->gatewayId) {
             $res['GatewayId'] = $this->gatewayId;
         }
-
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
-
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -51,22 +58,20 @@ class CreateGatewayIntranetLinkedVpcPeerResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateGatewayIntranetLinkedVpcPeerResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GatewayId'])) {
             $model->gatewayId = $map['GatewayId'];
         }
-
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
-
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
