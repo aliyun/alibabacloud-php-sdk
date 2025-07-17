@@ -4,16 +4,26 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListWorkFlowNodesRequest extends Model
 {
     /**
+     * @description The name that is used to search for approval nodes.
+     *
+     * @example admin
+     *
      * @var string
      */
     public $searchName;
 
     /**
+     * @description The ID of the tenant.
+     *
+     * > : To view the ID of the tenant, log on to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see [Manage DMS tenants](https://help.aliyun.com/document_detail/181330.html).
+     *
+     * @example -1
+     *
      * @var int
      */
     public $tid;
@@ -22,18 +32,14 @@ class ListWorkFlowNodesRequest extends Model
         'tid' => 'Tid',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->searchName) {
             $res['SearchName'] = $this->searchName;
         }
-
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
         }
@@ -41,18 +47,17 @@ class ListWorkFlowNodesRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListWorkFlowNodesRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SearchName'])) {
             $model->searchName = $map['SearchName'];
         }
-
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];
         }

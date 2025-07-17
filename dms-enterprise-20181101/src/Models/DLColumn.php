@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DLColumn extends Model
 {
@@ -28,22 +28,17 @@ class DLColumn extends Model
         'type' => 'Type',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->comment) {
             $res['Comment'] = $this->comment;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -51,22 +46,20 @@ class DLColumn extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DLColumn
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Comment'])) {
             $model->comment = $map['Comment'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

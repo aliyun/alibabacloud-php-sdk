@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListTableColumnsResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListTableColumnsResponseBody\columnList\column;
+use AlibabaCloud\Tea\Model;
 
 class columnList extends Model
 {
@@ -17,24 +17,17 @@ class columnList extends Model
         'column' => 'Column',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->column)) {
-            Model::validateArray($this->column);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->column) {
-            if (\is_array($this->column)) {
-                $res['Column'] = [];
-                $n1 = 0;
-                foreach ($this->column as $item1) {
-                    $res['Column'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Column'] = [];
+            if (null !== $this->column && \is_array($this->column)) {
+                $n = 0;
+                foreach ($this->column as $item) {
+                    $res['Column'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -42,21 +35,20 @@ class columnList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return columnList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Column'])) {
             if (!empty($map['Column'])) {
                 $model->column = [];
-                $n1 = 0;
-                foreach ($map['Column'] as $item1) {
-                    $model->column[$n1] = column::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Column'] as $item) {
+                    $model->column[$n++] = null !== $item ? column::fromMap($item) : $item;
                 }
             }
         }

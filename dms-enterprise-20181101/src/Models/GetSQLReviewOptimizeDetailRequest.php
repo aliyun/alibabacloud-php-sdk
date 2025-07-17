@@ -4,16 +4,26 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetSQLReviewOptimizeDetailRequest extends Model
 {
     /**
+     * @description The key that is used to query the details of optimization suggestions. You can call the [ListSQLReviewOriginSQL](https://help.aliyun.com/document_detail/257870.html) operation to query the key.
+     *
+     * This parameter is required.
+     *
+     * @example a57e54ec5433475ea3082d882fdb****
+     *
      * @var string
      */
     public $SQLReviewQueryKey;
 
     /**
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) or [ListUserTenants](https://help.aliyun.com/document_detail/198074.html) operation to query the ID of the tenant.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $tid;
@@ -22,18 +32,14 @@ class GetSQLReviewOptimizeDetailRequest extends Model
         'tid' => 'Tid',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->SQLReviewQueryKey) {
             $res['SQLReviewQueryKey'] = $this->SQLReviewQueryKey;
         }
-
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
         }
@@ -41,18 +47,17 @@ class GetSQLReviewOptimizeDetailRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetSQLReviewOptimizeDetailRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SQLReviewQueryKey'])) {
             $model->SQLReviewQueryKey = $map['SQLReviewQueryKey'];
         }
-
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];
         }

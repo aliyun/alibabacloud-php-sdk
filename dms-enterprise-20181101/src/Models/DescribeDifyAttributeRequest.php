@@ -4,26 +4,34 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeDifyAttributeRequest extends Model
 {
     /**
+     * @example 92748163-af62-4ca4-ad85-1****
+     *
      * @var string
      */
     public $appUuid;
 
     /**
+     * @example ETnLKlblzczshOTUbOCzxxxx
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $dataRegion;
 
     /**
+     * @example 339170706****
+     *
      * @var string
      */
     public $workspaceId;
@@ -34,26 +42,20 @@ class DescribeDifyAttributeRequest extends Model
         'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appUuid) {
             $res['AppUuid'] = $this->appUuid;
         }
-
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
-
         if (null !== $this->dataRegion) {
             $res['DataRegion'] = $this->dataRegion;
         }
-
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -61,26 +63,23 @@ class DescribeDifyAttributeRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeDifyAttributeRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppUuid'])) {
             $model->appUuid = $map['AppUuid'];
         }
-
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
-
         if (isset($map['DataRegion'])) {
             $model->dataRegion = $map['DataRegion'];
         }
-
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

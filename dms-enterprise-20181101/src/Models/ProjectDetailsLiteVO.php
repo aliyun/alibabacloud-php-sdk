@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ProjectDetailsLiteVO extends Model
 {
@@ -22,18 +22,14 @@ class ProjectDetailsLiteVO extends Model
         'projectName' => 'ProjectName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
         }
@@ -41,18 +37,17 @@ class ProjectDetailsLiteVO extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ProjectDetailsLiteVO
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
         }

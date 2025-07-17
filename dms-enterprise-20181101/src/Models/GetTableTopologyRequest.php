@@ -4,16 +4,32 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetTableTopologyRequest extends Model
 {
     /**
+     * @description The GUID of the table in Data Management (DMS).
+     *
+     * >
+     * > - You can call the [ListLogicTables](https://help.aliyun.com/document_detail/141875.html) operation with ReturnGuid set to true to query the GUIDs of logical tables in a specific logical database.
+     * > - You can call the [ListTables](https://help.aliyun.com/document_detail/141878.html) operation with ReturnGuid set to true to query the GUIDs of tables in a specific physical database.
+     *
+     * This parameter is required.
+     *
+     * @example IDB_L_308302.yuyang_test.test_ch
+     *
      * @var string
      */
     public $tableGuid;
 
     /**
+     * @description The ID of the tenant.
+     *
+     * > To view the ID of the tenant, move the pointer over the profile picture in the upper-right corner of the DMS console. For more information, see the "View information about the current tenant" section of the [Tenant information](https://help.aliyun.com/document_detail/181330.html) topic.
+     *
+     * @example 3***
+     *
      * @var int
      */
     public $tid;
@@ -22,18 +38,14 @@ class GetTableTopologyRequest extends Model
         'tid' => 'Tid',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->tableGuid) {
             $res['TableGuid'] = $this->tableGuid;
         }
-
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
         }
@@ -41,18 +53,17 @@ class GetTableTopologyRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetTableTopologyRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TableGuid'])) {
             $model->tableGuid = $map['TableGuid'];
         }
-
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];
         }

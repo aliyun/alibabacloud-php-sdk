@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DLSerdeInfo extends Model
 {
@@ -52,46 +52,29 @@ class DLSerdeInfo extends Model
         'serializerClass' => 'SerializerClass',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->parameters)) {
-            Model::validateArray($this->parameters);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-
         if (null !== $this->deserializerClass) {
             $res['DeserializerClass'] = $this->deserializerClass;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->parameters) {
-            if (\is_array($this->parameters)) {
-                $res['Parameters'] = [];
-                foreach ($this->parameters as $key1 => $value1) {
-                    $res['Parameters'][$key1] = $value1;
-                }
-            }
+            $res['Parameters'] = $this->parameters;
         }
-
         if (null !== $this->serdeType) {
             $res['SerdeType'] = $this->serdeType;
         }
-
         if (null !== $this->serializationLib) {
             $res['SerializationLib'] = $this->serializationLib;
         }
-
         if (null !== $this->serializerClass) {
             $res['SerializerClass'] = $this->serializerClass;
         }
@@ -99,43 +82,32 @@ class DLSerdeInfo extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DLSerdeInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-
         if (isset($map['DeserializerClass'])) {
             $model->deserializerClass = $map['DeserializerClass'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['Parameters'])) {
-            if (!empty($map['Parameters'])) {
-                $model->parameters = [];
-                foreach ($map['Parameters'] as $key1 => $value1) {
-                    $model->parameters[$key1] = $value1;
-                }
-            }
+            $model->parameters = $map['Parameters'];
         }
-
         if (isset($map['SerdeType'])) {
             $model->serdeType = $map['SerdeType'];
         }
-
         if (isset($map['SerializationLib'])) {
             $model->serializationLib = $map['SerializationLib'];
         }
-
         if (isset($map['SerializerClass'])) {
             $model->serializerClass = $map['SerializerClass'];
         }

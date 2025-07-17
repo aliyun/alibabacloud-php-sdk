@@ -4,16 +4,27 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\AnalyzeSQLLineageResponseBody\lineageResult\lineages;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class processDetail extends Model
 {
     /**
+     * @description The calculating method. Valid values:
+     *
+     *   **DIRECT**: No function or expression is used.
+     *   **EXPR**: A function or expression is used.
+     *
+     * @example DIRECT
+     *
      * @var string
      */
     public $calWay;
 
     /**
+     * @description The SQL code snippet for field processing.
+     *
+     * @example dmstest.b.id
+     *
      * @var string
      */
     public $code;
@@ -22,18 +33,14 @@ class processDetail extends Model
         'code' => 'Code',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->calWay) {
             $res['CalWay'] = $this->calWay;
         }
-
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
@@ -41,18 +48,17 @@ class processDetail extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return processDetail
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CalWay'])) {
             $model->calWay = $map['CalWay'];
         }
-
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }

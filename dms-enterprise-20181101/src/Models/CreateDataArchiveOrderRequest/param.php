@@ -4,73 +4,150 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataArchiveOrderRequest;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataArchiveOrderRequest\param\tableIncludes;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataArchiveOrderRequest\param\variables;
+use AlibabaCloud\Tea\Model;
 
 class param extends Model
 {
     /**
+     * @description The archiving destination to which you want to archive data. Valid values:
+     *
+     * >  If you set ArchiveMethod to a value other than inner_oss, you must register the corresponding destination database with Data Management (DMS) before you create the data archiving ticket. After the database is registered with DMS, the database is displayed in the Instances Connected section of the DMS console.
+     *
+     *   **inner_oss**: dedicated storage, which is a built-in Object Storage Service (OSS) bucket.
+     *   **oss_userself**: OSS bucket of the user.
+     *   **mysql**: ApsaraDB RDS for MySQL instance.
+     *   **polardb**: PolarDB for MySQL cluster.
+     *   **adb_mysql**: AnalyticDB for MySQL V3.0 cluster.
+     *   **lindorm**: Lindorm instance.
+     *
+     * This parameter is required.
+     *
+     * @example mysql
+     *
      * @var string
      */
     public $archiveMethod;
 
     /**
+     * @description A crontab expression that specifies the scheduling cycle of the data archiving task. For more information, see the [Crontab expressions](https://help.aliyun.com/document_detail/206581.html) section of the "Create shadow tables for synchronization" topic. You must specify this parameter if you set RunMethod to schedule.
+     *
+     * @example 00 05 11 * * ?
+     *
      * @var string
      */
     public $cronStr;
 
     /**
+     * @description The database ID. If the database is a self-managed database or a third-party cloud database, you can call the [GetDatabase](https://help.aliyun.com/document_detail/465856.html) operation to query the database ID. If the database is an Alibaba Cloud database, ignore this parameter.
+     *
+     * @example 1***
+     *
      * @var string
      */
     public $databaseId;
 
     /**
+     * @description Specifies whether the database is a logical database.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $logic;
 
     /**
+     * @description The post behaviors.
+     *
      * @var string[]
      */
     public $orderAfter;
 
     /**
+     * @description The method that is used to run the data archiving task. Valid values:
+     *
+     *   **schedule**: The data archiving task is periodically scheduled.
+     *   **now**: The data archiving task is immediately run.
+     *
+     * This parameter is required.
+     *
+     * @example now
+     *
      * @var string
      */
     public $runMethod;
 
     /**
+     * @description The catalog of the source database. Valid values:
+     *
+     *   **def**: Set this parameter to def if the source database is of the two-layer logical schema, such as a MySQL database, a PolarDB for MySQL cluster, or an AnalyticDB for MySQL instance.
+     *   **Empty string**: Set this parameter to an empty string if the source database is a Lindorm or ApsaraDB for MongoDB instance.
+     *   **Catalog name**: Set this parameter to the catalog name of the source database if the source database is of the three-layer logical schema, such as a PostgreSQL database.
+     *
+     * This parameter is required.
+     *
+     * @example def
+     *
      * @var string
      */
     public $sourceCatalogName;
 
     /**
+     * @description The name of the source instance. If the database instance is a self-managed database or a third-party cloud database, you can call the [GetInstance](https://help.aliyun.com/document_detail/465826.html) operation to query the instance ID.
+     *
+     * This parameter is required.
+     *
+     * @example pc-bp1*******
+     *
      * @var string
      */
     public $sourceInstanceName;
 
     /**
+     * @description The schema name of the source database. The schema name of the source database is the same as that of the destination database. If the source database is a MySQL database, this parameter specifies the name of the source database. If the source database is a PostgreSQL database, this parameter specifies the schema name of the source database.
+     *
+     * This parameter is required.
+     *
+     * @example schema_test
+     *
      * @var string
      */
     public $sourceSchemaName;
 
     /**
+     * @description The collection of tables to be archived.
+     *
+     * This parameter is required.
+     *
      * @var tableIncludes[]
      */
     public $tableIncludes;
 
     /**
+     * @description The table names mapped to the destination database. This parameter is not required and the default value is used.
+     *
      * @var string[]
      */
     public $tableMapping;
 
     /**
+     * @description The host of the destination instance. If the destination instance can be accessed over an internal network or the Internet, preferentially set the value to the internal endpoint of the destination instance.
+     *
+     *   If data is archived in an OSS bucket, set the value to the name of the bucket.
+     *   If data is archived in dedicated storage space, set the value to inner_oss.
+     *
+     * This parameter is required.
+     *
+     * @example am-bp1*********.ads.aliyuncs.com
+     *
      * @var string
      */
     public $targetInstanceHost;
 
     /**
+     * @description The configuration of archiving variables. You can use a time variable as a filter condition for archiving data. Each variable has two attributes: name and pattern.
+     *
      * @var variables[]
      */
     public $variables;
@@ -90,102 +167,59 @@ class param extends Model
         'variables' => 'Variables',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->orderAfter)) {
-            Model::validateArray($this->orderAfter);
-        }
-        if (\is_array($this->tableIncludes)) {
-            Model::validateArray($this->tableIncludes);
-        }
-        if (\is_array($this->tableMapping)) {
-            Model::validateArray($this->tableMapping);
-        }
-        if (\is_array($this->variables)) {
-            Model::validateArray($this->variables);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->archiveMethod) {
             $res['ArchiveMethod'] = $this->archiveMethod;
         }
-
         if (null !== $this->cronStr) {
             $res['CronStr'] = $this->cronStr;
         }
-
         if (null !== $this->databaseId) {
             $res['DatabaseId'] = $this->databaseId;
         }
-
         if (null !== $this->logic) {
             $res['Logic'] = $this->logic;
         }
-
         if (null !== $this->orderAfter) {
-            if (\is_array($this->orderAfter)) {
-                $res['OrderAfter'] = [];
-                $n1 = 0;
-                foreach ($this->orderAfter as $item1) {
-                    $res['OrderAfter'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['OrderAfter'] = $this->orderAfter;
         }
-
         if (null !== $this->runMethod) {
             $res['RunMethod'] = $this->runMethod;
         }
-
         if (null !== $this->sourceCatalogName) {
             $res['SourceCatalogName'] = $this->sourceCatalogName;
         }
-
         if (null !== $this->sourceInstanceName) {
             $res['SourceInstanceName'] = $this->sourceInstanceName;
         }
-
         if (null !== $this->sourceSchemaName) {
             $res['SourceSchemaName'] = $this->sourceSchemaName;
         }
-
         if (null !== $this->tableIncludes) {
-            if (\is_array($this->tableIncludes)) {
-                $res['TableIncludes'] = [];
-                $n1 = 0;
-                foreach ($this->tableIncludes as $item1) {
-                    $res['TableIncludes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['TableIncludes'] = [];
+            if (null !== $this->tableIncludes && \is_array($this->tableIncludes)) {
+                $n = 0;
+                foreach ($this->tableIncludes as $item) {
+                    $res['TableIncludes'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->tableMapping) {
-            if (\is_array($this->tableMapping)) {
-                $res['TableMapping'] = [];
-                $n1 = 0;
-                foreach ($this->tableMapping as $item1) {
-                    $res['TableMapping'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['TableMapping'] = $this->tableMapping;
         }
-
         if (null !== $this->targetInstanceHost) {
             $res['TargetInstanceHost'] = $this->targetInstanceHost;
         }
-
         if (null !== $this->variables) {
-            if (\is_array($this->variables)) {
-                $res['Variables'] = [];
-                $n1 = 0;
-                foreach ($this->variables as $item1) {
-                    $res['Variables'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Variables'] = [];
+            if (null !== $this->variables && \is_array($this->variables)) {
+                $n = 0;
+                foreach ($this->variables as $item) {
+                    $res['Variables'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -193,90 +227,66 @@ class param extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return param
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ArchiveMethod'])) {
             $model->archiveMethod = $map['ArchiveMethod'];
         }
-
         if (isset($map['CronStr'])) {
             $model->cronStr = $map['CronStr'];
         }
-
         if (isset($map['DatabaseId'])) {
             $model->databaseId = $map['DatabaseId'];
         }
-
         if (isset($map['Logic'])) {
             $model->logic = $map['Logic'];
         }
-
         if (isset($map['OrderAfter'])) {
             if (!empty($map['OrderAfter'])) {
-                $model->orderAfter = [];
-                $n1 = 0;
-                foreach ($map['OrderAfter'] as $item1) {
-                    $model->orderAfter[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->orderAfter = $map['OrderAfter'];
             }
         }
-
         if (isset($map['RunMethod'])) {
             $model->runMethod = $map['RunMethod'];
         }
-
         if (isset($map['SourceCatalogName'])) {
             $model->sourceCatalogName = $map['SourceCatalogName'];
         }
-
         if (isset($map['SourceInstanceName'])) {
             $model->sourceInstanceName = $map['SourceInstanceName'];
         }
-
         if (isset($map['SourceSchemaName'])) {
             $model->sourceSchemaName = $map['SourceSchemaName'];
         }
-
         if (isset($map['TableIncludes'])) {
             if (!empty($map['TableIncludes'])) {
                 $model->tableIncludes = [];
-                $n1 = 0;
-                foreach ($map['TableIncludes'] as $item1) {
-                    $model->tableIncludes[$n1] = tableIncludes::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['TableIncludes'] as $item) {
+                    $model->tableIncludes[$n++] = null !== $item ? tableIncludes::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['TableMapping'])) {
             if (!empty($map['TableMapping'])) {
-                $model->tableMapping = [];
-                $n1 = 0;
-                foreach ($map['TableMapping'] as $item1) {
-                    $model->tableMapping[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->tableMapping = $map['TableMapping'];
             }
         }
-
         if (isset($map['TargetInstanceHost'])) {
             $model->targetInstanceHost = $map['TargetInstanceHost'];
         }
-
         if (isset($map['Variables'])) {
             if (!empty($map['Variables'])) {
                 $model->variables = [];
-                $n1 = 0;
-                foreach ($map['Variables'] as $item1) {
-                    $model->variables[$n1] = variables::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Variables'] as $item) {
+                    $model->variables[$n++] = null !== $item ? variables::fromMap($item) : $item;
                 }
             }
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataCorrectOrderDetailResponseBody\dataCorrectOrderDetail;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataCorrectOrderDetailResponseBody\dataCorrectOrderDetail\databaseList\database;
+use AlibabaCloud\Tea\Model;
 
 class databaseList extends Model
 {
@@ -17,24 +17,17 @@ class databaseList extends Model
         'database' => 'Database',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->database)) {
-            Model::validateArray($this->database);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->database) {
-            if (\is_array($this->database)) {
-                $res['Database'] = [];
-                $n1 = 0;
-                foreach ($this->database as $item1) {
-                    $res['Database'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Database'] = [];
+            if (null !== $this->database && \is_array($this->database)) {
+                $n = 0;
+                foreach ($this->database as $item) {
+                    $res['Database'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -42,21 +35,20 @@ class databaseList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return databaseList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Database'])) {
             if (!empty($map['Database'])) {
                 $model->database = [];
-                $n1 = 0;
-                foreach ($map['Database'] as $item1) {
-                    $model->database[$n1] = database::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Database'] as $item) {
+                    $model->database[$n++] = null !== $item ? database::fromMap($item) : $item;
                 }
             }
         }

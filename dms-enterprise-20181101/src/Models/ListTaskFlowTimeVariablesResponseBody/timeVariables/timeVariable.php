@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListTaskFlowTimeVariablesResponseBody\timeVariables;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class timeVariable extends Model
 {
     /**
+     * @description The name of the time variable.
+     *
+     * @example time_test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The format of the time variable.
+     *
+     * @example 2018-09-26|+7h
+     *
      * @var string
      */
     public $pattern;
@@ -22,18 +30,14 @@ class timeVariable extends Model
         'pattern' => 'Pattern',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->pattern) {
             $res['Pattern'] = $this->pattern;
         }
@@ -41,18 +45,17 @@ class timeVariable extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return timeVariable
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['Pattern'])) {
             $model->pattern = $map['Pattern'];
         }

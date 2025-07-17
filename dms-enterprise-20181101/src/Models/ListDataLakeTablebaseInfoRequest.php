@@ -4,41 +4,61 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListDataLakeTablebaseInfoRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example hive
+     *
      * @var string
      */
     public $catalogName;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $dataRegion;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example default
+     *
      * @var string
      */
     public $dbName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $page;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $rows;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $searchKey;
 
     /**
+     * @example 3***
+     *
      * @var int
      */
     public $tid;
@@ -58,42 +78,32 @@ class ListDataLakeTablebaseInfoRequest extends Model
         'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->catalogName) {
             $res['CatalogName'] = $this->catalogName;
         }
-
         if (null !== $this->dataRegion) {
             $res['DataRegion'] = $this->dataRegion;
         }
-
         if (null !== $this->dbName) {
             $res['DbName'] = $this->dbName;
         }
-
         if (null !== $this->page) {
             $res['Page'] = $this->page;
         }
-
         if (null !== $this->rows) {
             $res['Rows'] = $this->rows;
         }
-
         if (null !== $this->searchKey) {
             $res['SearchKey'] = $this->searchKey;
         }
-
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
         }
-
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -101,42 +111,35 @@ class ListDataLakeTablebaseInfoRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListDataLakeTablebaseInfoRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CatalogName'])) {
             $model->catalogName = $map['CatalogName'];
         }
-
         if (isset($map['DataRegion'])) {
             $model->dataRegion = $map['DataRegion'];
         }
-
         if (isset($map['DbName'])) {
             $model->dbName = $map['DbName'];
         }
-
         if (isset($map['Page'])) {
             $model->page = $map['Page'];
         }
-
         if (isset($map['Rows'])) {
             $model->rows = $map['Rows'];
         }
-
         if (isset($map['SearchKey'])) {
             $model->searchKey = $map['SearchKey'];
         }
-
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];
         }
-
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

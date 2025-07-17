@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetUserResponseBody\user;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class roleNameList extends Model
 {
@@ -16,47 +16,29 @@ class roleNameList extends Model
         'roleNames' => 'RoleNames',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->roleNames)) {
-            Model::validateArray($this->roleNames);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->roleNames) {
-            if (\is_array($this->roleNames)) {
-                $res['RoleNames'] = [];
-                $n1 = 0;
-                foreach ($this->roleNames as $item1) {
-                    $res['RoleNames'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['RoleNames'] = $this->roleNames;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return roleNameList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RoleNames'])) {
             if (!empty($map['RoleNames'])) {
-                $model->roleNames = [];
-                $n1 = 0;
-                foreach ($map['RoleNames'] as $item1) {
-                    $model->roleNames[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->roleNames = $map['RoleNames'];
             }
         }
 

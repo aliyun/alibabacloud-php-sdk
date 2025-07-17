@@ -4,16 +4,22 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteAuthorityTemplateRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 2592
+     *
      * @var int
      */
     public $templateId;
 
     /**
+     * @example 3***
+     *
      * @var int
      */
     public $tid;
@@ -22,18 +28,14 @@ class DeleteAuthorityTemplateRequest extends Model
         'tid' => 'Tid',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
-
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
         }
@@ -41,18 +43,17 @@ class DeleteAuthorityTemplateRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteAuthorityTemplateRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }
-
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];
         }

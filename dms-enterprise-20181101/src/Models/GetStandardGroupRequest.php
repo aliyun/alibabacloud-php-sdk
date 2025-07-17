@@ -4,16 +4,22 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetStandardGroupRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 242***
+     *
      * @var int
      */
     public $groupId;
 
     /**
+     * @example 23****
+     *
      * @var int
      */
     public $tid;
@@ -22,18 +28,14 @@ class GetStandardGroupRequest extends Model
         'tid' => 'Tid',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
-
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
         }
@@ -41,18 +43,17 @@ class GetStandardGroupRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetStandardGroupRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
-
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];
         }

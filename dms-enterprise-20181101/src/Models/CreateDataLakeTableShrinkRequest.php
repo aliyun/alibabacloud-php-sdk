@@ -4,31 +4,47 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateDataLakeTableShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example hive
+     *
      * @var string
      */
     public $catalogName;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $dataRegion;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example default
+     *
      * @var string
      */
     public $dbName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $tableInputShrink;
 
     /**
+     * @example 3***
+     *
      * @var int
      */
     public $tid;
@@ -46,34 +62,26 @@ class CreateDataLakeTableShrinkRequest extends Model
         'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->catalogName) {
             $res['CatalogName'] = $this->catalogName;
         }
-
         if (null !== $this->dataRegion) {
             $res['DataRegion'] = $this->dataRegion;
         }
-
         if (null !== $this->dbName) {
             $res['DbName'] = $this->dbName;
         }
-
         if (null !== $this->tableInputShrink) {
             $res['TableInput'] = $this->tableInputShrink;
         }
-
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
         }
-
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -81,34 +89,29 @@ class CreateDataLakeTableShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateDataLakeTableShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CatalogName'])) {
             $model->catalogName = $map['CatalogName'];
         }
-
         if (isset($map['DataRegion'])) {
             $model->dataRegion = $map['DataRegion'];
         }
-
         if (isset($map['DbName'])) {
             $model->dbName = $map['DbName'];
         }
-
         if (isset($map['TableInput'])) {
             $model->tableInputShrink = $map['TableInput'];
         }
-
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];
         }
-
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

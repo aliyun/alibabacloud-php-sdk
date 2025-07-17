@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class TryRunTaskFlowRequest extends Model
 {
     /**
+     * @example 11****
+     *
      * @var int
      */
     public $dagId;
@@ -16,12 +18,9 @@ class TryRunTaskFlowRequest extends Model
         'dagId' => 'DagId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dagId) {
@@ -31,11 +30,11 @@ class TryRunTaskFlowRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return TryRunTaskFlowRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

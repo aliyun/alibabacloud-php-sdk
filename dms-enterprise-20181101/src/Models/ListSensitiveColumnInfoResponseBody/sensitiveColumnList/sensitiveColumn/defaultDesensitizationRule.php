@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListSensitiveColumnInfoResponseBody\sensitiveColumnList\sensitiveColumn;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class defaultDesensitizationRule extends Model
 {
     /**
+     * @example 101**
+     *
      * @var int
      */
     public $ruleId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $ruleName;
@@ -22,18 +26,14 @@ class defaultDesensitizationRule extends Model
         'ruleName' => 'RuleName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->ruleId) {
             $res['RuleId'] = $this->ruleId;
         }
-
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
         }
@@ -41,18 +41,17 @@ class defaultDesensitizationRule extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return defaultDesensitizationRule
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RuleId'])) {
             $model->ruleId = $map['RuleId'];
         }
-
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];
         }

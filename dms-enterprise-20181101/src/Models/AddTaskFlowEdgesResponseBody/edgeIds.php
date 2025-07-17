@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\AddTaskFlowEdgesResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class edgeIds extends Model
 {
@@ -16,47 +16,29 @@ class edgeIds extends Model
         'edgeId' => 'EdgeId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->edgeId)) {
-            Model::validateArray($this->edgeId);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->edgeId) {
-            if (\is_array($this->edgeId)) {
-                $res['EdgeId'] = [];
-                $n1 = 0;
-                foreach ($this->edgeId as $item1) {
-                    $res['EdgeId'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['EdgeId'] = $this->edgeId;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return edgeIds
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EdgeId'])) {
             if (!empty($map['EdgeId'])) {
-                $model->edgeId = [];
-                $n1 = 0;
-                foreach ($map['EdgeId'] as $item1) {
-                    $model->edgeId[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->edgeId = $map['EdgeId'];
             }
         }
 

@@ -4,31 +4,49 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateStructSyncOrderResponseBody extends Model
 {
     /**
+     * @description The result of creating the ticket.
+     *
      * @var int[]
      */
     public $createOrderResult;
 
     /**
+     * @description The error code.
+     *
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The error message.
+     *
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 4E1D2B4D-3E53-4ABC-999D-1D2520B3471A
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;
@@ -40,40 +58,23 @@ class CreateStructSyncOrderResponseBody extends Model
         'success' => 'Success',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->createOrderResult)) {
-            Model::validateArray($this->createOrderResult);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->createOrderResult) {
-            if (\is_array($this->createOrderResult)) {
-                $res['CreateOrderResult'] = [];
-                $n1 = 0;
-                foreach ($this->createOrderResult as $item1) {
-                    $res['CreateOrderResult'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['CreateOrderResult'] = $this->createOrderResult;
         }
-
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
-
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -81,37 +82,28 @@ class CreateStructSyncOrderResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateStructSyncOrderResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreateOrderResult'])) {
             if (!empty($map['CreateOrderResult'])) {
-                $model->createOrderResult = [];
-                $n1 = 0;
-                foreach ($map['CreateOrderResult'] as $item1) {
-                    $model->createOrderResult[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->createOrderResult = $map['CreateOrderResult'];
             }
         }
-
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
-
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

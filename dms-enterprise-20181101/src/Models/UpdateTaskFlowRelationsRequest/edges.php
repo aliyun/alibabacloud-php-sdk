@@ -4,21 +4,33 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateTaskFlowRelationsRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class edges extends Model
 {
     /**
+     * @description The ID of the task flow edge.
+     *
+     * @example 24***
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The ID of the end node on the edge.
+     *
+     * @example 44***
+     *
      * @var int
      */
     public $nodeEnd;
 
     /**
+     * @description The ID of the start node on the edge.
+     *
+     * @example 44***
+     *
      * @var int
      */
     public $nodeFrom;
@@ -28,22 +40,17 @@ class edges extends Model
         'nodeFrom' => 'NodeFrom',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->nodeEnd) {
             $res['NodeEnd'] = $this->nodeEnd;
         }
-
         if (null !== $this->nodeFrom) {
             $res['NodeFrom'] = $this->nodeFrom;
         }
@@ -51,22 +58,20 @@ class edges extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return edges
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['NodeEnd'])) {
             $model->nodeEnd = $map['NodeEnd'];
         }
-
         if (isset($map['NodeFrom'])) {
             $model->nodeFrom = $map['NodeFrom'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DLDatabase extends Model
 {
@@ -46,84 +46,58 @@ class DLDatabase extends Model
         'parameters' => 'Parameters',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->parameters)) {
-            Model::validateArray($this->parameters);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->catalogName) {
             $res['CatalogName'] = $this->catalogName;
         }
-
         if (null !== $this->dbId) {
             $res['DbId'] = $this->dbId;
         }
-
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-
         if (null !== $this->location) {
             $res['Location'] = $this->location;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->parameters) {
-            if (\is_array($this->parameters)) {
-                $res['Parameters'] = [];
-                foreach ($this->parameters as $key1 => $value1) {
-                    $res['Parameters'][$key1] = $value1;
-                }
-            }
+            $res['Parameters'] = $this->parameters;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DLDatabase
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CatalogName'])) {
             $model->catalogName = $map['CatalogName'];
         }
-
         if (isset($map['DbId'])) {
             $model->dbId = $map['DbId'];
         }
-
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-
         if (isset($map['Location'])) {
             $model->location = $map['Location'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['Parameters'])) {
-            if (!empty($map['Parameters'])) {
-                $model->parameters = [];
-                foreach ($map['Parameters'] as $key1 => $value1) {
-                    $model->parameters[$key1] = $value1;
-                }
-            }
+            $model->parameters = $map['Parameters'];
         }
 
         return $model;

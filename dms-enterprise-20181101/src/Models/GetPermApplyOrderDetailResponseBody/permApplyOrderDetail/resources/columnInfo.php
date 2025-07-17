@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetPermApplyOrderDetailResponseBody\permApplyOrderDetail\resources;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class columnInfo extends Model
 {
     /**
+     * @description The name of the column.
+     *
+     * @example test_col
+     *
      * @var string
      */
     public $columnName;
 
     /**
+     * @description The name of the table.
+     *
+     * @example test_tb
+     *
      * @var string
      */
     public $tableName;
@@ -22,18 +30,14 @@ class columnInfo extends Model
         'tableName' => 'TableName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->columnName) {
             $res['ColumnName'] = $this->columnName;
         }
-
         if (null !== $this->tableName) {
             $res['TableName'] = $this->tableName;
         }
@@ -41,18 +45,17 @@ class columnInfo extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return columnInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ColumnName'])) {
             $model->columnName = $map['ColumnName'];
         }
-
         if (isset($map['TableName'])) {
             $model->tableName = $map['TableName'];
         }

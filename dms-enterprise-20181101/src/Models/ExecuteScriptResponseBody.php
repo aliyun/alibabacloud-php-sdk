@@ -4,32 +4,50 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ExecuteScriptResponseBody\results;
+use AlibabaCloud\Tea\Model;
 
 class ExecuteScriptResponseBody extends Model
 {
     /**
+     * @description The error code.
+     *
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The error message about the gateway.
+     *
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example FE8EE2F1-4880-46BC-A704-5CF63EAF9A04
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The results of the SQL statements that are executed, in the format of an array. Each entry in the array indicates the result of an SQL statement.
+     *
      * @var results[]
      */
     public $results;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;
@@ -41,40 +59,29 @@ class ExecuteScriptResponseBody extends Model
         'success' => 'Success',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->results)) {
-            Model::validateArray($this->results);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
-
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->results) {
-            if (\is_array($this->results)) {
-                $res['Results'] = [];
-                $n1 = 0;
-                foreach ($this->results as $item1) {
-                    $res['Results'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Results'] = [];
+            if (null !== $this->results && \is_array($this->results)) {
+                $n = 0;
+                foreach ($this->results as $item) {
+                    $res['Results'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -82,37 +89,32 @@ class ExecuteScriptResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ExecuteScriptResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
-
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['Results'])) {
             if (!empty($map['Results'])) {
                 $model->results = [];
-                $n1 = 0;
-                foreach ($map['Results'] as $item1) {
-                    $model->results[$n1] = results::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Results'] as $item) {
+                    $model->results[$n++] = null !== $item ? results::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

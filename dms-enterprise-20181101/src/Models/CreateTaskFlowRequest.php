@@ -4,26 +4,44 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateTaskFlowRequest extends Model
 {
     /**
+     * @description The name of the task flow.
+     *
+     * This parameter is required.
+     *
+     * @example Dag_Name
+     *
      * @var string
      */
     public $dagName;
 
     /**
+     * @description The description of the task flow.
+     *
+     * @example zht_test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the scenario.
+     *
+     * @example 2**
+     *
      * @var int
      */
     public $scenarioId;
 
     /**
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) or [ListUserTenants](https://help.aliyun.com/document_detail/198074.html) operation to query the tenant ID.
+     *
+     * @example 3***
+     *
      * @var int
      */
     public $tid;
@@ -34,26 +52,20 @@ class CreateTaskFlowRequest extends Model
         'tid' => 'Tid',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dagName) {
             $res['DagName'] = $this->dagName;
         }
-
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-
         if (null !== $this->scenarioId) {
             $res['ScenarioId'] = $this->scenarioId;
         }
-
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
         }
@@ -61,26 +73,23 @@ class CreateTaskFlowRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateTaskFlowRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DagName'])) {
             $model->dagName = $map['DagName'];
         }
-
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-
         if (isset($map['ScenarioId'])) {
             $model->scenarioId = $map['ScenarioId'];
         }
-
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];
         }

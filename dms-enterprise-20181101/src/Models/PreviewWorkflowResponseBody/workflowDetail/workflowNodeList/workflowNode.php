@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\PreviewWorkflowResponseBody\workflowDetail\workflowNodeList;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\PreviewWorkflowResponseBody\workflowDetail\workflowNodeList\workflowNode\auditUserList;
+use AlibabaCloud\Tea\Model;
 
 class workflowNode extends Model
 {
@@ -20,11 +20,15 @@ class workflowNode extends Model
     public $comment;
 
     /**
+     * @example Owner
+     *
      * @var string
      */
     public $nodeName;
 
     /**
+     * @example SYS
+     *
      * @var string
      */
     public $nodeType;
@@ -35,29 +39,20 @@ class workflowNode extends Model
         'nodeType' => 'NodeType',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->auditUserList) {
-            $this->auditUserList->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->auditUserList) {
-            $res['AuditUserList'] = null !== $this->auditUserList ? $this->auditUserList->toArray($noStream) : $this->auditUserList;
+            $res['AuditUserList'] = null !== $this->auditUserList ? $this->auditUserList->toMap() : null;
         }
-
         if (null !== $this->comment) {
             $res['Comment'] = $this->comment;
         }
-
         if (null !== $this->nodeName) {
             $res['NodeName'] = $this->nodeName;
         }
-
         if (null !== $this->nodeType) {
             $res['NodeType'] = $this->nodeType;
         }
@@ -65,26 +60,23 @@ class workflowNode extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return workflowNode
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AuditUserList'])) {
             $model->auditUserList = auditUserList::fromMap($map['AuditUserList']);
         }
-
         if (isset($map['Comment'])) {
             $model->comment = $map['Comment'];
         }
-
         if (isset($map['NodeName'])) {
             $model->nodeName = $map['NodeName'];
         }
-
         if (isset($map['NodeType'])) {
             $model->nodeType = $map['NodeType'];
         }

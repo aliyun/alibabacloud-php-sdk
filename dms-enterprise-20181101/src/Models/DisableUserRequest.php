@@ -4,16 +4,26 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DisableUserRequest extends Model
 {
     /**
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) or [ListUserTenants](https://help.aliyun.com/document_detail/198074.html) operation to obtain the tenant ID.
+     *
+     * @example -1
+     *
      * @var int
      */
     public $tid;
 
     /**
+     * @description The UID of the Alibaba Cloud account.
+     *
+     * This parameter is required.
+     *
+     * @example 12345
+     *
      * @var string
      */
     public $uid;
@@ -22,18 +32,14 @@ class DisableUserRequest extends Model
         'uid' => 'Uid',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
         }
-
         if (null !== $this->uid) {
             $res['Uid'] = $this->uid;
         }
@@ -41,18 +47,17 @@ class DisableUserRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DisableUserRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];
         }
-
         if (isset($map['Uid'])) {
             $model->uid = $map['Uid'];
         }

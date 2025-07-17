@@ -4,21 +4,29 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateProcCorrectOrderShrinkRequest extends Model
 {
     /**
+     * @example order_attachment.txt
+     *
      * @var string
      */
     public $attachmentKey;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example test
+     *
      * @var string
      */
     public $comment;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $paramShrink;
@@ -29,6 +37,8 @@ class CreateProcCorrectOrderShrinkRequest extends Model
     public $relatedUserListShrink;
 
     /**
+     * @example 4***
+     *
      * @var int
      */
     public $tid;
@@ -40,30 +50,23 @@ class CreateProcCorrectOrderShrinkRequest extends Model
         'tid' => 'Tid',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->attachmentKey) {
             $res['AttachmentKey'] = $this->attachmentKey;
         }
-
         if (null !== $this->comment) {
             $res['Comment'] = $this->comment;
         }
-
         if (null !== $this->paramShrink) {
             $res['Param'] = $this->paramShrink;
         }
-
         if (null !== $this->relatedUserListShrink) {
             $res['RelatedUserList'] = $this->relatedUserListShrink;
         }
-
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
         }
@@ -71,30 +74,26 @@ class CreateProcCorrectOrderShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateProcCorrectOrderShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AttachmentKey'])) {
             $model->attachmentKey = $map['AttachmentKey'];
         }
-
         if (isset($map['Comment'])) {
             $model->comment = $map['Comment'];
         }
-
         if (isset($map['Param'])) {
             $model->paramShrink = $map['Param'];
         }
-
         if (isset($map['RelatedUserList'])) {
             $model->relatedUserListShrink = $map['RelatedUserList'];
         }
-
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];
         }

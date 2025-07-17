@@ -4,21 +4,38 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListColumnsRequest extends Model
 {
     /**
+     * @description Specifies whether the database is a logical database. Valid values:
+     *
+     *   **true**: The database is a logical database.
+     *   **false**: The database is a physical database.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $logic;
 
     /**
+     * @description The ID of the table. You can call the [ListTables](https://help.aliyun.com/document_detail/141878.html) operation to obtain the table ID.
+     *
+     * This parameter is required.
+     *
+     * @example 39281****
+     *
      * @var string
      */
     public $tableId;
 
     /**
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) operation to obtain the tenant ID.
+     *
+     * @example 3***
+     *
      * @var int
      */
     public $tid;
@@ -28,22 +45,17 @@ class ListColumnsRequest extends Model
         'tid' => 'Tid',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->logic) {
             $res['Logic'] = $this->logic;
         }
-
         if (null !== $this->tableId) {
             $res['TableId'] = $this->tableId;
         }
-
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
         }
@@ -51,22 +63,20 @@ class ListColumnsRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListColumnsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Logic'])) {
             $model->logic = $map['Logic'];
         }
-
         if (isset($map['TableId'])) {
             $model->tableId = $map['TableId'];
         }
-
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];
         }

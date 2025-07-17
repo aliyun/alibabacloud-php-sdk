@@ -4,41 +4,68 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetPermApplyOrderDetailResponseBody\permApplyOrderDetail\resources;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class databaseInfo extends Model
 {
     /**
+     * @description The database ID.
+     *
+     * @example 12345
+     *
      * @var int
      */
     public $dbId;
 
     /**
+     * @description The type of the database engine.
+     *
+     * @example MySQL
+     *
      * @var string
      */
     public $dbType;
 
     /**
+     * @description The type of the environment to which the instance belongs. For more information, see [Change the environment type of an instance](https://help.aliyun.com/document_detail/163309.html).
+     *
+     * @example product
+     *
      * @var string
      */
     public $envType;
 
     /**
+     * @description Indicates whether the database is a logical database. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example false
+     *
      * @var bool
      */
     public $logic;
 
     /**
+     * @description The IDs of the owners of the database.
+     *
      * @var int[]
      */
     public $ownerIds;
 
     /**
+     * @description The nicknames of the owners of the database.
+     *
      * @var string[]
      */
     public $ownerNickNames;
 
     /**
+     * @description The name that is used to search for the database.
+     *
+     * @example test@xxxx:3306【test】
+     *
      * @var string
      */
     public $searchName;
@@ -52,58 +79,29 @@ class databaseInfo extends Model
         'searchName' => 'SearchName',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->ownerIds)) {
-            Model::validateArray($this->ownerIds);
-        }
-        if (\is_array($this->ownerNickNames)) {
-            Model::validateArray($this->ownerNickNames);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dbId) {
             $res['DbId'] = $this->dbId;
         }
-
         if (null !== $this->dbType) {
             $res['DbType'] = $this->dbType;
         }
-
         if (null !== $this->envType) {
             $res['EnvType'] = $this->envType;
         }
-
         if (null !== $this->logic) {
             $res['Logic'] = $this->logic;
         }
-
         if (null !== $this->ownerIds) {
-            if (\is_array($this->ownerIds)) {
-                $res['OwnerIds'] = [];
-                $n1 = 0;
-                foreach ($this->ownerIds as $item1) {
-                    $res['OwnerIds'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['OwnerIds'] = $this->ownerIds;
         }
-
         if (null !== $this->ownerNickNames) {
-            if (\is_array($this->ownerNickNames)) {
-                $res['OwnerNickNames'] = [];
-                $n1 = 0;
-                foreach ($this->ownerNickNames as $item1) {
-                    $res['OwnerNickNames'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['OwnerNickNames'] = $this->ownerNickNames;
         }
-
         if (null !== $this->searchName) {
             $res['SearchName'] = $this->searchName;
         }
@@ -111,52 +109,36 @@ class databaseInfo extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return databaseInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DbId'])) {
             $model->dbId = $map['DbId'];
         }
-
         if (isset($map['DbType'])) {
             $model->dbType = $map['DbType'];
         }
-
         if (isset($map['EnvType'])) {
             $model->envType = $map['EnvType'];
         }
-
         if (isset($map['Logic'])) {
             $model->logic = $map['Logic'];
         }
-
         if (isset($map['OwnerIds'])) {
             if (!empty($map['OwnerIds'])) {
-                $model->ownerIds = [];
-                $n1 = 0;
-                foreach ($map['OwnerIds'] as $item1) {
-                    $model->ownerIds[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->ownerIds = $map['OwnerIds'];
             }
         }
-
         if (isset($map['OwnerNickNames'])) {
             if (!empty($map['OwnerNickNames'])) {
-                $model->ownerNickNames = [];
-                $n1 = 0;
-                foreach ($map['OwnerNickNames'] as $item1) {
-                    $model->ownerNickNames[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->ownerNickNames = $map['OwnerNickNames'];
             }
         }
-
         if (isset($map['SearchName'])) {
             $model->searchName = $map['SearchName'];
         }

@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GenerateSqlFromNLResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class tables extends Model
 {
     /**
+     * @example ins_1.db1.table1
+     *
      * @var string
      */
     public $tableName;
@@ -16,12 +18,9 @@ class tables extends Model
         'tableName' => 'TableName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->tableName) {
@@ -31,11 +30,11 @@ class tables extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return tables
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

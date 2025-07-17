@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetPermApplyOrderDetailResponseBody\permApplyOrderDetail\resources;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class tableInfo extends Model
 {
     /**
+     * @description The name of the table.
+     *
+     * @example test_tb
+     *
      * @var string
      */
     public $tableName;
@@ -16,12 +20,9 @@ class tableInfo extends Model
         'tableName' => 'TableName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->tableName) {
@@ -31,11 +32,11 @@ class tableInfo extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return tableInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

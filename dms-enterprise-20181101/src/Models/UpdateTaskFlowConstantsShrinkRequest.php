@@ -4,21 +4,33 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateTaskFlowConstantsShrinkRequest extends Model
 {
     /**
+     * @description The constants for the task flow.
+     *
      * @var string
      */
     public $dagConstantsShrink;
 
     /**
+     * @description The ID of the task flow. You can call the [ListTaskFlow](https://help.aliyun.com/document_detail/424565.html) or [ListLhTaskFlowAndScenario](https://help.aliyun.com/document_detail/426672.html) operation to query the task flow ID.
+     *
+     * This parameter is required.
+     *
+     * @example 3****
+     *
      * @var int
      */
     public $dagId;
 
     /**
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) or [ListUserTenants](https://help.aliyun.com/document_detail/198074.html) operation to query the tenant ID.
+     *
+     * @example 3***
+     *
      * @var int
      */
     public $tid;
@@ -28,22 +40,17 @@ class UpdateTaskFlowConstantsShrinkRequest extends Model
         'tid' => 'Tid',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dagConstantsShrink) {
             $res['DagConstants'] = $this->dagConstantsShrink;
         }
-
         if (null !== $this->dagId) {
             $res['DagId'] = $this->dagId;
         }
-
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
         }
@@ -51,22 +58,20 @@ class UpdateTaskFlowConstantsShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateTaskFlowConstantsShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DagConstants'])) {
             $model->dagConstantsShrink = $map['DagConstants'];
         }
-
         if (isset($map['DagId'])) {
             $model->dagId = $map['DagId'];
         }
-
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];
         }

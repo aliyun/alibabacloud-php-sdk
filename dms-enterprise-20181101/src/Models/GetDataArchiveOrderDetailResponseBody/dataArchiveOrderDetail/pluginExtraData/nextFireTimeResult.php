@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataArchiveOrderDetailResponseBody\dataArchiveOrderDetail\pluginExtraData;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class nextFireTimeResult extends Model
 {
     /**
+     * @description The type of scheduled triggering.
+     *
+     * @example NOT_SET
+     *
      * @var string
      */
     public $cronFireType;
@@ -16,12 +20,9 @@ class nextFireTimeResult extends Model
         'cronFireType' => 'CronFireType',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->cronFireType) {
@@ -31,11 +32,11 @@ class nextFireTimeResult extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return nextFireTimeResult
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

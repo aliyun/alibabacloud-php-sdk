@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class EditMetaKnowledgeAssetRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $assetDescription;
@@ -19,11 +21,15 @@ class EditMetaKnowledgeAssetRequest extends Model
     public $columnName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $dbId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $tableName;
@@ -40,30 +46,23 @@ class EditMetaKnowledgeAssetRequest extends Model
         'tableSchemaName' => 'TableSchemaName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->assetDescription) {
             $res['AssetDescription'] = $this->assetDescription;
         }
-
         if (null !== $this->columnName) {
             $res['ColumnName'] = $this->columnName;
         }
-
         if (null !== $this->dbId) {
             $res['DbId'] = $this->dbId;
         }
-
         if (null !== $this->tableName) {
             $res['TableName'] = $this->tableName;
         }
-
         if (null !== $this->tableSchemaName) {
             $res['TableSchemaName'] = $this->tableSchemaName;
         }
@@ -71,30 +70,26 @@ class EditMetaKnowledgeAssetRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return EditMetaKnowledgeAssetRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AssetDescription'])) {
             $model->assetDescription = $map['AssetDescription'];
         }
-
         if (isset($map['ColumnName'])) {
             $model->columnName = $map['ColumnName'];
         }
-
         if (isset($map['DbId'])) {
             $model->dbId = $map['DbId'];
         }
-
         if (isset($map['TableName'])) {
             $model->tableName = $map['TableName'];
         }
-
         if (isset($map['TableSchemaName'])) {
             $model->tableSchemaName = $map['TableSchemaName'];
         }

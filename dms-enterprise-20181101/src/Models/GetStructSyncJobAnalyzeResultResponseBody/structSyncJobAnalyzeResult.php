@@ -4,18 +4,22 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetStructSyncJobAnalyzeResultResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetStructSyncJobAnalyzeResultResponseBody\structSyncJobAnalyzeResult\resultList;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetStructSyncJobAnalyzeResultResponseBody\structSyncJobAnalyzeResult\summaryList;
+use AlibabaCloud\Tea\Model;
 
 class structSyncJobAnalyzeResult extends Model
 {
     /**
+     * @description The details of the analysis results.
+     *
      * @var resultList[]
      */
     public $resultList;
 
     /**
+     * @description The statistics on the analysis results.
+     *
      * @var summaryList[]
      */
     public $summaryList;
@@ -24,38 +28,26 @@ class structSyncJobAnalyzeResult extends Model
         'summaryList' => 'SummaryList',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->resultList)) {
-            Model::validateArray($this->resultList);
-        }
-        if (\is_array($this->summaryList)) {
-            Model::validateArray($this->summaryList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->resultList) {
-            if (\is_array($this->resultList)) {
-                $res['ResultList'] = [];
-                $n1 = 0;
-                foreach ($this->resultList as $item1) {
-                    $res['ResultList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['ResultList'] = [];
+            if (null !== $this->resultList && \is_array($this->resultList)) {
+                $n = 0;
+                foreach ($this->resultList as $item) {
+                    $res['ResultList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->summaryList) {
-            if (\is_array($this->summaryList)) {
-                $res['SummaryList'] = [];
-                $n1 = 0;
-                foreach ($this->summaryList as $item1) {
-                    $res['SummaryList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['SummaryList'] = [];
+            if (null !== $this->summaryList && \is_array($this->summaryList)) {
+                $n = 0;
+                foreach ($this->summaryList as $item) {
+                    $res['SummaryList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -63,32 +55,29 @@ class structSyncJobAnalyzeResult extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return structSyncJobAnalyzeResult
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ResultList'])) {
             if (!empty($map['ResultList'])) {
                 $model->resultList = [];
-                $n1 = 0;
-                foreach ($map['ResultList'] as $item1) {
-                    $model->resultList[$n1] = resultList::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['ResultList'] as $item) {
+                    $model->resultList[$n++] = null !== $item ? resultList::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['SummaryList'])) {
             if (!empty($map['SummaryList'])) {
                 $model->summaryList = [];
-                $n1 = 0;
-                foreach ($map['SummaryList'] as $item1) {
-                    $model->summaryList[$n1] = summaryList::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['SummaryList'] as $item) {
+                    $model->summaryList[$n++] = null !== $item ? summaryList::fromMap($item) : $item;
                 }
             }
         }

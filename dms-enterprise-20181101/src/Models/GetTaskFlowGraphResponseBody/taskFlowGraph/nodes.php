@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetTaskFlowGraphResponseBody\taskFlowGraph;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetTaskFlowGraphResponseBody\taskFlowGraph\nodes\node;
+use AlibabaCloud\Tea\Model;
 
 class nodes extends Model
 {
@@ -17,24 +17,17 @@ class nodes extends Model
         'node' => 'Node',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->node)) {
-            Model::validateArray($this->node);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->node) {
-            if (\is_array($this->node)) {
-                $res['Node'] = [];
-                $n1 = 0;
-                foreach ($this->node as $item1) {
-                    $res['Node'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Node'] = [];
+            if (null !== $this->node && \is_array($this->node)) {
+                $n = 0;
+                foreach ($this->node as $item) {
+                    $res['Node'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -42,21 +35,20 @@ class nodes extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return nodes
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Node'])) {
             if (!empty($map['Node'])) {
                 $model->node = [];
-                $n1 = 0;
-                foreach ($map['Node'] as $item1) {
-                    $model->node[$n1] = node::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Node'] as $item) {
+                    $model->node[$n++] = null !== $item ? node::fromMap($item) : $item;
                 }
             }
         }

@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\AnalyzeSQLLineageResponseBody\lineageResult\objectMetadata;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class fields extends Model
 {
     /**
+     * @description The name of the field.
+     *
+     * @example dmstest.a.id
+     *
      * @var string
      */
     public $name;
@@ -16,12 +20,9 @@ class fields extends Model
         'name' => 'Name',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->name) {
@@ -31,11 +32,11 @@ class fields extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return fields
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

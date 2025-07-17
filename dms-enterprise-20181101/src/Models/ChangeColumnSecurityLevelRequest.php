@@ -4,41 +4,67 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ChangeColumnSecurityLevelRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example test_column
+     *
      * @var string
      */
     public $columnName;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 325**
+     *
      * @var int
      */
     public $dbId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $isLogic;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example S2
+     *
      * @var string
      */
     public $newSensitivityLevel;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example test_schema
+     *
      * @var string
      */
     public $schemaName;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example test_table
+     *
      * @var string
      */
     public $tableName;
 
     /**
+     * @example 10****
+     *
      * @var int
      */
     public $tid;
@@ -52,38 +78,29 @@ class ChangeColumnSecurityLevelRequest extends Model
         'tid' => 'Tid',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->columnName) {
             $res['ColumnName'] = $this->columnName;
         }
-
         if (null !== $this->dbId) {
             $res['DbId'] = $this->dbId;
         }
-
         if (null !== $this->isLogic) {
             $res['IsLogic'] = $this->isLogic;
         }
-
         if (null !== $this->newSensitivityLevel) {
             $res['NewSensitivityLevel'] = $this->newSensitivityLevel;
         }
-
         if (null !== $this->schemaName) {
             $res['SchemaName'] = $this->schemaName;
         }
-
         if (null !== $this->tableName) {
             $res['TableName'] = $this->tableName;
         }
-
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
         }
@@ -91,38 +108,32 @@ class ChangeColumnSecurityLevelRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ChangeColumnSecurityLevelRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ColumnName'])) {
             $model->columnName = $map['ColumnName'];
         }
-
         if (isset($map['DbId'])) {
             $model->dbId = $map['DbId'];
         }
-
         if (isset($map['IsLogic'])) {
             $model->isLogic = $map['IsLogic'];
         }
-
         if (isset($map['NewSensitivityLevel'])) {
             $model->newSensitivityLevel = $map['NewSensitivityLevel'];
         }
-
         if (isset($map['SchemaName'])) {
             $model->schemaName = $map['SchemaName'];
         }
-
         if (isset($map['TableName'])) {
             $model->tableName = $map['TableName'];
         }
-
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];
         }

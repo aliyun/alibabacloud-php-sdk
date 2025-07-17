@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateOrderResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class createOrderResult extends Model
 {
@@ -16,47 +16,29 @@ class createOrderResult extends Model
         'orderIds' => 'OrderIds',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->orderIds)) {
-            Model::validateArray($this->orderIds);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->orderIds) {
-            if (\is_array($this->orderIds)) {
-                $res['OrderIds'] = [];
-                $n1 = 0;
-                foreach ($this->orderIds as $item1) {
-                    $res['OrderIds'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['OrderIds'] = $this->orderIds;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return createOrderResult
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OrderIds'])) {
             if (!empty($map['OrderIds'])) {
-                $model->orderIds = [];
-                $n1 = 0;
-                foreach ($map['OrderIds'] as $item1) {
-                    $model->orderIds[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->orderIds = $map['OrderIds'];
             }
         }
 

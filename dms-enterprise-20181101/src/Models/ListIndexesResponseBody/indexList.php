@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListIndexesResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListIndexesResponseBody\indexList\index;
+use AlibabaCloud\Tea\Model;
 
 class indexList extends Model
 {
@@ -17,24 +17,17 @@ class indexList extends Model
         'index' => 'Index',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->index)) {
-            Model::validateArray($this->index);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->index) {
-            if (\is_array($this->index)) {
-                $res['Index'] = [];
-                $n1 = 0;
-                foreach ($this->index as $item1) {
-                    $res['Index'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Index'] = [];
+            if (null !== $this->index && \is_array($this->index)) {
+                $n = 0;
+                foreach ($this->index as $item) {
+                    $res['Index'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -42,21 +35,20 @@ class indexList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return indexList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Index'])) {
             if (!empty($map['Index'])) {
                 $model->index = [];
-                $n1 = 0;
-                foreach ($map['Index'] as $item1) {
-                    $model->index[$n1] = index::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Index'] as $item) {
+                    $model->index[$n++] = null !== $item ? index::fromMap($item) : $item;
                 }
             }
         }

@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateTaskContentV2Request extends Model
 {
     /**
+     * @example { "dbId":12****, "sql":"select * from test_table",   "dbType":"lindorm_sql"  }
+     *
      * @var string
      */
     public $nodeContent;
 
     /**
+     * @example 449***
+     *
      * @var string
      */
     public $nodeId;
@@ -22,18 +26,14 @@ class UpdateTaskContentV2Request extends Model
         'nodeId' => 'NodeId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->nodeContent) {
             $res['NodeContent'] = $this->nodeContent;
         }
-
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
         }
@@ -41,18 +41,17 @@ class UpdateTaskContentV2Request extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateTaskContentV2Request
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NodeContent'])) {
             $model->nodeContent = $map['NodeContent'];
         }
-
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
         }

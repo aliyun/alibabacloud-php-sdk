@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListAuthorityTemplateRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
@@ -24,6 +28,8 @@ class ListAuthorityTemplateRequest extends Model
     public $searchKey;
 
     /**
+     * @example 3***
+     *
      * @var int
      */
     public $tid;
@@ -34,26 +40,20 @@ class ListAuthorityTemplateRequest extends Model
         'tid' => 'Tid',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
-
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-
         if (null !== $this->searchKey) {
             $res['SearchKey'] = $this->searchKey;
         }
-
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
         }
@@ -61,26 +61,23 @@ class ListAuthorityTemplateRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListAuthorityTemplateRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
-
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-
         if (isset($map['SearchKey'])) {
             $model->searchKey = $map['SearchKey'];
         }
-
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];
         }

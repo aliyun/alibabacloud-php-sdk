@@ -4,23 +4,31 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SearchDataTrackResultResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SearchDataTrackResultResponseBody\trackResult\eventList;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SearchDataTrackResultResponseBody\trackResult\tableInfoList;
+use AlibabaCloud\Tea\Model;
 
 class trackResult extends Model
 {
     /**
+     * @description The details of the event logs.
+     *
      * @var eventList[]
      */
     public $eventList;
 
     /**
+     * @description The metadata of tables for which you track data operations.
+     *
      * @var tableInfoList[]
      */
     public $tableInfoList;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 109
+     *
      * @var int
      */
     public $totalCount;
@@ -30,42 +38,29 @@ class trackResult extends Model
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->eventList)) {
-            Model::validateArray($this->eventList);
-        }
-        if (\is_array($this->tableInfoList)) {
-            Model::validateArray($this->tableInfoList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->eventList) {
-            if (\is_array($this->eventList)) {
-                $res['EventList'] = [];
-                $n1 = 0;
-                foreach ($this->eventList as $item1) {
-                    $res['EventList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['EventList'] = [];
+            if (null !== $this->eventList && \is_array($this->eventList)) {
+                $n = 0;
+                foreach ($this->eventList as $item) {
+                    $res['EventList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->tableInfoList) {
-            if (\is_array($this->tableInfoList)) {
-                $res['TableInfoList'] = [];
-                $n1 = 0;
-                foreach ($this->tableInfoList as $item1) {
-                    $res['TableInfoList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['TableInfoList'] = [];
+            if (null !== $this->tableInfoList && \is_array($this->tableInfoList)) {
+                $n = 0;
+                foreach ($this->tableInfoList as $item) {
+                    $res['TableInfoList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -73,36 +68,32 @@ class trackResult extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return trackResult
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EventList'])) {
             if (!empty($map['EventList'])) {
                 $model->eventList = [];
-                $n1 = 0;
-                foreach ($map['EventList'] as $item1) {
-                    $model->eventList[$n1] = eventList::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['EventList'] as $item) {
+                    $model->eventList[$n++] = null !== $item ? eventList::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['TableInfoList'])) {
             if (!empty($map['TableInfoList'])) {
                 $model->tableInfoList = [];
-                $n1 = 0;
-                foreach ($map['TableInfoList'] as $item1) {
-                    $model->tableInfoList[$n1] = tableInfoList::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['TableInfoList'] as $item) {
+                    $model->tableInfoList[$n++] = null !== $item ? tableInfoList::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

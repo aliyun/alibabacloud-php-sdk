@@ -4,36 +4,58 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetOwnerApplyOrderDetailResponseBody\ownerApplyOrderDetail\resources;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class resourceDetail extends Model
 {
     /**
+     * @description The type of the database engine.
+     *
+     * @example MYSQL
+     *
      * @var string
      */
     public $dbType;
 
     /**
+     * @description The type of the environment to which the instance belongs. For more information, see [Change the environment type of an instance](https://help.aliyun.com/document_detail/163309.html).
+     *
+     * @example PRODUCT
+     *
      * @var string
      */
     public $envType;
 
     /**
+     * @description The IDs of the original owners.
+     *
      * @var int[]
      */
     public $ownerIds;
 
     /**
+     * @description The nicknames of the owners.
+     *
      * @var string[]
      */
     public $ownerNickNames;
 
     /**
+     * @description The search name of the resource.
+     *
+     * @example yuyang【test】
+     *
      * @var string
      */
     public $searchName;
 
     /**
+     * @description The name of the table.
+     *
+     * > : This parameter is returned when you submit a Database-OWNER ticket.
+     *
+     * @example test
+     *
      * @var string
      */
     public $tableName;
@@ -46,54 +68,26 @@ class resourceDetail extends Model
         'tableName' => 'TableName',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->ownerIds)) {
-            Model::validateArray($this->ownerIds);
-        }
-        if (\is_array($this->ownerNickNames)) {
-            Model::validateArray($this->ownerNickNames);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dbType) {
             $res['DbType'] = $this->dbType;
         }
-
         if (null !== $this->envType) {
             $res['EnvType'] = $this->envType;
         }
-
         if (null !== $this->ownerIds) {
-            if (\is_array($this->ownerIds)) {
-                $res['OwnerIds'] = [];
-                $n1 = 0;
-                foreach ($this->ownerIds as $item1) {
-                    $res['OwnerIds'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['OwnerIds'] = $this->ownerIds;
         }
-
         if (null !== $this->ownerNickNames) {
-            if (\is_array($this->ownerNickNames)) {
-                $res['OwnerNickNames'] = [];
-                $n1 = 0;
-                foreach ($this->ownerNickNames as $item1) {
-                    $res['OwnerNickNames'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['OwnerNickNames'] = $this->ownerNickNames;
         }
-
         if (null !== $this->searchName) {
             $res['SearchName'] = $this->searchName;
         }
-
         if (null !== $this->tableName) {
             $res['TableName'] = $this->tableName;
         }
@@ -101,48 +95,33 @@ class resourceDetail extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return resourceDetail
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DbType'])) {
             $model->dbType = $map['DbType'];
         }
-
         if (isset($map['EnvType'])) {
             $model->envType = $map['EnvType'];
         }
-
         if (isset($map['OwnerIds'])) {
             if (!empty($map['OwnerIds'])) {
-                $model->ownerIds = [];
-                $n1 = 0;
-                foreach ($map['OwnerIds'] as $item1) {
-                    $model->ownerIds[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->ownerIds = $map['OwnerIds'];
             }
         }
-
         if (isset($map['OwnerNickNames'])) {
             if (!empty($map['OwnerNickNames'])) {
-                $model->ownerNickNames = [];
-                $n1 = 0;
-                foreach ($map['OwnerNickNames'] as $item1) {
-                    $model->ownerNickNames[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->ownerNickNames = $map['OwnerNickNames'];
             }
         }
-
         if (isset($map['SearchName'])) {
             $model->searchName = $map['SearchName'];
         }
-
         if (isset($map['TableName'])) {
             $model->tableName = $map['TableName'];
         }

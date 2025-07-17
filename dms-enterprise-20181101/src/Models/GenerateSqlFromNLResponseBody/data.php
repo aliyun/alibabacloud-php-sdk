@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GenerateSqlFromNLResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GenerateSqlFromNLResponseBody\data\knowledgeReferences;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GenerateSqlFromNLResponseBody\data\similarSql;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GenerateSqlFromNLResponseBody\data\tables;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -27,6 +27,8 @@ class data extends Model
     public $similarSql;
 
     /**
+     * @example SELECT * FROM table WHERE condition;
+     *
      * @var string
      */
     public $sql;
@@ -37,6 +39,8 @@ class data extends Model
     public $tables;
 
     /**
+     * @example 通过分析用户的问题和提供的知识，生成了相应的SQL语句。
+     *
      * @var string
      */
     public $thought;
@@ -49,64 +53,44 @@ class data extends Model
         'thought' => 'Thought',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->knowledgeReferences)) {
-            Model::validateArray($this->knowledgeReferences);
-        }
-        if (\is_array($this->similarSql)) {
-            Model::validateArray($this->similarSql);
-        }
-        if (\is_array($this->tables)) {
-            Model::validateArray($this->tables);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->knowledgeReferences) {
-            if (\is_array($this->knowledgeReferences)) {
-                $res['KnowledgeReferences'] = [];
-                $n1 = 0;
-                foreach ($this->knowledgeReferences as $item1) {
-                    $res['KnowledgeReferences'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['KnowledgeReferences'] = [];
+            if (null !== $this->knowledgeReferences && \is_array($this->knowledgeReferences)) {
+                $n = 0;
+                foreach ($this->knowledgeReferences as $item) {
+                    $res['KnowledgeReferences'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->question) {
             $res['Question'] = $this->question;
         }
-
         if (null !== $this->similarSql) {
-            if (\is_array($this->similarSql)) {
-                $res['SimilarSql'] = [];
-                $n1 = 0;
-                foreach ($this->similarSql as $item1) {
-                    $res['SimilarSql'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['SimilarSql'] = [];
+            if (null !== $this->similarSql && \is_array($this->similarSql)) {
+                $n = 0;
+                foreach ($this->similarSql as $item) {
+                    $res['SimilarSql'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->sql) {
             $res['Sql'] = $this->sql;
         }
-
         if (null !== $this->tables) {
-            if (\is_array($this->tables)) {
-                $res['Tables'] = [];
-                $n1 = 0;
-                foreach ($this->tables as $item1) {
-                    $res['Tables'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Tables'] = [];
+            if (null !== $this->tables && \is_array($this->tables)) {
+                $n = 0;
+                foreach ($this->tables as $item) {
+                    $res['Tables'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->thought) {
             $res['Thought'] = $this->thought;
         }
@@ -114,55 +98,47 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['KnowledgeReferences'])) {
             if (!empty($map['KnowledgeReferences'])) {
                 $model->knowledgeReferences = [];
-                $n1 = 0;
-                foreach ($map['KnowledgeReferences'] as $item1) {
-                    $model->knowledgeReferences[$n1] = knowledgeReferences::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['KnowledgeReferences'] as $item) {
+                    $model->knowledgeReferences[$n++] = null !== $item ? knowledgeReferences::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['Question'])) {
             $model->question = $map['Question'];
         }
-
         if (isset($map['SimilarSql'])) {
             if (!empty($map['SimilarSql'])) {
                 $model->similarSql = [];
-                $n1 = 0;
-                foreach ($map['SimilarSql'] as $item1) {
-                    $model->similarSql[$n1] = similarSql::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['SimilarSql'] as $item) {
+                    $model->similarSql[$n++] = null !== $item ? similarSql::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['Sql'])) {
             $model->sql = $map['Sql'];
         }
-
         if (isset($map['Tables'])) {
             if (!empty($map['Tables'])) {
                 $model->tables = [];
-                $n1 = 0;
-                foreach ($map['Tables'] as $item1) {
-                    $model->tables[$n1] = tables::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Tables'] as $item) {
+                    $model->tables[$n++] = null !== $item ? tables::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['Thought'])) {
             $model->thought = $map['Thought'];
         }

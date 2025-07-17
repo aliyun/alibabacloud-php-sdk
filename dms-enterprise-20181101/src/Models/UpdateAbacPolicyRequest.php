@@ -4,31 +4,59 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateAbacPolicyRequest extends Model
 {
     /**
+     * @example {
+     * "Statement": [
+     * {
+     * "Action": "*",
+     * "Effect": "Allow",
+     * "Resource": "*",
+     * "Condition": {
+     * "StringEqualsIgnoreCase": {
+     * "dms:DbType": [
+     * "redis"
+     * ]
+     * }
+     * }
+     * }
+     * ],
+     * "Version": "1"
+     * }
+     *
      * @var string
      */
     public $abacPolicyContent;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $abacPolicyDesc;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 12****
+     *
      * @var int
      */
     public $abacPolicyId;
 
     /**
+     * @example policy_test
+     *
      * @var string
      */
     public $abacPolicyName;
 
     /**
+     * @example 3***
+     *
      * @var int
      */
     public $tid;
@@ -40,30 +68,23 @@ class UpdateAbacPolicyRequest extends Model
         'tid' => 'Tid',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->abacPolicyContent) {
             $res['AbacPolicyContent'] = $this->abacPolicyContent;
         }
-
         if (null !== $this->abacPolicyDesc) {
             $res['AbacPolicyDesc'] = $this->abacPolicyDesc;
         }
-
         if (null !== $this->abacPolicyId) {
             $res['AbacPolicyId'] = $this->abacPolicyId;
         }
-
         if (null !== $this->abacPolicyName) {
             $res['AbacPolicyName'] = $this->abacPolicyName;
         }
-
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
         }
@@ -71,30 +92,26 @@ class UpdateAbacPolicyRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateAbacPolicyRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AbacPolicyContent'])) {
             $model->abacPolicyContent = $map['AbacPolicyContent'];
         }
-
         if (isset($map['AbacPolicyDesc'])) {
             $model->abacPolicyDesc = $map['AbacPolicyDesc'];
         }
-
         if (isset($map['AbacPolicyId'])) {
             $model->abacPolicyId = $map['AbacPolicyId'];
         }
-
         if (isset($map['AbacPolicyName'])) {
             $model->abacPolicyName = $map['AbacPolicyName'];
         }
-
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];
         }

@@ -4,21 +4,27 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GenerateSqlFromNLResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class knowledgeReferences extends Model
 {
     /**
+     * @example {\\"Status\\": \\"OK\\"}
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @example verified
+     *
      * @var string
      */
     public $level;
 
     /**
+     * @example sample_tbl
+     *
      * @var string
      */
     public $name;
@@ -28,22 +34,17 @@ class knowledgeReferences extends Model
         'name' => 'Name',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
-
         if (null !== $this->level) {
             $res['Level'] = $this->level;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -51,22 +52,20 @@ class knowledgeReferences extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return knowledgeReferences
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
-
         if (isset($map['Level'])) {
             $model->level = $map['Level'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListUsersResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListUsersResponseBody\userList\user;
+use AlibabaCloud\Tea\Model;
 
 class userList extends Model
 {
@@ -17,24 +17,17 @@ class userList extends Model
         'user' => 'User',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->user)) {
-            Model::validateArray($this->user);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->user) {
-            if (\is_array($this->user)) {
-                $res['User'] = [];
-                $n1 = 0;
-                foreach ($this->user as $item1) {
-                    $res['User'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['User'] = [];
+            if (null !== $this->user && \is_array($this->user)) {
+                $n = 0;
+                foreach ($this->user as $item) {
+                    $res['User'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -42,21 +35,20 @@ class userList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return userList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['User'])) {
             if (!empty($map['User'])) {
                 $model->user = [];
-                $n1 = 0;
-                foreach ($map['User'] as $item1) {
-                    $model->user[$n1] = user::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['User'] as $item) {
+                    $model->user[$n++] = null !== $item ? user::fromMap($item) : $item;
                 }
             }
         }

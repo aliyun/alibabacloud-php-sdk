@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataExportPreCheckDetailResponseBody\preCheckResult\preCheckDetailList;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class preCheckDetailList extends Model
 {
     /**
+     * @description The estimated number of data rows to be affected.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $affectRows;
 
     /**
+     * @description The SQL statement.
+     *
+     * @example SELECT * FROM tmp_table LIMIT 1
+     *
      * @var string
      */
     public $SQL;
@@ -22,18 +30,14 @@ class preCheckDetailList extends Model
         'SQL' => 'SQL',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->affectRows) {
             $res['AffectRows'] = $this->affectRows;
         }
-
         if (null !== $this->SQL) {
             $res['SQL'] = $this->SQL;
         }
@@ -41,18 +45,17 @@ class preCheckDetailList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return preCheckDetailList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AffectRows'])) {
             $model->affectRows = $map['AffectRows'];
         }
-
         if (isset($map['SQL'])) {
             $model->SQL = $map['SQL'];
         }
