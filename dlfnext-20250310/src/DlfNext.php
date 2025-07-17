@@ -8,27 +8,39 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\AlterCatalogRequest;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\AlterCatalogResponse;
+use AlibabaCloud\SDK\DlfNext\V20250310\Models\AlterDatabaseRequest;
+use AlibabaCloud\SDK\DlfNext\V20250310\Models\AlterDatabaseResponse;
+use AlibabaCloud\SDK\DlfNext\V20250310\Models\AlterTableRequest;
+use AlibabaCloud\SDK\DlfNext\V20250310\Models\AlterTableResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\BatchGrantPermissionsRequest;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\BatchGrantPermissionsResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\BatchRevokePermissionsRequest;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\BatchRevokePermissionsResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\CreateCatalogRequest;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\CreateCatalogResponse;
+use AlibabaCloud\SDK\DlfNext\V20250310\Models\CreateDatabaseRequest;
+use AlibabaCloud\SDK\DlfNext\V20250310\Models\CreateDatabaseResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\CreateRoleRequest;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\CreateRoleResponse;
+use AlibabaCloud\SDK\DlfNext\V20250310\Models\CreateTableRequest;
+use AlibabaCloud\SDK\DlfNext\V20250310\Models\CreateTableResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\DeleteRoleRequest;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\DeleteRoleResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\DropCatalogResponse;
+use AlibabaCloud\SDK\DlfNext\V20250310\Models\DropDatabaseResponse;
+use AlibabaCloud\SDK\DlfNext\V20250310\Models\DropTableResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\GetCatalogResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\GetCatalogSummaryResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\GetCatalogSummaryTrendRequest;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\GetCatalogSummaryTrendResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\GetCatalogTokenResponse;
+use AlibabaCloud\SDK\DlfNext\V20250310\Models\GetDatabaseResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\GetDatabaseSummaryResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\GetRegionStatusResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\GetRoleRequest;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\GetRoleResponse;
+use AlibabaCloud\SDK\DlfNext\V20250310\Models\GetTableResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\GetTableSummaryResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\GetUserRequest;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\GetUserResponse;
@@ -36,6 +48,8 @@ use AlibabaCloud\SDK\DlfNext\V20250310\Models\GrantRoleToUsersRequest;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\GrantRoleToUsersResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListCatalogsRequest;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListCatalogsResponse;
+use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListDatabasesRequest;
+use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListDatabasesResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListPartitionSummariesRequest;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListPartitionSummariesResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListPermissionsRequest;
@@ -44,6 +58,8 @@ use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListRolesRequest;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListRolesResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListRoleUsersRequest;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListRoleUsersResponse;
+use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListTablesRequest;
+use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListTablesResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListUserRolesRequest;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListUserRolesResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListUsersRequest;
@@ -147,6 +163,119 @@ class DlfNext extends OpenApiClient
         $headers = [];
 
         return $this->alterCatalogWithOptions($catalog, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 更新数据库
+     *  *
+     * @param string               $catalogId
+     * @param string               $database
+     * @param AlterDatabaseRequest $request   AlterDatabaseRequest
+     * @param string[]             $headers   map
+     * @param RuntimeOptions       $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return AlterDatabaseResponse AlterDatabaseResponse
+     */
+    public function alterDatabaseWithOptions($catalogId, $database, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->removals)) {
+            $body['removals'] = $request->removals;
+        }
+        if (!Utils::isUnset($request->updates)) {
+            $body['updates'] = $request->updates;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'AlterDatabase',
+            'version' => '2025-03-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dlf/v1/' . OpenApiUtilClient::getEncodeParam($catalogId) . '/databases/' . OpenApiUtilClient::getEncodeParam($database) . '',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return AlterDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新数据库
+     *  *
+     * @param string               $catalogId
+     * @param string               $database
+     * @param AlterDatabaseRequest $request   AlterDatabaseRequest
+     *
+     * @return AlterDatabaseResponse AlterDatabaseResponse
+     */
+    public function alterDatabase($catalogId, $database, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->alterDatabaseWithOptions($catalogId, $database, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 更改Table
+     *  *
+     * @param string            $catalogId
+     * @param string            $database
+     * @param string            $table
+     * @param AlterTableRequest $request   AlterTableRequest
+     * @param string[]          $headers   map
+     * @param RuntimeOptions    $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return AlterTableResponse AlterTableResponse
+     */
+    public function alterTableWithOptions($catalogId, $database, $table, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->changes)) {
+            $body['changes'] = $request->changes;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'AlterTable',
+            'version' => '2025-03-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dlf/v1/' . OpenApiUtilClient::getEncodeParam($catalogId) . '/databases/' . OpenApiUtilClient::getEncodeParam($database) . '/tables/' . OpenApiUtilClient::getEncodeParam($table) . '',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'none',
+        ]);
+
+        return AlterTableResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更改Table
+     *  *
+     * @param string            $catalogId
+     * @param string            $database
+     * @param string            $table
+     * @param AlterTableRequest $request   AlterTableRequest
+     *
+     * @return AlterTableResponse AlterTableResponse
+     */
+    public function alterTable($catalogId, $database, $table, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->alterTableWithOptions($catalogId, $database, $table, $request, $headers, $runtime);
     }
 
     /**
@@ -310,6 +439,61 @@ class DlfNext extends OpenApiClient
     }
 
     /**
+     * @summary 创建数据库
+     *  *
+     * @param string                $catalogId
+     * @param CreateDatabaseRequest $request   CreateDatabaseRequest
+     * @param string[]              $headers   map
+     * @param RuntimeOptions        $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return CreateDatabaseResponse CreateDatabaseResponse
+     */
+    public function createDatabaseWithOptions($catalogId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->name)) {
+            $body['name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->options)) {
+            $body['options'] = $request->options;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateDatabase',
+            'version' => '2025-03-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dlf/v1/' . OpenApiUtilClient::getEncodeParam($catalogId) . '/databases',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'none',
+        ]);
+
+        return CreateDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建数据库
+     *  *
+     * @param string                $catalogId
+     * @param CreateDatabaseRequest $request   CreateDatabaseRequest
+     *
+     * @return CreateDatabaseResponse CreateDatabaseResponse
+     */
+    public function createDatabase($catalogId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createDatabaseWithOptions($catalogId, $request, $headers, $runtime);
+    }
+
+    /**
      * @summary 创建角色
      *  *
      * @param CreateRoleRequest $request CreateRoleRequest
@@ -363,6 +547,63 @@ class DlfNext extends OpenApiClient
         $headers = [];
 
         return $this->createRoleWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 创建表
+     *  *
+     * @param string             $catalogId
+     * @param string             $database
+     * @param CreateTableRequest $request   CreateTableRequest
+     * @param string[]           $headers   map
+     * @param RuntimeOptions     $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return CreateTableResponse CreateTableResponse
+     */
+    public function createTableWithOptions($catalogId, $database, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->identifier)) {
+            $body['identifier'] = $request->identifier;
+        }
+        if (!Utils::isUnset($request->schema)) {
+            $body['schema'] = $request->schema;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateTable',
+            'version' => '2025-03-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dlf/v1/' . OpenApiUtilClient::getEncodeParam($catalogId) . '/databases/' . OpenApiUtilClient::getEncodeParam($database) . '/tables',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'none',
+        ]);
+
+        return CreateTableResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建表
+     *  *
+     * @param string             $catalogId
+     * @param string             $database
+     * @param CreateTableRequest $request   CreateTableRequest
+     *
+     * @return CreateTableResponse CreateTableResponse
+     */
+    public function createTable($catalogId, $database, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createTableWithOptions($catalogId, $database, $request, $headers, $runtime);
     }
 
     /**
@@ -498,6 +739,100 @@ class DlfNext extends OpenApiClient
         $headers = [];
 
         return $this->dropCatalogWithOptions($catalog, $headers, $runtime);
+    }
+
+    /**
+     * @summary 删除数据库
+     *  *
+     * @param string         $catalogId
+     * @param string         $database
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return DropDatabaseResponse DropDatabaseResponse
+     */
+    public function dropDatabaseWithOptions($catalogId, $database, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DropDatabase',
+            'version' => '2025-03-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dlf/v1/' . OpenApiUtilClient::getEncodeParam($catalogId) . '/databases/' . OpenApiUtilClient::getEncodeParam($database) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'none',
+        ]);
+
+        return DropDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除数据库
+     *  *
+     * @param string $catalogId
+     * @param string $database
+     *
+     * @return DropDatabaseResponse DropDatabaseResponse
+     */
+    public function dropDatabase($catalogId, $database)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->dropDatabaseWithOptions($catalogId, $database, $headers, $runtime);
+    }
+
+    /**
+     * @summary 删除表
+     *  *
+     * @param string         $catalogId
+     * @param string         $database
+     * @param string         $table
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return DropTableResponse DropTableResponse
+     */
+    public function dropTableWithOptions($catalogId, $database, $table, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DropTable',
+            'version' => '2025-03-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dlf/v1/' . OpenApiUtilClient::getEncodeParam($catalogId) . '/databases/' . OpenApiUtilClient::getEncodeParam($database) . '/tables/' . OpenApiUtilClient::getEncodeParam($table) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'none',
+        ]);
+
+        return DropTableResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除表
+     *  *
+     * @param string $catalogId
+     * @param string $database
+     * @param string $table
+     *
+     * @return DropTableResponse DropTableResponse
+     */
+    public function dropTable($catalogId, $database, $table)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->dropTableWithOptions($catalogId, $database, $table, $headers, $runtime);
     }
 
     /**
@@ -688,6 +1023,52 @@ class DlfNext extends OpenApiClient
     }
 
     /**
+     * @summary 查看数据库
+     *  *
+     * @param string         $catalogId
+     * @param string         $database
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return GetDatabaseResponse GetDatabaseResponse
+     */
+    public function getDatabaseWithOptions($catalogId, $database, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetDatabase',
+            'version' => '2025-03-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dlf/v1/' . OpenApiUtilClient::getEncodeParam($catalogId) . '/databases/' . OpenApiUtilClient::getEncodeParam($database) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查看数据库
+     *  *
+     * @param string $catalogId
+     * @param string $database
+     *
+     * @return GetDatabaseResponse GetDatabaseResponse
+     */
+    public function getDatabase($catalogId, $database)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getDatabaseWithOptions($catalogId, $database, $headers, $runtime);
+    }
+
+    /**
      * @summary 查看表
      *  *
      * @param string         $catalogId
@@ -822,6 +1203,54 @@ class DlfNext extends OpenApiClient
         $headers = [];
 
         return $this->getRoleWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 查看表
+     *  *
+     * @param string         $catalogId
+     * @param string         $database
+     * @param string         $table
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return GetTableResponse GetTableResponse
+     */
+    public function getTableWithOptions($catalogId, $database, $table, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetTable',
+            'version' => '2025-03-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dlf/v1/' . OpenApiUtilClient::getEncodeParam($catalogId) . '/databases/' . OpenApiUtilClient::getEncodeParam($database) . '/tables/' . OpenApiUtilClient::getEncodeParam($table) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetTableResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查看表
+     *  *
+     * @param string $catalogId
+     * @param string $database
+     * @param string $table
+     *
+     * @return GetTableResponse GetTableResponse
+     */
+    public function getTable($catalogId, $database, $table)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getTableWithOptions($catalogId, $database, $table, $headers, $runtime);
     }
 
     /**
@@ -1029,6 +1458,64 @@ class DlfNext extends OpenApiClient
         $headers = [];
 
         return $this->listCatalogsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 查看数据库列表
+     *  *
+     * @param string               $catalogId
+     * @param ListDatabasesRequest $request   ListDatabasesRequest
+     * @param string[]             $headers   map
+     * @param RuntimeOptions       $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return ListDatabasesResponse ListDatabasesResponse
+     */
+    public function listDatabasesWithOptions($catalogId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->databaseNamePattern)) {
+            $query['databaseNamePattern'] = $request->databaseNamePattern;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['maxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->pageToken)) {
+            $query['pageToken'] = $request->pageToken;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListDatabases',
+            'version' => '2025-03-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dlf/v1/' . OpenApiUtilClient::getEncodeParam($catalogId) . '/databases',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListDatabasesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查看数据库列表
+     *  *
+     * @param string               $catalogId
+     * @param ListDatabasesRequest $request   ListDatabasesRequest
+     *
+     * @return ListDatabasesResponse ListDatabasesResponse
+     */
+    public function listDatabases($catalogId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listDatabasesWithOptions($catalogId, $request, $headers, $runtime);
     }
 
     /**
@@ -1276,6 +1763,66 @@ class DlfNext extends OpenApiClient
         $headers = [];
 
         return $this->listRolesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 查看表详情列表
+     *  *
+     * @param string            $catalogId
+     * @param string            $database
+     * @param ListTablesRequest $request   ListTablesRequest
+     * @param string[]          $headers   map
+     * @param RuntimeOptions    $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return ListTablesResponse ListTablesResponse
+     */
+    public function listTablesWithOptions($catalogId, $database, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['maxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->pageToken)) {
+            $query['pageToken'] = $request->pageToken;
+        }
+        if (!Utils::isUnset($request->tableNamePattern)) {
+            $query['tableNamePattern'] = $request->tableNamePattern;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListTables',
+            'version' => '2025-03-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dlf/v1/' . OpenApiUtilClient::getEncodeParam($catalogId) . '/databases/' . OpenApiUtilClient::getEncodeParam($database) . '/tables',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListTablesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查看表详情列表
+     *  *
+     * @param string            $catalogId
+     * @param string            $database
+     * @param ListTablesRequest $request   ListTablesRequest
+     *
+     * @return ListTablesResponse ListTablesResponse
+     */
+    public function listTables($catalogId, $database, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listTablesWithOptions($catalogId, $database, $request, $headers, $runtime);
     }
 
     /**
