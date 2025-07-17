@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateProjectResponseBody extends Model
 {
     /**
+     * @description The ID of the request. It is used to locate logs and troubleshoot problems.
+     *
+     * @example AFBB799F-8578-51C5-A766-E922EDB8XXXX
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class UpdateProjectResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class UpdateProjectResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateProjectResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

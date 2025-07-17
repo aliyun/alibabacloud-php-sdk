@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateColumnBusinessMetadataResponseBody extends Model
 {
     /**
+     * @example D1E2E5BC-xxxx-xxxx-xxxx-xxxxxx
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
@@ -22,18 +26,14 @@ class UpdateColumnBusinessMetadataResponseBody extends Model
         'success' => 'Success',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -41,18 +41,17 @@ class UpdateColumnBusinessMetadataResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateColumnBusinessMetadataResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

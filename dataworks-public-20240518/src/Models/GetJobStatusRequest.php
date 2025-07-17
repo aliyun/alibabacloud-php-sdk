@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetJobStatusRequest extends Model
 {
     /**
+     * @description The ID of the asynchronous task that is generated after you call an asynchronous operation.
+     *
+     * This parameter is required.
+     *
+     * @example 70ecdaec-bf21-4c11-8ecb-4f77453ceea8
+     *
      * @var string
      */
     public $jobId;
@@ -16,12 +22,9 @@ class GetJobStatusRequest extends Model
         'jobId' => 'JobId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->jobId) {
@@ -31,11 +34,11 @@ class GetJobStatusRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetJobStatusRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

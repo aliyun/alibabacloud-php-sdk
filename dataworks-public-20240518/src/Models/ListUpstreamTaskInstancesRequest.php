@@ -4,21 +4,35 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListUpstreamTaskInstancesRequest extends Model
 {
     /**
+     * @description The instance ID.
+     *
+     * This parameter is required.
+     *
+     * @example 1234
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The page number. Pages start from page 1. Default value: 1.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Default value: 10.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
@@ -28,22 +42,17 @@ class ListUpstreamTaskInstancesRequest extends Model
         'pageSize' => 'PageSize',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
-
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -51,22 +60,20 @@ class ListUpstreamTaskInstancesRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListUpstreamTaskInstancesRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
-
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }

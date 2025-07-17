@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataQualityEvaluationTaskInstancesResponseBody\pagingInfo\dataQualityEvaluationTaskInstances\task\notifications\notifications;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class notificationChannels extends Model
 {
     /**
+     * @description The alert notification methods.
+     *
      * @var string[]
      */
     public $channels;
@@ -16,47 +18,29 @@ class notificationChannels extends Model
         'channels' => 'Channels',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->channels)) {
-            Model::validateArray($this->channels);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->channels) {
-            if (\is_array($this->channels)) {
-                $res['Channels'] = [];
-                $n1 = 0;
-                foreach ($this->channels as $item1) {
-                    $res['Channels'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['Channels'] = $this->channels;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return notificationChannels
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Channels'])) {
             if (!empty($map['Channels'])) {
-                $model->channels = [];
-                $n1 = 0;
-                foreach ($map['Channels'] as $item1) {
-                    $model->channels[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->channels = $map['Channels'];
             }
         }
 

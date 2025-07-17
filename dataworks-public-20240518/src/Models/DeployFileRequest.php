@@ -4,31 +4,41 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeployFileRequest extends Model
 {
     /**
+     * @example First release task
+     *
      * @var string
      */
     public $comment;
 
     /**
+     * @example 10000001
+     *
      * @var int
      */
     public $fileId;
 
     /**
+     * @example 2000001
+     *
      * @var int
      */
     public $nodeId;
 
     /**
+     * @example 10000
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example dw_project
+     *
      * @var string
      */
     public $projectIdentifier;
@@ -40,30 +50,23 @@ class DeployFileRequest extends Model
         'projectIdentifier' => 'ProjectIdentifier',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->comment) {
             $res['Comment'] = $this->comment;
         }
-
         if (null !== $this->fileId) {
             $res['FileId'] = $this->fileId;
         }
-
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
         }
-
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
-
         if (null !== $this->projectIdentifier) {
             $res['ProjectIdentifier'] = $this->projectIdentifier;
         }
@@ -71,30 +74,26 @@ class DeployFileRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeployFileRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Comment'])) {
             $model->comment = $map['Comment'];
         }
-
         if (isset($map['FileId'])) {
             $model->fileId = $map['FileId'];
         }
-
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
         }
-
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
-
         if (isset($map['ProjectIdentifier'])) {
             $model->projectIdentifier = $map['ProjectIdentifier'];
         }

@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetFileResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class resourceDownloadLink extends Model
 {
     /**
+     * @description The download URL of the resource.
+     *
+     * @example http://xx
+     *
      * @var string
      */
     public $downloadLink;
@@ -16,12 +20,9 @@ class resourceDownloadLink extends Model
         'downloadLink' => 'downloadLink',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->downloadLink) {
@@ -31,11 +32,11 @@ class resourceDownloadLink extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return resourceDownloadLink
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

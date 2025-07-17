@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteMetaCollectionRequest extends Model
 {
     /**
+     * @description The collection ID.
+     *
+     * This parameter is required.
+     *
+     * @example category.123
+     *
      * @var string
      */
     public $id;
@@ -16,12 +22,9 @@ class DeleteMetaCollectionRequest extends Model
         'id' => 'Id',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->id) {
@@ -31,11 +34,11 @@ class DeleteMetaCollectionRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteMetaCollectionRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

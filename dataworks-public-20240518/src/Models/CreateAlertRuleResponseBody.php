@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateAlertRuleResponseBody extends Model
 {
     /**
+     * @description The rule ID.
+     *
+     * @example 123123
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The request ID.
+     *
+     * @example A6C6B486-E3A2-5D52-9E76-D9380485D946
+     *
      * @var string
      */
     public $requestId;
@@ -22,18 +30,14 @@ class CreateAlertRuleResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -41,18 +45,17 @@ class CreateAlertRuleResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateAlertRuleResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

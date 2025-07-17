@@ -4,12 +4,14 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDIJobMetricsResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDIJobMetricsResponseBody\pagingInfo\jobMetrics;
+use AlibabaCloud\Tea\Model;
 
 class pagingInfo extends Model
 {
     /**
+     * @description The metrics returned.
+     *
      * @var jobMetrics[]
      */
     public $jobMetrics;
@@ -17,24 +19,17 @@ class pagingInfo extends Model
         'jobMetrics' => 'JobMetrics',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->jobMetrics)) {
-            Model::validateArray($this->jobMetrics);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->jobMetrics) {
-            if (\is_array($this->jobMetrics)) {
-                $res['JobMetrics'] = [];
-                $n1 = 0;
-                foreach ($this->jobMetrics as $item1) {
-                    $res['JobMetrics'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['JobMetrics'] = [];
+            if (null !== $this->jobMetrics && \is_array($this->jobMetrics)) {
+                $n = 0;
+                foreach ($this->jobMetrics as $item) {
+                    $res['JobMetrics'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -42,21 +37,20 @@ class pagingInfo extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return pagingInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['JobMetrics'])) {
             if (!empty($map['JobMetrics'])) {
                 $model->jobMetrics = [];
-                $n1 = 0;
-                foreach ($map['JobMetrics'] as $item1) {
-                    $model->jobMetrics[$n1] = jobMetrics::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['JobMetrics'] as $item) {
+                    $model->jobMetrics[$n++] = null !== $item ? jobMetrics::fromMap($item) : $item;
                 }
             }
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetCatalogResponseBody extends Model
 {
@@ -14,11 +14,15 @@ class GetCatalogResponseBody extends Model
     public $catalog;
 
     /**
+     * @example 1AFAE64E-D1BE-432B-A9****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
@@ -28,25 +32,17 @@ class GetCatalogResponseBody extends Model
         'success' => 'Success',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->catalog) {
-            $this->catalog->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->catalog) {
-            $res['Catalog'] = null !== $this->catalog ? $this->catalog->toArray($noStream) : $this->catalog;
+            $res['Catalog'] = null !== $this->catalog ? $this->catalog->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -54,22 +50,20 @@ class GetCatalogResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetCatalogResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Catalog'])) {
             $model->catalog = Catalog::fromMap($map['Catalog']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

@@ -4,31 +4,41 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\Table\businessMetadata;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class extension extends Model
 {
     /**
+     * @example Dev
+     *
      * @var string
      */
     public $envType;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $favorCount;
 
     /**
+     * @example 234
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $readCount;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $viewCount;
@@ -40,30 +50,23 @@ class extension extends Model
         'viewCount' => 'ViewCount',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->envType) {
             $res['EnvType'] = $this->envType;
         }
-
         if (null !== $this->favorCount) {
             $res['FavorCount'] = $this->favorCount;
         }
-
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
-
         if (null !== $this->readCount) {
             $res['ReadCount'] = $this->readCount;
         }
-
         if (null !== $this->viewCount) {
             $res['ViewCount'] = $this->viewCount;
         }
@@ -71,30 +74,26 @@ class extension extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return extension
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EnvType'])) {
             $model->envType = $map['EnvType'];
         }
-
         if (isset($map['FavorCount'])) {
             $model->favorCount = $map['FavorCount'];
         }
-
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
-
         if (isset($map['ReadCount'])) {
             $model->readCount = $map['ReadCount'];
         }
-
         if (isset($map['ViewCount'])) {
             $model->viewCount = $map['ViewCount'];
         }

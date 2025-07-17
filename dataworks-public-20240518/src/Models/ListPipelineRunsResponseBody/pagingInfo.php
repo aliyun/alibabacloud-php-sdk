@@ -4,27 +4,41 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListPipelineRunsResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListPipelineRunsResponseBody\pagingInfo\pipelineRuns;
+use AlibabaCloud\Tea\Model;
 
 class pagingInfo extends Model
 {
     /**
+     * @description The page number.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The processes.
+     *
      * @var pipelineRuns[]
      */
     public $pipelineRuns;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 2524
+     *
      * @var int
      */
     public $totalCount;
@@ -35,36 +49,26 @@ class pagingInfo extends Model
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->pipelineRuns)) {
-            Model::validateArray($this->pipelineRuns);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
-
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-
         if (null !== $this->pipelineRuns) {
-            if (\is_array($this->pipelineRuns)) {
-                $res['PipelineRuns'] = [];
-                $n1 = 0;
-                foreach ($this->pipelineRuns as $item1) {
-                    $res['PipelineRuns'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['PipelineRuns'] = [];
+            if (null !== $this->pipelineRuns && \is_array($this->pipelineRuns)) {
+                $n = 0;
+                foreach ($this->pipelineRuns as $item) {
+                    $res['PipelineRuns'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -72,33 +76,29 @@ class pagingInfo extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return pagingInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
-
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-
         if (isset($map['PipelineRuns'])) {
             if (!empty($map['PipelineRuns'])) {
                 $model->pipelineRuns = [];
-                $n1 = 0;
-                foreach ($map['PipelineRuns'] as $item1) {
-                    $model->pipelineRuns[$n1] = pipelineRuns::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['PipelineRuns'] as $item) {
+                    $model->pipelineRuns[$n++] = null !== $item ? pipelineRuns::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

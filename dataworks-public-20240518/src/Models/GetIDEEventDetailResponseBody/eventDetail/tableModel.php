@@ -4,42 +4,71 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetIDEEventDetailResponseBody\eventDetail;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetIDEEventDetailResponseBody\eventDetail\tableModel\columns;
+use AlibabaCloud\Tea\Model;
 
 class tableModel extends Model
 {
     /**
+     * @description The columns in the table.
+     *
      * @var columns[]
      */
     public $columns;
 
     /**
+     * @description The remarks of the table.
+     *
+     * @example A new table
+     *
      * @var string
      */
     public $comment;
 
     /**
+     * @description The name of the data source to which the table belongs.
+     *
+     * @example odps_source
+     *
      * @var string
      */
     public $dataSourceName;
 
     /**
+     * @description The environment in which the table is used. Valid values:
+     *
+     *   DEV
+     *   PROD
+     *
+     * @example DEV
+     *
      * @var string
      */
     public $env;
 
     /**
+     * @description The lifecycle of the table. Unit: day.
+     *
+     * @example 7
+     *
      * @var int
      */
     public $lifeCycle;
 
     /**
+     * @description The path of the table.
+     *
+     * @example hdfs://path/to/object
+     *
      * @var string
      */
     public $location;
 
     /**
+     * @description The name of the table.
+     *
+     * @example tb_hello
+     *
      * @var string
      */
     public $tableName;
@@ -53,48 +82,35 @@ class tableModel extends Model
         'tableName' => 'TableName',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->columns)) {
-            Model::validateArray($this->columns);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->columns) {
-            if (\is_array($this->columns)) {
-                $res['Columns'] = [];
-                $n1 = 0;
-                foreach ($this->columns as $item1) {
-                    $res['Columns'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Columns'] = [];
+            if (null !== $this->columns && \is_array($this->columns)) {
+                $n = 0;
+                foreach ($this->columns as $item) {
+                    $res['Columns'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->comment) {
             $res['Comment'] = $this->comment;
         }
-
         if (null !== $this->dataSourceName) {
             $res['DataSourceName'] = $this->dataSourceName;
         }
-
         if (null !== $this->env) {
             $res['Env'] = $this->env;
         }
-
         if (null !== $this->lifeCycle) {
             $res['LifeCycle'] = $this->lifeCycle;
         }
-
         if (null !== $this->location) {
             $res['Location'] = $this->location;
         }
-
         if (null !== $this->tableName) {
             $res['TableName'] = $this->tableName;
         }
@@ -102,45 +118,38 @@ class tableModel extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return tableModel
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Columns'])) {
             if (!empty($map['Columns'])) {
                 $model->columns = [];
-                $n1 = 0;
-                foreach ($map['Columns'] as $item1) {
-                    $model->columns[$n1] = columns::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Columns'] as $item) {
+                    $model->columns[$n++] = null !== $item ? columns::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['Comment'])) {
             $model->comment = $map['Comment'];
         }
-
         if (isset($map['DataSourceName'])) {
             $model->dataSourceName = $map['DataSourceName'];
         }
-
         if (isset($map['Env'])) {
             $model->env = $map['Env'];
         }
-
         if (isset($map['LifeCycle'])) {
             $model->lifeCycle = $map['LifeCycle'];
         }
-
         if (isset($map['Location'])) {
             $model->location = $map['Location'];
         }
-
         if (isset($map['TableName'])) {
             $model->tableName = $map['TableName'];
         }

@@ -4,21 +4,39 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDataQualityEvaluationTaskRequest\notifications\notifications;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class notificationReceivers extends Model
 {
     /**
+     * @description The additional parameters that are required when alerts are sent. The parameters are JSON-formatted strings. The following keys are supported:
+     *
+     *   atAll: specifies that all members in a group are mentioned when alerts are sent by using DingTalk. This parameter is valid only if you set ReceiverType to DingdingUrl.
+     *
+     * @example {  "atAll": true }
+     *
      * @var string
      */
     public $extension;
 
     /**
+     * @description The type of the alert recipient. Valid values:
+     *
+     *   WebhookUrl
+     *   FeishuUrl
+     *   DingdingUrl
+     *   WeixinUrl
+     *   AliUid
+     *
+     * @example DingdingUrl
+     *
      * @var string
      */
     public $receiverType;
 
     /**
+     * @description The alert recipient.
+     *
      * @var string[]
      */
     public $receiverValues;
@@ -28,63 +46,41 @@ class notificationReceivers extends Model
         'receiverValues' => 'ReceiverValues',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->receiverValues)) {
-            Model::validateArray($this->receiverValues);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->extension) {
             $res['Extension'] = $this->extension;
         }
-
         if (null !== $this->receiverType) {
             $res['ReceiverType'] = $this->receiverType;
         }
-
         if (null !== $this->receiverValues) {
-            if (\is_array($this->receiverValues)) {
-                $res['ReceiverValues'] = [];
-                $n1 = 0;
-                foreach ($this->receiverValues as $item1) {
-                    $res['ReceiverValues'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['ReceiverValues'] = $this->receiverValues;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return notificationReceivers
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Extension'])) {
             $model->extension = $map['Extension'];
         }
-
         if (isset($map['ReceiverType'])) {
             $model->receiverType = $map['ReceiverType'];
         }
-
         if (isset($map['ReceiverValues'])) {
             if (!empty($map['ReceiverValues'])) {
-                $model->receiverValues = [];
-                $n1 = 0;
-                foreach ($map['ReceiverValues'] as $item1) {
-                    $model->receiverValues[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->receiverValues = $map['ReceiverValues'];
             }
         }
 

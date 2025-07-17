@@ -4,17 +4,23 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetCertificateResponseBody\certificate;
+use AlibabaCloud\Tea\Model;
 
 class GetCertificateResponseBody extends Model
 {
     /**
+     * @description The details of the certificate file.
+     *
      * @var certificate
      */
     public $certificate;
 
     /**
+     * @description The request ID.
+     *
+     * @example 0000-ABCD-EFG****
+     *
      * @var string
      */
     public $requestId;
@@ -23,21 +29,14 @@ class GetCertificateResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->certificate) {
-            $this->certificate->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->certificate) {
-            $res['Certificate'] = null !== $this->certificate ? $this->certificate->toArray($noStream) : $this->certificate;
+            $res['Certificate'] = null !== $this->certificate ? $this->certificate->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,18 +44,17 @@ class GetCertificateResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetCertificateResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Certificate'])) {
             $model->certificate = certificate::fromMap($map['Certificate']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

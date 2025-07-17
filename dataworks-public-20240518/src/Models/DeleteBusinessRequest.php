@@ -4,21 +4,29 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteBusinessRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 1000001
+     *
      * @var int
      */
     public $businessId;
 
     /**
+     * @example 10000
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example dw_project
+     *
      * @var string
      */
     public $projectIdentifier;
@@ -28,22 +36,17 @@ class DeleteBusinessRequest extends Model
         'projectIdentifier' => 'ProjectIdentifier',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->businessId) {
             $res['BusinessId'] = $this->businessId;
         }
-
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
-
         if (null !== $this->projectIdentifier) {
             $res['ProjectIdentifier'] = $this->projectIdentifier;
         }
@@ -51,22 +54,20 @@ class DeleteBusinessRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteBusinessRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BusinessId'])) {
             $model->businessId = $map['BusinessId'];
         }
-
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
-
         if (isset($map['ProjectIdentifier'])) {
             $model->projectIdentifier = $map['ProjectIdentifier'];
         }

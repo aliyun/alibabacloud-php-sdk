@@ -4,16 +4,31 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteTaskRequest extends Model
 {
     /**
+     * @description The task ID.
+     *
+     * This parameter is required.
+     *
+     * @example 1234
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The environment of the workspace.
+     *
+     * Valid values:
+     *
+     *   Prod: production environment
+     *   Dev: development environment
+     *
+     * @example Prod
+     *
      * @var string
      */
     public $projectEnv;
@@ -22,18 +37,14 @@ class DeleteTaskRequest extends Model
         'projectEnv' => 'ProjectEnv',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->projectEnv) {
             $res['ProjectEnv'] = $this->projectEnv;
         }
@@ -41,18 +52,17 @@ class DeleteTaskRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteTaskRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['ProjectEnv'])) {
             $model->projectEnv = $map['ProjectEnv'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDIJobRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class destinationDataSourceSettings extends Model
 {
@@ -16,12 +16,9 @@ class destinationDataSourceSettings extends Model
         'dataSourceName' => 'DataSourceName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dataSourceName) {
@@ -31,11 +28,11 @@ class destinationDataSourceSettings extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return destinationDataSourceSettings
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

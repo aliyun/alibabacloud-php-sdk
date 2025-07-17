@@ -4,17 +4,23 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetTaskInstanceResponseBody\taskInstance;
+use AlibabaCloud\Tea\Model;
 
 class GetTaskInstanceResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 22C97E95-F023-56B5-8852-B1A77A17XXXX
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The details of the task instance.
+     *
      * @var taskInstance
      */
     public $taskInstance;
@@ -23,40 +29,32 @@ class GetTaskInstanceResponseBody extends Model
         'taskInstance' => 'TaskInstance',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->taskInstance) {
-            $this->taskInstance->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->taskInstance) {
-            $res['TaskInstance'] = null !== $this->taskInstance ? $this->taskInstance->toArray($noStream) : $this->taskInstance;
+            $res['TaskInstance'] = null !== $this->taskInstance ? $this->taskInstance->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetTaskInstanceResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['TaskInstance'])) {
             $model->taskInstance = taskInstance::fromMap($map['TaskInstance']);
         }

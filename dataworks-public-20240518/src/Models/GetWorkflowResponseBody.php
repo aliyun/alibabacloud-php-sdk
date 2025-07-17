@@ -4,17 +4,23 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetWorkflowResponseBody\workflow;
+use AlibabaCloud\Tea\Model;
 
 class GetWorkflowResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 22C97E95-F023-56B5-8852-B1A77A17XXXX
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The information about the workflow.
+     *
      * @var workflow
      */
     public $workflow;
@@ -23,40 +29,32 @@ class GetWorkflowResponseBody extends Model
         'workflow' => 'Workflow',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->workflow) {
-            $this->workflow->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->workflow) {
-            $res['Workflow'] = null !== $this->workflow ? $this->workflow->toArray($noStream) : $this->workflow;
+            $res['Workflow'] = null !== $this->workflow ? $this->workflow->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetWorkflowResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['Workflow'])) {
             $model->workflow = workflow::fromMap($map['Workflow']);
         }

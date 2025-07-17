@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DataQualityRuleTemplate;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class checkingConfig extends Model
 {
     /**
+     * @example { "bizdate": [ "-1", "-7", "-1m" ] }
+     *
      * @var string
      */
     public $referencedSamplesFilter;
 
     /**
+     * @example Fixed
+     *
      * @var string
      */
     public $type;
@@ -22,18 +26,14 @@ class checkingConfig extends Model
         'type' => 'Type',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->referencedSamplesFilter) {
             $res['ReferencedSamplesFilter'] = $this->referencedSamplesFilter;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -41,18 +41,17 @@ class checkingConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return checkingConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ReferencedSamplesFilter'])) {
             $model->referencedSamplesFilter = $map['ReferencedSamplesFilter'];
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

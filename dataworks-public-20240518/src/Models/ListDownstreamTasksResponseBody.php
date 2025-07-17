@@ -4,17 +4,23 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDownstreamTasksResponseBody\pagingInfo;
+use AlibabaCloud\Tea\Model;
 
 class ListDownstreamTasksResponseBody extends Model
 {
     /**
+     * @description The pagination information.
+     *
      * @var pagingInfo
      */
     public $pagingInfo;
 
     /**
+     * @description The request ID.
+     *
+     * @example 22C97E95-F023-56B5-8852-B1A77A17XXXX
+     *
      * @var string
      */
     public $requestId;
@@ -23,21 +29,14 @@ class ListDownstreamTasksResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->pagingInfo) {
-            $this->pagingInfo->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->pagingInfo) {
-            $res['PagingInfo'] = null !== $this->pagingInfo ? $this->pagingInfo->toArray($noStream) : $this->pagingInfo;
+            $res['PagingInfo'] = null !== $this->pagingInfo ? $this->pagingInfo->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,18 +44,17 @@ class ListDownstreamTasksResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListDownstreamTasksResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PagingInfo'])) {
             $model->pagingInfo = pagingInfo::fromMap($map['PagingInfo']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

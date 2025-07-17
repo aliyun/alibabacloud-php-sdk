@@ -4,26 +4,40 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateMetaCollectionRequest extends Model
 {
     /**
+     * @example test comment
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example test_album
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The ID of the collection of an ancestor node.
+     *
+     * @example category.123
+     *
      * @var string
      */
     public $parentId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example Category
+     *
      * @var string
      */
     public $type;
@@ -34,26 +48,20 @@ class CreateMetaCollectionRequest extends Model
         'type' => 'Type',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->parentId) {
             $res['ParentId'] = $this->parentId;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -61,26 +69,23 @@ class CreateMetaCollectionRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateMetaCollectionRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['ParentId'])) {
             $model->parentId = $map['ParentId'];
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

@@ -4,21 +4,35 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class StopDIJobRequest extends Model
 {
     /**
+     * @description This parameter is deprecated and is replaced by the Id parameter.
+     *
+     * @example 11668
+     *
+     * @deprecated
+     *
      * @var int
      */
     public $DIJobId;
 
     /**
+     * @description The ID of the synchronization task.
+     *
+     * @example 11668
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The instance ID.
+     *
+     * @example 1234
+     *
      * @var int
      */
     public $instanceId;
@@ -28,22 +42,17 @@ class StopDIJobRequest extends Model
         'instanceId' => 'InstanceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->DIJobId) {
             $res['DIJobId'] = $this->DIJobId;
         }
-
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -51,22 +60,20 @@ class StopDIJobRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return StopDIJobRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DIJobId'])) {
             $model->DIJobId = $map['DIJobId'];
         }
-
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

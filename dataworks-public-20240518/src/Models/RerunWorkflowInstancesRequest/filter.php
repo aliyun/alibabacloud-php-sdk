@@ -4,31 +4,45 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RerunWorkflowInstancesRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class filter extends Model
 {
     /**
+     * @description Specifies whether to rerun the matched instances and all downstream instances.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $rerunDownstreamEnabled;
 
     /**
+     * @description The internal task IDs used for matching manual workflow instances.
+     *
      * @var int[]
      */
     public $taskIds;
 
     /**
+     * @description The statuses of internal tasks used for matching manual workflow instances.
+     *
      * @var string[]
      */
     public $taskInstanceStatuses;
 
     /**
+     * @description The internal task name used for matching the manual workflow instance.
+     *
+     * @example test
+     *
      * @var string
      */
     public $taskName;
 
     /**
+     * @description Match internal tasks within the manual workflow by type.
+     *
      * @var string[]
      */
     public $taskTypes;
@@ -40,113 +54,57 @@ class filter extends Model
         'taskTypes' => 'TaskTypes',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->taskIds)) {
-            Model::validateArray($this->taskIds);
-        }
-        if (\is_array($this->taskInstanceStatuses)) {
-            Model::validateArray($this->taskInstanceStatuses);
-        }
-        if (\is_array($this->taskTypes)) {
-            Model::validateArray($this->taskTypes);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->rerunDownstreamEnabled) {
             $res['RerunDownstreamEnabled'] = $this->rerunDownstreamEnabled;
         }
-
         if (null !== $this->taskIds) {
-            if (\is_array($this->taskIds)) {
-                $res['TaskIds'] = [];
-                $n1 = 0;
-                foreach ($this->taskIds as $item1) {
-                    $res['TaskIds'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['TaskIds'] = $this->taskIds;
         }
-
         if (null !== $this->taskInstanceStatuses) {
-            if (\is_array($this->taskInstanceStatuses)) {
-                $res['TaskInstanceStatuses'] = [];
-                $n1 = 0;
-                foreach ($this->taskInstanceStatuses as $item1) {
-                    $res['TaskInstanceStatuses'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['TaskInstanceStatuses'] = $this->taskInstanceStatuses;
         }
-
         if (null !== $this->taskName) {
             $res['TaskName'] = $this->taskName;
         }
-
         if (null !== $this->taskTypes) {
-            if (\is_array($this->taskTypes)) {
-                $res['TaskTypes'] = [];
-                $n1 = 0;
-                foreach ($this->taskTypes as $item1) {
-                    $res['TaskTypes'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['TaskTypes'] = $this->taskTypes;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return filter
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RerunDownstreamEnabled'])) {
             $model->rerunDownstreamEnabled = $map['RerunDownstreamEnabled'];
         }
-
         if (isset($map['TaskIds'])) {
             if (!empty($map['TaskIds'])) {
-                $model->taskIds = [];
-                $n1 = 0;
-                foreach ($map['TaskIds'] as $item1) {
-                    $model->taskIds[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->taskIds = $map['TaskIds'];
             }
         }
-
         if (isset($map['TaskInstanceStatuses'])) {
             if (!empty($map['TaskInstanceStatuses'])) {
-                $model->taskInstanceStatuses = [];
-                $n1 = 0;
-                foreach ($map['TaskInstanceStatuses'] as $item1) {
-                    $model->taskInstanceStatuses[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->taskInstanceStatuses = $map['TaskInstanceStatuses'];
             }
         }
-
         if (isset($map['TaskName'])) {
             $model->taskName = $map['TaskName'];
         }
-
         if (isset($map['TaskTypes'])) {
             if (!empty($map['TaskTypes'])) {
-                $model->taskTypes = [];
-                $n1 = 0;
-                foreach ($map['TaskTypes'] as $item1) {
-                    $model->taskTypes[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->taskTypes = $map['TaskTypes'];
             }
         }
 

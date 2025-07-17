@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\Column;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class businessMetadata extends Model
 {
     /**
+     * @example 字段1的业务描述
+     *
      * @var string
      */
     public $description;
@@ -16,12 +18,9 @@ class businessMetadata extends Model
         'description' => 'Description',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->description) {
@@ -31,11 +30,11 @@ class businessMetadata extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return businessMetadata
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

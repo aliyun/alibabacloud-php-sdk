@@ -4,24 +4,30 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListNodeDependenciesResponseBody\pagingInfo\nodes;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListNodeDependenciesResponseBody\pagingInfo\nodes\outputs\nodeOutputs;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListNodeDependenciesResponseBody\pagingInfo\nodes\outputs\tables;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListNodeDependenciesResponseBody\pagingInfo\nodes\outputs\variables;
+use AlibabaCloud\Tea\Model;
 
 class outputs extends Model
 {
     /**
+     * @description The node outputs.
+     *
      * @var nodeOutputs[]
      */
     public $nodeOutputs;
 
     /**
+     * @description The tables.
+     *
      * @var tables[]
      */
     public $tables;
 
     /**
+     * @description The variables.
+     *
      * @var variables[]
      */
     public $variables;
@@ -31,52 +37,35 @@ class outputs extends Model
         'variables' => 'Variables',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->nodeOutputs)) {
-            Model::validateArray($this->nodeOutputs);
-        }
-        if (\is_array($this->tables)) {
-            Model::validateArray($this->tables);
-        }
-        if (\is_array($this->variables)) {
-            Model::validateArray($this->variables);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->nodeOutputs) {
-            if (\is_array($this->nodeOutputs)) {
-                $res['NodeOutputs'] = [];
-                $n1 = 0;
-                foreach ($this->nodeOutputs as $item1) {
-                    $res['NodeOutputs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['NodeOutputs'] = [];
+            if (null !== $this->nodeOutputs && \is_array($this->nodeOutputs)) {
+                $n = 0;
+                foreach ($this->nodeOutputs as $item) {
+                    $res['NodeOutputs'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->tables) {
-            if (\is_array($this->tables)) {
-                $res['Tables'] = [];
-                $n1 = 0;
-                foreach ($this->tables as $item1) {
-                    $res['Tables'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Tables'] = [];
+            if (null !== $this->tables && \is_array($this->tables)) {
+                $n = 0;
+                foreach ($this->tables as $item) {
+                    $res['Tables'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->variables) {
-            if (\is_array($this->variables)) {
-                $res['Variables'] = [];
-                $n1 = 0;
-                foreach ($this->variables as $item1) {
-                    $res['Variables'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Variables'] = [];
+            if (null !== $this->variables && \is_array($this->variables)) {
+                $n = 0;
+                foreach ($this->variables as $item) {
+                    $res['Variables'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -84,43 +73,38 @@ class outputs extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return outputs
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NodeOutputs'])) {
             if (!empty($map['NodeOutputs'])) {
                 $model->nodeOutputs = [];
-                $n1 = 0;
-                foreach ($map['NodeOutputs'] as $item1) {
-                    $model->nodeOutputs[$n1] = nodeOutputs::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['NodeOutputs'] as $item) {
+                    $model->nodeOutputs[$n++] = null !== $item ? nodeOutputs::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['Tables'])) {
             if (!empty($map['Tables'])) {
                 $model->tables = [];
-                $n1 = 0;
-                foreach ($map['Tables'] as $item1) {
-                    $model->tables[$n1] = tables::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Tables'] as $item) {
+                    $model->tables[$n++] = null !== $item ? tables::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['Variables'])) {
             if (!empty($map['Variables'])) {
                 $model->variables = [];
-                $n1 = 0;
-                foreach ($map['Variables'] as $item1) {
-                    $model->variables[$n1] = variables::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Variables'] as $item) {
+                    $model->variables[$n++] = null !== $item ? variables::fromMap($item) : $item;
                 }
             }
         }

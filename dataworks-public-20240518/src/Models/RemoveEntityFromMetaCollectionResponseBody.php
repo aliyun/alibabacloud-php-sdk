@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class RemoveEntityFromMetaCollectionResponseBody extends Model
 {
     /**
+     * @description Id of the request
+     *
+     * @example 6D6CD444-DFA0-5180-9763-4A8730F2B382
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class RemoveEntityFromMetaCollectionResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class RemoveEntityFromMetaCollectionResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return RemoveEntityFromMetaCollectionResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

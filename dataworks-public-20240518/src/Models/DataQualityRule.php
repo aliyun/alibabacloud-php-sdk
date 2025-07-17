@@ -4,11 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DataQualityRule\checkingConfig;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DataQualityRule\errorHandlers;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DataQualityRule\samplingConfig;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DataQualityRule\target;
+use AlibabaCloud\Tea\Model;
 
 class DataQualityRule extends Model
 {
@@ -18,11 +18,15 @@ class DataQualityRule extends Model
     public $checkingConfig;
 
     /**
+     * @example this is a odps _sql task
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enabled;
@@ -33,16 +37,22 @@ class DataQualityRule extends Model
     public $errorHandlers;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example 表不能为空
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $projectId;
@@ -53,6 +63,8 @@ class DataQualityRule extends Model
     public $samplingConfig;
 
     /**
+     * @example High
+     *
      * @var string
      */
     public $severity;
@@ -63,11 +75,15 @@ class DataQualityRule extends Model
     public $target;
 
     /**
+     * @example SYSTEM:user_defined_sql
+     *
      * @var string
      */
     public $templateCode;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $tenantId;
@@ -86,77 +102,50 @@ class DataQualityRule extends Model
         'tenantId' => 'TenantId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->checkingConfig) {
-            $this->checkingConfig->validate();
-        }
-        if (\is_array($this->errorHandlers)) {
-            Model::validateArray($this->errorHandlers);
-        }
-        if (null !== $this->samplingConfig) {
-            $this->samplingConfig->validate();
-        }
-        if (null !== $this->target) {
-            $this->target->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->checkingConfig) {
-            $res['CheckingConfig'] = null !== $this->checkingConfig ? $this->checkingConfig->toArray($noStream) : $this->checkingConfig;
+            $res['CheckingConfig'] = null !== $this->checkingConfig ? $this->checkingConfig->toMap() : null;
         }
-
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-
         if (null !== $this->enabled) {
             $res['Enabled'] = $this->enabled;
         }
-
         if (null !== $this->errorHandlers) {
-            if (\is_array($this->errorHandlers)) {
-                $res['ErrorHandlers'] = [];
-                $n1 = 0;
-                foreach ($this->errorHandlers as $item1) {
-                    $res['ErrorHandlers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['ErrorHandlers'] = [];
+            if (null !== $this->errorHandlers && \is_array($this->errorHandlers)) {
+                $n = 0;
+                foreach ($this->errorHandlers as $item) {
+                    $res['ErrorHandlers'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
-
         if (null !== $this->samplingConfig) {
-            $res['SamplingConfig'] = null !== $this->samplingConfig ? $this->samplingConfig->toArray($noStream) : $this->samplingConfig;
+            $res['SamplingConfig'] = null !== $this->samplingConfig ? $this->samplingConfig->toMap() : null;
         }
-
         if (null !== $this->severity) {
             $res['Severity'] = $this->severity;
         }
-
         if (null !== $this->target) {
-            $res['Target'] = null !== $this->target ? $this->target->toArray($noStream) : $this->target;
+            $res['Target'] = null !== $this->target ? $this->target->toMap() : null;
         }
-
         if (null !== $this->templateCode) {
             $res['TemplateCode'] = $this->templateCode;
         }
-
         if (null !== $this->tenantId) {
             $res['TenantId'] = $this->tenantId;
         }
@@ -164,65 +153,53 @@ class DataQualityRule extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DataQualityRule
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CheckingConfig'])) {
             $model->checkingConfig = checkingConfig::fromMap($map['CheckingConfig']);
         }
-
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-
         if (isset($map['Enabled'])) {
             $model->enabled = $map['Enabled'];
         }
-
         if (isset($map['ErrorHandlers'])) {
             if (!empty($map['ErrorHandlers'])) {
                 $model->errorHandlers = [];
-                $n1 = 0;
-                foreach ($map['ErrorHandlers'] as $item1) {
-                    $model->errorHandlers[$n1] = errorHandlers::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['ErrorHandlers'] as $item) {
+                    $model->errorHandlers[$n++] = null !== $item ? errorHandlers::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
-
         if (isset($map['SamplingConfig'])) {
             $model->samplingConfig = samplingConfig::fromMap($map['SamplingConfig']);
         }
-
         if (isset($map['Severity'])) {
             $model->severity = $map['Severity'];
         }
-
         if (isset($map['Target'])) {
             $model->target = target::fromMap($map['Target']);
         }
-
         if (isset($map['TemplateCode'])) {
             $model->templateCode = $map['TemplateCode'];
         }
-
         if (isset($map['TenantId'])) {
             $model->tenantId = $map['TenantId'];
         }

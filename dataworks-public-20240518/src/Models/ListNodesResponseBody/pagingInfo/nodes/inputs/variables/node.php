@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListNodesResponseBody\pagingInfo\nodes\inputs\variables;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class node extends Model
 {
     /**
+     * @description The output of the node.
+     *
+     * @example 623731286945488XXXX
+     *
      * @var string
      */
     public $output;
@@ -16,12 +20,9 @@ class node extends Model
         'output' => 'Output',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->output) {
@@ -31,11 +32,11 @@ class node extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return node
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

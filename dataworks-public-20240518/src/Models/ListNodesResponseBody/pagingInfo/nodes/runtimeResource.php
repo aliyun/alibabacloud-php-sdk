@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListNodesResponseBody\pagingInfo\nodes;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class runtimeResource extends Model
 {
@@ -14,6 +14,10 @@ class runtimeResource extends Model
     public $resourceGroup;
 
     /**
+     * @description The resource group ID.
+     *
+     * @example S_resgrop_xxx
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -22,18 +26,14 @@ class runtimeResource extends Model
         'resourceGroupId' => 'ResourceGroupId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->resourceGroup) {
             $res['ResourceGroup'] = $this->resourceGroup;
         }
-
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
@@ -41,18 +41,17 @@ class runtimeResource extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return runtimeResource
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ResourceGroup'])) {
             $model->resourceGroup = $map['ResourceGroup'];
         }
-
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }

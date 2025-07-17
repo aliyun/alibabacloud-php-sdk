@@ -4,17 +4,23 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetPipelineRunResponseBody\pipeline;
+use AlibabaCloud\Tea\Model;
 
 class GetPipelineRunResponseBody extends Model
 {
     /**
+     * @description The information about the process.
+     *
      * @var pipeline
      */
     public $pipeline;
 
     /**
+     * @description The request ID.
+     *
+     * @example 08468352-032C-5262-AEDC-68C9FA05XXXX
+     *
      * @var string
      */
     public $requestId;
@@ -23,21 +29,14 @@ class GetPipelineRunResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->pipeline) {
-            $this->pipeline->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->pipeline) {
-            $res['Pipeline'] = null !== $this->pipeline ? $this->pipeline->toArray($noStream) : $this->pipeline;
+            $res['Pipeline'] = null !== $this->pipeline ? $this->pipeline->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,18 +44,17 @@ class GetPipelineRunResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetPipelineRunResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Pipeline'])) {
             $model->pipeline = pipeline::fromMap($map['Pipeline']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

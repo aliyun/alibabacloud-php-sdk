@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ImportCertificateResponseBody extends Model
 {
     /**
+     * @example 676303114031776
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example 7C352CB7-CD88-50CF-9D0D-E81BDF020E7F
+     *
      * @var string
      */
     public $requestId;
@@ -22,18 +26,14 @@ class ImportCertificateResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -41,18 +41,17 @@ class ImportCertificateResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ImportCertificateResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

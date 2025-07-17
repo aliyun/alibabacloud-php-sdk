@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateNodeResponseBody extends Model
 {
     /**
+     * @description The ID of the node.
+     *
+     * @example 860438872620113XXXX
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The request ID.
+     *
+     * @example AFBB799F-8578-51C5-A766-E922EDB8XXXX
+     *
      * @var string
      */
     public $requestId;
@@ -22,18 +30,14 @@ class CreateNodeResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -41,18 +45,17 @@ class CreateNodeResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateNodeResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

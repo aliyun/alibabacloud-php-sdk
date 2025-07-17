@@ -4,26 +4,38 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListPipelineRunItemsRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 097c73fe-ed6e-4fb1-b109-a5d59e46cd58
+     *
      * @var string
      */
     public $pipelineRunId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 10001
+     *
      * @var int
      */
     public $projectId;
@@ -34,26 +46,20 @@ class ListPipelineRunItemsRequest extends Model
         'projectId' => 'ProjectId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
-
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-
         if (null !== $this->pipelineRunId) {
             $res['PipelineRunId'] = $this->pipelineRunId;
         }
-
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
@@ -61,26 +67,23 @@ class ListPipelineRunItemsRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListPipelineRunItemsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
-
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-
         if (isset($map['PipelineRunId'])) {
             $model->pipelineRunId = $map['PipelineRunId'];
         }
-
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }

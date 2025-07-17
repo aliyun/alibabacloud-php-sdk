@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GrantMemberProjectRolesResponseBody extends Model
 {
     /**
+     * @description The request ID. You can use the ID to query logs and troubleshoot issues.
+     *
+     * @example 2d9ced66-38ef-4923-baf6-391dd3a7e656
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class GrantMemberProjectRolesResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class GrantMemberProjectRolesResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GrantMemberProjectRolesResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

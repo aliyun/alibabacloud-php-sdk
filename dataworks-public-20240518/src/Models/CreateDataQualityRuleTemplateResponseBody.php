@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateDataQualityRuleTemplateResponseBody extends Model
 {
     /**
+     * @description The Code of the rule template.
+     *
+     * @example UserDefined:3001
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The request ID.
+     *
+     * @example 691CA452-D37A-4ED0-9441
+     *
      * @var string
      */
     public $requestId;
@@ -22,18 +30,14 @@ class CreateDataQualityRuleTemplateResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -41,18 +45,17 @@ class CreateDataQualityRuleTemplateResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateDataQualityRuleTemplateResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

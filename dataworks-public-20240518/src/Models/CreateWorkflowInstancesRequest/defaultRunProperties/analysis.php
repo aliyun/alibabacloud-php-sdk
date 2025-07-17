@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateWorkflowInstancesRequest\defaultRunProperties;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class analysis extends Model
 {
     /**
+     * @description Specifies whether to block running if the analysis fails. If you set the Type parameter to SupplementData, this parameter is required. Valid values: true and false.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $blocked;
 
     /**
+     * @description Specifies whether to enable the analysis feature. If you set the Type parameter to SupplementData, this parameter is required. Valid values: true and false.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enabled;
@@ -22,18 +30,14 @@ class analysis extends Model
         'enabled' => 'Enabled',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->blocked) {
             $res['Blocked'] = $this->blocked;
         }
-
         if (null !== $this->enabled) {
             $res['Enabled'] = $this->enabled;
         }
@@ -41,18 +45,17 @@ class analysis extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return analysis
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Blocked'])) {
             $model->blocked = $map['Blocked'];
         }
-
         if (isset($map['Enabled'])) {
             $model->enabled = $map['Enabled'];
         }

@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDIJobResponseBody\pagingInfo;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class destinationDataSourceSettings extends Model
 {
     /**
+     * @description The name of the data source.
+     *
+     * @example dw_mysql
+     *
      * @var string
      */
     public $dataSourceName;
@@ -16,12 +20,9 @@ class destinationDataSourceSettings extends Model
         'dataSourceName' => 'DataSourceName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dataSourceName) {
@@ -31,11 +32,11 @@ class destinationDataSourceSettings extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return destinationDataSourceSettings
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

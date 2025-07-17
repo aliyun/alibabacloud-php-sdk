@@ -4,21 +4,39 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class TestDataSourceConnectivityRequest extends Model
 {
     /**
+     * @description The ID of the data source for which you want to test the network connectivity.
+     *
+     * This parameter is required.
+     *
+     * @example 144544
+     *
      * @var int
      */
     public $dataSourceId;
 
     /**
+     * @description The DataWorks workspace ID.
+     *
+     * This parameter is required.
+     *
+     * @example 10001
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @description The resource group ID.
+     *
+     * This parameter is required.
+     *
+     * @example Serverless_res_group_524257424564736_6831777003XXXXX
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -28,22 +46,17 @@ class TestDataSourceConnectivityRequest extends Model
         'resourceGroupId' => 'ResourceGroupId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dataSourceId) {
             $res['DataSourceId'] = $this->dataSourceId;
         }
-
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
-
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
@@ -51,22 +64,20 @@ class TestDataSourceConnectivityRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return TestDataSourceConnectivityRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DataSourceId'])) {
             $model->dataSourceId = $map['DataSourceId'];
         }
-
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
-
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }

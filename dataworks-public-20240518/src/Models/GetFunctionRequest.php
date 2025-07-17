@@ -4,16 +4,28 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetFunctionRequest extends Model
 {
     /**
+     * @description The ID of the UDF.
+     *
+     * This parameter is required.
+     *
+     * @example 860438872620113XXXX
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
+     *
+     * You must configure this parameter to specify the DataWorks workspace to which the API operation is applied.
+     *
+     * @example 10000
+     *
      * @var int
      */
     public $projectId;
@@ -22,18 +34,14 @@ class GetFunctionRequest extends Model
         'projectId' => 'ProjectId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
@@ -41,18 +49,17 @@ class GetFunctionRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetFunctionRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }

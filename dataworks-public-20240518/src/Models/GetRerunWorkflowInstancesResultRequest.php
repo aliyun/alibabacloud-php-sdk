@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetRerunWorkflowInstancesResultRequest extends Model
 {
     /**
+     * @description The operation ID used to asynchronously query the result of the workflow instance rerun. This value is obtained from the RerunWorkflowInstances operation.
+     *
+     * This parameter is required.
+     *
+     * @example e15ad21c-b0e9-4792-8f55-b037xxxxxxxx
+     *
      * @var string
      */
     public $operationId;
@@ -16,12 +22,9 @@ class GetRerunWorkflowInstancesResultRequest extends Model
         'operationId' => 'OperationId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->operationId) {
@@ -31,11 +34,11 @@ class GetRerunWorkflowInstancesResultRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetRerunWorkflowInstancesResultRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DataQualityRule;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class errorHandlers extends Model
 {
     /**
+     * @example SELECT * FROM tb_api_log WHERE id IS NULL
+     *
      * @var string
      */
     public $errorDataFilter;
 
     /**
+     * @example SaveErrorData
+     *
      * @var string
      */
     public $type;
@@ -22,18 +26,14 @@ class errorHandlers extends Model
         'type' => 'Type',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->errorDataFilter) {
             $res['ErrorDataFilter'] = $this->errorDataFilter;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -41,18 +41,17 @@ class errorHandlers extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return errorHandlers
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ErrorDataFilter'])) {
             $model->errorDataFilter = $map['ErrorDataFilter'];
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

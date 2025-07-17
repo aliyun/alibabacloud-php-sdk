@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListNodeDependenciesResponseBody\pagingInfo\nodes;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class dataSource extends Model
 {
     /**
+     * @description The name of the data source.
+     *
+     * @example odps_first
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The type of the data source.
+     *
+     * @example odps
+     *
      * @var string
      */
     public $type;
@@ -22,18 +30,14 @@ class dataSource extends Model
         'type' => 'Type',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -41,18 +45,17 @@ class dataSource extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return dataSource
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

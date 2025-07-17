@@ -4,21 +4,27 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\Table\businessMetadata;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class categories extends Model
 {
     /**
+     * @example CATEGORY.456
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example 测试类目
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example CATEGORY.123
+     *
      * @var string
      */
     public $parentId;
@@ -28,22 +34,17 @@ class categories extends Model
         'parentId' => 'ParentId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->parentId) {
             $res['ParentId'] = $this->parentId;
         }
@@ -51,22 +52,20 @@ class categories extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return categories
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['ParentId'])) {
             $model->parentId = $map['ParentId'];
         }

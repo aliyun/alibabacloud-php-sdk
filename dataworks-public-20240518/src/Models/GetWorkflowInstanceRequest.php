@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetWorkflowInstanceRequest extends Model
 {
     /**
+     * @description The ID of the workflow instance.
+     *
+     * This parameter is required.
+     *
+     * @example 1234
+     *
      * @var int
      */
     public $id;
@@ -16,12 +22,9 @@ class GetWorkflowInstanceRequest extends Model
         'id' => 'Id',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->id) {
@@ -31,11 +34,11 @@ class GetWorkflowInstanceRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetWorkflowInstanceRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

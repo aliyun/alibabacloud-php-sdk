@@ -4,27 +4,35 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListEntitiesInMetaCollectionResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListEntitiesInMetaCollectionResponseBody\pagingInfo\entities;
+use AlibabaCloud\Tea\Model;
 
 class pagingInfo extends Model
 {
     /**
+     * @description The entities in the collection.
+     *
      * @var entities[]
      */
     public $entities;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $totalCount;
@@ -35,36 +43,26 @@ class pagingInfo extends Model
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->entities)) {
-            Model::validateArray($this->entities);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->entities) {
-            if (\is_array($this->entities)) {
-                $res['Entities'] = [];
-                $n1 = 0;
-                foreach ($this->entities as $item1) {
-                    $res['Entities'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Entities'] = [];
+            if (null !== $this->entities && \is_array($this->entities)) {
+                $n = 0;
+                foreach ($this->entities as $item) {
+                    $res['Entities'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
-
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -72,33 +70,29 @@ class pagingInfo extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return pagingInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Entities'])) {
             if (!empty($map['Entities'])) {
                 $model->entities = [];
-                $n1 = 0;
-                foreach ($map['Entities'] as $item1) {
-                    $model->entities[$n1] = entities::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Entities'] as $item) {
+                    $model->entities[$n++] = null !== $item ? entities::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
-
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

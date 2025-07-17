@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDIJobRequest\jobSettings;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ddlHandlingSettings extends Model
 {
@@ -22,18 +22,14 @@ class ddlHandlingSettings extends Model
         'type' => 'Type',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->action) {
             $res['Action'] = $this->action;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -41,18 +37,17 @@ class ddlHandlingSettings extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ddlHandlingSettings
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Action'])) {
             $model->action = $map['Action'];
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

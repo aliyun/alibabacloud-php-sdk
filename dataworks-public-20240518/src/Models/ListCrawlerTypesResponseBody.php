@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListCrawlerTypesResponseBody extends Model
 {
@@ -14,11 +14,15 @@ class ListCrawlerTypesResponseBody extends Model
     public $crawlerTypes;
 
     /**
+     * @example 0000-ABCD-EFG****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
@@ -28,32 +32,23 @@ class ListCrawlerTypesResponseBody extends Model
         'success' => 'Success',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->crawlerTypes)) {
-            Model::validateArray($this->crawlerTypes);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->crawlerTypes) {
-            if (\is_array($this->crawlerTypes)) {
-                $res['CrawlerTypes'] = [];
-                $n1 = 0;
-                foreach ($this->crawlerTypes as $item1) {
-                    $res['CrawlerTypes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['CrawlerTypes'] = [];
+            if (null !== $this->crawlerTypes && \is_array($this->crawlerTypes)) {
+                $n = 0;
+                foreach ($this->crawlerTypes as $item) {
+                    $res['CrawlerTypes'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -61,29 +56,26 @@ class ListCrawlerTypesResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListCrawlerTypesResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CrawlerTypes'])) {
             if (!empty($map['CrawlerTypes'])) {
                 $model->crawlerTypes = [];
-                $n1 = 0;
-                foreach ($map['CrawlerTypes'] as $item1) {
-                    $model->crawlerTypes[$n1] = CrawlerType::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['CrawlerTypes'] as $item) {
+                    $model->crawlerTypes[$n++] = null !== $item ? CrawlerType::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

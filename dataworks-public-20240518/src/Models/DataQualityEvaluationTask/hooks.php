@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DataQualityEvaluationTask;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class hooks extends Model
 {
     /**
+     * @example ${severity} == "High" AND ${status} == "Critical"
+     *
      * @var string
      */
     public $condition;
 
     /**
+     * @example BlockTaskInstance
+     *
      * @var string
      */
     public $type;
@@ -22,18 +26,14 @@ class hooks extends Model
         'type' => 'Type',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->condition) {
             $res['Condition'] = $this->condition;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -41,18 +41,17 @@ class hooks extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return hooks
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Condition'])) {
             $model->condition = $map['Condition'];
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

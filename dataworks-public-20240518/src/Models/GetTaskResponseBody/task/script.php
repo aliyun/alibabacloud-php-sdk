@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetTaskResponseBody\task;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class script extends Model
 {
     /**
+     * @description The script content.
+     *
+     * @example echo "helloWorld"
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @description The script parameters.
+     *
+     * @example para1=$bizdate
+     *
      * @var string
      */
     public $parameters;
@@ -22,18 +30,14 @@ class script extends Model
         'parameters' => 'Parameters',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
-
         if (null !== $this->parameters) {
             $res['Parameters'] = $this->parameters;
         }
@@ -41,18 +45,17 @@ class script extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return script
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
-
         if (isset($map['Parameters'])) {
             $model->parameters = $map['Parameters'];
         }

@@ -4,21 +4,41 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDataQualityEvaluationTaskRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class target extends Model
 {
     /**
+     * @description The type of the database to which the table belongs. Valid values:
+     *
+     *   maxcompute
+     *   hologres
+     *   cdh
+     *   analyticdb_for_mysql
+     *   starrocks
+     *   emr
+     *   analyticdb_for_postgresql
+     *
+     * @example maxcompute
+     *
      * @var string
      */
     public $databaseType;
 
     /**
+     * @description The configuration of the partitioned table.
+     *
+     * @example dt=$[yyyymmdd-1]
+     *
      * @var string
      */
     public $partitionSpec;
 
     /**
+     * @description The ID of the table in Data Map.
+     *
+     * @example odsp.openapi.ods_d_openapi_log
+     *
      * @var string
      */
     public $tableGuid;
@@ -28,22 +48,17 @@ class target extends Model
         'tableGuid' => 'TableGuid',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->databaseType) {
             $res['DatabaseType'] = $this->databaseType;
         }
-
         if (null !== $this->partitionSpec) {
             $res['PartitionSpec'] = $this->partitionSpec;
         }
-
         if (null !== $this->tableGuid) {
             $res['TableGuid'] = $this->tableGuid;
         }
@@ -51,22 +66,20 @@ class target extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return target
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DatabaseType'])) {
             $model->databaseType = $map['DatabaseType'];
         }
-
         if (isset($map['PartitionSpec'])) {
             $model->partitionSpec = $map['PartitionSpec'];
         }
-
         if (isset($map['TableGuid'])) {
             $model->tableGuid = $map['TableGuid'];
         }

@@ -4,17 +4,23 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDataQualityRuleTemplateResponseBody\dataQualityRuleTemplate;
+use AlibabaCloud\Tea\Model;
 
 class GetDataQualityRuleTemplateResponseBody extends Model
 {
     /**
+     * @description The information about the template.
+     *
      * @var dataQualityRuleTemplate
      */
     public $dataQualityRuleTemplate;
 
     /**
+     * @description The request ID.
+     *
+     * @example 691CA452-D37A-4ED0-9441
+     *
      * @var string
      */
     public $requestId;
@@ -23,21 +29,14 @@ class GetDataQualityRuleTemplateResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->dataQualityRuleTemplate) {
-            $this->dataQualityRuleTemplate->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dataQualityRuleTemplate) {
-            $res['DataQualityRuleTemplate'] = null !== $this->dataQualityRuleTemplate ? $this->dataQualityRuleTemplate->toArray($noStream) : $this->dataQualityRuleTemplate;
+            $res['DataQualityRuleTemplate'] = null !== $this->dataQualityRuleTemplate ? $this->dataQualityRuleTemplate->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,18 +44,17 @@ class GetDataQualityRuleTemplateResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetDataQualityRuleTemplateResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DataQualityRuleTemplate'])) {
             $model->dataQualityRuleTemplate = dataQualityRuleTemplate::fromMap($map['DataQualityRuleTemplate']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CloneDataSourceResponseBody extends Model
 {
     /**
+     * @description The ID of the cloned data source.
+     *
+     * @example 19715
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The ID of the request. It is used to locate logs and troubleshoot problems.
+     *
+     * @example FCD583B9-346B-5E75-82C1-4A7C192C48DB
+     *
      * @var string
      */
     public $requestId;
@@ -22,18 +30,14 @@ class CloneDataSourceResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -41,18 +45,17 @@ class CloneDataSourceResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CloneDataSourceResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class AddEntityIntoMetaCollectionResponseBody extends Model
 {
     /**
+     * @description Id of the request
+     *
+     * @example C99E2BE6-9DEA-5C2E-8F51-1DDCFEADE490
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class AddEntityIntoMetaCollectionResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class AddEntityIntoMetaCollectionResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return AddEntityIntoMetaCollectionResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
