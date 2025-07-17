@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingGroupsResponseBody\scalingGroups;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class loadBalancerConfigs extends Model
 {
     /**
+     * @description The ID of the CLB instance.
+     *
+     * @example lb-2zep8alpq5zq1a2xwyxxx
+     *
      * @var string
      */
     public $loadBalancerId;
 
     /**
+     * @description The weight of an ECS instance as a backend server in the CLB server group. An increase in the weight of an ECS instance indicates an increase in the number of access requests that are forwarded to the ECS instance. If you set the weight of an ECS instance to 0, no access requests are forwarded to the ECS instance. Valid values: 0 to 100.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $weight;
@@ -22,18 +30,14 @@ class loadBalancerConfigs extends Model
         'weight' => 'Weight',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->loadBalancerId) {
             $res['LoadBalancerId'] = $this->loadBalancerId;
         }
-
         if (null !== $this->weight) {
             $res['Weight'] = $this->weight;
         }
@@ -41,18 +45,17 @@ class loadBalancerConfigs extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return loadBalancerConfigs
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LoadBalancerId'])) {
             $model->loadBalancerId = $map['LoadBalancerId'];
         }
-
         if (isset($map['Weight'])) {
             $model->weight = $map['Weight'];
         }

@@ -4,17 +4,23 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribePatternTypesResponseBody\patternTypes;
+use AlibabaCloud\Tea\Model;
 
 class DescribePatternTypesResponseBody extends Model
 {
     /**
+     * @description The instance types that meet the specified requirements.
+     *
      * @var patternTypes[]
      */
     public $patternTypes;
 
     /**
+     * @description The request ID.
+     *
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
+     *
      * @var string
      */
     public $requestId;
@@ -23,27 +29,20 @@ class DescribePatternTypesResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->patternTypes)) {
-            Model::validateArray($this->patternTypes);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->patternTypes) {
-            if (\is_array($this->patternTypes)) {
-                $res['PatternTypes'] = [];
-                $n1 = 0;
-                foreach ($this->patternTypes as $item1) {
-                    $res['PatternTypes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['PatternTypes'] = [];
+            if (null !== $this->patternTypes && \is_array($this->patternTypes)) {
+                $n = 0;
+                foreach ($this->patternTypes as $item) {
+                    $res['PatternTypes'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -51,24 +50,23 @@ class DescribePatternTypesResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribePatternTypesResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PatternTypes'])) {
             if (!empty($map['PatternTypes'])) {
                 $model->patternTypes = [];
-                $n1 = 0;
-                foreach ($map['PatternTypes'] as $item1) {
-                    $model->patternTypes[$n1++] = patternTypes::fromMap($item1);
+                $n = 0;
+                foreach ($map['PatternTypes'] as $item) {
+                    $model->patternTypes[$n++] = null !== $item ? patternTypes::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

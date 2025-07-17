@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models\CreateEciScalingConfigurationRequest\volumes;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class diskVolume extends Model
 {
@@ -28,22 +28,17 @@ class diskVolume extends Model
         'fsType' => 'FsType',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->diskId) {
             $res['DiskId'] = $this->diskId;
         }
-
         if (null !== $this->diskSize) {
             $res['DiskSize'] = $this->diskSize;
         }
-
         if (null !== $this->fsType) {
             $res['FsType'] = $this->fsType;
         }
@@ -51,22 +46,20 @@ class diskVolume extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return diskVolume
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DiskId'])) {
             $model->diskId = $map['DiskId'];
         }
-
         if (isset($map['DiskSize'])) {
             $model->diskSize = $map['DiskSize'];
         }
-
         if (isset($map['FsType'])) {
             $model->fsType = $map['FsType'];
         }

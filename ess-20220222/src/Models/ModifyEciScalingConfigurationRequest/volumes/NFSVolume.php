@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models\ModifyEciScalingConfigurationRequest\volumes;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class NFSVolume extends Model
 {
@@ -28,22 +28,17 @@ class NFSVolume extends Model
         'server' => 'Server',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->path) {
             $res['Path'] = $this->path;
         }
-
         if (null !== $this->readOnly) {
             $res['ReadOnly'] = $this->readOnly;
         }
-
         if (null !== $this->server) {
             $res['Server'] = $this->server;
         }
@@ -51,22 +46,20 @@ class NFSVolume extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return NFSVolume
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Path'])) {
             $model->path = $map['Path'];
         }
-
         if (isset($map['ReadOnly'])) {
             $model->readOnly = $map['ReadOnly'];
         }
-
         if (isset($map['Server'])) {
             $model->server = $map['Server'];
         }

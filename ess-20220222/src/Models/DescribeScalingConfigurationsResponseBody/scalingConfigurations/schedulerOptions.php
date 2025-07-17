@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingConfigurationsResponseBody\scalingConfigurations;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class schedulerOptions extends Model
 {
     /**
+     * @description >  This parameter is in invitational preview and is not available for use.
+     *
+     * @example testManagedPrivateSpaceId
+     *
      * @var string
      */
     public $managedPrivateSpaceId;
@@ -16,12 +20,9 @@ class schedulerOptions extends Model
         'managedPrivateSpaceId' => 'ManagedPrivateSpaceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->managedPrivateSpaceId) {
@@ -31,11 +32,11 @@ class schedulerOptions extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return schedulerOptions
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

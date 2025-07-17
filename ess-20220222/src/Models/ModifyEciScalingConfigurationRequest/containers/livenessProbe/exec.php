@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models\ModifyEciScalingConfigurationRequest\containers\livenessProbe;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class exec extends Model
 {
@@ -16,45 +16,29 @@ class exec extends Model
         'commands' => 'Commands',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->commands)) {
-            Model::validateArray($this->commands);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->commands) {
-            if (\is_array($this->commands)) {
-                $res['Commands'] = [];
-                $n1 = 0;
-                foreach ($this->commands as $item1) {
-                    $res['Commands'][$n1++] = $item1;
-                }
-            }
+            $res['Commands'] = $this->commands;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return exec
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Commands'])) {
             if (!empty($map['Commands'])) {
-                $model->commands = [];
-                $n1 = 0;
-                foreach ($map['Commands'] as $item1) {
-                    $model->commands[$n1++] = $item1;
-                }
+                $model->commands = $map['Commands'];
             }
         }
 

@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DisableAlarmResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 086EFCD4-C76F-4DC6-9EE9-0D9B711E****
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class DisableAlarmResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class DisableAlarmResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DisableAlarmResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

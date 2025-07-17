@@ -4,47 +4,78 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models\DescribeElasticStrengthResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeElasticStrengthResponseBody\resourcePools\inventoryHealth;
+use AlibabaCloud\Tea\Model;
 
 class resourcePools extends Model
 {
     /**
+     * @description The error code returned when the scaling strength is the weakest.
+     *
+     * @example IMG_NOT_SUPPORTED
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The instance type of the resource pool.
+     *
+     * @example ecs.c7t.xlarge
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @description The inventory health.
+     *
      * @var inventoryHealth
      */
     public $inventoryHealth;
 
     /**
+     * @description The error message returned when the scaling strength is the weakest.
+     *
+     * @example The instanceType does not support the image in the configuration.
+     *
      * @var string
      */
     public $msg;
 
     /**
+     * @description Indicates whether the resource pool is available. Valid values:
+     *
+     *   Available
+     *   Unavailable (If a constraint is not provided, the instance type is not deployed, or the instance type is out of stock, the resource pool becomes unavailable.)
+     *
+     * @example Available
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The scaling strength of the resource pool.
+     *
+     * @example 0.6
+     *
      * @var float
      */
     public $strength;
 
     /**
+     * @description The IDs of the vSwitches in the zones of the resource pool.
+     *
      * @var string[]
      */
     public $vSwitchIds;
 
     /**
+     * @description The zone ID of the resource pool.
+     *
+     * @example cn-hangzhou-g
+     *
      * @var string
      */
     public $zoneId;
@@ -59,54 +90,32 @@ class resourcePools extends Model
         'zoneId' => 'ZoneId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->inventoryHealth) {
-            $this->inventoryHealth->validate();
-        }
-        if (\is_array($this->vSwitchIds)) {
-            Model::validateArray($this->vSwitchIds);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
         }
-
         if (null !== $this->inventoryHealth) {
-            $res['InventoryHealth'] = null !== $this->inventoryHealth ? $this->inventoryHealth->toArray($noStream) : $this->inventoryHealth;
+            $res['InventoryHealth'] = null !== $this->inventoryHealth ? $this->inventoryHealth->toMap() : null;
         }
-
         if (null !== $this->msg) {
             $res['Msg'] = $this->msg;
         }
-
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-
         if (null !== $this->strength) {
             $res['Strength'] = $this->strength;
         }
-
         if (null !== $this->vSwitchIds) {
-            if (\is_array($this->vSwitchIds)) {
-                $res['VSwitchIds'] = [];
-                $n1 = 0;
-                foreach ($this->vSwitchIds as $item1) {
-                    $res['VSwitchIds'][$n1++] = $item1;
-                }
-            }
+            $res['VSwitchIds'] = $this->vSwitchIds;
         }
-
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
@@ -114,48 +123,37 @@ class resourcePools extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return resourcePools
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
         }
-
         if (isset($map['InventoryHealth'])) {
             $model->inventoryHealth = inventoryHealth::fromMap($map['InventoryHealth']);
         }
-
         if (isset($map['Msg'])) {
             $model->msg = $map['Msg'];
         }
-
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-
         if (isset($map['Strength'])) {
             $model->strength = $map['Strength'];
         }
-
         if (isset($map['VSwitchIds'])) {
             if (!empty($map['VSwitchIds'])) {
-                $model->vSwitchIds = [];
-                $n1 = 0;
-                foreach ($map['VSwitchIds'] as $item1) {
-                    $model->vSwitchIds[$n1++] = $item1;
-                }
+                $model->vSwitchIds = $map['VSwitchIds'];
             }
         }
-
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
         }

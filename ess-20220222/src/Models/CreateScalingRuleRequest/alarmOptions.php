@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models\CreateScalingRuleRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class alarmOptions extends Model
 {
     /**
+     * @example 60
+     *
      * @var int
      */
     public $period;
@@ -16,12 +18,9 @@ class alarmOptions extends Model
         'period' => 'Period',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->period) {
@@ -31,11 +30,11 @@ class alarmOptions extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return alarmOptions
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

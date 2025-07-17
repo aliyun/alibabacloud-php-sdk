@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingGroupDetailResponseBody\scalingGroup;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class loadBalancerConfigs extends Model
 {
     /**
+     * @description The ID of the CLB instance.
+     *
+     * @example lb-2zein3ytoeq49cmkbyxr0
+     *
      * @var string
      */
     public $loadBalancerId;
 
     /**
+     * @description The weight of a backend server.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $weight;
@@ -22,18 +30,14 @@ class loadBalancerConfigs extends Model
         'weight' => 'Weight',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->loadBalancerId) {
             $res['LoadBalancerId'] = $this->loadBalancerId;
         }
-
         if (null !== $this->weight) {
             $res['Weight'] = $this->weight;
         }
@@ -41,18 +45,17 @@ class loadBalancerConfigs extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return loadBalancerConfigs
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LoadBalancerId'])) {
             $model->loadBalancerId = $map['LoadBalancerId'];
         }
-
         if (isset($map['Weight'])) {
             $model->weight = $map['Weight'];
         }

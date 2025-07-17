@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models\DescribeEciScalingConfigurationDetailResponseBody\scalingConfiguration;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class securityContextSysCtls extends Model
 {
     /**
+     * @description The system name of the security context in which the elastic container instance runs.
+     *
+     * @example kernel.msgmax
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The variable value of the security context in which the elastic container instance runs.
+     *
+     * @example 65536
+     *
      * @var string
      */
     public $value;
@@ -22,18 +30,14 @@ class securityContextSysCtls extends Model
         'value' => 'Value',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -41,18 +45,17 @@ class securityContextSysCtls extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return securityContextSysCtls
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

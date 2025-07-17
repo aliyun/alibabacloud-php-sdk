@@ -4,26 +4,40 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models\CreateEciScalingConfigurationRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class acrRegistryInfos extends Model
 {
     /**
+     * @description The domain names of the Container Registry Enterprise Edition instances. By default, all domain names are displayed. Separate multiple domain names with commas (,).
+     *
      * @var string[]
      */
     public $domains;
 
     /**
+     * @description The ID of the Container Registry Enterprise Edition instance.
+     *
+     * @example cri-nwj395hgf6f3****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The name of the Container Registry Enterprise Edition instance.
+     *
+     * @example acr-test
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description The region ID of the Container Registry Enterprise Edition instance.
+     *
+     * @example cn-beijing
+     *
      * @var string
      */
     public $regionId;
@@ -34,35 +48,20 @@ class acrRegistryInfos extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->domains)) {
-            Model::validateArray($this->domains);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->domains) {
-            if (\is_array($this->domains)) {
-                $res['Domains'] = [];
-                $n1 = 0;
-                foreach ($this->domains as $item1) {
-                    $res['Domains'][$n1++] = $item1;
-                }
-            }
+            $res['Domains'] = $this->domains;
         }
-
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -70,32 +69,25 @@ class acrRegistryInfos extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return acrRegistryInfos
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Domains'])) {
             if (!empty($map['Domains'])) {
-                $model->domains = [];
-                $n1 = 0;
-                foreach ($map['Domains'] as $item1) {
-                    $model->domains[$n1++] = $item1;
-                }
+                $model->domains = $map['Domains'];
             }
         }
-
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

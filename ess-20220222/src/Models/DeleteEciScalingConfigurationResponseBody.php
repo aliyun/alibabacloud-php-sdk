@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteEciScalingConfigurationResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * The request ID is consistently returned in the response, irrespective of whether the request is executed successfully or encounters an error.
+     *
+     * @example 45D5B0AD-3B00-4A9B-9911-6D5303B06712
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +22,9 @@ class DeleteEciScalingConfigurationResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class DeleteEciScalingConfigurationResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteEciScalingConfigurationResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

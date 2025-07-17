@@ -4,22 +4,55 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeEciScalingConfigurationDetailResponseBody\scalingConfiguration;
+use AlibabaCloud\Tea\Model;
 
 class DescribeEciScalingConfigurationDetailResponseBody extends Model
 {
     /**
+     * @description The YAML output of the scaling configuration.
+     *
+     * @example apiVersion: apps/v1
+     * kind: Deployment
+     * metadata:
+     * name: nginx-deployment
+     * labels:
+     * app: nginx
+     * spec:
+     * replicas: 3
+     * selector:
+     * matchLabels:
+     * app: nginx
+     * template:
+     * metadata:
+     * labels:
+     * app: nginx
+     * annotations:
+     * k8s.aliyun.com/eip-bandwidth: 10
+     * k8s.aliyun.com/eci-with-eip: true
+     * spec:
+     * containers:
+     * - name: nginx
+     * image: nginx:1.14.2
+     * ports:
+     * - containerPort: 80
+     *
      * @var string
      */
     public $output;
 
     /**
+     * @description The request ID.
+     *
+     * @example 6EF9BFEE-FE07-4627-B8FB-14326FB9****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The information about the scaling configuration.
+     *
      * @var scalingConfiguration
      */
     public $scalingConfiguration;
@@ -29,48 +62,38 @@ class DescribeEciScalingConfigurationDetailResponseBody extends Model
         'scalingConfiguration' => 'ScalingConfiguration',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->scalingConfiguration) {
-            $this->scalingConfiguration->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->output) {
             $res['Output'] = $this->output;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->scalingConfiguration) {
-            $res['ScalingConfiguration'] = null !== $this->scalingConfiguration ? $this->scalingConfiguration->toArray($noStream) : $this->scalingConfiguration;
+            $res['ScalingConfiguration'] = null !== $this->scalingConfiguration ? $this->scalingConfiguration->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeEciScalingConfigurationDetailResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Output'])) {
             $model->output = $map['Output'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['ScalingConfiguration'])) {
             $model->scalingConfiguration = scalingConfiguration::fromMap($map['ScalingConfiguration']);
         }
