@@ -4,12 +4,20 @@
 
 namespace AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListInstancesResponseBody;
 
+use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListInstancesResponseBody\instances\featureDBInfo;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListInstancesResponseBody\instances\featureDBInstanceInfo;
 use AlibabaCloud\Tea\Model;
 
 class instances extends Model
 {
     /**
+     * @var featureDBInfo
+     */
+    public $featureDBInfo;
+
+    /**
+     * @deprecated
+     *
      * @var featureDBInstanceInfo
      */
     public $featureDBInstanceInfo;
@@ -56,6 +64,7 @@ class instances extends Model
      */
     public $type;
     protected $_name = [
+        'featureDBInfo' => 'FeatureDBInfo',
         'featureDBInstanceInfo' => 'FeatureDBInstanceInfo',
         'gmtCreateTime' => 'GmtCreateTime',
         'gmtModifiedTime' => 'GmtModifiedTime',
@@ -70,6 +79,9 @@ class instances extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->featureDBInfo) {
+            $res['FeatureDBInfo'] = null !== $this->featureDBInfo ? $this->featureDBInfo->toMap() : null;
+        }
         if (null !== $this->featureDBInstanceInfo) {
             $res['FeatureDBInstanceInfo'] = null !== $this->featureDBInstanceInfo ? $this->featureDBInstanceInfo->toMap() : null;
         }
@@ -103,6 +115,9 @@ class instances extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FeatureDBInfo'])) {
+            $model->featureDBInfo = featureDBInfo::fromMap($map['FeatureDBInfo']);
+        }
         if (isset($map['FeatureDBInstanceInfo'])) {
             $model->featureDBInstanceInfo = featureDBInstanceInfo::fromMap($map['FeatureDBInstanceInfo']);
         }
