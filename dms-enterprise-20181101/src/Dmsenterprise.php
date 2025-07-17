@@ -6309,6 +6309,9 @@ class Dmsenterprise extends OpenApiClient
         if (!Utils::isUnset($request->question)) {
             $query['Question'] = $request->question;
         }
+        if (!Utils::isUnset($request->tableNames)) {
+            $query['TableNames'] = $request->tableNames;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);

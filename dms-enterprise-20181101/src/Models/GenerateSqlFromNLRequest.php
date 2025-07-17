@@ -51,6 +51,13 @@ class GenerateSqlFromNLRequest extends Model
      * @var string
      */
     public $question;
+
+    /**
+     * @example users,orders
+     *
+     * @var string
+     */
+    public $tableNames;
     protected $_name = [
         'dbId' => 'DbId',
         'dialect' => 'Dialect',
@@ -58,6 +65,7 @@ class GenerateSqlFromNLRequest extends Model
         'level' => 'Level',
         'model' => 'Model',
         'question' => 'Question',
+        'tableNames' => 'TableNames',
     ];
 
     public function validate() {}
@@ -82,6 +90,9 @@ class GenerateSqlFromNLRequest extends Model
         }
         if (null !== $this->question) {
             $res['Question'] = $this->question;
+        }
+        if (null !== $this->tableNames) {
+            $res['TableNames'] = $this->tableNames;
         }
 
         return $res;
@@ -112,6 +123,9 @@ class GenerateSqlFromNLRequest extends Model
         }
         if (isset($map['Question'])) {
             $model->question = $map['Question'];
+        }
+        if (isset($map['TableNames'])) {
+            $model->tableNames = $map['TableNames'];
         }
 
         return $model;
