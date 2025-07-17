@@ -4,17 +4,21 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models\HttpApiPublishRevisionInfo;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\APIG\V20240327\Models\HttpApiPublishRevisionInfo\environmentInfo\gatewayInfo;
+use AlibabaCloud\Tea\Model;
 
 class environmentInfo extends Model
 {
     /**
+     * @example 测试
+     *
      * @var string
      */
     public $alias;
 
     /**
+     * @example env-xxx
+     *
      * @var string
      */
     public $environmentId;
@@ -25,6 +29,8 @@ class environmentInfo extends Model
     public $gatewayInfo;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $name;
@@ -35,29 +41,20 @@ class environmentInfo extends Model
         'name' => 'name',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->gatewayInfo) {
-            $this->gatewayInfo->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->alias) {
             $res['alias'] = $this->alias;
         }
-
         if (null !== $this->environmentId) {
             $res['environmentId'] = $this->environmentId;
         }
-
         if (null !== $this->gatewayInfo) {
-            $res['gatewayInfo'] = null !== $this->gatewayInfo ? $this->gatewayInfo->toArray($noStream) : $this->gatewayInfo;
+            $res['gatewayInfo'] = null !== $this->gatewayInfo ? $this->gatewayInfo->toMap() : null;
         }
-
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
@@ -65,26 +62,23 @@ class environmentInfo extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return environmentInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['alias'])) {
             $model->alias = $map['alias'];
         }
-
         if (isset($map['environmentId'])) {
             $model->environmentId = $map['environmentId'];
         }
-
         if (isset($map['gatewayInfo'])) {
             $model->gatewayInfo = gatewayInfo::fromMap($map['gatewayInfo']);
         }
-
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }

@@ -4,26 +4,34 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models\HttpApiDeployConfig;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class serviceConfigs extends Model
 {
     /**
+     * @example qwen-max
+     *
      * @var string
      */
     public $modelName;
 
     /**
+     * @example qwen-*
+     *
      * @var string
      */
     public $modelNamePattern;
 
     /**
+     * @example svc-xxx
+     *
      * @var string
      */
     public $serviceId;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $weight;
@@ -34,26 +42,20 @@ class serviceConfigs extends Model
         'weight' => 'weight',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->modelName) {
             $res['modelName'] = $this->modelName;
         }
-
         if (null !== $this->modelNamePattern) {
             $res['modelNamePattern'] = $this->modelNamePattern;
         }
-
         if (null !== $this->serviceId) {
             $res['serviceId'] = $this->serviceId;
         }
-
         if (null !== $this->weight) {
             $res['weight'] = $this->weight;
         }
@@ -61,26 +63,23 @@ class serviceConfigs extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return serviceConfigs
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['modelName'])) {
             $model->modelName = $map['modelName'];
         }
-
         if (isset($map['modelNamePattern'])) {
             $model->modelNamePattern = $map['modelNamePattern'];
         }
-
         if (isset($map['serviceId'])) {
             $model->serviceId = $map['serviceId'];
         }
-
         if (isset($map['weight'])) {
             $model->weight = $map['weight'];
         }

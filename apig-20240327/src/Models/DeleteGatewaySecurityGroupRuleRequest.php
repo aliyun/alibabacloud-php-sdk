@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteGatewaySecurityGroupRuleRequest extends Model
 {
     /**
+     * @description Whether to cascade delete the security group rules.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $cascadingDelete;
@@ -16,12 +20,9 @@ class DeleteGatewaySecurityGroupRuleRequest extends Model
         'cascadingDelete' => 'cascadingDelete',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->cascadingDelete) {
@@ -31,11 +32,11 @@ class DeleteGatewaySecurityGroupRuleRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteGatewaySecurityGroupRuleRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

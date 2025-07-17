@@ -4,21 +4,33 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeletePolicyAttachmentResponseBody extends Model
 {
     /**
+     * @description Response status code.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description Response message.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description ID of the request
+     *
+     * @example CE857A85-251D-5018-8103-A38957D71***
+     *
      * @var string
      */
     public $requestId;
@@ -28,22 +40,17 @@ class DeletePolicyAttachmentResponseBody extends Model
         'requestId' => 'requestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->code) {
             $res['code'] = $this->code;
         }
-
         if (null !== $this->message) {
             $res['message'] = $this->message;
         }
-
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -51,22 +58,20 @@ class DeletePolicyAttachmentResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeletePolicyAttachmentResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['code'])) {
             $model->code = $map['code'];
         }
-
         if (isset($map['message'])) {
             $model->message = $map['message'];
         }
-
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }

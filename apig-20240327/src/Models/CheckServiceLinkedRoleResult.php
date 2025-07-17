@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CheckServiceLinkedRoleResult extends Model
 {
@@ -16,12 +16,9 @@ class CheckServiceLinkedRoleResult extends Model
         'existed' => 'existed',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->existed) {
@@ -31,11 +28,11 @@ class CheckServiceLinkedRoleResult extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CheckServiceLinkedRoleResult
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

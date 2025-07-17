@@ -4,12 +4,14 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateHttpApiRouteRequest\backendConfig;
+use AlibabaCloud\Tea\Model;
 
 class UpdateHttpApiRouteRequest extends Model
 {
     /**
+     * @description The backend service configurations of the route.
+     *
      * @var backendConfig
      */
     public $backendConfig;
@@ -20,21 +22,33 @@ class UpdateHttpApiRouteRequest extends Model
     public $deployConfigs;
 
     /**
+     * @description The route description.
+     *
+     * @example test route
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The domain IDs.
+     *
      * @var string[]
      */
     public $domainIds;
 
     /**
+     * @description The environment ID.
+     *
+     * @example env-cquqsollhtgid***
+     *
      * @var string
      */
     public $environmentId;
 
     /**
+     * @description The rules for matching the route.
+     *
      * @var HttpRouteMatch
      */
     public $match;
@@ -47,109 +61,70 @@ class UpdateHttpApiRouteRequest extends Model
         'match' => 'match',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->backendConfig) {
-            $this->backendConfig->validate();
-        }
-        if (\is_array($this->deployConfigs)) {
-            Model::validateArray($this->deployConfigs);
-        }
-        if (\is_array($this->domainIds)) {
-            Model::validateArray($this->domainIds);
-        }
-        if (null !== $this->match) {
-            $this->match->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->backendConfig) {
-            $res['backendConfig'] = null !== $this->backendConfig ? $this->backendConfig->toArray($noStream) : $this->backendConfig;
+            $res['backendConfig'] = null !== $this->backendConfig ? $this->backendConfig->toMap() : null;
         }
-
         if (null !== $this->deployConfigs) {
-            if (\is_array($this->deployConfigs)) {
-                $res['deployConfigs'] = [];
-                $n1 = 0;
-                foreach ($this->deployConfigs as $item1) {
-                    $res['deployConfigs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['deployConfigs'] = [];
+            if (null !== $this->deployConfigs && \is_array($this->deployConfigs)) {
+                $n = 0;
+                foreach ($this->deployConfigs as $item) {
+                    $res['deployConfigs'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
-
         if (null !== $this->domainIds) {
-            if (\is_array($this->domainIds)) {
-                $res['domainIds'] = [];
-                $n1 = 0;
-                foreach ($this->domainIds as $item1) {
-                    $res['domainIds'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['domainIds'] = $this->domainIds;
         }
-
         if (null !== $this->environmentId) {
             $res['environmentId'] = $this->environmentId;
         }
-
         if (null !== $this->match) {
-            $res['match'] = null !== $this->match ? $this->match->toArray($noStream) : $this->match;
+            $res['match'] = null !== $this->match ? $this->match->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateHttpApiRouteRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['backendConfig'])) {
             $model->backendConfig = backendConfig::fromMap($map['backendConfig']);
         }
-
         if (isset($map['deployConfigs'])) {
             if (!empty($map['deployConfigs'])) {
                 $model->deployConfigs = [];
-                $n1 = 0;
-                foreach ($map['deployConfigs'] as $item1) {
-                    $model->deployConfigs[$n1] = HttpApiDeployConfig::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['deployConfigs'] as $item) {
+                    $model->deployConfigs[$n++] = null !== $item ? HttpApiDeployConfig::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
-
         if (isset($map['domainIds'])) {
             if (!empty($map['domainIds'])) {
-                $model->domainIds = [];
-                $n1 = 0;
-                foreach ($map['domainIds'] as $item1) {
-                    $model->domainIds[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->domainIds = $map['domainIds'];
             }
         }
-
         if (isset($map['environmentId'])) {
             $model->environmentId = $map['environmentId'];
         }
-
         if (isset($map['match'])) {
             $model->match = HttpRouteMatch::fromMap($map['match']);
         }

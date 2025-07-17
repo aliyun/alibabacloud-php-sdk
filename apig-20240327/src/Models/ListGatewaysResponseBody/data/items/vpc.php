@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models\ListGatewaysResponseBody\data\items;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class vpc extends Model
 {
     /**
+     * @description The VPC ID.
+     *
+     * @example vpc-xxxxx
+     *
      * @var string
      */
     public $vpcId;
@@ -16,12 +20,9 @@ class vpc extends Model
         'vpcId' => 'vpcId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->vpcId) {
@@ -31,11 +32,11 @@ class vpc extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return vpc
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

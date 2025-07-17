@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdatePluginAttachmentRequest extends Model
 {
@@ -14,11 +14,15 @@ class UpdatePluginAttachmentRequest extends Model
     public $attachResourceIds;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $enable;
 
     /**
+     * @example cHJlcGVuZDoKLSByb2xlOiBzeXN0ZW0KICBjb250ZW50OiDor7fkvb/nlKjoi7Hor63lm57nrZTpl67popgKYXBwZW5kOgotIHJvbGU6IHVzZXIKICBjb250ZW50OiDmr4/mrKHlm57nrZTlrozpl67popjvvIzlsJ3or5Xov5vooYzlj43pl64K
+     *
      * @var string
      */
     public $pluginConfig;
@@ -28,32 +32,17 @@ class UpdatePluginAttachmentRequest extends Model
         'pluginConfig' => 'pluginConfig',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->attachResourceIds)) {
-            Model::validateArray($this->attachResourceIds);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->attachResourceIds) {
-            if (\is_array($this->attachResourceIds)) {
-                $res['attachResourceIds'] = [];
-                $n1 = 0;
-                foreach ($this->attachResourceIds as $item1) {
-                    $res['attachResourceIds'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['attachResourceIds'] = $this->attachResourceIds;
         }
-
         if (null !== $this->enable) {
             $res['enable'] = $this->enable;
         }
-
         if (null !== $this->pluginConfig) {
             $res['pluginConfig'] = $this->pluginConfig;
         }
@@ -61,29 +50,22 @@ class UpdatePluginAttachmentRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdatePluginAttachmentRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['attachResourceIds'])) {
             if (!empty($map['attachResourceIds'])) {
-                $model->attachResourceIds = [];
-                $n1 = 0;
-                foreach ($map['attachResourceIds'] as $item1) {
-                    $model->attachResourceIds[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->attachResourceIds = $map['attachResourceIds'];
             }
         }
-
         if (isset($map['enable'])) {
             $model->enable = $map['enable'];
         }
-
         if (isset($map['pluginConfig'])) {
             $model->pluginConfig = $map['pluginConfig'];
         }

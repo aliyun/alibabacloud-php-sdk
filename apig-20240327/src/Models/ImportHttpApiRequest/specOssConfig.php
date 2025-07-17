@@ -4,21 +4,33 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models\ImportHttpApiRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class specOssConfig extends Model
 {
     /**
+     * @description The bucket name.
+     *
+     * @example api-1
+     *
      * @var string
      */
     public $bucketName;
 
     /**
+     * @description The full path of the file.
+     *
+     * @example /test/swagger.json
+     *
      * @var string
      */
     public $objectKey;
 
     /**
+     * @description The region ID.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -28,22 +40,17 @@ class specOssConfig extends Model
         'regionId' => 'regionId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->bucketName) {
             $res['bucketName'] = $this->bucketName;
         }
-
         if (null !== $this->objectKey) {
             $res['objectKey'] = $this->objectKey;
         }
-
         if (null !== $this->regionId) {
             $res['regionId'] = $this->regionId;
         }
@@ -51,22 +58,20 @@ class specOssConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return specOssConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['bucketName'])) {
             $model->bucketName = $map['bucketName'];
         }
-
         if (isset($map['objectKey'])) {
             $model->objectKey = $map['objectKey'];
         }
-
         if (isset($map['regionId'])) {
             $model->regionId = $map['regionId'];
         }

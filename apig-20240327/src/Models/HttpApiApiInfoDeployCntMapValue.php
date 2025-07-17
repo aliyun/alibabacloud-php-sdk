@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class HttpApiApiInfoDeployCntMapValue extends Model
 {
@@ -22,18 +22,14 @@ class HttpApiApiInfoDeployCntMapValue extends Model
         'cnt' => 'Cnt',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->deployedCnt) {
             $res['deployedCnt'] = $this->deployedCnt;
         }
-
         if (null !== $this->cnt) {
             $res['Cnt'] = $this->cnt;
         }
@@ -41,18 +37,17 @@ class HttpApiApiInfoDeployCntMapValue extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return HttpApiApiInfoDeployCntMapValue
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['deployedCnt'])) {
             $model->deployedCnt = $map['deployedCnt'];
         }
-
         if (isset($map['Cnt'])) {
             $model->cnt = $map['Cnt'];
         }

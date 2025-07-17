@@ -4,31 +4,54 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models\UpdateHttpApiRouteRequest\backendConfig;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class services extends Model
 {
     /**
+     * @description The service port. If you want to use a dynamic port, do not pass this parameter.
+     *
+     * @example 8080
+     *
      * @var int
      */
     public $port;
 
     /**
+     * @description The protocol. Valid values:
+     *
+     *   HTTP
+     *   HTTPS
+     *
+     * @example HTTP
+     *
      * @var string
      */
     public $protocol;
 
     /**
+     * @description The service ID.
+     *
+     * @example svc-cr6pk4tlhtgm58e***
+     *
      * @var string
      */
     public $serviceId;
 
     /**
+     * @description The service version.
+     *
+     * @example v1
+     *
      * @var string
      */
     public $version;
 
     /**
+     * @description The percentage value of traffic.
+     *
+     * @example 49
+     *
      * @var int
      */
     public $weight;
@@ -40,30 +63,23 @@ class services extends Model
         'weight' => 'weight',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->port) {
             $res['port'] = $this->port;
         }
-
         if (null !== $this->protocol) {
             $res['protocol'] = $this->protocol;
         }
-
         if (null !== $this->serviceId) {
             $res['serviceId'] = $this->serviceId;
         }
-
         if (null !== $this->version) {
             $res['version'] = $this->version;
         }
-
         if (null !== $this->weight) {
             $res['weight'] = $this->weight;
         }
@@ -71,30 +87,26 @@ class services extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return services
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['port'])) {
             $model->port = $map['port'];
         }
-
         if (isset($map['protocol'])) {
             $model->protocol = $map['protocol'];
         }
-
         if (isset($map['serviceId'])) {
             $model->serviceId = $map['serviceId'];
         }
-
         if (isset($map['version'])) {
             $model->version = $map['version'];
         }
-
         if (isset($map['weight'])) {
             $model->weight = $map['weight'];
         }

@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models\GetGatewayResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class vpc extends Model
 {
     /**
+     * @description The VPC name.
+     *
+     * @example HangzhouVPC
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The VPC ID.
+     *
+     * @example vpc-bp1llj52lvj6xc***
+     *
      * @var string
      */
     public $vpcId;
@@ -22,18 +30,14 @@ class vpc extends Model
         'vpcId' => 'vpcId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
-
         if (null !== $this->vpcId) {
             $res['vpcId'] = $this->vpcId;
         }
@@ -41,18 +45,17 @@ class vpc extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return vpc
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
-
         if (isset($map['vpcId'])) {
             $model->vpcId = $map['vpcId'];
         }

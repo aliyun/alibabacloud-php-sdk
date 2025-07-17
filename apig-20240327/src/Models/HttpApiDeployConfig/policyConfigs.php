@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models\HttpApiDeployConfig;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\APIG\V20240327\Models\HttpApiDeployConfig\policyConfigs\aiFallbackConfig;
+use AlibabaCloud\Tea\Model;
 
 class policyConfigs extends Model
 {
@@ -15,11 +15,15 @@ class policyConfigs extends Model
     public $aiFallbackConfig;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enable;
 
     /**
+     * @example AiFallback
+     *
      * @var string
      */
     public $type;
@@ -29,25 +33,17 @@ class policyConfigs extends Model
         'type' => 'type',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->aiFallbackConfig) {
-            $this->aiFallbackConfig->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->aiFallbackConfig) {
-            $res['aiFallbackConfig'] = null !== $this->aiFallbackConfig ? $this->aiFallbackConfig->toArray($noStream) : $this->aiFallbackConfig;
+            $res['aiFallbackConfig'] = null !== $this->aiFallbackConfig ? $this->aiFallbackConfig->toMap() : null;
         }
-
         if (null !== $this->enable) {
             $res['enable'] = $this->enable;
         }
-
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -55,22 +51,20 @@ class policyConfigs extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return policyConfigs
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['aiFallbackConfig'])) {
             $model->aiFallbackConfig = aiFallbackConfig::fromMap($map['aiFallbackConfig']);
         }
-
         if (isset($map['enable'])) {
             $model->enable = $map['enable'];
         }
-
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }

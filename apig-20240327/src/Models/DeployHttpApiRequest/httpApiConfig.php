@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models\DeployHttpApiRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class httpApiConfig extends Model
 {
@@ -22,55 +22,35 @@ class httpApiConfig extends Model
         'routeIds' => 'routeIds',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->routeIds)) {
-            Model::validateArray($this->routeIds);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->gatewayId) {
             $res['gatewayId'] = $this->gatewayId;
         }
-
         if (null !== $this->routeIds) {
-            if (\is_array($this->routeIds)) {
-                $res['routeIds'] = [];
-                $n1 = 0;
-                foreach ($this->routeIds as $item1) {
-                    $res['routeIds'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['routeIds'] = $this->routeIds;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return httpApiConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['gatewayId'])) {
             $model->gatewayId = $map['gatewayId'];
         }
-
         if (isset($map['routeIds'])) {
             if (!empty($map['routeIds'])) {
-                $model->routeIds = [];
-                $n1 = 0;
-                foreach ($map['routeIds'] as $item1) {
-                    $model->routeIds[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->routeIds = $map['routeIds'];
             }
         }
 

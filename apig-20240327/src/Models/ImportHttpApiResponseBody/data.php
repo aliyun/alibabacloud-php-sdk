@@ -4,22 +4,32 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models\ImportHttpApiResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ImportHttpApiResponseBody\data\dryRunInfo;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description The dry run result.
+     *
      * @var dryRunInfo
      */
     public $dryRunInfo;
 
     /**
+     * @description The API ID.
+     *
+     * @example api-xxx
+     *
      * @var string
      */
     public $httpApiId;
 
     /**
+     * @description The API name.
+     *
+     * @example import-test
+     *
      * @var string
      */
     public $name;
@@ -29,25 +39,17 @@ class data extends Model
         'name' => 'name',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->dryRunInfo) {
-            $this->dryRunInfo->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dryRunInfo) {
-            $res['dryRunInfo'] = null !== $this->dryRunInfo ? $this->dryRunInfo->toArray($noStream) : $this->dryRunInfo;
+            $res['dryRunInfo'] = null !== $this->dryRunInfo ? $this->dryRunInfo->toMap() : null;
         }
-
         if (null !== $this->httpApiId) {
             $res['httpApiId'] = $this->httpApiId;
         }
-
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
@@ -55,22 +57,20 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['dryRunInfo'])) {
             $model->dryRunInfo = dryRunInfo::fromMap($map['dryRunInfo']);
         }
-
         if (isset($map['httpApiId'])) {
             $model->httpApiId = $map['httpApiId'];
         }
-
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }

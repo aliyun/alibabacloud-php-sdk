@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models\ListGatewaysRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class tag extends Model
 {
     /**
+     * @description The key of tag N.
+     *
+     * @example owner
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The value of tag N.
+     *
+     * @example zhangsan
+     *
      * @var string
      */
     public $value;
@@ -22,18 +30,14 @@ class tag extends Model
         'value' => 'value',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->key) {
             $res['key'] = $this->key;
         }
-
         if (null !== $this->value) {
             $res['value'] = $this->value;
         }
@@ -41,18 +45,17 @@ class tag extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return tag
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['key'])) {
             $model->key = $map['key'];
         }
-
         if (isset($map['value'])) {
             $model->value = $map['value'];
         }

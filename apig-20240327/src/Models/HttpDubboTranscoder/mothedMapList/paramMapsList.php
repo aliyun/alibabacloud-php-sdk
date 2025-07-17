@@ -4,21 +4,27 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models\HttpDubboTranscoder\mothedMapList;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class paramMapsList extends Model
 {
     /**
+     * @example name
+     *
      * @var string
      */
     public $extractKey;
 
     /**
+     * @example ALL_QUERY_PARAMETER
+     *
      * @var string
      */
     public $extractKeySpec;
 
     /**
+     * @example java.lang.String
+     *
      * @var string
      */
     public $mappingType;
@@ -28,22 +34,17 @@ class paramMapsList extends Model
         'mappingType' => 'mappingType',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->extractKey) {
             $res['extractKey'] = $this->extractKey;
         }
-
         if (null !== $this->extractKeySpec) {
             $res['extractKeySpec'] = $this->extractKeySpec;
         }
-
         if (null !== $this->mappingType) {
             $res['mappingType'] = $this->mappingType;
         }
@@ -51,22 +52,20 @@ class paramMapsList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return paramMapsList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['extractKey'])) {
             $model->extractKey = $map['extractKey'];
         }
-
         if (isset($map['extractKeySpec'])) {
             $model->extractKeySpec = $map['extractKeySpec'];
         }
-
         if (isset($map['mappingType'])) {
             $model->mappingType = $map['mappingType'];
         }

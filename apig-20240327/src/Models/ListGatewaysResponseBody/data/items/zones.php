@@ -4,17 +4,23 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models\ListGatewaysResponseBody\data\items;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListGatewaysResponseBody\data\items\zones\vSwitch;
+use AlibabaCloud\Tea\Model;
 
 class zones extends Model
 {
     /**
+     * @description The vSwitch information.
+     *
      * @var vSwitch
      */
     public $vSwitch;
 
     /**
+     * @description The zone ID.
+     *
+     * @example cn-hangzhou-f
+     *
      * @var string
      */
     public $zoneId;
@@ -23,21 +29,14 @@ class zones extends Model
         'zoneId' => 'zoneId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->vSwitch) {
-            $this->vSwitch->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->vSwitch) {
-            $res['vSwitch'] = null !== $this->vSwitch ? $this->vSwitch->toArray($noStream) : $this->vSwitch;
+            $res['vSwitch'] = null !== $this->vSwitch ? $this->vSwitch->toMap() : null;
         }
-
         if (null !== $this->zoneId) {
             $res['zoneId'] = $this->zoneId;
         }
@@ -45,18 +44,17 @@ class zones extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return zones
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['vSwitch'])) {
             $model->vSwitch = vSwitch::fromMap($map['vSwitch']);
         }
-
         if (isset($map['zoneId'])) {
             $model->zoneId = $map['zoneId'];
         }

@@ -4,14 +4,16 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models\HttpApiPublishRevisionInfo;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\APIG\V20240327\Models\HttpApiPublishRevisionInfo\cloudProductConfig\containerServiceConfigs;
 use AlibabaCloud\SDK\APIG\V20240327\Models\HttpApiPublishRevisionInfo\cloudProductConfig\functionConfigs;
 use AlibabaCloud\SDK\APIG\V20240327\Models\HttpApiPublishRevisionInfo\cloudProductConfig\mseNacosConfigs;
+use AlibabaCloud\Tea\Model;
 
 class cloudProductConfig extends Model
 {
     /**
+     * @example FC
+     *
      * @var string
      */
     public $cloudProductType;
@@ -37,56 +39,38 @@ class cloudProductConfig extends Model
         'mseNacosConfigs' => 'mseNacosConfigs',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->containerServiceConfigs)) {
-            Model::validateArray($this->containerServiceConfigs);
-        }
-        if (\is_array($this->functionConfigs)) {
-            Model::validateArray($this->functionConfigs);
-        }
-        if (\is_array($this->mseNacosConfigs)) {
-            Model::validateArray($this->mseNacosConfigs);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->cloudProductType) {
             $res['cloudProductType'] = $this->cloudProductType;
         }
-
         if (null !== $this->containerServiceConfigs) {
-            if (\is_array($this->containerServiceConfigs)) {
-                $res['containerServiceConfigs'] = [];
-                $n1 = 0;
-                foreach ($this->containerServiceConfigs as $item1) {
-                    $res['containerServiceConfigs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['containerServiceConfigs'] = [];
+            if (null !== $this->containerServiceConfigs && \is_array($this->containerServiceConfigs)) {
+                $n = 0;
+                foreach ($this->containerServiceConfigs as $item) {
+                    $res['containerServiceConfigs'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->functionConfigs) {
-            if (\is_array($this->functionConfigs)) {
-                $res['functionConfigs'] = [];
-                $n1 = 0;
-                foreach ($this->functionConfigs as $item1) {
-                    $res['functionConfigs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['functionConfigs'] = [];
+            if (null !== $this->functionConfigs && \is_array($this->functionConfigs)) {
+                $n = 0;
+                foreach ($this->functionConfigs as $item) {
+                    $res['functionConfigs'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->mseNacosConfigs) {
-            if (\is_array($this->mseNacosConfigs)) {
-                $res['mseNacosConfigs'] = [];
-                $n1 = 0;
-                foreach ($this->mseNacosConfigs as $item1) {
-                    $res['mseNacosConfigs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['mseNacosConfigs'] = [];
+            if (null !== $this->mseNacosConfigs && \is_array($this->mseNacosConfigs)) {
+                $n = 0;
+                foreach ($this->mseNacosConfigs as $item) {
+                    $res['mseNacosConfigs'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -94,47 +78,41 @@ class cloudProductConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return cloudProductConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['cloudProductType'])) {
             $model->cloudProductType = $map['cloudProductType'];
         }
-
         if (isset($map['containerServiceConfigs'])) {
             if (!empty($map['containerServiceConfigs'])) {
                 $model->containerServiceConfigs = [];
-                $n1 = 0;
-                foreach ($map['containerServiceConfigs'] as $item1) {
-                    $model->containerServiceConfigs[$n1] = containerServiceConfigs::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['containerServiceConfigs'] as $item) {
+                    $model->containerServiceConfigs[$n++] = null !== $item ? containerServiceConfigs::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['functionConfigs'])) {
             if (!empty($map['functionConfigs'])) {
                 $model->functionConfigs = [];
-                $n1 = 0;
-                foreach ($map['functionConfigs'] as $item1) {
-                    $model->functionConfigs[$n1] = functionConfigs::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['functionConfigs'] as $item) {
+                    $model->functionConfigs[$n++] = null !== $item ? functionConfigs::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['mseNacosConfigs'])) {
             if (!empty($map['mseNacosConfigs'])) {
                 $model->mseNacosConfigs = [];
-                $n1 = 0;
-                foreach ($map['mseNacosConfigs'] as $item1) {
-                    $model->mseNacosConfigs[$n1] = mseNacosConfigs::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['mseNacosConfigs'] as $item) {
+                    $model->mseNacosConfigs[$n++] = null !== $item ? mseNacosConfigs::fromMap($item) : $item;
                 }
             }
         }

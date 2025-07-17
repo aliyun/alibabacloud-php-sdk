@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models\GetGatewayResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class securityGroup extends Model
 {
     /**
+     * @description The security group name.
+     *
+     * @example APIG-sg-gw-cq7ke5ll***
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The security group ID.
+     *
+     * @example sg-bp16tafq9***
+     *
      * @var string
      */
     public $securityGroupId;
@@ -22,18 +30,14 @@ class securityGroup extends Model
         'securityGroupId' => 'securityGroupId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
-
         if (null !== $this->securityGroupId) {
             $res['securityGroupId'] = $this->securityGroupId;
         }
@@ -41,18 +45,17 @@ class securityGroup extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return securityGroup
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
-
         if (isset($map['securityGroupId'])) {
             $model->securityGroupId = $map['securityGroupId'];
         }

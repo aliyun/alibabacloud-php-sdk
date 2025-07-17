@@ -4,21 +4,31 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class AddGatewaySecurityGroupRuleRequest extends Model
 {
     /**
+     * @description Description of the security group rule.
+     *
+     * @example 商品中心访问安全组
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description Port ranges.
+     *
      * @var string[]
      */
     public $portRanges;
 
     /**
+     * @description Security group ID.
+     *
+     * @example sg-wz929kxhcdp****
+     *
      * @var string
      */
     public $securityGroupId;
@@ -28,32 +38,17 @@ class AddGatewaySecurityGroupRuleRequest extends Model
         'securityGroupId' => 'securityGroupId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->portRanges)) {
-            Model::validateArray($this->portRanges);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
-
         if (null !== $this->portRanges) {
-            if (\is_array($this->portRanges)) {
-                $res['portRanges'] = [];
-                $n1 = 0;
-                foreach ($this->portRanges as $item1) {
-                    $res['portRanges'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['portRanges'] = $this->portRanges;
         }
-
         if (null !== $this->securityGroupId) {
             $res['securityGroupId'] = $this->securityGroupId;
         }
@@ -61,29 +56,22 @@ class AddGatewaySecurityGroupRuleRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return AddGatewaySecurityGroupRuleRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
-
         if (isset($map['portRanges'])) {
             if (!empty($map['portRanges'])) {
-                $model->portRanges = [];
-                $n1 = 0;
-                foreach ($map['portRanges'] as $item1) {
-                    $model->portRanges[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->portRanges = $map['portRanges'];
             }
         }
-
         if (isset($map['securityGroupId'])) {
             $model->securityGroupId = $map['securityGroupId'];
         }

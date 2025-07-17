@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models\HttpRoute;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\APIG\V20240327\Models\HttpRoute\mcpServerInfo\mcpRouteConfig;
+use AlibabaCloud\Tea\Model;
 
 class mcpServerInfo extends Model
 {
@@ -47,37 +47,26 @@ class mcpServerInfo extends Model
         'mcpServerConfig' => 'mcpServerConfig',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->mcpRouteConfig) {
-            $this->mcpRouteConfig->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->createFromType) {
             $res['createFromType'] = $this->createFromType;
         }
-
         if (null !== $this->importInstanceId) {
             $res['importInstanceId'] = $this->importInstanceId;
         }
-
         if (null !== $this->importMcpServerId) {
             $res['importMcpServerId'] = $this->importMcpServerId;
         }
-
         if (null !== $this->importNamespace) {
             $res['importNamespace'] = $this->importNamespace;
         }
-
         if (null !== $this->mcpRouteConfig) {
-            $res['mcpRouteConfig'] = null !== $this->mcpRouteConfig ? $this->mcpRouteConfig->toArray($noStream) : $this->mcpRouteConfig;
+            $res['mcpRouteConfig'] = null !== $this->mcpRouteConfig ? $this->mcpRouteConfig->toMap() : null;
         }
-
         if (null !== $this->mcpServerConfig) {
             $res['mcpServerConfig'] = $this->mcpServerConfig;
         }
@@ -85,34 +74,29 @@ class mcpServerInfo extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return mcpServerInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['createFromType'])) {
             $model->createFromType = $map['createFromType'];
         }
-
         if (isset($map['importInstanceId'])) {
             $model->importInstanceId = $map['importInstanceId'];
         }
-
         if (isset($map['importMcpServerId'])) {
             $model->importMcpServerId = $map['importMcpServerId'];
         }
-
         if (isset($map['importNamespace'])) {
             $model->importNamespace = $map['importNamespace'];
         }
-
         if (isset($map['mcpRouteConfig'])) {
             $model->mcpRouteConfig = mcpRouteConfig::fromMap($map['mcpRouteConfig']);
         }
-
         if (isset($map['mcpServerConfig'])) {
             $model->mcpServerConfig = $map['mcpServerConfig'];
         }

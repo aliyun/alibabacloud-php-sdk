@@ -4,12 +4,14 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\APIG\V20240327\Models\Backend\services;
+use AlibabaCloud\Tea\Model;
 
 class Backend extends Model
 {
     /**
+     * @example Single
+     *
      * @var string
      */
     public $scene;
@@ -23,28 +25,20 @@ class Backend extends Model
         'services' => 'services',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->services)) {
-            Model::validateArray($this->services);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->scene) {
             $res['scene'] = $this->scene;
         }
-
         if (null !== $this->services) {
-            if (\is_array($this->services)) {
-                $res['services'] = [];
-                $n1 = 0;
-                foreach ($this->services as $item1) {
-                    $res['services'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['services'] = [];
+            if (null !== $this->services && \is_array($this->services)) {
+                $n = 0;
+                foreach ($this->services as $item) {
+                    $res['services'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -52,25 +46,23 @@ class Backend extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return Backend
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['scene'])) {
             $model->scene = $map['scene'];
         }
-
         if (isset($map['services'])) {
             if (!empty($map['services'])) {
                 $model->services = [];
-                $n1 = 0;
-                foreach ($map['services'] as $item1) {
-                    $model->services[$n1] = services::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['services'] as $item) {
+                    $model->services[$n++] = null !== $item ? services::fromMap($item) : $item;
                 }
             }
         }

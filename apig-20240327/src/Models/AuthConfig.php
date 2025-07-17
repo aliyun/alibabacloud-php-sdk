@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class AuthConfig extends Model
 {
@@ -22,18 +22,14 @@ class AuthConfig extends Model
         'authType' => 'authType',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->authMode) {
             $res['authMode'] = $this->authMode;
         }
-
         if (null !== $this->authType) {
             $res['authType'] = $this->authType;
         }
@@ -41,18 +37,17 @@ class AuthConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return AuthConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['authMode'])) {
             $model->authMode = $map['authMode'];
         }
-
         if (isset($map['authType'])) {
             $model->authType = $map['authType'];
         }

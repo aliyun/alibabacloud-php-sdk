@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetDomainRequest extends Model
 {
     /**
+     * @description Specifies whether to return online resource information.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $withStatistics;
@@ -16,12 +20,9 @@ class GetDomainRequest extends Model
         'withStatistics' => 'withStatistics',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->withStatistics) {
@@ -31,11 +32,11 @@ class GetDomainRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetDomainRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

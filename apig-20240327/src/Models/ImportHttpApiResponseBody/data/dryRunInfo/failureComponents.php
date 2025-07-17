@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models\ImportHttpApiResponseBody\data\dryRunInfo;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class failureComponents extends Model
 {
     /**
+     * @description The error message.
+     *
+     * @example The data struct is incorrectly defined.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The data struct name.
+     *
+     * @example orderDTO
+     *
      * @var string
      */
     public $name;
@@ -22,18 +30,14 @@ class failureComponents extends Model
         'name' => 'name',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->errorMessage) {
             $res['errorMessage'] = $this->errorMessage;
         }
-
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
@@ -41,18 +45,17 @@ class failureComponents extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return failureComponents
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['errorMessage'])) {
             $model->errorMessage = $map['errorMessage'];
         }
-
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }

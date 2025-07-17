@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UndeployHttpApiRequest extends Model
 {
     /**
+     * @description The environment ID.
+     *
+     * @example env-cqsmtellhtgvo***
+     *
      * @var string
      */
     public $environmentId;
@@ -24,6 +28,10 @@ class UndeployHttpApiRequest extends Model
     public $operationId;
 
     /**
+     * @description Route ID. This must be provided when publishing the route of an HTTP API.
+     *
+     * @example hr-cr82undlhtgrle***
+     *
      * @var string
      */
     public $routeId;
@@ -34,26 +42,20 @@ class UndeployHttpApiRequest extends Model
         'routeId' => 'routeId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->environmentId) {
             $res['environmentId'] = $this->environmentId;
         }
-
         if (null !== $this->gatewayId) {
             $res['gatewayId'] = $this->gatewayId;
         }
-
         if (null !== $this->operationId) {
             $res['operationId'] = $this->operationId;
         }
-
         if (null !== $this->routeId) {
             $res['routeId'] = $this->routeId;
         }
@@ -61,26 +63,23 @@ class UndeployHttpApiRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UndeployHttpApiRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['environmentId'])) {
             $model->environmentId = $map['environmentId'];
         }
-
         if (isset($map['gatewayId'])) {
             $model->gatewayId = $map['gatewayId'];
         }
-
         if (isset($map['operationId'])) {
             $model->operationId = $map['operationId'];
         }
-
         if (isset($map['routeId'])) {
             $model->routeId = $map['routeId'];
         }

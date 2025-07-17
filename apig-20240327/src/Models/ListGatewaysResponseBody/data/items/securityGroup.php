@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models\ListGatewaysResponseBody\data\items;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class securityGroup extends Model
 {
     /**
+     * @description The security group ID.
+     *
+     * @example sg-xxxx
+     *
      * @var string
      */
     public $securityGroupId;
@@ -16,12 +20,9 @@ class securityGroup extends Model
         'securityGroupId' => 'securityGroupId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->securityGroupId) {
@@ -31,11 +32,11 @@ class securityGroup extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return securityGroup
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

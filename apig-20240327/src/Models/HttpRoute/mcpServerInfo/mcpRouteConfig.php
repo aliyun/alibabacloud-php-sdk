@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models\HttpRoute\mcpServerInfo;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class mcpRouteConfig extends Model
 {
@@ -22,18 +22,14 @@ class mcpRouteConfig extends Model
         'protocol' => 'protocol',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->exposedUriPath) {
             $res['exposedUriPath'] = $this->exposedUriPath;
         }
-
         if (null !== $this->protocol) {
             $res['protocol'] = $this->protocol;
         }
@@ -41,18 +37,17 @@ class mcpRouteConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return mcpRouteConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['exposedUriPath'])) {
             $model->exposedUriPath = $map['exposedUriPath'];
         }
-
         if (isset($map['protocol'])) {
             $model->protocol = $map['protocol'];
         }
