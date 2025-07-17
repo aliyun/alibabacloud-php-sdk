@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Bailian\V20231229\Models\GetPublishedAgentResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\GetPublishedAgentResponseBody\data\applicationConfig;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -41,33 +41,23 @@ class data extends Model
         'name' => 'name',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->applicationConfig) {
-            $this->applicationConfig->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->applicationConfig) {
-            $res['applicationConfig'] = null !== $this->applicationConfig ? $this->applicationConfig->toArray($noStream) : $this->applicationConfig;
+            $res['applicationConfig'] = null !== $this->applicationConfig ? $this->applicationConfig->toMap() : null;
         }
-
         if (null !== $this->code) {
             $res['code'] = $this->code;
         }
-
         if (null !== $this->instructions) {
             $res['instructions'] = $this->instructions;
         }
-
         if (null !== $this->modelId) {
             $res['modelId'] = $this->modelId;
         }
-
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
@@ -75,30 +65,26 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['applicationConfig'])) {
             $model->applicationConfig = applicationConfig::fromMap($map['applicationConfig']);
         }
-
         if (isset($map['code'])) {
             $model->code = $map['code'];
         }
-
         if (isset($map['instructions'])) {
             $model->instructions = $map['instructions'];
         }
-
         if (isset($map['modelId'])) {
             $model->modelId = $map['modelId'];
         }
-
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }

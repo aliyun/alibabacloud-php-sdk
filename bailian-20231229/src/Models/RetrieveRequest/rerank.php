@@ -4,11 +4,18 @@
 
 namespace AlibabaCloud\SDK\Bailian\V20231229\Models\RetrieveRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class rerank extends Model
 {
     /**
+     * @description The name of the rank model. For more information, see [Create a knowledge base](https://www.alibabacloud.com/help/en/model-studio/user-guide/rag-knowledge-base). Valid values:
+     *
+     *   gte-rerank-hybrid: Recommended official model.
+     *   gte-rerank
+     *
+     * @example gte-rerank-hybrid
+     *
      * @var string
      */
     public $modelName;
@@ -16,12 +23,9 @@ class rerank extends Model
         'modelName' => 'ModelName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->modelName) {
@@ -31,11 +35,11 @@ class rerank extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return rerank
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

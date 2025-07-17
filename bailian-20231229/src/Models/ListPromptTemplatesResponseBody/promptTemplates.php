@@ -4,31 +4,45 @@
 
 namespace AlibabaCloud\SDK\Bailian\V20231229\Models\ListPromptTemplatesResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class promptTemplates extends Model
 {
     /**
+     * @description The template content
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @description The template name.
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The template ID.
+     *
+     * @example d6935b7efbe34d11b13df9307151cf8c
+     *
      * @var string
      */
     public $promptTemplateId;
 
     /**
+     * @description The template type.
+     *
+     * @example "System"
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The variables of the template.
+     *
      * @var string[]
      */
     public $variables;
@@ -40,77 +54,53 @@ class promptTemplates extends Model
         'variables' => 'variables',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->variables)) {
-            Model::validateArray($this->variables);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->content) {
             $res['content'] = $this->content;
         }
-
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
-
         if (null !== $this->promptTemplateId) {
             $res['promptTemplateId'] = $this->promptTemplateId;
         }
-
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
-
         if (null !== $this->variables) {
-            if (\is_array($this->variables)) {
-                $res['variables'] = [];
-                $n1 = 0;
-                foreach ($this->variables as $item1) {
-                    $res['variables'][$n1++] = $item1;
-                }
-            }
+            $res['variables'] = $this->variables;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return promptTemplates
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['content'])) {
             $model->content = $map['content'];
         }
-
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
-
         if (isset($map['promptTemplateId'])) {
             $model->promptTemplateId = $map['promptTemplateId'];
         }
-
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }
-
         if (isset($map['variables'])) {
             if (!empty($map['variables'])) {
-                $model->variables = [];
-                $n1 = 0;
-                foreach ($map['variables'] as $item1) {
-                    $model->variables[$n1++] = $item1;
-                }
+                $model->variables = $map['variables'];
             }
         }
 

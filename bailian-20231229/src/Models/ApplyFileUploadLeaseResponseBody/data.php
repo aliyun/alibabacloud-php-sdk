@@ -4,22 +4,35 @@
 
 namespace AlibabaCloud\SDK\Bailian\V20231229\Models\ApplyFileUploadLeaseResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\ApplyFileUploadLeaseResponseBody\data\param;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description The unique ID of the lease.
+     *
+     * @example 1e6a159107384782be5e45ac4759b247.1719325231035
+     *
      * @var string
      */
     public $fileUploadLeaseId;
 
     /**
+     * @description The HTTP request parameters used to upload the document.
+     *
      * @var param
      */
     public $param;
 
     /**
+     * @description The upload method of the document. Valid values:
+     *
+     *   OSS.PreSignedURL
+     *   HTTP
+     *
+     * @example HTTP
+     *
      * @var string
      */
     public $type;
@@ -29,25 +42,17 @@ class data extends Model
         'type' => 'Type',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->param) {
-            $this->param->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->fileUploadLeaseId) {
             $res['FileUploadLeaseId'] = $this->fileUploadLeaseId;
         }
-
         if (null !== $this->param) {
-            $res['Param'] = null !== $this->param ? $this->param->toArray($noStream) : $this->param;
+            $res['Param'] = null !== $this->param ? $this->param->toMap() : null;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -55,22 +60,20 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FileUploadLeaseId'])) {
             $model->fileUploadLeaseId = $map['FileUploadLeaseId'];
         }
-
         if (isset($map['Param'])) {
             $model->param = param::fromMap($map['Param']);
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

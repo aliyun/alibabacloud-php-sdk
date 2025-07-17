@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Bailian\V20231229\Models\GetPublishedAgentResponseBody\data\applicationConfig;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class longTermMemory extends Model
 {
@@ -16,12 +16,9 @@ class longTermMemory extends Model
         'enable' => 'enable',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->enable) {
@@ -31,11 +28,11 @@ class longTermMemory extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return longTermMemory
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\Bailian\V20231229\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteIndexRequest extends Model
 {
     /**
+     * @description The primary key ID of the knowledge base, which is the `Data.Id` parameter returned by the [CreateIndex](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation.
+     *
+     * This parameter is required.
+     *
+     * @example f89ie0fj5a
+     *
      * @var string
      */
     public $indexId;
@@ -16,12 +22,9 @@ class DeleteIndexRequest extends Model
         'indexId' => 'IndexId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->indexId) {
@@ -31,11 +34,11 @@ class DeleteIndexRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteIndexRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

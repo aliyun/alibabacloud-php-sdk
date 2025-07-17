@@ -4,7 +4,6 @@
 
 namespace AlibabaCloud\SDK\Bailian\V20231229\Models\UpdateAndPublishAgentRequest;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdateAndPublishAgentRequest\applicationConfig\historyConfig;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdateAndPublishAgentRequest\applicationConfig\longTermMemory;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdateAndPublishAgentRequest\applicationConfig\parameters;
@@ -12,6 +11,7 @@ use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdateAndPublishAgentRequest\appli
 use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdateAndPublishAgentRequest\applicationConfig\security;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdateAndPublishAgentRequest\applicationConfig\tools;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdateAndPublishAgentRequest\applicationConfig\workFlows;
+use AlibabaCloud\Tea\Model;
 
 class applicationConfig extends Model
 {
@@ -59,71 +59,41 @@ class applicationConfig extends Model
         'workFlows' => 'workFlows',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->historyConfig) {
-            $this->historyConfig->validate();
-        }
-        if (null !== $this->longTermMemory) {
-            $this->longTermMemory->validate();
-        }
-        if (null !== $this->parameters) {
-            $this->parameters->validate();
-        }
-        if (null !== $this->ragConfig) {
-            $this->ragConfig->validate();
-        }
-        if (null !== $this->security) {
-            $this->security->validate();
-        }
-        if (\is_array($this->tools)) {
-            Model::validateArray($this->tools);
-        }
-        if (\is_array($this->workFlows)) {
-            Model::validateArray($this->workFlows);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->historyConfig) {
-            $res['historyConfig'] = null !== $this->historyConfig ? $this->historyConfig->toArray($noStream) : $this->historyConfig;
+            $res['historyConfig'] = null !== $this->historyConfig ? $this->historyConfig->toMap() : null;
         }
-
         if (null !== $this->longTermMemory) {
-            $res['longTermMemory'] = null !== $this->longTermMemory ? $this->longTermMemory->toArray($noStream) : $this->longTermMemory;
+            $res['longTermMemory'] = null !== $this->longTermMemory ? $this->longTermMemory->toMap() : null;
         }
-
         if (null !== $this->parameters) {
-            $res['parameters'] = null !== $this->parameters ? $this->parameters->toArray($noStream) : $this->parameters;
+            $res['parameters'] = null !== $this->parameters ? $this->parameters->toMap() : null;
         }
-
         if (null !== $this->ragConfig) {
-            $res['ragConfig'] = null !== $this->ragConfig ? $this->ragConfig->toArray($noStream) : $this->ragConfig;
+            $res['ragConfig'] = null !== $this->ragConfig ? $this->ragConfig->toMap() : null;
         }
-
         if (null !== $this->security) {
-            $res['security'] = null !== $this->security ? $this->security->toArray($noStream) : $this->security;
+            $res['security'] = null !== $this->security ? $this->security->toMap() : null;
         }
-
         if (null !== $this->tools) {
-            if (\is_array($this->tools)) {
-                $res['tools'] = [];
-                $n1 = 0;
-                foreach ($this->tools as $item1) {
-                    $res['tools'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['tools'] = [];
+            if (null !== $this->tools && \is_array($this->tools)) {
+                $n = 0;
+                foreach ($this->tools as $item) {
+                    $res['tools'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->workFlows) {
-            if (\is_array($this->workFlows)) {
-                $res['workFlows'] = [];
-                $n1 = 0;
-                foreach ($this->workFlows as $item1) {
-                    $res['workFlows'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['workFlows'] = [];
+            if (null !== $this->workFlows && \is_array($this->workFlows)) {
+                $n = 0;
+                foreach ($this->workFlows as $item) {
+                    $res['workFlows'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -131,50 +101,44 @@ class applicationConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return applicationConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['historyConfig'])) {
             $model->historyConfig = historyConfig::fromMap($map['historyConfig']);
         }
-
         if (isset($map['longTermMemory'])) {
             $model->longTermMemory = longTermMemory::fromMap($map['longTermMemory']);
         }
-
         if (isset($map['parameters'])) {
             $model->parameters = parameters::fromMap($map['parameters']);
         }
-
         if (isset($map['ragConfig'])) {
             $model->ragConfig = ragConfig::fromMap($map['ragConfig']);
         }
-
         if (isset($map['security'])) {
             $model->security = security::fromMap($map['security']);
         }
-
         if (isset($map['tools'])) {
             if (!empty($map['tools'])) {
                 $model->tools = [];
-                $n1 = 0;
-                foreach ($map['tools'] as $item1) {
-                    $model->tools[$n1++] = tools::fromMap($item1);
+                $n = 0;
+                foreach ($map['tools'] as $item) {
+                    $model->tools[$n++] = null !== $item ? tools::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['workFlows'])) {
             if (!empty($map['workFlows'])) {
                 $model->workFlows = [];
-                $n1 = 0;
-                foreach ($map['workFlows'] as $item1) {
-                    $model->workFlows[$n1++] = workFlows::fromMap($item1);
+                $n = 0;
+                foreach ($map['workFlows'] as $item) {
+                    $model->workFlows[$n++] = null !== $item ? workFlows::fromMap($item) : $item;
                 }
             }
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Bailian\V20231229\Models\CreateIndexRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class columns extends Model
 {
@@ -40,30 +40,23 @@ class columns extends Model
         'type' => 'Type',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->column) {
             $res['Column'] = $this->column;
         }
-
         if (null !== $this->isRecall) {
             $res['IsRecall'] = $this->isRecall;
         }
-
         if (null !== $this->isSearch) {
             $res['IsSearch'] = $this->isSearch;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -71,30 +64,26 @@ class columns extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return columns
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Column'])) {
             $model->column = $map['Column'];
         }
-
         if (isset($map['IsRecall'])) {
             $model->isRecall = $map['IsRecall'];
         }
-
         if (isset($map['IsSearch'])) {
             $model->isSearch = $map['IsSearch'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

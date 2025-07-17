@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\Bailian\V20231229\Models\CreateIndexResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description The primary key ID of the knowledge base, `IndexId`.
+     *
+     * >  We recommend that you store this ID. It is required for all subsequent API operations related to this knowledge base.
+     *
+     * @example jkurxhju6b
+     *
      * @var string
      */
     public $id;
@@ -16,12 +22,9 @@ class data extends Model
         'id' => 'Id',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->id) {
@@ -31,11 +34,11 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

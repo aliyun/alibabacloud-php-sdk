@@ -4,21 +4,37 @@
 
 namespace AlibabaCloud\SDK\Bailian\V20231229\Models\ApplyFileUploadLeaseResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class param extends Model
 {
     /**
+     * @description The key-value pair to be placed in the Header. Both the key and the value are strings.
+     *
+     * @example "X-bailian-extra": "MTAwNTQyNjQ5NTE2OTE3OA==",
+     * "Content-Type": "application/pdf"
+     *
      * @var mixed
      */
     public $headers;
 
     /**
+     * @description The HTTP call method. Valid values:
+     *
+     *   PUT
+     *   POST
+     *
+     * @example PUT
+     *
      * @var string
      */
     public $method;
 
     /**
+     * @description The upload URL of the document.
+     *
+     * @example https://bailian-datahub-data-origin-prod.oss-cn-hangzhou.aliyuncs.com/1005426495169178/10024405/68abd1dea7b6404d8f7d7b9f7fbd332d.1716698936847.pdf?Expires=1716699536&OSSAccessKeyId=TestID&Signature=HfwPUZo4pR6DatSDym0zFKVh9Wg%3D
+     *
      * @var string
      */
     public $url;
@@ -28,22 +44,17 @@ class param extends Model
         'url' => 'Url',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->headers) {
             $res['Headers'] = $this->headers;
         }
-
         if (null !== $this->method) {
             $res['Method'] = $this->method;
         }
-
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
@@ -51,22 +62,20 @@ class param extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return param
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Headers'])) {
             $model->headers = $map['Headers'];
         }
-
         if (isset($map['Method'])) {
             $model->method = $map['Method'];
         }
-
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }

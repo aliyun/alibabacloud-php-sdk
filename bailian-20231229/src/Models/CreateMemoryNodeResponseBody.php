@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\Bailian\V20231229\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateMemoryNodeResponseBody extends Model
 {
     /**
+     * @example 68de06c95368463a8be4a84efc872cc5
+     *
      * @var string
      */
     public $memoryNodeId;
 
     /**
+     * @example 8C56C7AF-6573-19CE-B018-E05E1EDCF4C5
+     *
      * @var string
      */
     public $requestId;
@@ -22,18 +26,14 @@ class CreateMemoryNodeResponseBody extends Model
         'requestId' => 'requestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->memoryNodeId) {
             $res['memoryNodeId'] = $this->memoryNodeId;
         }
-
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -41,18 +41,17 @@ class CreateMemoryNodeResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateMemoryNodeResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['memoryNodeId'])) {
             $model->memoryNodeId = $map['memoryNodeId'];
         }
-
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }

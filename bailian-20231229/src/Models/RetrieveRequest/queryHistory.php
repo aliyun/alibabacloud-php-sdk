@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Bailian\V20231229\Models\RetrieveRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class queryHistory extends Model
 {
@@ -22,18 +22,14 @@ class queryHistory extends Model
         'role' => 'role',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->content) {
             $res['content'] = $this->content;
         }
-
         if (null !== $this->role) {
             $res['role'] = $this->role;
         }
@@ -41,18 +37,17 @@ class queryHistory extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return queryHistory
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['content'])) {
             $model->content = $map['content'];
         }
-
         if (isset($map['role'])) {
             $model->role = $map['role'];
         }

@@ -4,22 +4,37 @@
 
 namespace AlibabaCloud\SDK\Bailian\V20231229\Models\GetIndexJobStatusResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\GetIndexJobStatusResponseBody\data\documents;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description The list of imported documents.
+     *
      * @var documents[]
      */
     public $documents;
 
     /**
+     * @description The ID of the job.
+     *
+     * @example 66122af12a4e45ddae6bd6c845556647
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @description The status of the knowledge base job. Valid values:
+     *
+     *   COMPLETED
+     *   FAILED
+     *   RUNNING
+     *   PENDING
+     *
+     * @example PENDING
+     *
      * @var string
      */
     public $status;
@@ -29,31 +44,23 @@ class data extends Model
         'status' => 'Status',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->documents)) {
-            Model::validateArray($this->documents);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->documents) {
-            if (\is_array($this->documents)) {
-                $res['Documents'] = [];
-                $n1 = 0;
-                foreach ($this->documents as $item1) {
-                    $res['Documents'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Documents'] = [];
+            if (null !== $this->documents && \is_array($this->documents)) {
+                $n = 0;
+                foreach ($this->documents as $item) {
+                    $res['Documents'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
         }
-
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -61,28 +68,26 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Documents'])) {
             if (!empty($map['Documents'])) {
                 $model->documents = [];
-                $n1 = 0;
-                foreach ($map['Documents'] as $item1) {
-                    $model->documents[$n1++] = documents::fromMap($item1);
+                $n = 0;
+                foreach ($map['Documents'] as $item) {
+                    $model->documents[$n++] = null !== $item ? documents::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
         }
-
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Bailian\V20231229\Models\ListMemoryNodesResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class memoryNodes extends Model
 {
@@ -14,6 +14,8 @@ class memoryNodes extends Model
     public $content;
 
     /**
+     * @example 68de06c95368463a8be4a84efc872cc5
+     *
      * @var string
      */
     public $memoryNodeId;
@@ -22,18 +24,14 @@ class memoryNodes extends Model
         'memoryNodeId' => 'memoryNodeId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->content) {
             $res['content'] = $this->content;
         }
-
         if (null !== $this->memoryNodeId) {
             $res['memoryNodeId'] = $this->memoryNodeId;
         }
@@ -41,18 +39,17 @@ class memoryNodes extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return memoryNodes
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['content'])) {
             $model->content = $map['content'];
         }
-
         if (isset($map['memoryNodeId'])) {
             $model->memoryNodeId = $map['memoryNodeId'];
         }

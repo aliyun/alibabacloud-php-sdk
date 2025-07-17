@@ -4,11 +4,19 @@
 
 namespace AlibabaCloud\SDK\Bailian\V20231229\Models\RetrieveRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class rewrite extends Model
 {
     /**
+     * @description Conversation rewriting model name. The query rewriting model automatically adjusts the original prompt based on the context to improve retrieval performance. Valid value:
+     *
+     *   conv-rewrite-qwen-1.8b
+     *
+     * By default, this parameter is left empty, which means conv-rewrite-qwen-1.8b is used.
+     *
+     * @example conv-rewrite-qwen-1.8b
+     *
      * @var string
      */
     public $modelName;
@@ -16,12 +24,9 @@ class rewrite extends Model
         'modelName' => 'ModelName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->modelName) {
@@ -31,11 +36,11 @@ class rewrite extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return rewrite
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

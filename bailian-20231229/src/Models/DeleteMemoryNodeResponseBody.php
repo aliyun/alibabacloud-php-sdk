@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Bailian\V20231229\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteMemoryNodeResponseBody extends Model
 {
     /**
+     * @example 8C56C7AF-6573-19CE-B018-E05E1EDCF4C5
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +18,9 @@ class DeleteMemoryNodeResponseBody extends Model
         'requestId' => 'requestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +30,11 @@ class DeleteMemoryNodeResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteMemoryNodeResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

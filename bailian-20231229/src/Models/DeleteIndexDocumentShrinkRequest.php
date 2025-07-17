@@ -4,16 +4,26 @@
 
 namespace AlibabaCloud\SDK\Bailian\V20231229\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteIndexDocumentShrinkRequest extends Model
 {
     /**
+     * @description The list of the primary key IDs of the documents.
+     *
+     * This parameter is required.
+     *
      * @var string
      */
     public $documentIdsShrink;
 
     /**
+     * @description The primary key ID of the knowledge base, which is the `Data.Id` parameter returned by the [CreateIndex](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation.
+     *
+     * This parameter is required.
+     *
+     * @example 79c0aly8zw
+     *
      * @var string
      */
     public $indexId;
@@ -22,18 +32,14 @@ class DeleteIndexDocumentShrinkRequest extends Model
         'indexId' => 'IndexId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->documentIdsShrink) {
             $res['DocumentIds'] = $this->documentIdsShrink;
         }
-
         if (null !== $this->indexId) {
             $res['IndexId'] = $this->indexId;
         }
@@ -41,18 +47,17 @@ class DeleteIndexDocumentShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteIndexDocumentShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DocumentIds'])) {
             $model->documentIdsShrink = $map['DocumentIds'];
         }
-
         if (isset($map['IndexId'])) {
             $model->indexId = $map['IndexId'];
         }

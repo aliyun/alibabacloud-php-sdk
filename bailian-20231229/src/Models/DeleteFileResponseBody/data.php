@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Bailian\V20231229\Models\DeleteFileResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @example file_9a65732555b54d5ea10796ca5742ba22_XXXXXXXX
+     *
      * @var string
      */
     public $fileId;
@@ -16,12 +18,9 @@ class data extends Model
         'fileId' => 'FileId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->fileId) {
@@ -31,11 +30,11 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
