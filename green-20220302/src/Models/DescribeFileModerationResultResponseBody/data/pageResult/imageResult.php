@@ -4,33 +4,49 @@
 
 namespace AlibabaCloud\SDK\Green\V20220302\Models\DescribeFileModerationResultResponseBody\data\pageResult;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Green\V20220302\Models\DescribeFileModerationResultResponseBody\data\pageResult\imageResult\labelResult;
 use AlibabaCloud\SDK\Green\V20220302\Models\DescribeFileModerationResultResponseBody\data\pageResult\imageResult\location;
+use AlibabaCloud\Tea\Model;
 
 class imageResult extends Model
 {
     /**
+     * @description The description.
+     *
+     * @example This is a title.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The label information.
+     *
      * @var labelResult[]
      */
     public $labelResult;
 
     /**
+     * @description The location information
+     *
      * @var location
      */
     public $location;
 
     /**
+     * @description Risk Level
+     *
+     * @example high
+     *
      * @var string
      */
     public $riskLevel;
 
     /**
+     * @description The moderation service.
+     *
+     * @example baselineCheck
+     *
      * @var string
      */
     public $service;
@@ -42,43 +58,29 @@ class imageResult extends Model
         'service' => 'Service',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->labelResult)) {
-            Model::validateArray($this->labelResult);
-        }
-        if (null !== $this->location) {
-            $this->location->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-
         if (null !== $this->labelResult) {
-            if (\is_array($this->labelResult)) {
-                $res['LabelResult'] = [];
-                $n1 = 0;
-                foreach ($this->labelResult as $item1) {
-                    $res['LabelResult'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['LabelResult'] = [];
+            if (null !== $this->labelResult && \is_array($this->labelResult)) {
+                $n = 0;
+                foreach ($this->labelResult as $item) {
+                    $res['LabelResult'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->location) {
-            $res['Location'] = null !== $this->location ? $this->location->toArray($noStream) : $this->location;
+            $res['Location'] = null !== $this->location ? $this->location->toMap() : null;
         }
-
         if (null !== $this->riskLevel) {
             $res['RiskLevel'] = $this->riskLevel;
         }
-
         if (null !== $this->service) {
             $res['Service'] = $this->service;
         }
@@ -86,37 +88,32 @@ class imageResult extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return imageResult
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-
         if (isset($map['LabelResult'])) {
             if (!empty($map['LabelResult'])) {
                 $model->labelResult = [];
-                $n1 = 0;
-                foreach ($map['LabelResult'] as $item1) {
-                    $model->labelResult[$n1] = labelResult::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['LabelResult'] as $item) {
+                    $model->labelResult[$n++] = null !== $item ? labelResult::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['Location'])) {
             $model->location = location::fromMap($map['Location']);
         }
-
         if (isset($map['RiskLevel'])) {
             $model->riskLevel = $map['RiskLevel'];
         }
-
         if (isset($map['Service'])) {
             $model->service = $map['Service'];
         }

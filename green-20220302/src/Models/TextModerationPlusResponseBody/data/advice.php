@@ -4,21 +4,33 @@
 
 namespace AlibabaCloud\SDK\Green\V20220302\Models\TextModerationPlusResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class advice extends Model
 {
     /**
+     * @description The answer.
+     *
+     * @example XXX
+     *
      * @var string
      */
     public $answer;
 
     /**
+     * @description Hit Label
+     *
+     * @example xxx
+     *
      * @var string
      */
     public $hitLabel;
 
     /**
+     * @description Hit Library Name
+     *
+     * @example xxx
+     *
      * @var string
      */
     public $hitLibName;
@@ -28,22 +40,17 @@ class advice extends Model
         'hitLibName' => 'HitLibName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->answer) {
             $res['Answer'] = $this->answer;
         }
-
         if (null !== $this->hitLabel) {
             $res['HitLabel'] = $this->hitLabel;
         }
-
         if (null !== $this->hitLibName) {
             $res['HitLibName'] = $this->hitLibName;
         }
@@ -51,22 +58,20 @@ class advice extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return advice
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Answer'])) {
             $model->answer = $map['Answer'];
         }
-
         if (isset($map['HitLabel'])) {
             $model->hitLabel = $map['HitLabel'];
         }
-
         if (isset($map['HitLibName'])) {
             $model->hitLibName = $map['HitLibName'];
         }

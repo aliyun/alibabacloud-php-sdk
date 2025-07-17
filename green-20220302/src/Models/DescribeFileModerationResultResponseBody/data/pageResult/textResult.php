@@ -4,51 +4,87 @@
 
 namespace AlibabaCloud\SDK\Green\V20220302\Models\DescribeFileModerationResultResponseBody\data\pageResult;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class textResult extends Model
 {
     /**
+     * @description The description.
+     *
+     * @example This is a title.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The description of the labels.
+     *
+     * @example no risk
+     *
      * @var string
      */
     public $descriptions;
 
     /**
+     * @description The details of the labels.
+     *
+     * @example porn
+     *
      * @var string
      */
     public $labels;
 
     /**
+     * @description Risk Level
+     *
+     * @example high
+     *
      * @var string
      */
     public $riskLevel;
 
     /**
+     * @description The risk details that are hit.
+     *
+     * @example xxx
+     *
      * @var string
      */
     public $riskTips;
 
     /**
+     * @description The risk words that are hit.
+     *
+     * @example xxx
+     *
      * @var string
      */
     public $riskWords;
 
     /**
+     * @description The moderation service.
+     *
+     * @example chat_detection
+     *
      * @var string
      */
     public $service;
 
     /**
+     * @description The text content.
+     *
+     * @example This is a text.
+     *
      * @var string
      */
     public $text;
 
     /**
+     * @description The text segmentation information.
+     *
+     * @example [0,999]
+     *
      * @var string
      */
     public $textSegment;
@@ -64,46 +100,35 @@ class textResult extends Model
         'textSegment' => 'TextSegment',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-
         if (null !== $this->descriptions) {
             $res['Descriptions'] = $this->descriptions;
         }
-
         if (null !== $this->labels) {
             $res['Labels'] = $this->labels;
         }
-
         if (null !== $this->riskLevel) {
             $res['RiskLevel'] = $this->riskLevel;
         }
-
         if (null !== $this->riskTips) {
             $res['RiskTips'] = $this->riskTips;
         }
-
         if (null !== $this->riskWords) {
             $res['RiskWords'] = $this->riskWords;
         }
-
         if (null !== $this->service) {
             $res['Service'] = $this->service;
         }
-
         if (null !== $this->text) {
             $res['Text'] = $this->text;
         }
-
         if (null !== $this->textSegment) {
             $res['TextSegment'] = $this->textSegment;
         }
@@ -111,46 +136,38 @@ class textResult extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return textResult
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-
         if (isset($map['Descriptions'])) {
             $model->descriptions = $map['Descriptions'];
         }
-
         if (isset($map['Labels'])) {
             $model->labels = $map['Labels'];
         }
-
         if (isset($map['RiskLevel'])) {
             $model->riskLevel = $map['RiskLevel'];
         }
-
         if (isset($map['RiskTips'])) {
             $model->riskTips = $map['RiskTips'];
         }
-
         if (isset($map['RiskWords'])) {
             $model->riskWords = $map['RiskWords'];
         }
-
         if (isset($map['Service'])) {
             $model->service = $map['Service'];
         }
-
         if (isset($map['Text'])) {
             $model->text = $map['Text'];
         }
-
         if (isset($map['TextSegment'])) {
             $model->textSegment = $map['TextSegment'];
         }

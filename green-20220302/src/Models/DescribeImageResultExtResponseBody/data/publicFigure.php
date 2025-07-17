@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Green\V20220302\Models\DescribeImageResultExtResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class publicFigure extends Model
 {
     /**
+     * @description Identified person coding information.
+     *
+     * @example yzazhzou
+     *
      * @var string
      */
     public $figureId;
@@ -16,12 +20,9 @@ class publicFigure extends Model
         'figureId' => 'FigureId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->figureId) {
@@ -31,11 +32,11 @@ class publicFigure extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return publicFigure
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

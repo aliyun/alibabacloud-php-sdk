@@ -4,26 +4,42 @@
 
 namespace AlibabaCloud\SDK\Green\V20220302\Models\DescribeFileModerationResultResponseBody\data\pageResult\imageResult;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class location extends Model
 {
     /**
+     * @description The H value of the coordinate point.
+     *
+     * @example 44
+     *
      * @var int
      */
     public $h;
 
     /**
+     * @description The W value of the coordinate point.
+     *
+     * @example 33
+     *
      * @var int
      */
     public $w;
 
     /**
+     * @description The X value of the coordinate point.
+     *
+     * @example 11
+     *
      * @var int
      */
     public $x;
 
     /**
+     * @description The Y value of the coordinate point.
+     *
+     * @example 22
+     *
      * @var int
      */
     public $y;
@@ -34,26 +50,20 @@ class location extends Model
         'y' => 'Y',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->h) {
             $res['H'] = $this->h;
         }
-
         if (null !== $this->w) {
             $res['W'] = $this->w;
         }
-
         if (null !== $this->x) {
             $res['X'] = $this->x;
         }
-
         if (null !== $this->y) {
             $res['Y'] = $this->y;
         }
@@ -61,26 +71,23 @@ class location extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return location
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['H'])) {
             $model->h = $map['H'];
         }
-
         if (isset($map['W'])) {
             $model->w = $map['W'];
         }
-
         if (isset($map['X'])) {
             $model->x = $map['X'];
         }
-
         if (isset($map['Y'])) {
             $model->y = $map['Y'];
         }

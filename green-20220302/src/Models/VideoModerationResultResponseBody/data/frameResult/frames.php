@@ -4,32 +4,50 @@
 
 namespace AlibabaCloud\SDK\Green\V20220302\Models\VideoModerationResultResponseBody\data\frameResult;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Green\V20220302\Models\VideoModerationResultResponseBody\data\frameResult\frames\results;
+use AlibabaCloud\Tea\Model;
 
 class frames extends Model
 {
     /**
+     * @description The interval between the start of the video file and the captured frame. Unit: seconds.
+     *
+     * @example 338
+     *
      * @var float
      */
     public $offset;
 
     /**
+     * @description The results of frame moderation parameters such as the label parameter and the confidence parameter.
+     *
      * @var results[]
      */
     public $results;
 
     /**
+     * @description Risk Level.
+     *
+     * @example high
+     *
      * @var string
      */
     public $riskLevel;
 
     /**
+     * @description The temporary URL of a captured frame.
+     *
+     * @example http://xxxx.abc.jpg
+     *
      * @var string
      */
     public $tempUrl;
 
     /**
+     * @description The absolute timestamp. Unit: milliseconds.
+     *
+     * @example 1684559739000
+     *
      * @var int
      */
     public $timestamp;
@@ -41,40 +59,29 @@ class frames extends Model
         'timestamp' => 'Timestamp',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->results)) {
-            Model::validateArray($this->results);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->offset) {
             $res['Offset'] = $this->offset;
         }
-
         if (null !== $this->results) {
-            if (\is_array($this->results)) {
-                $res['Results'] = [];
-                $n1 = 0;
-                foreach ($this->results as $item1) {
-                    $res['Results'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Results'] = [];
+            if (null !== $this->results && \is_array($this->results)) {
+                $n = 0;
+                foreach ($this->results as $item) {
+                    $res['Results'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->riskLevel) {
             $res['RiskLevel'] = $this->riskLevel;
         }
-
         if (null !== $this->tempUrl) {
             $res['TempUrl'] = $this->tempUrl;
         }
-
         if (null !== $this->timestamp) {
             $res['Timestamp'] = $this->timestamp;
         }
@@ -82,37 +89,32 @@ class frames extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return frames
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Offset'])) {
             $model->offset = $map['Offset'];
         }
-
         if (isset($map['Results'])) {
             if (!empty($map['Results'])) {
                 $model->results = [];
-                $n1 = 0;
-                foreach ($map['Results'] as $item1) {
-                    $model->results[$n1] = results::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Results'] as $item) {
+                    $model->results[$n++] = null !== $item ? results::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['RiskLevel'])) {
             $model->riskLevel = $map['RiskLevel'];
         }
-
         if (isset($map['TempUrl'])) {
             $model->tempUrl = $map['TempUrl'];
         }
-
         if (isset($map['Timestamp'])) {
             $model->timestamp = $map['Timestamp'];
         }

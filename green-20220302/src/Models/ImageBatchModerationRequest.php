@@ -4,16 +4,32 @@
 
 namespace AlibabaCloud\SDK\Green\V20220302\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ImageBatchModerationRequest extends Model
 {
     /**
+     * @description The types of detection supported by the enhanced image review, separated by English commas. Values:
+     *
+     * - baselineCheck：General Baseline Detection
+     * - baselineCheck_pro：General Baseline Detection_Pro Edition
+     * - tonalityImprove：Content governance monitoring
+     * - aigcCheck：AIGC image detection
+     *
+     * @example baselineCheck,tonalityImprove
+     *
      * @var string
      */
     public $service;
 
     /**
+     * @description The set of relevant parameters for content detection objects.
+     *
+     * @example {
+     * "imageUrl": "https://img.alicdn.com/tfs/TB1U4r9AeH2gK0jSZJnXXaT1FXa-2880-480.png",
+     * "dataId": "img123****"
+     * }
+     *
      * @var string
      */
     public $serviceParameters;
@@ -22,18 +38,14 @@ class ImageBatchModerationRequest extends Model
         'serviceParameters' => 'ServiceParameters',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->service) {
             $res['Service'] = $this->service;
         }
-
         if (null !== $this->serviceParameters) {
             $res['ServiceParameters'] = $this->serviceParameters;
         }
@@ -41,18 +53,17 @@ class ImageBatchModerationRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ImageBatchModerationRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Service'])) {
             $model->service = $map['Service'];
         }
-
         if (isset($map['ServiceParameters'])) {
             $model->serviceParameters = $map['ServiceParameters'];
         }

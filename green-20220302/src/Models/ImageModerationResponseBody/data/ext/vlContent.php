@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Green\V20220302\Models\ImageModerationResponseBody\data\ext;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class vlContent extends Model
 {
     /**
+     * @description the vl output content
+     *
+     * @example this is a cat
+     *
      * @var string
      */
     public $outputText;
@@ -16,12 +20,9 @@ class vlContent extends Model
         'outputText' => 'OutputText',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->outputText) {
@@ -31,11 +32,11 @@ class vlContent extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return vlContent
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

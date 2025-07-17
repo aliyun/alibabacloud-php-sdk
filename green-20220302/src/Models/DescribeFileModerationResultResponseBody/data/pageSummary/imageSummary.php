@@ -4,17 +4,23 @@
 
 namespace AlibabaCloud\SDK\Green\V20220302\Models\DescribeFileModerationResultResponseBody\data\pageSummary;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Green\V20220302\Models\DescribeFileModerationResultResponseBody\data\pageSummary\imageSummary\imageLabels;
+use AlibabaCloud\Tea\Model;
 
 class imageSummary extends Model
 {
     /**
+     * @description Image Label
+     *
      * @var imageLabels[]
      */
     public $imageLabels;
 
     /**
+     * @description Risk Level
+     *
+     * @example high
+     *
      * @var string
      */
     public $riskLevel;
@@ -23,28 +29,20 @@ class imageSummary extends Model
         'riskLevel' => 'RiskLevel',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->imageLabels)) {
-            Model::validateArray($this->imageLabels);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->imageLabels) {
-            if (\is_array($this->imageLabels)) {
-                $res['ImageLabels'] = [];
-                $n1 = 0;
-                foreach ($this->imageLabels as $item1) {
-                    $res['ImageLabels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['ImageLabels'] = [];
+            if (null !== $this->imageLabels && \is_array($this->imageLabels)) {
+                $n = 0;
+                foreach ($this->imageLabels as $item) {
+                    $res['ImageLabels'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->riskLevel) {
             $res['RiskLevel'] = $this->riskLevel;
         }
@@ -52,25 +50,23 @@ class imageSummary extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return imageSummary
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ImageLabels'])) {
             if (!empty($map['ImageLabels'])) {
                 $model->imageLabels = [];
-                $n1 = 0;
-                foreach ($map['ImageLabels'] as $item1) {
-                    $model->imageLabels[$n1] = imageLabels::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['ImageLabels'] as $item) {
+                    $model->imageLabels[$n++] = null !== $item ? imageLabels::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['RiskLevel'])) {
             $model->riskLevel = $map['RiskLevel'];
         }
