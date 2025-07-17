@@ -4,81 +4,100 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetRumAppsResponseBody\appList;
+use AlibabaCloud\Tea\Model;
 
 class GetRumAppsResponseBody extends Model
 {
     /**
+     * @description The queried applications.
+     *
      * @var appList[]
      */
     public $appList;
+
     /**
+     * @description The response code. The status code 200 indicates that the request was successful.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
+
     /**
+     * @description The HTTP status code.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
+
     /**
+     * @description The error message returned if the request failed.
+     *
+     * @example Internal error, please contact customer service.
+     *
      * @var string
      */
     public $message;
+
     /**
+     * @description The request ID.
+     *
+     * @example 70675725-8F11-4817-8106-CFE0AD71****
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;
     protected $_name = [
-        'appList'        => 'AppList',
-        'code'           => 'Code',
+        'appList' => 'AppList',
+        'code' => 'Code',
         'httpStatusCode' => 'HttpStatusCode',
-        'message'        => 'Message',
-        'requestId'      => 'RequestId',
-        'success'        => 'Success',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->appList)) {
-            Model::validateArray($this->appList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appList) {
-            if (\is_array($this->appList)) {
-                $res['AppList'] = [];
-                $n1             = 0;
-                foreach ($this->appList as $item1) {
-                    $res['AppList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['AppList'] = [];
+            if (null !== $this->appList && \is_array($this->appList)) {
+                $n = 0;
+                foreach ($this->appList as $item) {
+                    $res['AppList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-
         if (null !== $this->httpStatusCode) {
             $res['HttpStatusCode'] = $this->httpStatusCode;
         }
-
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -86,40 +105,35 @@ class GetRumAppsResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetRumAppsResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppList'])) {
             if (!empty($map['AppList'])) {
                 $model->appList = [];
-                $n1             = 0;
-                foreach ($map['AppList'] as $item1) {
-                    $model->appList[$n1++] = appList::fromMap($item1);
+                $n = 0;
+                foreach ($map['AppList'] as $item) {
+                    $model->appList[$n++] = null !== $item ? appList::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-
         if (isset($map['HttpStatusCode'])) {
             $model->httpStatusCode = $map['HttpStatusCode'];
         }
-
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

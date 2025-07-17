@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DataBonreeSDKConfigModuleConfigDefaultConfigValue extends Model
 {
     /**
+     * @description Indicates whether the configuration is enabled.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enable;
@@ -16,12 +20,9 @@ class DataBonreeSDKConfigModuleConfigDefaultConfigValue extends Model
         'enable' => 'enable',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->enable) {
@@ -31,11 +32,11 @@ class DataBonreeSDKConfigModuleConfigDefaultConfigValue extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DataBonreeSDKConfigModuleConfigDefaultConfigValue
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

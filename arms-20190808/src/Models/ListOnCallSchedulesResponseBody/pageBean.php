@@ -4,63 +4,71 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\ListOnCallSchedulesResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListOnCallSchedulesResponseBody\pageBean\onCallSchedules;
+use AlibabaCloud\Tea\Model;
 
 class pageBean extends Model
 {
     /**
+     * @description The information about the scheduling policy.
+     *
      * @var onCallSchedules[]
      */
     public $onCallSchedules;
+
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $page;
+
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $size;
+
     /**
+     * @description The total number of returned entries.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $total;
     protected $_name = [
         'onCallSchedules' => 'OnCallSchedules',
-        'page'            => 'Page',
-        'size'            => 'Size',
-        'total'           => 'Total',
+        'page' => 'Page',
+        'size' => 'Size',
+        'total' => 'Total',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->onCallSchedules)) {
-            Model::validateArray($this->onCallSchedules);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->onCallSchedules) {
-            if (\is_array($this->onCallSchedules)) {
-                $res['OnCallSchedules'] = [];
-                $n1                     = 0;
-                foreach ($this->onCallSchedules as $item1) {
-                    $res['OnCallSchedules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['OnCallSchedules'] = [];
+            if (null !== $this->onCallSchedules && \is_array($this->onCallSchedules)) {
+                $n = 0;
+                foreach ($this->onCallSchedules as $item) {
+                    $res['OnCallSchedules'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->page) {
             $res['Page'] = $this->page;
         }
-
         if (null !== $this->size) {
             $res['Size'] = $this->size;
         }
-
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
@@ -68,32 +76,29 @@ class pageBean extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return pageBean
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OnCallSchedules'])) {
             if (!empty($map['OnCallSchedules'])) {
                 $model->onCallSchedules = [];
-                $n1                     = 0;
-                foreach ($map['OnCallSchedules'] as $item1) {
-                    $model->onCallSchedules[$n1++] = onCallSchedules::fromMap($item1);
+                $n = 0;
+                foreach ($map['OnCallSchedules'] as $item) {
+                    $model->onCallSchedules[$n++] = null !== $item ? onCallSchedules::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['Page'])) {
             $model->page = $map['Page'];
         }
-
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
         }
-
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }

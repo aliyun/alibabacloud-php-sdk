@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\QueryPromInstallStatusResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     * true: The call was successful. false: The call fails.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isControllerInstalled;
@@ -16,12 +22,9 @@ class data extends Model
         'isControllerInstalled' => 'isControllerInstalled',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->isControllerInstalled) {
@@ -31,11 +34,11 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

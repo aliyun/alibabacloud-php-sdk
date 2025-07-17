@@ -4,35 +4,38 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class StartTimingSyntheticTaskShrinkRequest extends Model
 {
     /**
+     * @description The region ID. Default value: cn-hangzhou.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
+
     /**
+     * @description The task IDs.
+     *
      * @var string
      */
     public $taskIdsShrink;
     protected $_name = [
-        'regionId'      => 'RegionId',
+        'regionId' => 'RegionId',
         'taskIdsShrink' => 'TaskIds',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->taskIdsShrink) {
             $res['TaskIds'] = $this->taskIdsShrink;
         }
@@ -40,18 +43,17 @@ class StartTimingSyntheticTaskShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return StartTimingSyntheticTaskShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['TaskIds'])) {
             $model->taskIdsShrink = $map['TaskIds'];
         }

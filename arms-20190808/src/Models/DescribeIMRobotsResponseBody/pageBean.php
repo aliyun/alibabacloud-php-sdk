@@ -4,63 +4,71 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\DescribeIMRobotsResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DescribeIMRobotsResponseBody\pageBean\alertIMRobots;
+use AlibabaCloud\Tea\Model;
 
 class pageBean extends Model
 {
     /**
+     * @description The queried IM chatbots.
+     *
      * @var alertIMRobots[]
      */
     public $alertIMRobots;
+
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $page;
+
     /**
+     * @description The number of IM chatbots returned per page.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $size;
+
     /**
+     * @description The total number of queried IM chatbots.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $total;
     protected $_name = [
         'alertIMRobots' => 'AlertIMRobots',
-        'page'          => 'Page',
-        'size'          => 'Size',
-        'total'         => 'Total',
+        'page' => 'Page',
+        'size' => 'Size',
+        'total' => 'Total',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->alertIMRobots)) {
-            Model::validateArray($this->alertIMRobots);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->alertIMRobots) {
-            if (\is_array($this->alertIMRobots)) {
-                $res['AlertIMRobots'] = [];
-                $n1                   = 0;
-                foreach ($this->alertIMRobots as $item1) {
-                    $res['AlertIMRobots'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['AlertIMRobots'] = [];
+            if (null !== $this->alertIMRobots && \is_array($this->alertIMRobots)) {
+                $n = 0;
+                foreach ($this->alertIMRobots as $item) {
+                    $res['AlertIMRobots'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->page) {
             $res['Page'] = $this->page;
         }
-
         if (null !== $this->size) {
             $res['Size'] = $this->size;
         }
-
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
@@ -68,32 +76,29 @@ class pageBean extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return pageBean
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AlertIMRobots'])) {
             if (!empty($map['AlertIMRobots'])) {
                 $model->alertIMRobots = [];
-                $n1                   = 0;
-                foreach ($map['AlertIMRobots'] as $item1) {
-                    $model->alertIMRobots[$n1++] = alertIMRobots::fromMap($item1);
+                $n = 0;
+                foreach ($map['AlertIMRobots'] as $item) {
+                    $model->alertIMRobots[$n++] = null !== $item ? alertIMRobots::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['Page'])) {
             $model->page = $map['Page'];
         }
-
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
         }
-
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }

@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeTraceLicenseKeyRequest extends Model
 {
     /**
+     * @description The region ID.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -16,12 +20,9 @@ class DescribeTraceLicenseKeyRequest extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->regionId) {
@@ -31,11 +32,11 @@ class DescribeTraceLicenseKeyRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeTraceLicenseKeyRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

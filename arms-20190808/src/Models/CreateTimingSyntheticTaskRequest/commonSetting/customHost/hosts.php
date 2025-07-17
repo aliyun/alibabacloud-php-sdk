@@ -4,83 +4,85 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\CreateTimingSyntheticTaskRequest\commonSetting\customHost;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class hosts extends Model
 {
     /**
+     * @description The domain name.
+     *
+     * This parameter is required.
+     *
+     * @example www.aliyun.com
+     *
      * @var string
      */
     public $domain;
+
     /**
+     * @description The IP version. Valid values:
+     *
+     *   0: A version is automatically selected.
+     *   1: IPv4.
+     *   2: IPv6.
+     *
+     * This parameter is required.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $ipType;
+
     /**
+     * @description The list of IP addresses.
+     *
+     * This parameter is required.
+     *
      * @var string[]
      */
     public $ips;
     protected $_name = [
         'domain' => 'Domain',
         'ipType' => 'IpType',
-        'ips'    => 'Ips',
+        'ips' => 'Ips',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->ips)) {
-            Model::validateArray($this->ips);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
-
         if (null !== $this->ipType) {
             $res['IpType'] = $this->ipType;
         }
-
         if (null !== $this->ips) {
-            if (\is_array($this->ips)) {
-                $res['Ips'] = [];
-                $n1         = 0;
-                foreach ($this->ips as $item1) {
-                    $res['Ips'][$n1++] = $item1;
-                }
-            }
+            $res['Ips'] = $this->ips;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return hosts
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
-
         if (isset($map['IpType'])) {
             $model->ipType = $map['IpType'];
         }
-
         if (isset($map['Ips'])) {
             if (!empty($map['Ips'])) {
-                $model->ips = [];
-                $n1         = 0;
-                foreach ($map['Ips'] as $item1) {
-                    $model->ips[$n1++] = $item1;
-                }
+                $model->ips = $map['Ips'];
             }
         }
 

@@ -4,64 +4,63 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\DescribeAddonMetricsResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DescribeAddonMetricsResponseBody\data\labels;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DescribeAddonMetricsResponseBody\data\metrics;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description The metric group.
+     *
+     * @example Common
+     *
      * @var string
      */
     public $group;
+
     /**
+     * @description The tags.
+     *
      * @var labels[]
      */
     public $labels;
+
     /**
+     * @description The metrics.
+     *
      * @var metrics[]
      */
     public $metrics;
     protected $_name = [
-        'group'   => 'Group',
-        'labels'  => 'Labels',
+        'group' => 'Group',
+        'labels' => 'Labels',
         'metrics' => 'Metrics',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->labels)) {
-            Model::validateArray($this->labels);
-        }
-        if (\is_array($this->metrics)) {
-            Model::validateArray($this->metrics);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->group) {
             $res['Group'] = $this->group;
         }
-
         if (null !== $this->labels) {
-            if (\is_array($this->labels)) {
-                $res['Labels'] = [];
-                $n1            = 0;
-                foreach ($this->labels as $item1) {
-                    $res['Labels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Labels'] = [];
+            if (null !== $this->labels && \is_array($this->labels)) {
+                $n = 0;
+                foreach ($this->labels as $item) {
+                    $res['Labels'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->metrics) {
-            if (\is_array($this->metrics)) {
-                $res['Metrics'] = [];
-                $n1             = 0;
-                foreach ($this->metrics as $item1) {
-                    $res['Metrics'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Metrics'] = [];
+            if (null !== $this->metrics && \is_array($this->metrics)) {
+                $n = 0;
+                foreach ($this->metrics as $item) {
+                    $res['Metrics'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -69,34 +68,32 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Group'])) {
             $model->group = $map['Group'];
         }
-
         if (isset($map['Labels'])) {
             if (!empty($map['Labels'])) {
                 $model->labels = [];
-                $n1            = 0;
-                foreach ($map['Labels'] as $item1) {
-                    $model->labels[$n1++] = labels::fromMap($item1);
+                $n = 0;
+                foreach ($map['Labels'] as $item) {
+                    $model->labels[$n++] = null !== $item ? labels::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['Metrics'])) {
             if (!empty($map['Metrics'])) {
                 $model->metrics = [];
-                $n1             = 0;
-                foreach ($map['Metrics'] as $item1) {
-                    $model->metrics[$n1++] = metrics::fromMap($item1);
+                $n = 0;
+                foreach ($map['Metrics'] as $item) {
+                    $model->metrics[$n++] = null !== $item ? metrics::fromMap($item) : $item;
                 }
             }
         }

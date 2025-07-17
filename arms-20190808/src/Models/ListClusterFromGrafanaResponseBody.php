@@ -4,45 +4,45 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListClusterFromGrafanaResponseBody\promClusterList;
+use AlibabaCloud\Tea\Model;
 
 class ListClusterFromGrafanaResponseBody extends Model
 {
     /**
+     * @description The cluster information.
+     *
      * @var promClusterList[]
      */
     public $promClusterList;
+
     /**
+     * @description The request ID. You can use the ID to query logs and troubleshoot issues.
+     *
+     * @example 6849D41E-EED4-5C00-89F9-6047BBD9DCB4
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'promClusterList' => 'PromClusterList',
-        'requestId'       => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->promClusterList)) {
-            Model::validateArray($this->promClusterList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->promClusterList) {
-            if (\is_array($this->promClusterList)) {
-                $res['PromClusterList'] = [];
-                $n1                     = 0;
-                foreach ($this->promClusterList as $item1) {
-                    $res['PromClusterList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['PromClusterList'] = [];
+            if (null !== $this->promClusterList && \is_array($this->promClusterList)) {
+                $n = 0;
+                foreach ($this->promClusterList as $item) {
+                    $res['PromClusterList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,24 +50,23 @@ class ListClusterFromGrafanaResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListClusterFromGrafanaResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PromClusterList'])) {
             if (!empty($map['PromClusterList'])) {
                 $model->promClusterList = [];
-                $n1                     = 0;
-                foreach ($map['PromClusterList'] as $item1) {
-                    $model->promClusterList[$n1++] = promClusterList::fromMap($item1);
+                $n = 0;
+                foreach ($map['PromClusterList'] as $item) {
+                    $model->promClusterList[$n++] = null !== $item ? promClusterList::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

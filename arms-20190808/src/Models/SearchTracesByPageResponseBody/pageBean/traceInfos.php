@@ -4,80 +4,105 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\SearchTracesByPageResponseBody\pageBean;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class traceInfos extends Model
 {
     /**
+     * @description The amount of time consumed by the trace. Unit: milliseconds.
+     *
+     * @example 679
+     *
      * @var int
      */
     public $duration;
+
     /**
+     * @description The name of the traced span.
+     *
+     * @example /demo/queryException/12
+     *
      * @var string
      */
     public $operationName;
+
     /**
+     * @description The IP address of the host where the application resides.
+     *
+     * @example 172.20.XX.XX
+     *
      * @var string
      */
     public $serviceIp;
+
     /**
+     * @description The name of the application.
+     *
+     * @example arms-k8s-demo-subcomponent
+     *
      * @var string
      */
     public $serviceName;
+
     /**
+     * @description The span ID of the trace.
+     *
+     * @example be3d6dcf5750e***
+     *
      * @var string
      */
     public $spanID;
+
     /**
+     * @description The timestamp.
+     *
+     * @example 1595174436994
+     *
      * @var int
      */
     public $timestamp;
+
     /**
+     * @description The trace ID.
+     *
+     * @example ac1400a115951744369947025d****
+     *
      * @var string
      */
     public $traceID;
     protected $_name = [
-        'duration'      => 'Duration',
+        'duration' => 'Duration',
         'operationName' => 'OperationName',
-        'serviceIp'     => 'ServiceIp',
-        'serviceName'   => 'ServiceName',
-        'spanID'        => 'SpanID',
-        'timestamp'     => 'Timestamp',
-        'traceID'       => 'TraceID',
+        'serviceIp' => 'ServiceIp',
+        'serviceName' => 'ServiceName',
+        'spanID' => 'SpanID',
+        'timestamp' => 'Timestamp',
+        'traceID' => 'TraceID',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
         }
-
         if (null !== $this->operationName) {
             $res['OperationName'] = $this->operationName;
         }
-
         if (null !== $this->serviceIp) {
             $res['ServiceIp'] = $this->serviceIp;
         }
-
         if (null !== $this->serviceName) {
             $res['ServiceName'] = $this->serviceName;
         }
-
         if (null !== $this->spanID) {
             $res['SpanID'] = $this->spanID;
         }
-
         if (null !== $this->timestamp) {
             $res['Timestamp'] = $this->timestamp;
         }
-
         if (null !== $this->traceID) {
             $res['TraceID'] = $this->traceID;
         }
@@ -85,38 +110,32 @@ class traceInfos extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return traceInfos
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
         }
-
         if (isset($map['OperationName'])) {
             $model->operationName = $map['OperationName'];
         }
-
         if (isset($map['ServiceIp'])) {
             $model->serviceIp = $map['ServiceIp'];
         }
-
         if (isset($map['ServiceName'])) {
             $model->serviceName = $map['ServiceName'];
         }
-
         if (isset($map['SpanID'])) {
             $model->spanID = $map['SpanID'];
         }
-
         if (isset($map['Timestamp'])) {
             $model->timestamp = $map['Timestamp'];
         }
-
         if (isset($map['TraceID'])) {
             $model->traceID = $map['TraceID'];
         }

@@ -4,35 +4,40 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetRetcodeShareUrlResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 01FF8DD9-A09C-47A1-895A-B6E321******
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @description The share URL of the application monitored by Browser Monitoring.
+     *
+     * @example http://arms-daily.console.aliyun.com:8080/shareapi/retcode.json?login_arms_t3h_token=XXXxxx&action=RetcodeAction&eventSubmitDoGetData=1
+     *
      * @var string
      */
     public $url;
     protected $_name = [
         'requestId' => 'RequestId',
-        'url'       => 'Url',
+        'url' => 'Url',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
@@ -40,18 +45,17 @@ class GetRetcodeShareUrlResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetRetcodeShareUrlResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }

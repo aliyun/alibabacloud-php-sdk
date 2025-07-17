@@ -1,3 +1,22 @@
+2025-07-17 Version: 9.0.0
+- Support API DescribeEnvDropMetricsRule.
+- Support API UpdateEnvDropMetricsRule.
+- Delete API ManageGetRecordingRule.
+- Delete API ManageRecordingRule.
+- Update API CreateRumApp: delete request parameters Workspace.
+- Update API DescribeEnvironmentFeature: add response parameters Body.Data.config.
+- Update API GetMultipleTrace: add request parameters PageNumber.
+- Update API GetMultipleTrace: add request parameters PageSize.
+- Update API GetPrometheusInstance: add response parameters Body.Data.OpenTelemetryInterUrl.
+- Update API GetPrometheusInstance: add response parameters Body.Data.OpenTelemetryIntraUrl.
+- Update API GetRumAppInfo: delete request parameters Workspace.
+- Update API GetRumApps: delete request parameters Workspace.
+- Update API GetRumDataForPage: delete request parameters Workspace.
+- Update API GetTrace: add request parameters PageNumber.
+- Update API GetTrace: add request parameters PageSize.
+- Update API InstallManagedPrometheus: add request parameters VcExtraInfo.
+
+
 2025-02-17 Version: 8.0.3
 - Update API CreateRumApp: add param Language.
 - Update API GetRumAppInfo: update response param.

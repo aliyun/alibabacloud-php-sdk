@@ -4,53 +4,51 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\DescribeEnvironmentFeatureResponseBody\data\featureStatus;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class featureContainers extends Model
 {
     /**
+     * @description The container parameters.
+     *
      * @var string[]
      */
     public $args;
+
     /**
+     * @description The container image.
+     *
+     * @example registry-cn-hangzhou-vpc.ack.aliyuncs.com/acs/arms-prometheus-agent:v4.0.0
+     *
      * @var string
      */
     public $image;
+
     /**
+     * @description The container name.
+     *
+     * @example arms-prometheus-operator
+     *
      * @var string
      */
     public $name;
     protected $_name = [
-        'args'  => 'Args',
+        'args' => 'Args',
         'image' => 'Image',
-        'name'  => 'Name',
+        'name' => 'Name',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->args)) {
-            Model::validateArray($this->args);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->args) {
-            if (\is_array($this->args)) {
-                $res['Args'] = [];
-                $n1          = 0;
-                foreach ($this->args as $item1) {
-                    $res['Args'][$n1++] = $item1;
-                }
-            }
+            $res['Args'] = $this->args;
         }
-
         if (null !== $this->image) {
             $res['Image'] = $this->image;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -58,28 +56,22 @@ class featureContainers extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return featureContainers
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Args'])) {
             if (!empty($map['Args'])) {
-                $model->args = [];
-                $n1          = 0;
-                foreach ($map['Args'] as $item1) {
-                    $model->args[$n1++] = $item1;
-                }
+                $model->args = $map['Args'];
             }
         }
-
         if (isset($map['Image'])) {
             $model->image = $map['Image'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

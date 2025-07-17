@@ -4,87 +4,95 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\DescribeWebhookContactsResponseBody\pageBean\webhookContacts;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class webhook extends Model
 {
     /**
+     * @description The header of the HTTP request.
+     *
+     * @example [{"Content-Type":"application/json"}]
+     *
      * @var mixed[]
      */
     public $bizHeaders;
+
     /**
+     * @description The parameters in the HTTP request.
+     *
+     * @example [{"content:"mike"}]
+     *
      * @var mixed[]
      */
     public $bizParams;
+
     /**
+     * @description The alert notification template.
+     *
+     * @example { "Alert name":"{{ .commonLabels.alertname }}{{if .commonLabels.clustername }}", "Cluster name":"{{ .commonLabels.clustername }} {{ end }}{{if eq "app" .commonLabels._aliyun_arms_involvedObject_kind }}", "Application name":"{{ .commonLabels._aliyun_arms_involvedObject_name }} {{ end }}", "Notification policy":"{{ .dispatchRuleName }}", "Alert time":"{{ .startTime }}", "Alert content":"{{ for .alerts }} {{ .annotations.message }} {{ end }}" }
+     *
      * @var string
      */
     public $body;
+
     /**
+     * @description The HTTP request method.
+     *
+     *   Get
+     *   Post
+     *
+     * @example Post
+     *
      * @var string
      */
     public $method;
+
     /**
+     * @description The notification template for clearing alerts.
+     *
+     * @example { "Alert name":"{{ .commonLabels.alertname }}{{if .commonLabels.clustername }}", "Cluster name":"{{ .commonLabels.clustername }} {{ end }}{{if eq "app" .commonLabels._aliyun_arms_involvedObject_kind }}", "Application name":"{{ .commonLabels._aliyun_arms_involvedObject_name }} {{ end }}", "Notification policy":"{{ .dispatchRuleName }}", "Recovery time":"{{ .endTime }}", "Alert content":"{{ for .alerts }} {{ .annotations.message }} {{ end }}" }
+     *
      * @var string
      */
     public $recoverBody;
+
     /**
+     * @description The URL of the request method.
+     *
+     * @example https://oapi.dingtalk.com/robot/send?access_token=91f2f6****
+     *
      * @var string
      */
     public $url;
     protected $_name = [
-        'bizHeaders'  => 'BizHeaders',
-        'bizParams'   => 'BizParams',
-        'body'        => 'Body',
-        'method'      => 'Method',
+        'bizHeaders' => 'BizHeaders',
+        'bizParams' => 'BizParams',
+        'body' => 'Body',
+        'method' => 'Method',
         'recoverBody' => 'RecoverBody',
-        'url'         => 'Url',
+        'url' => 'Url',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->bizHeaders)) {
-            Model::validateArray($this->bizHeaders);
-        }
-        if (\is_array($this->bizParams)) {
-            Model::validateArray($this->bizParams);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->bizHeaders) {
-            if (\is_array($this->bizHeaders)) {
-                $res['BizHeaders'] = [];
-                foreach ($this->bizHeaders as $key1 => $value1) {
-                    $res['BizHeaders'][$key1] = $value1;
-                }
-            }
+            $res['BizHeaders'] = $this->bizHeaders;
         }
-
         if (null !== $this->bizParams) {
-            if (\is_array($this->bizParams)) {
-                $res['BizParams'] = [];
-                foreach ($this->bizParams as $key1 => $value1) {
-                    $res['BizParams'][$key1] = $value1;
-                }
-            }
+            $res['BizParams'] = $this->bizParams;
         }
-
         if (null !== $this->body) {
             $res['Body'] = $this->body;
         }
-
         if (null !== $this->method) {
             $res['Method'] = $this->method;
         }
-
         if (null !== $this->recoverBody) {
             $res['RecoverBody'] = $this->recoverBody;
         }
-
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
@@ -92,44 +100,29 @@ class webhook extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return webhook
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BizHeaders'])) {
-            if (!empty($map['BizHeaders'])) {
-                $model->bizHeaders = [];
-                foreach ($map['BizHeaders'] as $key1 => $value1) {
-                    $model->bizHeaders[$key1] = $value1;
-                }
-            }
+            $model->bizHeaders = $map['BizHeaders'];
         }
-
         if (isset($map['BizParams'])) {
-            if (!empty($map['BizParams'])) {
-                $model->bizParams = [];
-                foreach ($map['BizParams'] as $key1 => $value1) {
-                    $model->bizParams[$key1] = $value1;
-                }
-            }
+            $model->bizParams = $map['BizParams'];
         }
-
         if (isset($map['Body'])) {
             $model->body = $map['Body'];
         }
-
         if (isset($map['Method'])) {
             $model->method = $map['Method'];
         }
-
         if (isset($map['RecoverBody'])) {
             $model->recoverBody = $map['RecoverBody'];
         }
-
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }

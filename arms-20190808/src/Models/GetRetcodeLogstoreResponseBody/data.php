@@ -4,48 +4,52 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\GetRetcodeLogstoreResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetRetcodeLogstoreResponseBody\data\retcodeSLSConfig;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description The content of the log.
+     *
+     * @example retcode app or task can not be found!
+     *
      * @var string
      */
     public $message;
+
     /**
+     * @description The information about Log Service.
+     *
      * @var retcodeSLSConfig
      */
     public $retcodeSLSConfig;
+
     /**
+     * @description The status of the request.
+     *
+     * @example true
+     *
      * @var string
      */
     public $status;
     protected $_name = [
-        'message'          => 'Message',
+        'message' => 'Message',
         'retcodeSLSConfig' => 'RetcodeSLSConfig',
-        'status'           => 'Status',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->retcodeSLSConfig) {
-            $this->retcodeSLSConfig->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
-
         if (null !== $this->retcodeSLSConfig) {
-            $res['RetcodeSLSConfig'] = null !== $this->retcodeSLSConfig ? $this->retcodeSLSConfig->toArray($noStream) : $this->retcodeSLSConfig;
+            $res['RetcodeSLSConfig'] = null !== $this->retcodeSLSConfig ? $this->retcodeSLSConfig->toMap() : null;
         }
-
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -53,22 +57,20 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
-
         if (isset($map['RetcodeSLSConfig'])) {
             $model->retcodeSLSConfig = retcodeSLSConfig::fromMap($map['RetcodeSLSConfig']);
         }
-
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

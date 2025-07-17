@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\UpdateTimingSyntheticTaskResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description The task ID.
+     *
+     * @example 1eeb351722c84e05b52c82fd0dc9953e
+     *
      * @var string
      */
     public $taskId;
@@ -16,12 +20,9 @@ class data extends Model
         'taskId' => 'TaskId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->taskId) {
@@ -31,11 +32,11 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

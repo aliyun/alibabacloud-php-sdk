@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListActivatedAlertsResponseBody\page;
+use AlibabaCloud\Tea\Model;
 
 class ListActivatedAlertsResponseBody extends Model
 {
@@ -13,39 +13,39 @@ class ListActivatedAlertsResponseBody extends Model
      * @var string
      */
     public $message;
+
     /**
+     * @description The struct returned.
+     *
      * @var page
      */
     public $page;
+
     /**
+     * @description The ID of the request.
+     *
+     * @example BDB74B8F-4123-482A-ABB7-7F440349****
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'message'   => 'Message',
-        'page'      => 'Page',
+        'message' => 'Message',
+        'page' => 'Page',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->page) {
-            $this->page->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
-
         if (null !== $this->page) {
-            $res['Page'] = null !== $this->page ? $this->page->toArray($noStream) : $this->page;
+            $res['Page'] = null !== $this->page ? $this->page->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -53,22 +53,20 @@ class ListActivatedAlertsResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListActivatedAlertsResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
-
         if (isset($map['Page'])) {
             $model->page = page::fromMap($map['Page']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,89 +4,93 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GrafanaWorkspaceAccount extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $accountId;
+
     /**
      * @var string
      */
     public $accountNotes;
+
     /**
+     * @example 131243781293
+     *
      * @var string
      */
     public $aliyunUid;
+
     /**
+     * @example test
+     *
      * @var string
      */
     public $aliyunUserName;
+
     /**
+     * @example 创建时间
+     *
      * @var float
      */
     public $gmtCreate;
+
     /**
      * @var GrafanaWorkspaceUserOrg[]
      */
     public $orgs;
+
     /**
+     * @example aliyun
+     *
      * @var string
      */
     public $type;
     protected $_name = [
-        'accountId'      => 'accountId',
-        'accountNotes'   => 'accountNotes',
-        'aliyunUid'      => 'aliyunUid',
+        'accountId' => 'accountId',
+        'accountNotes' => 'accountNotes',
+        'aliyunUid' => 'aliyunUid',
         'aliyunUserName' => 'aliyunUserName',
-        'gmtCreate'      => 'gmtCreate',
-        'orgs'           => 'orgs',
-        'type'           => 'type',
+        'gmtCreate' => 'gmtCreate',
+        'orgs' => 'orgs',
+        'type' => 'type',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->orgs)) {
-            Model::validateArray($this->orgs);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->accountId) {
             $res['accountId'] = $this->accountId;
         }
-
         if (null !== $this->accountNotes) {
             $res['accountNotes'] = $this->accountNotes;
         }
-
         if (null !== $this->aliyunUid) {
             $res['aliyunUid'] = $this->aliyunUid;
         }
-
         if (null !== $this->aliyunUserName) {
             $res['aliyunUserName'] = $this->aliyunUserName;
         }
-
         if (null !== $this->gmtCreate) {
             $res['gmtCreate'] = $this->gmtCreate;
         }
-
         if (null !== $this->orgs) {
-            if (\is_array($this->orgs)) {
-                $res['orgs'] = [];
-                $n1          = 0;
-                foreach ($this->orgs as $item1) {
-                    $res['orgs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['orgs'] = [];
+            if (null !== $this->orgs && \is_array($this->orgs)) {
+                $n = 0;
+                foreach ($this->orgs as $item) {
+                    $res['orgs'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -94,44 +98,38 @@ class GrafanaWorkspaceAccount extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GrafanaWorkspaceAccount
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['accountId'])) {
             $model->accountId = $map['accountId'];
         }
-
         if (isset($map['accountNotes'])) {
             $model->accountNotes = $map['accountNotes'];
         }
-
         if (isset($map['aliyunUid'])) {
             $model->aliyunUid = $map['aliyunUid'];
         }
-
         if (isset($map['aliyunUserName'])) {
             $model->aliyunUserName = $map['aliyunUserName'];
         }
-
         if (isset($map['gmtCreate'])) {
             $model->gmtCreate = $map['gmtCreate'];
         }
-
         if (isset($map['orgs'])) {
             if (!empty($map['orgs'])) {
                 $model->orgs = [];
-                $n1          = 0;
-                foreach ($map['orgs'] as $item1) {
-                    $model->orgs[$n1++] = GrafanaWorkspaceUserOrg::fromMap($item1);
+                $n = 0;
+                foreach ($map['orgs'] as $item) {
+                    $model->orgs[$n++] = null !== $item ? GrafanaWorkspaceUserOrg::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }

@@ -4,44 +4,53 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\GetRetcodeLogstoreResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class retcodeSLSConfig extends Model
 {
     /**
+     * @description The Log Service Logstore.
+     *
+     * @example log-test-220431
+     *
      * @var string
      */
     public $logstore;
+
     /**
+     * @description The Log Service project.
+     *
+     * @example test-project
+     *
      * @var string
      */
     public $project;
+
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
     protected $_name = [
         'logstore' => 'Logstore',
-        'project'  => 'Project',
+        'project' => 'Project',
         'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->logstore) {
             $res['Logstore'] = $this->logstore;
         }
-
         if (null !== $this->project) {
             $res['Project'] = $this->project;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -49,22 +58,20 @@ class retcodeSLSConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return retcodeSLSConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Logstore'])) {
             $model->logstore = $map['Logstore'];
         }
-
         if (isset($map['Project'])) {
             $model->project = $map['Project'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

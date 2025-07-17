@@ -4,35 +4,40 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\ListEnvironmentAlertRulesResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class rules extends Model
 {
     /**
+     * @description The ID of the alert rule.
+     *
+     * @example 9502571
+     *
      * @var int
      */
     public $alertId;
+
     /**
+     * @description The name of the alert rule.
+     *
+     * @example mysql-CS-MySQLInnoDBLogWaits_lu
+     *
      * @var string
      */
     public $name;
     protected $_name = [
         'alertId' => 'AlertId',
-        'name'    => 'Name',
+        'name' => 'Name',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->alertId) {
             $res['AlertId'] = $this->alertId;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -40,18 +45,17 @@ class rules extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return rules
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AlertId'])) {
             $model->alertId = $map['AlertId'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

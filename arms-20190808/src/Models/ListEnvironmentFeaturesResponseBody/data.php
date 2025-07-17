@@ -4,124 +4,165 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\ListEnvironmentFeaturesResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description The alias of the feature.
+     *
+     * @example Prometheus Agent
+     *
      * @var string
      */
     public $alias;
+
     /**
+     * @description The feature configuration.
+     *
      * @var string[]
      */
     public $config;
+
     /**
+     * @description The description of the feature.
+     *
+     * @example Collect Metric data using the Prometheus collection specification.
+     *
      * @var string
      */
     public $description;
+
     /**
+     * @description The ID of the environment instance.
+     *
+     * @example env-xxxxx
+     *
      * @var string
      */
     public $environmentId;
+
     /**
+     * @description The URL of the icon.
+     *
+     * @example http://xxx
+     *
      * @var string
      */
     public $icon;
+
     /**
+     * @description The language. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $language;
+
     /**
+     * @description The latest version number.
+     *
+     * @example 1.1.17
+     *
      * @var string
      */
     public $latestVersion;
+
     /**
+     * @description Indicates whether the component is fully managed.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $managed;
+
     /**
+     * @description The name of the feature.
+     *
+     * @example metric-agent
+     *
      * @var string
      */
     public $name;
+
     /**
+     * @description The status of the feature. Valid values:
+     *
+     *   Installing: The agent is being installed.
+     *   Success: The agent is installed.
+     *   Failed: The agent failed to be installed.
+     *   UnInstall: The agent is uninstalled.
+     *   Uninstalling: The agent is being uninstalled.
+     *   UnInstallFailed: The agent failed to be uninstalled.
+     *
+     * @example Success
+     *
      * @var string
      */
     public $status;
+
     /**
+     * @description The version of the feature.
+     *
+     * @example 1.1.17
+     *
      * @var string
      */
     public $version;
     protected $_name = [
-        'alias'         => 'Alias',
-        'config'        => 'Config',
-        'description'   => 'Description',
+        'alias' => 'Alias',
+        'config' => 'Config',
+        'description' => 'Description',
         'environmentId' => 'EnvironmentId',
-        'icon'          => 'Icon',
-        'language'      => 'Language',
+        'icon' => 'Icon',
+        'language' => 'Language',
         'latestVersion' => 'LatestVersion',
-        'managed'       => 'Managed',
-        'name'          => 'Name',
-        'status'        => 'Status',
-        'version'       => 'Version',
+        'managed' => 'Managed',
+        'name' => 'Name',
+        'status' => 'Status',
+        'version' => 'Version',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->config)) {
-            Model::validateArray($this->config);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->alias) {
             $res['Alias'] = $this->alias;
         }
-
         if (null !== $this->config) {
-            if (\is_array($this->config)) {
-                $res['Config'] = [];
-                foreach ($this->config as $key1 => $value1) {
-                    $res['Config'][$key1] = $value1;
-                }
-            }
+            $res['Config'] = $this->config;
         }
-
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-
         if (null !== $this->environmentId) {
             $res['EnvironmentId'] = $this->environmentId;
         }
-
         if (null !== $this->icon) {
             $res['Icon'] = $this->icon;
         }
-
         if (null !== $this->language) {
             $res['Language'] = $this->language;
         }
-
         if (null !== $this->latestVersion) {
             $res['LatestVersion'] = $this->latestVersion;
         }
-
         if (null !== $this->managed) {
             $res['Managed'] = $this->managed;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-
         if (null !== $this->version) {
             $res['Version'] = $this->version;
         }
@@ -129,59 +170,44 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Alias'])) {
             $model->alias = $map['Alias'];
         }
-
         if (isset($map['Config'])) {
-            if (!empty($map['Config'])) {
-                $model->config = [];
-                foreach ($map['Config'] as $key1 => $value1) {
-                    $model->config[$key1] = $value1;
-                }
-            }
+            $model->config = $map['Config'];
         }
-
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-
         if (isset($map['EnvironmentId'])) {
             $model->environmentId = $map['EnvironmentId'];
         }
-
         if (isset($map['Icon'])) {
             $model->icon = $map['Icon'];
         }
-
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
         }
-
         if (isset($map['LatestVersion'])) {
             $model->latestVersion = $map['LatestVersion'];
         }
-
         if (isset($map['Managed'])) {
             $model->managed = $map['Managed'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-
         if (isset($map['Version'])) {
             $model->version = $map['Version'];
         }

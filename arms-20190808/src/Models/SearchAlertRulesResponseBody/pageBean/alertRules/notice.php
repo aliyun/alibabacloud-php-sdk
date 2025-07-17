@@ -4,53 +4,66 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\SearchAlertRulesResponseBody\pageBean\alertRules;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class notice extends Model
 {
     /**
+     * @description The end of the time range when the alert rule takes effect within 24 hours per day. This value is a UNIX timestamp. The year, month, and day that are indicated by the timestamp are not displayed in this value. Only the hour, minute, and second are displayed.
+     *
+     * @example 1480607940000
+     *
      * @var int
      */
     public $endTime;
+
     /**
+     * @description The end of the time range when alert notifications are sent based on the alert rule within 24 hours per day. This value is a UNIX timestamp. The year, month, and day that are indicated by the timestamp are not displayed in this value. Only the hour, minute, and second are displayed.
+     *
+     * @example 1480607940000
+     *
      * @var int
      */
     public $noticeEndTime;
+
     /**
+     * @description The beginning of the time range when alert notifications are sent based on the alert rule within 24 hours per day. This value is a UNIX timestamp. The year, month, and day that are indicated by the timestamp are not displayed in this value. Only the hour, minute, and second are displayed.
+     *
+     * @example 1480521600000
+     *
      * @var int
      */
     public $noticeStartTime;
+
     /**
+     * @description The beginning of the time range when the alert rule takes effect within 24 hours per day. This value is a UNIX timestamp. The year, month, and day that are indicated by the timestamp are not displayed in this value. Only the hour, minute, and second are displayed.
+     *
+     * @example 1480521600000
+     *
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'endTime'         => 'EndTime',
-        'noticeEndTime'   => 'NoticeEndTime',
+        'endTime' => 'EndTime',
+        'noticeEndTime' => 'NoticeEndTime',
         'noticeStartTime' => 'NoticeStartTime',
-        'startTime'       => 'StartTime',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
-
         if (null !== $this->noticeEndTime) {
             $res['NoticeEndTime'] = $this->noticeEndTime;
         }
-
         if (null !== $this->noticeStartTime) {
             $res['NoticeStartTime'] = $this->noticeStartTime;
         }
-
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -58,26 +71,23 @@ class notice extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return notice
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
-
         if (isset($map['NoticeEndTime'])) {
             $model->noticeEndTime = $map['NoticeEndTime'];
         }
-
         if (isset($map['NoticeStartTime'])) {
             $model->noticeStartTime = $map['NoticeStartTime'];
         }
-
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }

@@ -4,44 +4,38 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteAppListRequest extends Model
 {
     /**
+     * @description The list of PIDs for the applications monitored by Application Monitoring.
+     *
      * @var string[]
      */
     public $pids;
+
     /**
+     * @description The region ID.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'pids'     => 'Pids',
+        'pids' => 'Pids',
         'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->pids)) {
-            Model::validateArray($this->pids);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->pids) {
-            if (\is_array($this->pids)) {
-                $res['Pids'] = [];
-                $n1          = 0;
-                foreach ($this->pids as $item1) {
-                    $res['Pids'][$n1++] = $item1;
-                }
-            }
+            $res['Pids'] = $this->pids;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -49,24 +43,19 @@ class DeleteAppListRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteAppListRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Pids'])) {
             if (!empty($map['Pids'])) {
-                $model->pids = [];
-                $n1          = 0;
-                foreach ($map['Pids'] as $item1) {
-                    $model->pids[$n1++] = $item1;
-                }
+                $model->pids = $map['Pids'];
             }
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

@@ -4,35 +4,44 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeletePrometheusGlobalViewRequest extends Model
 {
     /**
+     * @description The ID of the global aggregation instance.
+     *
+     * This parameter is required.
+     *
+     * @example global-v2-cn-1670100631025794-amaykca4
+     *
      * @var string
      */
     public $globalViewClusterId;
+
     /**
+     * @description The region ID.
+     *
+     * This parameter is required.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
     protected $_name = [
         'globalViewClusterId' => 'GlobalViewClusterId',
-        'regionId'            => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->globalViewClusterId) {
             $res['GlobalViewClusterId'] = $this->globalViewClusterId;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -40,18 +49,17 @@ class DeletePrometheusGlobalViewRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeletePrometheusGlobalViewRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GlobalViewClusterId'])) {
             $model->globalViewClusterId = $map['GlobalViewClusterId'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

@@ -4,109 +4,128 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\ListPrometheusAlertTemplatesResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListPrometheusAlertTemplatesResponseBody\prometheusAlertTemplates\annotations;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListPrometheusAlertTemplatesResponseBody\prometheusAlertTemplates\labels;
+use AlibabaCloud\Tea\Model;
 
 class prometheusAlertTemplates extends Model
 {
     /**
+     * @description The name of the alert rule.
+     *
+     * @example The available memory on the node is less than 10%
+     *
      * @var string
      */
     public $alertName;
+
     /**
+     * @description The annotations of the alert rule.
+     *
      * @var annotations[]
      */
     public $annotations;
+
     /**
+     * @description The content of the alert notification. Tags can be referenced in the {{$labels.xxx}} format.
+     *
+     * @example The available memory on node {{ $labels.instance }} is less than 10%. Available memory: {{ $value }}%
+     *
      * @var string
      */
     public $description;
+
     /**
+     * @description The duration of the alert. Valid values: 1 to 1440. Unit: minutes.
+     *
+     * @example 1m
+     *
      * @var string
      */
     public $duration;
+
     /**
+     * @description The expression of the alert rule.
+     *
+     * @example node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes * 100 < 10
+     *
      * @var string
      */
     public $expression;
+
     /**
+     * @description The tags of the alert rule.
+     *
      * @var labels[]
      */
     public $labels;
+
     /**
+     * @description The type of the alert rule.
+     *
+     * @example Node
+     *
      * @var string
      */
     public $type;
+
     /**
+     * @description The version of the alert rule.
+     *
+     * @example 1.0
+     *
      * @var string
      */
     public $version;
     protected $_name = [
-        'alertName'   => 'AlertName',
+        'alertName' => 'AlertName',
         'annotations' => 'Annotations',
         'description' => 'Description',
-        'duration'    => 'Duration',
-        'expression'  => 'Expression',
-        'labels'      => 'Labels',
-        'type'        => 'Type',
-        'version'     => 'Version',
+        'duration' => 'Duration',
+        'expression' => 'Expression',
+        'labels' => 'Labels',
+        'type' => 'Type',
+        'version' => 'Version',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->annotations)) {
-            Model::validateArray($this->annotations);
-        }
-        if (\is_array($this->labels)) {
-            Model::validateArray($this->labels);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->alertName) {
             $res['AlertName'] = $this->alertName;
         }
-
         if (null !== $this->annotations) {
-            if (\is_array($this->annotations)) {
-                $res['Annotations'] = [];
-                $n1                 = 0;
-                foreach ($this->annotations as $item1) {
-                    $res['Annotations'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Annotations'] = [];
+            if (null !== $this->annotations && \is_array($this->annotations)) {
+                $n = 0;
+                foreach ($this->annotations as $item) {
+                    $res['Annotations'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
         }
-
         if (null !== $this->expression) {
             $res['Expression'] = $this->expression;
         }
-
         if (null !== $this->labels) {
-            if (\is_array($this->labels)) {
-                $res['Labels'] = [];
-                $n1            = 0;
-                foreach ($this->labels as $item1) {
-                    $res['Labels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Labels'] = [];
+            if (null !== $this->labels && \is_array($this->labels)) {
+                $n = 0;
+                foreach ($this->labels as $item) {
+                    $res['Labels'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
-
         if (null !== $this->version) {
             $res['Version'] = $this->version;
         }
@@ -114,54 +133,47 @@ class prometheusAlertTemplates extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return prometheusAlertTemplates
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AlertName'])) {
             $model->alertName = $map['AlertName'];
         }
-
         if (isset($map['Annotations'])) {
             if (!empty($map['Annotations'])) {
                 $model->annotations = [];
-                $n1                 = 0;
-                foreach ($map['Annotations'] as $item1) {
-                    $model->annotations[$n1++] = annotations::fromMap($item1);
+                $n = 0;
+                foreach ($map['Annotations'] as $item) {
+                    $model->annotations[$n++] = null !== $item ? annotations::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
         }
-
         if (isset($map['Expression'])) {
             $model->expression = $map['Expression'];
         }
-
         if (isset($map['Labels'])) {
             if (!empty($map['Labels'])) {
                 $model->labels = [];
-                $n1            = 0;
-                foreach ($map['Labels'] as $item1) {
-                    $model->labels[$n1++] = labels::fromMap($item1);
+                $n = 0;
+                foreach ($map['Labels'] as $item) {
+                    $model->labels[$n++] = null !== $item ? labels::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
-
         if (isset($map['Version'])) {
             $model->version = $map['Version'];
         }

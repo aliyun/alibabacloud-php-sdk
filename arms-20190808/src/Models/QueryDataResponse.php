@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class QueryDataResponse extends Model
 {
@@ -16,12 +16,9 @@ class QueryDataResponse extends Model
         'results' => 'results',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->results) {
@@ -31,11 +28,11 @@ class QueryDataResponse extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return QueryDataResponse
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

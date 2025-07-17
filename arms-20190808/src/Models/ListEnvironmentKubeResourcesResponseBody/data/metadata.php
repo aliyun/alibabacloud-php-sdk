@@ -4,69 +4,62 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\ListEnvironmentKubeResourcesResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class metadata extends Model
 {
     /**
+     * @description The annotations.
+     *
      * @var string[]
      */
     public $annotations;
+
     /**
+     * @description The tags.
+     *
      * @var string[]
      */
     public $labels;
+
     /**
+     * @description The resource name.
+     *
+     * @example arms-prometheus-ack-arms-prometheus-c577b6cc8-mvdwd
+     *
      * @var string
      */
     public $name;
+
     /**
+     * @description The namespace.
+     *
+     * @example arms-prom
+     *
      * @var string
      */
     public $namespace;
     protected $_name = [
         'annotations' => 'Annotations',
-        'labels'      => 'Labels',
-        'name'        => 'Name',
-        'namespace'   => 'Namespace',
+        'labels' => 'Labels',
+        'name' => 'Name',
+        'namespace' => 'Namespace',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->annotations)) {
-            Model::validateArray($this->annotations);
-        }
-        if (\is_array($this->labels)) {
-            Model::validateArray($this->labels);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->annotations) {
-            if (\is_array($this->annotations)) {
-                $res['Annotations'] = [];
-                foreach ($this->annotations as $key1 => $value1) {
-                    $res['Annotations'][$key1] = $value1;
-                }
-            }
+            $res['Annotations'] = $this->annotations;
         }
-
         if (null !== $this->labels) {
-            if (\is_array($this->labels)) {
-                $res['Labels'] = [];
-                foreach ($this->labels as $key1 => $value1) {
-                    $res['Labels'][$key1] = $value1;
-                }
-            }
+            $res['Labels'] = $this->labels;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
@@ -74,36 +67,23 @@ class metadata extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return metadata
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Annotations'])) {
-            if (!empty($map['Annotations'])) {
-                $model->annotations = [];
-                foreach ($map['Annotations'] as $key1 => $value1) {
-                    $model->annotations[$key1] = $value1;
-                }
-            }
+            $model->annotations = $map['Annotations'];
         }
-
         if (isset($map['Labels'])) {
-            if (!empty($map['Labels'])) {
-                $model->labels = [];
-                foreach ($map['Labels'] as $key1 => $value1) {
-                    $model->labels[$key1] = $value1;
-                }
-            }
+            $model->labels = $map['Labels'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }

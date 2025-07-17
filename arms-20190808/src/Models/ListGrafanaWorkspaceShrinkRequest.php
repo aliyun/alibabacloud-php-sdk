@@ -4,53 +4,66 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListGrafanaWorkspaceShrinkRequest extends Model
 {
     /**
+     * @description The language. Valid values: zh and en. Default value: zh.
+     *
+     * @example zh
+     *
      * @var string
      */
     public $aliyunLang;
+
     /**
+     * @description The region ID. Default value: cn-hangzhou.
+     *
+     * This parameter is required.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
+
     /**
+     * @description The ID of the resource group to which the Prometheus instance belongs.
+     *
+     * @example rg-acfmxyexli2****
+     *
      * @var string
      */
     public $resourceGroupId;
+
     /**
+     * @description The tags.
+     *
      * @var string
      */
     public $tagsShrink;
     protected $_name = [
-        'aliyunLang'      => 'AliyunLang',
-        'regionId'        => 'RegionId',
+        'aliyunLang' => 'AliyunLang',
+        'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
-        'tagsShrink'      => 'Tags',
+        'tagsShrink' => 'Tags',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->aliyunLang) {
             $res['AliyunLang'] = $this->aliyunLang;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
-
         if (null !== $this->tagsShrink) {
             $res['Tags'] = $this->tagsShrink;
         }
@@ -58,26 +71,23 @@ class ListGrafanaWorkspaceShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListGrafanaWorkspaceShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AliyunLang'])) {
             $model->aliyunLang = $map['AliyunLang'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
-
         if (isset($map['Tags'])) {
             $model->tagsShrink = $map['Tags'];
         }

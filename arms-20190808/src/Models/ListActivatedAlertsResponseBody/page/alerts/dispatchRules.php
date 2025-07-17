@@ -4,35 +4,40 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\ListActivatedAlertsResponseBody\page\alerts;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class dispatchRules extends Model
 {
     /**
+     * @description The ID of the notification policy.
+     *
+     * @example 7021
+     *
      * @var int
      */
     public $ruleId;
+
     /**
+     * @description The name of the notification policy.
+     *
+     * @example NotificationPolicy1
+     *
      * @var string
      */
     public $ruleName;
     protected $_name = [
-        'ruleId'   => 'RuleId',
+        'ruleId' => 'RuleId',
         'ruleName' => 'RuleName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->ruleId) {
             $res['RuleId'] = $this->ruleId;
         }
-
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
         }
@@ -40,18 +45,17 @@ class dispatchRules extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return dispatchRules
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RuleId'])) {
             $model->ruleId = $map['RuleId'];
         }
-
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];
         }

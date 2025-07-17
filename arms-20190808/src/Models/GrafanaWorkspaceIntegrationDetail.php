@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GrafanaWorkspaceIntegrationDetail extends Model
 {
@@ -12,45 +12,39 @@ class GrafanaWorkspaceIntegrationDetail extends Model
      * @var GrafanaWorkspaceIntegrationDataSource[]
      */
     public $dataSources;
+
     /**
      * @var string
      */
     public $integrationId;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'dataSources'   => 'dataSources',
+        'dataSources' => 'dataSources',
         'integrationId' => 'integrationId',
-        'status'        => 'status',
+        'status' => 'status',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->dataSources)) {
-            Model::validateArray($this->dataSources);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dataSources) {
-            if (\is_array($this->dataSources)) {
-                $res['dataSources'] = [];
-                $n1                 = 0;
-                foreach ($this->dataSources as $item1) {
-                    $res['dataSources'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['dataSources'] = [];
+            if (null !== $this->dataSources && \is_array($this->dataSources)) {
+                $n = 0;
+                foreach ($this->dataSources as $item) {
+                    $res['dataSources'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->integrationId) {
             $res['integrationId'] = $this->integrationId;
         }
-
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
@@ -58,28 +52,26 @@ class GrafanaWorkspaceIntegrationDetail extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GrafanaWorkspaceIntegrationDetail
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['dataSources'])) {
             if (!empty($map['dataSources'])) {
                 $model->dataSources = [];
-                $n1                 = 0;
-                foreach ($map['dataSources'] as $item1) {
-                    $model->dataSources[$n1++] = GrafanaWorkspaceIntegrationDataSource::fromMap($item1);
+                $n = 0;
+                foreach ($map['dataSources'] as $item) {
+                    $model->dataSources[$n++] = null !== $item ? GrafanaWorkspaceIntegrationDataSource::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['integrationId'])) {
             $model->integrationId = $map['integrationId'];
         }
-
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }

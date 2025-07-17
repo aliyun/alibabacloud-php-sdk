@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteContactRequest extends Model
 {
     /**
+     * @description The ID of the alert contact.
+     *
+     * This parameter is required.
+     *
+     * @example 123
+     *
      * @var int
      */
     public $contactId;
@@ -16,12 +22,9 @@ class DeleteContactRequest extends Model
         'contactId' => 'ContactId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->contactId) {
@@ -31,11 +34,11 @@ class DeleteContactRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteContactRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

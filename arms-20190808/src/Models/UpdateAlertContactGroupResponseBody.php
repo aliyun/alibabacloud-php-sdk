@@ -4,15 +4,27 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateAlertContactGroupResponseBody extends Model
 {
     /**
+     * @description Indicates whether the call was successful.
+     *
+     *   `true`: The call was successful.
+     *   `false`: The call failed.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isSuccess;
+
     /**
+     * @description The ID of the request.
+     *
+     * @example 9319A57D-2D9E-472A-B69B-CF3CD16D****
+     *
      * @var string
      */
     public $requestId;
@@ -21,18 +33,14 @@ class UpdateAlertContactGroupResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->isSuccess) {
             $res['IsSuccess'] = $this->isSuccess;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -40,18 +48,17 @@ class UpdateAlertContactGroupResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateAlertContactGroupResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IsSuccess'])) {
             $model->isSuccess = $map['IsSuccess'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

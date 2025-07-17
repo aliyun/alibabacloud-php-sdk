@@ -4,48 +4,52 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListAlertsResponseBody\pageBean;
+use AlibabaCloud\Tea\Model;
 
 class ListAlertsResponseBody extends Model
 {
     /**
+     * @description The returned error message.
+     *
+     * @example alert.manager.error.code.signature.invalid
+     *
      * @var string
      */
     public $message;
+
     /**
+     * @description The struct returned.
+     *
      * @var pageBean
      */
     public $pageBean;
+
     /**
+     * @description The request ID.
+     *
+     * @example 2FC13182-B9AF-4E6B-BE51-72669B7C****
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'message'   => 'Message',
-        'pageBean'  => 'PageBean',
+        'message' => 'Message',
+        'pageBean' => 'PageBean',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->pageBean) {
-            $this->pageBean->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
-
         if (null !== $this->pageBean) {
-            $res['PageBean'] = null !== $this->pageBean ? $this->pageBean->toArray($noStream) : $this->pageBean;
+            $res['PageBean'] = null !== $this->pageBean ? $this->pageBean->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -53,22 +57,20 @@ class ListAlertsResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListAlertsResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
-
         if (isset($map['PageBean'])) {
             $model->pageBean = pageBean::fromMap($map['PageBean']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

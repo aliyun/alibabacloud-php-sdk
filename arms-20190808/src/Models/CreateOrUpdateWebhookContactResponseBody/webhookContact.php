@@ -4,48 +4,52 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\CreateOrUpdateWebhookContactResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateOrUpdateWebhookContactResponseBody\webhookContact\webhook;
+use AlibabaCloud\Tea\Model;
 
 class webhookContact extends Model
 {
     /**
+     * @description The information about the webhook alert contact.
+     *
      * @var webhook
      */
     public $webhook;
+
     /**
+     * @description The ID of the webhook alert contact.
+     *
+     * @example 123
+     *
      * @var float
      */
     public $webhookId;
+
     /**
+     * @description The name of the webhook alert contact.
+     *
+     * @example Webhook alert
+     *
      * @var string
      */
     public $webhookName;
     protected $_name = [
-        'webhook'     => 'Webhook',
-        'webhookId'   => 'WebhookId',
+        'webhook' => 'Webhook',
+        'webhookId' => 'WebhookId',
         'webhookName' => 'WebhookName',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->webhook) {
-            $this->webhook->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->webhook) {
-            $res['Webhook'] = null !== $this->webhook ? $this->webhook->toArray($noStream) : $this->webhook;
+            $res['Webhook'] = null !== $this->webhook ? $this->webhook->toMap() : null;
         }
-
         if (null !== $this->webhookId) {
             $res['WebhookId'] = $this->webhookId;
         }
-
         if (null !== $this->webhookName) {
             $res['WebhookName'] = $this->webhookName;
         }
@@ -53,22 +57,20 @@ class webhookContact extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return webhookContact
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Webhook'])) {
             $model->webhook = webhook::fromMap($map['Webhook']);
         }
-
         if (isset($map['WebhookId'])) {
             $model->webhookId = $map['WebhookId'];
         }
-
         if (isset($map['WebhookName'])) {
             $model->webhookName = $map['WebhookName'];
         }

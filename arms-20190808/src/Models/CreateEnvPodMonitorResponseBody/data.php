@@ -4,53 +4,66 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\CreateEnvPodMonitorResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description Indicates whether targets are matched.
+     *
+     * @example Match successful.
+     *
      * @var string
      */
     public $matchedMsg;
+
     /**
+     * @description The number of matched targets.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $matchedTargetCount;
+
     /**
+     * @description The namespace.
+     *
+     * @example arms-prom
+     *
      * @var string
      */
     public $namespace;
+
     /**
+     * @description The name of the created PodMonitor.
+     *
+     * @example arms-admin-pm1
+     *
      * @var string
      */
     public $podMonitorName;
     protected $_name = [
-        'matchedMsg'         => 'MatchedMsg',
+        'matchedMsg' => 'MatchedMsg',
         'matchedTargetCount' => 'MatchedTargetCount',
-        'namespace'          => 'Namespace',
-        'podMonitorName'     => 'PodMonitorName',
+        'namespace' => 'Namespace',
+        'podMonitorName' => 'PodMonitorName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->matchedMsg) {
             $res['MatchedMsg'] = $this->matchedMsg;
         }
-
         if (null !== $this->matchedTargetCount) {
             $res['MatchedTargetCount'] = $this->matchedTargetCount;
         }
-
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
-
         if (null !== $this->podMonitorName) {
             $res['PodMonitorName'] = $this->podMonitorName;
         }
@@ -58,26 +71,23 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MatchedMsg'])) {
             $model->matchedMsg = $map['MatchedMsg'];
         }
-
         if (isset($map['MatchedTargetCount'])) {
             $model->matchedTargetCount = $map['MatchedTargetCount'];
         }
-
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }
-
         if (isset($map['PodMonitorName'])) {
             $model->podMonitorName = $map['PodMonitorName'];
         }

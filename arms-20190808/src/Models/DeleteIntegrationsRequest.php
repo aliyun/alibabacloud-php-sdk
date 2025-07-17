@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteIntegrationsRequest extends Model
 {
     /**
+     * @description The ID of the alert integration.
+     *
+     * This parameter is required.
+     *
+     * @example 1234
+     *
      * @var int
      */
     public $integrationId;
@@ -16,12 +22,9 @@ class DeleteIntegrationsRequest extends Model
         'integrationId' => 'IntegrationId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->integrationId) {
@@ -31,11 +34,11 @@ class DeleteIntegrationsRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteIntegrationsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

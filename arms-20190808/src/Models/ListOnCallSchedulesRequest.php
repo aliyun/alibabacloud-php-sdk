@@ -4,19 +4,37 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListOnCallSchedulesRequest extends Model
 {
     /**
+     * @description The name of the scheduling policy.
+     *
+     * @example OnCallSchedule_test
+     *
      * @var string
      */
     public $name;
+
     /**
+     * @description The number of the page to return.
+     *
+     * This parameter is required.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $page;
+
     /**
+     * @description The number of entries to return on each page.
+     *
+     * This parameter is required.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $size;
@@ -26,22 +44,17 @@ class ListOnCallSchedulesRequest extends Model
         'size' => 'Size',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->page) {
             $res['Page'] = $this->page;
         }
-
         if (null !== $this->size) {
             $res['Size'] = $this->size;
         }
@@ -49,22 +62,20 @@ class ListOnCallSchedulesRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListOnCallSchedulesRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['Page'])) {
             $model->page = $map['Page'];
         }
-
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
         }

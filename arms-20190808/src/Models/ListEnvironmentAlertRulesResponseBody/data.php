@@ -4,63 +4,56 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\ListEnvironmentAlertRulesResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListEnvironmentAlertRulesResponseBody\data\rules;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description The queried alert groups.
+     *
      * @var string[]
      */
     public $groups;
+
     /**
+     * @description The queried rules.
+     *
      * @var rules[]
      */
     public $rules;
+
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 26
+     *
      * @var int
      */
     public $total;
     protected $_name = [
         'groups' => 'Groups',
-        'rules'  => 'Rules',
-        'total'  => 'Total',
+        'rules' => 'Rules',
+        'total' => 'Total',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->groups)) {
-            Model::validateArray($this->groups);
-        }
-        if (\is_array($this->rules)) {
-            Model::validateArray($this->rules);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->groups) {
-            if (\is_array($this->groups)) {
-                $res['Groups'] = [];
-                $n1            = 0;
-                foreach ($this->groups as $item1) {
-                    $res['Groups'][$n1++] = $item1;
-                }
-            }
+            $res['Groups'] = $this->groups;
         }
-
         if (null !== $this->rules) {
-            if (\is_array($this->rules)) {
-                $res['Rules'] = [];
-                $n1           = 0;
-                foreach ($this->rules as $item1) {
-                    $res['Rules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Rules'] = [];
+            if (null !== $this->rules && \is_array($this->rules)) {
+                $n = 0;
+                foreach ($this->rules as $item) {
+                    $res['Rules'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
@@ -68,34 +61,28 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Groups'])) {
             if (!empty($map['Groups'])) {
-                $model->groups = [];
-                $n1            = 0;
-                foreach ($map['Groups'] as $item1) {
-                    $model->groups[$n1++] = $item1;
-                }
+                $model->groups = $map['Groups'];
             }
         }
-
         if (isset($map['Rules'])) {
             if (!empty($map['Rules'])) {
                 $model->rules = [];
-                $n1           = 0;
-                foreach ($map['Rules'] as $item1) {
-                    $model->rules[$n1++] = rules::fromMap($item1);
+                $n = 0;
+                foreach ($map['Rules'] as $item) {
+                    $model->rules[$n++] = null !== $item ? rules::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }

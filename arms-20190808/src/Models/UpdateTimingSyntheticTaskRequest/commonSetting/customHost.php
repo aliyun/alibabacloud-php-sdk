@@ -4,45 +4,48 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\UpdateTimingSyntheticTaskRequest\commonSetting;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdateTimingSyntheticTaskRequest\commonSetting\customHost\hosts;
+use AlibabaCloud\Tea\Model;
 
 class customHost extends Model
 {
     /**
+     * @description The list of hosts.
+     *
      * @var hosts[]
      */
     public $hosts;
+
     /**
+     * @description The selection mode. Valid values:
+     *
+     *   0: random
+     *   1: polling
+     *
+     * @example 0
+     *
      * @var int
      */
     public $selectType;
     protected $_name = [
-        'hosts'      => 'Hosts',
+        'hosts' => 'Hosts',
         'selectType' => 'SelectType',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->hosts)) {
-            Model::validateArray($this->hosts);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->hosts) {
-            if (\is_array($this->hosts)) {
-                $res['Hosts'] = [];
-                $n1           = 0;
-                foreach ($this->hosts as $item1) {
-                    $res['Hosts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Hosts'] = [];
+            if (null !== $this->hosts && \is_array($this->hosts)) {
+                $n = 0;
+                foreach ($this->hosts as $item) {
+                    $res['Hosts'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->selectType) {
             $res['SelectType'] = $this->selectType;
         }
@@ -50,24 +53,23 @@ class customHost extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return customHost
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Hosts'])) {
             if (!empty($map['Hosts'])) {
                 $model->hosts = [];
-                $n1           = 0;
-                foreach ($map['Hosts'] as $item1) {
-                    $model->hosts[$n1++] = hosts::fromMap($item1);
+                $n = 0;
+                foreach ($map['Hosts'] as $item) {
+                    $model->hosts[$n++] = null !== $item ? hosts::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['SelectType'])) {
             $model->selectType = $map['SelectType'];
         }

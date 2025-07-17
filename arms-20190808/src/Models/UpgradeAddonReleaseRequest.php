@@ -4,71 +4,100 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpgradeAddonReleaseRequest extends Model
 {
     /**
+     * @description The version of the add-on.
+     *
+     * This parameter is required.
+     *
+     * @example 0.0.2
+     *
      * @var string
      */
     public $addonVersion;
+
     /**
+     * @description Specifies whether to perform only a dry run, without performing the actual request.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
+
     /**
+     * @description The environment ID.
+     *
+     * This parameter is required.
+     *
+     * @example env-xxx
+     *
      * @var string
      */
     public $environmentId;
+
     /**
+     * @description The region ID.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
+
     /**
+     * @description The name of the release.
+     *
+     * This parameter is required.
+     *
+     * @example mysql-1695372983039
+     *
      * @var string
      */
     public $releaseName;
+
     /**
+     * @description The metadata information.
+     *
+     * This parameter is required.
+     *
+     * @example {"host":"mysql-service.default","port":3306,"username":"root","password":"roots"}
+     *
      * @var string
      */
     public $values;
     protected $_name = [
-        'addonVersion'  => 'AddonVersion',
-        'dryRun'        => 'DryRun',
+        'addonVersion' => 'AddonVersion',
+        'dryRun' => 'DryRun',
         'environmentId' => 'EnvironmentId',
-        'regionId'      => 'RegionId',
-        'releaseName'   => 'ReleaseName',
-        'values'        => 'Values',
+        'regionId' => 'RegionId',
+        'releaseName' => 'ReleaseName',
+        'values' => 'Values',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->addonVersion) {
             $res['AddonVersion'] = $this->addonVersion;
         }
-
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
         }
-
         if (null !== $this->environmentId) {
             $res['EnvironmentId'] = $this->environmentId;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->releaseName) {
             $res['ReleaseName'] = $this->releaseName;
         }
-
         if (null !== $this->values) {
             $res['Values'] = $this->values;
         }
@@ -76,34 +105,29 @@ class UpgradeAddonReleaseRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpgradeAddonReleaseRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AddonVersion'])) {
             $model->addonVersion = $map['AddonVersion'];
         }
-
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
         }
-
         if (isset($map['EnvironmentId'])) {
             $model->environmentId = $map['EnvironmentId'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['ReleaseName'])) {
             $model->releaseName = $map['ReleaseName'];
         }
-
         if (isset($map['Values'])) {
             $model->values = $map['Values'];
         }

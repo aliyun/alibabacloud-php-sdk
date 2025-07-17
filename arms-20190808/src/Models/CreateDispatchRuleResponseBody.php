@@ -4,35 +4,40 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateDispatchRuleResponseBody extends Model
 {
     /**
+     * @description The ID of the dispatch policy.
+     *
+     * @example 10413
+     *
      * @var int
      */
     public $dispatchRuleId;
+
     /**
+     * @description The ID of the request.
+     *
+     * @example A5EC8221-08F2-4C95-9AF1-49FD998C****
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'dispatchRuleId' => 'DispatchRuleId',
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dispatchRuleId) {
             $res['DispatchRuleId'] = $this->dispatchRuleId;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -40,18 +45,17 @@ class CreateDispatchRuleResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateDispatchRuleResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DispatchRuleId'])) {
             $model->dispatchRuleId = $map['DispatchRuleId'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

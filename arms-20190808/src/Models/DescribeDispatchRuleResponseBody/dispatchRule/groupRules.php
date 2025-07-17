@@ -4,71 +4,77 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\DescribeDispatchRuleResponseBody\dispatchRule;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class groupRules extends Model
 {
     /**
+     * @description The ID of the group.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $groupId;
+
     /**
+     * @description The grouping interval.
+     *
+     * @example 15
+     *
      * @var int
      */
     public $groupInterval;
+
     /**
+     * @description The waiting time for grouping.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $groupWaitTime;
+
     /**
+     * @description The grouping fields.
+     *
      * @var string[]
      */
     public $groupingFields;
+
     /**
+     * @description The time interval at which a notification is resent for a long-lasting unresolved alert. Unit: seconds.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $repeatInterval;
     protected $_name = [
-        'groupId'        => 'GroupId',
-        'groupInterval'  => 'GroupInterval',
-        'groupWaitTime'  => 'GroupWaitTime',
+        'groupId' => 'GroupId',
+        'groupInterval' => 'GroupInterval',
+        'groupWaitTime' => 'GroupWaitTime',
         'groupingFields' => 'GroupingFields',
         'repeatInterval' => 'RepeatInterval',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->groupingFields)) {
-            Model::validateArray($this->groupingFields);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
-
         if (null !== $this->groupInterval) {
             $res['GroupInterval'] = $this->groupInterval;
         }
-
         if (null !== $this->groupWaitTime) {
             $res['GroupWaitTime'] = $this->groupWaitTime;
         }
-
         if (null !== $this->groupingFields) {
-            if (\is_array($this->groupingFields)) {
-                $res['GroupingFields'] = [];
-                $n1                    = 0;
-                foreach ($this->groupingFields as $item1) {
-                    $res['GroupingFields'][$n1++] = $item1;
-                }
-            }
+            $res['GroupingFields'] = $this->groupingFields;
         }
-
         if (null !== $this->repeatInterval) {
             $res['RepeatInterval'] = $this->repeatInterval;
         }
@@ -76,36 +82,28 @@ class groupRules extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return groupRules
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
-
         if (isset($map['GroupInterval'])) {
             $model->groupInterval = $map['GroupInterval'];
         }
-
         if (isset($map['GroupWaitTime'])) {
             $model->groupWaitTime = $map['GroupWaitTime'];
         }
-
         if (isset($map['GroupingFields'])) {
             if (!empty($map['GroupingFields'])) {
-                $model->groupingFields = [];
-                $n1                    = 0;
-                foreach ($map['GroupingFields'] as $item1) {
-                    $model->groupingFields[$n1++] = $item1;
-                }
+                $model->groupingFields = $map['GroupingFields'];
             }
         }
-
         if (isset($map['RepeatInterval'])) {
             $model->repeatInterval = $map['RepeatInterval'];
         }

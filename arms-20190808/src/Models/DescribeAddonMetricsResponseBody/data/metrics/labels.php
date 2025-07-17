@@ -4,44 +4,53 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\DescribeAddonMetricsResponseBody\data\metrics;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class labels extends Model
 {
     /**
+     * @description The description of the tag.
+     *
+     * @example PAGE_SIZE
+     *
      * @var string
      */
     public $description;
+
     /**
+     * @description The tag key.
+     *
+     * @example page_size
+     *
      * @var string
      */
     public $key;
+
     /**
+     * @description The source of the tag.
+     *
+     * @example db
+     *
      * @var string
      */
     public $source;
     protected $_name = [
         'description' => 'Description',
-        'key'         => 'Key',
-        'source'      => 'Source',
+        'key' => 'Key',
+        'source' => 'Source',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
-
         if (null !== $this->source) {
             $res['Source'] = $this->source;
         }
@@ -49,22 +58,20 @@ class labels extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return labels
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
-
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
         }

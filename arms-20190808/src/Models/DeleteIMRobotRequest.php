@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteIMRobotRequest extends Model
 {
     /**
+     * @description The ID of the IM chatbot.
+     *
+     * This parameter is required.
+     *
+     * @example 123
+     *
      * @var int
      */
     public $robotId;
@@ -16,12 +22,9 @@ class DeleteIMRobotRequest extends Model
         'robotId' => 'RobotId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->robotId) {
@@ -31,11 +34,11 @@ class DeleteIMRobotRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteIMRobotRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

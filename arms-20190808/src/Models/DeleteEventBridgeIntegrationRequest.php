@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteEventBridgeIntegrationRequest extends Model
 {
     /**
+     * @description Required. The ID of the EventBridge notification integration. You can call the **ListEventBridgeIntegrations** operation to query the ID.
+     *
+     * This parameter is required.
+     *
+     * @example 123
+     *
      * @var int
      */
     public $id;
@@ -16,12 +22,9 @@ class DeleteEventBridgeIntegrationRequest extends Model
         'id' => 'Id',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->id) {
@@ -31,11 +34,11 @@ class DeleteEventBridgeIntegrationRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteEventBridgeIntegrationRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

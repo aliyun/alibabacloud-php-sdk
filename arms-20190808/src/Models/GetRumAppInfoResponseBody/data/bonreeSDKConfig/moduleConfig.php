@@ -4,62 +4,61 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\GetRumAppInfoResponseBody\data\bonreeSDKConfig;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DataBonreeSDKConfigModuleConfigDefaultConfigValue;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DataBonreeSDKConfigModuleConfigVersionConfigsValue;
+use AlibabaCloud\Tea\Model;
 
 class moduleConfig extends Model
 {
     /**
+     * @description The default configuration of the application.
+     *
      * @var DataBonreeSDKConfigModuleConfigDefaultConfigValue[]
      */
     public $defaultConfig;
+
     /**
+     * @description Indicates whether the configuration is enabled.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enable;
+
     /**
+     * @description The version configurations of the application.
+     *
      * @var DataBonreeSDKConfigModuleConfigVersionConfigsValue[]
      */
     public $versionConfigs;
     protected $_name = [
-        'defaultConfig'  => 'defaultConfig',
-        'enable'         => 'enable',
+        'defaultConfig' => 'defaultConfig',
+        'enable' => 'enable',
         'versionConfigs' => 'versionConfigs',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->defaultConfig)) {
-            Model::validateArray($this->defaultConfig);
-        }
-        if (\is_array($this->versionConfigs)) {
-            Model::validateArray($this->versionConfigs);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->defaultConfig) {
-            if (\is_array($this->defaultConfig)) {
-                $res['defaultConfig'] = [];
-                foreach ($this->defaultConfig as $key1 => $value1) {
-                    $res['defaultConfig'][$key1] = null !== $value1 ? $value1->toArray($noStream) : $value1;
+            $res['defaultConfig'] = [];
+            if (null !== $this->defaultConfig && \is_array($this->defaultConfig)) {
+                foreach ($this->defaultConfig as $key => $val) {
+                    $res['defaultConfig'][$key] = null !== $val ? $val->toMap() : $val;
                 }
             }
         }
-
         if (null !== $this->enable) {
             $res['enable'] = $this->enable;
         }
-
         if (null !== $this->versionConfigs) {
-            if (\is_array($this->versionConfigs)) {
-                $res['versionConfigs'] = [];
-                foreach ($this->versionConfigs as $key1 => $value1) {
-                    $res['versionConfigs'][$key1] = null !== $value1 ? $value1->toArray($noStream) : $value1;
+            $res['versionConfigs'] = [];
+            if (null !== $this->versionConfigs && \is_array($this->versionConfigs)) {
+                foreach ($this->versionConfigs as $key => $val) {
+                    $res['versionConfigs'][$key] = null !== $val ? $val->toMap() : $val;
                 }
             }
         }
@@ -67,34 +66,22 @@ class moduleConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return moduleConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['defaultConfig'])) {
-            if (!empty($map['defaultConfig'])) {
-                $model->defaultConfig = [];
-                foreach ($map['defaultConfig'] as $key1 => $value1) {
-                    $model->defaultConfig[$key1] = DataBonreeSDKConfigModuleConfigDefaultConfigValue::fromMap($value1);
-                }
-            }
+            $model->defaultConfig = $map['defaultConfig'];
         }
-
         if (isset($map['enable'])) {
             $model->enable = $map['enable'];
         }
-
         if (isset($map['versionConfigs'])) {
-            if (!empty($map['versionConfigs'])) {
-                $model->versionConfigs = [];
-                foreach ($map['versionConfigs'] as $key1 => $value1) {
-                    $model->versionConfigs[$key1] = DataBonreeSDKConfigModuleConfigVersionConfigsValue::fromMap($value1);
-                }
-            }
+            $model->versionConfigs = $map['versionConfigs'];
         }
 
         return $model;

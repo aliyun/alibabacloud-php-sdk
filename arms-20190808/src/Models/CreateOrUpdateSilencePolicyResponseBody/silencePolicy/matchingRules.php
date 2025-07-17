@@ -4,12 +4,14 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\CreateOrUpdateSilencePolicyResponseBody\silencePolicy;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateOrUpdateSilencePolicyResponseBody\silencePolicy\matchingRules\matchingConditions;
+use AlibabaCloud\Tea\Model;
 
 class matchingRules extends Model
 {
     /**
+     * @description A list of matching conditions.
+     *
      * @var matchingConditions[]
      */
     public $matchingConditions;
@@ -17,23 +19,17 @@ class matchingRules extends Model
         'matchingConditions' => 'MatchingConditions',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->matchingConditions)) {
-            Model::validateArray($this->matchingConditions);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->matchingConditions) {
-            if (\is_array($this->matchingConditions)) {
-                $res['MatchingConditions'] = [];
-                $n1                        = 0;
-                foreach ($this->matchingConditions as $item1) {
-                    $res['MatchingConditions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['MatchingConditions'] = [];
+            if (null !== $this->matchingConditions && \is_array($this->matchingConditions)) {
+                $n = 0;
+                foreach ($this->matchingConditions as $item) {
+                    $res['MatchingConditions'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +37,20 @@ class matchingRules extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return matchingRules
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MatchingConditions'])) {
             if (!empty($map['MatchingConditions'])) {
                 $model->matchingConditions = [];
-                $n1                        = 0;
-                foreach ($map['MatchingConditions'] as $item1) {
-                    $model->matchingConditions[$n1++] = matchingConditions::fromMap($item1);
+                $n = 0;
+                foreach ($map['MatchingConditions'] as $item) {
+                    $model->matchingConditions[$n++] = null !== $item ? matchingConditions::fromMap($item) : $item;
                 }
             }
         }

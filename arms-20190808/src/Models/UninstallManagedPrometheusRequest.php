@@ -4,62 +4,83 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UninstallManagedPrometheusRequest extends Model
 {
     /**
+     * @description The ID of the Container Service for Kubernetes (ACK) cluster. This parameter is required when the ClusterType parameter is set to ask or one.
+     *
+     * @example cc7a37ee31aea4ed1a059eff8034b****
+     *
      * @var string
      */
     public $clusterId;
+
     /**
+     * @description The cluster type. Valid values: ask, ecs, and one.
+     *
+     * This parameter is required.
+     *
+     * @example ask
+     *
      * @var string
      */
     public $clusterType;
+
     /**
+     * @description The region ID.
+     *
+     * This parameter is required.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
+
     /**
+     * @description The ID of the resource group to which the Prometheus instance belongs.
+     *
+     * @example rg-acfmxyexli2****
+     *
      * @var string
      */
     public $resourceGroupId;
+
     /**
+     * @description The ID of the virtual private cloud (VPC) where the cluster resides.
+     *
+     * @example vpc-rpn**********
+     *
      * @var string
      */
     public $vpcId;
     protected $_name = [
-        'clusterId'       => 'ClusterId',
-        'clusterType'     => 'ClusterType',
-        'regionId'        => 'RegionId',
+        'clusterId' => 'ClusterId',
+        'clusterType' => 'ClusterType',
+        'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
-        'vpcId'           => 'VpcId',
+        'vpcId' => 'VpcId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
-
         if (null !== $this->clusterType) {
             $res['ClusterType'] = $this->clusterType;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
-
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
@@ -67,30 +88,26 @@ class UninstallManagedPrometheusRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UninstallManagedPrometheusRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
-
         if (isset($map['ClusterType'])) {
             $model->clusterType = $map['ClusterType'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
-
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }

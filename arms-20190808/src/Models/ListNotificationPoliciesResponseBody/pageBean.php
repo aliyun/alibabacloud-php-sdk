@@ -4,63 +4,71 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\ListNotificationPoliciesResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListNotificationPoliciesResponseBody\pageBean\notificationPolicies;
+use AlibabaCloud\Tea\Model;
 
 class pageBean extends Model
 {
     /**
+     * @description The queried notification policies.
+     *
      * @var notificationPolicies[]
      */
     public $notificationPolicies;
+
     /**
+     * @description The number of the page returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $page;
+
     /**
+     * @description The number of entries that are returned on each page.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $size;
+
     /**
+     * @description The number of notification policies that are returned.
+     *
+     * @example 24
+     *
      * @var int
      */
     public $total;
     protected $_name = [
         'notificationPolicies' => 'NotificationPolicies',
-        'page'                 => 'Page',
-        'size'                 => 'Size',
-        'total'                => 'Total',
+        'page' => 'Page',
+        'size' => 'Size',
+        'total' => 'Total',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->notificationPolicies)) {
-            Model::validateArray($this->notificationPolicies);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->notificationPolicies) {
-            if (\is_array($this->notificationPolicies)) {
-                $res['NotificationPolicies'] = [];
-                $n1                          = 0;
-                foreach ($this->notificationPolicies as $item1) {
-                    $res['NotificationPolicies'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['NotificationPolicies'] = [];
+            if (null !== $this->notificationPolicies && \is_array($this->notificationPolicies)) {
+                $n = 0;
+                foreach ($this->notificationPolicies as $item) {
+                    $res['NotificationPolicies'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->page) {
             $res['Page'] = $this->page;
         }
-
         if (null !== $this->size) {
             $res['Size'] = $this->size;
         }
-
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
@@ -68,32 +76,29 @@ class pageBean extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return pageBean
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NotificationPolicies'])) {
             if (!empty($map['NotificationPolicies'])) {
                 $model->notificationPolicies = [];
-                $n1                          = 0;
-                foreach ($map['NotificationPolicies'] as $item1) {
-                    $model->notificationPolicies[$n1++] = notificationPolicies::fromMap($item1);
+                $n = 0;
+                foreach ($map['NotificationPolicies'] as $item) {
+                    $model->notificationPolicies[$n++] = null !== $item ? notificationPolicies::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['Page'])) {
             $model->page = $map['Page'];
         }
-
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
         }
-
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }

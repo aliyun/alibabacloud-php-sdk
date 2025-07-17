@@ -4,72 +4,84 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\DescribeAddonMetricsResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DescribeAddonMetricsResponseBody\data\metrics\labels;
+use AlibabaCloud\Tea\Model;
 
 class metrics extends Model
 {
     /**
+     * @description The description of the metric.
+     *
+     * @example The number of times a B-tree page of size PAGE_SIZE was successfully compressed.
+     *
      * @var string
      */
     public $description;
+
     /**
+     * @description The tags.
+     *
      * @var labels[]
      */
     public $labels;
+
     /**
+     * @description The metric name.
+     *
+     * @example mysql_exporter_collector_duration_seconds
+     *
      * @var string
      */
     public $metric;
+
     /**
+     * @description The type of the metric.
+     *
+     * @example GAUGE
+     *
      * @var string
      */
     public $type;
+
     /**
+     * @description The unit of the metric.
+     *
+     * @example bytes
+     *
      * @var string
      */
     public $unit;
     protected $_name = [
         'description' => 'Description',
-        'labels'      => 'Labels',
-        'metric'      => 'Metric',
-        'type'        => 'Type',
-        'unit'        => 'Unit',
+        'labels' => 'Labels',
+        'metric' => 'Metric',
+        'type' => 'Type',
+        'unit' => 'Unit',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->labels)) {
-            Model::validateArray($this->labels);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-
         if (null !== $this->labels) {
-            if (\is_array($this->labels)) {
-                $res['Labels'] = [];
-                $n1            = 0;
-                foreach ($this->labels as $item1) {
-                    $res['Labels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Labels'] = [];
+            if (null !== $this->labels && \is_array($this->labels)) {
+                $n = 0;
+                foreach ($this->labels as $item) {
+                    $res['Labels'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->metric) {
             $res['Metric'] = $this->metric;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
-
         if (null !== $this->unit) {
             $res['Unit'] = $this->unit;
         }
@@ -77,36 +89,32 @@ class metrics extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return metrics
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-
         if (isset($map['Labels'])) {
             if (!empty($map['Labels'])) {
                 $model->labels = [];
-                $n1            = 0;
-                foreach ($map['Labels'] as $item1) {
-                    $model->labels[$n1++] = labels::fromMap($item1);
+                $n = 0;
+                foreach ($map['Labels'] as $item) {
+                    $model->labels[$n++] = null !== $item ? labels::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['Metric'])) {
             $model->metric = $map['Metric'];
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
-
         if (isset($map['Unit'])) {
             $model->unit = $map['Unit'];
         }
