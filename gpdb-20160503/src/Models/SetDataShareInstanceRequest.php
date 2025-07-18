@@ -4,16 +4,31 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class SetDataShareInstanceRequest extends Model
 {
     /**
+     * @description The ID of the AnalyticDB for PostgreSQL instance in Serverless mode.
+     *
+     * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the details of all AnalyticDB for PostgreSQL instances in a specific region, including instance IDs.
+     *
+     * This parameter is required.
+     *
      * @var string[]
      */
     public $instanceList;
 
     /**
+     * @description Specifies whether to enable or disable data sharing. Valid values:
+     *
+     *   **add**: enables data sharing.
+     *   **remove**: disables data sharing.
+     *
+     * This parameter is required.
+     *
+     * @example add
+     *
      * @var string
      */
     public $operationType;
@@ -24,6 +39,14 @@ class SetDataShareInstanceRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region.
+     *
+     * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
+     *
+     * This parameter is required.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -34,36 +57,20 @@ class SetDataShareInstanceRequest extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->instanceList)) {
-            Model::validateArray($this->instanceList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceList) {
-            if (\is_array($this->instanceList)) {
-                $res['InstanceList'] = [];
-                $n1 = 0;
-                foreach ($this->instanceList as $item1) {
-                    $res['InstanceList'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['InstanceList'] = $this->instanceList;
         }
-
         if (null !== $this->operationType) {
             $res['OperationType'] = $this->operationType;
         }
-
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -71,33 +78,25 @@ class SetDataShareInstanceRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return SetDataShareInstanceRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceList'])) {
             if (!empty($map['InstanceList'])) {
-                $model->instanceList = [];
-                $n1 = 0;
-                foreach ($map['InstanceList'] as $item1) {
-                    $model->instanceList[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->instanceList = $map['InstanceList'];
             }
         }
-
         if (isset($map['OperationType'])) {
             $model->operationType = $map['OperationType'];
         }
-
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

@@ -4,11 +4,19 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeParametersRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the details of all AnalyticDB for PostgreSQL instances in a specific region, including instance IDs.
+     *
+     * This parameter is required.
+     *
+     * @example gp-bp***************
+     *
      * @var string
      */
     public $DBInstanceId;
@@ -16,12 +24,9 @@ class DescribeParametersRequest extends Model
         'DBInstanceId' => 'DBInstanceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->DBInstanceId) {
@@ -31,11 +36,11 @@ class DescribeParametersRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeParametersRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

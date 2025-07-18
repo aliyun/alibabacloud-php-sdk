@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models\GetSupabaseProjectApiKeysResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class apiKeys extends Model
 {
     /**
+     * @example Tmz2Z59caMDeq/Xi9vuc****
+     *
      * @var string
      */
     public $apiKey;
 
     /**
+     * @example anon key
+     *
      * @var string
      */
     public $name;
@@ -22,18 +26,14 @@ class apiKeys extends Model
         'name' => 'Name',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->apiKey) {
             $res['ApiKey'] = $this->apiKey;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -41,18 +41,17 @@ class apiKeys extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return apiKeys
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApiKey'])) {
             $model->apiKey = $map['ApiKey'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

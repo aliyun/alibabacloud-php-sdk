@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyHadoopDataSourceResponseBody extends Model
 {
     /**
+     * @description Request ID.
+     *
+     * @example 2C125605-266F-41CA-8AC5-3A643D4F42C5
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class ModifyHadoopDataSourceResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class ModifyHadoopDataSourceResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyHadoopDataSourceResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

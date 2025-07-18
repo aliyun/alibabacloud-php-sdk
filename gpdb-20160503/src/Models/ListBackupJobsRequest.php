@@ -4,16 +4,22 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListBackupJobsRequest extends Model
 {
     /**
+     * @example Automated
+     *
      * @var string
      */
     public $backupMode;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example gp-xxxxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
@@ -22,18 +28,14 @@ class ListBackupJobsRequest extends Model
         'DBInstanceId' => 'DBInstanceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->backupMode) {
             $res['BackupMode'] = $this->backupMode;
         }
-
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
@@ -41,18 +43,17 @@ class ListBackupJobsRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListBackupJobsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BackupMode'])) {
             $model->backupMode = $map['BackupMode'];
         }
-
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }

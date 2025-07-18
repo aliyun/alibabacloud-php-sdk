@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateExternalDataServiceResponseBody extends Model
 {
     /**
+     * @description Request ID.
+     *
+     * @example B4CAF581-2AC7-41AD-8940-D56DF7AADF5B
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Service ID.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $serviceId;
@@ -22,18 +30,14 @@ class CreateExternalDataServiceResponseBody extends Model
         'serviceId' => 'ServiceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->serviceId) {
             $res['ServiceId'] = $this->serviceId;
         }
@@ -41,18 +45,17 @@ class CreateExternalDataServiceResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateExternalDataServiceResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['ServiceId'])) {
             $model->serviceId = $map['ServiceId'];
         }

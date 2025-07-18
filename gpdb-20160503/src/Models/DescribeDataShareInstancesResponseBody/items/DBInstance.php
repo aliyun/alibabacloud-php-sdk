@@ -4,36 +4,69 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDataShareInstancesResponseBody\items;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DBInstance extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example gp-bp***************
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The resource type of the instance. Valid values:
+     *
+     *   **Serverless**: Serverless mode
+     *   **StorageElasic**: elastic storage mode
+     *   **Classic**: reserved storage mode
+     *
+     * @example Serverless
+     *
      * @var string
      */
     public $DBInstanceMode;
 
     /**
+     * @description The state of data sharing. Valid values:
+     *
+     *   **opening**: Data sharing is being enabled.
+     *   **opened**: Data sharing is enabled.
+     *   **closing**: Data sharing is being disabled.
+     *   **closed**: Data sharing is disabled.
+     *
+     * @example opened
+     *
      * @var string
      */
     public $dataShareStatus;
 
     /**
+     * @description The description of the instance.
+     *
+     * @example gp-bp***************
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The region ID of the instance.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The zone ID of the instance.
+     *
+     * @example cn-hangzhou-j
+     *
      * @var string
      */
     public $zoneId;
@@ -46,34 +79,26 @@ class DBInstance extends Model
         'zoneId' => 'ZoneId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
-
         if (null !== $this->DBInstanceMode) {
             $res['DBInstanceMode'] = $this->DBInstanceMode;
         }
-
         if (null !== $this->dataShareStatus) {
             $res['DataShareStatus'] = $this->dataShareStatus;
         }
-
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
@@ -81,34 +106,29 @@ class DBInstance extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DBInstance
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
-
         if (isset($map['DBInstanceMode'])) {
             $model->DBInstanceMode = $map['DBInstanceMode'];
         }
-
         if (isset($map['DataShareStatus'])) {
             $model->dataShareStatus = $map['DataShareStatus'];
         }
-
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
         }

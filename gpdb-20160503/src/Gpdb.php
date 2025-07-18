@@ -4,13 +4,8 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503;
 
-use AlibabaCloud\Dara\Dara;
-use AlibabaCloud\Dara\Models\FileField;
-use AlibabaCloud\Dara\Models\RuntimeOptions;
-use AlibabaCloud\Dara\Request;
-use AlibabaCloud\Dara\Util\FormUtil;
-use AlibabaCloud\Dara\Util\StreamUtil;
-use AlibabaCloud\Dara\Util\XML;
+use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\AllocateInstancePublicConnectionRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\AllocateInstancePublicConnectionResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\BindDBResourceGroupWithRoleRequest;
@@ -451,12 +446,18 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpsertCollectionDataAsyncResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpsertCollectionDataRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpsertCollectionDataResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpsertCollectionDataShrinkRequest;
-use Darabonba\OpenApi\Exceptions\ClientException;
+use AlibabaCloud\Tea\Exception\TeaError;
+use AlibabaCloud\Tea\FileForm\FileForm;
+use AlibabaCloud\Tea\FileForm\FileForm\FileField;
+use AlibabaCloud\Tea\Request;
+use AlibabaCloud\Tea\Tea;
+use AlibabaCloud\Tea\Utils\Utils;
+use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
+use AlibabaCloud\Tea\XML\XML;
 use Darabonba\OpenApi\Models\Config;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
-use Darabonba\OpenApi\Utils;
 
 class Gpdb extends OpenApiClient
 {
@@ -485,47 +486,49 @@ class Gpdb extends OpenApiClient
 
     /**
      * @param string  $bucketName
-     * @param mixed[] $form
+     * @param mixed[] $data
      *
-     * @return mixed[]
+     * @return array
+     *
+     * @throws TeaError
      */
-    public function _postOSSObject($bucketName, $form)
+    public function _postOSSObject($bucketName, $data)
     {
         $_request = new Request();
-        $boundary = FormUtil::getBoundary();
+        $form = Utils::assertAsMap($data);
+        $boundary = FileForm::getBoundary();
+        $host = Utils::assertAsString(@$form['host']);
         $_request->protocol = 'HTTPS';
         $_request->method = 'POST';
         $_request->pathname = '/';
         $_request->headers = [
-            'host' => '' . @$form['host'],
+            'host' => $host,
             'date' => Utils::getDateUTCString(),
             'user-agent' => Utils::getUserAgent(''),
         ];
-        @$_request->headers['content-type'] = 'multipart/form-data; boundary=' . $boundary . '';
-        $_request->body = FormUtil::toFileForm($form, $boundary);
-        $_response = Dara::send($_request);
-
+        $_request->headers['content-type'] = 'multipart/form-data; boundary=' . $boundary . '';
+        $_request->body = FileForm::toFileForm($form, $boundary);
+        $_lastRequest = $_request;
+        $_response = Tea::send($_request);
         $respMap = null;
-        $bodyStr = StreamUtil::readAsString($_response->body);
-        if (($_response->statusCode >= 400) && ($_response->statusCode < 600)) {
+        $bodyStr = Utils::readAsString($_response->body);
+        if (Utils::is4xx($_response->statusCode) || Utils::is5xx($_response->statusCode)) {
             $respMap = XML::parseXml($bodyStr, null);
-            $err = @$respMap['Error'];
+            $err = Utils::assertAsMap(@$respMap['Error']);
 
-            throw new ClientException([
-                'code' => '' . @$err['Code'],
-                'message' => '' . @$err['Message'],
+            throw new TeaError([
+                'code' => @$err['Code'],
+                'message' => @$err['Message'],
                 'data' => [
                     'httpCode' => $_response->statusCode,
-                    'requestId' => '' . @$err['RequestId'],
-                    'hostId' => '' . @$err['HostId'],
+                    'requestId' => @$err['RequestId'],
+                    'hostId' => @$err['HostId'],
                 ],
             ]);
         }
-
         $respMap = XML::parseXml($bodyStr, null);
 
-        return Dara::merge([
-        ], $respMap);
+        return Tea::merge($respMap);
     }
 
     /**
@@ -541,69 +544,55 @@ class Gpdb extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (null !== $endpoint) {
+        if (!Utils::empty_($endpoint)) {
             return $endpoint;
         }
-
-        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
+        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
             return @$endpointMap[$regionId];
         }
 
-        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * Allocates a public endpoint for an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * You can call this operation to apply for a public endpoint for an AnalyticDB for PostgreSQL instance. Both the primary and instance endpoints of an AnalyticDB for PostgreSQL instance can be public endpoints. For more information, see [Endpoints of an instance and its primary coordinator node](https://help.aliyun.com/document_detail/204879.html).
+     * @summary Allocates a public endpoint for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to apply for a public endpoint for an AnalyticDB for PostgreSQL instance. Both the primary and instance endpoints of an AnalyticDB for PostgreSQL instance can be public endpoints. For more information, see [Endpoints of an instance and its primary coordinator node](https://help.aliyun.com/document_detail/204879.html).
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param AllocateInstancePublicConnectionRequest $request AllocateInstancePublicConnectionRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - AllocateInstancePublicConnectionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns AllocateInstancePublicConnectionResponse
-     *
-     * @param AllocateInstancePublicConnectionRequest $request
-     * @param RuntimeOptions                          $runtime
-     *
-     * @return AllocateInstancePublicConnectionResponse
+     * @return AllocateInstancePublicConnectionResponse AllocateInstancePublicConnectionResponse
      */
     public function allocateInstancePublicConnectionWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->addressType) {
-            @$query['AddressType'] = $request->addressType;
+        if (!Utils::isUnset($request->addressType)) {
+            $query['AddressType'] = $request->addressType;
         }
-
-        if (null !== $request->connectionStringPrefix) {
-            @$query['ConnectionStringPrefix'] = $request->connectionStringPrefix;
+        if (!Utils::isUnset($request->connectionStringPrefix)) {
+            $query['ConnectionStringPrefix'] = $request->connectionStringPrefix;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->port) {
-            @$query['Port'] = $request->port;
+        if (!Utils::isUnset($request->port)) {
+            $query['Port'] = $request->port;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'AllocateInstancePublicConnection',
@@ -621,20 +610,15 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Allocates a public endpoint for an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * You can call this operation to apply for a public endpoint for an AnalyticDB for PostgreSQL instance. Both the primary and instance endpoints of an AnalyticDB for PostgreSQL instance can be public endpoints. For more information, see [Endpoints of an instance and its primary coordinator node](https://help.aliyun.com/document_detail/204879.html).
+     * @summary Allocates a public endpoint for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to apply for a public endpoint for an AnalyticDB for PostgreSQL instance. Both the primary and instance endpoints of an AnalyticDB for PostgreSQL instance can be public endpoints. For more information, see [Endpoints of an instance and its primary coordinator node](https://help.aliyun.com/document_detail/204879.html).
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param AllocateInstancePublicConnectionRequest $request AllocateInstancePublicConnectionRequest
      *
-     * @param Request - AllocateInstancePublicConnectionRequest
-     *
-     * @returns AllocateInstancePublicConnectionResponse
-     *
-     * @param AllocateInstancePublicConnectionRequest $request
-     *
-     * @return AllocateInstancePublicConnectionResponse
+     * @return AllocateInstancePublicConnectionResponse AllocateInstancePublicConnectionResponse
      */
     public function allocateInstancePublicConnection($request)
     {
@@ -644,46 +628,36 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Binds a resource group to a database role.
+     * @summary Binds a resource group to a database role.
+     *  *
+     * @param BindDBResourceGroupWithRoleRequest $tmpReq  BindDBResourceGroupWithRoleRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - BindDBResourceGroupWithRoleRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns BindDBResourceGroupWithRoleResponse
-     *
-     * @param BindDBResourceGroupWithRoleRequest $tmpReq
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return BindDBResourceGroupWithRoleResponse
+     * @return BindDBResourceGroupWithRoleResponse BindDBResourceGroupWithRoleResponse
      */
     public function bindDBResourceGroupWithRoleWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new BindDBResourceGroupWithRoleShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->roleList) {
-            $request->roleListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->roleList, 'RoleList', 'simple');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->roleList)) {
+            $request->roleListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->roleList, 'RoleList', 'simple');
         }
-
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceGroupName) {
-            @$query['ResourceGroupName'] = $request->resourceGroupName;
+        if (!Utils::isUnset($request->resourceGroupName)) {
+            $query['ResourceGroupName'] = $request->resourceGroupName;
         }
-
-        if (null !== $request->roleListShrink) {
-            @$query['RoleList'] = $request->roleListShrink;
+        if (!Utils::isUnset($request->roleListShrink)) {
+            $query['RoleList'] = $request->roleListShrink;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'BindDBResourceGroupWithRole',
@@ -701,15 +675,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Binds a resource group to a database role.
+     * @summary Binds a resource group to a database role.
+     *  *
+     * @param BindDBResourceGroupWithRoleRequest $request BindDBResourceGroupWithRoleRequest
      *
-     * @param Request - BindDBResourceGroupWithRoleRequest
-     *
-     * @returns BindDBResourceGroupWithRoleResponse
-     *
-     * @param BindDBResourceGroupWithRoleRequest $request
-     *
-     * @return BindDBResourceGroupWithRoleResponse
+     * @return BindDBResourceGroupWithRoleResponse BindDBResourceGroupWithRoleResponse
      */
     public function bindDBResourceGroupWithRole($request)
     {
@@ -719,56 +689,43 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 取消创建索引任务
+     * @summary 取消创建索引任务
+     *  *
+     * @param CancelCreateIndexJobRequest $request CancelCreateIndexJobRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - CancelCreateIndexJobRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CancelCreateIndexJobResponse
-     *
-     * @param CancelCreateIndexJobRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return CancelCreateIndexJobResponse
+     * @return CancelCreateIndexJobResponse CancelCreateIndexJobResponse
      */
     public function cancelCreateIndexJobWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->collection) {
-            @$query['Collection'] = $request->collection;
+        if (!Utils::isUnset($request->collection)) {
+            $query['Collection'] = $request->collection;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->jobId) {
-            @$query['JobId'] = $request->jobId;
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
         }
-
-        if (null !== $request->namespace) {
-            @$query['Namespace'] = $request->namespace;
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
         }
-
-        if (null !== $request->namespacePassword) {
-            @$query['NamespacePassword'] = $request->namespacePassword;
+        if (!Utils::isUnset($request->namespacePassword)) {
+            $query['NamespacePassword'] = $request->namespacePassword;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->workspaceId) {
-            @$query['WorkspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CancelCreateIndexJob',
@@ -786,15 +743,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 取消创建索引任务
+     * @summary 取消创建索引任务
+     *  *
+     * @param CancelCreateIndexJobRequest $request CancelCreateIndexJobRequest
      *
-     * @param Request - CancelCreateIndexJobRequest
-     *
-     * @returns CancelCreateIndexJobResponse
-     *
-     * @param CancelCreateIndexJobRequest $request
-     *
-     * @return CancelCreateIndexJobResponse
+     * @return CancelCreateIndexJobResponse CancelCreateIndexJobResponse
      */
     public function cancelCreateIndexJob($request)
     {
@@ -804,58 +757,45 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Cancels an asynchronous document upload job based on the job ID.
-     *
-     * @remarks
-     * This operation is related to the UploadDocumentAsync operation. You can call this operation to cancel a document upload job.
+     * @summary Cancels an asynchronous document upload job based on the job ID.
+     *  *
+     * @description This operation is related to the UploadDocumentAsync operation. You can call this operation to cancel a document upload job.
      * >  If the canceling operation is complete, failed, or is canceled, you cannot call the operation again. The canceling operation only interrupts the document upload job. To remove the uploaded data, you must manually remove it or call the DeleteCollectionData operation. You can also call the document upload operation to overwrite the data by using the same FileName parameter.
+     *  *
+     * @param CancelUploadDocumentJobRequest $request CancelUploadDocumentJobRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - CancelUploadDocumentJobRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CancelUploadDocumentJobResponse
-     *
-     * @param CancelUploadDocumentJobRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return CancelUploadDocumentJobResponse
+     * @return CancelUploadDocumentJobResponse CancelUploadDocumentJobResponse
      */
     public function cancelUploadDocumentJobWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $body = [];
-        if (null !== $request->collection) {
-            @$body['Collection'] = $request->collection;
+        if (!Utils::isUnset($request->collection)) {
+            $body['Collection'] = $request->collection;
         }
-
-        if (null !== $request->jobId) {
-            @$body['JobId'] = $request->jobId;
+        if (!Utils::isUnset($request->jobId)) {
+            $body['JobId'] = $request->jobId;
         }
-
-        if (null !== $request->namespace) {
-            @$body['Namespace'] = $request->namespace;
+        if (!Utils::isUnset($request->namespace_)) {
+            $body['Namespace'] = $request->namespace_;
         }
-
-        if (null !== $request->namespacePassword) {
-            @$body['NamespacePassword'] = $request->namespacePassword;
+        if (!Utils::isUnset($request->namespacePassword)) {
+            $body['NamespacePassword'] = $request->namespacePassword;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CancelUploadDocumentJob',
@@ -873,19 +813,14 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Cancels an asynchronous document upload job based on the job ID.
-     *
-     * @remarks
-     * This operation is related to the UploadDocumentAsync operation. You can call this operation to cancel a document upload job.
+     * @summary Cancels an asynchronous document upload job based on the job ID.
+     *  *
+     * @description This operation is related to the UploadDocumentAsync operation. You can call this operation to cancel a document upload job.
      * >  If the canceling operation is complete, failed, or is canceled, you cannot call the operation again. The canceling operation only interrupts the document upload job. To remove the uploaded data, you must manually remove it or call the DeleteCollectionData operation. You can also call the document upload operation to overwrite the data by using the same FileName parameter.
+     *  *
+     * @param CancelUploadDocumentJobRequest $request CancelUploadDocumentJobRequest
      *
-     * @param Request - CancelUploadDocumentJobRequest
-     *
-     * @returns CancelUploadDocumentJobResponse
-     *
-     * @param CancelUploadDocumentJobRequest $request
-     *
-     * @return CancelUploadDocumentJobResponse
+     * @return CancelUploadDocumentJobResponse CancelUploadDocumentJobResponse
      */
     public function cancelUploadDocumentJob($request)
     {
@@ -895,62 +830,48 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Cancels an asynchronous vector data upload job by using a job ID.
-     *
-     * @remarks
-     * This operation is related to the `UpsertCollectionDataAsync` operation. You can call this operation to cancel an upload job.
+     * @summary Cancels an asynchronous vector data upload job by using a job ID.
+     *  *
+     * @description This operation is related to the `UpsertCollectionDataAsync` operation. You can call this operation to cancel an upload job.
      * >  If the canceling operation is complete, failed, or is canceled, you cannot call the operation again. The canceling operation only interrupts the upload job. To remove the uploaded data, you must manually remove it or call the DeleteCollectionData operation.
+     *  *
+     * @param CancelUpsertCollectionDataJobRequest $request CancelUpsertCollectionDataJobRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - CancelUpsertCollectionDataJobRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CancelUpsertCollectionDataJobResponse
-     *
-     * @param CancelUpsertCollectionDataJobRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return CancelUpsertCollectionDataJobResponse
+     * @return CancelUpsertCollectionDataJobResponse CancelUpsertCollectionDataJobResponse
      */
     public function cancelUpsertCollectionDataJobWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->workspaceId) {
-            @$query['WorkspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
         }
-
         $body = [];
-        if (null !== $request->collection) {
-            @$body['Collection'] = $request->collection;
+        if (!Utils::isUnset($request->collection)) {
+            $body['Collection'] = $request->collection;
         }
-
-        if (null !== $request->jobId) {
-            @$body['JobId'] = $request->jobId;
+        if (!Utils::isUnset($request->jobId)) {
+            $body['JobId'] = $request->jobId;
         }
-
-        if (null !== $request->namespace) {
-            @$body['Namespace'] = $request->namespace;
+        if (!Utils::isUnset($request->namespace_)) {
+            $body['Namespace'] = $request->namespace_;
         }
-
-        if (null !== $request->namespacePassword) {
-            @$body['NamespacePassword'] = $request->namespacePassword;
+        if (!Utils::isUnset($request->namespacePassword)) {
+            $body['NamespacePassword'] = $request->namespacePassword;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CancelUpsertCollectionDataJob',
@@ -968,19 +889,14 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Cancels an asynchronous vector data upload job by using a job ID.
-     *
-     * @remarks
-     * This operation is related to the `UpsertCollectionDataAsync` operation. You can call this operation to cancel an upload job.
+     * @summary Cancels an asynchronous vector data upload job by using a job ID.
+     *  *
+     * @description This operation is related to the `UpsertCollectionDataAsync` operation. You can call this operation to cancel an upload job.
      * >  If the canceling operation is complete, failed, or is canceled, you cannot call the operation again. The canceling operation only interrupts the upload job. To remove the uploaded data, you must manually remove it or call the DeleteCollectionData operation.
+     *  *
+     * @param CancelUpsertCollectionDataJobRequest $request CancelUpsertCollectionDataJobRequest
      *
-     * @param Request - CancelUpsertCollectionDataJobRequest
-     *
-     * @returns CancelUpsertCollectionDataJobResponse
-     *
-     * @param CancelUpsertCollectionDataJobRequest $request
-     *
-     * @return CancelUpsertCollectionDataJobResponse
+     * @return CancelUpsertCollectionDataJobResponse CancelUpsertCollectionDataJobResponse
      */
     public function cancelUpsertCollectionDataJob($request)
     {
@@ -990,40 +906,31 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Checks the configurations of a Hadoop data source.
+     * @summary Checks the configurations of a Hadoop data source.
+     *  *
+     * @param CheckHadoopDataSourceRequest $request CheckHadoopDataSourceRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - CheckHadoopDataSourceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CheckHadoopDataSourceResponse
-     *
-     * @param CheckHadoopDataSourceRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return CheckHadoopDataSourceResponse
+     * @return CheckHadoopDataSourceResponse CheckHadoopDataSourceResponse
      */
     public function checkHadoopDataSourceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->checkDir) {
-            @$query['CheckDir'] = $request->checkDir;
+        if (!Utils::isUnset($request->checkDir)) {
+            $query['CheckDir'] = $request->checkDir;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->dataSourceId) {
-            @$query['DataSourceId'] = $request->dataSourceId;
+        if (!Utils::isUnset($request->dataSourceId)) {
+            $query['DataSourceId'] = $request->dataSourceId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CheckHadoopDataSource',
@@ -1041,15 +948,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Checks the configurations of a Hadoop data source.
+     * @summary Checks the configurations of a Hadoop data source.
+     *  *
+     * @param CheckHadoopDataSourceRequest $request CheckHadoopDataSourceRequest
      *
-     * @param Request - CheckHadoopDataSourceRequest
-     *
-     * @returns CheckHadoopDataSourceResponse
-     *
-     * @param CheckHadoopDataSourceRequest $request
-     *
-     * @return CheckHadoopDataSourceResponse
+     * @return CheckHadoopDataSourceResponse CheckHadoopDataSourceResponse
      */
     public function checkHadoopDataSource($request)
     {
@@ -1059,40 +962,31 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Check Hadoop Cluster Network Connectivity.
+     * @summary Check Hadoop Cluster Network Connectivity
+     *  *
+     * @param CheckHadoopNetConnectionRequest $request CheckHadoopNetConnectionRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - CheckHadoopNetConnectionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CheckHadoopNetConnectionResponse
-     *
-     * @param CheckHadoopNetConnectionRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return CheckHadoopNetConnectionResponse
+     * @return CheckHadoopNetConnectionResponse CheckHadoopNetConnectionResponse
      */
     public function checkHadoopNetConnectionWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->dataSourceId) {
-            @$query['DataSourceId'] = $request->dataSourceId;
+        if (!Utils::isUnset($request->dataSourceId)) {
+            $query['DataSourceId'] = $request->dataSourceId;
         }
-
-        if (null !== $request->emrInstanceId) {
-            @$query['EmrInstanceId'] = $request->emrInstanceId;
+        if (!Utils::isUnset($request->emrInstanceId)) {
+            $query['EmrInstanceId'] = $request->emrInstanceId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CheckHadoopNetConnection',
@@ -1110,15 +1004,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Check Hadoop Cluster Network Connectivity.
+     * @summary Check Hadoop Cluster Network Connectivity
+     *  *
+     * @param CheckHadoopNetConnectionRequest $request CheckHadoopNetConnectionRequest
      *
-     * @param Request - CheckHadoopNetConnectionRequest
-     *
-     * @returns CheckHadoopNetConnectionResponse
-     *
-     * @param CheckHadoopNetConnectionRequest $request
-     *
-     * @return CheckHadoopNetConnectionResponse
+     * @return CheckHadoopNetConnectionResponse CheckHadoopNetConnectionResponse
      */
     public function checkHadoopNetConnection($request)
     {
@@ -1128,40 +1018,31 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Check the network connectivity of the JDBC connection string.
+     * @summary Check the network connectivity of the JDBC connection string
+     *  *
+     * @param CheckJDBCSourceNetConnectionRequest $request CheckJDBCSourceNetConnectionRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - CheckJDBCSourceNetConnectionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CheckJDBCSourceNetConnectionResponse
-     *
-     * @param CheckJDBCSourceNetConnectionRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return CheckJDBCSourceNetConnectionResponse
+     * @return CheckJDBCSourceNetConnectionResponse CheckJDBCSourceNetConnectionResponse
      */
     public function checkJDBCSourceNetConnectionWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->dataSourceId) {
-            @$query['DataSourceId'] = $request->dataSourceId;
+        if (!Utils::isUnset($request->dataSourceId)) {
+            $query['DataSourceId'] = $request->dataSourceId;
         }
-
-        if (null !== $request->jdbcConnectionString) {
-            @$query['JdbcConnectionString'] = $request->jdbcConnectionString;
+        if (!Utils::isUnset($request->jdbcConnectionString)) {
+            $query['JdbcConnectionString'] = $request->jdbcConnectionString;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CheckJDBCSourceNetConnection',
@@ -1179,15 +1060,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Check the network connectivity of the JDBC connection string.
+     * @summary Check the network connectivity of the JDBC connection string
+     *  *
+     * @param CheckJDBCSourceNetConnectionRequest $request CheckJDBCSourceNetConnectionRequest
      *
-     * @param Request - CheckJDBCSourceNetConnectionRequest
-     *
-     * @returns CheckJDBCSourceNetConnectionResponse
-     *
-     * @param CheckJDBCSourceNetConnectionRequest $request
-     *
-     * @return CheckJDBCSourceNetConnectionResponse
+     * @return CheckJDBCSourceNetConnectionResponse CheckJDBCSourceNetConnectionResponse
      */
     public function checkJDBCSourceNetConnection($request)
     {
@@ -1197,28 +1074,22 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries whether a service-linked role is created.
+     * @summary Queries whether a service-linked role is created.
+     *  *
+     * @param CheckServiceLinkedRoleRequest $request CheckServiceLinkedRoleRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - CheckServiceLinkedRoleRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CheckServiceLinkedRoleResponse
-     *
-     * @param CheckServiceLinkedRoleRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return CheckServiceLinkedRoleResponse
+     * @return CheckServiceLinkedRoleResponse CheckServiceLinkedRoleResponse
      */
     public function checkServiceLinkedRoleWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CheckServiceLinkedRole',
@@ -1236,15 +1107,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries whether a service-linked role is created.
+     * @summary Queries whether a service-linked role is created.
+     *  *
+     * @param CheckServiceLinkedRoleRequest $request CheckServiceLinkedRoleRequest
      *
-     * @param Request - CheckServiceLinkedRoleRequest
-     *
-     * @returns CheckServiceLinkedRoleResponse
-     *
-     * @param CheckServiceLinkedRoleRequest $request
-     *
-     * @return CheckServiceLinkedRoleResponse
+     * @return CheckServiceLinkedRoleResponse CheckServiceLinkedRoleResponse
      */
     public function checkServiceLinkedRole($request)
     {
@@ -1254,36 +1121,28 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 恢复数据至指定实例.
+     * @summary 恢复数据至指定实例
+     *  *
+     * @param CloneDBInstanceRequest $request CloneDBInstanceRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - CloneDBInstanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CloneDBInstanceResponse
-     *
-     * @param CloneDBInstanceRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return CloneDBInstanceResponse
+     * @return CloneDBInstanceResponse CloneDBInstanceResponse
      */
     public function cloneDBInstanceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->backupId) {
-            @$query['BackupId'] = $request->backupId;
+        if (!Utils::isUnset($request->backupId)) {
+            $query['BackupId'] = $request->backupId;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->srcDbInstanceName) {
-            @$query['SrcDbInstanceName'] = $request->srcDbInstanceName;
+        if (!Utils::isUnset($request->srcDbInstanceName)) {
+            $query['SrcDbInstanceName'] = $request->srcDbInstanceName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CloneDBInstance',
@@ -1301,15 +1160,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 恢复数据至指定实例.
+     * @summary 恢复数据至指定实例
+     *  *
+     * @param CloneDBInstanceRequest $request CloneDBInstanceRequest
      *
-     * @param Request - CloneDBInstanceRequest
-     *
-     * @returns CloneDBInstanceResponse
-     *
-     * @param CloneDBInstanceRequest $request
-     *
-     * @return CloneDBInstanceResponse
+     * @return CloneDBInstanceResponse CloneDBInstanceResponse
      */
     public function cloneDBInstance($request)
     {
@@ -1319,58 +1174,45 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Creates an initial account for an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     *   Before you can use an AnalyticDB for PostgreSQL instance, you must create an initial account for the instance.
+     * @summary Creates an initial account for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description *   Before you can use an AnalyticDB for PostgreSQL instance, you must create an initial account for the instance.
      * *   You can call this operation to create only initial accounts. For information about how to create other types of accounts, see [Create a database account](https://help.aliyun.com/document_detail/50206.html).
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param CreateAccountRequest $request CreateAccountRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - CreateAccountRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateAccountResponse
-     *
-     * @param CreateAccountRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return CreateAccountResponse
+     * @return CreateAccountResponse CreateAccountResponse
      */
     public function createAccountWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountDescription) {
-            @$query['AccountDescription'] = $request->accountDescription;
+        if (!Utils::isUnset($request->accountDescription)) {
+            $query['AccountDescription'] = $request->accountDescription;
         }
-
-        if (null !== $request->accountName) {
-            @$query['AccountName'] = $request->accountName;
+        if (!Utils::isUnset($request->accountName)) {
+            $query['AccountName'] = $request->accountName;
         }
-
-        if (null !== $request->accountPassword) {
-            @$query['AccountPassword'] = $request->accountPassword;
+        if (!Utils::isUnset($request->accountPassword)) {
+            $query['AccountPassword'] = $request->accountPassword;
         }
-
-        if (null !== $request->accountType) {
-            @$query['AccountType'] = $request->accountType;
+        if (!Utils::isUnset($request->accountType)) {
+            $query['AccountType'] = $request->accountType;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->databaseName) {
-            @$query['DatabaseName'] = $request->databaseName;
+        if (!Utils::isUnset($request->databaseName)) {
+            $query['DatabaseName'] = $request->databaseName;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateAccount',
@@ -1388,21 +1230,16 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Creates an initial account for an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     *   Before you can use an AnalyticDB for PostgreSQL instance, you must create an initial account for the instance.
+     * @summary Creates an initial account for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description *   Before you can use an AnalyticDB for PostgreSQL instance, you must create an initial account for the instance.
      * *   You can call this operation to create only initial accounts. For information about how to create other types of accounts, see [Create a database account](https://help.aliyun.com/document_detail/50206.html).
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param CreateAccountRequest $request CreateAccountRequest
      *
-     * @param Request - CreateAccountRequest
-     *
-     * @returns CreateAccountResponse
-     *
-     * @param CreateAccountRequest $request
-     *
-     * @return CreateAccountResponse
+     * @return CreateAccountResponse CreateAccountResponse
      */
     public function createAccount($request)
     {
@@ -1412,28 +1249,22 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 创建备份.
+     * @summary 创建备份
+     *  *
+     * @param CreateBackupRequest $request CreateBackupRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - CreateBackupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateBackupResponse
-     *
-     * @param CreateBackupRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return CreateBackupResponse
+     * @return CreateBackupResponse CreateBackupResponse
      */
     public function createBackupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateBackup',
@@ -1451,15 +1282,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 创建备份.
+     * @summary 创建备份
+     *  *
+     * @param CreateBackupRequest $request CreateBackupRequest
      *
-     * @param Request - CreateBackupRequest
-     *
-     * @returns CreateBackupResponse
-     *
-     * @param CreateBackupRequest $request
-     *
-     * @return CreateBackupResponse
+     * @return CreateBackupResponse CreateBackupResponse
      */
     public function createBackup($request)
     {
@@ -1469,110 +1296,84 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Creates a vector collection.
+     * @summary Creates a vector collection.
+     *  *
+     * @param CreateCollectionRequest $tmpReq  CreateCollectionRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - CreateCollectionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateCollectionResponse
-     *
-     * @param CreateCollectionRequest $tmpReq
-     * @param RuntimeOptions          $runtime
-     *
-     * @return CreateCollectionResponse
+     * @return CreateCollectionResponse CreateCollectionResponse
      */
     public function createCollectionWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new CreateCollectionShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->sparseVectorIndexConfig) {
-            $request->sparseVectorIndexConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sparseVectorIndexConfig, 'SparseVectorIndexConfig', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->sparseVectorIndexConfig)) {
+            $request->sparseVectorIndexConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sparseVectorIndexConfig, 'SparseVectorIndexConfig', 'json');
         }
-
         $query = [];
-        if (null !== $request->collection) {
-            @$query['Collection'] = $request->collection;
+        if (!Utils::isUnset($request->collection)) {
+            $query['Collection'] = $request->collection;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->dimension) {
-            @$query['Dimension'] = $request->dimension;
+        if (!Utils::isUnset($request->dimension)) {
+            $query['Dimension'] = $request->dimension;
         }
-
-        if (null !== $request->externalStorage) {
-            @$query['ExternalStorage'] = $request->externalStorage;
+        if (!Utils::isUnset($request->externalStorage)) {
+            $query['ExternalStorage'] = $request->externalStorage;
         }
-
-        if (null !== $request->fullTextRetrievalFields) {
-            @$query['FullTextRetrievalFields'] = $request->fullTextRetrievalFields;
+        if (!Utils::isUnset($request->fullTextRetrievalFields)) {
+            $query['FullTextRetrievalFields'] = $request->fullTextRetrievalFields;
         }
-
-        if (null !== $request->hnswEfConstruction) {
-            @$query['HnswEfConstruction'] = $request->hnswEfConstruction;
+        if (!Utils::isUnset($request->hnswEfConstruction)) {
+            $query['HnswEfConstruction'] = $request->hnswEfConstruction;
         }
-
-        if (null !== $request->hnswM) {
-            @$query['HnswM'] = $request->hnswM;
+        if (!Utils::isUnset($request->hnswM)) {
+            $query['HnswM'] = $request->hnswM;
         }
-
-        if (null !== $request->managerAccount) {
-            @$query['ManagerAccount'] = $request->managerAccount;
+        if (!Utils::isUnset($request->managerAccount)) {
+            $query['ManagerAccount'] = $request->managerAccount;
         }
-
-        if (null !== $request->managerAccountPassword) {
-            @$query['ManagerAccountPassword'] = $request->managerAccountPassword;
+        if (!Utils::isUnset($request->managerAccountPassword)) {
+            $query['ManagerAccountPassword'] = $request->managerAccountPassword;
         }
-
-        if (null !== $request->metadata) {
-            @$query['Metadata'] = $request->metadata;
+        if (!Utils::isUnset($request->metadata)) {
+            $query['Metadata'] = $request->metadata;
         }
-
-        if (null !== $request->metadataIndices) {
-            @$query['MetadataIndices'] = $request->metadataIndices;
+        if (!Utils::isUnset($request->metadataIndices)) {
+            $query['MetadataIndices'] = $request->metadataIndices;
         }
-
-        if (null !== $request->metrics) {
-            @$query['Metrics'] = $request->metrics;
+        if (!Utils::isUnset($request->metrics)) {
+            $query['Metrics'] = $request->metrics;
         }
-
-        if (null !== $request->namespace) {
-            @$query['Namespace'] = $request->namespace;
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->parser) {
-            @$query['Parser'] = $request->parser;
+        if (!Utils::isUnset($request->parser)) {
+            $query['Parser'] = $request->parser;
         }
-
-        if (null !== $request->pqEnable) {
-            @$query['PqEnable'] = $request->pqEnable;
+        if (!Utils::isUnset($request->pqEnable)) {
+            $query['PqEnable'] = $request->pqEnable;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->sparseVectorIndexConfigShrink) {
-            @$query['SparseVectorIndexConfig'] = $request->sparseVectorIndexConfigShrink;
+        if (!Utils::isUnset($request->sparseVectorIndexConfigShrink)) {
+            $query['SparseVectorIndexConfig'] = $request->sparseVectorIndexConfigShrink;
         }
-
-        if (null !== $request->supportSparse) {
-            @$query['SupportSparse'] = $request->supportSparse;
+        if (!Utils::isUnset($request->supportSparse)) {
+            $query['SupportSparse'] = $request->supportSparse;
         }
-
-        if (null !== $request->workspaceId) {
-            @$query['WorkspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateCollection',
@@ -1590,15 +1391,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Creates a vector collection.
+     * @summary Creates a vector collection.
+     *  *
+     * @param CreateCollectionRequest $request CreateCollectionRequest
      *
-     * @param Request - CreateCollectionRequest
-     *
-     * @returns CreateCollectionResponse
-     *
-     * @param CreateCollectionRequest $request
-     *
-     * @return CreateCollectionResponse
+     * @return CreateCollectionResponse CreateCollectionResponse
      */
     public function createCollection($request)
     {
@@ -1608,211 +1405,159 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Create Instance.
+     * @summary Create Instance
+     *  *
+     * @description Before using this interface, please make sure you have fully understood the [billing method](https://help.aliyun.com/document_detail/35406.html) and <props="china">[pricing](https://www.aliyun.com/price/product#/gpdb/detail/GreenplumPost)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing) of the AnalyticDB for PostgreSQL product.
+     *  *
+     * @param CreateDBInstanceRequest $request CreateDBInstanceRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * Before using this interface, please make sure you have fully understood the [billing method](https://help.aliyun.com/document_detail/35406.html) and <props="china">[pricing](https://www.aliyun.com/price/product#/gpdb/detail/GreenplumPost)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing) of the AnalyticDB for PostgreSQL product.
-     *
-     * @param Request - CreateDBInstanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateDBInstanceResponse
-     *
-     * @param CreateDBInstanceRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return CreateDBInstanceResponse
+     * @return CreateDBInstanceResponse CreateDBInstanceResponse
      */
     public function createDBInstanceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->AINodeSpecInfos) {
-            @$query['AINodeSpecInfos'] = $request->AINodeSpecInfos;
+        if (!Utils::isUnset($request->AINodeSpecInfos)) {
+            $query['AINodeSpecInfos'] = $request->AINodeSpecInfos;
         }
-
-        if (null !== $request->backupId) {
-            @$query['BackupId'] = $request->backupId;
+        if (!Utils::isUnset($request->backupId)) {
+            $query['BackupId'] = $request->backupId;
         }
-
-        if (null !== $request->cacheStorageSize) {
-            @$query['CacheStorageSize'] = $request->cacheStorageSize;
+        if (!Utils::isUnset($request->cacheStorageSize)) {
+            $query['CacheStorageSize'] = $request->cacheStorageSize;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->createSampleData) {
-            @$query['CreateSampleData'] = $request->createSampleData;
+        if (!Utils::isUnset($request->createSampleData)) {
+            $query['CreateSampleData'] = $request->createSampleData;
         }
-
-        if (null !== $request->DBInstanceCategory) {
-            @$query['DBInstanceCategory'] = $request->DBInstanceCategory;
+        if (!Utils::isUnset($request->DBInstanceCategory)) {
+            $query['DBInstanceCategory'] = $request->DBInstanceCategory;
         }
-
-        if (null !== $request->DBInstanceClass) {
-            @$query['DBInstanceClass'] = $request->DBInstanceClass;
+        if (!Utils::isUnset($request->DBInstanceClass)) {
+            $query['DBInstanceClass'] = $request->DBInstanceClass;
         }
-
-        if (null !== $request->DBInstanceDescription) {
-            @$query['DBInstanceDescription'] = $request->DBInstanceDescription;
+        if (!Utils::isUnset($request->DBInstanceDescription)) {
+            $query['DBInstanceDescription'] = $request->DBInstanceDescription;
         }
-
-        if (null !== $request->DBInstanceGroupCount) {
-            @$query['DBInstanceGroupCount'] = $request->DBInstanceGroupCount;
+        if (!Utils::isUnset($request->DBInstanceGroupCount)) {
+            $query['DBInstanceGroupCount'] = $request->DBInstanceGroupCount;
         }
-
-        if (null !== $request->DBInstanceMode) {
-            @$query['DBInstanceMode'] = $request->DBInstanceMode;
+        if (!Utils::isUnset($request->DBInstanceMode)) {
+            $query['DBInstanceMode'] = $request->DBInstanceMode;
         }
-
-        if (null !== $request->deployMode) {
-            @$query['DeployMode'] = $request->deployMode;
+        if (!Utils::isUnset($request->deployMode)) {
+            $query['DeployMode'] = $request->deployMode;
         }
-
-        if (null !== $request->enableSSL) {
-            @$query['EnableSSL'] = $request->enableSSL;
+        if (!Utils::isUnset($request->enableSSL)) {
+            $query['EnableSSL'] = $request->enableSSL;
         }
-
-        if (null !== $request->encryptionKey) {
-            @$query['EncryptionKey'] = $request->encryptionKey;
+        if (!Utils::isUnset($request->encryptionKey)) {
+            $query['EncryptionKey'] = $request->encryptionKey;
         }
-
-        if (null !== $request->encryptionType) {
-            @$query['EncryptionType'] = $request->encryptionType;
+        if (!Utils::isUnset($request->encryptionType)) {
+            $query['EncryptionType'] = $request->encryptionType;
         }
-
-        if (null !== $request->engine) {
-            @$query['Engine'] = $request->engine;
+        if (!Utils::isUnset($request->engine)) {
+            $query['Engine'] = $request->engine;
         }
-
-        if (null !== $request->engineVersion) {
-            @$query['EngineVersion'] = $request->engineVersion;
+        if (!Utils::isUnset($request->engineVersion)) {
+            $query['EngineVersion'] = $request->engineVersion;
         }
-
-        if (null !== $request->idleTime) {
-            @$query['IdleTime'] = $request->idleTime;
+        if (!Utils::isUnset($request->idleTime)) {
+            $query['IdleTime'] = $request->idleTime;
         }
-
-        if (null !== $request->instanceNetworkType) {
-            @$query['InstanceNetworkType'] = $request->instanceNetworkType;
+        if (!Utils::isUnset($request->instanceNetworkType)) {
+            $query['InstanceNetworkType'] = $request->instanceNetworkType;
         }
-
-        if (null !== $request->instanceSpec) {
-            @$query['InstanceSpec'] = $request->instanceSpec;
+        if (!Utils::isUnset($request->instanceSpec)) {
+            $query['InstanceSpec'] = $request->instanceSpec;
         }
-
-        if (null !== $request->masterAISpec) {
-            @$query['MasterAISpec'] = $request->masterAISpec;
+        if (!Utils::isUnset($request->masterAISpec)) {
+            $query['MasterAISpec'] = $request->masterAISpec;
         }
-
-        if (null !== $request->masterCU) {
-            @$query['MasterCU'] = $request->masterCU;
+        if (!Utils::isUnset($request->masterCU)) {
+            $query['MasterCU'] = $request->masterCU;
         }
-
-        if (null !== $request->masterNodeNum) {
-            @$query['MasterNodeNum'] = $request->masterNodeNum;
+        if (!Utils::isUnset($request->masterNodeNum)) {
+            $query['MasterNodeNum'] = $request->masterNodeNum;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->payType) {
-            @$query['PayType'] = $request->payType;
+        if (!Utils::isUnset($request->payType)) {
+            $query['PayType'] = $request->payType;
         }
-
-        if (null !== $request->period) {
-            @$query['Period'] = $request->period;
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
         }
-
-        if (null !== $request->privateIpAddress) {
-            @$query['PrivateIpAddress'] = $request->privateIpAddress;
+        if (!Utils::isUnset($request->privateIpAddress)) {
+            $query['PrivateIpAddress'] = $request->privateIpAddress;
         }
-
-        if (null !== $request->prodType) {
-            @$query['ProdType'] = $request->prodType;
+        if (!Utils::isUnset($request->prodType)) {
+            $query['ProdType'] = $request->prodType;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->securityIPList) {
-            @$query['SecurityIPList'] = $request->securityIPList;
+        if (!Utils::isUnset($request->securityIPList)) {
+            $query['SecurityIPList'] = $request->securityIPList;
         }
-
-        if (null !== $request->segDiskPerformanceLevel) {
-            @$query['SegDiskPerformanceLevel'] = $request->segDiskPerformanceLevel;
+        if (!Utils::isUnset($request->segDiskPerformanceLevel)) {
+            $query['SegDiskPerformanceLevel'] = $request->segDiskPerformanceLevel;
         }
-
-        if (null !== $request->segNodeNum) {
-            @$query['SegNodeNum'] = $request->segNodeNum;
+        if (!Utils::isUnset($request->segNodeNum)) {
+            $query['SegNodeNum'] = $request->segNodeNum;
         }
-
-        if (null !== $request->segStorageType) {
-            @$query['SegStorageType'] = $request->segStorageType;
+        if (!Utils::isUnset($request->segStorageType)) {
+            $query['SegStorageType'] = $request->segStorageType;
         }
-
-        if (null !== $request->serverlessMode) {
-            @$query['ServerlessMode'] = $request->serverlessMode;
+        if (!Utils::isUnset($request->serverlessMode)) {
+            $query['ServerlessMode'] = $request->serverlessMode;
         }
-
-        if (null !== $request->serverlessResource) {
-            @$query['ServerlessResource'] = $request->serverlessResource;
+        if (!Utils::isUnset($request->serverlessResource)) {
+            $query['ServerlessResource'] = $request->serverlessResource;
         }
-
-        if (null !== $request->srcDbInstanceName) {
-            @$query['SrcDbInstanceName'] = $request->srcDbInstanceName;
+        if (!Utils::isUnset($request->srcDbInstanceName)) {
+            $query['SrcDbInstanceName'] = $request->srcDbInstanceName;
         }
-
-        if (null !== $request->standbyVSwitchId) {
-            @$query['StandbyVSwitchId'] = $request->standbyVSwitchId;
+        if (!Utils::isUnset($request->standbyVSwitchId)) {
+            $query['StandbyVSwitchId'] = $request->standbyVSwitchId;
         }
-
-        if (null !== $request->standbyZoneId) {
-            @$query['StandbyZoneId'] = $request->standbyZoneId;
+        if (!Utils::isUnset($request->standbyZoneId)) {
+            $query['StandbyZoneId'] = $request->standbyZoneId;
         }
-
-        if (null !== $request->storageSize) {
-            @$query['StorageSize'] = $request->storageSize;
+        if (!Utils::isUnset($request->storageSize)) {
+            $query['StorageSize'] = $request->storageSize;
         }
-
-        if (null !== $request->storageType) {
-            @$query['StorageType'] = $request->storageType;
+        if (!Utils::isUnset($request->storageType)) {
+            $query['StorageType'] = $request->storageType;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
-        if (null !== $request->usedTime) {
-            @$query['UsedTime'] = $request->usedTime;
+        if (!Utils::isUnset($request->usedTime)) {
+            $query['UsedTime'] = $request->usedTime;
         }
-
-        if (null !== $request->VPCId) {
-            @$query['VPCId'] = $request->VPCId;
+        if (!Utils::isUnset($request->VPCId)) {
+            $query['VPCId'] = $request->VPCId;
         }
-
-        if (null !== $request->vSwitchId) {
-            @$query['VSwitchId'] = $request->vSwitchId;
+        if (!Utils::isUnset($request->vSwitchId)) {
+            $query['VSwitchId'] = $request->vSwitchId;
         }
-
-        if (null !== $request->vectorConfigurationStatus) {
-            @$query['VectorConfigurationStatus'] = $request->vectorConfigurationStatus;
+        if (!Utils::isUnset($request->vectorConfigurationStatus)) {
+            $query['VectorConfigurationStatus'] = $request->vectorConfigurationStatus;
         }
-
-        if (null !== $request->zoneId) {
-            @$query['ZoneId'] = $request->zoneId;
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateDBInstance',
@@ -1830,18 +1575,13 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Create Instance.
+     * @summary Create Instance
+     *  *
+     * @description Before using this interface, please make sure you have fully understood the [billing method](https://help.aliyun.com/document_detail/35406.html) and <props="china">[pricing](https://www.aliyun.com/price/product#/gpdb/detail/GreenplumPost)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing) of the AnalyticDB for PostgreSQL product.
+     *  *
+     * @param CreateDBInstanceRequest $request CreateDBInstanceRequest
      *
-     * @remarks
-     * Before using this interface, please make sure you have fully understood the [billing method](https://help.aliyun.com/document_detail/35406.html) and <props="china">[pricing](https://www.aliyun.com/price/product#/gpdb/detail/GreenplumPost)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing) of the AnalyticDB for PostgreSQL product.
-     *
-     * @param Request - CreateDBInstanceRequest
-     *
-     * @returns CreateDBInstanceResponse
-     *
-     * @param CreateDBInstanceRequest $request
-     *
-     * @return CreateDBInstanceResponse
+     * @return CreateDBInstanceResponse CreateDBInstanceResponse
      */
     public function createDBInstance($request)
     {
@@ -1851,65 +1591,50 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Creates a plan for an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     *   The plan management feature is supported only for pay-as-you-go instances.
+     * @summary Creates a plan for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description *   The plan management feature is supported only for pay-as-you-go instances.
      * *   When you change the compute node specifications or change the number of compute nodes, transient connections may occur. We recommend that you perform these operations during off-peak hours.
      * Before you call this operation, make sure that you are familiar with the billing of AnalyticDB for PostgreSQL. For more information, see [Billing methods](https://help.aliyun.com/document_detail/35406.html) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
+     *  *
+     * @param CreateDBInstancePlanRequest $request CreateDBInstancePlanRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - CreateDBInstancePlanRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateDBInstancePlanResponse
-     *
-     * @param CreateDBInstancePlanRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return CreateDBInstancePlanResponse
+     * @return CreateDBInstancePlanResponse CreateDBInstancePlanResponse
      */
     public function createDBInstancePlanWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->planConfig) {
-            @$query['PlanConfig'] = $request->planConfig;
+        if (!Utils::isUnset($request->planConfig)) {
+            $query['PlanConfig'] = $request->planConfig;
         }
-
-        if (null !== $request->planDesc) {
-            @$query['PlanDesc'] = $request->planDesc;
+        if (!Utils::isUnset($request->planDesc)) {
+            $query['PlanDesc'] = $request->planDesc;
         }
-
-        if (null !== $request->planEndDate) {
-            @$query['PlanEndDate'] = $request->planEndDate;
+        if (!Utils::isUnset($request->planEndDate)) {
+            $query['PlanEndDate'] = $request->planEndDate;
         }
-
-        if (null !== $request->planName) {
-            @$query['PlanName'] = $request->planName;
+        if (!Utils::isUnset($request->planName)) {
+            $query['PlanName'] = $request->planName;
         }
-
-        if (null !== $request->planScheduleType) {
-            @$query['PlanScheduleType'] = $request->planScheduleType;
+        if (!Utils::isUnset($request->planScheduleType)) {
+            $query['PlanScheduleType'] = $request->planScheduleType;
         }
-
-        if (null !== $request->planStartDate) {
-            @$query['PlanStartDate'] = $request->planStartDate;
+        if (!Utils::isUnset($request->planStartDate)) {
+            $query['PlanStartDate'] = $request->planStartDate;
         }
-
-        if (null !== $request->planType) {
-            @$query['PlanType'] = $request->planType;
+        if (!Utils::isUnset($request->planType)) {
+            $query['PlanType'] = $request->planType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateDBInstancePlan',
@@ -1927,20 +1652,15 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Creates a plan for an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     *   The plan management feature is supported only for pay-as-you-go instances.
+     * @summary Creates a plan for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description *   The plan management feature is supported only for pay-as-you-go instances.
      * *   When you change the compute node specifications or change the number of compute nodes, transient connections may occur. We recommend that you perform these operations during off-peak hours.
      * Before you call this operation, make sure that you are familiar with the billing of AnalyticDB for PostgreSQL. For more information, see [Billing methods](https://help.aliyun.com/document_detail/35406.html) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
+     *  *
+     * @param CreateDBInstancePlanRequest $request CreateDBInstancePlanRequest
      *
-     * @param Request - CreateDBInstancePlanRequest
-     *
-     * @returns CreateDBInstancePlanResponse
-     *
-     * @param CreateDBInstancePlanRequest $request
-     *
-     * @return CreateDBInstancePlanResponse
+     * @return CreateDBInstancePlanResponse CreateDBInstancePlanResponse
      */
     public function createDBInstancePlan($request)
     {
@@ -1950,40 +1670,31 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Creates a resource group.
+     * @summary Creates a resource group.
+     *  *
+     * @param CreateDBResourceGroupRequest $request CreateDBResourceGroupRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - CreateDBResourceGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateDBResourceGroupResponse
-     *
-     * @param CreateDBResourceGroupRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return CreateDBResourceGroupResponse
+     * @return CreateDBResourceGroupResponse CreateDBResourceGroupResponse
      */
     public function createDBResourceGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceGroupConfig) {
-            @$query['ResourceGroupConfig'] = $request->resourceGroupConfig;
+        if (!Utils::isUnset($request->resourceGroupConfig)) {
+            $query['ResourceGroupConfig'] = $request->resourceGroupConfig;
         }
-
-        if (null !== $request->resourceGroupName) {
-            @$query['ResourceGroupName'] = $request->resourceGroupName;
+        if (!Utils::isUnset($request->resourceGroupName)) {
+            $query['ResourceGroupName'] = $request->resourceGroupName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateDBResourceGroup',
@@ -2001,15 +1712,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Creates a resource group.
+     * @summary Creates a resource group.
+     *  *
+     * @param CreateDBResourceGroupRequest $request CreateDBResourceGroupRequest
      *
-     * @param Request - CreateDBResourceGroupRequest
-     *
-     * @returns CreateDBResourceGroupResponse
-     *
-     * @param CreateDBResourceGroupRequest $request
-     *
-     * @return CreateDBResourceGroupResponse
+     * @return CreateDBResourceGroupResponse CreateDBResourceGroupResponse
      */
     public function createDBResourceGroup($request)
     {
@@ -2019,96 +1726,73 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Creates a document collection.
+     * @summary Creates a document collection.
+     *  *
+     * @param CreateDocumentCollectionRequest $request CreateDocumentCollectionRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - CreateDocumentCollectionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateDocumentCollectionResponse
-     *
-     * @param CreateDocumentCollectionRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return CreateDocumentCollectionResponse
+     * @return CreateDocumentCollectionResponse CreateDocumentCollectionResponse
      */
     public function createDocumentCollectionWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->collection) {
-            @$query['Collection'] = $request->collection;
+        if (!Utils::isUnset($request->collection)) {
+            $query['Collection'] = $request->collection;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->dimension) {
-            @$query['Dimension'] = $request->dimension;
+        if (!Utils::isUnset($request->dimension)) {
+            $query['Dimension'] = $request->dimension;
         }
-
-        if (null !== $request->embeddingModel) {
-            @$query['EmbeddingModel'] = $request->embeddingModel;
+        if (!Utils::isUnset($request->embeddingModel)) {
+            $query['EmbeddingModel'] = $request->embeddingModel;
         }
-
-        if (null !== $request->externalStorage) {
-            @$query['ExternalStorage'] = $request->externalStorage;
+        if (!Utils::isUnset($request->externalStorage)) {
+            $query['ExternalStorage'] = $request->externalStorage;
         }
-
-        if (null !== $request->fullTextRetrievalFields) {
-            @$query['FullTextRetrievalFields'] = $request->fullTextRetrievalFields;
+        if (!Utils::isUnset($request->fullTextRetrievalFields)) {
+            $query['FullTextRetrievalFields'] = $request->fullTextRetrievalFields;
         }
-
-        if (null !== $request->hnswEfConstruction) {
-            @$query['HnswEfConstruction'] = $request->hnswEfConstruction;
+        if (!Utils::isUnset($request->hnswEfConstruction)) {
+            $query['HnswEfConstruction'] = $request->hnswEfConstruction;
         }
-
-        if (null !== $request->hnswM) {
-            @$query['HnswM'] = $request->hnswM;
+        if (!Utils::isUnset($request->hnswM)) {
+            $query['HnswM'] = $request->hnswM;
         }
-
-        if (null !== $request->managerAccount) {
-            @$query['ManagerAccount'] = $request->managerAccount;
+        if (!Utils::isUnset($request->managerAccount)) {
+            $query['ManagerAccount'] = $request->managerAccount;
         }
-
-        if (null !== $request->managerAccountPassword) {
-            @$query['ManagerAccountPassword'] = $request->managerAccountPassword;
+        if (!Utils::isUnset($request->managerAccountPassword)) {
+            $query['ManagerAccountPassword'] = $request->managerAccountPassword;
         }
-
-        if (null !== $request->metadata) {
-            @$query['Metadata'] = $request->metadata;
+        if (!Utils::isUnset($request->metadata)) {
+            $query['Metadata'] = $request->metadata;
         }
-
-        if (null !== $request->metadataIndices) {
-            @$query['MetadataIndices'] = $request->metadataIndices;
+        if (!Utils::isUnset($request->metadataIndices)) {
+            $query['MetadataIndices'] = $request->metadataIndices;
         }
-
-        if (null !== $request->metrics) {
-            @$query['Metrics'] = $request->metrics;
+        if (!Utils::isUnset($request->metrics)) {
+            $query['Metrics'] = $request->metrics;
         }
-
-        if (null !== $request->namespace) {
-            @$query['Namespace'] = $request->namespace;
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->parser) {
-            @$query['Parser'] = $request->parser;
+        if (!Utils::isUnset($request->parser)) {
+            $query['Parser'] = $request->parser;
         }
-
-        if (null !== $request->pqEnable) {
-            @$query['PqEnable'] = $request->pqEnable;
+        if (!Utils::isUnset($request->pqEnable)) {
+            $query['PqEnable'] = $request->pqEnable;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateDocumentCollection',
@@ -2126,15 +1810,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Creates a document collection.
+     * @summary Creates a document collection.
+     *  *
+     * @param CreateDocumentCollectionRequest $request CreateDocumentCollectionRequest
      *
-     * @param Request - CreateDocumentCollectionRequest
-     *
-     * @returns CreateDocumentCollectionResponse
-     *
-     * @param CreateDocumentCollectionRequest $request
-     *
-     * @return CreateDocumentCollectionResponse
+     * @return CreateDocumentCollectionResponse CreateDocumentCollectionResponse
      */
     public function createDocumentCollection($request)
     {
@@ -2144,40 +1824,31 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Install extensions.
+     * @summary Install extensions.
+     *  *
+     * @param CreateExtensionsRequest $request CreateExtensionsRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - CreateExtensionsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateExtensionsResponse
-     *
-     * @param CreateExtensionsRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return CreateExtensionsResponse
+     * @return CreateExtensionsResponse CreateExtensionsResponse
      */
     public function createExtensionsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->DBNames) {
-            @$query['DBNames'] = $request->DBNames;
+        if (!Utils::isUnset($request->DBNames)) {
+            $query['DBNames'] = $request->DBNames;
         }
-
-        if (null !== $request->extensions) {
-            @$query['Extensions'] = $request->extensions;
+        if (!Utils::isUnset($request->extensions)) {
+            $query['Extensions'] = $request->extensions;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateExtensions',
@@ -2195,15 +1866,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Install extensions.
+     * @summary Install extensions.
+     *  *
+     * @param CreateExtensionsRequest $request CreateExtensionsRequest
      *
-     * @param Request - CreateExtensionsRequest
-     *
-     * @returns CreateExtensionsResponse
-     *
-     * @param CreateExtensionsRequest $request
-     *
-     * @return CreateExtensionsResponse
+     * @return CreateExtensionsResponse CreateExtensionsResponse
      */
     public function createExtensions($request)
     {
@@ -2213,44 +1880,34 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Create External Data Service.
+     * @summary Create External Data Service
+     *  *
+     * @param CreateExternalDataServiceRequest $request CreateExternalDataServiceRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - CreateExternalDataServiceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateExternalDataServiceResponse
-     *
-     * @param CreateExternalDataServiceRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return CreateExternalDataServiceResponse
+     * @return CreateExternalDataServiceResponse CreateExternalDataServiceResponse
      */
     public function createExternalDataServiceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->serviceDescription) {
-            @$query['ServiceDescription'] = $request->serviceDescription;
+        if (!Utils::isUnset($request->serviceDescription)) {
+            $query['ServiceDescription'] = $request->serviceDescription;
         }
-
-        if (null !== $request->serviceName) {
-            @$query['ServiceName'] = $request->serviceName;
+        if (!Utils::isUnset($request->serviceName)) {
+            $query['ServiceName'] = $request->serviceName;
         }
-
-        if (null !== $request->serviceSpec) {
-            @$query['ServiceSpec'] = $request->serviceSpec;
+        if (!Utils::isUnset($request->serviceSpec)) {
+            $query['ServiceSpec'] = $request->serviceSpec;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateExternalDataService',
@@ -2268,15 +1925,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Create External Data Service.
+     * @summary Create External Data Service
+     *  *
+     * @param CreateExternalDataServiceRequest $request CreateExternalDataServiceRequest
      *
-     * @param Request - CreateExternalDataServiceRequest
-     *
-     * @returns CreateExternalDataServiceResponse
-     *
-     * @param CreateExternalDataServiceRequest $request
-     *
-     * @return CreateExternalDataServiceResponse
+     * @return CreateExternalDataServiceResponse CreateExternalDataServiceResponse
      */
     public function createExternalDataService($request)
     {
@@ -2286,76 +1939,58 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Create Hadoop data source configuration.
+     * @summary Create Hadoop data source configuration
+     *  *
+     * @param CreateHadoopDataSourceRequest $request CreateHadoopDataSourceRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - CreateHadoopDataSourceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateHadoopDataSourceResponse
-     *
-     * @param CreateHadoopDataSourceRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return CreateHadoopDataSourceResponse
+     * @return CreateHadoopDataSourceResponse CreateHadoopDataSourceResponse
      */
     public function createHadoopDataSourceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->dataSourceDescription) {
-            @$query['DataSourceDescription'] = $request->dataSourceDescription;
+        if (!Utils::isUnset($request->dataSourceDescription)) {
+            $query['DataSourceDescription'] = $request->dataSourceDescription;
         }
-
-        if (null !== $request->dataSourceName) {
-            @$query['DataSourceName'] = $request->dataSourceName;
+        if (!Utils::isUnset($request->dataSourceName)) {
+            $query['DataSourceName'] = $request->dataSourceName;
         }
-
-        if (null !== $request->dataSourceType) {
-            @$query['DataSourceType'] = $request->dataSourceType;
+        if (!Utils::isUnset($request->dataSourceType)) {
+            $query['DataSourceType'] = $request->dataSourceType;
         }
-
-        if (null !== $request->emrInstanceId) {
-            @$query['EmrInstanceId'] = $request->emrInstanceId;
+        if (!Utils::isUnset($request->emrInstanceId)) {
+            $query['EmrInstanceId'] = $request->emrInstanceId;
         }
-
-        if (null !== $request->HDFSConf) {
-            @$query['HDFSConf'] = $request->HDFSConf;
+        if (!Utils::isUnset($request->HDFSConf)) {
+            $query['HDFSConf'] = $request->HDFSConf;
         }
-
-        if (null !== $request->hadoopCoreConf) {
-            @$query['HadoopCoreConf'] = $request->hadoopCoreConf;
+        if (!Utils::isUnset($request->hadoopCoreConf)) {
+            $query['HadoopCoreConf'] = $request->hadoopCoreConf;
         }
-
-        if (null !== $request->hadoopCreateType) {
-            @$query['HadoopCreateType'] = $request->hadoopCreateType;
+        if (!Utils::isUnset($request->hadoopCreateType)) {
+            $query['HadoopCreateType'] = $request->hadoopCreateType;
         }
-
-        if (null !== $request->hadoopHostsAddress) {
-            @$query['HadoopHostsAddress'] = $request->hadoopHostsAddress;
+        if (!Utils::isUnset($request->hadoopHostsAddress)) {
+            $query['HadoopHostsAddress'] = $request->hadoopHostsAddress;
         }
-
-        if (null !== $request->hiveConf) {
-            @$query['HiveConf'] = $request->hiveConf;
+        if (!Utils::isUnset($request->hiveConf)) {
+            $query['HiveConf'] = $request->hiveConf;
         }
-
-        if (null !== $request->mapReduceConf) {
-            @$query['MapReduceConf'] = $request->mapReduceConf;
+        if (!Utils::isUnset($request->mapReduceConf)) {
+            $query['MapReduceConf'] = $request->mapReduceConf;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->yarnConf) {
-            @$query['YarnConf'] = $request->yarnConf;
+        if (!Utils::isUnset($request->yarnConf)) {
+            $query['YarnConf'] = $request->yarnConf;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateHadoopDataSource',
@@ -2373,15 +2008,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Create Hadoop data source configuration.
+     * @summary Create Hadoop data source configuration
+     *  *
+     * @param CreateHadoopDataSourceRequest $request CreateHadoopDataSourceRequest
      *
-     * @param Request - CreateHadoopDataSourceRequest
-     *
-     * @returns CreateHadoopDataSourceResponse
-     *
-     * @param CreateHadoopDataSourceRequest $request
-     *
-     * @return CreateHadoopDataSourceResponse
+     * @return CreateHadoopDataSourceResponse CreateHadoopDataSourceResponse
      */
     public function createHadoopDataSource($request)
     {
@@ -2391,64 +2022,49 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 创建索引.
+     * @summary 创建索引
+     *  *
+     * @param CreateIndexRequest $request CreateIndexRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - CreateIndexRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateIndexResponse
-     *
-     * @param CreateIndexRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return CreateIndexResponse
+     * @return CreateIndexResponse CreateIndexResponse
      */
     public function createIndexWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->collection) {
-            @$query['Collection'] = $request->collection;
+        if (!Utils::isUnset($request->collection)) {
+            $query['Collection'] = $request->collection;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->indexConfig) {
-            @$query['IndexConfig'] = $request->indexConfig;
+        if (!Utils::isUnset($request->indexConfig)) {
+            $query['IndexConfig'] = $request->indexConfig;
         }
-
-        if (null !== $request->indexField) {
-            @$query['IndexField'] = $request->indexField;
+        if (!Utils::isUnset($request->indexField)) {
+            $query['IndexField'] = $request->indexField;
         }
-
-        if (null !== $request->indexName) {
-            @$query['IndexName'] = $request->indexName;
+        if (!Utils::isUnset($request->indexName)) {
+            $query['IndexName'] = $request->indexName;
         }
-
-        if (null !== $request->namespace) {
-            @$query['Namespace'] = $request->namespace;
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
         }
-
-        if (null !== $request->namespacePassword) {
-            @$query['NamespacePassword'] = $request->namespacePassword;
+        if (!Utils::isUnset($request->namespacePassword)) {
+            $query['NamespacePassword'] = $request->namespacePassword;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->workspaceId) {
-            @$query['WorkspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateIndex',
@@ -2466,15 +2082,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 创建索引.
+     * @summary 创建索引
+     *  *
+     * @param CreateIndexRequest $request CreateIndexRequest
      *
-     * @param Request - CreateIndexRequest
-     *
-     * @returns CreateIndexResponse
-     *
-     * @param CreateIndexRequest $request
-     *
-     * @return CreateIndexResponse
+     * @return CreateIndexResponse CreateIndexResponse
      */
     public function createIndex($request)
     {
@@ -2484,56 +2096,43 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Creates a JDBC data source.
+     * @summary Creates a JDBC data source.
+     *  *
+     * @param CreateJDBCDataSourceRequest $request CreateJDBCDataSourceRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - CreateJDBCDataSourceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateJDBCDataSourceResponse
-     *
-     * @param CreateJDBCDataSourceRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return CreateJDBCDataSourceResponse
+     * @return CreateJDBCDataSourceResponse CreateJDBCDataSourceResponse
      */
     public function createJDBCDataSourceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->dataSourceDescription) {
-            @$query['DataSourceDescription'] = $request->dataSourceDescription;
+        if (!Utils::isUnset($request->dataSourceDescription)) {
+            $query['DataSourceDescription'] = $request->dataSourceDescription;
         }
-
-        if (null !== $request->dataSourceName) {
-            @$query['DataSourceName'] = $request->dataSourceName;
+        if (!Utils::isUnset($request->dataSourceName)) {
+            $query['DataSourceName'] = $request->dataSourceName;
         }
-
-        if (null !== $request->dataSourceType) {
-            @$query['DataSourceType'] = $request->dataSourceType;
+        if (!Utils::isUnset($request->dataSourceType)) {
+            $query['DataSourceType'] = $request->dataSourceType;
         }
-
-        if (null !== $request->JDBCConnectionString) {
-            @$query['JDBCConnectionString'] = $request->JDBCConnectionString;
+        if (!Utils::isUnset($request->JDBCConnectionString)) {
+            $query['JDBCConnectionString'] = $request->JDBCConnectionString;
         }
-
-        if (null !== $request->JDBCPassword) {
-            @$query['JDBCPassword'] = $request->JDBCPassword;
+        if (!Utils::isUnset($request->JDBCPassword)) {
+            $query['JDBCPassword'] = $request->JDBCPassword;
         }
-
-        if (null !== $request->JDBCUserName) {
-            @$query['JDBCUserName'] = $request->JDBCUserName;
+        if (!Utils::isUnset($request->JDBCUserName)) {
+            $query['JDBCUserName'] = $request->JDBCUserName;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateJDBCDataSource',
@@ -2551,15 +2150,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Creates a JDBC data source.
+     * @summary Creates a JDBC data source.
+     *  *
+     * @param CreateJDBCDataSourceRequest $request CreateJDBCDataSourceRequest
      *
-     * @param Request - CreateJDBCDataSourceRequest
-     *
-     * @returns CreateJDBCDataSourceResponse
-     *
-     * @param CreateJDBCDataSourceRequest $request
-     *
-     * @return CreateJDBCDataSourceResponse
+     * @return CreateJDBCDataSourceResponse CreateJDBCDataSourceResponse
      */
     public function createJDBCDataSource($request)
     {
@@ -2569,56 +2164,43 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Creates a vector namespace.
+     * @summary Creates a vector namespace.
+     *  *
+     * @param CreateNamespaceRequest $request CreateNamespaceRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - CreateNamespaceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateNamespaceResponse
-     *
-     * @param CreateNamespaceRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return CreateNamespaceResponse
+     * @return CreateNamespaceResponse CreateNamespaceResponse
      */
     public function createNamespaceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->managerAccount) {
-            @$query['ManagerAccount'] = $request->managerAccount;
+        if (!Utils::isUnset($request->managerAccount)) {
+            $query['ManagerAccount'] = $request->managerAccount;
         }
-
-        if (null !== $request->managerAccountPassword) {
-            @$query['ManagerAccountPassword'] = $request->managerAccountPassword;
+        if (!Utils::isUnset($request->managerAccountPassword)) {
+            $query['ManagerAccountPassword'] = $request->managerAccountPassword;
         }
-
-        if (null !== $request->namespace) {
-            @$query['Namespace'] = $request->namespace;
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
         }
-
-        if (null !== $request->namespacePassword) {
-            @$query['NamespacePassword'] = $request->namespacePassword;
+        if (!Utils::isUnset($request->namespacePassword)) {
+            $query['NamespacePassword'] = $request->namespacePassword;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->workspaceId) {
-            @$query['WorkspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateNamespace',
@@ -2636,15 +2218,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Creates a vector namespace.
+     * @summary Creates a vector namespace.
+     *  *
+     * @param CreateNamespaceRequest $request CreateNamespaceRequest
      *
-     * @param Request - CreateNamespaceRequest
-     *
-     * @returns CreateNamespaceResponse
-     *
-     * @param CreateNamespaceRequest $request
-     *
-     * @return CreateNamespaceResponse
+     * @return CreateNamespaceResponse CreateNamespaceResponse
      */
     public function createNamespace($request)
     {
@@ -2654,64 +2232,49 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Create Homogeneous Data Source.
+     * @summary Create Homogeneous Data Source
+     *  *
+     * @param CreateRemoteADBDataSourceRequest $request CreateRemoteADBDataSourceRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - CreateRemoteADBDataSourceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateRemoteADBDataSourceResponse
-     *
-     * @param CreateRemoteADBDataSourceRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return CreateRemoteADBDataSourceResponse
+     * @return CreateRemoteADBDataSourceResponse CreateRemoteADBDataSourceResponse
      */
     public function createRemoteADBDataSourceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->dataSourceName) {
-            @$query['DataSourceName'] = $request->dataSourceName;
+        if (!Utils::isUnset($request->dataSourceName)) {
+            $query['DataSourceName'] = $request->dataSourceName;
         }
-
-        if (null !== $request->localDBInstanceId) {
-            @$query['LocalDBInstanceId'] = $request->localDBInstanceId;
+        if (!Utils::isUnset($request->localDBInstanceId)) {
+            $query['LocalDBInstanceId'] = $request->localDBInstanceId;
         }
-
-        if (null !== $request->localDatabase) {
-            @$query['LocalDatabase'] = $request->localDatabase;
+        if (!Utils::isUnset($request->localDatabase)) {
+            $query['LocalDatabase'] = $request->localDatabase;
         }
-
-        if (null !== $request->managerUserName) {
-            @$query['ManagerUserName'] = $request->managerUserName;
+        if (!Utils::isUnset($request->managerUserName)) {
+            $query['ManagerUserName'] = $request->managerUserName;
         }
-
-        if (null !== $request->managerUserPassword) {
-            @$query['ManagerUserPassword'] = $request->managerUserPassword;
+        if (!Utils::isUnset($request->managerUserPassword)) {
+            $query['ManagerUserPassword'] = $request->managerUserPassword;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->remoteDBInstanceId) {
-            @$query['RemoteDBInstanceId'] = $request->remoteDBInstanceId;
+        if (!Utils::isUnset($request->remoteDBInstanceId)) {
+            $query['RemoteDBInstanceId'] = $request->remoteDBInstanceId;
         }
-
-        if (null !== $request->remoteDatabase) {
-            @$query['RemoteDatabase'] = $request->remoteDatabase;
+        if (!Utils::isUnset($request->remoteDatabase)) {
+            $query['RemoteDatabase'] = $request->remoteDatabase;
         }
-
-        if (null !== $request->userName) {
-            @$query['UserName'] = $request->userName;
+        if (!Utils::isUnset($request->userName)) {
+            $query['UserName'] = $request->userName;
         }
-
-        if (null !== $request->userPassword) {
-            @$query['UserPassword'] = $request->userPassword;
+        if (!Utils::isUnset($request->userPassword)) {
+            $query['UserPassword'] = $request->userPassword;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateRemoteADBDataSource',
@@ -2729,15 +2292,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Create Homogeneous Data Source.
+     * @summary Create Homogeneous Data Source
+     *  *
+     * @param CreateRemoteADBDataSourceRequest $request CreateRemoteADBDataSourceRequest
      *
-     * @param Request - CreateRemoteADBDataSourceRequest
-     *
-     * @returns CreateRemoteADBDataSourceResponse
-     *
-     * @param CreateRemoteADBDataSourceRequest $request
-     *
-     * @return CreateRemoteADBDataSourceResponse
+     * @return CreateRemoteADBDataSourceResponse CreateRemoteADBDataSourceResponse
      */
     public function createRemoteADBDataSource($request)
     {
@@ -2747,37 +2306,29 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Creates a sample dataset for an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     *   You can call this operation to create a sample dataset for an AnalyticDB for PostgreSQL instance. Then, you can execute query statements on the sample dataset to experience or test your instance. For more information about query statements, see [Dataset information and query examples](https://help.aliyun.com/document_detail/452277.html).
+     * @summary Creates a sample dataset for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description *   You can call this operation to create a sample dataset for an AnalyticDB for PostgreSQL instance. Then, you can execute query statements on the sample dataset to experience or test your instance. For more information about query statements, see [Dataset information and query examples](https://help.aliyun.com/document_detail/452277.html).
      * *   This operation is supported only for AnalyticDB for PostgreSQL V6.3.8.8 to 6.3.8.x, V6.3.10.3, and later.
      * *   Versions from V6.3.9.0 to V6.3.10.2 are not supported.
+     *  *
+     * @param CreateSampleDataRequest $request CreateSampleDataRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - CreateSampleDataRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateSampleDataResponse
-     *
-     * @param CreateSampleDataRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return CreateSampleDataResponse
+     * @return CreateSampleDataResponse CreateSampleDataResponse
      */
     public function createSampleDataWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateSampleData',
@@ -2795,20 +2346,15 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Creates a sample dataset for an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     *   You can call this operation to create a sample dataset for an AnalyticDB for PostgreSQL instance. Then, you can execute query statements on the sample dataset to experience or test your instance. For more information about query statements, see [Dataset information and query examples](https://help.aliyun.com/document_detail/452277.html).
+     * @summary Creates a sample dataset for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description *   You can call this operation to create a sample dataset for an AnalyticDB for PostgreSQL instance. Then, you can execute query statements on the sample dataset to experience or test your instance. For more information about query statements, see [Dataset information and query examples](https://help.aliyun.com/document_detail/452277.html).
      * *   This operation is supported only for AnalyticDB for PostgreSQL V6.3.8.8 to 6.3.8.x, V6.3.10.3, and later.
      * *   Versions from V6.3.9.0 to V6.3.10.2 are not supported.
+     *  *
+     * @param CreateSampleDataRequest $request CreateSampleDataRequest
      *
-     * @param Request - CreateSampleDataRequest
-     *
-     * @returns CreateSampleDataResponse
-     *
-     * @param CreateSampleDataRequest $request
-     *
-     * @return CreateSampleDataResponse
+     * @return CreateSampleDataResponse CreateSampleDataResponse
      */
     public function createSampleData($request)
     {
@@ -2818,60 +2364,46 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Creates an access credential for an AnalyticDB for PostgreSQL instance by using the name and password of a database account.
+     * @summary Creates an access credential for an AnalyticDB for PostgreSQL instance by using the name and password of a database account.
+     *  *
+     * @param CreateSecretRequest $request CreateSecretRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - CreateSecretRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateSecretResponse
-     *
-     * @param CreateSecretRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return CreateSecretResponse
+     * @return CreateSecretResponse CreateSecretResponse
      */
     public function createSecretWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->password) {
-            @$query['Password'] = $request->password;
+        if (!Utils::isUnset($request->password)) {
+            $query['Password'] = $request->password;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->secretName) {
-            @$query['SecretName'] = $request->secretName;
+        if (!Utils::isUnset($request->secretName)) {
+            $query['SecretName'] = $request->secretName;
         }
-
-        if (null !== $request->testConnection) {
-            @$query['TestConnection'] = $request->testConnection;
+        if (!Utils::isUnset($request->testConnection)) {
+            $query['TestConnection'] = $request->testConnection;
         }
-
-        if (null !== $request->username) {
-            @$query['Username'] = $request->username;
+        if (!Utils::isUnset($request->username)) {
+            $query['Username'] = $request->username;
         }
-
-        if (null !== $request->workspaceId) {
-            @$query['WorkspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateSecret',
@@ -2889,15 +2421,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Creates an access credential for an AnalyticDB for PostgreSQL instance by using the name and password of a database account.
+     * @summary Creates an access credential for an AnalyticDB for PostgreSQL instance by using the name and password of a database account.
+     *  *
+     * @param CreateSecretRequest $request CreateSecretRequest
      *
-     * @param Request - CreateSecretRequest
-     *
-     * @returns CreateSecretResponse
-     *
-     * @param CreateSecretRequest $request
-     *
-     * @return CreateSecretResponse
+     * @return CreateSecretResponse CreateSecretResponse
      */
     public function createSecret($request)
     {
@@ -2907,32 +2435,25 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Creates a service-linked role.
+     * @summary Creates a service-linked role.
+     *  *
+     * @param CreateServiceLinkedRoleRequest $request CreateServiceLinkedRoleRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - CreateServiceLinkedRoleRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateServiceLinkedRoleResponse
-     *
-     * @param CreateServiceLinkedRoleRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return CreateServiceLinkedRoleResponse
+     * @return CreateServiceLinkedRoleResponse CreateServiceLinkedRoleResponse
      */
     public function createServiceLinkedRoleWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateServiceLinkedRole',
@@ -2950,15 +2471,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Creates a service-linked role.
+     * @summary Creates a service-linked role.
+     *  *
+     * @param CreateServiceLinkedRoleRequest $request CreateServiceLinkedRoleRequest
      *
-     * @param Request - CreateServiceLinkedRoleRequest
-     *
-     * @returns CreateServiceLinkedRoleResponse
-     *
-     * @param CreateServiceLinkedRoleRequest $request
-     *
-     * @return CreateServiceLinkedRoleResponse
+     * @return CreateServiceLinkedRoleResponse CreateServiceLinkedRoleResponse
      */
     public function createServiceLinkedRole($request)
     {
@@ -2968,44 +2485,34 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Create External Data Source Configuration.
+     * @summary Create External Data Source Configuration
+     *  *
+     * @param CreateStreamingDataServiceRequest $request CreateStreamingDataServiceRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - CreateStreamingDataServiceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateStreamingDataServiceResponse
-     *
-     * @param CreateStreamingDataServiceRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return CreateStreamingDataServiceResponse
+     * @return CreateStreamingDataServiceResponse CreateStreamingDataServiceResponse
      */
     public function createStreamingDataServiceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->serviceDescription) {
-            @$query['ServiceDescription'] = $request->serviceDescription;
+        if (!Utils::isUnset($request->serviceDescription)) {
+            $query['ServiceDescription'] = $request->serviceDescription;
         }
-
-        if (null !== $request->serviceName) {
-            @$query['ServiceName'] = $request->serviceName;
+        if (!Utils::isUnset($request->serviceName)) {
+            $query['ServiceName'] = $request->serviceName;
         }
-
-        if (null !== $request->serviceSpec) {
-            @$query['ServiceSpec'] = $request->serviceSpec;
+        if (!Utils::isUnset($request->serviceSpec)) {
+            $query['ServiceSpec'] = $request->serviceSpec;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateStreamingDataService',
@@ -3023,15 +2530,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Create External Data Source Configuration.
+     * @summary Create External Data Source Configuration
+     *  *
+     * @param CreateStreamingDataServiceRequest $request CreateStreamingDataServiceRequest
      *
-     * @param Request - CreateStreamingDataServiceRequest
-     *
-     * @returns CreateStreamingDataServiceResponse
-     *
-     * @param CreateStreamingDataServiceRequest $request
-     *
-     * @return CreateStreamingDataServiceResponse
+     * @return CreateStreamingDataServiceResponse CreateStreamingDataServiceResponse
      */
     public function createStreamingDataService($request)
     {
@@ -3041,52 +2544,40 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Create External Data Source Configuration.
+     * @summary Create External Data Source Configuration
+     *  *
+     * @param CreateStreamingDataSourceRequest $request CreateStreamingDataSourceRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - CreateStreamingDataSourceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateStreamingDataSourceResponse
-     *
-     * @param CreateStreamingDataSourceRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return CreateStreamingDataSourceResponse
+     * @return CreateStreamingDataSourceResponse CreateStreamingDataSourceResponse
      */
     public function createStreamingDataSourceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->dataSourceConfig) {
-            @$query['DataSourceConfig'] = $request->dataSourceConfig;
+        if (!Utils::isUnset($request->dataSourceConfig)) {
+            $query['DataSourceConfig'] = $request->dataSourceConfig;
         }
-
-        if (null !== $request->dataSourceDescription) {
-            @$query['DataSourceDescription'] = $request->dataSourceDescription;
+        if (!Utils::isUnset($request->dataSourceDescription)) {
+            $query['DataSourceDescription'] = $request->dataSourceDescription;
         }
-
-        if (null !== $request->dataSourceName) {
-            @$query['DataSourceName'] = $request->dataSourceName;
+        if (!Utils::isUnset($request->dataSourceName)) {
+            $query['DataSourceName'] = $request->dataSourceName;
         }
-
-        if (null !== $request->dataSourceType) {
-            @$query['DataSourceType'] = $request->dataSourceType;
+        if (!Utils::isUnset($request->dataSourceType)) {
+            $query['DataSourceType'] = $request->dataSourceType;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->serviceId) {
-            @$query['ServiceId'] = $request->serviceId;
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['ServiceId'] = $request->serviceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateStreamingDataSource',
@@ -3104,15 +2595,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Create External Data Source Configuration.
+     * @summary Create External Data Source Configuration
+     *  *
+     * @param CreateStreamingDataSourceRequest $request CreateStreamingDataSourceRequest
      *
-     * @param Request - CreateStreamingDataSourceRequest
-     *
-     * @returns CreateStreamingDataSourceResponse
-     *
-     * @param CreateStreamingDataSourceRequest $request
-     *
-     * @return CreateStreamingDataSourceResponse
+     * @return CreateStreamingDataSourceResponse CreateStreamingDataSourceResponse
      */
     public function createStreamingDataSource($request)
     {
@@ -3122,130 +2609,99 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Create External Data Source Configuration.
+     * @summary Create External Data Source Configuration
+     *  *
+     * @param CreateStreamingJobRequest $tmpReq  CreateStreamingJobRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - CreateStreamingJobRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateStreamingJobResponse
-     *
-     * @param CreateStreamingJobRequest $tmpReq
-     * @param RuntimeOptions            $runtime
-     *
-     * @return CreateStreamingJobResponse
+     * @return CreateStreamingJobResponse CreateStreamingJobResponse
      */
     public function createStreamingJobWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new CreateStreamingJobShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->destColumns) {
-            $request->destColumnsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->destColumns, 'DestColumns', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->destColumns)) {
+            $request->destColumnsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->destColumns, 'DestColumns', 'json');
         }
-
-        if (null !== $tmpReq->matchColumns) {
-            $request->matchColumnsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->matchColumns, 'MatchColumns', 'json');
+        if (!Utils::isUnset($tmpReq->matchColumns)) {
+            $request->matchColumnsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->matchColumns, 'MatchColumns', 'json');
         }
-
-        if (null !== $tmpReq->srcColumns) {
-            $request->srcColumnsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->srcColumns, 'SrcColumns', 'json');
+        if (!Utils::isUnset($tmpReq->srcColumns)) {
+            $request->srcColumnsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->srcColumns, 'SrcColumns', 'json');
         }
-
-        if (null !== $tmpReq->updateColumns) {
-            $request->updateColumnsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->updateColumns, 'UpdateColumns', 'json');
+        if (!Utils::isUnset($tmpReq->updateColumns)) {
+            $request->updateColumnsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->updateColumns, 'UpdateColumns', 'json');
         }
-
         $query = [];
-        if (null !== $request->account) {
-            @$query['Account'] = $request->account;
+        if (!Utils::isUnset($request->account)) {
+            $query['Account'] = $request->account;
         }
-
-        if (null !== $request->consistency) {
-            @$query['Consistency'] = $request->consistency;
+        if (!Utils::isUnset($request->consistency)) {
+            $query['Consistency'] = $request->consistency;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->dataSourceId) {
-            @$query['DataSourceId'] = $request->dataSourceId;
+        if (!Utils::isUnset($request->dataSourceId)) {
+            $query['DataSourceId'] = $request->dataSourceId;
         }
-
-        if (null !== $request->destColumnsShrink) {
-            @$query['DestColumns'] = $request->destColumnsShrink;
+        if (!Utils::isUnset($request->destColumnsShrink)) {
+            $query['DestColumns'] = $request->destColumnsShrink;
         }
-
-        if (null !== $request->destDatabase) {
-            @$query['DestDatabase'] = $request->destDatabase;
+        if (!Utils::isUnset($request->destDatabase)) {
+            $query['DestDatabase'] = $request->destDatabase;
         }
-
-        if (null !== $request->destSchema) {
-            @$query['DestSchema'] = $request->destSchema;
+        if (!Utils::isUnset($request->destSchema)) {
+            $query['DestSchema'] = $request->destSchema;
         }
-
-        if (null !== $request->destTable) {
-            @$query['DestTable'] = $request->destTable;
+        if (!Utils::isUnset($request->destTable)) {
+            $query['DestTable'] = $request->destTable;
         }
-
-        if (null !== $request->errorLimitCount) {
-            @$query['ErrorLimitCount'] = $request->errorLimitCount;
+        if (!Utils::isUnset($request->errorLimitCount)) {
+            $query['ErrorLimitCount'] = $request->errorLimitCount;
         }
-
-        if (null !== $request->fallbackOffset) {
-            @$query['FallbackOffset'] = $request->fallbackOffset;
+        if (!Utils::isUnset($request->fallbackOffset)) {
+            $query['FallbackOffset'] = $request->fallbackOffset;
         }
-
-        if (null !== $request->groupName) {
-            @$query['GroupName'] = $request->groupName;
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
         }
-
-        if (null !== $request->jobConfig) {
-            @$query['JobConfig'] = $request->jobConfig;
+        if (!Utils::isUnset($request->jobConfig)) {
+            $query['JobConfig'] = $request->jobConfig;
         }
-
-        if (null !== $request->jobDescription) {
-            @$query['JobDescription'] = $request->jobDescription;
+        if (!Utils::isUnset($request->jobDescription)) {
+            $query['JobDescription'] = $request->jobDescription;
         }
-
-        if (null !== $request->jobName) {
-            @$query['JobName'] = $request->jobName;
+        if (!Utils::isUnset($request->jobName)) {
+            $query['JobName'] = $request->jobName;
         }
-
-        if (null !== $request->matchColumnsShrink) {
-            @$query['MatchColumns'] = $request->matchColumnsShrink;
+        if (!Utils::isUnset($request->matchColumnsShrink)) {
+            $query['MatchColumns'] = $request->matchColumnsShrink;
         }
-
-        if (null !== $request->mode) {
-            @$query['Mode'] = $request->mode;
+        if (!Utils::isUnset($request->mode)) {
+            $query['Mode'] = $request->mode;
         }
-
-        if (null !== $request->password) {
-            @$query['Password'] = $request->password;
+        if (!Utils::isUnset($request->password)) {
+            $query['Password'] = $request->password;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->srcColumnsShrink) {
-            @$query['SrcColumns'] = $request->srcColumnsShrink;
+        if (!Utils::isUnset($request->srcColumnsShrink)) {
+            $query['SrcColumns'] = $request->srcColumnsShrink;
         }
-
-        if (null !== $request->tryRun) {
-            @$query['TryRun'] = $request->tryRun;
+        if (!Utils::isUnset($request->tryRun)) {
+            $query['TryRun'] = $request->tryRun;
         }
-
-        if (null !== $request->updateColumnsShrink) {
-            @$query['UpdateColumns'] = $request->updateColumnsShrink;
+        if (!Utils::isUnset($request->updateColumnsShrink)) {
+            $query['UpdateColumns'] = $request->updateColumnsShrink;
         }
-
-        if (null !== $request->writeMode) {
-            @$query['WriteMode'] = $request->writeMode;
+        if (!Utils::isUnset($request->writeMode)) {
+            $query['WriteMode'] = $request->writeMode;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateStreamingJob',
@@ -3263,15 +2719,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Create External Data Source Configuration.
+     * @summary Create External Data Source Configuration
+     *  *
+     * @param CreateStreamingJobRequest $request CreateStreamingJobRequest
      *
-     * @param Request - CreateStreamingJobRequest
-     *
-     * @returns CreateStreamingJobResponse
-     *
-     * @param CreateStreamingJobRequest $request
-     *
-     * @return CreateStreamingJobResponse
+     * @return CreateStreamingJobResponse CreateStreamingJobResponse
      */
     public function createStreamingJob($request)
     {
@@ -3281,68 +2733,52 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 创建supabase project.
+     * @summary 创建supabase project
+     *  *
+     * @param CreateSupabaseProjectRequest $request CreateSupabaseProjectRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - CreateSupabaseProjectRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateSupabaseProjectResponse
-     *
-     * @param CreateSupabaseProjectRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return CreateSupabaseProjectResponse
+     * @return CreateSupabaseProjectResponse CreateSupabaseProjectResponse
      */
     public function createSupabaseProjectWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountPassword) {
-            @$query['AccountPassword'] = $request->accountPassword;
+        if (!Utils::isUnset($request->accountPassword)) {
+            $query['AccountPassword'] = $request->accountPassword;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->diskPerformanceLevel) {
-            @$query['DiskPerformanceLevel'] = $request->diskPerformanceLevel;
+        if (!Utils::isUnset($request->diskPerformanceLevel)) {
+            $query['DiskPerformanceLevel'] = $request->diskPerformanceLevel;
         }
-
-        if (null !== $request->projectName) {
-            @$query['ProjectName'] = $request->projectName;
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
         }
-
-        if (null !== $request->projectSpec) {
-            @$query['ProjectSpec'] = $request->projectSpec;
+        if (!Utils::isUnset($request->projectSpec)) {
+            $query['ProjectSpec'] = $request->projectSpec;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->securityIPList) {
-            @$query['SecurityIPList'] = $request->securityIPList;
+        if (!Utils::isUnset($request->securityIPList)) {
+            $query['SecurityIPList'] = $request->securityIPList;
         }
-
-        if (null !== $request->storageSize) {
-            @$query['StorageSize'] = $request->storageSize;
+        if (!Utils::isUnset($request->storageSize)) {
+            $query['StorageSize'] = $request->storageSize;
         }
-
-        if (null !== $request->vSwitchId) {
-            @$query['VSwitchId'] = $request->vSwitchId;
+        if (!Utils::isUnset($request->vSwitchId)) {
+            $query['VSwitchId'] = $request->vSwitchId;
         }
-
-        if (null !== $request->vpcId) {
-            @$query['VpcId'] = $request->vpcId;
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
         }
-
-        if (null !== $request->zoneId) {
-            @$query['ZoneId'] = $request->zoneId;
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateSupabaseProject',
@@ -3360,15 +2796,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 创建supabase project.
+     * @summary 创建supabase project
+     *  *
+     * @param CreateSupabaseProjectRequest $request CreateSupabaseProjectRequest
      *
-     * @param Request - CreateSupabaseProjectRequest
-     *
-     * @returns CreateSupabaseProjectResponse
-     *
-     * @param CreateSupabaseProjectRequest $request
-     *
-     * @return CreateSupabaseProjectResponse
+     * @return CreateSupabaseProjectResponse CreateSupabaseProjectResponse
      */
     public function createSupabaseProject($request)
     {
@@ -3378,80 +2810,61 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Create Vector Index.
+     * @summary Create Vector Index
+     *  *
+     * @param CreateVectorIndexRequest $request CreateVectorIndexRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - CreateVectorIndexRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateVectorIndexResponse
-     *
-     * @param CreateVectorIndexRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return CreateVectorIndexResponse
+     * @return CreateVectorIndexResponse CreateVectorIndexResponse
      */
     public function createVectorIndexWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->collection) {
-            @$query['Collection'] = $request->collection;
+        if (!Utils::isUnset($request->collection)) {
+            $query['Collection'] = $request->collection;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->dimension) {
-            @$query['Dimension'] = $request->dimension;
+        if (!Utils::isUnset($request->dimension)) {
+            $query['Dimension'] = $request->dimension;
         }
-
-        if (null !== $request->externalStorage) {
-            @$query['ExternalStorage'] = $request->externalStorage;
+        if (!Utils::isUnset($request->externalStorage)) {
+            $query['ExternalStorage'] = $request->externalStorage;
         }
-
-        if (null !== $request->hnswEfConstruction) {
-            @$query['HnswEfConstruction'] = $request->hnswEfConstruction;
+        if (!Utils::isUnset($request->hnswEfConstruction)) {
+            $query['HnswEfConstruction'] = $request->hnswEfConstruction;
         }
-
-        if (null !== $request->hnswM) {
-            @$query['HnswM'] = $request->hnswM;
+        if (!Utils::isUnset($request->hnswM)) {
+            $query['HnswM'] = $request->hnswM;
         }
-
-        if (null !== $request->managerAccount) {
-            @$query['ManagerAccount'] = $request->managerAccount;
+        if (!Utils::isUnset($request->managerAccount)) {
+            $query['ManagerAccount'] = $request->managerAccount;
         }
-
-        if (null !== $request->managerAccountPassword) {
-            @$query['ManagerAccountPassword'] = $request->managerAccountPassword;
+        if (!Utils::isUnset($request->managerAccountPassword)) {
+            $query['ManagerAccountPassword'] = $request->managerAccountPassword;
         }
-
-        if (null !== $request->metrics) {
-            @$query['Metrics'] = $request->metrics;
+        if (!Utils::isUnset($request->metrics)) {
+            $query['Metrics'] = $request->metrics;
         }
-
-        if (null !== $request->namespace) {
-            @$query['Namespace'] = $request->namespace;
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->pqEnable) {
-            @$query['PqEnable'] = $request->pqEnable;
+        if (!Utils::isUnset($request->pqEnable)) {
+            $query['PqEnable'] = $request->pqEnable;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->type) {
-            @$query['Type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateVectorIndex',
@@ -3469,15 +2882,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Create Vector Index.
+     * @summary Create Vector Index
+     *  *
+     * @param CreateVectorIndexRequest $request CreateVectorIndexRequest
      *
-     * @param Request - CreateVectorIndexRequest
-     *
-     * @returns CreateVectorIndexResponse
-     *
-     * @param CreateVectorIndexRequest $request
-     *
-     * @return CreateVectorIndexResponse
+     * @return CreateVectorIndexResponse CreateVectorIndexResponse
      */
     public function createVectorIndex($request)
     {
@@ -3487,32 +2896,25 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 删除数据库账号.
+     * @summary 删除数据库账号
+     *  *
+     * @param DeleteAccountRequest $request DeleteAccountRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DeleteAccountRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteAccountResponse
-     *
-     * @param DeleteAccountRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return DeleteAccountResponse
+     * @return DeleteAccountResponse DeleteAccountResponse
      */
     public function deleteAccountWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountName) {
-            @$query['AccountName'] = $request->accountName;
+        if (!Utils::isUnset($request->accountName)) {
+            $query['AccountName'] = $request->accountName;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteAccount',
@@ -3530,15 +2932,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 删除数据库账号.
+     * @summary 删除数据库账号
+     *  *
+     * @param DeleteAccountRequest $request DeleteAccountRequest
      *
-     * @param Request - DeleteAccountRequest
-     *
-     * @returns DeleteAccountResponse
-     *
-     * @param DeleteAccountRequest $request
-     *
-     * @return DeleteAccountResponse
+     * @return DeleteAccountResponse DeleteAccountResponse
      */
     public function deleteAccount($request)
     {
@@ -3548,32 +2946,25 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 删除备份.
+     * @summary 删除备份
+     *  *
+     * @param DeleteBackupRequest $request DeleteBackupRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DeleteBackupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteBackupResponse
-     *
-     * @param DeleteBackupRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return DeleteBackupResponse
+     * @return DeleteBackupResponse DeleteBackupResponse
      */
     public function deleteBackupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->backupId) {
-            @$query['BackupId'] = $request->backupId;
+        if (!Utils::isUnset($request->backupId)) {
+            $query['BackupId'] = $request->backupId;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteBackup',
@@ -3591,15 +2982,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 删除备份.
+     * @summary 删除备份
+     *  *
+     * @param DeleteBackupRequest $request DeleteBackupRequest
      *
-     * @param Request - DeleteBackupRequest
-     *
-     * @returns DeleteBackupResponse
-     *
-     * @param DeleteBackupRequest $request
-     *
-     * @return DeleteBackupResponse
+     * @return DeleteBackupResponse DeleteBackupResponse
      */
     public function deleteBackup($request)
     {
@@ -3609,52 +2996,40 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Deletes a vector collection.
+     * @summary Deletes a vector collection.
+     *  *
+     * @param DeleteCollectionRequest $request DeleteCollectionRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DeleteCollectionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteCollectionResponse
-     *
-     * @param DeleteCollectionRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return DeleteCollectionResponse
+     * @return DeleteCollectionResponse DeleteCollectionResponse
      */
     public function deleteCollectionWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->collection) {
-            @$query['Collection'] = $request->collection;
+        if (!Utils::isUnset($request->collection)) {
+            $query['Collection'] = $request->collection;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->namespace) {
-            @$query['Namespace'] = $request->namespace;
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
         }
-
-        if (null !== $request->namespacePassword) {
-            @$query['NamespacePassword'] = $request->namespacePassword;
+        if (!Utils::isUnset($request->namespacePassword)) {
+            $query['NamespacePassword'] = $request->namespacePassword;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->workspaceId) {
-            @$query['WorkspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteCollection',
@@ -3672,15 +3047,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Deletes a vector collection.
+     * @summary Deletes a vector collection.
+     *  *
+     * @param DeleteCollectionRequest $request DeleteCollectionRequest
      *
-     * @param Request - DeleteCollectionRequest
-     *
-     * @returns DeleteCollectionResponse
-     *
-     * @param DeleteCollectionRequest $request
-     *
-     * @return DeleteCollectionResponse
+     * @return DeleteCollectionResponse DeleteCollectionResponse
      */
     public function deleteCollection($request)
     {
@@ -3690,60 +3061,46 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Deletes vector data.
+     * @summary Deletes vector data.
+     *  *
+     * @param DeleteCollectionDataRequest $request DeleteCollectionDataRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DeleteCollectionDataRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteCollectionDataResponse
-     *
-     * @param DeleteCollectionDataRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DeleteCollectionDataResponse
+     * @return DeleteCollectionDataResponse DeleteCollectionDataResponse
      */
     public function deleteCollectionDataWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->collection) {
-            @$query['Collection'] = $request->collection;
+        if (!Utils::isUnset($request->collection)) {
+            $query['Collection'] = $request->collection;
         }
-
-        if (null !== $request->collectionData) {
-            @$query['CollectionData'] = $request->collectionData;
+        if (!Utils::isUnset($request->collectionData)) {
+            $query['CollectionData'] = $request->collectionData;
         }
-
-        if (null !== $request->collectionDataFilter) {
-            @$query['CollectionDataFilter'] = $request->collectionDataFilter;
+        if (!Utils::isUnset($request->collectionDataFilter)) {
+            $query['CollectionDataFilter'] = $request->collectionDataFilter;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->namespace) {
-            @$query['Namespace'] = $request->namespace;
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
         }
-
-        if (null !== $request->namespacePassword) {
-            @$query['NamespacePassword'] = $request->namespacePassword;
+        if (!Utils::isUnset($request->namespacePassword)) {
+            $query['NamespacePassword'] = $request->namespacePassword;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->workspaceId) {
-            @$query['WorkspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteCollectionData',
@@ -3761,15 +3118,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Deletes vector data.
+     * @summary Deletes vector data.
+     *  *
+     * @param DeleteCollectionDataRequest $request DeleteCollectionDataRequest
      *
-     * @param Request - DeleteCollectionDataRequest
-     *
-     * @returns DeleteCollectionDataResponse
-     *
-     * @param DeleteCollectionDataRequest $request
-     *
-     * @return DeleteCollectionDataResponse
+     * @return DeleteCollectionDataResponse DeleteCollectionDataResponse
      */
     public function deleteCollectionData($request)
     {
@@ -3779,46 +3132,36 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Releases a pay-as-you-go AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     *   Subscription instances cannot be manually released. They are automatically released when they expire.
+     * @summary Releases a pay-as-you-go AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description *   Subscription instances cannot be manually released. They are automatically released when they expire.
      * *   You can call this operation to release pay-as-you-go instances only when they are in the **Running** state.
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DeleteDBInstanceRequest $request DeleteDBInstanceRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DeleteDBInstanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteDBInstanceResponse
-     *
-     * @param DeleteDBInstanceRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return DeleteDBInstanceResponse
+     * @return DeleteDBInstanceResponse DeleteDBInstanceResponse
      */
     public function deleteDBInstanceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteDBInstance',
@@ -3836,21 +3179,16 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Releases a pay-as-you-go AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     *   Subscription instances cannot be manually released. They are automatically released when they expire.
+     * @summary Releases a pay-as-you-go AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description *   Subscription instances cannot be manually released. They are automatically released when they expire.
      * *   You can call this operation to release pay-as-you-go instances only when they are in the **Running** state.
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DeleteDBInstanceRequest $request DeleteDBInstanceRequest
      *
-     * @param Request - DeleteDBInstanceRequest
-     *
-     * @returns DeleteDBInstanceResponse
-     *
-     * @param DeleteDBInstanceRequest $request
-     *
-     * @return DeleteDBInstanceResponse
+     * @return DeleteDBInstanceResponse DeleteDBInstanceResponse
      */
     public function deleteDBInstance($request)
     {
@@ -3860,41 +3198,32 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Deletes a plan from an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * If you no longer need a plan, you can call this operation to delete the plan. The plan management feature is supported only for AnalyticDB for PostgreSQL instances in Serverless mode.
+     * @summary Deletes a plan from an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description If you no longer need a plan, you can call this operation to delete the plan. The plan management feature is supported only for AnalyticDB for PostgreSQL instances in Serverless mode.
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DeleteDBInstancePlanRequest $request DeleteDBInstancePlanRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DeleteDBInstancePlanRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteDBInstancePlanResponse
-     *
-     * @param DeleteDBInstancePlanRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DeleteDBInstancePlanResponse
+     * @return DeleteDBInstancePlanResponse DeleteDBInstancePlanResponse
      */
     public function deleteDBInstancePlanWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->planId) {
-            @$query['PlanId'] = $request->planId;
+        if (!Utils::isUnset($request->planId)) {
+            $query['PlanId'] = $request->planId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteDBInstancePlan',
@@ -3912,20 +3241,15 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Deletes a plan from an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * If you no longer need a plan, you can call this operation to delete the plan. The plan management feature is supported only for AnalyticDB for PostgreSQL instances in Serverless mode.
+     * @summary Deletes a plan from an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description If you no longer need a plan, you can call this operation to delete the plan. The plan management feature is supported only for AnalyticDB for PostgreSQL instances in Serverless mode.
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DeleteDBInstancePlanRequest $request DeleteDBInstancePlanRequest
      *
-     * @param Request - DeleteDBInstancePlanRequest
-     *
-     * @returns DeleteDBInstancePlanResponse
-     *
-     * @param DeleteDBInstancePlanRequest $request
-     *
-     * @return DeleteDBInstancePlanResponse
+     * @return DeleteDBInstancePlanResponse DeleteDBInstancePlanResponse
      */
     public function deleteDBInstancePlan($request)
     {
@@ -3935,36 +3259,28 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Deletes a resource group.
+     * @summary Deletes a resource group.
+     *  *
+     * @param DeleteDBResourceGroupRequest $request DeleteDBResourceGroupRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DeleteDBResourceGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteDBResourceGroupResponse
-     *
-     * @param DeleteDBResourceGroupRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DeleteDBResourceGroupResponse
+     * @return DeleteDBResourceGroupResponse DeleteDBResourceGroupResponse
      */
     public function deleteDBResourceGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceGroupName) {
-            @$query['ResourceGroupName'] = $request->resourceGroupName;
+        if (!Utils::isUnset($request->resourceGroupName)) {
+            $query['ResourceGroupName'] = $request->resourceGroupName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteDBResourceGroup',
@@ -3982,15 +3298,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Deletes a resource group.
+     * @summary Deletes a resource group.
+     *  *
+     * @param DeleteDBResourceGroupRequest $request DeleteDBResourceGroupRequest
      *
-     * @param Request - DeleteDBResourceGroupRequest
-     *
-     * @returns DeleteDBResourceGroupResponse
-     *
-     * @param DeleteDBResourceGroupRequest $request
-     *
-     * @return DeleteDBResourceGroupResponse
+     * @return DeleteDBResourceGroupResponse DeleteDBResourceGroupResponse
      */
     public function deleteDBResourceGroup($request)
     {
@@ -4000,52 +3312,40 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Delete Document.
+     * @summary Delete Document
+     *  *
+     * @param DeleteDocumentRequest $request DeleteDocumentRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DeleteDocumentRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteDocumentResponse
-     *
-     * @param DeleteDocumentRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return DeleteDocumentResponse
+     * @return DeleteDocumentResponse DeleteDocumentResponse
      */
     public function deleteDocumentWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->collection) {
-            @$query['Collection'] = $request->collection;
+        if (!Utils::isUnset($request->collection)) {
+            $query['Collection'] = $request->collection;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->fileName) {
-            @$query['FileName'] = $request->fileName;
+        if (!Utils::isUnset($request->fileName)) {
+            $query['FileName'] = $request->fileName;
         }
-
-        if (null !== $request->namespace) {
-            @$query['Namespace'] = $request->namespace;
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
         }
-
-        if (null !== $request->namespacePassword) {
-            @$query['NamespacePassword'] = $request->namespacePassword;
+        if (!Utils::isUnset($request->namespacePassword)) {
+            $query['NamespacePassword'] = $request->namespacePassword;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteDocument',
@@ -4063,15 +3363,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Delete Document.
+     * @summary Delete Document
+     *  *
+     * @param DeleteDocumentRequest $request DeleteDocumentRequest
      *
-     * @param Request - DeleteDocumentRequest
-     *
-     * @returns DeleteDocumentResponse
-     *
-     * @param DeleteDocumentRequest $request
-     *
-     * @return DeleteDocumentResponse
+     * @return DeleteDocumentResponse DeleteDocumentResponse
      */
     public function deleteDocument($request)
     {
@@ -4081,48 +3377,37 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Delete Knowledge Base.
+     * @summary Delete Knowledge Base
+     *  *
+     * @param DeleteDocumentCollectionRequest $request DeleteDocumentCollectionRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DeleteDocumentCollectionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteDocumentCollectionResponse
-     *
-     * @param DeleteDocumentCollectionRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return DeleteDocumentCollectionResponse
+     * @return DeleteDocumentCollectionResponse DeleteDocumentCollectionResponse
      */
     public function deleteDocumentCollectionWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->collection) {
-            @$query['Collection'] = $request->collection;
+        if (!Utils::isUnset($request->collection)) {
+            $query['Collection'] = $request->collection;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->namespace) {
-            @$query['Namespace'] = $request->namespace;
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
         }
-
-        if (null !== $request->namespacePassword) {
-            @$query['NamespacePassword'] = $request->namespacePassword;
+        if (!Utils::isUnset($request->namespacePassword)) {
+            $query['NamespacePassword'] = $request->namespacePassword;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteDocumentCollection',
@@ -4140,15 +3425,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Delete Knowledge Base.
+     * @summary Delete Knowledge Base
+     *  *
+     * @param DeleteDocumentCollectionRequest $request DeleteDocumentCollectionRequest
      *
-     * @param Request - DeleteDocumentCollectionRequest
-     *
-     * @returns DeleteDocumentCollectionResponse
-     *
-     * @param DeleteDocumentCollectionRequest $request
-     *
-     * @return DeleteDocumentCollectionResponse
+     * @return DeleteDocumentCollectionResponse DeleteDocumentCollectionResponse
      */
     public function deleteDocumentCollection($request)
     {
@@ -4158,40 +3439,31 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Uninstall an extension.
+     * @summary Uninstall an extension.
+     *  *
+     * @param DeleteExtensionRequest $request DeleteExtensionRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DeleteExtensionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteExtensionResponse
-     *
-     * @param DeleteExtensionRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return DeleteExtensionResponse
+     * @return DeleteExtensionResponse DeleteExtensionResponse
      */
     public function deleteExtensionWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->DBNames) {
-            @$query['DBNames'] = $request->DBNames;
+        if (!Utils::isUnset($request->DBNames)) {
+            $query['DBNames'] = $request->DBNames;
         }
-
-        if (null !== $request->extension) {
-            @$query['Extension'] = $request->extension;
+        if (!Utils::isUnset($request->extension)) {
+            $query['Extension'] = $request->extension;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteExtension',
@@ -4209,15 +3481,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Uninstall an extension.
+     * @summary Uninstall an extension.
+     *  *
+     * @param DeleteExtensionRequest $request DeleteExtensionRequest
      *
-     * @param Request - DeleteExtensionRequest
-     *
-     * @returns DeleteExtensionResponse
-     *
-     * @param DeleteExtensionRequest $request
-     *
-     * @return DeleteExtensionResponse
+     * @return DeleteExtensionResponse DeleteExtensionResponse
      */
     public function deleteExtension($request)
     {
@@ -4227,36 +3495,28 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Delete External Data Service.
+     * @summary Delete External Data Service
+     *  *
+     * @param DeleteExternalDataServiceRequest $request DeleteExternalDataServiceRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DeleteExternalDataServiceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteExternalDataServiceResponse
-     *
-     * @param DeleteExternalDataServiceRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DeleteExternalDataServiceResponse
+     * @return DeleteExternalDataServiceResponse DeleteExternalDataServiceResponse
      */
     public function deleteExternalDataServiceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->serviceId) {
-            @$query['ServiceId'] = $request->serviceId;
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['ServiceId'] = $request->serviceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteExternalDataService',
@@ -4274,15 +3534,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Delete External Data Service.
+     * @summary Delete External Data Service
+     *  *
+     * @param DeleteExternalDataServiceRequest $request DeleteExternalDataServiceRequest
      *
-     * @param Request - DeleteExternalDataServiceRequest
-     *
-     * @returns DeleteExternalDataServiceResponse
-     *
-     * @param DeleteExternalDataServiceRequest $request
-     *
-     * @return DeleteExternalDataServiceResponse
+     * @return DeleteExternalDataServiceResponse DeleteExternalDataServiceResponse
      */
     public function deleteExternalDataService($request)
     {
@@ -4292,36 +3548,28 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 删除hadoop数据源.
+     * @summary 删除hadoop数据源
+     *  *
+     * @param DeleteHadoopDataSourceRequest $request DeleteHadoopDataSourceRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DeleteHadoopDataSourceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteHadoopDataSourceResponse
-     *
-     * @param DeleteHadoopDataSourceRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return DeleteHadoopDataSourceResponse
+     * @return DeleteHadoopDataSourceResponse DeleteHadoopDataSourceResponse
      */
     public function deleteHadoopDataSourceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->dataSourceId) {
-            @$query['DataSourceId'] = $request->dataSourceId;
+        if (!Utils::isUnset($request->dataSourceId)) {
+            $query['DataSourceId'] = $request->dataSourceId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteHadoopDataSource',
@@ -4339,15 +3587,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 删除hadoop数据源.
+     * @summary 删除hadoop数据源
+     *  *
+     * @param DeleteHadoopDataSourceRequest $request DeleteHadoopDataSourceRequest
      *
-     * @param Request - DeleteHadoopDataSourceRequest
-     *
-     * @returns DeleteHadoopDataSourceResponse
-     *
-     * @param DeleteHadoopDataSourceRequest $request
-     *
-     * @return DeleteHadoopDataSourceResponse
+     * @return DeleteHadoopDataSourceResponse DeleteHadoopDataSourceResponse
      */
     public function deleteHadoopDataSource($request)
     {
@@ -4357,56 +3601,43 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 删除索引.
+     * @summary 删除索引
+     *  *
+     * @param DeleteIndexRequest $request DeleteIndexRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DeleteIndexRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteIndexResponse
-     *
-     * @param DeleteIndexRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return DeleteIndexResponse
+     * @return DeleteIndexResponse DeleteIndexResponse
      */
     public function deleteIndexWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->collection) {
-            @$query['Collection'] = $request->collection;
+        if (!Utils::isUnset($request->collection)) {
+            $query['Collection'] = $request->collection;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->indexName) {
-            @$query['IndexName'] = $request->indexName;
+        if (!Utils::isUnset($request->indexName)) {
+            $query['IndexName'] = $request->indexName;
         }
-
-        if (null !== $request->namespace) {
-            @$query['Namespace'] = $request->namespace;
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
         }
-
-        if (null !== $request->namespacePassword) {
-            @$query['NamespacePassword'] = $request->namespacePassword;
+        if (!Utils::isUnset($request->namespacePassword)) {
+            $query['NamespacePassword'] = $request->namespacePassword;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->workspaceId) {
-            @$query['WorkspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteIndex',
@@ -4424,15 +3655,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 删除索引.
+     * @summary 删除索引
+     *  *
+     * @param DeleteIndexRequest $request DeleteIndexRequest
      *
-     * @param Request - DeleteIndexRequest
-     *
-     * @returns DeleteIndexResponse
-     *
-     * @param DeleteIndexRequest $request
-     *
-     * @return DeleteIndexResponse
+     * @return DeleteIndexResponse DeleteIndexResponse
      */
     public function deleteIndex($request)
     {
@@ -4442,36 +3669,28 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Delete JDBC data source.
+     * @summary Delete JDBC data source
+     *  *
+     * @param DeleteJDBCDataSourceRequest $request DeleteJDBCDataSourceRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DeleteJDBCDataSourceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteJDBCDataSourceResponse
-     *
-     * @param DeleteJDBCDataSourceRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DeleteJDBCDataSourceResponse
+     * @return DeleteJDBCDataSourceResponse DeleteJDBCDataSourceResponse
      */
     public function deleteJDBCDataSourceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->dataSourceId) {
-            @$query['DataSourceId'] = $request->dataSourceId;
+        if (!Utils::isUnset($request->dataSourceId)) {
+            $query['DataSourceId'] = $request->dataSourceId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteJDBCDataSource',
@@ -4489,15 +3708,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Delete JDBC data source.
+     * @summary Delete JDBC data source
+     *  *
+     * @param DeleteJDBCDataSourceRequest $request DeleteJDBCDataSourceRequest
      *
-     * @param Request - DeleteJDBCDataSourceRequest
-     *
-     * @returns DeleteJDBCDataSourceResponse
-     *
-     * @param DeleteJDBCDataSourceRequest $request
-     *
-     * @return DeleteJDBCDataSourceResponse
+     * @return DeleteJDBCDataSourceResponse DeleteJDBCDataSourceResponse
      */
     public function deleteJDBCDataSource($request)
     {
@@ -4507,52 +3722,40 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Deletes a namespace.
+     * @summary Deletes a namespace.
+     *  *
+     * @param DeleteNamespaceRequest $request DeleteNamespaceRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DeleteNamespaceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteNamespaceResponse
-     *
-     * @param DeleteNamespaceRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return DeleteNamespaceResponse
+     * @return DeleteNamespaceResponse DeleteNamespaceResponse
      */
     public function deleteNamespaceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->managerAccount) {
-            @$query['ManagerAccount'] = $request->managerAccount;
+        if (!Utils::isUnset($request->managerAccount)) {
+            $query['ManagerAccount'] = $request->managerAccount;
         }
-
-        if (null !== $request->managerAccountPassword) {
-            @$query['ManagerAccountPassword'] = $request->managerAccountPassword;
+        if (!Utils::isUnset($request->managerAccountPassword)) {
+            $query['ManagerAccountPassword'] = $request->managerAccountPassword;
         }
-
-        if (null !== $request->namespace) {
-            @$query['Namespace'] = $request->namespace;
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->workspaceId) {
-            @$query['WorkspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteNamespace',
@@ -4570,15 +3773,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Deletes a namespace.
+     * @summary Deletes a namespace.
+     *  *
+     * @param DeleteNamespaceRequest $request DeleteNamespaceRequest
      *
-     * @param Request - DeleteNamespaceRequest
-     *
-     * @returns DeleteNamespaceResponse
-     *
-     * @param DeleteNamespaceRequest $request
-     *
-     * @return DeleteNamespaceResponse
+     * @return DeleteNamespaceResponse DeleteNamespaceResponse
      */
     public function deleteNamespace($request)
     {
@@ -4588,36 +3787,28 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Deletes a remote AnalyticDB data source.
+     * @summary Deletes a remote AnalyticDB data source.
+     *  *
+     * @param DeleteRemoteADBDataSourceRequest $request DeleteRemoteADBDataSourceRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DeleteRemoteADBDataSourceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteRemoteADBDataSourceResponse
-     *
-     * @param DeleteRemoteADBDataSourceRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DeleteRemoteADBDataSourceResponse
+     * @return DeleteRemoteADBDataSourceResponse DeleteRemoteADBDataSourceResponse
      */
     public function deleteRemoteADBDataSourceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->dataSourceId) {
-            @$query['DataSourceId'] = $request->dataSourceId;
+        if (!Utils::isUnset($request->dataSourceId)) {
+            $query['DataSourceId'] = $request->dataSourceId;
         }
-
-        if (null !== $request->localDBInstanceId) {
-            @$query['LocalDBInstanceId'] = $request->localDBInstanceId;
+        if (!Utils::isUnset($request->localDBInstanceId)) {
+            $query['LocalDBInstanceId'] = $request->localDBInstanceId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteRemoteADBDataSource',
@@ -4635,15 +3826,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Deletes a remote AnalyticDB data source.
+     * @summary Deletes a remote AnalyticDB data source.
+     *  *
+     * @param DeleteRemoteADBDataSourceRequest $request DeleteRemoteADBDataSourceRequest
      *
-     * @param Request - DeleteRemoteADBDataSourceRequest
-     *
-     * @returns DeleteRemoteADBDataSourceResponse
-     *
-     * @param DeleteRemoteADBDataSourceRequest $request
-     *
-     * @return DeleteRemoteADBDataSourceResponse
+     * @return DeleteRemoteADBDataSourceResponse DeleteRemoteADBDataSourceResponse
      */
     public function deleteRemoteADBDataSource($request)
     {
@@ -4653,48 +3840,37 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Deletes the access credentials of an AnalyticDB for PostgreSQL instance.
+     * @summary Deletes the access credentials of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @param DeleteSecretRequest $request DeleteSecretRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DeleteSecretRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteSecretResponse
-     *
-     * @param DeleteSecretRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return DeleteSecretResponse
+     * @return DeleteSecretResponse DeleteSecretResponse
      */
     public function deleteSecretWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->secretArn) {
-            @$query['SecretArn'] = $request->secretArn;
+        if (!Utils::isUnset($request->secretArn)) {
+            $query['SecretArn'] = $request->secretArn;
         }
-
-        if (null !== $request->secretName) {
-            @$query['SecretName'] = $request->secretName;
+        if (!Utils::isUnset($request->secretName)) {
+            $query['SecretName'] = $request->secretName;
         }
-
-        if (null !== $request->workspaceId) {
-            @$query['WorkspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteSecret',
@@ -4712,15 +3888,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Deletes the access credentials of an AnalyticDB for PostgreSQL instance.
+     * @summary Deletes the access credentials of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @param DeleteSecretRequest $request DeleteSecretRequest
      *
-     * @param Request - DeleteSecretRequest
-     *
-     * @returns DeleteSecretResponse
-     *
-     * @param DeleteSecretRequest $request
-     *
-     * @return DeleteSecretResponse
+     * @return DeleteSecretResponse DeleteSecretResponse
      */
     public function deleteSecret($request)
     {
@@ -4730,36 +3902,28 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Deletes a real-time data service.
+     * @summary Deletes a real-time data service.
+     *  *
+     * @param DeleteStreamingDataServiceRequest $request DeleteStreamingDataServiceRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DeleteStreamingDataServiceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteStreamingDataServiceResponse
-     *
-     * @param DeleteStreamingDataServiceRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return DeleteStreamingDataServiceResponse
+     * @return DeleteStreamingDataServiceResponse DeleteStreamingDataServiceResponse
      */
     public function deleteStreamingDataServiceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->serviceId) {
-            @$query['ServiceId'] = $request->serviceId;
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['ServiceId'] = $request->serviceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteStreamingDataService',
@@ -4777,15 +3941,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Deletes a real-time data service.
+     * @summary Deletes a real-time data service.
+     *  *
+     * @param DeleteStreamingDataServiceRequest $request DeleteStreamingDataServiceRequest
      *
-     * @param Request - DeleteStreamingDataServiceRequest
-     *
-     * @returns DeleteStreamingDataServiceResponse
-     *
-     * @param DeleteStreamingDataServiceRequest $request
-     *
-     * @return DeleteStreamingDataServiceResponse
+     * @return DeleteStreamingDataServiceResponse DeleteStreamingDataServiceResponse
      */
     public function deleteStreamingDataService($request)
     {
@@ -4795,36 +3955,28 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Deletes a real-time data source.
+     * @summary Deletes a real-time data source.
+     *  *
+     * @param DeleteStreamingDataSourceRequest $request DeleteStreamingDataSourceRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DeleteStreamingDataSourceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteStreamingDataSourceResponse
-     *
-     * @param DeleteStreamingDataSourceRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DeleteStreamingDataSourceResponse
+     * @return DeleteStreamingDataSourceResponse DeleteStreamingDataSourceResponse
      */
     public function deleteStreamingDataSourceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->dataSourceId) {
-            @$query['DataSourceId'] = $request->dataSourceId;
+        if (!Utils::isUnset($request->dataSourceId)) {
+            $query['DataSourceId'] = $request->dataSourceId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteStreamingDataSource',
@@ -4842,15 +3994,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Deletes a real-time data source.
+     * @summary Deletes a real-time data source.
+     *  *
+     * @param DeleteStreamingDataSourceRequest $request DeleteStreamingDataSourceRequest
      *
-     * @param Request - DeleteStreamingDataSourceRequest
-     *
-     * @returns DeleteStreamingDataSourceResponse
-     *
-     * @param DeleteStreamingDataSourceRequest $request
-     *
-     * @return DeleteStreamingDataSourceResponse
+     * @return DeleteStreamingDataSourceResponse DeleteStreamingDataSourceResponse
      */
     public function deleteStreamingDataSource($request)
     {
@@ -4860,36 +4008,28 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Deletes a real-time data service job.
+     * @summary Deletes a real-time data service job.
+     *  *
+     * @param DeleteStreamingJobRequest $request DeleteStreamingJobRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DeleteStreamingJobRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteStreamingJobResponse
-     *
-     * @param DeleteStreamingJobRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DeleteStreamingJobResponse
+     * @return DeleteStreamingJobResponse DeleteStreamingJobResponse
      */
     public function deleteStreamingJobWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->jobId) {
-            @$query['JobId'] = $request->jobId;
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteStreamingJob',
@@ -4907,15 +4047,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Deletes a real-time data service job.
+     * @summary Deletes a real-time data service job.
+     *  *
+     * @param DeleteStreamingJobRequest $request DeleteStreamingJobRequest
      *
-     * @param Request - DeleteStreamingJobRequest
-     *
-     * @returns DeleteStreamingJobResponse
-     *
-     * @param DeleteStreamingJobRequest $request
-     *
-     * @return DeleteStreamingJobResponse
+     * @return DeleteStreamingJobResponse DeleteStreamingJobResponse
      */
     public function deleteStreamingJob($request)
     {
@@ -4925,32 +4061,25 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 删除Supabase实例.
+     * @summary 删除Supabase实例
+     *  *
+     * @param DeleteSupabaseProjectRequest $request DeleteSupabaseProjectRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DeleteSupabaseProjectRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteSupabaseProjectResponse
-     *
-     * @param DeleteSupabaseProjectRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DeleteSupabaseProjectResponse
+     * @return DeleteSupabaseProjectResponse DeleteSupabaseProjectResponse
      */
     public function deleteSupabaseProjectWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->projectId) {
-            @$query['ProjectId'] = $request->projectId;
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteSupabaseProject',
@@ -4968,15 +4097,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 删除Supabase实例.
+     * @summary 删除Supabase实例
+     *  *
+     * @param DeleteSupabaseProjectRequest $request DeleteSupabaseProjectRequest
      *
-     * @param Request - DeleteSupabaseProjectRequest
-     *
-     * @returns DeleteSupabaseProjectResponse
-     *
-     * @param DeleteSupabaseProjectRequest $request
-     *
-     * @return DeleteSupabaseProjectResponse
+     * @return DeleteSupabaseProjectResponse DeleteSupabaseProjectResponse
      */
     public function deleteSupabaseProject($request)
     {
@@ -4986,56 +4111,43 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Deletes a vector index.
+     * @summary Deletes a vector index.
+     *  *
+     * @param DeleteVectorIndexRequest $request DeleteVectorIndexRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DeleteVectorIndexRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteVectorIndexResponse
-     *
-     * @param DeleteVectorIndexRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return DeleteVectorIndexResponse
+     * @return DeleteVectorIndexResponse DeleteVectorIndexResponse
      */
     public function deleteVectorIndexWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->collection) {
-            @$query['Collection'] = $request->collection;
+        if (!Utils::isUnset($request->collection)) {
+            $query['Collection'] = $request->collection;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->managerAccount) {
-            @$query['ManagerAccount'] = $request->managerAccount;
+        if (!Utils::isUnset($request->managerAccount)) {
+            $query['ManagerAccount'] = $request->managerAccount;
         }
-
-        if (null !== $request->managerAccountPassword) {
-            @$query['ManagerAccountPassword'] = $request->managerAccountPassword;
+        if (!Utils::isUnset($request->managerAccountPassword)) {
+            $query['ManagerAccountPassword'] = $request->managerAccountPassword;
         }
-
-        if (null !== $request->namespace) {
-            @$query['Namespace'] = $request->namespace;
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->type) {
-            @$query['Type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteVectorIndex',
@@ -5053,15 +4165,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Deletes a vector index.
+     * @summary Deletes a vector index.
+     *  *
+     * @param DeleteVectorIndexRequest $request DeleteVectorIndexRequest
      *
-     * @param Request - DeleteVectorIndexRequest
-     *
-     * @returns DeleteVectorIndexResponse
-     *
-     * @param DeleteVectorIndexRequest $request
-     *
-     * @return DeleteVectorIndexResponse
+     * @return DeleteVectorIndexResponse DeleteVectorIndexResponse
      */
     public function deleteVectorIndex($request)
     {
@@ -5071,41 +4179,32 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the information about database accounts for an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * This operation is called to query the information of the privileged account in an AnalyticDB for PostgreSQL instance, such as its state, description, and the instance.
+     * @summary Queries the information about database accounts for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description This operation is called to query the information of the privileged account in an AnalyticDB for PostgreSQL instance, such as its state, description, and the instance.
      * ## Limit
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeAccountsRequest $request DescribeAccountsRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DescribeAccountsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeAccountsResponse
-     *
-     * @param DescribeAccountsRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return DescribeAccountsResponse
+     * @return DescribeAccountsResponse DescribeAccountsResponse
      */
     public function describeAccountsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountName) {
-            @$query['AccountName'] = $request->accountName;
+        if (!Utils::isUnset($request->accountName)) {
+            $query['AccountName'] = $request->accountName;
         }
-
-        if (null !== $request->accountType) {
-            @$query['AccountType'] = $request->accountType;
+        if (!Utils::isUnset($request->accountType)) {
+            $query['AccountType'] = $request->accountType;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeAccounts',
@@ -5123,20 +4222,15 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the information about database accounts for an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * This operation is called to query the information of the privileged account in an AnalyticDB for PostgreSQL instance, such as its state, description, and the instance.
+     * @summary Queries the information about database accounts for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description This operation is called to query the information of the privileged account in an AnalyticDB for PostgreSQL instance, such as its state, description, and the instance.
      * ## Limit
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeAccountsRequest $request DescribeAccountsRequest
      *
-     * @param Request - DescribeAccountsRequest
-     *
-     * @returns DescribeAccountsResponse
-     *
-     * @param DescribeAccountsRequest $request
-     *
-     * @return DescribeAccountsResponse
+     * @return DescribeAccountsResponse DescribeAccountsResponse
      */
     public function describeAccounts($request)
     {
@@ -5146,60 +4240,46 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries active SQL records.
+     * @summary Queries active SQL records.
+     *  *
+     * @param DescribeActiveSQLRecordsRequest $request DescribeActiveSQLRecordsRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DescribeActiveSQLRecordsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeActiveSQLRecordsResponse
-     *
-     * @param DescribeActiveSQLRecordsRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return DescribeActiveSQLRecordsResponse
+     * @return DescribeActiveSQLRecordsResponse DescribeActiveSQLRecordsResponse
      */
     public function describeActiveSQLRecordsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->database) {
-            @$query['Database'] = $request->database;
+        if (!Utils::isUnset($request->database)) {
+            $query['Database'] = $request->database;
         }
-
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->keyword) {
-            @$query['Keyword'] = $request->keyword;
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
         }
-
-        if (null !== $request->maxDuration) {
-            @$query['MaxDuration'] = $request->maxDuration;
+        if (!Utils::isUnset($request->maxDuration)) {
+            $query['MaxDuration'] = $request->maxDuration;
         }
-
-        if (null !== $request->minDuration) {
-            @$query['MinDuration'] = $request->minDuration;
+        if (!Utils::isUnset($request->minDuration)) {
+            $query['MinDuration'] = $request->minDuration;
         }
-
-        if (null !== $request->order) {
-            @$query['Order'] = $request->order;
+        if (!Utils::isUnset($request->order)) {
+            $query['Order'] = $request->order;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
-        if (null !== $request->user) {
-            @$query['User'] = $request->user;
+        if (!Utils::isUnset($request->user)) {
+            $query['User'] = $request->user;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeActiveSQLRecords',
@@ -5217,15 +4297,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries active SQL records.
+     * @summary Queries active SQL records.
+     *  *
+     * @param DescribeActiveSQLRecordsRequest $request DescribeActiveSQLRecordsRequest
      *
-     * @param Request - DescribeActiveSQLRecordsRequest
-     *
-     * @returns DescribeActiveSQLRecordsResponse
-     *
-     * @param DescribeActiveSQLRecordsRequest $request
-     *
-     * @return DescribeActiveSQLRecordsResponse
+     * @return DescribeActiveSQLRecordsResponse DescribeActiveSQLRecordsResponse
      */
     public function describeActiveSQLRecords($request)
     {
@@ -5235,39 +4311,30 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the information about available resources of AnalyticDB for PostgreSQL.
+     * @summary Queries the information about available resources of AnalyticDB for PostgreSQL.
+     *  *
+     * @description When you create an AnalyticDB for PostgreSQL instance, you can call this operation to query the available resources within a zone.
+     *  *
+     * @param DescribeAvailableResourcesRequest $request DescribeAvailableResourcesRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * When you create an AnalyticDB for PostgreSQL instance, you can call this operation to query the available resources within a zone.
-     *
-     * @param Request - DescribeAvailableResourcesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeAvailableResourcesResponse
-     *
-     * @param DescribeAvailableResourcesRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return DescribeAvailableResourcesResponse
+     * @return DescribeAvailableResourcesResponse DescribeAvailableResourcesResponse
      */
     public function describeAvailableResourcesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->chargeType) {
-            @$query['ChargeType'] = $request->chargeType;
+        if (!Utils::isUnset($request->chargeType)) {
+            $query['ChargeType'] = $request->chargeType;
         }
-
-        if (null !== $request->region) {
-            @$query['Region'] = $request->region;
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
         }
-
-        if (null !== $request->zoneId) {
-            @$query['ZoneId'] = $request->zoneId;
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeAvailableResources',
@@ -5285,18 +4352,13 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the information about available resources of AnalyticDB for PostgreSQL.
+     * @summary Queries the information about available resources of AnalyticDB for PostgreSQL.
+     *  *
+     * @description When you create an AnalyticDB for PostgreSQL instance, you can call this operation to query the available resources within a zone.
+     *  *
+     * @param DescribeAvailableResourcesRequest $request DescribeAvailableResourcesRequest
      *
-     * @remarks
-     * When you create an AnalyticDB for PostgreSQL instance, you can call this operation to query the available resources within a zone.
-     *
-     * @param Request - DescribeAvailableResourcesRequest
-     *
-     * @returns DescribeAvailableResourcesResponse
-     *
-     * @param DescribeAvailableResourcesRequest $request
-     *
-     * @return DescribeAvailableResourcesResponse
+     * @return DescribeAvailableResourcesResponse DescribeAvailableResourcesResponse
      */
     public function describeAvailableResources($request)
     {
@@ -5306,32 +4368,25 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 获取备份任务详情.
+     * @summary 获取备份任务详情
+     *  *
+     * @param DescribeBackupJobRequest $request DescribeBackupJobRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DescribeBackupJobRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeBackupJobResponse
-     *
-     * @param DescribeBackupJobRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return DescribeBackupJobResponse
+     * @return DescribeBackupJobResponse DescribeBackupJobResponse
      */
     public function describeBackupJobWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->backupJobId) {
-            @$query['BackupJobId'] = $request->backupJobId;
+        if (!Utils::isUnset($request->backupJobId)) {
+            $query['BackupJobId'] = $request->backupJobId;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeBackupJob',
@@ -5349,15 +4404,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 获取备份任务详情.
+     * @summary 获取备份任务详情
+     *  *
+     * @param DescribeBackupJobRequest $request DescribeBackupJobRequest
      *
-     * @param Request - DescribeBackupJobRequest
-     *
-     * @returns DescribeBackupJobResponse
-     *
-     * @param DescribeBackupJobRequest $request
-     *
-     * @return DescribeBackupJobResponse
+     * @return DescribeBackupJobResponse DescribeBackupJobResponse
      */
     public function describeBackupJob($request)
     {
@@ -5367,33 +4418,26 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the backup policy of an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * You can call this operation to query the backup settings of an AnalyticDB for PostgreSQL instance in elastic storage mode. Periodically backing data can prevent data loss. For more information about how to modify backup policies, see [ModifyBackupPolicy](https://help.aliyun.com/document_detail/210095.html).
+     * @summary Queries the backup policy of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to query the backup settings of an AnalyticDB for PostgreSQL instance in elastic storage mode. Periodically backing data can prevent data loss. For more information about how to modify backup policies, see [ModifyBackupPolicy](https://help.aliyun.com/document_detail/210095.html).
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeBackupPolicyRequest $request DescribeBackupPolicyRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DescribeBackupPolicyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeBackupPolicyResponse
-     *
-     * @param DescribeBackupPolicyRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DescribeBackupPolicyResponse
+     * @return DescribeBackupPolicyResponse DescribeBackupPolicyResponse
      */
     public function describeBackupPolicyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeBackupPolicy',
@@ -5411,20 +4455,15 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the backup policy of an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * You can call this operation to query the backup settings of an AnalyticDB for PostgreSQL instance in elastic storage mode. Periodically backing data can prevent data loss. For more information about how to modify backup policies, see [ModifyBackupPolicy](https://help.aliyun.com/document_detail/210095.html).
+     * @summary Queries the backup policy of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to query the backup settings of an AnalyticDB for PostgreSQL instance in elastic storage mode. Periodically backing data can prevent data loss. For more information about how to modify backup policies, see [ModifyBackupPolicy](https://help.aliyun.com/document_detail/210095.html).
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeBackupPolicyRequest $request DescribeBackupPolicyRequest
      *
-     * @param Request - DescribeBackupPolicyRequest
-     *
-     * @returns DescribeBackupPolicyResponse
-     *
-     * @param DescribeBackupPolicyRequest $request
-     *
-     * @return DescribeBackupPolicyResponse
+     * @return DescribeBackupPolicyResponse DescribeBackupPolicyResponse
      */
     public function describeBackupPolicy($request)
     {
@@ -5434,52 +4473,40 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the information about a vector collection.
+     * @summary Queries the information about a vector collection.
+     *  *
+     * @param DescribeCollectionRequest $request DescribeCollectionRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DescribeCollectionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeCollectionResponse
-     *
-     * @param DescribeCollectionRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DescribeCollectionResponse
+     * @return DescribeCollectionResponse DescribeCollectionResponse
      */
     public function describeCollectionWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->collection) {
-            @$query['Collection'] = $request->collection;
+        if (!Utils::isUnset($request->collection)) {
+            $query['Collection'] = $request->collection;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->namespace) {
-            @$query['Namespace'] = $request->namespace;
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
         }
-
-        if (null !== $request->namespacePassword) {
-            @$query['NamespacePassword'] = $request->namespacePassword;
+        if (!Utils::isUnset($request->namespacePassword)) {
+            $query['NamespacePassword'] = $request->namespacePassword;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->workspaceId) {
-            @$query['WorkspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeCollection',
@@ -5497,15 +4524,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the information about a vector collection.
+     * @summary Queries the information about a vector collection.
+     *  *
+     * @param DescribeCollectionRequest $request DescribeCollectionRequest
      *
-     * @param Request - DescribeCollectionRequest
-     *
-     * @returns DescribeCollectionResponse
-     *
-     * @param DescribeCollectionRequest $request
-     *
-     * @return DescribeCollectionResponse
+     * @return DescribeCollectionResponse DescribeCollectionResponse
      */
     public function describeCollection($request)
     {
@@ -5515,56 +4538,43 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 获取创建索引任务
+     * @summary 获取创建索引任务
+     *  *
+     * @param DescribeCreateIndexJobRequest $request DescribeCreateIndexJobRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DescribeCreateIndexJobRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeCreateIndexJobResponse
-     *
-     * @param DescribeCreateIndexJobRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return DescribeCreateIndexJobResponse
+     * @return DescribeCreateIndexJobResponse DescribeCreateIndexJobResponse
      */
     public function describeCreateIndexJobWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->collection) {
-            @$query['Collection'] = $request->collection;
+        if (!Utils::isUnset($request->collection)) {
+            $query['Collection'] = $request->collection;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->jobId) {
-            @$query['JobId'] = $request->jobId;
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
         }
-
-        if (null !== $request->namespace) {
-            @$query['Namespace'] = $request->namespace;
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
         }
-
-        if (null !== $request->namespacePassword) {
-            @$query['NamespacePassword'] = $request->namespacePassword;
+        if (!Utils::isUnset($request->namespacePassword)) {
+            $query['NamespacePassword'] = $request->namespacePassword;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->workspaceId) {
-            @$query['WorkspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeCreateIndexJob',
@@ -5582,15 +4592,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 获取创建索引任务
+     * @summary 获取创建索引任务
+     *  *
+     * @param DescribeCreateIndexJobRequest $request DescribeCreateIndexJobRequest
      *
-     * @param Request - DescribeCreateIndexJobRequest
-     *
-     * @returns DescribeCreateIndexJobResponse
-     *
-     * @param DescribeCreateIndexJobRequest $request
-     *
-     * @return DescribeCreateIndexJobResponse
+     * @return DescribeCreateIndexJobResponse DescribeCreateIndexJobResponse
      */
     public function describeCreateIndexJob($request)
     {
@@ -5600,38 +4606,30 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries a list of nodes in an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * ##
+     * @summary Queries a list of nodes in an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description ##
      * You can call this operation to query the information about coordinator and compute nodes in an AnalyticDB for PostgreSQL instance in elastic storage mode or Serverless mode.
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeDBClusterNodeRequest $request DescribeDBClusterNodeRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DescribeDBClusterNodeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDBClusterNodeResponse
-     *
-     * @param DescribeDBClusterNodeRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DescribeDBClusterNodeResponse
+     * @return DescribeDBClusterNodeResponse DescribeDBClusterNodeResponse
      */
     public function describeDBClusterNodeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->nodeType) {
-            @$query['NodeType'] = $request->nodeType;
+        if (!Utils::isUnset($request->nodeType)) {
+            $query['NodeType'] = $request->nodeType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDBClusterNode',
@@ -5649,21 +4647,16 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries a list of nodes in an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * ##
+     * @summary Queries a list of nodes in an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description ##
      * You can call this operation to query the information about coordinator and compute nodes in an AnalyticDB for PostgreSQL instance in elastic storage mode or Serverless mode.
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeDBClusterNodeRequest $request DescribeDBClusterNodeRequest
      *
-     * @param Request - DescribeDBClusterNodeRequest
-     *
-     * @returns DescribeDBClusterNodeResponse
-     *
-     * @param DescribeDBClusterNodeRequest $request
-     *
-     * @return DescribeDBClusterNodeResponse
+     * @return DescribeDBClusterNodeResponse DescribeDBClusterNodeResponse
      */
     public function describeDBClusterNode($request)
     {
@@ -5673,55 +4666,42 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the information about performance metrics of an AnalyticDB for PostgreSQL instance within a time range.
+     * @summary Queries the information about performance metrics of an AnalyticDB for PostgreSQL instance within a time range.
+     *  *
+     * @description You can query monitoring information only within the last 30 days.
+     *  *
+     * @param DescribeDBClusterPerformanceRequest $request DescribeDBClusterPerformanceRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can query monitoring information only within the last 30 days.
-     *
-     * @param Request - DescribeDBClusterPerformanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDBClusterPerformanceResponse
-     *
-     * @param DescribeDBClusterPerformanceRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return DescribeDBClusterPerformanceResponse
+     * @return DescribeDBClusterPerformanceResponse DescribeDBClusterPerformanceResponse
      */
     public function describeDBClusterPerformanceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->key) {
-            @$query['Key'] = $request->key;
+        if (!Utils::isUnset($request->key)) {
+            $query['Key'] = $request->key;
         }
-
-        if (null !== $request->nodeType) {
-            @$query['NodeType'] = $request->nodeType;
+        if (!Utils::isUnset($request->nodeType)) {
+            $query['NodeType'] = $request->nodeType;
         }
-
-        if (null !== $request->nodes) {
-            @$query['Nodes'] = $request->nodes;
+        if (!Utils::isUnset($request->nodes)) {
+            $query['Nodes'] = $request->nodes;
         }
-
-        if (null !== $request->resourceGroupName) {
-            @$query['ResourceGroupName'] = $request->resourceGroupName;
+        if (!Utils::isUnset($request->resourceGroupName)) {
+            $query['ResourceGroupName'] = $request->resourceGroupName;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDBClusterPerformance',
@@ -5739,18 +4719,13 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the information about performance metrics of an AnalyticDB for PostgreSQL instance within a time range.
+     * @summary Queries the information about performance metrics of an AnalyticDB for PostgreSQL instance within a time range.
+     *  *
+     * @description You can query monitoring information only within the last 30 days.
+     *  *
+     * @param DescribeDBClusterPerformanceRequest $request DescribeDBClusterPerformanceRequest
      *
-     * @remarks
-     * You can query monitoring information only within the last 30 days.
-     *
-     * @param Request - DescribeDBClusterPerformanceRequest
-     *
-     * @returns DescribeDBClusterPerformanceResponse
-     *
-     * @param DescribeDBClusterPerformanceRequest $request
-     *
-     * @return DescribeDBClusterPerformanceResponse
+     * @return DescribeDBClusterPerformanceResponse DescribeDBClusterPerformanceResponse
      */
     public function describeDBClusterPerformance($request)
     {
@@ -5760,43 +4735,34 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Query detailed information about the instance.
-     *
-     * @remarks
-     * ## Usage Instructions
+     * @summary Query detailed information about the instance.
+     *  *
+     * @description ## Usage Instructions
      * This interface is generally used to view information such as the specifications, network type, and instance status of AnalyticDB for PostgreSQL instances.
      * ## QPS Limitation
      * The default single-user QPS limit for this interface is 1000 times/second. If the limit is exceeded, API calls will be throttled, which may affect your business. Please use it reasonably.
      * <props="china">The QPS in this document is only a default reference value. For accurate information, please refer to the [API Rate Quota List](https://quotas.console.aliyun.com/flow-control-products/gpdb/quotas).
+     *  *
+     * @param DescribeDBInstanceAttributeRequest $request DescribeDBInstanceAttributeRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DescribeDBInstanceAttributeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDBInstanceAttributeResponse
-     *
-     * @param DescribeDBInstanceAttributeRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return DescribeDBInstanceAttributeResponse
+     * @return DescribeDBInstanceAttributeResponse DescribeDBInstanceAttributeResponse
      */
     public function describeDBInstanceAttributeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDBInstanceAttribute',
@@ -5814,22 +4780,17 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Query detailed information about the instance.
-     *
-     * @remarks
-     * ## Usage Instructions
+     * @summary Query detailed information about the instance.
+     *  *
+     * @description ## Usage Instructions
      * This interface is generally used to view information such as the specifications, network type, and instance status of AnalyticDB for PostgreSQL instances.
      * ## QPS Limitation
      * The default single-user QPS limit for this interface is 1000 times/second. If the limit is exceeded, API calls will be throttled, which may affect your business. Please use it reasonably.
      * <props="china">The QPS in this document is only a default reference value. For accurate information, please refer to the [API Rate Quota List](https://quotas.console.aliyun.com/flow-control-products/gpdb/quotas).
+     *  *
+     * @param DescribeDBInstanceAttributeRequest $request DescribeDBInstanceAttributeRequest
      *
-     * @param Request - DescribeDBInstanceAttributeRequest
-     *
-     * @returns DescribeDBInstanceAttributeResponse
-     *
-     * @param DescribeDBInstanceAttributeRequest $request
-     *
-     * @return DescribeDBInstanceAttributeResponse
+     * @return DescribeDBInstanceAttributeResponse DescribeDBInstanceAttributeResponse
      */
     public function describeDBInstanceAttribute($request)
     {
@@ -5839,49 +4800,38 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the information about data bloat for an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * You can call this operation to query the details of data bloat on an AnalyticDB for PostgreSQL instance in elastic storage mode. The minor version of the instance must be V6.3.10.1 or later. For more information about how to view and update the minor version of an instance, see [View the minor engine version](https://help.aliyun.com/document_detail/277424.html) and [Update the minor engine version](https://help.aliyun.com/document_detail/139271.html).
+     * @summary Queries the information about data bloat for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to query the details of data bloat on an AnalyticDB for PostgreSQL instance in elastic storage mode. The minor version of the instance must be V6.3.10.1 or later. For more information about how to view and update the minor version of an instance, see [View the minor engine version](https://help.aliyun.com/document_detail/277424.html) and [Update the minor engine version](https://help.aliyun.com/document_detail/139271.html).
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeDBInstanceDataBloatRequest $request DescribeDBInstanceDataBloatRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DescribeDBInstanceDataBloatRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDBInstanceDataBloatResponse
-     *
-     * @param DescribeDBInstanceDataBloatRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return DescribeDBInstanceDataBloatResponse
+     * @return DescribeDBInstanceDataBloatResponse DescribeDBInstanceDataBloatResponse
      */
     public function describeDBInstanceDataBloatWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->database) {
-            @$query['Database'] = $request->database;
+        if (!Utils::isUnset($request->database)) {
+            $query['Database'] = $request->database;
         }
-
-        if (null !== $request->orderBy) {
-            @$query['OrderBy'] = $request->orderBy;
+        if (!Utils::isUnset($request->orderBy)) {
+            $query['OrderBy'] = $request->orderBy;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDBInstanceDataBloat',
@@ -5899,20 +4849,15 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the information about data bloat for an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * You can call this operation to query the details of data bloat on an AnalyticDB for PostgreSQL instance in elastic storage mode. The minor version of the instance must be V6.3.10.1 or later. For more information about how to view and update the minor version of an instance, see [View the minor engine version](https://help.aliyun.com/document_detail/277424.html) and [Update the minor engine version](https://help.aliyun.com/document_detail/139271.html).
+     * @summary Queries the information about data bloat for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to query the details of data bloat on an AnalyticDB for PostgreSQL instance in elastic storage mode. The minor version of the instance must be V6.3.10.1 or later. For more information about how to view and update the minor version of an instance, see [View the minor engine version](https://help.aliyun.com/document_detail/277424.html) and [Update the minor engine version](https://help.aliyun.com/document_detail/139271.html).
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeDBInstanceDataBloatRequest $request DescribeDBInstanceDataBloatRequest
      *
-     * @param Request - DescribeDBInstanceDataBloatRequest
-     *
-     * @returns DescribeDBInstanceDataBloatResponse
-     *
-     * @param DescribeDBInstanceDataBloatRequest $request
-     *
-     * @return DescribeDBInstanceDataBloatResponse
+     * @return DescribeDBInstanceDataBloatResponse DescribeDBInstanceDataBloatResponse
      */
     public function describeDBInstanceDataBloat($request)
     {
@@ -5922,49 +4867,38 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the information about data skew for an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * To prevent data skew from affecting your database service, you can call this operation to query the details about data skew on an AnalyticDB for PostgreSQL instance.
+     * @summary Queries the information about data skew for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description To prevent data skew from affecting your database service, you can call this operation to query the details about data skew on an AnalyticDB for PostgreSQL instance.
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeDBInstanceDataSkewRequest $request DescribeDBInstanceDataSkewRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DescribeDBInstanceDataSkewRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDBInstanceDataSkewResponse
-     *
-     * @param DescribeDBInstanceDataSkewRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return DescribeDBInstanceDataSkewResponse
+     * @return DescribeDBInstanceDataSkewResponse DescribeDBInstanceDataSkewResponse
      */
     public function describeDBInstanceDataSkewWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->database) {
-            @$query['Database'] = $request->database;
+        if (!Utils::isUnset($request->database)) {
+            $query['Database'] = $request->database;
         }
-
-        if (null !== $request->orderBy) {
-            @$query['OrderBy'] = $request->orderBy;
+        if (!Utils::isUnset($request->orderBy)) {
+            $query['OrderBy'] = $request->orderBy;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDBInstanceDataSkew',
@@ -5982,20 +4916,15 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the information about data skew for an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * To prevent data skew from affecting your database service, you can call this operation to query the details about data skew on an AnalyticDB for PostgreSQL instance.
+     * @summary Queries the information about data skew for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description To prevent data skew from affecting your database service, you can call this operation to query the details about data skew on an AnalyticDB for PostgreSQL instance.
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeDBInstanceDataSkewRequest $request DescribeDBInstanceDataSkewRequest
      *
-     * @param Request - DescribeDBInstanceDataSkewRequest
-     *
-     * @returns DescribeDBInstanceDataSkewResponse
-     *
-     * @param DescribeDBInstanceDataSkewRequest $request
-     *
-     * @return DescribeDBInstanceDataSkewResponse
+     * @return DescribeDBInstanceDataSkewResponse DescribeDBInstanceDataSkewResponse
      */
     public function describeDBInstanceDataSkew($request)
     {
@@ -6005,51 +4934,39 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the information about nodes in an AnalyticDB for PostgreSQL instance.
+     * @summary Queries the information about nodes in an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to query the distribution and states of coordinator and compute nodes in an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @param DescribeDBInstanceDiagnosisSummaryRequest $request DescribeDBInstanceDiagnosisSummaryRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can call this operation to query the distribution and states of coordinator and compute nodes in an AnalyticDB for PostgreSQL instance.
-     *
-     * @param Request - DescribeDBInstanceDiagnosisSummaryRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDBInstanceDiagnosisSummaryResponse
-     *
-     * @param DescribeDBInstanceDiagnosisSummaryRequest $request
-     * @param RuntimeOptions                            $runtime
-     *
-     * @return DescribeDBInstanceDiagnosisSummaryResponse
+     * @return DescribeDBInstanceDiagnosisSummaryResponse DescribeDBInstanceDiagnosisSummaryResponse
      */
     public function describeDBInstanceDiagnosisSummaryWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->rolePreferd) {
-            @$query['RolePreferd'] = $request->rolePreferd;
+        if (!Utils::isUnset($request->rolePreferd)) {
+            $query['RolePreferd'] = $request->rolePreferd;
         }
-
-        if (null !== $request->startStatus) {
-            @$query['StartStatus'] = $request->startStatus;
+        if (!Utils::isUnset($request->startStatus)) {
+            $query['StartStatus'] = $request->startStatus;
         }
-
-        if (null !== $request->syncMode) {
-            @$query['SyncMode'] = $request->syncMode;
+        if (!Utils::isUnset($request->syncMode)) {
+            $query['SyncMode'] = $request->syncMode;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDBInstanceDiagnosisSummary',
@@ -6067,18 +4984,13 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the information about nodes in an AnalyticDB for PostgreSQL instance.
+     * @summary Queries the information about nodes in an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to query the distribution and states of coordinator and compute nodes in an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @param DescribeDBInstanceDiagnosisSummaryRequest $request DescribeDBInstanceDiagnosisSummaryRequest
      *
-     * @remarks
-     * You can call this operation to query the distribution and states of coordinator and compute nodes in an AnalyticDB for PostgreSQL instance.
-     *
-     * @param Request - DescribeDBInstanceDiagnosisSummaryRequest
-     *
-     * @returns DescribeDBInstanceDiagnosisSummaryResponse
-     *
-     * @param DescribeDBInstanceDiagnosisSummaryRequest $request
-     *
-     * @return DescribeDBInstanceDiagnosisSummaryResponse
+     * @return DescribeDBInstanceDiagnosisSummaryResponse DescribeDBInstanceDiagnosisSummaryResponse
      */
     public function describeDBInstanceDiagnosisSummary($request)
     {
@@ -6088,69 +5000,53 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the error logs of an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * You can call this operation to query the error logs of an AnalyticDB for PostgreSQL instance.
+     * @summary Queries the error logs of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to query the error logs of an AnalyticDB for PostgreSQL instance.
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeDBInstanceErrorLogRequest $request DescribeDBInstanceErrorLogRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DescribeDBInstanceErrorLogRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDBInstanceErrorLogResponse
-     *
-     * @param DescribeDBInstanceErrorLogRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return DescribeDBInstanceErrorLogResponse
+     * @return DescribeDBInstanceErrorLogResponse DescribeDBInstanceErrorLogResponse
      */
     public function describeDBInstanceErrorLogWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->database) {
-            @$query['Database'] = $request->database;
+        if (!Utils::isUnset($request->database)) {
+            $query['Database'] = $request->database;
         }
-
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->host) {
-            @$query['Host'] = $request->host;
+        if (!Utils::isUnset($request->host)) {
+            $query['Host'] = $request->host;
         }
-
-        if (null !== $request->keywords) {
-            @$query['Keywords'] = $request->keywords;
+        if (!Utils::isUnset($request->keywords)) {
+            $query['Keywords'] = $request->keywords;
         }
-
-        if (null !== $request->logLevel) {
-            @$query['LogLevel'] = $request->logLevel;
+        if (!Utils::isUnset($request->logLevel)) {
+            $query['LogLevel'] = $request->logLevel;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
-        if (null !== $request->user) {
-            @$query['User'] = $request->user;
+        if (!Utils::isUnset($request->user)) {
+            $query['User'] = $request->user;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDBInstanceErrorLog',
@@ -6168,20 +5064,15 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the error logs of an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * You can call this operation to query the error logs of an AnalyticDB for PostgreSQL instance.
+     * @summary Queries the error logs of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to query the error logs of an AnalyticDB for PostgreSQL instance.
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeDBInstanceErrorLogRequest $request DescribeDBInstanceErrorLogRequest
      *
-     * @param Request - DescribeDBInstanceErrorLogRequest
-     *
-     * @returns DescribeDBInstanceErrorLogResponse
-     *
-     * @param DescribeDBInstanceErrorLogRequest $request
-     *
-     * @return DescribeDBInstanceErrorLogResponse
+     * @return DescribeDBInstanceErrorLogResponse DescribeDBInstanceErrorLogResponse
      */
     public function describeDBInstanceErrorLog($request)
     {
@@ -6191,41 +5082,32 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the whitelists of IP addresses that are allowed to access an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * You can call this operation to query the whitelists of IP addresses that are allowed to access an AnalyticDB for PostgreSQL instance.
+     * @summary Queries the whitelists of IP addresses that are allowed to access an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to query the whitelists of IP addresses that are allowed to access an AnalyticDB for PostgreSQL instance.
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeDBInstanceIPArrayListRequest $request DescribeDBInstanceIPArrayListRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DescribeDBInstanceIPArrayListRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDBInstanceIPArrayListResponse
-     *
-     * @param DescribeDBInstanceIPArrayListRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return DescribeDBInstanceIPArrayListResponse
+     * @return DescribeDBInstanceIPArrayListResponse DescribeDBInstanceIPArrayListResponse
      */
     public function describeDBInstanceIPArrayListWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceIPArrayName) {
-            @$query['DBInstanceIPArrayName'] = $request->DBInstanceIPArrayName;
+        if (!Utils::isUnset($request->DBInstanceIPArrayName)) {
+            $query['DBInstanceIPArrayName'] = $request->DBInstanceIPArrayName;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDBInstanceIPArrayList',
@@ -6243,20 +5125,15 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the whitelists of IP addresses that are allowed to access an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * You can call this operation to query the whitelists of IP addresses that are allowed to access an AnalyticDB for PostgreSQL instance.
+     * @summary Queries the whitelists of IP addresses that are allowed to access an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to query the whitelists of IP addresses that are allowed to access an AnalyticDB for PostgreSQL instance.
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeDBInstanceIPArrayListRequest $request DescribeDBInstanceIPArrayListRequest
      *
-     * @param Request - DescribeDBInstanceIPArrayListRequest
-     *
-     * @returns DescribeDBInstanceIPArrayListResponse
-     *
-     * @param DescribeDBInstanceIPArrayListRequest $request
-     *
-     * @return DescribeDBInstanceIPArrayListResponse
+     * @return DescribeDBInstanceIPArrayListResponse DescribeDBInstanceIPArrayListResponse
      */
     public function describeDBInstanceIPArrayList($request)
     {
@@ -6266,48 +5143,37 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the index usage of an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * Appropriate indexes can accelerate database queries. You can call this operation to query the index usage of an AnalyticDB for PostgreSQL instance.
+     * @summary Queries the index usage of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description Appropriate indexes can accelerate database queries. You can call this operation to query the index usage of an AnalyticDB for PostgreSQL instance.
      * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For information about how to view and update the minor version of an instance, see [View the minor engine version](https://help.aliyun.com/document_detail/277424.html) and [Update the minor engine version](https://help.aliyun.com/document_detail/139271.html).
+     *  *
+     * @param DescribeDBInstanceIndexUsageRequest $request DescribeDBInstanceIndexUsageRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DescribeDBInstanceIndexUsageRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDBInstanceIndexUsageResponse
-     *
-     * @param DescribeDBInstanceIndexUsageRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return DescribeDBInstanceIndexUsageResponse
+     * @return DescribeDBInstanceIndexUsageResponse DescribeDBInstanceIndexUsageResponse
      */
     public function describeDBInstanceIndexUsageWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->database) {
-            @$query['Database'] = $request->database;
+        if (!Utils::isUnset($request->database)) {
+            $query['Database'] = $request->database;
         }
-
-        if (null !== $request->orderBy) {
-            @$query['OrderBy'] = $request->orderBy;
+        if (!Utils::isUnset($request->orderBy)) {
+            $query['OrderBy'] = $request->orderBy;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDBInstanceIndexUsage',
@@ -6325,19 +5191,14 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the index usage of an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * Appropriate indexes can accelerate database queries. You can call this operation to query the index usage of an AnalyticDB for PostgreSQL instance.
+     * @summary Queries the index usage of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description Appropriate indexes can accelerate database queries. You can call this operation to query the index usage of an AnalyticDB for PostgreSQL instance.
      * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For information about how to view and update the minor version of an instance, see [View the minor engine version](https://help.aliyun.com/document_detail/277424.html) and [Update the minor engine version](https://help.aliyun.com/document_detail/139271.html).
+     *  *
+     * @param DescribeDBInstanceIndexUsageRequest $request DescribeDBInstanceIndexUsageRequest
      *
-     * @param Request - DescribeDBInstanceIndexUsageRequest
-     *
-     * @returns DescribeDBInstanceIndexUsageResponse
-     *
-     * @param DescribeDBInstanceIndexUsageRequest $request
-     *
-     * @return DescribeDBInstanceIndexUsageResponse
+     * @return DescribeDBInstanceIndexUsageResponse DescribeDBInstanceIndexUsageResponse
      */
     public function describeDBInstanceIndexUsage($request)
     {
@@ -6347,32 +5208,25 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the connection information of an instance.
+     * @summary Queries the connection information of an instance.
+     *  *
+     * @param DescribeDBInstanceNetInfoRequest $request DescribeDBInstanceNetInfoRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DescribeDBInstanceNetInfoRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDBInstanceNetInfoResponse
-     *
-     * @param DescribeDBInstanceNetInfoRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DescribeDBInstanceNetInfoResponse
+     * @return DescribeDBInstanceNetInfoResponse DescribeDBInstanceNetInfoResponse
      */
     public function describeDBInstanceNetInfoWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->connectionString) {
-            @$query['ConnectionString'] = $request->connectionString;
+        if (!Utils::isUnset($request->connectionString)) {
+            $query['ConnectionString'] = $request->connectionString;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDBInstanceNetInfo',
@@ -6390,15 +5244,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the connection information of an instance.
+     * @summary Queries the connection information of an instance.
+     *  *
+     * @param DescribeDBInstanceNetInfoRequest $request DescribeDBInstanceNetInfoRequest
      *
-     * @param Request - DescribeDBInstanceNetInfoRequest
-     *
-     * @returns DescribeDBInstanceNetInfoResponse
-     *
-     * @param DescribeDBInstanceNetInfoRequest $request
-     *
-     * @return DescribeDBInstanceNetInfoResponse
+     * @return DescribeDBInstanceNetInfoResponse DescribeDBInstanceNetInfoResponse
      */
     public function describeDBInstanceNetInfo($request)
     {
@@ -6408,44 +5258,34 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the information about performance metrics of an AnalyticDB for PostgreSQL instance within a time range.
+     * @summary Queries the information about performance metrics of an AnalyticDB for PostgreSQL instance within a time range.
+     *  *
+     * @param DescribeDBInstancePerformanceRequest $request DescribeDBInstancePerformanceRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DescribeDBInstancePerformanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDBInstancePerformanceResponse
-     *
-     * @param DescribeDBInstancePerformanceRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return DescribeDBInstancePerformanceResponse
+     * @return DescribeDBInstancePerformanceResponse DescribeDBInstancePerformanceResponse
      */
     public function describeDBInstancePerformanceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->key) {
-            @$query['Key'] = $request->key;
+        if (!Utils::isUnset($request->key)) {
+            $query['Key'] = $request->key;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDBInstancePerformance',
@@ -6463,15 +5303,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the information about performance metrics of an AnalyticDB for PostgreSQL instance within a time range.
+     * @summary Queries the information about performance metrics of an AnalyticDB for PostgreSQL instance within a time range.
+     *  *
+     * @param DescribeDBInstancePerformanceRequest $request DescribeDBInstancePerformanceRequest
      *
-     * @param Request - DescribeDBInstancePerformanceRequest
-     *
-     * @returns DescribeDBInstancePerformanceResponse
-     *
-     * @param DescribeDBInstancePerformanceRequest $request
-     *
-     * @return DescribeDBInstancePerformanceResponse
+     * @return DescribeDBInstancePerformanceResponse DescribeDBInstancePerformanceResponse
      */
     public function describeDBInstancePerformance($request)
     {
@@ -6481,57 +5317,44 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the information about plans for an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * You can call this operation to query the details of plans for an AnalyticDB for PostgreSQL instance in Serverless mode.
+     * @summary Queries the information about plans for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to query the details of plans for an AnalyticDB for PostgreSQL instance in Serverless mode.
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeDBInstancePlansRequest $request DescribeDBInstancePlansRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DescribeDBInstancePlansRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDBInstancePlansResponse
-     *
-     * @param DescribeDBInstancePlansRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DescribeDBInstancePlansResponse
+     * @return DescribeDBInstancePlansResponse DescribeDBInstancePlansResponse
      */
     public function describeDBInstancePlansWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->planCreateDate) {
-            @$query['PlanCreateDate'] = $request->planCreateDate;
+        if (!Utils::isUnset($request->planCreateDate)) {
+            $query['PlanCreateDate'] = $request->planCreateDate;
         }
-
-        if (null !== $request->planDesc) {
-            @$query['PlanDesc'] = $request->planDesc;
+        if (!Utils::isUnset($request->planDesc)) {
+            $query['PlanDesc'] = $request->planDesc;
         }
-
-        if (null !== $request->planId) {
-            @$query['PlanId'] = $request->planId;
+        if (!Utils::isUnset($request->planId)) {
+            $query['PlanId'] = $request->planId;
         }
-
-        if (null !== $request->planScheduleType) {
-            @$query['PlanScheduleType'] = $request->planScheduleType;
+        if (!Utils::isUnset($request->planScheduleType)) {
+            $query['PlanScheduleType'] = $request->planScheduleType;
         }
-
-        if (null !== $request->planType) {
-            @$query['PlanType'] = $request->planType;
+        if (!Utils::isUnset($request->planType)) {
+            $query['PlanType'] = $request->planType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDBInstancePlans',
@@ -6549,20 +5372,15 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the information about plans for an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * You can call this operation to query the details of plans for an AnalyticDB for PostgreSQL instance in Serverless mode.
+     * @summary Queries the information about plans for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to query the details of plans for an AnalyticDB for PostgreSQL instance in Serverless mode.
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeDBInstancePlansRequest $request DescribeDBInstancePlansRequest
      *
-     * @param Request - DescribeDBInstancePlansRequest
-     *
-     * @returns DescribeDBInstancePlansResponse
-     *
-     * @param DescribeDBInstancePlansRequest $request
-     *
-     * @return DescribeDBInstancePlansResponse
+     * @return DescribeDBInstancePlansResponse DescribeDBInstancePlansResponse
      */
     public function describeDBInstancePlans($request)
     {
@@ -6572,28 +5390,22 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the SSL information about an AnalyticDB for PostgreSQL instance.
+     * @summary Queries the SSL information about an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @param DescribeDBInstanceSSLRequest $request DescribeDBInstanceSSLRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DescribeDBInstanceSSLRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDBInstanceSSLResponse
-     *
-     * @param DescribeDBInstanceSSLRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DescribeDBInstanceSSLResponse
+     * @return DescribeDBInstanceSSLResponse DescribeDBInstanceSSLResponse
      */
     public function describeDBInstanceSSLWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDBInstanceSSL',
@@ -6611,15 +5423,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the SSL information about an AnalyticDB for PostgreSQL instance.
+     * @summary Queries the SSL information about an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @param DescribeDBInstanceSSLRequest $request DescribeDBInstanceSSLRequest
      *
-     * @param Request - DescribeDBInstanceSSLRequest
-     *
-     * @returns DescribeDBInstanceSSLResponse
-     *
-     * @param DescribeDBInstanceSSLRequest $request
-     *
-     * @return DescribeDBInstanceSSLResponse
+     * @return DescribeDBInstanceSSLResponse DescribeDBInstanceSSLResponse
      */
     public function describeDBInstanceSSL($request)
     {
@@ -6629,32 +5437,25 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the maximum performance of an AnalyticDB for PostgreSQL instance.
+     * @summary Queries the maximum performance of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @param DescribeDBInstanceSupportMaxPerformanceRequest $request DescribeDBInstanceSupportMaxPerformanceRequest
+     * @param RuntimeOptions                                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DescribeDBInstanceSupportMaxPerformanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDBInstanceSupportMaxPerformanceResponse
-     *
-     * @param DescribeDBInstanceSupportMaxPerformanceRequest $request
-     * @param RuntimeOptions                                 $runtime
-     *
-     * @return DescribeDBInstanceSupportMaxPerformanceResponse
+     * @return DescribeDBInstanceSupportMaxPerformanceResponse DescribeDBInstanceSupportMaxPerformanceResponse
      */
     public function describeDBInstanceSupportMaxPerformanceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDBInstanceSupportMaxPerformance',
@@ -6672,15 +5473,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the maximum performance of an AnalyticDB for PostgreSQL instance.
+     * @summary Queries the maximum performance of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @param DescribeDBInstanceSupportMaxPerformanceRequest $request DescribeDBInstanceSupportMaxPerformanceRequest
      *
-     * @param Request - DescribeDBInstanceSupportMaxPerformanceRequest
-     *
-     * @returns DescribeDBInstanceSupportMaxPerformanceResponse
-     *
-     * @param DescribeDBInstanceSupportMaxPerformanceRequest $request
-     *
-     * @return DescribeDBInstanceSupportMaxPerformanceResponse
+     * @return DescribeDBInstanceSupportMaxPerformanceResponse DescribeDBInstanceSupportMaxPerformanceResponse
      */
     public function describeDBInstanceSupportMaxPerformance($request)
     {
@@ -6690,104 +5487,80 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries a list of AnalyticDB for PostgreSQL instances.
-     *
-     * @remarks
-     * ##
+     * @summary Queries a list of AnalyticDB for PostgreSQL instances.
+     *  *
+     * @description ##
      * You can call this operation to query the instance types, network types, and states of AnalyticDB for PostgreSQL instances within a region.
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeDBInstancesRequest $tmpReq  DescribeDBInstancesRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - DescribeDBInstancesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDBInstancesResponse
-     *
-     * @param DescribeDBInstancesRequest $tmpReq
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DescribeDBInstancesResponse
+     * @return DescribeDBInstancesResponse DescribeDBInstancesResponse
      */
     public function describeDBInstancesWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new DescribeDBInstancesShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->DBInstanceCategories) {
-            $request->DBInstanceCategoriesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->DBInstanceCategories, 'DBInstanceCategories', 'simple');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->DBInstanceCategories)) {
+            $request->DBInstanceCategoriesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->DBInstanceCategories, 'DBInstanceCategories', 'simple');
         }
-
-        if (null !== $tmpReq->DBInstanceModes) {
-            $request->DBInstanceModesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->DBInstanceModes, 'DBInstanceModes', 'simple');
+        if (!Utils::isUnset($tmpReq->DBInstanceModes)) {
+            $request->DBInstanceModesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->DBInstanceModes, 'DBInstanceModes', 'simple');
         }
-
-        if (null !== $tmpReq->DBInstanceStatuses) {
-            $request->DBInstanceStatusesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->DBInstanceStatuses, 'DBInstanceStatuses', 'simple');
+        if (!Utils::isUnset($tmpReq->DBInstanceStatuses)) {
+            $request->DBInstanceStatusesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->DBInstanceStatuses, 'DBInstanceStatuses', 'simple');
         }
-
-        if (null !== $tmpReq->instanceDeployTypes) {
-            $request->instanceDeployTypesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->instanceDeployTypes, 'InstanceDeployTypes', 'simple');
+        if (!Utils::isUnset($tmpReq->instanceDeployTypes)) {
+            $request->instanceDeployTypesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->instanceDeployTypes, 'InstanceDeployTypes', 'simple');
         }
-
         $query = [];
-        if (null !== $request->DBInstanceCategoriesShrink) {
-            @$query['DBInstanceCategories'] = $request->DBInstanceCategoriesShrink;
+        if (!Utils::isUnset($request->DBInstanceCategoriesShrink)) {
+            $query['DBInstanceCategories'] = $request->DBInstanceCategoriesShrink;
         }
-
-        if (null !== $request->DBInstanceDescription) {
-            @$query['DBInstanceDescription'] = $request->DBInstanceDescription;
+        if (!Utils::isUnset($request->DBInstanceDescription)) {
+            $query['DBInstanceDescription'] = $request->DBInstanceDescription;
         }
-
-        if (null !== $request->DBInstanceIds) {
-            @$query['DBInstanceIds'] = $request->DBInstanceIds;
+        if (!Utils::isUnset($request->DBInstanceIds)) {
+            $query['DBInstanceIds'] = $request->DBInstanceIds;
         }
-
-        if (null !== $request->DBInstanceModesShrink) {
-            @$query['DBInstanceModes'] = $request->DBInstanceModesShrink;
+        if (!Utils::isUnset($request->DBInstanceModesShrink)) {
+            $query['DBInstanceModes'] = $request->DBInstanceModesShrink;
         }
-
-        if (null !== $request->DBInstanceStatusesShrink) {
-            @$query['DBInstanceStatuses'] = $request->DBInstanceStatusesShrink;
+        if (!Utils::isUnset($request->DBInstanceStatusesShrink)) {
+            $query['DBInstanceStatuses'] = $request->DBInstanceStatusesShrink;
         }
-
-        if (null !== $request->instanceDeployTypesShrink) {
-            @$query['InstanceDeployTypes'] = $request->instanceDeployTypesShrink;
+        if (!Utils::isUnset($request->instanceDeployTypesShrink)) {
+            $query['InstanceDeployTypes'] = $request->instanceDeployTypesShrink;
         }
-
-        if (null !== $request->instanceNetworkType) {
-            @$query['InstanceNetworkType'] = $request->instanceNetworkType;
+        if (!Utils::isUnset($request->instanceNetworkType)) {
+            $query['InstanceNetworkType'] = $request->instanceNetworkType;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
-        if (null !== $request->vpcId) {
-            @$query['VpcId'] = $request->vpcId;
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDBInstances',
@@ -6805,21 +5578,16 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries a list of AnalyticDB for PostgreSQL instances.
-     *
-     * @remarks
-     * ##
+     * @summary Queries a list of AnalyticDB for PostgreSQL instances.
+     *  *
+     * @description ##
      * You can call this operation to query the instance types, network types, and states of AnalyticDB for PostgreSQL instances within a region.
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeDBInstancesRequest $request DescribeDBInstancesRequest
      *
-     * @param Request - DescribeDBInstancesRequest
-     *
-     * @returns DescribeDBInstancesResponse
-     *
-     * @param DescribeDBInstancesRequest $request
-     *
-     * @return DescribeDBInstancesResponse
+     * @return DescribeDBInstancesResponse DescribeDBInstancesResponse
      */
     public function describeDBInstances($request)
     {
@@ -6829,36 +5597,28 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the information about resource groups.
+     * @summary Queries the information about resource groups.
+     *  *
+     * @param DescribeDBResourceGroupRequest $request DescribeDBResourceGroupRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DescribeDBResourceGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDBResourceGroupResponse
-     *
-     * @param DescribeDBResourceGroupRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DescribeDBResourceGroupResponse
+     * @return DescribeDBResourceGroupResponse DescribeDBResourceGroupResponse
      */
     public function describeDBResourceGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceGroupName) {
-            @$query['ResourceGroupName'] = $request->resourceGroupName;
+        if (!Utils::isUnset($request->resourceGroupName)) {
+            $query['ResourceGroupName'] = $request->resourceGroupName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDBResourceGroup',
@@ -6876,15 +5636,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the information about resource groups.
+     * @summary Queries the information about resource groups.
+     *  *
+     * @param DescribeDBResourceGroupRequest $request DescribeDBResourceGroupRequest
      *
-     * @param Request - DescribeDBResourceGroupRequest
-     *
-     * @returns DescribeDBResourceGroupResponse
-     *
-     * @param DescribeDBResourceGroupRequest $request
-     *
-     * @return DescribeDBResourceGroupResponse
+     * @return DescribeDBResourceGroupResponse DescribeDBResourceGroupResponse
      */
     public function describeDBResourceGroup($request)
     {
@@ -6894,32 +5650,25 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the resource management mode of an AnalyticDB for PostgreSQL instance.
+     * @summary Queries the resource management mode of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @param DescribeDBResourceManagementModeRequest $request DescribeDBResourceManagementModeRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DescribeDBResourceManagementModeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDBResourceManagementModeResponse
-     *
-     * @param DescribeDBResourceManagementModeRequest $request
-     * @param RuntimeOptions                          $runtime
-     *
-     * @return DescribeDBResourceManagementModeResponse
+     * @return DescribeDBResourceManagementModeResponse DescribeDBResourceManagementModeResponse
      */
     public function describeDBResourceManagementModeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDBResourceManagementMode',
@@ -6937,15 +5686,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the resource management mode of an AnalyticDB for PostgreSQL instance.
+     * @summary Queries the resource management mode of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @param DescribeDBResourceManagementModeRequest $request DescribeDBResourceManagementModeRequest
      *
-     * @param Request - DescribeDBResourceManagementModeRequest
-     *
-     * @returns DescribeDBResourceManagementModeResponse
-     *
-     * @param DescribeDBResourceManagementModeRequest $request
-     *
-     * @return DescribeDBResourceManagementModeResponse
+     * @return DescribeDBResourceManagementModeResponse DescribeDBResourceManagementModeResponse
      */
     public function describeDBResourceManagementMode($request)
     {
@@ -6955,44 +5700,34 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the information about minor versions of AnalyticDB for PostgreSQL instances.
+     * @summary Queries the information about minor versions of AnalyticDB for PostgreSQL instances.
+     *  *
+     * @param DescribeDBVersionInfosRequest $request DescribeDBVersionInfosRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DescribeDBVersionInfosRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDBVersionInfosResponse
-     *
-     * @param DescribeDBVersionInfosRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return DescribeDBVersionInfosResponse
+     * @return DescribeDBVersionInfosResponse DescribeDBVersionInfosResponse
      */
     public function describeDBVersionInfosWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceMode) {
-            @$query['DBInstanceMode'] = $request->DBInstanceMode;
+        if (!Utils::isUnset($request->DBInstanceMode)) {
+            $query['DBInstanceMode'] = $request->DBInstanceMode;
         }
-
-        if (null !== $request->DBVersion) {
-            @$query['DBVersion'] = $request->DBVersion;
+        if (!Utils::isUnset($request->DBVersion)) {
+            $query['DBVersion'] = $request->DBVersion;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDBVersionInfos',
@@ -7010,15 +5745,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the information about minor versions of AnalyticDB for PostgreSQL instances.
+     * @summary Queries the information about minor versions of AnalyticDB for PostgreSQL instances.
+     *  *
+     * @param DescribeDBVersionInfosRequest $request DescribeDBVersionInfosRequest
      *
-     * @param Request - DescribeDBVersionInfosRequest
-     *
-     * @returns DescribeDBVersionInfosResponse
-     *
-     * @param DescribeDBVersionInfosRequest $request
-     *
-     * @return DescribeDBVersionInfosResponse
+     * @return DescribeDBVersionInfosResponse DescribeDBVersionInfosResponse
      */
     public function describeDBVersionInfos($request)
     {
@@ -7028,63 +5759,48 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries a list of backup sets of full backup or point-in-time backup for an AnalyticDB for PostgreSQL instance.
+     * @summary Queries a list of backup sets of full backup or point-in-time backup for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to query a list of backup sets and backup details only for instances in elastic storage mode.
+     *  *
+     * @param DescribeDataBackupsRequest $request DescribeDataBackupsRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can call this operation to query a list of backup sets and backup details only for instances in elastic storage mode.
-     *
-     * @param Request - DescribeDataBackupsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDataBackupsResponse
-     *
-     * @param DescribeDataBackupsRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DescribeDataBackupsResponse
+     * @return DescribeDataBackupsResponse DescribeDataBackupsResponse
      */
     public function describeDataBackupsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->backupId) {
-            @$query['BackupId'] = $request->backupId;
+        if (!Utils::isUnset($request->backupId)) {
+            $query['BackupId'] = $request->backupId;
         }
-
-        if (null !== $request->backupMode) {
-            @$query['BackupMode'] = $request->backupMode;
+        if (!Utils::isUnset($request->backupMode)) {
+            $query['BackupMode'] = $request->backupMode;
         }
-
-        if (null !== $request->backupStatus) {
-            @$query['BackupStatus'] = $request->backupStatus;
+        if (!Utils::isUnset($request->backupStatus)) {
+            $query['BackupStatus'] = $request->backupStatus;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->dataType) {
-            @$query['DataType'] = $request->dataType;
+        if (!Utils::isUnset($request->dataType)) {
+            $query['DataType'] = $request->dataType;
         }
-
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDataBackups',
@@ -7102,18 +5818,13 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries a list of backup sets of full backup or point-in-time backup for an AnalyticDB for PostgreSQL instance.
+     * @summary Queries a list of backup sets of full backup or point-in-time backup for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to query a list of backup sets and backup details only for instances in elastic storage mode.
+     *  *
+     * @param DescribeDataBackupsRequest $request DescribeDataBackupsRequest
      *
-     * @remarks
-     * You can call this operation to query a list of backup sets and backup details only for instances in elastic storage mode.
-     *
-     * @param Request - DescribeDataBackupsRequest
-     *
-     * @returns DescribeDataBackupsResponse
-     *
-     * @param DescribeDataBackupsRequest $request
-     *
-     * @return DescribeDataBackupsResponse
+     * @return DescribeDataBackupsResponse DescribeDataBackupsResponse
      */
     public function describeDataBackups($request)
     {
@@ -7123,32 +5834,25 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the data redistribution information about an AnalyticDB for PostgreSQL V6.0 instance in elastic storage mode.
+     * @summary Queries the data redistribution information about an AnalyticDB for PostgreSQL V6.0 instance in elastic storage mode.
+     *  *
+     * @param DescribeDataReDistributeInfoRequest $request DescribeDataReDistributeInfoRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DescribeDataReDistributeInfoRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDataReDistributeInfoResponse
-     *
-     * @param DescribeDataReDistributeInfoRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return DescribeDataReDistributeInfoResponse
+     * @return DescribeDataReDistributeInfoResponse DescribeDataReDistributeInfoResponse
      */
     public function describeDataReDistributeInfoWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDataReDistributeInfo',
@@ -7166,15 +5870,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the data redistribution information about an AnalyticDB for PostgreSQL V6.0 instance in elastic storage mode.
+     * @summary Queries the data redistribution information about an AnalyticDB for PostgreSQL V6.0 instance in elastic storage mode.
+     *  *
+     * @param DescribeDataReDistributeInfoRequest $request DescribeDataReDistributeInfoRequest
      *
-     * @param Request - DescribeDataReDistributeInfoRequest
-     *
-     * @returns DescribeDataReDistributeInfoResponse
-     *
-     * @param DescribeDataReDistributeInfoRequest $request
-     *
-     * @return DescribeDataReDistributeInfoResponse
+     * @return DescribeDataReDistributeInfoResponse DescribeDataReDistributeInfoResponse
      */
     public function describeDataReDistributeInfo($request)
     {
@@ -7184,51 +5884,39 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the state of data sharing for AnalyticDB for PostgreSQL instances.
+     * @summary Queries the state of data sharing for AnalyticDB for PostgreSQL instances.
+     *  *
+     * @description Data sharing is supported only for instances in Serverless mode.
+     *  *
+     * @param DescribeDataShareInstancesRequest $request DescribeDataShareInstancesRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * Data sharing is supported only for instances in Serverless mode.
-     *
-     * @param Request - DescribeDataShareInstancesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDataShareInstancesResponse
-     *
-     * @param DescribeDataShareInstancesRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return DescribeDataShareInstancesResponse
+     * @return DescribeDataShareInstancesResponse DescribeDataShareInstancesResponse
      */
     public function describeDataShareInstancesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->searchValue) {
-            @$query['SearchValue'] = $request->searchValue;
+        if (!Utils::isUnset($request->searchValue)) {
+            $query['SearchValue'] = $request->searchValue;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDataShareInstances',
@@ -7246,18 +5934,13 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the state of data sharing for AnalyticDB for PostgreSQL instances.
+     * @summary Queries the state of data sharing for AnalyticDB for PostgreSQL instances.
+     *  *
+     * @description Data sharing is supported only for instances in Serverless mode.
+     *  *
+     * @param DescribeDataShareInstancesRequest $request DescribeDataShareInstancesRequest
      *
-     * @remarks
-     * Data sharing is supported only for instances in Serverless mode.
-     *
-     * @param Request - DescribeDataShareInstancesRequest
-     *
-     * @returns DescribeDataShareInstancesResponse
-     *
-     * @param DescribeDataShareInstancesRequest $request
-     *
-     * @return DescribeDataShareInstancesResponse
+     * @return DescribeDataShareInstancesResponse DescribeDataShareInstancesResponse
      */
     public function describeDataShareInstances($request)
     {
@@ -7267,49 +5950,38 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the information about data sharing performance metrics.
-     *
-     * @remarks
-     * You can call this operation to query the details of data sharing performance metrics for an AnalyticDB for PostgreSQL instance in Serverless mode, such as the number of shared topics and the amount of data shared.
+     * @summary Queries the information about data sharing performance metrics.
+     *  *
+     * @description You can call this operation to query the details of data sharing performance metrics for an AnalyticDB for PostgreSQL instance in Serverless mode, such as the number of shared topics and the amount of data shared.
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeDataSharePerformanceRequest $request DescribeDataSharePerformanceRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DescribeDataSharePerformanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDataSharePerformanceResponse
-     *
-     * @param DescribeDataSharePerformanceRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return DescribeDataSharePerformanceResponse
+     * @return DescribeDataSharePerformanceResponse DescribeDataSharePerformanceResponse
      */
     public function describeDataSharePerformanceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->key) {
-            @$query['Key'] = $request->key;
+        if (!Utils::isUnset($request->key)) {
+            $query['Key'] = $request->key;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDataSharePerformance',
@@ -7327,20 +5999,15 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the information about data sharing performance metrics.
-     *
-     * @remarks
-     * You can call this operation to query the details of data sharing performance metrics for an AnalyticDB for PostgreSQL instance in Serverless mode, such as the number of shared topics and the amount of data shared.
+     * @summary Queries the information about data sharing performance metrics.
+     *  *
+     * @description You can call this operation to query the details of data sharing performance metrics for an AnalyticDB for PostgreSQL instance in Serverless mode, such as the number of shared topics and the amount of data shared.
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeDataSharePerformanceRequest $request DescribeDataSharePerformanceRequest
      *
-     * @param Request - DescribeDataSharePerformanceRequest
-     *
-     * @returns DescribeDataSharePerformanceResponse
-     *
-     * @param DescribeDataSharePerformanceRequest $request
-     *
-     * @return DescribeDataSharePerformanceResponse
+     * @return DescribeDataSharePerformanceResponse DescribeDataSharePerformanceResponse
      */
     public function describeDataSharePerformance($request)
     {
@@ -7350,33 +6017,26 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries all databases and database accounts for an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * To facilitate management, you can call this operation to query all databases and database accounts on an AnalyticDB for PostgreSQL instance.
+     * @summary Queries all databases and database accounts for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description To facilitate management, you can call this operation to query all databases and database accounts on an AnalyticDB for PostgreSQL instance.
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeDiagnosisDimensionsRequest $request DescribeDiagnosisDimensionsRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DescribeDiagnosisDimensionsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDiagnosisDimensionsResponse
-     *
-     * @param DescribeDiagnosisDimensionsRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return DescribeDiagnosisDimensionsResponse
+     * @return DescribeDiagnosisDimensionsResponse DescribeDiagnosisDimensionsResponse
      */
     public function describeDiagnosisDimensionsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDiagnosisDimensions',
@@ -7394,20 +6054,15 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries all databases and database accounts for an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * To facilitate management, you can call this operation to query all databases and database accounts on an AnalyticDB for PostgreSQL instance.
+     * @summary Queries all databases and database accounts for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description To facilitate management, you can call this operation to query all databases and database accounts on an AnalyticDB for PostgreSQL instance.
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeDiagnosisDimensionsRequest $request DescribeDiagnosisDimensionsRequest
      *
-     * @param Request - DescribeDiagnosisDimensionsRequest
-     *
-     * @returns DescribeDiagnosisDimensionsResponse
-     *
-     * @param DescribeDiagnosisDimensionsRequest $request
-     *
-     * @return DescribeDiagnosisDimensionsResponse
+     * @return DescribeDiagnosisDimensionsResponse DescribeDiagnosisDimensionsResponse
      */
     public function describeDiagnosisDimensions($request)
     {
@@ -7417,53 +6072,41 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the details of query execution on an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * You can call this operation to query the details of query execution on an AnalyticDB for PostgreSQL instance in elastic storage mode within a specified time range.
+     * @summary Queries the details of query execution on an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to query the details of query execution on an AnalyticDB for PostgreSQL instance in elastic storage mode within a specified time range.
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeDiagnosisMonitorPerformanceRequest $request DescribeDiagnosisMonitorPerformanceRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DescribeDiagnosisMonitorPerformanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDiagnosisMonitorPerformanceResponse
-     *
-     * @param DescribeDiagnosisMonitorPerformanceRequest $request
-     * @param RuntimeOptions                             $runtime
-     *
-     * @return DescribeDiagnosisMonitorPerformanceResponse
+     * @return DescribeDiagnosisMonitorPerformanceResponse DescribeDiagnosisMonitorPerformanceResponse
      */
     public function describeDiagnosisMonitorPerformanceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->database) {
-            @$query['Database'] = $request->database;
+        if (!Utils::isUnset($request->database)) {
+            $query['Database'] = $request->database;
         }
-
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->queryCondition) {
-            @$query['QueryCondition'] = $request->queryCondition;
+        if (!Utils::isUnset($request->queryCondition)) {
+            $query['QueryCondition'] = $request->queryCondition;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
-        if (null !== $request->user) {
-            @$query['User'] = $request->user;
+        if (!Utils::isUnset($request->user)) {
+            $query['User'] = $request->user;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDiagnosisMonitorPerformance',
@@ -7481,20 +6124,15 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the details of query execution on an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * You can call this operation to query the details of query execution on an AnalyticDB for PostgreSQL instance in elastic storage mode within a specified time range.
+     * @summary Queries the details of query execution on an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to query the details of query execution on an AnalyticDB for PostgreSQL instance in elastic storage mode within a specified time range.
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeDiagnosisMonitorPerformanceRequest $request DescribeDiagnosisMonitorPerformanceRequest
      *
-     * @param Request - DescribeDiagnosisMonitorPerformanceRequest
-     *
-     * @returns DescribeDiagnosisMonitorPerformanceResponse
-     *
-     * @param DescribeDiagnosisMonitorPerformanceRequest $request
-     *
-     * @return DescribeDiagnosisMonitorPerformanceResponse
+     * @return DescribeDiagnosisMonitorPerformanceResponse DescribeDiagnosisMonitorPerformanceResponse
      */
     public function describeDiagnosisMonitorPerformance($request)
     {
@@ -7504,69 +6142,53 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the information about SQL queries for an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * You can call this operation to query the details of SQL queries on an AnalyticDB for PostgreSQL instance within a specified time range.
+     * @summary Queries the information about SQL queries for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to query the details of SQL queries on an AnalyticDB for PostgreSQL instance within a specified time range.
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeDiagnosisRecordsRequest $request DescribeDiagnosisRecordsRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DescribeDiagnosisRecordsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDiagnosisRecordsResponse
-     *
-     * @param DescribeDiagnosisRecordsRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return DescribeDiagnosisRecordsResponse
+     * @return DescribeDiagnosisRecordsResponse DescribeDiagnosisRecordsResponse
      */
     public function describeDiagnosisRecordsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->database) {
-            @$query['Database'] = $request->database;
+        if (!Utils::isUnset($request->database)) {
+            $query['Database'] = $request->database;
         }
-
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->keyword) {
-            @$query['Keyword'] = $request->keyword;
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
         }
-
-        if (null !== $request->order) {
-            @$query['Order'] = $request->order;
+        if (!Utils::isUnset($request->order)) {
+            $query['Order'] = $request->order;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->queryCondition) {
-            @$query['QueryCondition'] = $request->queryCondition;
+        if (!Utils::isUnset($request->queryCondition)) {
+            $query['QueryCondition'] = $request->queryCondition;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
-        if (null !== $request->user) {
-            @$query['User'] = $request->user;
+        if (!Utils::isUnset($request->user)) {
+            $query['User'] = $request->user;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDiagnosisRecords',
@@ -7584,20 +6206,15 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the information about SQL queries for an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * You can call this operation to query the details of SQL queries on an AnalyticDB for PostgreSQL instance within a specified time range.
+     * @summary Queries the information about SQL queries for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to query the details of SQL queries on an AnalyticDB for PostgreSQL instance within a specified time range.
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeDiagnosisRecordsRequest $request DescribeDiagnosisRecordsRequest
      *
-     * @param Request - DescribeDiagnosisRecordsRequest
-     *
-     * @returns DescribeDiagnosisRecordsResponse
-     *
-     * @param DescribeDiagnosisRecordsRequest $request
-     *
-     * @return DescribeDiagnosisRecordsResponse
+     * @return DescribeDiagnosisRecordsResponse DescribeDiagnosisRecordsResponse
      */
     public function describeDiagnosisRecords($request)
     {
@@ -7607,40 +6224,31 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the information about a query for an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * You can call this operation to query the information about a query for an AnalyticDB for PostgreSQL instance, including the SQL statement, execution plan text, and execution plan tree.
+     * @summary Queries the information about a query for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to query the information about a query for an AnalyticDB for PostgreSQL instance, including the SQL statement, execution plan text, and execution plan tree.
      * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For information about how to view and update the minor version of an instance, see [View the minor engine version](https://help.aliyun.com/document_detail/277424.html) and [Update the minor engine version](https://help.aliyun.com/document_detail/139271.html).
+     *  *
+     * @param DescribeDiagnosisSQLInfoRequest $request DescribeDiagnosisSQLInfoRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DescribeDiagnosisSQLInfoRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDiagnosisSQLInfoResponse
-     *
-     * @param DescribeDiagnosisSQLInfoRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return DescribeDiagnosisSQLInfoResponse
+     * @return DescribeDiagnosisSQLInfoResponse DescribeDiagnosisSQLInfoResponse
      */
     public function describeDiagnosisSQLInfoWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->database) {
-            @$query['Database'] = $request->database;
+        if (!Utils::isUnset($request->database)) {
+            $query['Database'] = $request->database;
         }
-
-        if (null !== $request->queryID) {
-            @$query['QueryID'] = $request->queryID;
+        if (!Utils::isUnset($request->queryID)) {
+            $query['QueryID'] = $request->queryID;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDiagnosisSQLInfo',
@@ -7658,19 +6266,14 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the information about a query for an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * You can call this operation to query the information about a query for an AnalyticDB for PostgreSQL instance, including the SQL statement, execution plan text, and execution plan tree.
+     * @summary Queries the information about a query for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to query the information about a query for an AnalyticDB for PostgreSQL instance, including the SQL statement, execution plan text, and execution plan tree.
      * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For information about how to view and update the minor version of an instance, see [View the minor engine version](https://help.aliyun.com/document_detail/277424.html) and [Update the minor engine version](https://help.aliyun.com/document_detail/139271.html).
+     *  *
+     * @param DescribeDiagnosisSQLInfoRequest $request DescribeDiagnosisSQLInfoRequest
      *
-     * @param Request - DescribeDiagnosisSQLInfoRequest
-     *
-     * @returns DescribeDiagnosisSQLInfoResponse
-     *
-     * @param DescribeDiagnosisSQLInfoRequest $request
-     *
-     * @return DescribeDiagnosisSQLInfoResponse
+     * @return DescribeDiagnosisSQLInfoResponse DescribeDiagnosisSQLInfoResponse
      */
     public function describeDiagnosisSQLInfo($request)
     {
@@ -7680,52 +6283,40 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Get Document Details.
+     * @summary Get Document Details
+     *  *
+     * @param DescribeDocumentRequest $request DescribeDocumentRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DescribeDocumentRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDocumentResponse
-     *
-     * @param DescribeDocumentRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return DescribeDocumentResponse
+     * @return DescribeDocumentResponse DescribeDocumentResponse
      */
     public function describeDocumentWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->collection) {
-            @$query['Collection'] = $request->collection;
+        if (!Utils::isUnset($request->collection)) {
+            $query['Collection'] = $request->collection;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->fileName) {
-            @$query['FileName'] = $request->fileName;
+        if (!Utils::isUnset($request->fileName)) {
+            $query['FileName'] = $request->fileName;
         }
-
-        if (null !== $request->namespace) {
-            @$query['Namespace'] = $request->namespace;
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
         }
-
-        if (null !== $request->namespacePassword) {
-            @$query['NamespacePassword'] = $request->namespacePassword;
+        if (!Utils::isUnset($request->namespacePassword)) {
+            $query['NamespacePassword'] = $request->namespacePassword;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDocument',
@@ -7743,15 +6334,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Get Document Details.
+     * @summary Get Document Details
+     *  *
+     * @param DescribeDocumentRequest $request DescribeDocumentRequest
      *
-     * @param Request - DescribeDocumentRequest
-     *
-     * @returns DescribeDocumentResponse
-     *
-     * @param DescribeDocumentRequest $request
-     *
-     * @return DescribeDocumentResponse
+     * @return DescribeDocumentResponse DescribeDocumentResponse
      */
     public function describeDocument($request)
     {
@@ -7761,36 +6348,28 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the download records of query diagnostic information for an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * You must call the [DownloadDiagnosisRecords](https://help.aliyun.com/document_detail/447700.html) operation to download the query diagnostic information before you can call this operation to query the download records and download URLs.
+     * @summary Queries the download records of query diagnostic information for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You must call the [DownloadDiagnosisRecords](https://help.aliyun.com/document_detail/447700.html) operation to download the query diagnostic information before you can call this operation to query the download records and download URLs.
      * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For information about how to view and update the minor version of an instance, see [View the minor engine version](https://help.aliyun.com/document_detail/277424.html) and [Update the minor engine version](https://help.aliyun.com/document_detail/139271.html).
+     *  *
+     * @param DescribeDownloadRecordsRequest $request DescribeDownloadRecordsRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DescribeDownloadRecordsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDownloadRecordsResponse
-     *
-     * @param DescribeDownloadRecordsRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DescribeDownloadRecordsResponse
+     * @return DescribeDownloadRecordsResponse DescribeDownloadRecordsResponse
      */
     public function describeDownloadRecordsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->downloadTaskType) {
-            @$query['DownloadTaskType'] = $request->downloadTaskType;
+        if (!Utils::isUnset($request->downloadTaskType)) {
+            $query['DownloadTaskType'] = $request->downloadTaskType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDownloadRecords',
@@ -7808,19 +6387,14 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the download records of query diagnostic information for an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * You must call the [DownloadDiagnosisRecords](https://help.aliyun.com/document_detail/447700.html) operation to download the query diagnostic information before you can call this operation to query the download records and download URLs.
+     * @summary Queries the download records of query diagnostic information for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You must call the [DownloadDiagnosisRecords](https://help.aliyun.com/document_detail/447700.html) operation to download the query diagnostic information before you can call this operation to query the download records and download URLs.
      * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For information about how to view and update the minor version of an instance, see [View the minor engine version](https://help.aliyun.com/document_detail/277424.html) and [Update the minor engine version](https://help.aliyun.com/document_detail/139271.html).
+     *  *
+     * @param DescribeDownloadRecordsRequest $request DescribeDownloadRecordsRequest
      *
-     * @param Request - DescribeDownloadRecordsRequest
-     *
-     * @returns DescribeDownloadRecordsResponse
-     *
-     * @param DescribeDownloadRecordsRequest $request
-     *
-     * @return DescribeDownloadRecordsResponse
+     * @return DescribeDownloadRecordsResponse DescribeDownloadRecordsResponse
      */
     public function describeDownloadRecords($request)
     {
@@ -7830,28 +6404,22 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Get download records.
+     * @summary Get download records
+     *  *
+     * @param DescribeDownloadSQLLogsRequest $request DescribeDownloadSQLLogsRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DescribeDownloadSQLLogsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDownloadSQLLogsResponse
-     *
-     * @param DescribeDownloadSQLLogsRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DescribeDownloadSQLLogsResponse
+     * @return DescribeDownloadSQLLogsResponse DescribeDownloadSQLLogsResponse
      */
     public function describeDownloadSQLLogsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDownloadSQLLogs',
@@ -7869,15 +6437,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Get download records.
+     * @summary Get download records
+     *  *
+     * @param DescribeDownloadSQLLogsRequest $request DescribeDownloadSQLLogsRequest
      *
-     * @param Request - DescribeDownloadSQLLogsRequest
-     *
-     * @returns DescribeDownloadSQLLogsResponse
-     *
-     * @param DescribeDownloadSQLLogsRequest $request
-     *
-     * @return DescribeDownloadSQLLogsResponse
+     * @return DescribeDownloadSQLLogsResponse DescribeDownloadSQLLogsResponse
      */
     public function describeDownloadSQLLogs($request)
     {
@@ -7887,36 +6451,28 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the information about an external data service.
+     * @summary Queries the information about an external data service.
+     *  *
+     * @param DescribeExternalDataServiceRequest $request DescribeExternalDataServiceRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DescribeExternalDataServiceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeExternalDataServiceResponse
-     *
-     * @param DescribeExternalDataServiceRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return DescribeExternalDataServiceResponse
+     * @return DescribeExternalDataServiceResponse DescribeExternalDataServiceResponse
      */
     public function describeExternalDataServiceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->serviceId) {
-            @$query['ServiceId'] = $request->serviceId;
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['ServiceId'] = $request->serviceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeExternalDataService',
@@ -7934,15 +6490,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the information about an external data service.
+     * @summary Queries the information about an external data service.
+     *  *
+     * @param DescribeExternalDataServiceRequest $request DescribeExternalDataServiceRequest
      *
-     * @param Request - DescribeExternalDataServiceRequest
-     *
-     * @returns DescribeExternalDataServiceResponse
-     *
-     * @param DescribeExternalDataServiceRequest $request
-     *
-     * @return DescribeExternalDataServiceResponse
+     * @return DescribeExternalDataServiceResponse DescribeExternalDataServiceResponse
      */
     public function describeExternalDataService($request)
     {
@@ -7952,32 +6504,25 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries E-MapReduce (EMR) Hadoop clusters in a specific virtual private cloud (VPC).
+     * @summary Queries E-MapReduce (EMR) Hadoop clusters in a specific virtual private cloud (VPC).
+     *  *
+     * @param DescribeHadoopClustersInSameNetRequest $request DescribeHadoopClustersInSameNetRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DescribeHadoopClustersInSameNetRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeHadoopClustersInSameNetResponse
-     *
-     * @param DescribeHadoopClustersInSameNetRequest $request
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return DescribeHadoopClustersInSameNetResponse
+     * @return DescribeHadoopClustersInSameNetResponse DescribeHadoopClustersInSameNetResponse
      */
     public function describeHadoopClustersInSameNetWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeHadoopClustersInSameNet',
@@ -7995,15 +6540,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries E-MapReduce (EMR) Hadoop clusters in a specific virtual private cloud (VPC).
+     * @summary Queries E-MapReduce (EMR) Hadoop clusters in a specific virtual private cloud (VPC).
+     *  *
+     * @param DescribeHadoopClustersInSameNetRequest $request DescribeHadoopClustersInSameNetRequest
      *
-     * @param Request - DescribeHadoopClustersInSameNetRequest
-     *
-     * @returns DescribeHadoopClustersInSameNetResponse
-     *
-     * @param DescribeHadoopClustersInSameNetRequest $request
-     *
-     * @return DescribeHadoopClustersInSameNetResponse
+     * @return DescribeHadoopClustersInSameNetResponse DescribeHadoopClustersInSameNetResponse
      */
     public function describeHadoopClustersInSameNet($request)
     {
@@ -8013,40 +6554,31 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the configuration information about a Hadoop cluster.
+     * @summary Queries the configuration information about a Hadoop cluster.
+     *  *
+     * @param DescribeHadoopConfigsRequest $request DescribeHadoopConfigsRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DescribeHadoopConfigsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeHadoopConfigsResponse
-     *
-     * @param DescribeHadoopConfigsRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DescribeHadoopConfigsResponse
+     * @return DescribeHadoopConfigsResponse DescribeHadoopConfigsResponse
      */
     public function describeHadoopConfigsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->configName) {
-            @$query['ConfigName'] = $request->configName;
+        if (!Utils::isUnset($request->configName)) {
+            $query['ConfigName'] = $request->configName;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->emrInstanceId) {
-            @$query['EmrInstanceId'] = $request->emrInstanceId;
+        if (!Utils::isUnset($request->emrInstanceId)) {
+            $query['EmrInstanceId'] = $request->emrInstanceId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeHadoopConfigs',
@@ -8064,15 +6596,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the configuration information about a Hadoop cluster.
+     * @summary Queries the configuration information about a Hadoop cluster.
+     *  *
+     * @param DescribeHadoopConfigsRequest $request DescribeHadoopConfigsRequest
      *
-     * @param Request - DescribeHadoopConfigsRequest
-     *
-     * @returns DescribeHadoopConfigsResponse
-     *
-     * @param DescribeHadoopConfigsRequest $request
-     *
-     * @return DescribeHadoopConfigsResponse
+     * @return DescribeHadoopConfigsResponse DescribeHadoopConfigsResponse
      */
     public function describeHadoopConfigs($request)
     {
@@ -8082,36 +6610,28 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Obtains the configurations of a Hadoop data source.
+     * @summary Obtains the configurations of a Hadoop data source.
+     *  *
+     * @param DescribeHadoopDataSourceRequest $request DescribeHadoopDataSourceRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DescribeHadoopDataSourceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeHadoopDataSourceResponse
-     *
-     * @param DescribeHadoopDataSourceRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return DescribeHadoopDataSourceResponse
+     * @return DescribeHadoopDataSourceResponse DescribeHadoopDataSourceResponse
      */
     public function describeHadoopDataSourceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->dataSourceId) {
-            @$query['DataSourceId'] = $request->dataSourceId;
+        if (!Utils::isUnset($request->dataSourceId)) {
+            $query['DataSourceId'] = $request->dataSourceId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeHadoopDataSource',
@@ -8129,15 +6649,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Obtains the configurations of a Hadoop data source.
+     * @summary Obtains the configurations of a Hadoop data source.
+     *  *
+     * @param DescribeHadoopDataSourceRequest $request DescribeHadoopDataSourceRequest
      *
-     * @param Request - DescribeHadoopDataSourceRequest
-     *
-     * @returns DescribeHadoopDataSourceResponse
-     *
-     * @param DescribeHadoopDataSourceRequest $request
-     *
-     * @return DescribeHadoopDataSourceResponse
+     * @return DescribeHadoopDataSourceResponse DescribeHadoopDataSourceResponse
      */
     public function describeHadoopDataSource($request)
     {
@@ -8147,37 +6663,29 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the health status of an AnalyticDB for PostgreSQL instance and its nodes.
-     *
-     * @remarks
-     * This operation is called to query the health status of an AnalyticDB for PostgreSQL instance in elastic storage mode or Serverless mode and its coordinator and compute nodes.
+     * @summary Queries the health status of an AnalyticDB for PostgreSQL instance and its nodes.
+     *  *
+     * @description This operation is called to query the health status of an AnalyticDB for PostgreSQL instance in elastic storage mode or Serverless mode and its coordinator and compute nodes.
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeHealthStatusRequest $request DescribeHealthStatusRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DescribeHealthStatusRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeHealthStatusResponse
-     *
-     * @param DescribeHealthStatusRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DescribeHealthStatusResponse
+     * @return DescribeHealthStatusResponse DescribeHealthStatusResponse
      */
     public function describeHealthStatusWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->key) {
-            @$query['Key'] = $request->key;
+        if (!Utils::isUnset($request->key)) {
+            $query['Key'] = $request->key;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeHealthStatus',
@@ -8195,20 +6703,15 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the health status of an AnalyticDB for PostgreSQL instance and its nodes.
-     *
-     * @remarks
-     * This operation is called to query the health status of an AnalyticDB for PostgreSQL instance in elastic storage mode or Serverless mode and its coordinator and compute nodes.
+     * @summary Queries the health status of an AnalyticDB for PostgreSQL instance and its nodes.
+     *  *
+     * @description This operation is called to query the health status of an AnalyticDB for PostgreSQL instance in elastic storage mode or Serverless mode and its coordinator and compute nodes.
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeHealthStatusRequest $request DescribeHealthStatusRequest
      *
-     * @param Request - DescribeHealthStatusRequest
-     *
-     * @returns DescribeHealthStatusResponse
-     *
-     * @param DescribeHealthStatusRequest $request
-     *
-     * @return DescribeHealthStatusResponse
+     * @return DescribeHealthStatusResponse DescribeHealthStatusResponse
      */
     public function describeHealthStatus($request)
     {
@@ -8218,36 +6721,28 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the information about real-time materialized views of an AnalyticDB for PostgreSQL instance.
+     * @summary Queries the information about real-time materialized views of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @param DescribeIMVInfosRequest $request DescribeIMVInfosRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DescribeIMVInfosRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeIMVInfosResponse
-     *
-     * @param DescribeIMVInfosRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return DescribeIMVInfosResponse
+     * @return DescribeIMVInfosResponse DescribeIMVInfosResponse
      */
     public function describeIMVInfosWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->database) {
-            @$query['Database'] = $request->database;
+        if (!Utils::isUnset($request->database)) {
+            $query['Database'] = $request->database;
         }
-
-        if (null !== $request->MVName) {
-            @$query['MVName'] = $request->MVName;
+        if (!Utils::isUnset($request->MVName)) {
+            $query['MVName'] = $request->MVName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeIMVInfos',
@@ -8265,15 +6760,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the information about real-time materialized views of an AnalyticDB for PostgreSQL instance.
+     * @summary Queries the information about real-time materialized views of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @param DescribeIMVInfosRequest $request DescribeIMVInfosRequest
      *
-     * @param Request - DescribeIMVInfosRequest
-     *
-     * @returns DescribeIMVInfosResponse
-     *
-     * @param DescribeIMVInfosRequest $request
-     *
-     * @return DescribeIMVInfosResponse
+     * @return DescribeIMVInfosResponse DescribeIMVInfosResponse
      */
     public function describeIMVInfos($request)
     {
@@ -8283,56 +6774,43 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 获取索引详情.
+     * @summary 获取索引详情
+     *  *
+     * @param DescribeIndexRequest $request DescribeIndexRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DescribeIndexRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeIndexResponse
-     *
-     * @param DescribeIndexRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return DescribeIndexResponse
+     * @return DescribeIndexResponse DescribeIndexResponse
      */
     public function describeIndexWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->collection) {
-            @$query['Collection'] = $request->collection;
+        if (!Utils::isUnset($request->collection)) {
+            $query['Collection'] = $request->collection;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->indexName) {
-            @$query['IndexName'] = $request->indexName;
+        if (!Utils::isUnset($request->indexName)) {
+            $query['IndexName'] = $request->indexName;
         }
-
-        if (null !== $request->namespace) {
-            @$query['Namespace'] = $request->namespace;
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
         }
-
-        if (null !== $request->namespacePassword) {
-            @$query['NamespacePassword'] = $request->namespacePassword;
+        if (!Utils::isUnset($request->namespacePassword)) {
+            $query['NamespacePassword'] = $request->namespacePassword;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->workspaceId) {
-            @$query['WorkspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeIndex',
@@ -8350,15 +6828,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 获取索引详情.
+     * @summary 获取索引详情
+     *  *
+     * @param DescribeIndexRequest $request DescribeIndexRequest
      *
-     * @param Request - DescribeIndexRequest
-     *
-     * @returns DescribeIndexResponse
-     *
-     * @param DescribeIndexRequest $request
-     *
-     * @return DescribeIndexResponse
+     * @return DescribeIndexResponse DescribeIndexResponse
      */
     public function describeIndex($request)
     {
@@ -8368,32 +6842,25 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the configurations of a Java Database Connectivity (JDBC) data source.
+     * @summary Queries the configurations of a Java Database Connectivity (JDBC) data source.
+     *  *
+     * @param DescribeJDBCDataSourceRequest $request DescribeJDBCDataSourceRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DescribeJDBCDataSourceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeJDBCDataSourceResponse
-     *
-     * @param DescribeJDBCDataSourceRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return DescribeJDBCDataSourceResponse
+     * @return DescribeJDBCDataSourceResponse DescribeJDBCDataSourceResponse
      */
     public function describeJDBCDataSourceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->dataSourceId) {
-            @$query['DataSourceId'] = $request->dataSourceId;
+        if (!Utils::isUnset($request->dataSourceId)) {
+            $query['DataSourceId'] = $request->dataSourceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeJDBCDataSource',
@@ -8411,15 +6878,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the configurations of a Java Database Connectivity (JDBC) data source.
+     * @summary Queries the configurations of a Java Database Connectivity (JDBC) data source.
+     *  *
+     * @param DescribeJDBCDataSourceRequest $request DescribeJDBCDataSourceRequest
      *
-     * @param Request - DescribeJDBCDataSourceRequest
-     *
-     * @returns DescribeJDBCDataSourceResponse
-     *
-     * @param DescribeJDBCDataSourceRequest $request
-     *
-     * @return DescribeJDBCDataSourceResponse
+     * @return DescribeJDBCDataSourceResponse DescribeJDBCDataSourceResponse
      */
     public function describeJDBCDataSource($request)
     {
@@ -8429,44 +6892,34 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries a list of log backups.
+     * @summary Queries a list of log backups.
+     *  *
+     * @param DescribeLogBackupsRequest $request DescribeLogBackupsRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DescribeLogBackupsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeLogBackupsResponse
-     *
-     * @param DescribeLogBackupsRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DescribeLogBackupsResponse
+     * @return DescribeLogBackupsResponse DescribeLogBackupsResponse
      */
     public function describeLogBackupsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeLogBackups',
@@ -8484,15 +6937,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries a list of log backups.
+     * @summary Queries a list of log backups.
+     *  *
+     * @param DescribeLogBackupsRequest $request DescribeLogBackupsRequest
      *
-     * @param Request - DescribeLogBackupsRequest
-     *
-     * @returns DescribeLogBackupsResponse
-     *
-     * @param DescribeLogBackupsRequest $request
-     *
-     * @return DescribeLogBackupsResponse
+     * @return DescribeLogBackupsResponse DescribeLogBackupsResponse
      */
     public function describeLogBackups($request)
     {
@@ -8502,36 +6951,28 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the parameter modification logs of an AnalyticDB for PostgreSQL instance.
+     * @summary Queries the parameter modification logs of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @param DescribeModifyParameterLogRequest $request DescribeModifyParameterLogRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DescribeModifyParameterLogRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeModifyParameterLogResponse
-     *
-     * @param DescribeModifyParameterLogRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return DescribeModifyParameterLogResponse
+     * @return DescribeModifyParameterLogResponse DescribeModifyParameterLogResponse
      */
     public function describeModifyParameterLogWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeModifyParameterLog',
@@ -8549,15 +6990,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the parameter modification logs of an AnalyticDB for PostgreSQL instance.
+     * @summary Queries the parameter modification logs of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @param DescribeModifyParameterLogRequest $request DescribeModifyParameterLogRequest
      *
-     * @param Request - DescribeModifyParameterLogRequest
-     *
-     * @returns DescribeModifyParameterLogResponse
-     *
-     * @param DescribeModifyParameterLogRequest $request
-     *
-     * @return DescribeModifyParameterLogResponse
+     * @return DescribeModifyParameterLogResponse DescribeModifyParameterLogResponse
      */
     public function describeModifyParameterLog($request)
     {
@@ -8567,52 +7004,40 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the information about a namespace.
+     * @summary Queries the information about a namespace.
+     *  *
+     * @param DescribeNamespaceRequest $request DescribeNamespaceRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DescribeNamespaceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeNamespaceResponse
-     *
-     * @param DescribeNamespaceRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return DescribeNamespaceResponse
+     * @return DescribeNamespaceResponse DescribeNamespaceResponse
      */
     public function describeNamespaceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->managerAccount) {
-            @$query['ManagerAccount'] = $request->managerAccount;
+        if (!Utils::isUnset($request->managerAccount)) {
+            $query['ManagerAccount'] = $request->managerAccount;
         }
-
-        if (null !== $request->managerAccountPassword) {
-            @$query['ManagerAccountPassword'] = $request->managerAccountPassword;
+        if (!Utils::isUnset($request->managerAccountPassword)) {
+            $query['ManagerAccountPassword'] = $request->managerAccountPassword;
         }
-
-        if (null !== $request->namespace) {
-            @$query['Namespace'] = $request->namespace;
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->workspaceId) {
-            @$query['WorkspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeNamespace',
@@ -8630,15 +7055,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the information about a namespace.
+     * @summary Queries the information about a namespace.
+     *  *
+     * @param DescribeNamespaceRequest $request DescribeNamespaceRequest
      *
-     * @param Request - DescribeNamespaceRequest
-     *
-     * @returns DescribeNamespaceResponse
-     *
-     * @param DescribeNamespaceRequest $request
-     *
-     * @return DescribeNamespaceResponse
+     * @return DescribeNamespaceResponse DescribeNamespaceResponse
      */
     public function describeNamespace($request)
     {
@@ -8648,33 +7069,26 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the information about configuration parameters for an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * This operation can be called to query the details of parameters in an AnalyticDB for PostgreSQL instance in elastic storage mode or Serverless mode.
+     * @summary Queries the information about configuration parameters for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description This operation can be called to query the details of parameters in an AnalyticDB for PostgreSQL instance in elastic storage mode or Serverless mode.
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeParametersRequest $request DescribeParametersRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DescribeParametersRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeParametersResponse
-     *
-     * @param DescribeParametersRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DescribeParametersResponse
+     * @return DescribeParametersResponse DescribeParametersResponse
      */
     public function describeParametersWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeParameters',
@@ -8692,20 +7106,15 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the information about configuration parameters for an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * This operation can be called to query the details of parameters in an AnalyticDB for PostgreSQL instance in elastic storage mode or Serverless mode.
+     * @summary Queries the information about configuration parameters for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description This operation can be called to query the details of parameters in an AnalyticDB for PostgreSQL instance in elastic storage mode or Serverless mode.
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeParametersRequest $request DescribeParametersRequest
      *
-     * @param Request - DescribeParametersRequest
-     *
-     * @returns DescribeParametersResponse
-     *
-     * @param DescribeParametersRequest $request
-     *
-     * @return DescribeParametersResponse
+     * @return DescribeParametersResponse DescribeParametersResponse
      */
     public function describeParameters($request)
     {
@@ -8715,65 +7124,50 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries a list of vSwitches.
-     *
-     * @remarks
-     * When you create AnalyticDB for PostgreSQL instances, you can call this operation to query the details of vSwitches within a specified region or zone.
+     * @summary Queries a list of vSwitches.
+     *  *
+     * @description When you create AnalyticDB for PostgreSQL instances, you can call this operation to query the details of vSwitches within a specified region or zone.
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeRdsVSwitchsRequest $request DescribeRdsVSwitchsRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DescribeRdsVSwitchsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeRdsVSwitchsResponse
-     *
-     * @param DescribeRdsVSwitchsRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DescribeRdsVSwitchsResponse
+     * @return DescribeRdsVSwitchsResponse DescribeRdsVSwitchsResponse
      */
     public function describeRdsVSwitchsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->vpcId) {
-            @$query['VpcId'] = $request->vpcId;
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
         }
-
-        if (null !== $request->zoneId) {
-            @$query['ZoneId'] = $request->zoneId;
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeRdsVSwitchs',
@@ -8791,20 +7185,15 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries a list of vSwitches.
-     *
-     * @remarks
-     * When you create AnalyticDB for PostgreSQL instances, you can call this operation to query the details of vSwitches within a specified region or zone.
+     * @summary Queries a list of vSwitches.
+     *  *
+     * @description When you create AnalyticDB for PostgreSQL instances, you can call this operation to query the details of vSwitches within a specified region or zone.
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeRdsVSwitchsRequest $request DescribeRdsVSwitchsRequest
      *
-     * @param Request - DescribeRdsVSwitchsRequest
-     *
-     * @returns DescribeRdsVSwitchsResponse
-     *
-     * @param DescribeRdsVSwitchsRequest $request
-     *
-     * @return DescribeRdsVSwitchsResponse
+     * @return DescribeRdsVSwitchsResponse DescribeRdsVSwitchsResponse
      */
     public function describeRdsVSwitchs($request)
     {
@@ -8814,61 +7203,47 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries a list of VPCs.
-     *
-     * @remarks
-     * When you create an AnalyticDB for PostgreSQL instance, you can call this operation to query the available VPCs within a specified region or zone.
+     * @summary Queries a list of VPCs.
+     *  *
+     * @description When you create an AnalyticDB for PostgreSQL instance, you can call this operation to query the available VPCs within a specified region or zone.
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeRdsVpcsRequest $request DescribeRdsVpcsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DescribeRdsVpcsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeRdsVpcsResponse
-     *
-     * @param DescribeRdsVpcsRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return DescribeRdsVpcsResponse
+     * @return DescribeRdsVpcsResponse DescribeRdsVpcsResponse
      */
     public function describeRdsVpcsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->zoneId) {
-            @$query['ZoneId'] = $request->zoneId;
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeRdsVpcs',
@@ -8886,20 +7261,15 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries a list of VPCs.
-     *
-     * @remarks
-     * When you create an AnalyticDB for PostgreSQL instance, you can call this operation to query the available VPCs within a specified region or zone.
+     * @summary Queries a list of VPCs.
+     *  *
+     * @description When you create an AnalyticDB for PostgreSQL instance, you can call this operation to query the available VPCs within a specified region or zone.
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeRdsVpcsRequest $request DescribeRdsVpcsRequest
      *
-     * @param Request - DescribeRdsVpcsRequest
-     *
-     * @returns DescribeRdsVpcsResponse
-     *
-     * @param DescribeRdsVpcsRequest $request
-     *
-     * @return DescribeRdsVpcsResponse
+     * @return DescribeRdsVpcsResponse DescribeRdsVpcsResponse
      */
     public function describeRdsVpcs($request)
     {
@@ -8909,33 +7279,26 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries a list of regions and zones where AnalyticDB for PostgreSQL is available.
-     *
-     * @remarks
-     * Before you create an AnalyticDB for PostgreSQL instance, you must call this operation to query available regions and zones.
+     * @summary Queries a list of regions and zones where AnalyticDB for PostgreSQL is available.
+     *  *
+     * @description Before you create an AnalyticDB for PostgreSQL instance, you must call this operation to query available regions and zones.
      * ## Limit
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DescribeRegionsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeRegionsResponse
-     *
-     * @param DescribeRegionsRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->region) {
-            @$query['Region'] = $request->region;
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeRegions',
@@ -8953,20 +7316,15 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries a list of regions and zones where AnalyticDB for PostgreSQL is available.
-     *
-     * @remarks
-     * Before you create an AnalyticDB for PostgreSQL instance, you must call this operation to query available regions and zones.
+     * @summary Queries a list of regions and zones where AnalyticDB for PostgreSQL is available.
+     *  *
+     * @description Before you create an AnalyticDB for PostgreSQL instance, you must call this operation to query available regions and zones.
      * ## Limit
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
      *
-     * @param Request - DescribeRegionsRequest
-     *
-     * @returns DescribeRegionsResponse
-     *
-     * @param DescribeRegionsRequest $request
-     *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegions($request)
     {
@@ -8976,32 +7334,25 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries a list of roles.
+     * @summary Queries a list of roles.
+     *  *
+     * @param DescribeRolesRequest $request DescribeRolesRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DescribeRolesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeRolesResponse
-     *
-     * @param DescribeRolesRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return DescribeRolesResponse
+     * @return DescribeRolesResponse DescribeRolesResponse
      */
     public function describeRolesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeRoles',
@@ -9019,15 +7370,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries a list of roles.
+     * @summary Queries a list of roles.
+     *  *
+     * @param DescribeRolesRequest $request DescribeRolesRequest
      *
-     * @param Request - DescribeRolesRequest
-     *
-     * @returns DescribeRolesResponse
-     *
-     * @param DescribeRolesRequest $request
-     *
-     * @return DescribeRolesResponse
+     * @return DescribeRolesResponse DescribeRolesResponse
      */
     public function describeRoles($request)
     {
@@ -9037,79 +7384,60 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the number of audit logs for an AnalyticDB for PostgreSQL instance.
+     * @summary Queries the number of audit logs for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description This operation is not available for instances in reserved storage mode.
+     *  *
+     * @param DescribeSQLLogCountRequest $request DescribeSQLLogCountRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * This operation is not available for instances in reserved storage mode.
-     *
-     * @param Request - DescribeSQLLogCountRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeSQLLogCountResponse
-     *
-     * @param DescribeSQLLogCountRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DescribeSQLLogCountResponse
+     * @return DescribeSQLLogCountResponse DescribeSQLLogCountResponse
      */
     public function describeSQLLogCountWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->database) {
-            @$query['Database'] = $request->database;
+        if (!Utils::isUnset($request->database)) {
+            $query['Database'] = $request->database;
         }
-
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->executeCost) {
-            @$query['ExecuteCost'] = $request->executeCost;
+        if (!Utils::isUnset($request->executeCost)) {
+            $query['ExecuteCost'] = $request->executeCost;
         }
-
-        if (null !== $request->executeState) {
-            @$query['ExecuteState'] = $request->executeState;
+        if (!Utils::isUnset($request->executeState)) {
+            $query['ExecuteState'] = $request->executeState;
         }
-
-        if (null !== $request->maxExecuteCost) {
-            @$query['MaxExecuteCost'] = $request->maxExecuteCost;
+        if (!Utils::isUnset($request->maxExecuteCost)) {
+            $query['MaxExecuteCost'] = $request->maxExecuteCost;
         }
-
-        if (null !== $request->minExecuteCost) {
-            @$query['MinExecuteCost'] = $request->minExecuteCost;
+        if (!Utils::isUnset($request->minExecuteCost)) {
+            $query['MinExecuteCost'] = $request->minExecuteCost;
         }
-
-        if (null !== $request->operationClass) {
-            @$query['OperationClass'] = $request->operationClass;
+        if (!Utils::isUnset($request->operationClass)) {
+            $query['OperationClass'] = $request->operationClass;
         }
-
-        if (null !== $request->operationType) {
-            @$query['OperationType'] = $request->operationType;
+        if (!Utils::isUnset($request->operationType)) {
+            $query['OperationType'] = $request->operationType;
         }
-
-        if (null !== $request->queryKeywords) {
-            @$query['QueryKeywords'] = $request->queryKeywords;
+        if (!Utils::isUnset($request->queryKeywords)) {
+            $query['QueryKeywords'] = $request->queryKeywords;
         }
-
-        if (null !== $request->sourceIP) {
-            @$query['SourceIP'] = $request->sourceIP;
+        if (!Utils::isUnset($request->sourceIP)) {
+            $query['SourceIP'] = $request->sourceIP;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
-        if (null !== $request->user) {
-            @$query['User'] = $request->user;
+        if (!Utils::isUnset($request->user)) {
+            $query['User'] = $request->user;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeSQLLogCount',
@@ -9127,18 +7455,13 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the number of audit logs for an AnalyticDB for PostgreSQL instance.
+     * @summary Queries the number of audit logs for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description This operation is not available for instances in reserved storage mode.
+     *  *
+     * @param DescribeSQLLogCountRequest $request DescribeSQLLogCountRequest
      *
-     * @remarks
-     * This operation is not available for instances in reserved storage mode.
-     *
-     * @param Request - DescribeSQLLogCountRequest
-     *
-     * @returns DescribeSQLLogCountResponse
-     *
-     * @param DescribeSQLLogCountRequest $request
-     *
-     * @return DescribeSQLLogCountResponse
+     * @return DescribeSQLLogCountResponse DescribeSQLLogCountResponse
      */
     public function describeSQLLogCount($request)
     {
@@ -9148,87 +7471,66 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the SQL execution logs of an AnalyticDB for PostgreSQL instance.
+     * @summary Queries the SQL execution logs of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description > This operation is no longer used. To query SQL execution logs, call the [DescribeSQLLogsV2](https://help.aliyun.com/document_detail/453722.html) operation.
+     *  *
+     * @param DescribeSQLLogsRequest $request DescribeSQLLogsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * > This operation is no longer used. To query SQL execution logs, call the [DescribeSQLLogsV2](https://help.aliyun.com/document_detail/453722.html) operation.
-     *
-     * @param Request - DescribeSQLLogsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeSQLLogsResponse
-     *
-     * @param DescribeSQLLogsRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return DescribeSQLLogsResponse
+     * @return DescribeSQLLogsResponse DescribeSQLLogsResponse
      */
     public function describeSQLLogsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->database) {
-            @$query['Database'] = $request->database;
+        if (!Utils::isUnset($request->database)) {
+            $query['Database'] = $request->database;
         }
-
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->executeCost) {
-            @$query['ExecuteCost'] = $request->executeCost;
+        if (!Utils::isUnset($request->executeCost)) {
+            $query['ExecuteCost'] = $request->executeCost;
         }
-
-        if (null !== $request->executeState) {
-            @$query['ExecuteState'] = $request->executeState;
+        if (!Utils::isUnset($request->executeState)) {
+            $query['ExecuteState'] = $request->executeState;
         }
-
-        if (null !== $request->maxExecuteCost) {
-            @$query['MaxExecuteCost'] = $request->maxExecuteCost;
+        if (!Utils::isUnset($request->maxExecuteCost)) {
+            $query['MaxExecuteCost'] = $request->maxExecuteCost;
         }
-
-        if (null !== $request->minExecuteCost) {
-            @$query['MinExecuteCost'] = $request->minExecuteCost;
+        if (!Utils::isUnset($request->minExecuteCost)) {
+            $query['MinExecuteCost'] = $request->minExecuteCost;
         }
-
-        if (null !== $request->operationClass) {
-            @$query['OperationClass'] = $request->operationClass;
+        if (!Utils::isUnset($request->operationClass)) {
+            $query['OperationClass'] = $request->operationClass;
         }
-
-        if (null !== $request->operationType) {
-            @$query['OperationType'] = $request->operationType;
+        if (!Utils::isUnset($request->operationType)) {
+            $query['OperationType'] = $request->operationType;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->queryKeywords) {
-            @$query['QueryKeywords'] = $request->queryKeywords;
+        if (!Utils::isUnset($request->queryKeywords)) {
+            $query['QueryKeywords'] = $request->queryKeywords;
         }
-
-        if (null !== $request->sourceIP) {
-            @$query['SourceIP'] = $request->sourceIP;
+        if (!Utils::isUnset($request->sourceIP)) {
+            $query['SourceIP'] = $request->sourceIP;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
-        if (null !== $request->user) {
-            @$query['User'] = $request->user;
+        if (!Utils::isUnset($request->user)) {
+            $query['User'] = $request->user;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeSQLLogs',
@@ -9246,18 +7548,13 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the SQL execution logs of an AnalyticDB for PostgreSQL instance.
+     * @summary Queries the SQL execution logs of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description > This operation is no longer used. To query SQL execution logs, call the [DescribeSQLLogsV2](https://help.aliyun.com/document_detail/453722.html) operation.
+     *  *
+     * @param DescribeSQLLogsRequest $request DescribeSQLLogsRequest
      *
-     * @remarks
-     * > This operation is no longer used. To query SQL execution logs, call the [DescribeSQLLogsV2](https://help.aliyun.com/document_detail/453722.html) operation.
-     *
-     * @param Request - DescribeSQLLogsRequest
-     *
-     * @returns DescribeSQLLogsResponse
-     *
-     * @param DescribeSQLLogsRequest $request
-     *
-     * @return DescribeSQLLogsResponse
+     * @return DescribeSQLLogsResponse DescribeSQLLogsResponse
      */
     public function describeSQLLogs($request)
     {
@@ -9267,97 +7564,74 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries SQL logs within a specific time range.
-     *
-     * @remarks
-     * You can call this operation to query SQL logs of an AnalyticDB for PostgreSQL instance within a specific time range.
+     * @summary Queries SQL logs within a specific time range.
+     *  *
+     * @description You can call this operation to query SQL logs of an AnalyticDB for PostgreSQL instance within a specific time range.
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeSQLLogsV2Request $request DescribeSQLLogsV2Request
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DescribeSQLLogsV2Request
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeSQLLogsV2Response
-     *
-     * @param DescribeSQLLogsV2Request $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return DescribeSQLLogsV2Response
+     * @return DescribeSQLLogsV2Response DescribeSQLLogsV2Response
      */
     public function describeSQLLogsV2WithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->database) {
-            @$query['Database'] = $request->database;
+        if (!Utils::isUnset($request->database)) {
+            $query['Database'] = $request->database;
         }
-
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->executeCost) {
-            @$query['ExecuteCost'] = $request->executeCost;
+        if (!Utils::isUnset($request->executeCost)) {
+            $query['ExecuteCost'] = $request->executeCost;
         }
-
-        if (null !== $request->executeState) {
-            @$query['ExecuteState'] = $request->executeState;
+        if (!Utils::isUnset($request->executeState)) {
+            $query['ExecuteState'] = $request->executeState;
         }
-
-        if (null !== $request->maxExecuteCost) {
-            @$query['MaxExecuteCost'] = $request->maxExecuteCost;
+        if (!Utils::isUnset($request->maxExecuteCost)) {
+            $query['MaxExecuteCost'] = $request->maxExecuteCost;
         }
-
-        if (null !== $request->minExecuteCost) {
-            @$query['MinExecuteCost'] = $request->minExecuteCost;
+        if (!Utils::isUnset($request->minExecuteCost)) {
+            $query['MinExecuteCost'] = $request->minExecuteCost;
         }
-
-        if (null !== $request->operationClass) {
-            @$query['OperationClass'] = $request->operationClass;
+        if (!Utils::isUnset($request->operationClass)) {
+            $query['OperationClass'] = $request->operationClass;
         }
-
-        if (null !== $request->operationType) {
-            @$query['OperationType'] = $request->operationType;
+        if (!Utils::isUnset($request->operationType)) {
+            $query['OperationType'] = $request->operationType;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->queryKeywords) {
-            @$query['QueryKeywords'] = $request->queryKeywords;
+        if (!Utils::isUnset($request->queryKeywords)) {
+            $query['QueryKeywords'] = $request->queryKeywords;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->sourceIP) {
-            @$query['SourceIP'] = $request->sourceIP;
+        if (!Utils::isUnset($request->sourceIP)) {
+            $query['SourceIP'] = $request->sourceIP;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
-        if (null !== $request->user) {
-            @$query['User'] = $request->user;
+        if (!Utils::isUnset($request->user)) {
+            $query['User'] = $request->user;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeSQLLogsV2',
@@ -9375,20 +7649,15 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries SQL logs within a specific time range.
-     *
-     * @remarks
-     * You can call this operation to query SQL logs of an AnalyticDB for PostgreSQL instance within a specific time range.
+     * @summary Queries SQL logs within a specific time range.
+     *  *
+     * @description You can call this operation to query SQL logs of an AnalyticDB for PostgreSQL instance within a specific time range.
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeSQLLogsV2Request $request DescribeSQLLogsV2Request
      *
-     * @param Request - DescribeSQLLogsV2Request
-     *
-     * @returns DescribeSQLLogsV2Response
-     *
-     * @param DescribeSQLLogsV2Request $request
-     *
-     * @return DescribeSQLLogsV2Response
+     * @return DescribeSQLLogsV2Response DescribeSQLLogsV2Response
      */
     public function describeSQLLogsV2($request)
     {
@@ -9398,35 +7667,27 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries whether a sample dataset is loaded to an AnalyticDB for PostgreSQL instance.
+     * @summary Queries whether a sample dataset is loaded to an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeSampleDataRequest $request DescribeSampleDataRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
-     * @param Request - DescribeSampleDataRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeSampleDataResponse
-     *
-     * @param DescribeSampleDataRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DescribeSampleDataResponse
+     * @return DescribeSampleDataResponse DescribeSampleDataResponse
      */
     public function describeSampleDataWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeSampleData',
@@ -9444,18 +7705,13 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries whether a sample dataset is loaded to an AnalyticDB for PostgreSQL instance.
+     * @summary Queries whether a sample dataset is loaded to an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeSampleDataRequest $request DescribeSampleDataRequest
      *
-     * @remarks
-     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
-     * @param Request - DescribeSampleDataRequest
-     *
-     * @returns DescribeSampleDataResponse
-     *
-     * @param DescribeSampleDataRequest $request
-     *
-     * @return DescribeSampleDataResponse
+     * @return DescribeSampleDataResponse DescribeSampleDataResponse
      */
     public function describeSampleData($request)
     {
@@ -9465,36 +7721,28 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries a real-time data service.
+     * @summary Queries a real-time data service.
+     *  *
+     * @param DescribeStreamingDataServiceRequest $request DescribeStreamingDataServiceRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DescribeStreamingDataServiceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeStreamingDataServiceResponse
-     *
-     * @param DescribeStreamingDataServiceRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return DescribeStreamingDataServiceResponse
+     * @return DescribeStreamingDataServiceResponse DescribeStreamingDataServiceResponse
      */
     public function describeStreamingDataServiceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->serviceId) {
-            @$query['ServiceId'] = $request->serviceId;
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['ServiceId'] = $request->serviceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeStreamingDataService',
@@ -9512,15 +7760,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries a real-time data service.
+     * @summary Queries a real-time data service.
+     *  *
+     * @param DescribeStreamingDataServiceRequest $request DescribeStreamingDataServiceRequest
      *
-     * @param Request - DescribeStreamingDataServiceRequest
-     *
-     * @returns DescribeStreamingDataServiceResponse
-     *
-     * @param DescribeStreamingDataServiceRequest $request
-     *
-     * @return DescribeStreamingDataServiceResponse
+     * @return DescribeStreamingDataServiceResponse DescribeStreamingDataServiceResponse
      */
     public function describeStreamingDataService($request)
     {
@@ -9530,36 +7774,28 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Get external data source configuration information.
+     * @summary Get external data source configuration information
+     *  *
+     * @param DescribeStreamingDataSourceRequest $request DescribeStreamingDataSourceRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DescribeStreamingDataSourceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeStreamingDataSourceResponse
-     *
-     * @param DescribeStreamingDataSourceRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return DescribeStreamingDataSourceResponse
+     * @return DescribeStreamingDataSourceResponse DescribeStreamingDataSourceResponse
      */
     public function describeStreamingDataSourceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->dataSourceId) {
-            @$query['DataSourceId'] = $request->dataSourceId;
+        if (!Utils::isUnset($request->dataSourceId)) {
+            $query['DataSourceId'] = $request->dataSourceId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeStreamingDataSource',
@@ -9577,15 +7813,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Get external data source configuration information.
+     * @summary Get external data source configuration information
+     *  *
+     * @param DescribeStreamingDataSourceRequest $request DescribeStreamingDataSourceRequest
      *
-     * @param Request - DescribeStreamingDataSourceRequest
-     *
-     * @returns DescribeStreamingDataSourceResponse
-     *
-     * @param DescribeStreamingDataSourceRequest $request
-     *
-     * @return DescribeStreamingDataSourceResponse
+     * @return DescribeStreamingDataSourceResponse DescribeStreamingDataSourceResponse
      */
     public function describeStreamingDataSource($request)
     {
@@ -9595,36 +7827,28 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Delete External Data Source Configuration.
+     * @summary Delete External Data Source Configuration
+     *  *
+     * @param DescribeStreamingJobRequest $request DescribeStreamingJobRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DescribeStreamingJobRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeStreamingJobResponse
-     *
-     * @param DescribeStreamingJobRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DescribeStreamingJobResponse
+     * @return DescribeStreamingJobResponse DescribeStreamingJobResponse
      */
     public function describeStreamingJobWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->jobId) {
-            @$query['JobId'] = $request->jobId;
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeStreamingJob',
@@ -9642,15 +7866,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Delete External Data Source Configuration.
+     * @summary Delete External Data Source Configuration
+     *  *
+     * @param DescribeStreamingJobRequest $request DescribeStreamingJobRequest
      *
-     * @param Request - DescribeStreamingJobRequest
-     *
-     * @returns DescribeStreamingJobResponse
-     *
-     * @param DescribeStreamingJobRequest $request
-     *
-     * @return DescribeStreamingJobResponse
+     * @return DescribeStreamingJobResponse DescribeStreamingJobResponse
      */
     public function describeStreamingJob($request)
     {
@@ -9660,32 +7880,25 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the features that are supported by an AnalyticDB for PostgreSQL instance.
+     * @summary Queries the features that are supported by an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @param DescribeSupportFeaturesRequest $request DescribeSupportFeaturesRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DescribeSupportFeaturesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeSupportFeaturesResponse
-     *
-     * @param DescribeSupportFeaturesRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DescribeSupportFeaturesResponse
+     * @return DescribeSupportFeaturesResponse DescribeSupportFeaturesResponse
      */
     public function describeSupportFeaturesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeSupportFeatures',
@@ -9703,15 +7916,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the features that are supported by an AnalyticDB for PostgreSQL instance.
+     * @summary Queries the features that are supported by an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @param DescribeSupportFeaturesRequest $request DescribeSupportFeaturesRequest
      *
-     * @param Request - DescribeSupportFeaturesRequest
-     *
-     * @returns DescribeSupportFeaturesResponse
-     *
-     * @param DescribeSupportFeaturesRequest $request
-     *
-     * @return DescribeSupportFeaturesResponse
+     * @return DescribeSupportFeaturesResponse DescribeSupportFeaturesResponse
      */
     public function describeSupportFeatures($request)
     {
@@ -9721,56 +7930,43 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the information about a table.
+     * @summary Queries the information about a table.
+     *  *
+     * @param DescribeTableRequest $request DescribeTableRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DescribeTableRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeTableResponse
-     *
-     * @param DescribeTableRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return DescribeTableResponse
+     * @return DescribeTableResponse DescribeTableResponse
      */
     public function describeTableWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->database) {
-            @$query['Database'] = $request->database;
+        if (!Utils::isUnset($request->database)) {
+            $query['Database'] = $request->database;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->schema) {
-            @$query['Schema'] = $request->schema;
+        if (!Utils::isUnset($request->schema)) {
+            $query['Schema'] = $request->schema;
         }
-
-        if (null !== $request->secretArn) {
-            @$query['SecretArn'] = $request->secretArn;
+        if (!Utils::isUnset($request->secretArn)) {
+            $query['SecretArn'] = $request->secretArn;
         }
-
-        if (null !== $request->table) {
-            @$query['Table'] = $request->table;
+        if (!Utils::isUnset($request->table)) {
+            $query['Table'] = $request->table;
         }
-
-        if (null !== $request->workspaceId) {
-            @$query['WorkspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeTable',
@@ -9788,15 +7984,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the information about a table.
+     * @summary Queries the information about a table.
+     *  *
+     * @param DescribeTableRequest $request DescribeTableRequest
      *
-     * @param Request - DescribeTableRequest
-     *
-     * @returns DescribeTableResponse
-     *
-     * @param DescribeTableRequest $request
-     *
-     * @return DescribeTableResponse
+     * @return DescribeTableResponse DescribeTableResponse
      */
     public function describeTable($request)
     {
@@ -9806,52 +7998,40 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries a list of tags for AnalyticDB for PostgreSQL instances.
+     * @summary Queries a list of tags for AnalyticDB for PostgreSQL instances.
+     *  *
+     * @param DescribeTagsRequest $request DescribeTagsRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DescribeTagsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeTagsResponse
-     *
-     * @param DescribeTagsRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return DescribeTagsResponse
+     * @return DescribeTagsResponse DescribeTagsResponse
      */
     public function describeTagsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->resourceType) {
-            @$query['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeTags',
@@ -9869,15 +8049,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries a list of tags for AnalyticDB for PostgreSQL instances.
+     * @summary Queries a list of tags for AnalyticDB for PostgreSQL instances.
+     *  *
+     * @param DescribeTagsRequest $request DescribeTagsRequest
      *
-     * @param Request - DescribeTagsRequest
-     *
-     * @returns DescribeTagsResponse
-     *
-     * @param DescribeTagsRequest $request
-     *
-     * @return DescribeTagsResponse
+     * @return DescribeTagsResponse DescribeTagsResponse
      */
     public function describeTags($request)
     {
@@ -9887,36 +8063,28 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries a list of Key Management Service (KMS) keys.
+     * @summary Queries a list of Key Management Service (KMS) keys.
+     *  *
+     * @param DescribeUserEncryptionKeyListRequest $request DescribeUserEncryptionKeyListRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DescribeUserEncryptionKeyListRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeUserEncryptionKeyListResponse
-     *
-     * @param DescribeUserEncryptionKeyListRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return DescribeUserEncryptionKeyListResponse
+     * @return DescribeUserEncryptionKeyListResponse DescribeUserEncryptionKeyListResponse
      */
     public function describeUserEncryptionKeyListWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeUserEncryptionKeyList',
@@ -9934,15 +8102,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries a list of Key Management Service (KMS) keys.
+     * @summary Queries a list of Key Management Service (KMS) keys.
+     *  *
+     * @param DescribeUserEncryptionKeyListRequest $request DescribeUserEncryptionKeyListRequest
      *
-     * @param Request - DescribeUserEncryptionKeyListRequest
-     *
-     * @returns DescribeUserEncryptionKeyListResponse
-     *
-     * @param DescribeUserEncryptionKeyListRequest $request
-     *
-     * @return DescribeUserEncryptionKeyListResponse
+     * @return DescribeUserEncryptionKeyListResponse DescribeUserEncryptionKeyListResponse
      */
     public function describeUserEncryptionKeyList($request)
     {
@@ -9952,41 +8116,32 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the information about a lock-waiting query for an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * You can call this operation to query the details of a lock-waiting query only for an AnalyticDB for PostgreSQL V6.0 instance in elastic storage mode.
+     * @summary Queries the information about a lock-waiting query for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to query the details of a lock-waiting query only for an AnalyticDB for PostgreSQL V6.0 instance in elastic storage mode.
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeWaitingSQLInfoRequest $request DescribeWaitingSQLInfoRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DescribeWaitingSQLInfoRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeWaitingSQLInfoResponse
-     *
-     * @param DescribeWaitingSQLInfoRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return DescribeWaitingSQLInfoResponse
+     * @return DescribeWaitingSQLInfoResponse DescribeWaitingSQLInfoResponse
      */
     public function describeWaitingSQLInfoWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->database) {
-            @$query['Database'] = $request->database;
+        if (!Utils::isUnset($request->database)) {
+            $query['Database'] = $request->database;
         }
-
-        if (null !== $request->PID) {
-            @$query['PID'] = $request->PID;
+        if (!Utils::isUnset($request->PID)) {
+            $query['PID'] = $request->PID;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeWaitingSQLInfo',
@@ -10004,20 +8159,15 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the information about a lock-waiting query for an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * You can call this operation to query the details of a lock-waiting query only for an AnalyticDB for PostgreSQL V6.0 instance in elastic storage mode.
+     * @summary Queries the information about a lock-waiting query for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to query the details of a lock-waiting query only for an AnalyticDB for PostgreSQL V6.0 instance in elastic storage mode.
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeWaitingSQLInfoRequest $request DescribeWaitingSQLInfoRequest
      *
-     * @param Request - DescribeWaitingSQLInfoRequest
-     *
-     * @returns DescribeWaitingSQLInfoResponse
-     *
-     * @param DescribeWaitingSQLInfoRequest $request
-     *
-     * @return DescribeWaitingSQLInfoResponse
+     * @return DescribeWaitingSQLInfoResponse DescribeWaitingSQLInfoResponse
      */
     public function describeWaitingSQLInfo($request)
     {
@@ -10027,69 +8177,53 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the lock diagnostic records of an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * You can call this operation to query the lock diagnostics records only for an AnalyticDB for PostgreSQL V6.0 instance in elastic storage mode.
+     * @summary Queries the lock diagnostic records of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to query the lock diagnostics records only for an AnalyticDB for PostgreSQL V6.0 instance in elastic storage mode.
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeWaitingSQLRecordsRequest $request DescribeWaitingSQLRecordsRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DescribeWaitingSQLRecordsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeWaitingSQLRecordsResponse
-     *
-     * @param DescribeWaitingSQLRecordsRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DescribeWaitingSQLRecordsResponse
+     * @return DescribeWaitingSQLRecordsResponse DescribeWaitingSQLRecordsResponse
      */
     public function describeWaitingSQLRecordsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->database) {
-            @$query['Database'] = $request->database;
+        if (!Utils::isUnset($request->database)) {
+            $query['Database'] = $request->database;
         }
-
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->keyword) {
-            @$query['Keyword'] = $request->keyword;
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
         }
-
-        if (null !== $request->order) {
-            @$query['Order'] = $request->order;
+        if (!Utils::isUnset($request->order)) {
+            $query['Order'] = $request->order;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->queryCondition) {
-            @$query['QueryCondition'] = $request->queryCondition;
+        if (!Utils::isUnset($request->queryCondition)) {
+            $query['QueryCondition'] = $request->queryCondition;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
-        if (null !== $request->user) {
-            @$query['User'] = $request->user;
+        if (!Utils::isUnset($request->user)) {
+            $query['User'] = $request->user;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeWaitingSQLRecords',
@@ -10107,20 +8241,15 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the lock diagnostic records of an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * You can call this operation to query the lock diagnostics records only for an AnalyticDB for PostgreSQL V6.0 instance in elastic storage mode.
+     * @summary Queries the lock diagnostic records of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to query the lock diagnostics records only for an AnalyticDB for PostgreSQL V6.0 instance in elastic storage mode.
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeWaitingSQLRecordsRequest $request DescribeWaitingSQLRecordsRequest
      *
-     * @param Request - DescribeWaitingSQLRecordsRequest
-     *
-     * @returns DescribeWaitingSQLRecordsResponse
-     *
-     * @param DescribeWaitingSQLRecordsRequest $request
-     *
-     * @return DescribeWaitingSQLRecordsResponse
+     * @return DescribeWaitingSQLRecordsResponse DescribeWaitingSQLRecordsResponse
      */
     public function describeWaitingSQLRecords($request)
     {
@@ -10130,37 +8259,29 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Disables resource group management for an AnalyticDB for PostgreSQL V6.0 instance in elastic storage mode. After you disable resource group management, the resource management method of the instance switches from resource group management to resource queue management.
-     *
-     * @remarks
-     *   You can call this operation only for AnalyticDB for PostgreSQL V6.0 instances in elastic storage mode whose minor version is V6.6.1.0 or later.
+     * @summary Disables resource group management for an AnalyticDB for PostgreSQL V6.0 instance in elastic storage mode. After you disable resource group management, the resource management method of the instance switches from resource group management to resource queue management.
+     *  *
+     * @description *   You can call this operation only for AnalyticDB for PostgreSQL V6.0 instances in elastic storage mode whose minor version is V6.6.1.0 or later.
      * *   You can call this operation to disable resource group management only for AnalyticDB for PostgreSQL instances that are in the **Running** state.
      * *   **Note: When the resource management method is switched, your AnalyticDB for PostgreSQL instance restarts and becomes unavailable for approximately 5 minutes. To prevent your business from being affected, call this operation during off-peak hours.
+     *  *
+     * @param DisableDBResourceGroupRequest $request DisableDBResourceGroupRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DisableDBResourceGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DisableDBResourceGroupResponse
-     *
-     * @param DisableDBResourceGroupRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return DisableDBResourceGroupResponse
+     * @return DisableDBResourceGroupResponse DisableDBResourceGroupResponse
      */
     public function disableDBResourceGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DisableDBResourceGroup',
@@ -10178,20 +8299,15 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Disables resource group management for an AnalyticDB for PostgreSQL V6.0 instance in elastic storage mode. After you disable resource group management, the resource management method of the instance switches from resource group management to resource queue management.
-     *
-     * @remarks
-     *   You can call this operation only for AnalyticDB for PostgreSQL V6.0 instances in elastic storage mode whose minor version is V6.6.1.0 or later.
+     * @summary Disables resource group management for an AnalyticDB for PostgreSQL V6.0 instance in elastic storage mode. After you disable resource group management, the resource management method of the instance switches from resource group management to resource queue management.
+     *  *
+     * @description *   You can call this operation only for AnalyticDB for PostgreSQL V6.0 instances in elastic storage mode whose minor version is V6.6.1.0 or later.
      * *   You can call this operation to disable resource group management only for AnalyticDB for PostgreSQL instances that are in the **Running** state.
      * *   **Note: When the resource management method is switched, your AnalyticDB for PostgreSQL instance restarts and becomes unavailable for approximately 5 minutes. To prevent your business from being affected, call this operation during off-peak hours.
+     *  *
+     * @param DisableDBResourceGroupRequest $request DisableDBResourceGroupRequest
      *
-     * @param Request - DisableDBResourceGroupRequest
-     *
-     * @returns DisableDBResourceGroupResponse
-     *
-     * @param DisableDBResourceGroupRequest $request
-     *
-     * @return DisableDBResourceGroupResponse
+     * @return DisableDBResourceGroupResponse DisableDBResourceGroupResponse
      */
     public function disableDBResourceGroup($request)
     {
@@ -10201,62 +8317,48 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Downloads the query diagnostic information of an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * You can call this operation to download the query diagnostic information of an AnalyticDB for PostgreSQL instance. After the download is complete, you can call the [DescribeDownloadRecords](https://help.aliyun.com/document_detail/447712.html) operation to query download records and download URLs.
+     * @summary Downloads the query diagnostic information of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to download the query diagnostic information of an AnalyticDB for PostgreSQL instance. After the download is complete, you can call the [DescribeDownloadRecords](https://help.aliyun.com/document_detail/447712.html) operation to query download records and download URLs.
      * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For more information about how to view and update the minor engine version of an instance, see [View the minor engine version](https://help.aliyun.com/document_detail/277424.html) and [Update the minor engine version](https://help.aliyun.com/document_detail/139271.html).
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DownloadDiagnosisRecordsRequest $request DownloadDiagnosisRecordsRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DownloadDiagnosisRecordsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DownloadDiagnosisRecordsResponse
-     *
-     * @param DownloadDiagnosisRecordsRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return DownloadDiagnosisRecordsResponse
+     * @return DownloadDiagnosisRecordsResponse DownloadDiagnosisRecordsResponse
      */
     public function downloadDiagnosisRecordsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->database) {
-            @$query['Database'] = $request->database;
+        if (!Utils::isUnset($request->database)) {
+            $query['Database'] = $request->database;
         }
-
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->queryCondition) {
-            @$query['QueryCondition'] = $request->queryCondition;
+        if (!Utils::isUnset($request->queryCondition)) {
+            $query['QueryCondition'] = $request->queryCondition;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
-        if (null !== $request->user) {
-            @$query['User'] = $request->user;
+        if (!Utils::isUnset($request->user)) {
+            $query['User'] = $request->user;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DownloadDiagnosisRecords',
@@ -10274,21 +8376,16 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Downloads the query diagnostic information of an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * You can call this operation to download the query diagnostic information of an AnalyticDB for PostgreSQL instance. After the download is complete, you can call the [DescribeDownloadRecords](https://help.aliyun.com/document_detail/447712.html) operation to query download records and download URLs.
+     * @summary Downloads the query diagnostic information of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to download the query diagnostic information of an AnalyticDB for PostgreSQL instance. After the download is complete, you can call the [DescribeDownloadRecords](https://help.aliyun.com/document_detail/447712.html) operation to query download records and download URLs.
      * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For more information about how to view and update the minor engine version of an instance, see [View the minor engine version](https://help.aliyun.com/document_detail/277424.html) and [Update the minor engine version](https://help.aliyun.com/document_detail/139271.html).
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DownloadDiagnosisRecordsRequest $request DownloadDiagnosisRecordsRequest
      *
-     * @param Request - DownloadDiagnosisRecordsRequest
-     *
-     * @returns DownloadDiagnosisRecordsResponse
-     *
-     * @param DownloadDiagnosisRecordsRequest $request
-     *
-     * @return DownloadDiagnosisRecordsResponse
+     * @return DownloadDiagnosisRecordsResponse DownloadDiagnosisRecordsResponse
      */
     public function downloadDiagnosisRecords($request)
     {
@@ -10298,88 +8395,67 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Download the slow query logs of an AnalyticDB for PostgreSQL instance.
+     * @summary Download the slow query logs of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @param DownloadSQLLogsRecordsRequest $request DownloadSQLLogsRecordsRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - DownloadSQLLogsRecordsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DownloadSQLLogsRecordsResponse
-     *
-     * @param DownloadSQLLogsRecordsRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return DownloadSQLLogsRecordsResponse
+     * @return DownloadSQLLogsRecordsResponse DownloadSQLLogsRecordsResponse
      */
     public function downloadSQLLogsRecordsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->database) {
-            @$query['Database'] = $request->database;
+        if (!Utils::isUnset($request->database)) {
+            $query['Database'] = $request->database;
         }
-
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->executeCost) {
-            @$query['ExecuteCost'] = $request->executeCost;
+        if (!Utils::isUnset($request->executeCost)) {
+            $query['ExecuteCost'] = $request->executeCost;
         }
-
-        if (null !== $request->executeState) {
-            @$query['ExecuteState'] = $request->executeState;
+        if (!Utils::isUnset($request->executeState)) {
+            $query['ExecuteState'] = $request->executeState;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->maxExecuteCost) {
-            @$query['MaxExecuteCost'] = $request->maxExecuteCost;
+        if (!Utils::isUnset($request->maxExecuteCost)) {
+            $query['MaxExecuteCost'] = $request->maxExecuteCost;
         }
-
-        if (null !== $request->minExecuteCost) {
-            @$query['MinExecuteCost'] = $request->minExecuteCost;
+        if (!Utils::isUnset($request->minExecuteCost)) {
+            $query['MinExecuteCost'] = $request->minExecuteCost;
         }
-
-        if (null !== $request->operationClass) {
-            @$query['OperationClass'] = $request->operationClass;
+        if (!Utils::isUnset($request->operationClass)) {
+            $query['OperationClass'] = $request->operationClass;
         }
-
-        if (null !== $request->operationType) {
-            @$query['OperationType'] = $request->operationType;
+        if (!Utils::isUnset($request->operationType)) {
+            $query['OperationType'] = $request->operationType;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->queryKeywords) {
-            @$query['QueryKeywords'] = $request->queryKeywords;
+        if (!Utils::isUnset($request->queryKeywords)) {
+            $query['QueryKeywords'] = $request->queryKeywords;
         }
-
-        if (null !== $request->sourceIP) {
-            @$query['SourceIP'] = $request->sourceIP;
+        if (!Utils::isUnset($request->sourceIP)) {
+            $query['SourceIP'] = $request->sourceIP;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
-        if (null !== $request->user) {
-            @$query['User'] = $request->user;
+        if (!Utils::isUnset($request->user)) {
+            $query['User'] = $request->user;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DownloadSQLLogsRecords',
@@ -10397,15 +8473,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Download the slow query logs of an AnalyticDB for PostgreSQL instance.
+     * @summary Download the slow query logs of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @param DownloadSQLLogsRecordsRequest $request DownloadSQLLogsRecordsRequest
      *
-     * @param Request - DownloadSQLLogsRecordsRequest
-     *
-     * @returns DownloadSQLLogsRecordsResponse
-     *
-     * @param DownloadSQLLogsRecordsRequest $request
-     *
-     * @return DownloadSQLLogsRecordsResponse
+     * @return DownloadSQLLogsRecordsResponse DownloadSQLLogsRecordsResponse
      */
     public function downloadSQLLogsRecords($request)
     {
@@ -10415,37 +8487,29 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Enables resource group management for an AnalyticDB for PostgreSQL V6.0 instance in elastic storage mode. After resource group management is enabled, the resource management mode of the instance is changed from resource queue to resource group.
-     *
-     * @remarks
-     *   You can call this operation only for AnalyticDB for PostgreSQL V6.0 instances in elastic storage mode whose minor version is V6.6.1.0 or later.
+     * @summary Enables resource group management for an AnalyticDB for PostgreSQL V6.0 instance in elastic storage mode. After resource group management is enabled, the resource management mode of the instance is changed from resource queue to resource group.
+     *  *
+     * @description *   You can call this operation only for AnalyticDB for PostgreSQL V6.0 instances in elastic storage mode whose minor version is V6.6.1.0 or later.
      * *   You can call this operation to enable resource group management only for AnalyticDB for PostgreSQL instances that are in the **Running** state.
      * *   **Note: When the resource management mode is changed, your AnalyticDB for PostgreSQL instance is restarted and remains unavailable within 5 minutes. To prevent your business from being affected, call this operation during off-peak hours.
+     *  *
+     * @param EnableDBResourceGroupRequest $request EnableDBResourceGroupRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - EnableDBResourceGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns EnableDBResourceGroupResponse
-     *
-     * @param EnableDBResourceGroupRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return EnableDBResourceGroupResponse
+     * @return EnableDBResourceGroupResponse EnableDBResourceGroupResponse
      */
     public function enableDBResourceGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'EnableDBResourceGroup',
@@ -10463,20 +8527,15 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Enables resource group management for an AnalyticDB for PostgreSQL V6.0 instance in elastic storage mode. After resource group management is enabled, the resource management mode of the instance is changed from resource queue to resource group.
-     *
-     * @remarks
-     *   You can call this operation only for AnalyticDB for PostgreSQL V6.0 instances in elastic storage mode whose minor version is V6.6.1.0 or later.
+     * @summary Enables resource group management for an AnalyticDB for PostgreSQL V6.0 instance in elastic storage mode. After resource group management is enabled, the resource management mode of the instance is changed from resource queue to resource group.
+     *  *
+     * @description *   You can call this operation only for AnalyticDB for PostgreSQL V6.0 instances in elastic storage mode whose minor version is V6.6.1.0 or later.
      * *   You can call this operation to enable resource group management only for AnalyticDB for PostgreSQL instances that are in the **Running** state.
      * *   **Note: When the resource management mode is changed, your AnalyticDB for PostgreSQL instance is restarted and remains unavailable within 5 minutes. To prevent your business from being affected, call this operation during off-peak hours.
+     *  *
+     * @param EnableDBResourceGroupRequest $request EnableDBResourceGroupRequest
      *
-     * @param Request - EnableDBResourceGroupRequest
-     *
-     * @returns EnableDBResourceGroupResponse
-     *
-     * @param EnableDBResourceGroupRequest $request
-     *
-     * @return EnableDBResourceGroupResponse
+     * @return EnableDBResourceGroupResponse EnableDBResourceGroupResponse
      */
     public function enableDBResourceGroup($request)
     {
@@ -10486,88 +8545,68 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Executes SQL statements.
+     * @summary Executes SQL statements.
+     *  *
+     * @param ExecuteStatementRequest $tmpReq  ExecuteStatementRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - ExecuteStatementRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ExecuteStatementResponse
-     *
-     * @param ExecuteStatementRequest $tmpReq
-     * @param RuntimeOptions          $runtime
-     *
-     * @return ExecuteStatementResponse
+     * @return ExecuteStatementResponse ExecuteStatementResponse
      */
     public function executeStatementWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new ExecuteStatementShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->parameters) {
-            $request->parametersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->parameters, 'Parameters', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->parameters)) {
+            $request->parametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->parameters, 'Parameters', 'json');
         }
-
-        if (null !== $tmpReq->ragWorkspaceCollection) {
-            $request->ragWorkspaceCollectionShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ragWorkspaceCollection, 'RagWorkspaceCollection', 'json');
+        if (!Utils::isUnset($tmpReq->ragWorkspaceCollection)) {
+            $request->ragWorkspaceCollectionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ragWorkspaceCollection, 'RagWorkspaceCollection', 'json');
         }
-
-        if (null !== $tmpReq->sqls) {
-            $request->sqlsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sqls, 'Sqls', 'json');
+        if (!Utils::isUnset($tmpReq->sqls)) {
+            $request->sqlsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sqls, 'Sqls', 'json');
         }
-
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->database) {
-            @$query['Database'] = $request->database;
+        if (!Utils::isUnset($request->database)) {
+            $query['Database'] = $request->database;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->ragWorkspaceCollectionShrink) {
-            @$query['RagWorkspaceCollection'] = $request->ragWorkspaceCollectionShrink;
+        if (!Utils::isUnset($request->ragWorkspaceCollectionShrink)) {
+            $query['RagWorkspaceCollection'] = $request->ragWorkspaceCollectionShrink;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->runType) {
-            @$query['RunType'] = $request->runType;
+        if (!Utils::isUnset($request->runType)) {
+            $query['RunType'] = $request->runType;
         }
-
-        if (null !== $request->secretArn) {
-            @$query['SecretArn'] = $request->secretArn;
+        if (!Utils::isUnset($request->secretArn)) {
+            $query['SecretArn'] = $request->secretArn;
         }
-
-        if (null !== $request->statementName) {
-            @$query['StatementName'] = $request->statementName;
+        if (!Utils::isUnset($request->statementName)) {
+            $query['StatementName'] = $request->statementName;
         }
-
-        if (null !== $request->workspaceId) {
-            @$query['WorkspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
         }
-
         $body = [];
-        if (null !== $request->parametersShrink) {
-            @$body['Parameters'] = $request->parametersShrink;
+        if (!Utils::isUnset($request->parametersShrink)) {
+            $body['Parameters'] = $request->parametersShrink;
         }
-
-        if (null !== $request->sql) {
-            @$body['Sql'] = $request->sql;
+        if (!Utils::isUnset($request->sql)) {
+            $body['Sql'] = $request->sql;
         }
-
-        if (null !== $request->sqlsShrink) {
-            @$body['Sqls'] = $request->sqlsShrink;
+        if (!Utils::isUnset($request->sqlsShrink)) {
+            $body['Sqls'] = $request->sqlsShrink;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ExecuteStatement',
@@ -10585,15 +8624,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Executes SQL statements.
+     * @summary Executes SQL statements.
+     *  *
+     * @param ExecuteStatementRequest $request ExecuteStatementRequest
      *
-     * @param Request - ExecuteStatementRequest
-     *
-     * @returns ExecuteStatementResponse
-     *
-     * @param ExecuteStatementRequest $request
-     *
-     * @return ExecuteStatementResponse
+     * @return ExecuteStatementResponse ExecuteStatementResponse
      */
     public function executeStatement($request)
     {
@@ -10603,32 +8638,25 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 获取特定的账号信息.
+     * @summary 获取特定的账号信息
+     *  *
+     * @param GetAccountRequest $request GetAccountRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - GetAccountRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetAccountResponse
-     *
-     * @param GetAccountRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return GetAccountResponse
+     * @return GetAccountResponse GetAccountResponse
      */
     public function getAccountWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountName) {
-            @$query['AccountName'] = $request->accountName;
+        if (!Utils::isUnset($request->accountName)) {
+            $query['AccountName'] = $request->accountName;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetAccount',
@@ -10646,15 +8674,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 获取特定的账号信息.
+     * @summary 获取特定的账号信息
+     *  *
+     * @param GetAccountRequest $request GetAccountRequest
      *
-     * @param Request - GetAccountRequest
-     *
-     * @returns GetAccountResponse
-     *
-     * @param GetAccountRequest $request
-     *
-     * @return GetAccountResponse
+     * @return GetAccountResponse GetAccountResponse
      */
     public function getAccount($request)
     {
@@ -10664,48 +8688,37 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the information about an access credential.
+     * @summary Queries the information about an access credential.
+     *  *
+     * @param GetSecretValueRequest $request GetSecretValueRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - GetSecretValueRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetSecretValueResponse
-     *
-     * @param GetSecretValueRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return GetSecretValueResponse
+     * @return GetSecretValueResponse GetSecretValueResponse
      */
     public function getSecretValueWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->secretArn) {
-            @$query['SecretArn'] = $request->secretArn;
+        if (!Utils::isUnset($request->secretArn)) {
+            $query['SecretArn'] = $request->secretArn;
         }
-
-        if (null !== $request->secretName) {
-            @$query['SecretName'] = $request->secretName;
+        if (!Utils::isUnset($request->secretName)) {
+            $query['SecretName'] = $request->secretName;
         }
-
-        if (null !== $request->workspaceId) {
-            @$query['WorkspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetSecretValue',
@@ -10723,15 +8736,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the information about an access credential.
+     * @summary Queries the information about an access credential.
+     *  *
+     * @param GetSecretValueRequest $request GetSecretValueRequest
      *
-     * @param Request - GetSecretValueRequest
-     *
-     * @returns GetSecretValueResponse
-     *
-     * @param GetSecretValueRequest $request
-     *
-     * @return GetSecretValueResponse
+     * @return GetSecretValueResponse GetSecretValueResponse
      */
     public function getSecretValue($request)
     {
@@ -10741,48 +8750,37 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Get Asynchronous SQL Execution Result.
+     * @summary Get Asynchronous SQL Execution Result
+     *  *
+     * @param GetStatementResultRequest $request GetStatementResultRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - GetStatementResultRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetStatementResultResponse
-     *
-     * @param GetStatementResultRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return GetStatementResultResponse
+     * @return GetStatementResultResponse GetStatementResultResponse
      */
     public function getStatementResultWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->database) {
-            @$query['Database'] = $request->database;
+        if (!Utils::isUnset($request->database)) {
+            $query['Database'] = $request->database;
         }
-
-        if (null !== $request->id) {
-            @$query['Id'] = $request->id;
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->secretArn) {
-            @$query['SecretArn'] = $request->secretArn;
+        if (!Utils::isUnset($request->secretArn)) {
+            $query['SecretArn'] = $request->secretArn;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetStatementResult',
@@ -10800,15 +8798,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Get Asynchronous SQL Execution Result.
+     * @summary Get Asynchronous SQL Execution Result
+     *  *
+     * @param GetStatementResultRequest $request GetStatementResultRequest
      *
-     * @param Request - GetStatementResultRequest
-     *
-     * @returns GetStatementResultResponse
-     *
-     * @param GetStatementResultRequest $request
-     *
-     * @return GetStatementResultResponse
+     * @return GetStatementResultResponse GetStatementResultResponse
      */
     public function getStatementResult($request)
     {
@@ -10818,32 +8812,25 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 查询Supabase实例详情.
+     * @summary 查询Supabase实例详情
+     *  *
+     * @param GetSupabaseProjectRequest $request GetSupabaseProjectRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - GetSupabaseProjectRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetSupabaseProjectResponse
-     *
-     * @param GetSupabaseProjectRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return GetSupabaseProjectResponse
+     * @return GetSupabaseProjectResponse GetSupabaseProjectResponse
      */
     public function getSupabaseProjectWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->projectId) {
-            @$query['ProjectId'] = $request->projectId;
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetSupabaseProject',
@@ -10861,15 +8848,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 查询Supabase实例详情.
+     * @summary 查询Supabase实例详情
+     *  *
+     * @param GetSupabaseProjectRequest $request GetSupabaseProjectRequest
      *
-     * @param Request - GetSupabaseProjectRequest
-     *
-     * @returns GetSupabaseProjectResponse
-     *
-     * @param GetSupabaseProjectRequest $request
-     *
-     * @return GetSupabaseProjectResponse
+     * @return GetSupabaseProjectResponse GetSupabaseProjectResponse
      */
     public function getSupabaseProject($request)
     {
@@ -10879,32 +8862,25 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 查询Supabase实例 API Keys.
+     * @summary 查询Supabase实例 API Keys
+     *  *
+     * @param GetSupabaseProjectApiKeysRequest $request GetSupabaseProjectApiKeysRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - GetSupabaseProjectApiKeysRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetSupabaseProjectApiKeysResponse
-     *
-     * @param GetSupabaseProjectApiKeysRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return GetSupabaseProjectApiKeysResponse
+     * @return GetSupabaseProjectApiKeysResponse GetSupabaseProjectApiKeysResponse
      */
     public function getSupabaseProjectApiKeysWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->projectId) {
-            @$query['ProjectId'] = $request->projectId;
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetSupabaseProjectApiKeys',
@@ -10922,15 +8898,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 查询Supabase实例 API Keys.
+     * @summary 查询Supabase实例 API Keys
+     *  *
+     * @param GetSupabaseProjectApiKeysRequest $request GetSupabaseProjectApiKeysRequest
      *
-     * @param Request - GetSupabaseProjectApiKeysRequest
-     *
-     * @returns GetSupabaseProjectApiKeysResponse
-     *
-     * @param GetSupabaseProjectApiKeysRequest $request
-     *
-     * @return GetSupabaseProjectApiKeysResponse
+     * @return GetSupabaseProjectApiKeysResponse GetSupabaseProjectApiKeysResponse
      */
     public function getSupabaseProjectApiKeys($request)
     {
@@ -10940,32 +8912,25 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 查询Supabase项目dashboard账号信息.
+     * @summary 查询Supabase项目dashboard账号信息
+     *  *
+     * @param GetSupabaseProjectDashboardAccountRequest $request GetSupabaseProjectDashboardAccountRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - GetSupabaseProjectDashboardAccountRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetSupabaseProjectDashboardAccountResponse
-     *
-     * @param GetSupabaseProjectDashboardAccountRequest $request
-     * @param RuntimeOptions                            $runtime
-     *
-     * @return GetSupabaseProjectDashboardAccountResponse
+     * @return GetSupabaseProjectDashboardAccountResponse GetSupabaseProjectDashboardAccountResponse
      */
     public function getSupabaseProjectDashboardAccountWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->projectId) {
-            @$query['ProjectId'] = $request->projectId;
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetSupabaseProjectDashboardAccount',
@@ -10983,15 +8948,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 查询Supabase项目dashboard账号信息.
+     * @summary 查询Supabase项目dashboard账号信息
+     *  *
+     * @param GetSupabaseProjectDashboardAccountRequest $request GetSupabaseProjectDashboardAccountRequest
      *
-     * @param Request - GetSupabaseProjectDashboardAccountRequest
-     *
-     * @returns GetSupabaseProjectDashboardAccountResponse
-     *
-     * @param GetSupabaseProjectDashboardAccountRequest $request
-     *
-     * @return GetSupabaseProjectDashboardAccountResponse
+     * @return GetSupabaseProjectDashboardAccountResponse GetSupabaseProjectDashboardAccountResponse
      */
     public function getSupabaseProjectDashboardAccount($request)
     {
@@ -11001,59 +8962,46 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the progress and result of an asynchronous document upload job based on the job ID.
-     *
-     * @remarks
-     * This operation is related to the UploadDocumentAsync operation. You can call the UploadDocumentAsync operation to create an upload job and obtain the job ID, and then call the GetUploadDocumentJob operation to query the execution information of the job.
+     * @summary Queries the progress and result of an asynchronous document upload job based on the job ID.
+     *  *
+     * @description This operation is related to the UploadDocumentAsync operation. You can call the UploadDocumentAsync operation to create an upload job and obtain the job ID, and then call the GetUploadDocumentJob operation to query the execution information of the job.
      * >  Suggestions:
      * *   Determine whether the document upload job times out based on the document complexity and the number of tokens after chunking. In most cases, a job that lasts more than 2 hours is considered timeout.
+     *  *
+     * @param GetUploadDocumentJobRequest $request GetUploadDocumentJobRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - GetUploadDocumentJobRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetUploadDocumentJobResponse
-     *
-     * @param GetUploadDocumentJobRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return GetUploadDocumentJobResponse
+     * @return GetUploadDocumentJobResponse GetUploadDocumentJobResponse
      */
     public function getUploadDocumentJobWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $body = [];
-        if (null !== $request->collection) {
-            @$body['Collection'] = $request->collection;
+        if (!Utils::isUnset($request->collection)) {
+            $body['Collection'] = $request->collection;
         }
-
-        if (null !== $request->jobId) {
-            @$body['JobId'] = $request->jobId;
+        if (!Utils::isUnset($request->jobId)) {
+            $body['JobId'] = $request->jobId;
         }
-
-        if (null !== $request->namespace) {
-            @$body['Namespace'] = $request->namespace;
+        if (!Utils::isUnset($request->namespace_)) {
+            $body['Namespace'] = $request->namespace_;
         }
-
-        if (null !== $request->namespacePassword) {
-            @$body['NamespacePassword'] = $request->namespacePassword;
+        if (!Utils::isUnset($request->namespacePassword)) {
+            $body['NamespacePassword'] = $request->namespacePassword;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetUploadDocumentJob',
@@ -11071,20 +9019,15 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the progress and result of an asynchronous document upload job based on the job ID.
-     *
-     * @remarks
-     * This operation is related to the UploadDocumentAsync operation. You can call the UploadDocumentAsync operation to create an upload job and obtain the job ID, and then call the GetUploadDocumentJob operation to query the execution information of the job.
+     * @summary Queries the progress and result of an asynchronous document upload job based on the job ID.
+     *  *
+     * @description This operation is related to the UploadDocumentAsync operation. You can call the UploadDocumentAsync operation to create an upload job and obtain the job ID, and then call the GetUploadDocumentJob operation to query the execution information of the job.
      * >  Suggestions:
      * *   Determine whether the document upload job times out based on the document complexity and the number of tokens after chunking. In most cases, a job that lasts more than 2 hours is considered timeout.
+     *  *
+     * @param GetUploadDocumentJobRequest $request GetUploadDocumentJobRequest
      *
-     * @param Request - GetUploadDocumentJobRequest
-     *
-     * @returns GetUploadDocumentJobResponse
-     *
-     * @param GetUploadDocumentJobRequest $request
-     *
-     * @return GetUploadDocumentJobResponse
+     * @return GetUploadDocumentJobResponse GetUploadDocumentJobResponse
      */
     public function getUploadDocumentJob($request)
     {
@@ -11094,62 +9037,48 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the progress and result of an asynchronous vector data upload job by using a job ID.
-     *
-     * @remarks
-     * This operation is related to the `UpsertCollectionDataAsync` operation. You can call the `UpsertCollectionDataAsync` operation to create an upload job and obtain a job ID, and then call the GetUpsertCollectionDataJob operation to query the execution information of the job.
+     * @summary Queries the progress and result of an asynchronous vector data upload job by using a job ID.
+     *  *
+     * @description This operation is related to the `UpsertCollectionDataAsync` operation. You can call the `UpsertCollectionDataAsync` operation to create an upload job and obtain a job ID, and then call the GetUpsertCollectionDataJob operation to query the execution information of the job.
      * >  We recommend that you evaluate the amount of time required for the upload job based on 1,000 data entries every second, and then query the job progress every 5 seconds. The timeout period can be set to 30 minutes after the evaluated amount of time.
+     *  *
+     * @param GetUpsertCollectionDataJobRequest $request GetUpsertCollectionDataJobRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - GetUpsertCollectionDataJobRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetUpsertCollectionDataJobResponse
-     *
-     * @param GetUpsertCollectionDataJobRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return GetUpsertCollectionDataJobResponse
+     * @return GetUpsertCollectionDataJobResponse GetUpsertCollectionDataJobResponse
      */
     public function getUpsertCollectionDataJobWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->workspaceId) {
-            @$query['WorkspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
         }
-
         $body = [];
-        if (null !== $request->collection) {
-            @$body['Collection'] = $request->collection;
+        if (!Utils::isUnset($request->collection)) {
+            $body['Collection'] = $request->collection;
         }
-
-        if (null !== $request->jobId) {
-            @$body['JobId'] = $request->jobId;
+        if (!Utils::isUnset($request->jobId)) {
+            $body['JobId'] = $request->jobId;
         }
-
-        if (null !== $request->namespace) {
-            @$body['Namespace'] = $request->namespace;
+        if (!Utils::isUnset($request->namespace_)) {
+            $body['Namespace'] = $request->namespace_;
         }
-
-        if (null !== $request->namespacePassword) {
-            @$body['NamespacePassword'] = $request->namespacePassword;
+        if (!Utils::isUnset($request->namespacePassword)) {
+            $body['NamespacePassword'] = $request->namespacePassword;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetUpsertCollectionDataJob',
@@ -11167,19 +9096,14 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the progress and result of an asynchronous vector data upload job by using a job ID.
-     *
-     * @remarks
-     * This operation is related to the `UpsertCollectionDataAsync` operation. You can call the `UpsertCollectionDataAsync` operation to create an upload job and obtain a job ID, and then call the GetUpsertCollectionDataJob operation to query the execution information of the job.
+     * @summary Queries the progress and result of an asynchronous vector data upload job by using a job ID.
+     *  *
+     * @description This operation is related to the `UpsertCollectionDataAsync` operation. You can call the `UpsertCollectionDataAsync` operation to create an upload job and obtain a job ID, and then call the GetUpsertCollectionDataJob operation to query the execution information of the job.
      * >  We recommend that you evaluate the amount of time required for the upload job based on 1,000 data entries every second, and then query the job progress every 5 seconds. The timeout period can be set to 30 minutes after the evaluated amount of time.
+     *  *
+     * @param GetUpsertCollectionDataJobRequest $request GetUpsertCollectionDataJobRequest
      *
-     * @param Request - GetUpsertCollectionDataJobRequest
-     *
-     * @returns GetUpsertCollectionDataJobResponse
-     *
-     * @param GetUpsertCollectionDataJobRequest $request
-     *
-     * @return GetUpsertCollectionDataJobResponse
+     * @return GetUpsertCollectionDataJobResponse GetUpsertCollectionDataJobResponse
      */
     public function getUpsertCollectionDataJob($request)
     {
@@ -11189,60 +9113,46 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Grants vector collection permissions to a namespace.
+     * @summary Grants vector collection permissions to a namespace.
+     *  *
+     * @param GrantCollectionRequest $request GrantCollectionRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - GrantCollectionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GrantCollectionResponse
-     *
-     * @param GrantCollectionRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return GrantCollectionResponse
+     * @return GrantCollectionResponse GrantCollectionResponse
      */
     public function grantCollectionWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->collection) {
-            @$query['Collection'] = $request->collection;
+        if (!Utils::isUnset($request->collection)) {
+            $query['Collection'] = $request->collection;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->grantToNamespace) {
-            @$query['GrantToNamespace'] = $request->grantToNamespace;
+        if (!Utils::isUnset($request->grantToNamespace)) {
+            $query['GrantToNamespace'] = $request->grantToNamespace;
         }
-
-        if (null !== $request->grantType) {
-            @$query['GrantType'] = $request->grantType;
+        if (!Utils::isUnset($request->grantType)) {
+            $query['GrantType'] = $request->grantType;
         }
-
-        if (null !== $request->managerAccount) {
-            @$query['ManagerAccount'] = $request->managerAccount;
+        if (!Utils::isUnset($request->managerAccount)) {
+            $query['ManagerAccount'] = $request->managerAccount;
         }
-
-        if (null !== $request->managerAccountPassword) {
-            @$query['ManagerAccountPassword'] = $request->managerAccountPassword;
+        if (!Utils::isUnset($request->managerAccountPassword)) {
+            $query['ManagerAccountPassword'] = $request->managerAccountPassword;
         }
-
-        if (null !== $request->namespace) {
-            @$query['Namespace'] = $request->namespace;
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GrantCollection',
@@ -11260,15 +9170,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Grants vector collection permissions to a namespace.
+     * @summary Grants vector collection permissions to a namespace.
+     *  *
+     * @param GrantCollectionRequest $request GrantCollectionRequest
      *
-     * @param Request - GrantCollectionRequest
-     *
-     * @returns GrantCollectionResponse
-     *
-     * @param GrantCollectionRequest $request
-     *
-     * @return GrantCollectionResponse
+     * @return GrantCollectionResponse GrantCollectionResponse
      */
     public function grantCollection($request)
     {
@@ -11278,36 +9184,28 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Processes active queries.
+     * @summary Processes active queries.
+     *  *
+     * @param HandleActiveSQLRecordRequest $request HandleActiveSQLRecordRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - HandleActiveSQLRecordRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns HandleActiveSQLRecordResponse
-     *
-     * @param HandleActiveSQLRecordRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return HandleActiveSQLRecordResponse
+     * @return HandleActiveSQLRecordResponse HandleActiveSQLRecordResponse
      */
     public function handleActiveSQLRecordWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->operateType) {
-            @$query['OperateType'] = $request->operateType;
+        if (!Utils::isUnset($request->operateType)) {
+            $query['OperateType'] = $request->operateType;
         }
-
-        if (null !== $request->pids) {
-            @$query['Pids'] = $request->pids;
+        if (!Utils::isUnset($request->pids)) {
+            $query['Pids'] = $request->pids;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'HandleActiveSQLRecord',
@@ -11325,15 +9223,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Processes active queries.
+     * @summary Processes active queries.
+     *  *
+     * @param HandleActiveSQLRecordRequest $request HandleActiveSQLRecordRequest
      *
-     * @param Request - HandleActiveSQLRecordRequest
-     *
-     * @returns HandleActiveSQLRecordResponse
-     *
-     * @param HandleActiveSQLRecordRequest $request
-     *
-     * @return HandleActiveSQLRecordResponse
+     * @return HandleActiveSQLRecordResponse HandleActiveSQLRecordResponse
      */
     public function handleActiveSQLRecord($request)
     {
@@ -11343,48 +9237,37 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Initializes vector databases.
+     * @summary Initializes vector databases.
+     *  *
+     * @param InitVectorDatabaseRequest $request InitVectorDatabaseRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - InitVectorDatabaseRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns InitVectorDatabaseResponse
-     *
-     * @param InitVectorDatabaseRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return InitVectorDatabaseResponse
+     * @return InitVectorDatabaseResponse InitVectorDatabaseResponse
      */
     public function initVectorDatabaseWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->managerAccount) {
-            @$query['ManagerAccount'] = $request->managerAccount;
+        if (!Utils::isUnset($request->managerAccount)) {
+            $query['ManagerAccount'] = $request->managerAccount;
         }
-
-        if (null !== $request->managerAccountPassword) {
-            @$query['ManagerAccountPassword'] = $request->managerAccountPassword;
+        if (!Utils::isUnset($request->managerAccountPassword)) {
+            $query['ManagerAccountPassword'] = $request->managerAccountPassword;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->workspaceId) {
-            @$query['WorkspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'InitVectorDatabase',
@@ -11402,15 +9285,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Initializes vector databases.
+     * @summary Initializes vector databases.
+     *  *
+     * @param InitVectorDatabaseRequest $request InitVectorDatabaseRequest
      *
-     * @param Request - InitVectorDatabaseRequest
-     *
-     * @returns InitVectorDatabaseResponse
-     *
-     * @param InitVectorDatabaseRequest $request
-     *
-     * @return InitVectorDatabaseResponse
+     * @return InitVectorDatabaseResponse InitVectorDatabaseResponse
      */
     public function initVectorDatabase($request)
     {
@@ -11420,32 +9299,25 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 获取备份任务列表.
+     * @summary 获取备份任务列表
+     *  *
+     * @param ListBackupJobsRequest $request ListBackupJobsRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - ListBackupJobsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListBackupJobsResponse
-     *
-     * @param ListBackupJobsRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return ListBackupJobsResponse
+     * @return ListBackupJobsResponse ListBackupJobsResponse
      */
     public function listBackupJobsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->backupMode) {
-            @$query['BackupMode'] = $request->backupMode;
+        if (!Utils::isUnset($request->backupMode)) {
+            $query['BackupMode'] = $request->backupMode;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListBackupJobs',
@@ -11463,15 +9335,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 获取备份任务列表.
+     * @summary 获取备份任务列表
+     *  *
+     * @param ListBackupJobsRequest $request ListBackupJobsRequest
      *
-     * @param Request - ListBackupJobsRequest
-     *
-     * @returns ListBackupJobsResponse
-     *
-     * @param ListBackupJobsRequest $request
-     *
-     * @return ListBackupJobsResponse
+     * @return ListBackupJobsResponse ListBackupJobsResponse
      */
     public function listBackupJobs($request)
     {
@@ -11481,48 +9349,37 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries a list of vector collections.
+     * @summary Queries a list of vector collections.
+     *  *
+     * @param ListCollectionsRequest $request ListCollectionsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - ListCollectionsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListCollectionsResponse
-     *
-     * @param ListCollectionsRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return ListCollectionsResponse
+     * @return ListCollectionsResponse ListCollectionsResponse
      */
     public function listCollectionsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->namespace) {
-            @$query['Namespace'] = $request->namespace;
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
         }
-
-        if (null !== $request->namespacePassword) {
-            @$query['NamespacePassword'] = $request->namespacePassword;
+        if (!Utils::isUnset($request->namespacePassword)) {
+            $query['NamespacePassword'] = $request->namespacePassword;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->workspaceId) {
-            @$query['WorkspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListCollections',
@@ -11540,15 +9397,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries a list of vector collections.
+     * @summary Queries a list of vector collections.
+     *  *
+     * @param ListCollectionsRequest $request ListCollectionsRequest
      *
-     * @param Request - ListCollectionsRequest
-     *
-     * @returns ListCollectionsResponse
-     *
-     * @param ListCollectionsRequest $request
-     *
-     * @return ListCollectionsResponse
+     * @return ListCollectionsResponse ListCollectionsResponse
      */
     public function listCollections($request)
     {
@@ -11558,52 +9411,40 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries a list of databases.
+     * @summary Queries a list of databases.
+     *  *
+     * @param ListDatabasesRequest $request ListDatabasesRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - ListDatabasesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListDatabasesResponse
-     *
-     * @param ListDatabasesRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return ListDatabasesResponse
+     * @return ListDatabasesResponse ListDatabasesResponse
      */
     public function listDatabasesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->database) {
-            @$query['Database'] = $request->database;
+        if (!Utils::isUnset($request->database)) {
+            $query['Database'] = $request->database;
         }
-
-        if (null !== $request->maxResults) {
-            @$query['MaxResults'] = $request->maxResults;
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
         }
-
-        if (null !== $request->nextToken) {
-            @$query['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->secretArn) {
-            @$query['SecretArn'] = $request->secretArn;
+        if (!Utils::isUnset($request->secretArn)) {
+            $query['SecretArn'] = $request->secretArn;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListDatabases',
@@ -11621,15 +9462,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries a list of databases.
+     * @summary Queries a list of databases.
+     *  *
+     * @param ListDatabasesRequest $request ListDatabasesRequest
      *
-     * @param Request - ListDatabasesRequest
-     *
-     * @returns ListDatabasesResponse
-     *
-     * @param ListDatabasesRequest $request
-     *
-     * @return ListDatabasesResponse
+     * @return ListDatabasesResponse ListDatabasesResponse
      */
     public function listDatabases($request)
     {
@@ -11639,44 +9476,34 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries a list of document collections.
+     * @summary Queries a list of document collections.
+     *  *
+     * @param ListDocumentCollectionsRequest $request ListDocumentCollectionsRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - ListDocumentCollectionsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListDocumentCollectionsResponse
-     *
-     * @param ListDocumentCollectionsRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return ListDocumentCollectionsResponse
+     * @return ListDocumentCollectionsResponse ListDocumentCollectionsResponse
      */
     public function listDocumentCollectionsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->namespace) {
-            @$query['Namespace'] = $request->namespace;
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
         }
-
-        if (null !== $request->namespacePassword) {
-            @$query['NamespacePassword'] = $request->namespacePassword;
+        if (!Utils::isUnset($request->namespacePassword)) {
+            $query['NamespacePassword'] = $request->namespacePassword;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListDocumentCollections',
@@ -11694,15 +9521,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries a list of document collections.
+     * @summary Queries a list of document collections.
+     *  *
+     * @param ListDocumentCollectionsRequest $request ListDocumentCollectionsRequest
      *
-     * @param Request - ListDocumentCollectionsRequest
-     *
-     * @returns ListDocumentCollectionsResponse
-     *
-     * @param ListDocumentCollectionsRequest $request
-     *
-     * @return ListDocumentCollectionsResponse
+     * @return ListDocumentCollectionsResponse ListDocumentCollectionsResponse
      */
     public function listDocumentCollections($request)
     {
@@ -11712,56 +9535,43 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries a list of documents in a collection.
+     * @summary Queries a list of documents in a collection.
+     *  *
+     * @param ListDocumentsRequest $request ListDocumentsRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - ListDocumentsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListDocumentsResponse
-     *
-     * @param ListDocumentsRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return ListDocumentsResponse
+     * @return ListDocumentsResponse ListDocumentsResponse
      */
     public function listDocumentsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->collection) {
-            @$query['Collection'] = $request->collection;
+        if (!Utils::isUnset($request->collection)) {
+            $query['Collection'] = $request->collection;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->maxResults) {
-            @$query['MaxResults'] = $request->maxResults;
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
         }
-
-        if (null !== $request->namespace) {
-            @$query['Namespace'] = $request->namespace;
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
         }
-
-        if (null !== $request->namespacePassword) {
-            @$query['NamespacePassword'] = $request->namespacePassword;
+        if (!Utils::isUnset($request->namespacePassword)) {
+            $query['NamespacePassword'] = $request->namespacePassword;
         }
-
-        if (null !== $request->nextToken) {
-            @$query['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListDocuments',
@@ -11779,15 +9589,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries a list of documents in a collection.
+     * @summary Queries a list of documents in a collection.
+     *  *
+     * @param ListDocumentsRequest $request ListDocumentsRequest
      *
-     * @param Request - ListDocumentsRequest
-     *
-     * @returns ListDocumentsResponse
-     *
-     * @param ListDocumentsRequest $request
-     *
-     * @return ListDocumentsResponse
+     * @return ListDocumentsResponse ListDocumentsResponse
      */
     public function listDocuments($request)
     {
@@ -11797,40 +9603,31 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries a list of external data services.
+     * @summary Queries a list of external data services.
+     *  *
+     * @param ListExternalDataServicesRequest $request ListExternalDataServicesRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - ListExternalDataServicesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListExternalDataServicesResponse
-     *
-     * @param ListExternalDataServicesRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return ListExternalDataServicesResponse
+     * @return ListExternalDataServicesResponse ListExternalDataServicesResponse
      */
     public function listExternalDataServicesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListExternalDataServices',
@@ -11848,15 +9645,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries a list of external data services.
+     * @summary Queries a list of external data services.
+     *  *
+     * @param ListExternalDataServicesRequest $request ListExternalDataServicesRequest
      *
-     * @param Request - ListExternalDataServicesRequest
-     *
-     * @returns ListExternalDataServicesResponse
-     *
-     * @param ListExternalDataServicesRequest $request
-     *
-     * @return ListExternalDataServicesResponse
+     * @return ListExternalDataServicesResponse ListExternalDataServicesResponse
      */
     public function listExternalDataServices($request)
     {
@@ -11866,40 +9659,31 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 获取实例外表配置列表.
+     * @summary 获取实例外表配置列表
+     *  *
+     * @param ListExternalDataSourcesRequest $request ListExternalDataSourcesRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - ListExternalDataSourcesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListExternalDataSourcesResponse
-     *
-     * @param ListExternalDataSourcesRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return ListExternalDataSourcesResponse
+     * @return ListExternalDataSourcesResponse ListExternalDataSourcesResponse
      */
     public function listExternalDataSourcesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListExternalDataSources',
@@ -11917,15 +9701,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 获取实例外表配置列表.
+     * @summary 获取实例外表配置列表
+     *  *
+     * @param ListExternalDataSourcesRequest $request ListExternalDataSourcesRequest
      *
-     * @param Request - ListExternalDataSourcesRequest
-     *
-     * @returns ListExternalDataSourcesResponse
-     *
-     * @param ListExternalDataSourcesRequest $request
-     *
-     * @return ListExternalDataSourcesResponse
+     * @return ListExternalDataSourcesResponse ListExternalDataSourcesResponse
      */
     public function listExternalDataSources($request)
     {
@@ -11935,52 +9715,40 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 获取索引列表.
+     * @summary 获取索引列表
+     *  *
+     * @param ListIndicesRequest $request ListIndicesRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - ListIndicesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListIndicesResponse
-     *
-     * @param ListIndicesRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return ListIndicesResponse
+     * @return ListIndicesResponse ListIndicesResponse
      */
     public function listIndicesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->collection) {
-            @$query['Collection'] = $request->collection;
+        if (!Utils::isUnset($request->collection)) {
+            $query['Collection'] = $request->collection;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->namespace) {
-            @$query['Namespace'] = $request->namespace;
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
         }
-
-        if (null !== $request->namespacePassword) {
-            @$query['NamespacePassword'] = $request->namespacePassword;
+        if (!Utils::isUnset($request->namespacePassword)) {
+            $query['NamespacePassword'] = $request->namespacePassword;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->workspaceId) {
-            @$query['WorkspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListIndices',
@@ -11998,15 +9766,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 获取索引列表.
+     * @summary 获取索引列表
+     *  *
+     * @param ListIndicesRequest $request ListIndicesRequest
      *
-     * @param Request - ListIndicesRequest
-     *
-     * @returns ListIndicesResponse
-     *
-     * @param ListIndicesRequest $request
-     *
-     * @return ListIndicesResponse
+     * @return ListIndicesResponse ListIndicesResponse
      */
     public function listIndices($request)
     {
@@ -12016,48 +9780,37 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries a list of extensions.
+     * @summary Queries a list of extensions.
+     *  *
+     * @param ListInstanceExtensionsRequest $request ListInstanceExtensionsRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - ListInstanceExtensionsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListInstanceExtensionsResponse
-     *
-     * @param ListInstanceExtensionsRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return ListInstanceExtensionsResponse
+     * @return ListInstanceExtensionsResponse ListInstanceExtensionsResponse
      */
     public function listInstanceExtensionsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->extension) {
-            @$query['Extension'] = $request->extension;
+        if (!Utils::isUnset($request->extension)) {
+            $query['Extension'] = $request->extension;
         }
-
-        if (null !== $request->installStatus) {
-            @$query['InstallStatus'] = $request->installStatus;
+        if (!Utils::isUnset($request->installStatus)) {
+            $query['InstallStatus'] = $request->installStatus;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListInstanceExtensions',
@@ -12075,15 +9828,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries a list of extensions.
+     * @summary Queries a list of extensions.
+     *  *
+     * @param ListInstanceExtensionsRequest $request ListInstanceExtensionsRequest
      *
-     * @param Request - ListInstanceExtensionsRequest
-     *
-     * @returns ListInstanceExtensionsResponse
-     *
-     * @param ListInstanceExtensionsRequest $request
-     *
-     * @return ListInstanceExtensionsResponse
+     * @return ListInstanceExtensionsResponse ListInstanceExtensionsResponse
      */
     public function listInstanceExtensions($request)
     {
@@ -12093,48 +9842,37 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries a list of namespaces.
+     * @summary Queries a list of namespaces.
+     *  *
+     * @param ListNamespacesRequest $request ListNamespacesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - ListNamespacesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListNamespacesResponse
-     *
-     * @param ListNamespacesRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return ListNamespacesResponse
+     * @return ListNamespacesResponse ListNamespacesResponse
      */
     public function listNamespacesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->managerAccount) {
-            @$query['ManagerAccount'] = $request->managerAccount;
+        if (!Utils::isUnset($request->managerAccount)) {
+            $query['ManagerAccount'] = $request->managerAccount;
         }
-
-        if (null !== $request->managerAccountPassword) {
-            @$query['ManagerAccountPassword'] = $request->managerAccountPassword;
+        if (!Utils::isUnset($request->managerAccountPassword)) {
+            $query['ManagerAccountPassword'] = $request->managerAccountPassword;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->workspaceId) {
-            @$query['WorkspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListNamespaces',
@@ -12152,15 +9890,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries a list of namespaces.
+     * @summary Queries a list of namespaces.
+     *  *
+     * @param ListNamespacesRequest $request ListNamespacesRequest
      *
-     * @param Request - ListNamespacesRequest
-     *
-     * @returns ListNamespacesResponse
-     *
-     * @param ListNamespacesRequest $request
-     *
-     * @return ListNamespacesResponse
+     * @return ListNamespacesResponse ListNamespacesResponse
      */
     public function listNamespaces($request)
     {
@@ -12170,36 +9904,28 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Get Homogeneous Data Source.
+     * @summary Get Homogeneous Data Source
+     *  *
+     * @param ListRemoteADBDataSourcesRequest $request ListRemoteADBDataSourcesRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - ListRemoteADBDataSourcesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListRemoteADBDataSourcesResponse
-     *
-     * @param ListRemoteADBDataSourcesRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return ListRemoteADBDataSourcesResponse
+     * @return ListRemoteADBDataSourcesResponse ListRemoteADBDataSourcesResponse
      */
     public function listRemoteADBDataSourcesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->dataSourceId) {
-            @$query['DataSourceId'] = $request->dataSourceId;
+        if (!Utils::isUnset($request->dataSourceId)) {
+            $query['DataSourceId'] = $request->dataSourceId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListRemoteADBDataSources',
@@ -12217,15 +9943,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Get Homogeneous Data Source.
+     * @summary Get Homogeneous Data Source
+     *  *
+     * @param ListRemoteADBDataSourcesRequest $request ListRemoteADBDataSourcesRequest
      *
-     * @param Request - ListRemoteADBDataSourcesRequest
-     *
-     * @returns ListRemoteADBDataSourcesResponse
-     *
-     * @param ListRemoteADBDataSourcesRequest $request
-     *
-     * @return ListRemoteADBDataSourcesResponse
+     * @return ListRemoteADBDataSourcesResponse ListRemoteADBDataSourcesResponse
      */
     public function listRemoteADBDataSources($request)
     {
@@ -12235,56 +9957,43 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries a list of schemas.
+     * @summary Queries a list of schemas.
+     *  *
+     * @param ListSchemasRequest $request ListSchemasRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - ListSchemasRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListSchemasResponse
-     *
-     * @param ListSchemasRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return ListSchemasResponse
+     * @return ListSchemasResponse ListSchemasResponse
      */
     public function listSchemasWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->database) {
-            @$query['Database'] = $request->database;
+        if (!Utils::isUnset($request->database)) {
+            $query['Database'] = $request->database;
         }
-
-        if (null !== $request->maxResults) {
-            @$query['MaxResults'] = $request->maxResults;
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
         }
-
-        if (null !== $request->nextToken) {
-            @$query['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->schemaPattern) {
-            @$query['SchemaPattern'] = $request->schemaPattern;
+        if (!Utils::isUnset($request->schemaPattern)) {
+            $query['SchemaPattern'] = $request->schemaPattern;
         }
-
-        if (null !== $request->secretArn) {
-            @$query['SecretArn'] = $request->secretArn;
+        if (!Utils::isUnset($request->secretArn)) {
+            $query['SecretArn'] = $request->secretArn;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListSchemas',
@@ -12302,15 +10011,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries a list of schemas.
+     * @summary Queries a list of schemas.
+     *  *
+     * @param ListSchemasRequest $request ListSchemasRequest
      *
-     * @param Request - ListSchemasRequest
-     *
-     * @returns ListSchemasResponse
-     *
-     * @param ListSchemasRequest $request
-     *
-     * @return ListSchemasResponse
+     * @return ListSchemasResponse ListSchemasResponse
      */
     public function listSchemas($request)
     {
@@ -12320,40 +10025,31 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries a list of access credentials.
+     * @summary Queries a list of access credentials.
+     *  *
+     * @param ListSecretsRequest $request ListSecretsRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - ListSecretsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListSecretsResponse
-     *
-     * @param ListSecretsRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return ListSecretsResponse
+     * @return ListSecretsResponse ListSecretsResponse
      */
     public function listSecretsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->workspaceId) {
-            @$query['WorkspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListSecrets',
@@ -12371,15 +10067,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries a list of access credentials.
+     * @summary Queries a list of access credentials.
+     *  *
+     * @param ListSecretsRequest $request ListSecretsRequest
      *
-     * @param Request - ListSecretsRequest
-     *
-     * @returns ListSecretsResponse
-     *
-     * @param ListSecretsRequest $request
-     *
-     * @return ListSecretsResponse
+     * @return ListSecretsResponse ListSecretsResponse
      */
     public function listSecrets($request)
     {
@@ -12389,40 +10081,31 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Create External Data Source Configuration.
+     * @summary Create External Data Source Configuration
+     *  *
+     * @param ListStreamingDataServicesRequest $request ListStreamingDataServicesRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - ListStreamingDataServicesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListStreamingDataServicesResponse
-     *
-     * @param ListStreamingDataServicesRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return ListStreamingDataServicesResponse
+     * @return ListStreamingDataServicesResponse ListStreamingDataServicesResponse
      */
     public function listStreamingDataServicesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListStreamingDataServices',
@@ -12440,15 +10123,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Create External Data Source Configuration.
+     * @summary Create External Data Source Configuration
+     *  *
+     * @param ListStreamingDataServicesRequest $request ListStreamingDataServicesRequest
      *
-     * @param Request - ListStreamingDataServicesRequest
-     *
-     * @returns ListStreamingDataServicesResponse
-     *
-     * @param ListStreamingDataServicesRequest $request
-     *
-     * @return ListStreamingDataServicesResponse
+     * @return ListStreamingDataServicesResponse ListStreamingDataServicesResponse
      */
     public function listStreamingDataServices($request)
     {
@@ -12458,40 +10137,31 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries real-time service data sources.
+     * @summary Queries real-time service data sources.
+     *  *
+     * @param ListStreamingDataSourcesRequest $request ListStreamingDataSourcesRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - ListStreamingDataSourcesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListStreamingDataSourcesResponse
-     *
-     * @param ListStreamingDataSourcesRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return ListStreamingDataSourcesResponse
+     * @return ListStreamingDataSourcesResponse ListStreamingDataSourcesResponse
      */
     public function listStreamingDataSourcesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListStreamingDataSources',
@@ -12509,15 +10179,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries real-time service data sources.
+     * @summary Queries real-time service data sources.
+     *  *
+     * @param ListStreamingDataSourcesRequest $request ListStreamingDataSourcesRequest
      *
-     * @param Request - ListStreamingDataSourcesRequest
-     *
-     * @returns ListStreamingDataSourcesResponse
-     *
-     * @param ListStreamingDataSourcesRequest $request
-     *
-     * @return ListStreamingDataSourcesResponse
+     * @return ListStreamingDataSourcesResponse ListStreamingDataSourcesResponse
      */
     public function listStreamingDataSources($request)
     {
@@ -12527,40 +10193,31 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries real-time data synchronization jobs.
+     * @summary Queries real-time data synchronization jobs.
+     *  *
+     * @param ListStreamingJobsRequest $request ListStreamingJobsRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - ListStreamingJobsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListStreamingJobsResponse
-     *
-     * @param ListStreamingJobsRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return ListStreamingJobsResponse
+     * @return ListStreamingJobsResponse ListStreamingJobsResponse
      */
     public function listStreamingJobsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListStreamingJobs',
@@ -12578,15 +10235,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries real-time data synchronization jobs.
+     * @summary Queries real-time data synchronization jobs.
+     *  *
+     * @param ListStreamingJobsRequest $request ListStreamingJobsRequest
      *
-     * @param Request - ListStreamingJobsRequest
-     *
-     * @returns ListStreamingJobsResponse
-     *
-     * @param ListStreamingJobsRequest $request
-     *
-     * @return ListStreamingJobsResponse
+     * @return ListStreamingJobsResponse ListStreamingJobsResponse
      */
     public function listStreamingJobs($request)
     {
@@ -12596,36 +10249,28 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 查询Supabase实例列表.
+     * @summary 查询Supabase实例列表
+     *  *
+     * @param ListSupabaseProjectsRequest $request ListSupabaseProjectsRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - ListSupabaseProjectsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListSupabaseProjectsResponse
-     *
-     * @param ListSupabaseProjectsRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return ListSupabaseProjectsResponse
+     * @return ListSupabaseProjectsResponse ListSupabaseProjectsResponse
      */
     public function listSupabaseProjectsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->maxResults) {
-            @$query['MaxResults'] = $request->maxResults;
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
         }
-
-        if (null !== $request->nextToken) {
-            @$query['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListSupabaseProjects',
@@ -12643,15 +10288,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 查询Supabase实例列表.
+     * @summary 查询Supabase实例列表
+     *  *
+     * @param ListSupabaseProjectsRequest $request ListSupabaseProjectsRequest
      *
-     * @param Request - ListSupabaseProjectsRequest
-     *
-     * @returns ListSupabaseProjectsResponse
-     *
-     * @param ListSupabaseProjectsRequest $request
-     *
-     * @return ListSupabaseProjectsResponse
+     * @return ListSupabaseProjectsResponse ListSupabaseProjectsResponse
      */
     public function listSupabaseProjects($request)
     {
@@ -12661,60 +10302,46 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries a list of tables in a database.
+     * @summary Queries a list of tables in a database.
+     *  *
+     * @param ListTablesRequest $request ListTablesRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - ListTablesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListTablesResponse
-     *
-     * @param ListTablesRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return ListTablesResponse
+     * @return ListTablesResponse ListTablesResponse
      */
     public function listTablesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->database) {
-            @$query['Database'] = $request->database;
+        if (!Utils::isUnset($request->database)) {
+            $query['Database'] = $request->database;
         }
-
-        if (null !== $request->maxResults) {
-            @$query['MaxResults'] = $request->maxResults;
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
         }
-
-        if (null !== $request->nextToken) {
-            @$query['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->schema) {
-            @$query['Schema'] = $request->schema;
+        if (!Utils::isUnset($request->schema)) {
+            $query['Schema'] = $request->schema;
         }
-
-        if (null !== $request->secretArn) {
-            @$query['SecretArn'] = $request->secretArn;
+        if (!Utils::isUnset($request->secretArn)) {
+            $query['SecretArn'] = $request->secretArn;
         }
-
-        if (null !== $request->tablePattern) {
-            @$query['TablePattern'] = $request->tablePattern;
+        if (!Utils::isUnset($request->tablePattern)) {
+            $query['TablePattern'] = $request->tablePattern;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListTables',
@@ -12732,15 +10359,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries a list of tables in a database.
+     * @summary Queries a list of tables in a database.
+     *  *
+     * @param ListTablesRequest $request ListTablesRequest
      *
-     * @param Request - ListTablesRequest
-     *
-     * @returns ListTablesResponse
-     *
-     * @param ListTablesRequest $request
-     *
-     * @return ListTablesResponse
+     * @return ListTablesResponse ListTablesResponse
      */
     public function listTables($request)
     {
@@ -12750,60 +10373,46 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries a list of tags that are added to AnalyticDB for PostgreSQL instances.
+     * @summary Queries a list of tags that are added to AnalyticDB for PostgreSQL instances.
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - ListTagResourcesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListTagResourcesResponse
-     *
-     * @param ListTagResourcesRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->nextToken) {
-            @$query['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceId) {
-            @$query['ResourceId'] = $request->resourceId;
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->resourceType) {
-            @$query['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListTagResources',
@@ -12821,15 +10430,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries a list of tags that are added to AnalyticDB for PostgreSQL instances.
+     * @summary Queries a list of tags that are added to AnalyticDB for PostgreSQL instances.
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
-     * @param Request - ListTagResourcesRequest
-     *
-     * @returns ListTagResourcesResponse
-     *
-     * @param ListTagResourcesRequest $request
-     *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -12839,40 +10444,31 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Modifies the description of a database account for an AnalyticDB for PostgreSQL instance.
+     * @summary Modifies the description of a database account for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @param ModifyAccountDescriptionRequest $request ModifyAccountDescriptionRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - ModifyAccountDescriptionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyAccountDescriptionResponse
-     *
-     * @param ModifyAccountDescriptionRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return ModifyAccountDescriptionResponse
+     * @return ModifyAccountDescriptionResponse ModifyAccountDescriptionResponse
      */
     public function modifyAccountDescriptionWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountDescription) {
-            @$query['AccountDescription'] = $request->accountDescription;
+        if (!Utils::isUnset($request->accountDescription)) {
+            $query['AccountDescription'] = $request->accountDescription;
         }
-
-        if (null !== $request->accountName) {
-            @$query['AccountName'] = $request->accountName;
+        if (!Utils::isUnset($request->accountName)) {
+            $query['AccountName'] = $request->accountName;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyAccountDescription',
@@ -12890,15 +10486,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Modifies the description of a database account for an AnalyticDB for PostgreSQL instance.
+     * @summary Modifies the description of a database account for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @param ModifyAccountDescriptionRequest $request ModifyAccountDescriptionRequest
      *
-     * @param Request - ModifyAccountDescriptionRequest
-     *
-     * @returns ModifyAccountDescriptionResponse
-     *
-     * @param ModifyAccountDescriptionRequest $request
-     *
-     * @return ModifyAccountDescriptionResponse
+     * @return ModifyAccountDescriptionResponse ModifyAccountDescriptionResponse
      */
     public function modifyAccountDescription($request)
     {
@@ -12908,48 +10500,37 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Configures the backup policy of an AnalyticDB for PostgreSQL instance.
+     * @summary Configures the backup policy of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @param ModifyBackupPolicyRequest $request ModifyBackupPolicyRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - ModifyBackupPolicyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyBackupPolicyResponse
-     *
-     * @param ModifyBackupPolicyRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return ModifyBackupPolicyResponse
+     * @return ModifyBackupPolicyResponse ModifyBackupPolicyResponse
      */
     public function modifyBackupPolicyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->backupRetentionPeriod) {
-            @$query['BackupRetentionPeriod'] = $request->backupRetentionPeriod;
+        if (!Utils::isUnset($request->backupRetentionPeriod)) {
+            $query['BackupRetentionPeriod'] = $request->backupRetentionPeriod;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->enableRecoveryPoint) {
-            @$query['EnableRecoveryPoint'] = $request->enableRecoveryPoint;
+        if (!Utils::isUnset($request->enableRecoveryPoint)) {
+            $query['EnableRecoveryPoint'] = $request->enableRecoveryPoint;
         }
-
-        if (null !== $request->preferredBackupPeriod) {
-            @$query['PreferredBackupPeriod'] = $request->preferredBackupPeriod;
+        if (!Utils::isUnset($request->preferredBackupPeriod)) {
+            $query['PreferredBackupPeriod'] = $request->preferredBackupPeriod;
         }
-
-        if (null !== $request->preferredBackupTime) {
-            @$query['PreferredBackupTime'] = $request->preferredBackupTime;
+        if (!Utils::isUnset($request->preferredBackupTime)) {
+            $query['PreferredBackupTime'] = $request->preferredBackupTime;
         }
-
-        if (null !== $request->recoveryPointPeriod) {
-            @$query['RecoveryPointPeriod'] = $request->recoveryPointPeriod;
+        if (!Utils::isUnset($request->recoveryPointPeriod)) {
+            $query['RecoveryPointPeriod'] = $request->recoveryPointPeriod;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyBackupPolicy',
@@ -12967,15 +10548,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Configures the backup policy of an AnalyticDB for PostgreSQL instance.
+     * @summary Configures the backup policy of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @param ModifyBackupPolicyRequest $request ModifyBackupPolicyRequest
      *
-     * @param Request - ModifyBackupPolicyRequest
-     *
-     * @returns ModifyBackupPolicyResponse
-     *
-     * @param ModifyBackupPolicyRequest $request
-     *
-     * @return ModifyBackupPolicyResponse
+     * @return ModifyBackupPolicyResponse ModifyBackupPolicyResponse
      */
     public function modifyBackupPolicy($request)
     {
@@ -12985,56 +10562,43 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 更新Collection.
+     * @summary 更新Collection
+     *  *
+     * @param ModifyCollectionRequest $request ModifyCollectionRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - ModifyCollectionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyCollectionResponse
-     *
-     * @param ModifyCollectionRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return ModifyCollectionResponse
+     * @return ModifyCollectionResponse ModifyCollectionResponse
      */
     public function modifyCollectionWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->collection) {
-            @$query['Collection'] = $request->collection;
+        if (!Utils::isUnset($request->collection)) {
+            $query['Collection'] = $request->collection;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->metadata) {
-            @$query['Metadata'] = $request->metadata;
+        if (!Utils::isUnset($request->metadata)) {
+            $query['Metadata'] = $request->metadata;
         }
-
-        if (null !== $request->namespace) {
-            @$query['Namespace'] = $request->namespace;
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
         }
-
-        if (null !== $request->namespacePassword) {
-            @$query['NamespacePassword'] = $request->namespacePassword;
+        if (!Utils::isUnset($request->namespacePassword)) {
+            $query['NamespacePassword'] = $request->namespacePassword;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->workspaceId) {
-            @$query['WorkspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyCollection',
@@ -13052,15 +10616,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 更新Collection.
+     * @summary 更新Collection
+     *  *
+     * @param ModifyCollectionRequest $request ModifyCollectionRequest
      *
-     * @param Request - ModifyCollectionRequest
-     *
-     * @returns ModifyCollectionResponse
-     *
-     * @param ModifyCollectionRequest $request
-     *
-     * @return ModifyCollectionResponse
+     * @return ModifyCollectionResponse ModifyCollectionResponse
      */
     public function modifyCollection($request)
     {
@@ -13070,44 +10630,34 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Changes the threshold of computing resources and the wait period of idle resources for an AnalyticDB for PostgreSQL instance in Serverless automatic scheduling mode.
+     * @summary Changes the threshold of computing resources and the wait period of idle resources for an AnalyticDB for PostgreSQL instance in Serverless automatic scheduling mode.
+     *  *
+     * @param ModifyDBInstanceConfigRequest $request ModifyDBInstanceConfigRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - ModifyDBInstanceConfigRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyDBInstanceConfigResponse
-     *
-     * @param ModifyDBInstanceConfigRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return ModifyDBInstanceConfigResponse
+     * @return ModifyDBInstanceConfigResponse ModifyDBInstanceConfigResponse
      */
     public function modifyDBInstanceConfigWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceDescription) {
-            @$query['DBInstanceDescription'] = $request->DBInstanceDescription;
+        if (!Utils::isUnset($request->DBInstanceDescription)) {
+            $query['DBInstanceDescription'] = $request->DBInstanceDescription;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->idleTime) {
-            @$query['IdleTime'] = $request->idleTime;
+        if (!Utils::isUnset($request->idleTime)) {
+            $query['IdleTime'] = $request->idleTime;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->serverlessResource) {
-            @$query['ServerlessResource'] = $request->serverlessResource;
+        if (!Utils::isUnset($request->serverlessResource)) {
+            $query['ServerlessResource'] = $request->serverlessResource;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyDBInstanceConfig',
@@ -13125,15 +10675,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Changes the threshold of computing resources and the wait period of idle resources for an AnalyticDB for PostgreSQL instance in Serverless automatic scheduling mode.
+     * @summary Changes the threshold of computing resources and the wait period of idle resources for an AnalyticDB for PostgreSQL instance in Serverless automatic scheduling mode.
+     *  *
+     * @param ModifyDBInstanceConfigRequest $request ModifyDBInstanceConfigRequest
      *
-     * @param Request - ModifyDBInstanceConfigRequest
-     *
-     * @returns ModifyDBInstanceConfigResponse
-     *
-     * @param ModifyDBInstanceConfigRequest $request
-     *
-     * @return ModifyDBInstanceConfigResponse
+     * @return ModifyDBInstanceConfigResponse ModifyDBInstanceConfigResponse
      */
     public function modifyDBInstanceConfig($request)
     {
@@ -13143,44 +10689,34 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Changes the endpoint of an AnalyticDB for PostgreSQL instance.
+     * @summary Changes the endpoint of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @param ModifyDBInstanceConnectionStringRequest $request ModifyDBInstanceConnectionStringRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - ModifyDBInstanceConnectionStringRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyDBInstanceConnectionStringResponse
-     *
-     * @param ModifyDBInstanceConnectionStringRequest $request
-     * @param RuntimeOptions                          $runtime
-     *
-     * @return ModifyDBInstanceConnectionStringResponse
+     * @return ModifyDBInstanceConnectionStringResponse ModifyDBInstanceConnectionStringResponse
      */
     public function modifyDBInstanceConnectionStringWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->connectionStringPrefix) {
-            @$query['ConnectionStringPrefix'] = $request->connectionStringPrefix;
+        if (!Utils::isUnset($request->connectionStringPrefix)) {
+            $query['ConnectionStringPrefix'] = $request->connectionStringPrefix;
         }
-
-        if (null !== $request->currentConnectionString) {
-            @$query['CurrentConnectionString'] = $request->currentConnectionString;
+        if (!Utils::isUnset($request->currentConnectionString)) {
+            $query['CurrentConnectionString'] = $request->currentConnectionString;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->port) {
-            @$query['Port'] = $request->port;
+        if (!Utils::isUnset($request->port)) {
+            $query['Port'] = $request->port;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyDBInstanceConnectionString',
@@ -13198,15 +10734,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Changes the endpoint of an AnalyticDB for PostgreSQL instance.
+     * @summary Changes the endpoint of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @param ModifyDBInstanceConnectionStringRequest $request ModifyDBInstanceConnectionStringRequest
      *
-     * @param Request - ModifyDBInstanceConnectionStringRequest
-     *
-     * @returns ModifyDBInstanceConnectionStringResponse
-     *
-     * @param ModifyDBInstanceConnectionStringRequest $request
-     *
-     * @return ModifyDBInstanceConnectionStringResponse
+     * @return ModifyDBInstanceConnectionStringResponse ModifyDBInstanceConnectionStringResponse
      */
     public function modifyDBInstanceConnectionString($request)
     {
@@ -13216,40 +10748,31 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 修改实例部署模式.
+     * @summary 修改实例部署模式
+     *  *
+     * @param ModifyDBInstanceDeploymentModeRequest $request ModifyDBInstanceDeploymentModeRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - ModifyDBInstanceDeploymentModeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyDBInstanceDeploymentModeResponse
-     *
-     * @param ModifyDBInstanceDeploymentModeRequest $request
-     * @param RuntimeOptions                        $runtime
-     *
-     * @return ModifyDBInstanceDeploymentModeResponse
+     * @return ModifyDBInstanceDeploymentModeResponse ModifyDBInstanceDeploymentModeResponse
      */
     public function modifyDBInstanceDeploymentModeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->deployMode) {
-            @$query['DeployMode'] = $request->deployMode;
+        if (!Utils::isUnset($request->deployMode)) {
+            $query['DeployMode'] = $request->deployMode;
         }
-
-        if (null !== $request->standbyVSwitchId) {
-            @$query['StandbyVSwitchId'] = $request->standbyVSwitchId;
+        if (!Utils::isUnset($request->standbyVSwitchId)) {
+            $query['StandbyVSwitchId'] = $request->standbyVSwitchId;
         }
-
-        if (null !== $request->standbyZoneId) {
-            @$query['StandbyZoneId'] = $request->standbyZoneId;
+        if (!Utils::isUnset($request->standbyZoneId)) {
+            $query['StandbyZoneId'] = $request->standbyZoneId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyDBInstanceDeploymentMode',
@@ -13267,15 +10790,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 修改实例部署模式.
+     * @summary 修改实例部署模式
+     *  *
+     * @param ModifyDBInstanceDeploymentModeRequest $request ModifyDBInstanceDeploymentModeRequest
      *
-     * @param Request - ModifyDBInstanceDeploymentModeRequest
-     *
-     * @returns ModifyDBInstanceDeploymentModeResponse
-     *
-     * @param ModifyDBInstanceDeploymentModeRequest $request
-     *
-     * @return ModifyDBInstanceDeploymentModeResponse
+     * @return ModifyDBInstanceDeploymentModeResponse ModifyDBInstanceDeploymentModeResponse
      */
     public function modifyDBInstanceDeploymentMode($request)
     {
@@ -13285,41 +10804,32 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Changes the description of an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * To make it easy to identify AnalyticDB for PostgreSQL instances, you can call this operation to modify the description of instances.
+     * @summary Changes the description of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description To make it easy to identify AnalyticDB for PostgreSQL instances, you can call this operation to modify the description of instances.
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param ModifyDBInstanceDescriptionRequest $request ModifyDBInstanceDescriptionRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - ModifyDBInstanceDescriptionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyDBInstanceDescriptionResponse
-     *
-     * @param ModifyDBInstanceDescriptionRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return ModifyDBInstanceDescriptionResponse
+     * @return ModifyDBInstanceDescriptionResponse ModifyDBInstanceDescriptionResponse
      */
     public function modifyDBInstanceDescriptionWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceDescription) {
-            @$query['DBInstanceDescription'] = $request->DBInstanceDescription;
+        if (!Utils::isUnset($request->DBInstanceDescription)) {
+            $query['DBInstanceDescription'] = $request->DBInstanceDescription;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyDBInstanceDescription',
@@ -13337,20 +10847,15 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Changes the description of an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * To make it easy to identify AnalyticDB for PostgreSQL instances, you can call this operation to modify the description of instances.
+     * @summary Changes the description of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description To make it easy to identify AnalyticDB for PostgreSQL instances, you can call this operation to modify the description of instances.
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param ModifyDBInstanceDescriptionRequest $request ModifyDBInstanceDescriptionRequest
      *
-     * @param Request - ModifyDBInstanceDescriptionRequest
-     *
-     * @returns ModifyDBInstanceDescriptionResponse
-     *
-     * @param ModifyDBInstanceDescriptionRequest $request
-     *
-     * @return ModifyDBInstanceDescriptionResponse
+     * @return ModifyDBInstanceDescriptionResponse ModifyDBInstanceDescriptionResponse
      */
     public function modifyDBInstanceDescription($request)
     {
@@ -13360,45 +10865,35 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Modifies the maintenance window of an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * The system maintains AnalyticDB for PostgreSQL instances during the maintenance window that you specify. We recommend that you set the maintenance window to off-peak hours to minimize the impact on your business.
+     * @summary Modifies the maintenance window of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description The system maintains AnalyticDB for PostgreSQL instances during the maintenance window that you specify. We recommend that you set the maintenance window to off-peak hours to minimize the impact on your business.
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param ModifyDBInstanceMaintainTimeRequest $request ModifyDBInstanceMaintainTimeRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - ModifyDBInstanceMaintainTimeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyDBInstanceMaintainTimeResponse
-     *
-     * @param ModifyDBInstanceMaintainTimeRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return ModifyDBInstanceMaintainTimeResponse
+     * @return ModifyDBInstanceMaintainTimeResponse ModifyDBInstanceMaintainTimeResponse
      */
     public function modifyDBInstanceMaintainTimeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyDBInstanceMaintainTime',
@@ -13416,20 +10911,15 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Modifies the maintenance window of an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * The system maintains AnalyticDB for PostgreSQL instances during the maintenance window that you specify. We recommend that you set the maintenance window to off-peak hours to minimize the impact on your business.
+     * @summary Modifies the maintenance window of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description The system maintains AnalyticDB for PostgreSQL instances during the maintenance window that you specify. We recommend that you set the maintenance window to off-peak hours to minimize the impact on your business.
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param ModifyDBInstanceMaintainTimeRequest $request ModifyDBInstanceMaintainTimeRequest
      *
-     * @param Request - ModifyDBInstanceMaintainTimeRequest
-     *
-     * @returns ModifyDBInstanceMaintainTimeResponse
-     *
-     * @param ModifyDBInstanceMaintainTimeRequest $request
-     *
-     * @return ModifyDBInstanceMaintainTimeResponse
+     * @return ModifyDBInstanceMaintainTimeResponse ModifyDBInstanceMaintainTimeResponse
      */
     public function modifyDBInstanceMaintainTime($request)
     {
@@ -13439,50 +10929,39 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Changes the network type of an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * ##
+     * @summary Changes the network type of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description ##
      * This operation is available only for AnalyticDB for PostgreSQL instances in reserved storage mode.
      * ## QPS limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param ModifyDBInstanceNetworkTypeRequest $request ModifyDBInstanceNetworkTypeRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - ModifyDBInstanceNetworkTypeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyDBInstanceNetworkTypeResponse
-     *
-     * @param ModifyDBInstanceNetworkTypeRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return ModifyDBInstanceNetworkTypeResponse
+     * @return ModifyDBInstanceNetworkTypeResponse ModifyDBInstanceNetworkTypeResponse
      */
     public function modifyDBInstanceNetworkTypeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->instanceNetworkType) {
-            @$query['InstanceNetworkType'] = $request->instanceNetworkType;
+        if (!Utils::isUnset($request->instanceNetworkType)) {
+            $query['InstanceNetworkType'] = $request->instanceNetworkType;
         }
-
-        if (null !== $request->privateIpAddress) {
-            @$query['PrivateIpAddress'] = $request->privateIpAddress;
+        if (!Utils::isUnset($request->privateIpAddress)) {
+            $query['PrivateIpAddress'] = $request->privateIpAddress;
         }
-
-        if (null !== $request->VPCId) {
-            @$query['VPCId'] = $request->VPCId;
+        if (!Utils::isUnset($request->VPCId)) {
+            $query['VPCId'] = $request->VPCId;
         }
-
-        if (null !== $request->vSwitchId) {
-            @$query['VSwitchId'] = $request->vSwitchId;
+        if (!Utils::isUnset($request->vSwitchId)) {
+            $query['VSwitchId'] = $request->vSwitchId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyDBInstanceNetworkType',
@@ -13500,21 +10979,16 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Changes the network type of an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * ##
+     * @summary Changes the network type of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description ##
      * This operation is available only for AnalyticDB for PostgreSQL instances in reserved storage mode.
      * ## QPS limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param ModifyDBInstanceNetworkTypeRequest $request ModifyDBInstanceNetworkTypeRequest
      *
-     * @param Request - ModifyDBInstanceNetworkTypeRequest
-     *
-     * @returns ModifyDBInstanceNetworkTypeResponse
-     *
-     * @param ModifyDBInstanceNetworkTypeRequest $request
-     *
-     * @return ModifyDBInstanceNetworkTypeResponse
+     * @return ModifyDBInstanceNetworkTypeResponse ModifyDBInstanceNetworkTypeResponse
      */
     public function modifyDBInstanceNetworkType($request)
     {
@@ -13524,40 +10998,31 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 包年包月/按量付费转换改造.
+     * @summary 包年包月/按量付费转换改造
+     *  *
+     * @param ModifyDBInstancePayTypeRequest $request ModifyDBInstancePayTypeRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - ModifyDBInstancePayTypeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyDBInstancePayTypeResponse
-     *
-     * @param ModifyDBInstancePayTypeRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return ModifyDBInstancePayTypeResponse
+     * @return ModifyDBInstancePayTypeResponse ModifyDBInstancePayTypeResponse
      */
     public function modifyDBInstancePayTypeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->payType) {
-            @$query['PayType'] = $request->payType;
+        if (!Utils::isUnset($request->payType)) {
+            $query['PayType'] = $request->payType;
         }
-
-        if (null !== $request->period) {
-            @$query['Period'] = $request->period;
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
         }
-
-        if (null !== $request->usedTime) {
-            @$query['UsedTime'] = $request->usedTime;
+        if (!Utils::isUnset($request->usedTime)) {
+            $query['UsedTime'] = $request->usedTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyDBInstancePayType',
@@ -13575,15 +11040,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 包年包月/按量付费转换改造.
+     * @summary 包年包月/按量付费转换改造
+     *  *
+     * @param ModifyDBInstancePayTypeRequest $request ModifyDBInstancePayTypeRequest
      *
-     * @param Request - ModifyDBInstancePayTypeRequest
-     *
-     * @returns ModifyDBInstancePayTypeResponse
-     *
-     * @param ModifyDBInstancePayTypeRequest $request
-     *
-     * @return ModifyDBInstancePayTypeResponse
+     * @return ModifyDBInstancePayTypeResponse ModifyDBInstancePayTypeResponse
      */
     public function modifyDBInstancePayType($request)
     {
@@ -13593,55 +11054,42 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Moves an AnalyticDB for PostgreSQL instance to a resource group.
+     * @summary Moves an AnalyticDB for PostgreSQL instance to a resource group.
+     *  *
+     * @description Resource Management allows you to build an organizational structure for resources based on your business requirements. You can use resource directories, folders, accounts, and resource groups to hierarchically organize and manage resources. For more information, see [What is Resource Management?](https://help.aliyun.com/document_detail/94475.html)
+     *  *
+     * @param ModifyDBInstanceResourceGroupRequest $request ModifyDBInstanceResourceGroupRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * Resource Management allows you to build an organizational structure for resources based on your business requirements. You can use resource directories, folders, accounts, and resource groups to hierarchically organize and manage resources. For more information, see [What is Resource Management?](https://help.aliyun.com/document_detail/94475.html)
-     *
-     * @param Request - ModifyDBInstanceResourceGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyDBInstanceResourceGroupResponse
-     *
-     * @param ModifyDBInstanceResourceGroupRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return ModifyDBInstanceResourceGroupResponse
+     * @return ModifyDBInstanceResourceGroupResponse ModifyDBInstanceResourceGroupResponse
      */
     public function modifyDBInstanceResourceGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->newResourceGroupId) {
-            @$query['NewResourceGroupId'] = $request->newResourceGroupId;
+        if (!Utils::isUnset($request->newResourceGroupId)) {
+            $query['NewResourceGroupId'] = $request->newResourceGroupId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyDBInstanceResourceGroup',
@@ -13659,18 +11107,13 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Moves an AnalyticDB for PostgreSQL instance to a resource group.
+     * @summary Moves an AnalyticDB for PostgreSQL instance to a resource group.
+     *  *
+     * @description Resource Management allows you to build an organizational structure for resources based on your business requirements. You can use resource directories, folders, accounts, and resource groups to hierarchically organize and manage resources. For more information, see [What is Resource Management?](https://help.aliyun.com/document_detail/94475.html)
+     *  *
+     * @param ModifyDBInstanceResourceGroupRequest $request ModifyDBInstanceResourceGroupRequest
      *
-     * @remarks
-     * Resource Management allows you to build an organizational structure for resources based on your business requirements. You can use resource directories, folders, accounts, and resource groups to hierarchically organize and manage resources. For more information, see [What is Resource Management?](https://help.aliyun.com/document_detail/94475.html)
-     *
-     * @param Request - ModifyDBInstanceResourceGroupRequest
-     *
-     * @returns ModifyDBInstanceResourceGroupResponse
-     *
-     * @param ModifyDBInstanceResourceGroupRequest $request
-     *
-     * @return ModifyDBInstanceResourceGroupResponse
+     * @return ModifyDBInstanceResourceGroupResponse ModifyDBInstanceResourceGroupResponse
      */
     public function modifyDBInstanceResourceGroup($request)
     {
@@ -13680,36 +11123,28 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Enables, disables, or updates SSL encryption for an AnalyticDB for PostgreSQL instance.
+     * @summary Enables, disables, or updates SSL encryption for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @param ModifyDBInstanceSSLRequest $request ModifyDBInstanceSSLRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - ModifyDBInstanceSSLRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyDBInstanceSSLResponse
-     *
-     * @param ModifyDBInstanceSSLRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return ModifyDBInstanceSSLResponse
+     * @return ModifyDBInstanceSSLResponse ModifyDBInstanceSSLResponse
      */
     public function modifyDBInstanceSSLWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->connectionString) {
-            @$query['ConnectionString'] = $request->connectionString;
+        if (!Utils::isUnset($request->connectionString)) {
+            $query['ConnectionString'] = $request->connectionString;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->SSLEnabled) {
-            @$query['SSLEnabled'] = $request->SSLEnabled;
+        if (!Utils::isUnset($request->SSLEnabled)) {
+            $query['SSLEnabled'] = $request->SSLEnabled;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyDBInstanceSSL',
@@ -13727,15 +11162,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Enables, disables, or updates SSL encryption for an AnalyticDB for PostgreSQL instance.
+     * @summary Enables, disables, or updates SSL encryption for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @param ModifyDBInstanceSSLRequest $request ModifyDBInstanceSSLRequest
      *
-     * @param Request - ModifyDBInstanceSSLRequest
-     *
-     * @returns ModifyDBInstanceSSLResponse
-     *
-     * @param ModifyDBInstanceSSLRequest $request
-     *
-     * @return ModifyDBInstanceSSLResponse
+     * @return ModifyDBInstanceSSLResponse ModifyDBInstanceSSLResponse
      */
     public function modifyDBInstanceSSL($request)
     {
@@ -13745,42 +11176,33 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Modifies the configurations of a resource group.
+     * @summary Modifies the configurations of a resource group.
+     *  *
+     * @param ModifyDBResourceGroupRequest $tmpReq  ModifyDBResourceGroupRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - ModifyDBResourceGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyDBResourceGroupResponse
-     *
-     * @param ModifyDBResourceGroupRequest $tmpReq
-     * @param RuntimeOptions               $runtime
-     *
-     * @return ModifyDBResourceGroupResponse
+     * @return ModifyDBResourceGroupResponse ModifyDBResourceGroupResponse
      */
     public function modifyDBResourceGroupWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new ModifyDBResourceGroupShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->resourceGroupItems) {
-            $request->resourceGroupItemsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->resourceGroupItems, 'ResourceGroupItems', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->resourceGroupItems)) {
+            $request->resourceGroupItemsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceGroupItems, 'ResourceGroupItems', 'json');
         }
-
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceGroupItemsShrink) {
-            @$query['ResourceGroupItems'] = $request->resourceGroupItemsShrink;
+        if (!Utils::isUnset($request->resourceGroupItemsShrink)) {
+            $query['ResourceGroupItems'] = $request->resourceGroupItemsShrink;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyDBResourceGroup',
@@ -13798,15 +11220,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Modifies the configurations of a resource group.
+     * @summary Modifies the configurations of a resource group.
+     *  *
+     * @param ModifyDBResourceGroupRequest $request ModifyDBResourceGroupRequest
      *
-     * @param Request - ModifyDBResourceGroupRequest
-     *
-     * @returns ModifyDBResourceGroupResponse
-     *
-     * @param ModifyDBResourceGroupRequest $request
-     *
-     * @return ModifyDBResourceGroupResponse
+     * @return ModifyDBResourceGroupResponse ModifyDBResourceGroupResponse
      */
     public function modifyDBResourceGroup($request)
     {
@@ -13816,44 +11234,34 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Modify External Data Service.
+     * @summary Modify External Data Service
+     *  *
+     * @param ModifyExternalDataServiceRequest $request ModifyExternalDataServiceRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - ModifyExternalDataServiceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyExternalDataServiceResponse
-     *
-     * @param ModifyExternalDataServiceRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return ModifyExternalDataServiceResponse
+     * @return ModifyExternalDataServiceResponse ModifyExternalDataServiceResponse
      */
     public function modifyExternalDataServiceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->serviceDescription) {
-            @$query['ServiceDescription'] = $request->serviceDescription;
+        if (!Utils::isUnset($request->serviceDescription)) {
+            $query['ServiceDescription'] = $request->serviceDescription;
         }
-
-        if (null !== $request->serviceId) {
-            @$query['ServiceId'] = $request->serviceId;
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['ServiceId'] = $request->serviceId;
         }
-
-        if (null !== $request->serviceSpec) {
-            @$query['ServiceSpec'] = $request->serviceSpec;
+        if (!Utils::isUnset($request->serviceSpec)) {
+            $query['ServiceSpec'] = $request->serviceSpec;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyExternalDataService',
@@ -13871,15 +11279,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Modify External Data Service.
+     * @summary Modify External Data Service
+     *  *
+     * @param ModifyExternalDataServiceRequest $request ModifyExternalDataServiceRequest
      *
-     * @param Request - ModifyExternalDataServiceRequest
-     *
-     * @returns ModifyExternalDataServiceResponse
-     *
-     * @param ModifyExternalDataServiceRequest $request
-     *
-     * @return ModifyExternalDataServiceResponse
+     * @return ModifyExternalDataServiceResponse ModifyExternalDataServiceResponse
      */
     public function modifyExternalDataService($request)
     {
@@ -13889,76 +11293,58 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Modifies the configurations of a Hadoop data source.
+     * @summary Modifies the configurations of a Hadoop data source.
+     *  *
+     * @param ModifyHadoopDataSourceRequest $request ModifyHadoopDataSourceRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - ModifyHadoopDataSourceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyHadoopDataSourceResponse
-     *
-     * @param ModifyHadoopDataSourceRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return ModifyHadoopDataSourceResponse
+     * @return ModifyHadoopDataSourceResponse ModifyHadoopDataSourceResponse
      */
     public function modifyHadoopDataSourceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->dataSourceDescription) {
-            @$query['DataSourceDescription'] = $request->dataSourceDescription;
+        if (!Utils::isUnset($request->dataSourceDescription)) {
+            $query['DataSourceDescription'] = $request->dataSourceDescription;
         }
-
-        if (null !== $request->dataSourceId) {
-            @$query['DataSourceId'] = $request->dataSourceId;
+        if (!Utils::isUnset($request->dataSourceId)) {
+            $query['DataSourceId'] = $request->dataSourceId;
         }
-
-        if (null !== $request->dataSourceType) {
-            @$query['DataSourceType'] = $request->dataSourceType;
+        if (!Utils::isUnset($request->dataSourceType)) {
+            $query['DataSourceType'] = $request->dataSourceType;
         }
-
-        if (null !== $request->emrInstanceId) {
-            @$query['EmrInstanceId'] = $request->emrInstanceId;
+        if (!Utils::isUnset($request->emrInstanceId)) {
+            $query['EmrInstanceId'] = $request->emrInstanceId;
         }
-
-        if (null !== $request->HDFSConf) {
-            @$query['HDFSConf'] = $request->HDFSConf;
+        if (!Utils::isUnset($request->HDFSConf)) {
+            $query['HDFSConf'] = $request->HDFSConf;
         }
-
-        if (null !== $request->hadoopCoreConf) {
-            @$query['HadoopCoreConf'] = $request->hadoopCoreConf;
+        if (!Utils::isUnset($request->hadoopCoreConf)) {
+            $query['HadoopCoreConf'] = $request->hadoopCoreConf;
         }
-
-        if (null !== $request->hadoopCreateType) {
-            @$query['HadoopCreateType'] = $request->hadoopCreateType;
+        if (!Utils::isUnset($request->hadoopCreateType)) {
+            $query['HadoopCreateType'] = $request->hadoopCreateType;
         }
-
-        if (null !== $request->hadoopHostsAddress) {
-            @$query['HadoopHostsAddress'] = $request->hadoopHostsAddress;
+        if (!Utils::isUnset($request->hadoopHostsAddress)) {
+            $query['HadoopHostsAddress'] = $request->hadoopHostsAddress;
         }
-
-        if (null !== $request->hiveConf) {
-            @$query['HiveConf'] = $request->hiveConf;
+        if (!Utils::isUnset($request->hiveConf)) {
+            $query['HiveConf'] = $request->hiveConf;
         }
-
-        if (null !== $request->mapReduceConf) {
-            @$query['MapReduceConf'] = $request->mapReduceConf;
+        if (!Utils::isUnset($request->mapReduceConf)) {
+            $query['MapReduceConf'] = $request->mapReduceConf;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->yarnConf) {
-            @$query['YarnConf'] = $request->yarnConf;
+        if (!Utils::isUnset($request->yarnConf)) {
+            $query['YarnConf'] = $request->yarnConf;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyHadoopDataSource',
@@ -13976,15 +11362,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Modifies the configurations of a Hadoop data source.
+     * @summary Modifies the configurations of a Hadoop data source.
+     *  *
+     * @param ModifyHadoopDataSourceRequest $request ModifyHadoopDataSourceRequest
      *
-     * @param Request - ModifyHadoopDataSourceRequest
-     *
-     * @returns ModifyHadoopDataSourceResponse
-     *
-     * @param ModifyHadoopDataSourceRequest $request
-     *
-     * @return ModifyHadoopDataSourceResponse
+     * @return ModifyHadoopDataSourceResponse ModifyHadoopDataSourceResponse
      */
     public function modifyHadoopDataSource($request)
     {
@@ -13994,56 +11376,43 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Modifies the configurations of a Java Database Connectivity (JDBC) data source.
+     * @summary Modifies the configurations of a Java Database Connectivity (JDBC) data source.
+     *  *
+     * @param ModifyJDBCDataSourceRequest $request ModifyJDBCDataSourceRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - ModifyJDBCDataSourceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyJDBCDataSourceResponse
-     *
-     * @param ModifyJDBCDataSourceRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return ModifyJDBCDataSourceResponse
+     * @return ModifyJDBCDataSourceResponse ModifyJDBCDataSourceResponse
      */
     public function modifyJDBCDataSourceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->dataSourceDescription) {
-            @$query['DataSourceDescription'] = $request->dataSourceDescription;
+        if (!Utils::isUnset($request->dataSourceDescription)) {
+            $query['DataSourceDescription'] = $request->dataSourceDescription;
         }
-
-        if (null !== $request->dataSourceId) {
-            @$query['DataSourceId'] = $request->dataSourceId;
+        if (!Utils::isUnset($request->dataSourceId)) {
+            $query['DataSourceId'] = $request->dataSourceId;
         }
-
-        if (null !== $request->dataSourceType) {
-            @$query['DataSourceType'] = $request->dataSourceType;
+        if (!Utils::isUnset($request->dataSourceType)) {
+            $query['DataSourceType'] = $request->dataSourceType;
         }
-
-        if (null !== $request->JDBCConnectionString) {
-            @$query['JDBCConnectionString'] = $request->JDBCConnectionString;
+        if (!Utils::isUnset($request->JDBCConnectionString)) {
+            $query['JDBCConnectionString'] = $request->JDBCConnectionString;
         }
-
-        if (null !== $request->JDBCPassword) {
-            @$query['JDBCPassword'] = $request->JDBCPassword;
+        if (!Utils::isUnset($request->JDBCPassword)) {
+            $query['JDBCPassword'] = $request->JDBCPassword;
         }
-
-        if (null !== $request->JDBCUserName) {
-            @$query['JDBCUserName'] = $request->JDBCUserName;
+        if (!Utils::isUnset($request->JDBCUserName)) {
+            $query['JDBCUserName'] = $request->JDBCUserName;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyJDBCDataSource',
@@ -14061,15 +11430,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Modifies the configurations of a Java Database Connectivity (JDBC) data source.
+     * @summary Modifies the configurations of a Java Database Connectivity (JDBC) data source.
+     *  *
+     * @param ModifyJDBCDataSourceRequest $request ModifyJDBCDataSourceRequest
      *
-     * @param Request - ModifyJDBCDataSourceRequest
-     *
-     * @returns ModifyJDBCDataSourceResponse
-     *
-     * @param ModifyJDBCDataSourceRequest $request
-     *
-     * @return ModifyJDBCDataSourceResponse
+     * @return ModifyJDBCDataSourceResponse ModifyJDBCDataSourceResponse
      */
     public function modifyJDBCDataSource($request)
     {
@@ -14079,48 +11444,37 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Changes the specifications of coordinator node resources for an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * This operation is not available for instances in reserved storage mode.
+     * @summary Changes the specifications of coordinator node resources for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description This operation is not available for instances in reserved storage mode.
      * Before you call this operation, make sure that you are familiar with the billing of AnalyticDB for PostgreSQL. For more information, see [Billing methods](https://help.aliyun.com/document_detail/35406.html) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
+     *  *
+     * @param ModifyMasterSpecRequest $request ModifyMasterSpecRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - ModifyMasterSpecRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyMasterSpecResponse
-     *
-     * @param ModifyMasterSpecRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return ModifyMasterSpecResponse
+     * @return ModifyMasterSpecResponse ModifyMasterSpecResponse
      */
     public function modifyMasterSpecWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceDescription) {
-            @$query['DBInstanceDescription'] = $request->DBInstanceDescription;
+        if (!Utils::isUnset($request->DBInstanceDescription)) {
+            $query['DBInstanceDescription'] = $request->DBInstanceDescription;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->masterAISpec) {
-            @$query['MasterAISpec'] = $request->masterAISpec;
+        if (!Utils::isUnset($request->masterAISpec)) {
+            $query['MasterAISpec'] = $request->masterAISpec;
         }
-
-        if (null !== $request->masterCU) {
-            @$query['MasterCU'] = $request->masterCU;
+        if (!Utils::isUnset($request->masterCU)) {
+            $query['MasterCU'] = $request->masterCU;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyMasterSpec',
@@ -14138,19 +11492,14 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Changes the specifications of coordinator node resources for an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * This operation is not available for instances in reserved storage mode.
+     * @summary Changes the specifications of coordinator node resources for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description This operation is not available for instances in reserved storage mode.
      * Before you call this operation, make sure that you are familiar with the billing of AnalyticDB for PostgreSQL. For more information, see [Billing methods](https://help.aliyun.com/document_detail/35406.html) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
+     *  *
+     * @param ModifyMasterSpecRequest $request ModifyMasterSpecRequest
      *
-     * @param Request - ModifyMasterSpecRequest
-     *
-     * @returns ModifyMasterSpecResponse
-     *
-     * @param ModifyMasterSpecRequest $request
-     *
-     * @return ModifyMasterSpecResponse
+     * @return ModifyMasterSpecResponse ModifyMasterSpecResponse
      */
     public function modifyMasterSpec($request)
     {
@@ -14160,41 +11509,32 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Modifies the configuration parameters of an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * This operation can be called to modify parameters of an AnalyticDB for PostgreSQL instance in elastic storage mode or Serverless mode.
+     * @summary Modifies the configuration parameters of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description This operation can be called to modify parameters of an AnalyticDB for PostgreSQL instance in elastic storage mode or Serverless mode.
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param ModifyParametersRequest $request ModifyParametersRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - ModifyParametersRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyParametersResponse
-     *
-     * @param ModifyParametersRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return ModifyParametersResponse
+     * @return ModifyParametersResponse ModifyParametersResponse
      */
     public function modifyParametersWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->forceRestartInstance) {
-            @$query['ForceRestartInstance'] = $request->forceRestartInstance;
+        if (!Utils::isUnset($request->forceRestartInstance)) {
+            $query['ForceRestartInstance'] = $request->forceRestartInstance;
         }
-
-        if (null !== $request->parameters) {
-            @$query['Parameters'] = $request->parameters;
+        if (!Utils::isUnset($request->parameters)) {
+            $query['Parameters'] = $request->parameters;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyParameters',
@@ -14212,20 +11552,15 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Modifies the configuration parameters of an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * This operation can be called to modify parameters of an AnalyticDB for PostgreSQL instance in elastic storage mode or Serverless mode.
+     * @summary Modifies the configuration parameters of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description This operation can be called to modify parameters of an AnalyticDB for PostgreSQL instance in elastic storage mode or Serverless mode.
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param ModifyParametersRequest $request ModifyParametersRequest
      *
-     * @param Request - ModifyParametersRequest
-     *
-     * @returns ModifyParametersResponse
-     *
-     * @param ModifyParametersRequest $request
-     *
-     * @return ModifyParametersResponse
+     * @return ModifyParametersResponse ModifyParametersResponse
      */
     public function modifyParameters($request)
     {
@@ -14235,48 +11570,37 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Modify Homogeneous Data Source.
+     * @summary Modify Homogeneous Data Source
+     *  *
+     * @param ModifyRemoteADBDataSourceRequest $request ModifyRemoteADBDataSourceRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - ModifyRemoteADBDataSourceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyRemoteADBDataSourceResponse
-     *
-     * @param ModifyRemoteADBDataSourceRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return ModifyRemoteADBDataSourceResponse
+     * @return ModifyRemoteADBDataSourceResponse ModifyRemoteADBDataSourceResponse
      */
     public function modifyRemoteADBDataSourceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->dataSourceId) {
-            @$query['DataSourceId'] = $request->dataSourceId;
+        if (!Utils::isUnset($request->dataSourceId)) {
+            $query['DataSourceId'] = $request->dataSourceId;
         }
-
-        if (null !== $request->dataSourceName) {
-            @$query['DataSourceName'] = $request->dataSourceName;
+        if (!Utils::isUnset($request->dataSourceName)) {
+            $query['DataSourceName'] = $request->dataSourceName;
         }
-
-        if (null !== $request->localDBInstanceId) {
-            @$query['LocalDBInstanceId'] = $request->localDBInstanceId;
+        if (!Utils::isUnset($request->localDBInstanceId)) {
+            $query['LocalDBInstanceId'] = $request->localDBInstanceId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->userName) {
-            @$query['UserName'] = $request->userName;
+        if (!Utils::isUnset($request->userName)) {
+            $query['UserName'] = $request->userName;
         }
-
-        if (null !== $request->userPassword) {
-            @$query['UserPassword'] = $request->userPassword;
+        if (!Utils::isUnset($request->userPassword)) {
+            $query['UserPassword'] = $request->userPassword;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyRemoteADBDataSource',
@@ -14294,15 +11618,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Modify Homogeneous Data Source.
+     * @summary Modify Homogeneous Data Source
+     *  *
+     * @param ModifyRemoteADBDataSourceRequest $request ModifyRemoteADBDataSourceRequest
      *
-     * @param Request - ModifyRemoteADBDataSourceRequest
-     *
-     * @returns ModifyRemoteADBDataSourceResponse
-     *
-     * @param ModifyRemoteADBDataSourceRequest $request
-     *
-     * @return ModifyRemoteADBDataSourceResponse
+     * @return ModifyRemoteADBDataSourceResponse ModifyRemoteADBDataSourceResponse
      */
     public function modifyRemoteADBDataSource($request)
     {
@@ -14312,36 +11632,28 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Enables or disables the SQL Explorer feature for an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     *   You can call this operation only for AnalyticDB for PostgreSQL instances in reserved storage mode.
+     * @summary Enables or disables the SQL Explorer feature for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description *   You can call this operation only for AnalyticDB for PostgreSQL instances in reserved storage mode.
      * *   You can call this operation only for AnalyticDB for PostgreSQL instances in Serverless automatic scheduling mode.
+     *  *
+     * @param ModifySQLCollectorPolicyRequest $request ModifySQLCollectorPolicyRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - ModifySQLCollectorPolicyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifySQLCollectorPolicyResponse
-     *
-     * @param ModifySQLCollectorPolicyRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return ModifySQLCollectorPolicyResponse
+     * @return ModifySQLCollectorPolicyResponse ModifySQLCollectorPolicyResponse
      */
     public function modifySQLCollectorPolicyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->SQLCollectorStatus) {
-            @$query['SQLCollectorStatus'] = $request->SQLCollectorStatus;
+        if (!Utils::isUnset($request->SQLCollectorStatus)) {
+            $query['SQLCollectorStatus'] = $request->SQLCollectorStatus;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifySQLCollectorPolicy',
@@ -14359,19 +11671,14 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Enables or disables the SQL Explorer feature for an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     *   You can call this operation only for AnalyticDB for PostgreSQL instances in reserved storage mode.
+     * @summary Enables or disables the SQL Explorer feature for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description *   You can call this operation only for AnalyticDB for PostgreSQL instances in reserved storage mode.
      * *   You can call this operation only for AnalyticDB for PostgreSQL instances in Serverless automatic scheduling mode.
+     *  *
+     * @param ModifySQLCollectorPolicyRequest $request ModifySQLCollectorPolicyRequest
      *
-     * @param Request - ModifySQLCollectorPolicyRequest
-     *
-     * @returns ModifySQLCollectorPolicyResponse
-     *
-     * @param ModifySQLCollectorPolicyRequest $request
-     *
-     * @return ModifySQLCollectorPolicyResponse
+     * @return ModifySQLCollectorPolicyResponse ModifySQLCollectorPolicyResponse
      */
     public function modifySQLCollectorPolicy($request)
     {
@@ -14381,53 +11688,41 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Modifies the IP address whitelist of an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * To ensure the security and stability of AnalyticDB for PostgreSQL instances, the system denies all external IP addresses to access AnalyticDB for PostgreSQL instances by default. Before you can use an AnalyticDB for PostgreSQL instance, you must add the IP address or CIDR block of your client to the IP address whitelist of the instance.
+     * @summary Modifies the IP address whitelist of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description To ensure the security and stability of AnalyticDB for PostgreSQL instances, the system denies all external IP addresses to access AnalyticDB for PostgreSQL instances by default. Before you can use an AnalyticDB for PostgreSQL instance, you must add the IP address or CIDR block of your client to the IP address whitelist of the instance.
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param ModifySecurityIpsRequest $request ModifySecurityIpsRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - ModifySecurityIpsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifySecurityIpsResponse
-     *
-     * @param ModifySecurityIpsRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return ModifySecurityIpsResponse
+     * @return ModifySecurityIpsResponse ModifySecurityIpsResponse
      */
     public function modifySecurityIpsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceIPArrayAttribute) {
-            @$query['DBInstanceIPArrayAttribute'] = $request->DBInstanceIPArrayAttribute;
+        if (!Utils::isUnset($request->DBInstanceIPArrayAttribute)) {
+            $query['DBInstanceIPArrayAttribute'] = $request->DBInstanceIPArrayAttribute;
         }
-
-        if (null !== $request->DBInstanceIPArrayName) {
-            @$query['DBInstanceIPArrayName'] = $request->DBInstanceIPArrayName;
+        if (!Utils::isUnset($request->DBInstanceIPArrayName)) {
+            $query['DBInstanceIPArrayName'] = $request->DBInstanceIPArrayName;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->modifyMode) {
-            @$query['ModifyMode'] = $request->modifyMode;
+        if (!Utils::isUnset($request->modifyMode)) {
+            $query['ModifyMode'] = $request->modifyMode;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->securityIPList) {
-            @$query['SecurityIPList'] = $request->securityIPList;
+        if (!Utils::isUnset($request->securityIPList)) {
+            $query['SecurityIPList'] = $request->securityIPList;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifySecurityIps',
@@ -14445,20 +11740,15 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Modifies the IP address whitelist of an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * To ensure the security and stability of AnalyticDB for PostgreSQL instances, the system denies all external IP addresses to access AnalyticDB for PostgreSQL instances by default. Before you can use an AnalyticDB for PostgreSQL instance, you must add the IP address or CIDR block of your client to the IP address whitelist of the instance.
+     * @summary Modifies the IP address whitelist of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description To ensure the security and stability of AnalyticDB for PostgreSQL instances, the system denies all external IP addresses to access AnalyticDB for PostgreSQL instances by default. Before you can use an AnalyticDB for PostgreSQL instance, you must add the IP address or CIDR block of your client to the IP address whitelist of the instance.
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param ModifySecurityIpsRequest $request ModifySecurityIpsRequest
      *
-     * @param Request - ModifySecurityIpsRequest
-     *
-     * @returns ModifySecurityIpsResponse
-     *
-     * @param ModifySecurityIpsRequest $request
-     *
-     * @return ModifySecurityIpsResponse
+     * @return ModifySecurityIpsResponse ModifySecurityIpsResponse
      */
     public function modifySecurityIps($request)
     {
@@ -14468,44 +11758,34 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Modifies a real-time data service.
+     * @summary Modifies a real-time data service.
+     *  *
+     * @param ModifyStreamingDataServiceRequest $request ModifyStreamingDataServiceRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - ModifyStreamingDataServiceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyStreamingDataServiceResponse
-     *
-     * @param ModifyStreamingDataServiceRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return ModifyStreamingDataServiceResponse
+     * @return ModifyStreamingDataServiceResponse ModifyStreamingDataServiceResponse
      */
     public function modifyStreamingDataServiceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->serviceDescription) {
-            @$query['ServiceDescription'] = $request->serviceDescription;
+        if (!Utils::isUnset($request->serviceDescription)) {
+            $query['ServiceDescription'] = $request->serviceDescription;
         }
-
-        if (null !== $request->serviceId) {
-            @$query['ServiceId'] = $request->serviceId;
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['ServiceId'] = $request->serviceId;
         }
-
-        if (null !== $request->serviceSpec) {
-            @$query['ServiceSpec'] = $request->serviceSpec;
+        if (!Utils::isUnset($request->serviceSpec)) {
+            $query['ServiceSpec'] = $request->serviceSpec;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyStreamingDataService',
@@ -14523,15 +11803,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Modifies a real-time data service.
+     * @summary Modifies a real-time data service.
+     *  *
+     * @param ModifyStreamingDataServiceRequest $request ModifyStreamingDataServiceRequest
      *
-     * @param Request - ModifyStreamingDataServiceRequest
-     *
-     * @returns ModifyStreamingDataServiceResponse
-     *
-     * @param ModifyStreamingDataServiceRequest $request
-     *
-     * @return ModifyStreamingDataServiceResponse
+     * @return ModifyStreamingDataServiceResponse ModifyStreamingDataServiceResponse
      */
     public function modifyStreamingDataService($request)
     {
@@ -14541,44 +11817,34 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Modifies a real-time service data source.
+     * @summary Modifies a real-time service data source.
+     *  *
+     * @param ModifyStreamingDataSourceRequest $request ModifyStreamingDataSourceRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - ModifyStreamingDataSourceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyStreamingDataSourceResponse
-     *
-     * @param ModifyStreamingDataSourceRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return ModifyStreamingDataSourceResponse
+     * @return ModifyStreamingDataSourceResponse ModifyStreamingDataSourceResponse
      */
     public function modifyStreamingDataSourceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->dataSourceConfig) {
-            @$query['DataSourceConfig'] = $request->dataSourceConfig;
+        if (!Utils::isUnset($request->dataSourceConfig)) {
+            $query['DataSourceConfig'] = $request->dataSourceConfig;
         }
-
-        if (null !== $request->dataSourceDescription) {
-            @$query['DataSourceDescription'] = $request->dataSourceDescription;
+        if (!Utils::isUnset($request->dataSourceDescription)) {
+            $query['DataSourceDescription'] = $request->dataSourceDescription;
         }
-
-        if (null !== $request->dataSourceId) {
-            @$query['DataSourceId'] = $request->dataSourceId;
+        if (!Utils::isUnset($request->dataSourceId)) {
+            $query['DataSourceId'] = $request->dataSourceId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyStreamingDataSource',
@@ -14596,15 +11862,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Modifies a real-time service data source.
+     * @summary Modifies a real-time service data source.
+     *  *
+     * @param ModifyStreamingDataSourceRequest $request ModifyStreamingDataSourceRequest
      *
-     * @param Request - ModifyStreamingDataSourceRequest
-     *
-     * @returns ModifyStreamingDataSourceResponse
-     *
-     * @param ModifyStreamingDataSourceRequest $request
-     *
-     * @return ModifyStreamingDataSourceResponse
+     * @return ModifyStreamingDataSourceResponse ModifyStreamingDataSourceResponse
      */
     public function modifyStreamingDataSource($request)
     {
@@ -14614,122 +11876,93 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Create External Data Source Configuration.
+     * @summary Create External Data Source Configuration
+     *  *
+     * @param ModifyStreamingJobRequest $tmpReq  ModifyStreamingJobRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - ModifyStreamingJobRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyStreamingJobResponse
-     *
-     * @param ModifyStreamingJobRequest $tmpReq
-     * @param RuntimeOptions            $runtime
-     *
-     * @return ModifyStreamingJobResponse
+     * @return ModifyStreamingJobResponse ModifyStreamingJobResponse
      */
     public function modifyStreamingJobWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new ModifyStreamingJobShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->destColumns) {
-            $request->destColumnsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->destColumns, 'DestColumns', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->destColumns)) {
+            $request->destColumnsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->destColumns, 'DestColumns', 'json');
         }
-
-        if (null !== $tmpReq->matchColumns) {
-            $request->matchColumnsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->matchColumns, 'MatchColumns', 'json');
+        if (!Utils::isUnset($tmpReq->matchColumns)) {
+            $request->matchColumnsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->matchColumns, 'MatchColumns', 'json');
         }
-
-        if (null !== $tmpReq->srcColumns) {
-            $request->srcColumnsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->srcColumns, 'SrcColumns', 'json');
+        if (!Utils::isUnset($tmpReq->srcColumns)) {
+            $request->srcColumnsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->srcColumns, 'SrcColumns', 'json');
         }
-
-        if (null !== $tmpReq->updateColumns) {
-            $request->updateColumnsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->updateColumns, 'UpdateColumns', 'json');
+        if (!Utils::isUnset($tmpReq->updateColumns)) {
+            $request->updateColumnsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->updateColumns, 'UpdateColumns', 'json');
         }
-
         $query = [];
-        if (null !== $request->account) {
-            @$query['Account'] = $request->account;
+        if (!Utils::isUnset($request->account)) {
+            $query['Account'] = $request->account;
         }
-
-        if (null !== $request->consistency) {
-            @$query['Consistency'] = $request->consistency;
+        if (!Utils::isUnset($request->consistency)) {
+            $query['Consistency'] = $request->consistency;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->destColumnsShrink) {
-            @$query['DestColumns'] = $request->destColumnsShrink;
+        if (!Utils::isUnset($request->destColumnsShrink)) {
+            $query['DestColumns'] = $request->destColumnsShrink;
         }
-
-        if (null !== $request->destDatabase) {
-            @$query['DestDatabase'] = $request->destDatabase;
+        if (!Utils::isUnset($request->destDatabase)) {
+            $query['DestDatabase'] = $request->destDatabase;
         }
-
-        if (null !== $request->destSchema) {
-            @$query['DestSchema'] = $request->destSchema;
+        if (!Utils::isUnset($request->destSchema)) {
+            $query['DestSchema'] = $request->destSchema;
         }
-
-        if (null !== $request->destTable) {
-            @$query['DestTable'] = $request->destTable;
+        if (!Utils::isUnset($request->destTable)) {
+            $query['DestTable'] = $request->destTable;
         }
-
-        if (null !== $request->errorLimitCount) {
-            @$query['ErrorLimitCount'] = $request->errorLimitCount;
+        if (!Utils::isUnset($request->errorLimitCount)) {
+            $query['ErrorLimitCount'] = $request->errorLimitCount;
         }
-
-        if (null !== $request->fallbackOffset) {
-            @$query['FallbackOffset'] = $request->fallbackOffset;
+        if (!Utils::isUnset($request->fallbackOffset)) {
+            $query['FallbackOffset'] = $request->fallbackOffset;
         }
-
-        if (null !== $request->groupName) {
-            @$query['GroupName'] = $request->groupName;
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
         }
-
-        if (null !== $request->jobConfig) {
-            @$query['JobConfig'] = $request->jobConfig;
+        if (!Utils::isUnset($request->jobConfig)) {
+            $query['JobConfig'] = $request->jobConfig;
         }
-
-        if (null !== $request->jobDescription) {
-            @$query['JobDescription'] = $request->jobDescription;
+        if (!Utils::isUnset($request->jobDescription)) {
+            $query['JobDescription'] = $request->jobDescription;
         }
-
-        if (null !== $request->jobId) {
-            @$query['JobId'] = $request->jobId;
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
         }
-
-        if (null !== $request->matchColumnsShrink) {
-            @$query['MatchColumns'] = $request->matchColumnsShrink;
+        if (!Utils::isUnset($request->matchColumnsShrink)) {
+            $query['MatchColumns'] = $request->matchColumnsShrink;
         }
-
-        if (null !== $request->password) {
-            @$query['Password'] = $request->password;
+        if (!Utils::isUnset($request->password)) {
+            $query['Password'] = $request->password;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->srcColumnsShrink) {
-            @$query['SrcColumns'] = $request->srcColumnsShrink;
+        if (!Utils::isUnset($request->srcColumnsShrink)) {
+            $query['SrcColumns'] = $request->srcColumnsShrink;
         }
-
-        if (null !== $request->tryRun) {
-            @$query['TryRun'] = $request->tryRun;
+        if (!Utils::isUnset($request->tryRun)) {
+            $query['TryRun'] = $request->tryRun;
         }
-
-        if (null !== $request->updateColumnsShrink) {
-            @$query['UpdateColumns'] = $request->updateColumnsShrink;
+        if (!Utils::isUnset($request->updateColumnsShrink)) {
+            $query['UpdateColumns'] = $request->updateColumnsShrink;
         }
-
-        if (null !== $request->writeMode) {
-            @$query['WriteMode'] = $request->writeMode;
+        if (!Utils::isUnset($request->writeMode)) {
+            $query['WriteMode'] = $request->writeMode;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyStreamingJob',
@@ -14747,15 +11980,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Create External Data Source Configuration.
+     * @summary Create External Data Source Configuration
+     *  *
+     * @param ModifyStreamingJobRequest $request ModifyStreamingJobRequest
      *
-     * @param Request - ModifyStreamingJobRequest
-     *
-     * @returns ModifyStreamingJobResponse
-     *
-     * @param ModifyStreamingJobRequest $request
-     *
-     * @return ModifyStreamingJobResponse
+     * @return ModifyStreamingJobResponse ModifyStreamingJobResponse
      */
     public function modifyStreamingJob($request)
     {
@@ -14765,36 +11994,28 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 修改supabase项目白名单.
+     * @summary 修改supabase项目白名单
+     *  *
+     * @param ModifySupabaseProjectSecurityIpsRequest $request ModifySupabaseProjectSecurityIpsRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - ModifySupabaseProjectSecurityIpsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifySupabaseProjectSecurityIpsResponse
-     *
-     * @param ModifySupabaseProjectSecurityIpsRequest $request
-     * @param RuntimeOptions                          $runtime
-     *
-     * @return ModifySupabaseProjectSecurityIpsResponse
+     * @return ModifySupabaseProjectSecurityIpsResponse ModifySupabaseProjectSecurityIpsResponse
      */
     public function modifySupabaseProjectSecurityIpsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->projectId) {
-            @$query['ProjectId'] = $request->projectId;
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->securityIPList) {
-            @$query['SecurityIPList'] = $request->securityIPList;
+        if (!Utils::isUnset($request->securityIPList)) {
+            $query['SecurityIPList'] = $request->securityIPList;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifySupabaseProjectSecurityIps',
@@ -14812,15 +12033,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 修改supabase项目白名单.
+     * @summary 修改supabase项目白名单
+     *  *
+     * @param ModifySupabaseProjectSecurityIpsRequest $request ModifySupabaseProjectSecurityIpsRequest
      *
-     * @param Request - ModifySupabaseProjectSecurityIpsRequest
-     *
-     * @returns ModifySupabaseProjectSecurityIpsResponse
-     *
-     * @param ModifySupabaseProjectSecurityIpsRequest $request
-     *
-     * @return ModifySupabaseProjectSecurityIpsResponse
+     * @return ModifySupabaseProjectSecurityIpsResponse ModifySupabaseProjectSecurityIpsResponse
      */
     public function modifySupabaseProjectSecurityIps($request)
     {
@@ -14830,36 +12047,28 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Modifies the vector engine optimization configuration of an AnalyticDB for PostgreSQL instance.
+     * @summary Modifies the vector engine optimization configuration of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @param ModifyVectorConfigurationRequest $request ModifyVectorConfigurationRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - ModifyVectorConfigurationRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyVectorConfigurationResponse
-     *
-     * @param ModifyVectorConfigurationRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return ModifyVectorConfigurationResponse
+     * @return ModifyVectorConfigurationResponse ModifyVectorConfigurationResponse
      */
     public function modifyVectorConfigurationWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->vectorConfigurationStatus) {
-            @$query['VectorConfigurationStatus'] = $request->vectorConfigurationStatus;
+        if (!Utils::isUnset($request->vectorConfigurationStatus)) {
+            $query['VectorConfigurationStatus'] = $request->vectorConfigurationStatus;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyVectorConfiguration',
@@ -14877,15 +12086,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Modifies the vector engine optimization configuration of an AnalyticDB for PostgreSQL instance.
+     * @summary Modifies the vector engine optimization configuration of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @param ModifyVectorConfigurationRequest $request ModifyVectorConfigurationRequest
      *
-     * @param Request - ModifyVectorConfigurationRequest
-     *
-     * @returns ModifyVectorConfigurationResponse
-     *
-     * @param ModifyVectorConfigurationRequest $request
-     *
-     * @return ModifyVectorConfigurationResponse
+     * @return ModifyVectorConfigurationResponse ModifyVectorConfigurationResponse
      */
     public function modifyVectorConfiguration($request)
     {
@@ -14895,32 +12100,25 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Pauses data redistribution.
+     * @summary Pauses data redistribution.
+     *  *
+     * @param PauseDataRedistributeRequest $request PauseDataRedistributeRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - PauseDataRedistributeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns PauseDataRedistributeResponse
-     *
-     * @param PauseDataRedistributeRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return PauseDataRedistributeResponse
+     * @return PauseDataRedistributeResponse PauseDataRedistributeResponse
      */
     public function pauseDataRedistributeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'PauseDataRedistribute',
@@ -14938,15 +12136,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Pauses data redistribution.
+     * @summary Pauses data redistribution.
+     *  *
+     * @param PauseDataRedistributeRequest $request PauseDataRedistributeRequest
      *
-     * @param Request - PauseDataRedistributeRequest
-     *
-     * @returns PauseDataRedistributeResponse
-     *
-     * @param PauseDataRedistributeRequest $request
-     *
-     * @return PauseDataRedistributeResponse
+     * @return PauseDataRedistributeResponse PauseDataRedistributeResponse
      */
     public function pauseDataRedistribute($request)
     {
@@ -14956,39 +12150,31 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Pauses an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * You can call this operation to pause an AnalyticDB for PostgreSQL instance that is in the **Running** state.
+     * @summary Pauses an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to pause an AnalyticDB for PostgreSQL instance that is in the **Running** state.
      * This operation is available only for AnalyticDB for PostgreSQL instances in Serverless mode that run V1.0.2.1 or later. For more information about how to view and update the minor engine version of an instance, see [View the minor engine version](https://help.aliyun.com/document_detail/277424.html) and [Update the minor engine version](https://help.aliyun.com/document_detail/139271.html).
      * >  Before you call this operation, make sure that you are familiar with the billing methods and pricing of AnalyticDB for PostgreSQL instances. For more information, see [Billing methods](https://help.aliyun.com/document_detail/35406.html) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param PauseInstanceRequest $request PauseInstanceRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - PauseInstanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns PauseInstanceResponse
-     *
-     * @param PauseInstanceRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return PauseInstanceResponse
+     * @return PauseInstanceResponse PauseInstanceResponse
      */
     public function pauseInstanceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'PauseInstance',
@@ -15006,22 +12192,17 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Pauses an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * You can call this operation to pause an AnalyticDB for PostgreSQL instance that is in the **Running** state.
+     * @summary Pauses an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to pause an AnalyticDB for PostgreSQL instance that is in the **Running** state.
      * This operation is available only for AnalyticDB for PostgreSQL instances in Serverless mode that run V1.0.2.1 or later. For more information about how to view and update the minor engine version of an instance, see [View the minor engine version](https://help.aliyun.com/document_detail/277424.html) and [Update the minor engine version](https://help.aliyun.com/document_detail/139271.html).
      * >  Before you call this operation, make sure that you are familiar with the billing methods and pricing of AnalyticDB for PostgreSQL instances. For more information, see [Billing methods](https://help.aliyun.com/document_detail/35406.html) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param PauseInstanceRequest $request PauseInstanceRequest
      *
-     * @param Request - PauseInstanceRequest
-     *
-     * @returns PauseInstanceResponse
-     *
-     * @param PauseInstanceRequest $request
-     *
-     * @return PauseInstanceResponse
+     * @return PauseInstanceResponse PauseInstanceResponse
      */
     public function pauseInstance($request)
     {
@@ -15031,124 +12212,95 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Query Vector Data.
+     * @summary Query Vector Data
+     *  *
+     * @param QueryCollectionDataRequest $tmpReq  QueryCollectionDataRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - QueryCollectionDataRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns QueryCollectionDataResponse
-     *
-     * @param QueryCollectionDataRequest $tmpReq
-     * @param RuntimeOptions             $runtime
-     *
-     * @return QueryCollectionDataResponse
+     * @return QueryCollectionDataResponse QueryCollectionDataResponse
      */
     public function queryCollectionDataWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new QueryCollectionDataShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->hybridSearchArgs) {
-            $request->hybridSearchArgsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->hybridSearchArgs, 'HybridSearchArgs', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->hybridSearchArgs)) {
+            $request->hybridSearchArgsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->hybridSearchArgs, 'HybridSearchArgs', 'json');
         }
-
-        if (null !== $tmpReq->relationalTableFilter) {
-            $request->relationalTableFilterShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->relationalTableFilter, 'RelationalTableFilter', 'json');
+        if (!Utils::isUnset($tmpReq->relationalTableFilter)) {
+            $request->relationalTableFilterShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->relationalTableFilter, 'RelationalTableFilter', 'json');
         }
-
-        if (null !== $tmpReq->sparseVector) {
-            $request->sparseVectorShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sparseVector, 'SparseVector', 'json');
+        if (!Utils::isUnset($tmpReq->sparseVector)) {
+            $request->sparseVectorShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sparseVector, 'SparseVector', 'json');
         }
-
-        if (null !== $tmpReq->vector) {
-            $request->vectorShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->vector, 'Vector', 'json');
+        if (!Utils::isUnset($tmpReq->vector)) {
+            $request->vectorShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->vector, 'Vector', 'json');
         }
-
         $query = [];
-        if (null !== $request->collection) {
-            @$query['Collection'] = $request->collection;
+        if (!Utils::isUnset($request->collection)) {
+            $query['Collection'] = $request->collection;
         }
-
-        if (null !== $request->content) {
-            @$query['Content'] = $request->content;
+        if (!Utils::isUnset($request->content)) {
+            $query['Content'] = $request->content;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->hybridSearch) {
-            @$query['HybridSearch'] = $request->hybridSearch;
+        if (!Utils::isUnset($request->hybridSearch)) {
+            $query['HybridSearch'] = $request->hybridSearch;
         }
-
-        if (null !== $request->hybridSearchArgsShrink) {
-            @$query['HybridSearchArgs'] = $request->hybridSearchArgsShrink;
+        if (!Utils::isUnset($request->hybridSearchArgsShrink)) {
+            $query['HybridSearchArgs'] = $request->hybridSearchArgsShrink;
         }
-
-        if (null !== $request->includeMetadataFields) {
-            @$query['IncludeMetadataFields'] = $request->includeMetadataFields;
+        if (!Utils::isUnset($request->includeMetadataFields)) {
+            $query['IncludeMetadataFields'] = $request->includeMetadataFields;
         }
-
-        if (null !== $request->includeValues) {
-            @$query['IncludeValues'] = $request->includeValues;
+        if (!Utils::isUnset($request->includeValues)) {
+            $query['IncludeValues'] = $request->includeValues;
         }
-
-        if (null !== $request->metrics) {
-            @$query['Metrics'] = $request->metrics;
+        if (!Utils::isUnset($request->metrics)) {
+            $query['Metrics'] = $request->metrics;
         }
-
-        if (null !== $request->namespace) {
-            @$query['Namespace'] = $request->namespace;
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
         }
-
-        if (null !== $request->namespacePassword) {
-            @$query['NamespacePassword'] = $request->namespacePassword;
+        if (!Utils::isUnset($request->namespacePassword)) {
+            $query['NamespacePassword'] = $request->namespacePassword;
         }
-
-        if (null !== $request->offset) {
-            @$query['Offset'] = $request->offset;
+        if (!Utils::isUnset($request->offset)) {
+            $query['Offset'] = $request->offset;
         }
-
-        if (null !== $request->orderBy) {
-            @$query['OrderBy'] = $request->orderBy;
+        if (!Utils::isUnset($request->orderBy)) {
+            $query['OrderBy'] = $request->orderBy;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->relationalTableFilterShrink) {
-            @$query['RelationalTableFilter'] = $request->relationalTableFilterShrink;
+        if (!Utils::isUnset($request->relationalTableFilterShrink)) {
+            $query['RelationalTableFilter'] = $request->relationalTableFilterShrink;
         }
-
-        if (null !== $request->sparseVectorShrink) {
-            @$query['SparseVector'] = $request->sparseVectorShrink;
+        if (!Utils::isUnset($request->sparseVectorShrink)) {
+            $query['SparseVector'] = $request->sparseVectorShrink;
         }
-
-        if (null !== $request->topK) {
-            @$query['TopK'] = $request->topK;
+        if (!Utils::isUnset($request->topK)) {
+            $query['TopK'] = $request->topK;
         }
-
-        if (null !== $request->vectorShrink) {
-            @$query['Vector'] = $request->vectorShrink;
+        if (!Utils::isUnset($request->vectorShrink)) {
+            $query['Vector'] = $request->vectorShrink;
         }
-
-        if (null !== $request->workspaceId) {
-            @$query['WorkspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
         }
-
         $body = [];
-        if (null !== $request->filter) {
-            @$body['Filter'] = $request->filter;
+        if (!Utils::isUnset($request->filter)) {
+            $body['Filter'] = $request->filter;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'QueryCollectionData',
@@ -15166,15 +12318,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Query Vector Data.
+     * @summary Query Vector Data
+     *  *
+     * @param QueryCollectionDataRequest $request QueryCollectionDataRequest
      *
-     * @param Request - QueryCollectionDataRequest
-     *
-     * @returns QueryCollectionDataResponse
-     *
-     * @param QueryCollectionDataRequest $request
-     *
-     * @return QueryCollectionDataResponse
+     * @return QueryCollectionDataResponse QueryCollectionDataResponse
      */
     public function queryCollectionData($request)
     {
@@ -15184,120 +12332,92 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Query.
+     * @summary Query
+     *  *
+     * @param QueryContentRequest $tmpReq  QueryContentRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - QueryContentRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns QueryContentResponse
-     *
-     * @param QueryContentRequest $tmpReq
-     * @param RuntimeOptions      $runtime
-     *
-     * @return QueryContentResponse
+     * @return QueryContentResponse QueryContentResponse
      */
     public function queryContentWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new QueryContentShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->hybridSearchArgs) {
-            $request->hybridSearchArgsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->hybridSearchArgs, 'HybridSearchArgs', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->hybridSearchArgs)) {
+            $request->hybridSearchArgsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->hybridSearchArgs, 'HybridSearchArgs', 'json');
         }
-
-        if (null !== $tmpReq->recallWindow) {
-            $request->recallWindowShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->recallWindow, 'RecallWindow', 'json');
+        if (!Utils::isUnset($tmpReq->recallWindow)) {
+            $request->recallWindowShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->recallWindow, 'RecallWindow', 'json');
         }
-
         $query = [];
-        if (null !== $request->collection) {
-            @$query['Collection'] = $request->collection;
+        if (!Utils::isUnset($request->collection)) {
+            $query['Collection'] = $request->collection;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->fileName) {
-            @$query['FileName'] = $request->fileName;
+        if (!Utils::isUnset($request->fileName)) {
+            $query['FileName'] = $request->fileName;
         }
-
-        if (null !== $request->fileUrl) {
-            @$query['FileUrl'] = $request->fileUrl;
+        if (!Utils::isUnset($request->fileUrl)) {
+            $query['FileUrl'] = $request->fileUrl;
         }
-
-        if (null !== $request->filter) {
-            @$query['Filter'] = $request->filter;
+        if (!Utils::isUnset($request->filter)) {
+            $query['Filter'] = $request->filter;
         }
-
-        if (null !== $request->hybridSearch) {
-            @$query['HybridSearch'] = $request->hybridSearch;
+        if (!Utils::isUnset($request->hybridSearch)) {
+            $query['HybridSearch'] = $request->hybridSearch;
         }
-
-        if (null !== $request->hybridSearchArgsShrink) {
-            @$query['HybridSearchArgs'] = $request->hybridSearchArgsShrink;
+        if (!Utils::isUnset($request->hybridSearchArgsShrink)) {
+            $query['HybridSearchArgs'] = $request->hybridSearchArgsShrink;
         }
-
-        if (null !== $request->includeFileUrl) {
-            @$query['IncludeFileUrl'] = $request->includeFileUrl;
+        if (!Utils::isUnset($request->includeFileUrl)) {
+            $query['IncludeFileUrl'] = $request->includeFileUrl;
         }
-
-        if (null !== $request->includeMetadataFields) {
-            @$query['IncludeMetadataFields'] = $request->includeMetadataFields;
+        if (!Utils::isUnset($request->includeMetadataFields)) {
+            $query['IncludeMetadataFields'] = $request->includeMetadataFields;
         }
-
-        if (null !== $request->includeVector) {
-            @$query['IncludeVector'] = $request->includeVector;
+        if (!Utils::isUnset($request->includeVector)) {
+            $query['IncludeVector'] = $request->includeVector;
         }
-
-        if (null !== $request->metrics) {
-            @$query['Metrics'] = $request->metrics;
+        if (!Utils::isUnset($request->metrics)) {
+            $query['Metrics'] = $request->metrics;
         }
-
-        if (null !== $request->namespace) {
-            @$query['Namespace'] = $request->namespace;
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
         }
-
-        if (null !== $request->namespacePassword) {
-            @$query['NamespacePassword'] = $request->namespacePassword;
+        if (!Utils::isUnset($request->namespacePassword)) {
+            $query['NamespacePassword'] = $request->namespacePassword;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->recallWindowShrink) {
-            @$query['RecallWindow'] = $request->recallWindowShrink;
+        if (!Utils::isUnset($request->recallWindowShrink)) {
+            $query['RecallWindow'] = $request->recallWindowShrink;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->rerankFactor) {
-            @$query['RerankFactor'] = $request->rerankFactor;
+        if (!Utils::isUnset($request->rerankFactor)) {
+            $query['RerankFactor'] = $request->rerankFactor;
         }
-
-        if (null !== $request->topK) {
-            @$query['TopK'] = $request->topK;
+        if (!Utils::isUnset($request->topK)) {
+            $query['TopK'] = $request->topK;
         }
-
-        if (null !== $request->urlExpiration) {
-            @$query['UrlExpiration'] = $request->urlExpiration;
+        if (!Utils::isUnset($request->urlExpiration)) {
+            $query['UrlExpiration'] = $request->urlExpiration;
         }
-
-        if (null !== $request->useFullTextRetrieval) {
-            @$query['UseFullTextRetrieval'] = $request->useFullTextRetrieval;
+        if (!Utils::isUnset($request->useFullTextRetrieval)) {
+            $query['UseFullTextRetrieval'] = $request->useFullTextRetrieval;
         }
-
         $body = [];
-        if (null !== $request->content) {
-            @$body['Content'] = $request->content;
+        if (!Utils::isUnset($request->content)) {
+            $body['Content'] = $request->content;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'QueryContent',
@@ -15315,15 +12435,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Query.
+     * @summary Query
+     *  *
+     * @param QueryContentRequest $request QueryContentRequest
      *
-     * @param Request - QueryContentRequest
-     *
-     * @returns QueryContentResponse
-     *
-     * @param QueryContentRequest $request
-     *
-     * @return QueryContentResponse
+     * @return QueryContentResponse QueryContentResponse
      */
     public function queryContent($request)
     {
@@ -15337,31 +12453,31 @@ class Gpdb extends OpenApiClient
      * @param RuntimeOptions             $runtime
      *
      * @return QueryContentResponse
+     *
+     * @throws TeaError
      */
     public function queryContentAdvance($request, $runtime)
     {
         // Step 0: init client
-        if (null === $this->_credential) {
-            throw new ClientException([
+        $credentialModel = null;
+        if (Utils::isUnset($this->_credential)) {
+            throw new TeaError([
                 'code' => 'InvalidCredentials',
                 'message' => 'Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.',
             ]);
         }
-
         $credentialModel = $this->_credential->getCredential();
         $accessKeyId = $credentialModel->accessKeyId;
         $accessKeySecret = $credentialModel->accessKeySecret;
         $securityToken = $credentialModel->securityToken;
         $credentialType = $credentialModel->type;
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (null === $openPlatformEndpoint || '' == $openPlatformEndpoint) {
+        if (Utils::empty_($openPlatformEndpoint)) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
-
-        if (null === $credentialType) {
+        if (Utils::isUnset($credentialType)) {
             $credentialType = 'access_key';
         }
-
         $authConfig = new Config([
             'accessKeyId' => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
@@ -15377,7 +12493,7 @@ class Gpdb extends OpenApiClient
             'RegionId' => $this->_regionId,
         ];
         $authReq = new OpenApiRequest([
-            'query' => Utils::query($authRequest),
+            'query' => OpenApiUtilClient::query($authRequest),
         ]);
         $authParams = new Params([
             'action' => 'AuthorizeFileUpload',
@@ -15397,11 +12513,12 @@ class Gpdb extends OpenApiClient
         $useAccelerate = false;
         $authResponseBody = [];
         $queryContentReq = new QueryContentRequest([]);
-        Utils::convert($request, $queryContentReq);
-        if (null !== $request->fileUrlObject) {
-            $authResponse = $authClient->callApi($authParams, $authReq, $runtime);
-            $tmpBody = @$authResponse['body'];
-            $useAccelerate = (bool) (@$tmpBody['UseAccelerate']);
+        OpenApiUtilClient::convert($request, $queryContentReq);
+        if (!Utils::isUnset($request->fileUrlObject)) {
+            $tmpResp0 = $authClient->callApi($authParams, $authReq, $runtime);
+            $authResponse = Utils::assertAsMap($tmpResp0);
+            $tmpBody = Utils::assertAsMap(@$authResponse['body']);
+            $useAccelerate = Utils::assertAsBoolean(@$tmpBody['UseAccelerate']);
             $authResponseBody = Utils::stringifyMapValue($tmpBody);
             $fileObj = new FileField([
                 'filename' => @$authResponseBody['ObjectKey'],
@@ -15409,7 +12526,7 @@ class Gpdb extends OpenApiClient
                 'contentType' => '',
             ]);
             $ossHeader = [
-                'host' => '' . @$authResponseBody['Bucket'] . '.' . Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
+                'host' => '' . @$authResponseBody['Bucket'] . '.' . OpenApiUtilClient::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
                 'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
                 'policy' => @$authResponseBody['EncodedPolicy'],
                 'Signature' => @$authResponseBody['Signature'],
@@ -15425,32 +12542,25 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Rebalances an AnalyticDB for PostgreSQL instance.
+     * @summary Rebalances an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @param RebalanceDBInstanceRequest $request RebalanceDBInstanceRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - RebalanceDBInstanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns RebalanceDBInstanceResponse
-     *
-     * @param RebalanceDBInstanceRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return RebalanceDBInstanceResponse
+     * @return RebalanceDBInstanceResponse RebalanceDBInstanceResponse
      */
     public function rebalanceDBInstanceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'RebalanceDBInstance',
@@ -15468,15 +12578,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Rebalances an AnalyticDB for PostgreSQL instance.
+     * @summary Rebalances an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @param RebalanceDBInstanceRequest $request RebalanceDBInstanceRequest
      *
-     * @param Request - RebalanceDBInstanceRequest
-     *
-     * @returns RebalanceDBInstanceResponse
-     *
-     * @param RebalanceDBInstanceRequest $request
-     *
-     * @return RebalanceDBInstanceResponse
+     * @return RebalanceDBInstanceResponse RebalanceDBInstanceResponse
      */
     public function rebalanceDBInstance($request)
     {
@@ -15486,36 +12592,28 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Releases the public endpoint of an AnalyticDB for PostgreSQL instance.
+     * @summary Releases the public endpoint of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @param ReleaseInstancePublicConnectionRequest $request ReleaseInstancePublicConnectionRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - ReleaseInstancePublicConnectionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ReleaseInstancePublicConnectionResponse
-     *
-     * @param ReleaseInstancePublicConnectionRequest $request
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return ReleaseInstancePublicConnectionResponse
+     * @return ReleaseInstancePublicConnectionResponse ReleaseInstancePublicConnectionResponse
      */
     public function releaseInstancePublicConnectionWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->addressType) {
-            @$query['AddressType'] = $request->addressType;
+        if (!Utils::isUnset($request->addressType)) {
+            $query['AddressType'] = $request->addressType;
         }
-
-        if (null !== $request->currentConnectionString) {
-            @$query['CurrentConnectionString'] = $request->currentConnectionString;
+        if (!Utils::isUnset($request->currentConnectionString)) {
+            $query['CurrentConnectionString'] = $request->currentConnectionString;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ReleaseInstancePublicConnection',
@@ -15533,15 +12631,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Releases the public endpoint of an AnalyticDB for PostgreSQL instance.
+     * @summary Releases the public endpoint of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @param ReleaseInstancePublicConnectionRequest $request ReleaseInstancePublicConnectionRequest
      *
-     * @param Request - ReleaseInstancePublicConnectionRequest
-     *
-     * @returns ReleaseInstancePublicConnectionResponse
-     *
-     * @param ReleaseInstancePublicConnectionRequest $request
-     *
-     * @return ReleaseInstancePublicConnectionResponse
+     * @return ReleaseInstancePublicConnectionResponse ReleaseInstancePublicConnectionResponse
      */
     public function releaseInstancePublicConnection($request)
     {
@@ -15551,68 +12645,53 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Score and re-order documents using a model.
+     * @summary Score and re-order documents using a model
+     *  *
+     * @param RerankRequest  $tmpReq  RerankRequest
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - RerankRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns RerankResponse
-     *
-     * @param RerankRequest  $tmpReq
-     * @param RuntimeOptions $runtime
-     *
-     * @return RerankResponse
+     * @return RerankResponse RerankResponse
      */
     public function rerankWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new RerankShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->documents) {
-            $request->documentsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->documents, 'Documents', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->documents)) {
+            $request->documentsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->documents, 'Documents', 'json');
         }
-
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $body = [];
-        if (null !== $request->documentsShrink) {
-            @$body['Documents'] = $request->documentsShrink;
+        if (!Utils::isUnset($request->documentsShrink)) {
+            $body['Documents'] = $request->documentsShrink;
         }
-
-        if (null !== $request->maxChunksPerDoc) {
-            @$body['MaxChunksPerDoc'] = $request->maxChunksPerDoc;
+        if (!Utils::isUnset($request->maxChunksPerDoc)) {
+            $body['MaxChunksPerDoc'] = $request->maxChunksPerDoc;
         }
-
-        if (null !== $request->model) {
-            @$body['Model'] = $request->model;
+        if (!Utils::isUnset($request->model)) {
+            $body['Model'] = $request->model;
         }
-
-        if (null !== $request->query) {
-            @$body['Query'] = $request->query;
+        if (!Utils::isUnset($request->query)) {
+            $body['Query'] = $request->query;
         }
-
-        if (null !== $request->returnDocuments) {
-            @$body['ReturnDocuments'] = $request->returnDocuments;
+        if (!Utils::isUnset($request->returnDocuments)) {
+            $body['ReturnDocuments'] = $request->returnDocuments;
         }
-
-        if (null !== $request->topK) {
-            @$body['TopK'] = $request->topK;
+        if (!Utils::isUnset($request->topK)) {
+            $body['TopK'] = $request->topK;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'Rerank',
@@ -15630,15 +12709,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Score and re-order documents using a model.
+     * @summary Score and re-order documents using a model
+     *  *
+     * @param RerankRequest $request RerankRequest
      *
-     * @param Request - RerankRequest
-     *
-     * @returns RerankResponse
-     *
-     * @param RerankRequest $request
-     *
-     * @return RerankResponse
+     * @return RerankResponse RerankResponse
      */
     public function rerank($request)
     {
@@ -15648,36 +12723,28 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Resets the password of a database account for an AnalyticDB for PostgreSQL instance.
+     * @summary Resets the password of a database account for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @param ResetAccountPasswordRequest $request ResetAccountPasswordRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - ResetAccountPasswordRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ResetAccountPasswordResponse
-     *
-     * @param ResetAccountPasswordRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return ResetAccountPasswordResponse
+     * @return ResetAccountPasswordResponse ResetAccountPasswordResponse
      */
     public function resetAccountPasswordWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountName) {
-            @$query['AccountName'] = $request->accountName;
+        if (!Utils::isUnset($request->accountName)) {
+            $query['AccountName'] = $request->accountName;
         }
-
-        if (null !== $request->accountPassword) {
-            @$query['AccountPassword'] = $request->accountPassword;
+        if (!Utils::isUnset($request->accountPassword)) {
+            $query['AccountPassword'] = $request->accountPassword;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ResetAccountPassword',
@@ -15695,15 +12762,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Resets the password of a database account for an AnalyticDB for PostgreSQL instance.
+     * @summary Resets the password of a database account for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @param ResetAccountPasswordRequest $request ResetAccountPasswordRequest
      *
-     * @param Request - ResetAccountPasswordRequest
-     *
-     * @returns ResetAccountPasswordResponse
-     *
-     * @param ResetAccountPasswordRequest $request
-     *
-     * @return ResetAccountPasswordResponse
+     * @return ResetAccountPasswordResponse ResetAccountPasswordResponse
      */
     public function resetAccountPassword($request)
     {
@@ -15713,32 +12776,25 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Resets the IMV statistics.
+     * @summary Resets the IMV statistics.
+     *  *
+     * @param ResetIMVMonitorDataRequest $request ResetIMVMonitorDataRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - ResetIMVMonitorDataRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ResetIMVMonitorDataResponse
-     *
-     * @param ResetIMVMonitorDataRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return ResetIMVMonitorDataResponse
+     * @return ResetIMVMonitorDataResponse ResetIMVMonitorDataResponse
      */
     public function resetIMVMonitorDataWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->database) {
-            @$query['Database'] = $request->database;
+        if (!Utils::isUnset($request->database)) {
+            $query['Database'] = $request->database;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ResetIMVMonitorData',
@@ -15756,15 +12812,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Resets the IMV statistics.
+     * @summary Resets the IMV statistics.
+     *  *
+     * @param ResetIMVMonitorDataRequest $request ResetIMVMonitorDataRequest
      *
-     * @param Request - ResetIMVMonitorDataRequest
-     *
-     * @returns ResetIMVMonitorDataResponse
-     *
-     * @param ResetIMVMonitorDataRequest $request
-     *
-     * @return ResetIMVMonitorDataResponse
+     * @return ResetIMVMonitorDataResponse ResetIMVMonitorDataResponse
      */
     public function resetIMVMonitorData($request)
     {
@@ -15774,36 +12826,28 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 重置supabase数据库密码
+     * @summary 重置supabase数据库密码
+     *  *
+     * @param ResetSupabaseProjectPasswordRequest $request ResetSupabaseProjectPasswordRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - ResetSupabaseProjectPasswordRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ResetSupabaseProjectPasswordResponse
-     *
-     * @param ResetSupabaseProjectPasswordRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return ResetSupabaseProjectPasswordResponse
+     * @return ResetSupabaseProjectPasswordResponse ResetSupabaseProjectPasswordResponse
      */
     public function resetSupabaseProjectPasswordWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountPassword) {
-            @$query['AccountPassword'] = $request->accountPassword;
+        if (!Utils::isUnset($request->accountPassword)) {
+            $query['AccountPassword'] = $request->accountPassword;
         }
-
-        if (null !== $request->projectId) {
-            @$query['ProjectId'] = $request->projectId;
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ResetSupabaseProjectPassword',
@@ -15821,15 +12865,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 重置supabase数据库密码
+     * @summary 重置supabase数据库密码
+     *  *
+     * @param ResetSupabaseProjectPasswordRequest $request ResetSupabaseProjectPasswordRequest
      *
-     * @param Request - ResetSupabaseProjectPasswordRequest
-     *
-     * @returns ResetSupabaseProjectPasswordResponse
-     *
-     * @param ResetSupabaseProjectPasswordRequest $request
-     *
-     * @return ResetSupabaseProjectPasswordResponse
+     * @return ResetSupabaseProjectPasswordResponse ResetSupabaseProjectPasswordResponse
      */
     public function resetSupabaseProjectPassword($request)
     {
@@ -15839,37 +12879,29 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Restarts an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * A restart takes about 3 to 30 minutes. During the restart, services are unavailable. We recommend that you restart the instance during off-peak hours. After the instance is restarted and enters the running state, you can access the instance.
+     * @summary Restarts an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description A restart takes about 3 to 30 minutes. During the restart, services are unavailable. We recommend that you restart the instance during off-peak hours. After the instance is restarted and enters the running state, you can access the instance.
      * ## Limit
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param RestartDBInstanceRequest $request RestartDBInstanceRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - RestartDBInstanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns RestartDBInstanceResponse
-     *
-     * @param RestartDBInstanceRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return RestartDBInstanceResponse
+     * @return RestartDBInstanceResponse RestartDBInstanceResponse
      */
     public function restartDBInstanceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'RestartDBInstance',
@@ -15887,20 +12919,15 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Restarts an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * A restart takes about 3 to 30 minutes. During the restart, services are unavailable. We recommend that you restart the instance during off-peak hours. After the instance is restarted and enters the running state, you can access the instance.
+     * @summary Restarts an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description A restart takes about 3 to 30 minutes. During the restart, services are unavailable. We recommend that you restart the instance during off-peak hours. After the instance is restarted and enters the running state, you can access the instance.
      * ## Limit
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param RestartDBInstanceRequest $request RestartDBInstanceRequest
      *
-     * @param Request - RestartDBInstanceRequest
-     *
-     * @returns RestartDBInstanceResponse
-     *
-     * @param RestartDBInstanceRequest $request
-     *
-     * @return RestartDBInstanceResponse
+     * @return RestartDBInstanceResponse RestartDBInstanceResponse
      */
     public function restartDBInstance($request)
     {
@@ -15910,32 +12937,25 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Resumes data redistribution.
+     * @summary Resumes data redistribution.
+     *  *
+     * @param ResumeDataRedistributeRequest $request ResumeDataRedistributeRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - ResumeDataRedistributeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ResumeDataRedistributeResponse
-     *
-     * @param ResumeDataRedistributeRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return ResumeDataRedistributeResponse
+     * @return ResumeDataRedistributeResponse ResumeDataRedistributeResponse
      */
     public function resumeDataRedistributeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ResumeDataRedistribute',
@@ -15953,15 +12973,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Resumes data redistribution.
+     * @summary Resumes data redistribution.
+     *  *
+     * @param ResumeDataRedistributeRequest $request ResumeDataRedistributeRequest
      *
-     * @param Request - ResumeDataRedistributeRequest
-     *
-     * @returns ResumeDataRedistributeResponse
-     *
-     * @param ResumeDataRedistributeRequest $request
-     *
-     * @return ResumeDataRedistributeResponse
+     * @return ResumeDataRedistributeResponse ResumeDataRedistributeResponse
      */
     public function resumeDataRedistribute($request)
     {
@@ -15971,39 +12987,31 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Resumes an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * You can call this operation to resume an AnalyticDB for PostgreSQL instance that is in the **Paused** state.
+     * @summary Resumes an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to resume an AnalyticDB for PostgreSQL instance that is in the **Paused** state.
      * This operation is available only for AnalyticDB for PostgreSQL instances in Serverless mode that run V1.0.2.1 or later. For more information about how to view and update the minor engine version of an instance, see [View the minor engine version](https://help.aliyun.com/document_detail/277424.html) and [Update the minor engine version](https://help.aliyun.com/document_detail/139271.html).
      * >  Before you call this operation, make sure that you are familiar with the billing methods and pricing of AnalyticDB for PostgreSQL instances. For more information, see [Billing methods](https://help.aliyun.com/document_detail/35406.html) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param ResumeInstanceRequest $request ResumeInstanceRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - ResumeInstanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ResumeInstanceResponse
-     *
-     * @param ResumeInstanceRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return ResumeInstanceResponse
+     * @return ResumeInstanceResponse ResumeInstanceResponse
      */
     public function resumeInstanceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ResumeInstance',
@@ -16021,22 +13029,17 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Resumes an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * You can call this operation to resume an AnalyticDB for PostgreSQL instance that is in the **Paused** state.
+     * @summary Resumes an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to resume an AnalyticDB for PostgreSQL instance that is in the **Paused** state.
      * This operation is available only for AnalyticDB for PostgreSQL instances in Serverless mode that run V1.0.2.1 or later. For more information about how to view and update the minor engine version of an instance, see [View the minor engine version](https://help.aliyun.com/document_detail/277424.html) and [Update the minor engine version](https://help.aliyun.com/document_detail/139271.html).
      * >  Before you call this operation, make sure that you are familiar with the billing methods and pricing of AnalyticDB for PostgreSQL instances. For more information, see [Billing methods](https://help.aliyun.com/document_detail/35406.html) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param ResumeInstanceRequest $request ResumeInstanceRequest
      *
-     * @param Request - ResumeInstanceRequest
-     *
-     * @returns ResumeInstanceResponse
-     *
-     * @param ResumeInstanceRequest $request
-     *
-     * @return ResumeInstanceResponse
+     * @return ResumeInstanceResponse ResumeInstanceResponse
      */
     public function resumeInstance($request)
     {
@@ -16046,45 +13049,35 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Enables or disables a plan for an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * You can call this operation to enable or disable a specified plan. The plan management feature is supported only for AnalyticDB for PostgreSQL instances in Serverless mode.
+     * @summary Enables or disables a plan for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to enable or disable a specified plan. The plan management feature is supported only for AnalyticDB for PostgreSQL instances in Serverless mode.
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param SetDBInstancePlanStatusRequest $request SetDBInstancePlanStatusRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - SetDBInstancePlanStatusRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns SetDBInstancePlanStatusResponse
-     *
-     * @param SetDBInstancePlanStatusRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return SetDBInstancePlanStatusResponse
+     * @return SetDBInstancePlanStatusResponse SetDBInstancePlanStatusResponse
      */
     public function setDBInstancePlanStatusWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->planId) {
-            @$query['PlanId'] = $request->planId;
+        if (!Utils::isUnset($request->planId)) {
+            $query['PlanId'] = $request->planId;
         }
-
-        if (null !== $request->planStatus) {
-            @$query['PlanStatus'] = $request->planStatus;
+        if (!Utils::isUnset($request->planStatus)) {
+            $query['PlanStatus'] = $request->planStatus;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'SetDBInstancePlanStatus',
@@ -16102,20 +13095,15 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Enables or disables a plan for an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * You can call this operation to enable or disable a specified plan. The plan management feature is supported only for AnalyticDB for PostgreSQL instances in Serverless mode.
+     * @summary Enables or disables a plan for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to enable or disable a specified plan. The plan management feature is supported only for AnalyticDB for PostgreSQL instances in Serverless mode.
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param SetDBInstancePlanStatusRequest $request SetDBInstancePlanStatusRequest
      *
-     * @param Request - SetDBInstancePlanStatusRequest
-     *
-     * @returns SetDBInstancePlanStatusResponse
-     *
-     * @param SetDBInstancePlanStatusRequest $request
-     *
-     * @return SetDBInstancePlanStatusResponse
+     * @return SetDBInstancePlanStatusResponse SetDBInstancePlanStatusResponse
      */
     public function setDBInstancePlanStatus($request)
     {
@@ -16125,51 +13113,40 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Enables or disables data sharing for an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * This operation is called to enable or disable data sharing for an AnalyticDB for PostgreSQL instance in Serverless mode.
+     * @summary Enables or disables data sharing for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description This operation is called to enable or disable data sharing for an AnalyticDB for PostgreSQL instance in Serverless mode.
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
+     *  *
+     * @param SetDataShareInstanceRequest $tmpReq  SetDataShareInstanceRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - SetDataShareInstanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns SetDataShareInstanceResponse
-     *
-     * @param SetDataShareInstanceRequest $tmpReq
-     * @param RuntimeOptions              $runtime
-     *
-     * @return SetDataShareInstanceResponse
+     * @return SetDataShareInstanceResponse SetDataShareInstanceResponse
      */
     public function setDataShareInstanceWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new SetDataShareInstanceShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->instanceList) {
-            $request->instanceListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->instanceList, 'InstanceList', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->instanceList)) {
+            $request->instanceListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->instanceList, 'InstanceList', 'json');
         }
-
         $query = [];
-        if (null !== $request->instanceListShrink) {
-            @$query['InstanceList'] = $request->instanceListShrink;
+        if (!Utils::isUnset($request->instanceListShrink)) {
+            $query['InstanceList'] = $request->instanceListShrink;
         }
-
-        if (null !== $request->operationType) {
-            @$query['OperationType'] = $request->operationType;
+        if (!Utils::isUnset($request->operationType)) {
+            $query['OperationType'] = $request->operationType;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'SetDataShareInstance',
@@ -16187,20 +13164,15 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Enables or disables data sharing for an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * This operation is called to enable or disable data sharing for an AnalyticDB for PostgreSQL instance in Serverless mode.
+     * @summary Enables or disables data sharing for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description This operation is called to enable or disable data sharing for an AnalyticDB for PostgreSQL instance in Serverless mode.
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
+     *  *
+     * @param SetDataShareInstanceRequest $request SetDataShareInstanceRequest
      *
-     * @param Request - SetDataShareInstanceRequest
-     *
-     * @returns SetDataShareInstanceResponse
-     *
-     * @param SetDataShareInstanceRequest $request
-     *
-     * @return SetDataShareInstanceResponse
+     * @return SetDataShareInstanceResponse SetDataShareInstanceResponse
      */
     public function setDataShareInstance($request)
     {
@@ -16210,39 +13182,30 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Switches between the internal and public endpoints of an AnalyticDB for PostgreSQL instance.
+     * @summary Switches between the internal and public endpoints of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description This operation is not supported for AnalyticDB for PostgreSQL instances in elastic storage mode or Serverless mode.
+     *  *
+     * @param SwitchDBInstanceNetTypeRequest $request SwitchDBInstanceNetTypeRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * This operation is not supported for AnalyticDB for PostgreSQL instances in elastic storage mode or Serverless mode.
-     *
-     * @param Request - SwitchDBInstanceNetTypeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns SwitchDBInstanceNetTypeResponse
-     *
-     * @param SwitchDBInstanceNetTypeRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return SwitchDBInstanceNetTypeResponse
+     * @return SwitchDBInstanceNetTypeResponse SwitchDBInstanceNetTypeResponse
      */
     public function switchDBInstanceNetTypeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->connectionStringPrefix) {
-            @$query['ConnectionStringPrefix'] = $request->connectionStringPrefix;
+        if (!Utils::isUnset($request->connectionStringPrefix)) {
+            $query['ConnectionStringPrefix'] = $request->connectionStringPrefix;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->port) {
-            @$query['Port'] = $request->port;
+        if (!Utils::isUnset($request->port)) {
+            $query['Port'] = $request->port;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'SwitchDBInstanceNetType',
@@ -16260,18 +13223,13 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Switches between the internal and public endpoints of an AnalyticDB for PostgreSQL instance.
+     * @summary Switches between the internal and public endpoints of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description This operation is not supported for AnalyticDB for PostgreSQL instances in elastic storage mode or Serverless mode.
+     *  *
+     * @param SwitchDBInstanceNetTypeRequest $request SwitchDBInstanceNetTypeRequest
      *
-     * @remarks
-     * This operation is not supported for AnalyticDB for PostgreSQL instances in elastic storage mode or Serverless mode.
-     *
-     * @param Request - SwitchDBInstanceNetTypeRequest
-     *
-     * @returns SwitchDBInstanceNetTypeResponse
-     *
-     * @param SwitchDBInstanceNetTypeRequest $request
-     *
-     * @return SwitchDBInstanceNetTypeResponse
+     * @return SwitchDBInstanceNetTypeResponse SwitchDBInstanceNetTypeResponse
      */
     public function switchDBInstanceNetType($request)
     {
@@ -16281,56 +13239,43 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Creates and adds tags to AnalyticDB for PostgreSQL instances.
+     * @summary Creates and adds tags to AnalyticDB for PostgreSQL instances.
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - TagResourcesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns TagResourcesResponse
-     *
-     * @param TagResourcesRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceId) {
-            @$query['ResourceId'] = $request->resourceId;
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->resourceType) {
-            @$query['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'TagResources',
@@ -16348,15 +13293,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Creates and adds tags to AnalyticDB for PostgreSQL instances.
+     * @summary Creates and adds tags to AnalyticDB for PostgreSQL instances.
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
      *
-     * @param Request - TagResourcesRequest
-     *
-     * @returns TagResourcesResponse
-     *
-     * @param TagResourcesRequest $request
-     *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -16366,56 +13307,44 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 通过模型对文本文档进行向量化.
+     * @summary 通过模型对文本文档进行向量化
+     *  *
+     * @param TextEmbeddingRequest $tmpReq  TextEmbeddingRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - TextEmbeddingRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns TextEmbeddingResponse
-     *
-     * @param TextEmbeddingRequest $tmpReq
-     * @param RuntimeOptions       $runtime
-     *
-     * @return TextEmbeddingResponse
+     * @return TextEmbeddingResponse TextEmbeddingResponse
      */
     public function textEmbeddingWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new TextEmbeddingShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->input) {
-            $request->inputShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->input, 'Input', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->input)) {
+            $request->inputShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->input, 'Input', 'json');
         }
-
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->dimension) {
-            @$query['Dimension'] = $request->dimension;
+        if (!Utils::isUnset($request->dimension)) {
+            $query['Dimension'] = $request->dimension;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $body = [];
-        if (null !== $request->inputShrink) {
-            @$body['Input'] = $request->inputShrink;
+        if (!Utils::isUnset($request->inputShrink)) {
+            $body['Input'] = $request->inputShrink;
         }
-
-        if (null !== $request->model) {
-            @$body['Model'] = $request->model;
+        if (!Utils::isUnset($request->model)) {
+            $body['Model'] = $request->model;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'TextEmbedding',
@@ -16433,15 +13362,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 通过模型对文本文档进行向量化.
+     * @summary 通过模型对文本文档进行向量化
+     *  *
+     * @param TextEmbeddingRequest $request TextEmbeddingRequest
      *
-     * @param Request - TextEmbeddingRequest
-     *
-     * @returns TextEmbeddingResponse
-     *
-     * @param TextEmbeddingRequest $request
-     *
-     * @return TextEmbeddingResponse
+     * @return TextEmbeddingResponse TextEmbeddingResponse
      */
     public function textEmbedding($request)
     {
@@ -16451,46 +13376,36 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Unbinds database roles from a resource group.
+     * @summary Unbinds database roles from a resource group.
+     *  *
+     * @param UnbindDBResourceGroupWithRoleRequest $tmpReq  UnbindDBResourceGroupWithRoleRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - UnbindDBResourceGroupWithRoleRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UnbindDBResourceGroupWithRoleResponse
-     *
-     * @param UnbindDBResourceGroupWithRoleRequest $tmpReq
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return UnbindDBResourceGroupWithRoleResponse
+     * @return UnbindDBResourceGroupWithRoleResponse UnbindDBResourceGroupWithRoleResponse
      */
     public function unbindDBResourceGroupWithRoleWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new UnbindDBResourceGroupWithRoleShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->roleList) {
-            $request->roleListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->roleList, 'RoleList', 'simple');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->roleList)) {
+            $request->roleListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->roleList, 'RoleList', 'simple');
         }
-
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceGroupName) {
-            @$query['ResourceGroupName'] = $request->resourceGroupName;
+        if (!Utils::isUnset($request->resourceGroupName)) {
+            $query['ResourceGroupName'] = $request->resourceGroupName;
         }
-
-        if (null !== $request->roleListShrink) {
-            @$query['RoleList'] = $request->roleListShrink;
+        if (!Utils::isUnset($request->roleListShrink)) {
+            $query['RoleList'] = $request->roleListShrink;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UnbindDBResourceGroupWithRole',
@@ -16508,15 +13423,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Unbinds database roles from a resource group.
+     * @summary Unbinds database roles from a resource group.
+     *  *
+     * @param UnbindDBResourceGroupWithRoleRequest $request UnbindDBResourceGroupWithRoleRequest
      *
-     * @param Request - UnbindDBResourceGroupWithRoleRequest
-     *
-     * @returns UnbindDBResourceGroupWithRoleResponse
-     *
-     * @param UnbindDBResourceGroupWithRoleRequest $request
-     *
-     * @return UnbindDBResourceGroupWithRoleResponse
+     * @return UnbindDBResourceGroupWithRoleResponse UnbindDBResourceGroupWithRoleResponse
      */
     public function unbindDBResourceGroupWithRole($request)
     {
@@ -16526,37 +13437,29 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Releases a sample dataset from an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * You can call this operation to release a sample dataset from an AnalyticDB for PostgreSQL instance. You must have already loaded the sample dataset.
+     * @summary Releases a sample dataset from an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to release a sample dataset from an AnalyticDB for PostgreSQL instance. You must have already loaded the sample dataset.
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param UnloadSampleDataRequest $request UnloadSampleDataRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - UnloadSampleDataRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UnloadSampleDataResponse
-     *
-     * @param UnloadSampleDataRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return UnloadSampleDataResponse
+     * @return UnloadSampleDataResponse UnloadSampleDataResponse
      */
     public function unloadSampleDataWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UnloadSampleData',
@@ -16574,20 +13477,15 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Releases a sample dataset from an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * You can call this operation to release a sample dataset from an AnalyticDB for PostgreSQL instance. You must have already loaded the sample dataset.
+     * @summary Releases a sample dataset from an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to release a sample dataset from an AnalyticDB for PostgreSQL instance. You must have already loaded the sample dataset.
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param UnloadSampleDataRequest $request UnloadSampleDataRequest
      *
-     * @param Request - UnloadSampleDataRequest
-     *
-     * @returns UnloadSampleDataResponse
-     *
-     * @param UnloadSampleDataRequest $request
-     *
-     * @return UnloadSampleDataResponse
+     * @return UnloadSampleDataResponse UnloadSampleDataResponse
      */
     public function unloadSampleData($request)
     {
@@ -16597,60 +13495,46 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Remove resource tags.
+     * @summary Remove resource tags
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - UntagResourcesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UntagResourcesResponse
-     *
-     * @param UntagResourcesRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResourcesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->all) {
-            @$query['All'] = $request->all;
+        if (!Utils::isUnset($request->all)) {
+            $query['All'] = $request->all;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceId) {
-            @$query['ResourceId'] = $request->resourceId;
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->resourceType) {
-            @$query['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
         }
-
-        if (null !== $request->tagKey) {
-            @$query['TagKey'] = $request->tagKey;
+        if (!Utils::isUnset($request->tagKey)) {
+            $query['TagKey'] = $request->tagKey;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UntagResources',
@@ -16668,15 +13552,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Remove resource tags.
+     * @summary Remove resource tags
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
      *
-     * @param Request - UntagResourcesRequest
-     *
-     * @returns UntagResourcesResponse
-     *
-     * @param UntagResourcesRequest $request
-     *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResources($request)
     {
@@ -16686,74 +13566,57 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Update Metadata of Collection Data.
+     * @summary Update Metadata of Collection Data
+     *  *
+     * @param UpdateCollectionDataMetadataRequest $tmpReq  UpdateCollectionDataMetadataRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - UpdateCollectionDataMetadataRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateCollectionDataMetadataResponse
-     *
-     * @param UpdateCollectionDataMetadataRequest $tmpReq
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return UpdateCollectionDataMetadataResponse
+     * @return UpdateCollectionDataMetadataResponse UpdateCollectionDataMetadataResponse
      */
     public function updateCollectionDataMetadataWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new UpdateCollectionDataMetadataShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->ids) {
-            $request->idsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ids, 'Ids', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->ids)) {
+            $request->idsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ids, 'Ids', 'json');
         }
-
-        if (null !== $tmpReq->metadata) {
-            $request->metadataShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->metadata, 'Metadata', 'json');
+        if (!Utils::isUnset($tmpReq->metadata)) {
+            $request->metadataShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->metadata, 'Metadata', 'json');
         }
-
         $query = [];
-        if (null !== $request->collection) {
-            @$query['Collection'] = $request->collection;
+        if (!Utils::isUnset($request->collection)) {
+            $query['Collection'] = $request->collection;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->filter) {
-            @$query['Filter'] = $request->filter;
+        if (!Utils::isUnset($request->filter)) {
+            $query['Filter'] = $request->filter;
         }
-
-        if (null !== $request->idsShrink) {
-            @$query['Ids'] = $request->idsShrink;
+        if (!Utils::isUnset($request->idsShrink)) {
+            $query['Ids'] = $request->idsShrink;
         }
-
-        if (null !== $request->metadataShrink) {
-            @$query['Metadata'] = $request->metadataShrink;
+        if (!Utils::isUnset($request->metadataShrink)) {
+            $query['Metadata'] = $request->metadataShrink;
         }
-
-        if (null !== $request->namespace) {
-            @$query['Namespace'] = $request->namespace;
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
         }
-
-        if (null !== $request->namespacePassword) {
-            @$query['NamespacePassword'] = $request->namespacePassword;
+        if (!Utils::isUnset($request->namespacePassword)) {
+            $query['NamespacePassword'] = $request->namespacePassword;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->workspaceId) {
-            @$query['WorkspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateCollectionDataMetadata',
@@ -16771,15 +13634,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Update Metadata of Collection Data.
+     * @summary Update Metadata of Collection Data
+     *  *
+     * @param UpdateCollectionDataMetadataRequest $request UpdateCollectionDataMetadataRequest
      *
-     * @param Request - UpdateCollectionDataMetadataRequest
-     *
-     * @returns UpdateCollectionDataMetadataResponse
-     *
-     * @param UpdateCollectionDataMetadataRequest $request
-     *
-     * @return UpdateCollectionDataMetadataResponse
+     * @return UpdateCollectionDataMetadataResponse UpdateCollectionDataMetadataResponse
      */
     public function updateCollectionDataMetadata($request)
     {
@@ -16789,61 +13648,47 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Modifies a plan for an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * You can call this operation to modify a plan for an AnalyticDB for PostgreSQL instance in Serverless mode. For example, you can modify a plan for periodically pausing and resuming an instance or scaling an instance.
+     * @summary Modifies a plan for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to modify a plan for an AnalyticDB for PostgreSQL instance in Serverless mode. For example, you can modify a plan for periodically pausing and resuming an instance or scaling an instance.
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param UpdateDBInstancePlanRequest $request UpdateDBInstancePlanRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - UpdateDBInstancePlanRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateDBInstancePlanResponse
-     *
-     * @param UpdateDBInstancePlanRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return UpdateDBInstancePlanResponse
+     * @return UpdateDBInstancePlanResponse UpdateDBInstancePlanResponse
      */
     public function updateDBInstancePlanWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->planConfig) {
-            @$query['PlanConfig'] = $request->planConfig;
+        if (!Utils::isUnset($request->planConfig)) {
+            $query['PlanConfig'] = $request->planConfig;
         }
-
-        if (null !== $request->planDesc) {
-            @$query['PlanDesc'] = $request->planDesc;
+        if (!Utils::isUnset($request->planDesc)) {
+            $query['PlanDesc'] = $request->planDesc;
         }
-
-        if (null !== $request->planEndDate) {
-            @$query['PlanEndDate'] = $request->planEndDate;
+        if (!Utils::isUnset($request->planEndDate)) {
+            $query['PlanEndDate'] = $request->planEndDate;
         }
-
-        if (null !== $request->planId) {
-            @$query['PlanId'] = $request->planId;
+        if (!Utils::isUnset($request->planId)) {
+            $query['PlanId'] = $request->planId;
         }
-
-        if (null !== $request->planName) {
-            @$query['PlanName'] = $request->planName;
+        if (!Utils::isUnset($request->planName)) {
+            $query['PlanName'] = $request->planName;
         }
-
-        if (null !== $request->planStartDate) {
-            @$query['PlanStartDate'] = $request->planStartDate;
+        if (!Utils::isUnset($request->planStartDate)) {
+            $query['PlanStartDate'] = $request->planStartDate;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateDBInstancePlan',
@@ -16861,20 +13706,15 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Modifies a plan for an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * You can call this operation to modify a plan for an AnalyticDB for PostgreSQL instance in Serverless mode. For example, you can modify a plan for periodically pausing and resuming an instance or scaling an instance.
+     * @summary Modifies a plan for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to modify a plan for an AnalyticDB for PostgreSQL instance in Serverless mode. For example, you can modify a plan for periodically pausing and resuming an instance or scaling an instance.
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param UpdateDBInstancePlanRequest $request UpdateDBInstancePlanRequest
      *
-     * @param Request - UpdateDBInstancePlanRequest
-     *
-     * @returns UpdateDBInstancePlanResponse
-     *
-     * @param UpdateDBInstancePlanRequest $request
-     *
-     * @return UpdateDBInstancePlanResponse
+     * @return UpdateDBInstancePlanResponse UpdateDBInstancePlanResponse
      */
     public function updateDBInstancePlan($request)
     {
@@ -16884,92 +13724,70 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Changes the configurations of an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * This operation is not available for instances in reserved storage mode.
+     * @summary Changes the configurations of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description This operation is not available for instances in reserved storage mode.
      * Before you call this operation, make sure that you are familiar with the billing of AnalyticDB for PostgreSQL. For more information, see [Billing methods](https://help.aliyun.com/document_detail/35406.html) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
+     *  *
+     * @param UpgradeDBInstanceRequest $request UpgradeDBInstanceRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - UpgradeDBInstanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpgradeDBInstanceResponse
-     *
-     * @param UpgradeDBInstanceRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return UpgradeDBInstanceResponse
+     * @return UpgradeDBInstanceResponse UpgradeDBInstanceResponse
      */
     public function upgradeDBInstanceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->cacheStorageSize) {
-            @$query['CacheStorageSize'] = $request->cacheStorageSize;
+        if (!Utils::isUnset($request->cacheStorageSize)) {
+            $query['CacheStorageSize'] = $request->cacheStorageSize;
         }
-
-        if (null !== $request->DBInstanceClass) {
-            @$query['DBInstanceClass'] = $request->DBInstanceClass;
+        if (!Utils::isUnset($request->DBInstanceClass)) {
+            $query['DBInstanceClass'] = $request->DBInstanceClass;
         }
-
-        if (null !== $request->DBInstanceGroupCount) {
-            @$query['DBInstanceGroupCount'] = $request->DBInstanceGroupCount;
+        if (!Utils::isUnset($request->DBInstanceGroupCount)) {
+            $query['DBInstanceGroupCount'] = $request->DBInstanceGroupCount;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->instanceSpec) {
-            @$query['InstanceSpec'] = $request->instanceSpec;
+        if (!Utils::isUnset($request->instanceSpec)) {
+            $query['InstanceSpec'] = $request->instanceSpec;
         }
-
-        if (null !== $request->masterNodeNum) {
-            @$query['MasterNodeNum'] = $request->masterNodeNum;
+        if (!Utils::isUnset($request->masterNodeNum)) {
+            $query['MasterNodeNum'] = $request->masterNodeNum;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->payType) {
-            @$query['PayType'] = $request->payType;
+        if (!Utils::isUnset($request->payType)) {
+            $query['PayType'] = $request->payType;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->segDiskPerformanceLevel) {
-            @$query['SegDiskPerformanceLevel'] = $request->segDiskPerformanceLevel;
+        if (!Utils::isUnset($request->segDiskPerformanceLevel)) {
+            $query['SegDiskPerformanceLevel'] = $request->segDiskPerformanceLevel;
         }
-
-        if (null !== $request->segNodeNum) {
-            @$query['SegNodeNum'] = $request->segNodeNum;
+        if (!Utils::isUnset($request->segNodeNum)) {
+            $query['SegNodeNum'] = $request->segNodeNum;
         }
-
-        if (null !== $request->segStorageType) {
-            @$query['SegStorageType'] = $request->segStorageType;
+        if (!Utils::isUnset($request->segStorageType)) {
+            $query['SegStorageType'] = $request->segStorageType;
         }
-
-        if (null !== $request->serverlessResource) {
-            @$query['ServerlessResource'] = $request->serverlessResource;
+        if (!Utils::isUnset($request->serverlessResource)) {
+            $query['ServerlessResource'] = $request->serverlessResource;
         }
-
-        if (null !== $request->storageSize) {
-            @$query['StorageSize'] = $request->storageSize;
+        if (!Utils::isUnset($request->storageSize)) {
+            $query['StorageSize'] = $request->storageSize;
         }
-
-        if (null !== $request->upgradeType) {
-            @$query['UpgradeType'] = $request->upgradeType;
+        if (!Utils::isUnset($request->upgradeType)) {
+            $query['UpgradeType'] = $request->upgradeType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpgradeDBInstance',
@@ -16987,19 +13805,14 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Changes the configurations of an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * This operation is not available for instances in reserved storage mode.
+     * @summary Changes the configurations of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description This operation is not available for instances in reserved storage mode.
      * Before you call this operation, make sure that you are familiar with the billing of AnalyticDB for PostgreSQL. For more information, see [Billing methods](https://help.aliyun.com/document_detail/35406.html) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
+     *  *
+     * @param UpgradeDBInstanceRequest $request UpgradeDBInstanceRequest
      *
-     * @param Request - UpgradeDBInstanceRequest
-     *
-     * @returns UpgradeDBInstanceResponse
-     *
-     * @param UpgradeDBInstanceRequest $request
-     *
-     * @return UpgradeDBInstanceResponse
+     * @return UpgradeDBInstanceResponse UpgradeDBInstanceResponse
      */
     public function upgradeDBInstance($request)
     {
@@ -17009,52 +13822,40 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Upgrades the minor version of an AnalyticDB for PostgreSQL instance.
+     * @summary Upgrades the minor version of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @param UpgradeDBVersionRequest $request UpgradeDBVersionRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - UpgradeDBVersionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpgradeDBVersionResponse
-     *
-     * @param UpgradeDBVersionRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return UpgradeDBVersionResponse
+     * @return UpgradeDBVersionResponse UpgradeDBVersionResponse
      */
     public function upgradeDBVersionWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->majorVersion) {
-            @$query['MajorVersion'] = $request->majorVersion;
+        if (!Utils::isUnset($request->majorVersion)) {
+            $query['MajorVersion'] = $request->majorVersion;
         }
-
-        if (null !== $request->minorVersion) {
-            @$query['MinorVersion'] = $request->minorVersion;
+        if (!Utils::isUnset($request->minorVersion)) {
+            $query['MinorVersion'] = $request->minorVersion;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->switchTime) {
-            @$query['SwitchTime'] = $request->switchTime;
+        if (!Utils::isUnset($request->switchTime)) {
+            $query['SwitchTime'] = $request->switchTime;
         }
-
-        if (null !== $request->switchTimeMode) {
-            @$query['SwitchTimeMode'] = $request->switchTimeMode;
+        if (!Utils::isUnset($request->switchTimeMode)) {
+            $query['SwitchTimeMode'] = $request->switchTimeMode;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpgradeDBVersion',
@@ -17072,15 +13873,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Upgrades the minor version of an AnalyticDB for PostgreSQL instance.
+     * @summary Upgrades the minor version of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @param UpgradeDBVersionRequest $request UpgradeDBVersionRequest
      *
-     * @param Request - UpgradeDBVersionRequest
-     *
-     * @returns UpgradeDBVersionResponse
-     *
-     * @param UpgradeDBVersionRequest $request
-     *
-     * @return UpgradeDBVersionResponse
+     * @return UpgradeDBVersionResponse UpgradeDBVersionResponse
      */
     public function upgradeDBVersion($request)
     {
@@ -17090,40 +13887,31 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Updates extensions.
+     * @summary Updates extensions.
+     *  *
+     * @param UpgradeExtensionsRequest $request UpgradeExtensionsRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - UpgradeExtensionsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpgradeExtensionsResponse
-     *
-     * @param UpgradeExtensionsRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return UpgradeExtensionsResponse
+     * @return UpgradeExtensionsResponse UpgradeExtensionsResponse
      */
     public function upgradeExtensionsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->databaseName) {
-            @$query['DatabaseName'] = $request->databaseName;
+        if (!Utils::isUnset($request->databaseName)) {
+            $query['DatabaseName'] = $request->databaseName;
         }
-
-        if (null !== $request->extensions) {
-            @$query['Extensions'] = $request->extensions;
+        if (!Utils::isUnset($request->extensions)) {
+            $query['Extensions'] = $request->extensions;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpgradeExtensions',
@@ -17141,15 +13929,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Updates extensions.
+     * @summary Updates extensions.
+     *  *
+     * @param UpgradeExtensionsRequest $request UpgradeExtensionsRequest
      *
-     * @param Request - UpgradeExtensionsRequest
-     *
-     * @returns UpgradeExtensionsResponse
-     *
-     * @param UpgradeExtensionsRequest $request
-     *
-     * @return UpgradeExtensionsResponse
+     * @return UpgradeExtensionsResponse UpgradeExtensionsResponse
      */
     public function upgradeExtensions($request)
     {
@@ -17159,10 +13943,9 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Asynchronous Document Upload.
-     *
-     * @remarks
-     * The server loads and chunks a document based on the file extension, performs vectorization by using the embedding model that is specified when you call the CreateDocumentCollection operation, and then writes the document to the specified document collection. This operation supports multi-modal embedding for various formats of text and images.
+     * @summary Asynchronous Document Upload
+     *  *
+     * @description The server loads and chunks a document based on the file extension, performs vectorization by using the embedding model that is specified when you call the CreateDocumentCollection operation, and then writes the document to the specified document collection. This operation supports multi-modal embedding for various formats of text and images.
      * Related operations:
      * *   You can call the GetUploadDocumentJob operation to query the progress and result of a document upload job.
      * *   You can call the CancelUploadDocumentJob operation to cancel a document upload job.
@@ -17170,99 +13953,79 @@ class Gpdb extends OpenApiClient
      * *   After a document upload request is submitted, the request is queued for processing. Up to 20 documents in the Pending and Running states can be processed within a Resource Access Management (RAM) user or Alibaba Cloud account.
      * *   A text document can be split into up to 100,000 chunks.
      * *   If a document collection uses the OnePeace model, each RAM user or Alibaba Cloud account can upload and query up to 10,000 images.
+     *  *
+     * @param UploadDocumentAsyncRequest $tmpReq  UploadDocumentAsyncRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - UploadDocumentAsyncRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UploadDocumentAsyncResponse
-     *
-     * @param UploadDocumentAsyncRequest $tmpReq
-     * @param RuntimeOptions             $runtime
-     *
-     * @return UploadDocumentAsyncResponse
+     * @return UploadDocumentAsyncResponse UploadDocumentAsyncResponse
      */
     public function uploadDocumentAsyncWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new UploadDocumentAsyncShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->metadata) {
-            $request->metadataShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->metadata, 'Metadata', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->metadata)) {
+            $request->metadataShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->metadata, 'Metadata', 'json');
         }
-
-        if (null !== $tmpReq->separators) {
-            $request->separatorsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->separators, 'Separators', 'json');
+        if (!Utils::isUnset($tmpReq->separators)) {
+            $request->separatorsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->separators, 'Separators', 'json');
         }
-
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $body = [];
-        if (null !== $request->chunkOverlap) {
-            @$body['ChunkOverlap'] = $request->chunkOverlap;
+        if (!Utils::isUnset($request->chunkOverlap)) {
+            $body['ChunkOverlap'] = $request->chunkOverlap;
         }
-
-        if (null !== $request->chunkSize) {
-            @$body['ChunkSize'] = $request->chunkSize;
+        if (!Utils::isUnset($request->chunkSize)) {
+            $body['ChunkSize'] = $request->chunkSize;
         }
-
-        if (null !== $request->collection) {
-            @$body['Collection'] = $request->collection;
+        if (!Utils::isUnset($request->collection)) {
+            $body['Collection'] = $request->collection;
         }
-
-        if (null !== $request->documentLoaderName) {
-            @$body['DocumentLoaderName'] = $request->documentLoaderName;
+        if (!Utils::isUnset($request->documentLoaderName)) {
+            $body['DocumentLoaderName'] = $request->documentLoaderName;
         }
-
-        if (null !== $request->dryRun) {
-            @$body['DryRun'] = $request->dryRun;
+        if (!Utils::isUnset($request->dryRun)) {
+            $body['DryRun'] = $request->dryRun;
         }
-
-        if (null !== $request->fileName) {
-            @$body['FileName'] = $request->fileName;
+        if (!Utils::isUnset($request->fileName)) {
+            $body['FileName'] = $request->fileName;
         }
-
-        if (null !== $request->fileUrl) {
-            @$body['FileUrl'] = $request->fileUrl;
+        if (!Utils::isUnset($request->fileUrl)) {
+            $body['FileUrl'] = $request->fileUrl;
         }
-
-        if (null !== $request->metadataShrink) {
-            @$body['Metadata'] = $request->metadataShrink;
+        if (!Utils::isUnset($request->metadataShrink)) {
+            $body['Metadata'] = $request->metadataShrink;
         }
-
-        if (null !== $request->namespace) {
-            @$body['Namespace'] = $request->namespace;
+        if (!Utils::isUnset($request->namespace_)) {
+            $body['Namespace'] = $request->namespace_;
         }
-
-        if (null !== $request->namespacePassword) {
-            @$body['NamespacePassword'] = $request->namespacePassword;
+        if (!Utils::isUnset($request->namespacePassword)) {
+            $body['NamespacePassword'] = $request->namespacePassword;
         }
-
-        if (null !== $request->separatorsShrink) {
-            @$body['Separators'] = $request->separatorsShrink;
+        if (!Utils::isUnset($request->separatorsShrink)) {
+            $body['Separators'] = $request->separatorsShrink;
         }
-
-        if (null !== $request->textSplitterName) {
-            @$body['TextSplitterName'] = $request->textSplitterName;
+        if (!Utils::isUnset($request->textSplitterName)) {
+            $body['TextSplitterName'] = $request->textSplitterName;
         }
-
-        if (null !== $request->zhTitleEnhance) {
-            @$body['ZhTitleEnhance'] = $request->zhTitleEnhance;
+        if (!Utils::isUnset($request->vlEnhance)) {
+            $body['VlEnhance'] = $request->vlEnhance;
         }
-
+        if (!Utils::isUnset($request->zhTitleEnhance)) {
+            $body['ZhTitleEnhance'] = $request->zhTitleEnhance;
+        }
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UploadDocumentAsync',
@@ -17280,10 +14043,9 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Asynchronous Document Upload.
-     *
-     * @remarks
-     * The server loads and chunks a document based on the file extension, performs vectorization by using the embedding model that is specified when you call the CreateDocumentCollection operation, and then writes the document to the specified document collection. This operation supports multi-modal embedding for various formats of text and images.
+     * @summary Asynchronous Document Upload
+     *  *
+     * @description The server loads and chunks a document based on the file extension, performs vectorization by using the embedding model that is specified when you call the CreateDocumentCollection operation, and then writes the document to the specified document collection. This operation supports multi-modal embedding for various formats of text and images.
      * Related operations:
      * *   You can call the GetUploadDocumentJob operation to query the progress and result of a document upload job.
      * *   You can call the CancelUploadDocumentJob operation to cancel a document upload job.
@@ -17291,14 +14053,10 @@ class Gpdb extends OpenApiClient
      * *   After a document upload request is submitted, the request is queued for processing. Up to 20 documents in the Pending and Running states can be processed within a Resource Access Management (RAM) user or Alibaba Cloud account.
      * *   A text document can be split into up to 100,000 chunks.
      * *   If a document collection uses the OnePeace model, each RAM user or Alibaba Cloud account can upload and query up to 10,000 images.
+     *  *
+     * @param UploadDocumentAsyncRequest $request UploadDocumentAsyncRequest
      *
-     * @param Request - UploadDocumentAsyncRequest
-     *
-     * @returns UploadDocumentAsyncResponse
-     *
-     * @param UploadDocumentAsyncRequest $request
-     *
-     * @return UploadDocumentAsyncResponse
+     * @return UploadDocumentAsyncResponse UploadDocumentAsyncResponse
      */
     public function uploadDocumentAsync($request)
     {
@@ -17312,31 +14070,31 @@ class Gpdb extends OpenApiClient
      * @param RuntimeOptions                    $runtime
      *
      * @return UploadDocumentAsyncResponse
+     *
+     * @throws TeaError
      */
     public function uploadDocumentAsyncAdvance($request, $runtime)
     {
         // Step 0: init client
-        if (null === $this->_credential) {
-            throw new ClientException([
+        $credentialModel = null;
+        if (Utils::isUnset($this->_credential)) {
+            throw new TeaError([
                 'code' => 'InvalidCredentials',
                 'message' => 'Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.',
             ]);
         }
-
         $credentialModel = $this->_credential->getCredential();
         $accessKeyId = $credentialModel->accessKeyId;
         $accessKeySecret = $credentialModel->accessKeySecret;
         $securityToken = $credentialModel->securityToken;
         $credentialType = $credentialModel->type;
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (null === $openPlatformEndpoint || '' == $openPlatformEndpoint) {
+        if (Utils::empty_($openPlatformEndpoint)) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
-
-        if (null === $credentialType) {
+        if (Utils::isUnset($credentialType)) {
             $credentialType = 'access_key';
         }
-
         $authConfig = new Config([
             'accessKeyId' => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
@@ -17352,7 +14110,7 @@ class Gpdb extends OpenApiClient
             'RegionId' => $this->_regionId,
         ];
         $authReq = new OpenApiRequest([
-            'query' => Utils::query($authRequest),
+            'query' => OpenApiUtilClient::query($authRequest),
         ]);
         $authParams = new Params([
             'action' => 'AuthorizeFileUpload',
@@ -17372,11 +14130,12 @@ class Gpdb extends OpenApiClient
         $useAccelerate = false;
         $authResponseBody = [];
         $uploadDocumentAsyncReq = new UploadDocumentAsyncRequest([]);
-        Utils::convert($request, $uploadDocumentAsyncReq);
-        if (null !== $request->fileUrlObject) {
-            $authResponse = $authClient->callApi($authParams, $authReq, $runtime);
-            $tmpBody = @$authResponse['body'];
-            $useAccelerate = (bool) (@$tmpBody['UseAccelerate']);
+        OpenApiUtilClient::convert($request, $uploadDocumentAsyncReq);
+        if (!Utils::isUnset($request->fileUrlObject)) {
+            $tmpResp0 = $authClient->callApi($authParams, $authReq, $runtime);
+            $authResponse = Utils::assertAsMap($tmpResp0);
+            $tmpBody = Utils::assertAsMap(@$authResponse['body']);
+            $useAccelerate = Utils::assertAsBoolean(@$tmpBody['UseAccelerate']);
             $authResponseBody = Utils::stringifyMapValue($tmpBody);
             $fileObj = new FileField([
                 'filename' => @$authResponseBody['ObjectKey'],
@@ -17384,7 +14143,7 @@ class Gpdb extends OpenApiClient
                 'contentType' => '',
             ]);
             $ossHeader = [
-                'host' => '' . @$authResponseBody['Bucket'] . '.' . Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
+                'host' => '' . @$authResponseBody['Bucket'] . '.' . OpenApiUtilClient::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
                 'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
                 'policy' => @$authResponseBody['EncodedPolicy'],
                 'Signature' => @$authResponseBody['Signature'],
@@ -17400,75 +14159,58 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Upload split text.
+     * @summary Upload split text
+     *  *
+     * @description The vectorization algorithm for the document is specified by the CreateDocumentCollection API.
+     *  *
+     * @param UpsertChunksRequest $tmpReq  UpsertChunksRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * The vectorization algorithm for the document is specified by the CreateDocumentCollection API.
-     *
-     * @param tmpReq - UpsertChunksRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpsertChunksResponse
-     *
-     * @param UpsertChunksRequest $tmpReq
-     * @param RuntimeOptions      $runtime
-     *
-     * @return UpsertChunksResponse
+     * @return UpsertChunksResponse UpsertChunksResponse
      */
     public function upsertChunksWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new UpsertChunksShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->textChunks) {
-            $request->textChunksShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->textChunks, 'TextChunks', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->textChunks)) {
+            $request->textChunksShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->textChunks, 'TextChunks', 'json');
         }
-
         $query = [];
-        if (null !== $request->allowInsertWithFilter) {
-            @$query['AllowInsertWithFilter'] = $request->allowInsertWithFilter;
+        if (!Utils::isUnset($request->allowInsertWithFilter)) {
+            $query['AllowInsertWithFilter'] = $request->allowInsertWithFilter;
         }
-
-        if (null !== $request->collection) {
-            @$query['Collection'] = $request->collection;
+        if (!Utils::isUnset($request->collection)) {
+            $query['Collection'] = $request->collection;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->fileName) {
-            @$query['FileName'] = $request->fileName;
+        if (!Utils::isUnset($request->fileName)) {
+            $query['FileName'] = $request->fileName;
         }
-
-        if (null !== $request->namespace) {
-            @$query['Namespace'] = $request->namespace;
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
         }
-
-        if (null !== $request->namespacePassword) {
-            @$query['NamespacePassword'] = $request->namespacePassword;
+        if (!Utils::isUnset($request->namespacePassword)) {
+            $query['NamespacePassword'] = $request->namespacePassword;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->shouldReplaceFile) {
-            @$query['ShouldReplaceFile'] = $request->shouldReplaceFile;
+        if (!Utils::isUnset($request->shouldReplaceFile)) {
+            $query['ShouldReplaceFile'] = $request->shouldReplaceFile;
         }
-
         $body = [];
-        if (null !== $request->textChunksShrink) {
-            @$body['TextChunks'] = $request->textChunksShrink;
+        if (!Utils::isUnset($request->textChunksShrink)) {
+            $body['TextChunks'] = $request->textChunksShrink;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpsertChunks',
@@ -17486,18 +14228,13 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Upload split text.
+     * @summary Upload split text
+     *  *
+     * @description The vectorization algorithm for the document is specified by the CreateDocumentCollection API.
+     *  *
+     * @param UpsertChunksRequest $request UpsertChunksRequest
      *
-     * @remarks
-     * The vectorization algorithm for the document is specified by the CreateDocumentCollection API.
-     *
-     * @param Request - UpsertChunksRequest
-     *
-     * @returns UpsertChunksResponse
-     *
-     * @param UpsertChunksRequest $request
-     *
-     * @return UpsertChunksResponse
+     * @return UpsertChunksResponse UpsertChunksResponse
      */
     public function upsertChunks($request)
     {
@@ -17507,64 +14244,50 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Uploads vector data to a vector collection.
+     * @summary Uploads vector data to a vector collection.
+     *  *
+     * @param UpsertCollectionDataRequest $tmpReq  UpsertCollectionDataRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - UpsertCollectionDataRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpsertCollectionDataResponse
-     *
-     * @param UpsertCollectionDataRequest $tmpReq
-     * @param RuntimeOptions              $runtime
-     *
-     * @return UpsertCollectionDataResponse
+     * @return UpsertCollectionDataResponse UpsertCollectionDataResponse
      */
     public function upsertCollectionDataWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new UpsertCollectionDataShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->rows) {
-            $request->rowsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->rows, 'Rows', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->rows)) {
+            $request->rowsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->rows, 'Rows', 'json');
         }
-
         $query = [];
-        if (null !== $request->collection) {
-            @$query['Collection'] = $request->collection;
+        if (!Utils::isUnset($request->collection)) {
+            $query['Collection'] = $request->collection;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->namespace) {
-            @$query['Namespace'] = $request->namespace;
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
         }
-
-        if (null !== $request->namespacePassword) {
-            @$query['NamespacePassword'] = $request->namespacePassword;
+        if (!Utils::isUnset($request->namespacePassword)) {
+            $query['NamespacePassword'] = $request->namespacePassword;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->workspaceId) {
-            @$query['WorkspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
         }
-
         $body = [];
-        if (null !== $request->rowsShrink) {
-            @$body['Rows'] = $request->rowsShrink;
+        if (!Utils::isUnset($request->rowsShrink)) {
+            $body['Rows'] = $request->rowsShrink;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpsertCollectionData',
@@ -17582,15 +14305,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Uploads vector data to a vector collection.
+     * @summary Uploads vector data to a vector collection.
+     *  *
+     * @param UpsertCollectionDataRequest $request UpsertCollectionDataRequest
      *
-     * @param Request - UpsertCollectionDataRequest
-     *
-     * @returns UpsertCollectionDataResponse
-     *
-     * @param UpsertCollectionDataRequest $request
-     *
-     * @return UpsertCollectionDataResponse
+     * @return UpsertCollectionDataResponse UpsertCollectionDataResponse
      */
     public function upsertCollectionData($request)
     {
@@ -17600,65 +14319,51 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Uploads vector data in an asynchronous manner by using an on-premises file or a password-free Internet-accessible file URL. The vector data can be up to 200 MB in size.
-     *
-     * @remarks
-     * This operation is the asynchronous operation of `UpsertCollectionData`. The `UpsertCollectionData` operation supports up to 10 MB of data, and this operation supports up to 200 MB of data.
+     * @summary Uploads vector data in an asynchronous manner by using an on-premises file or a password-free Internet-accessible file URL. The vector data can be up to 200 MB in size.
+     *  *
+     * @description This operation is the asynchronous operation of `UpsertCollectionData`. The `UpsertCollectionData` operation supports up to 10 MB of data, and this operation supports up to 200 MB of data.
      * >  Related operations:
      * *   You can call the GetUpsertCollectionDataJob operation to query the progress and result of an upload job.
      * *   You can call the CancelUpsertCollectionDataJob operation to cancel an upload job.
      * > You can upload data for the same collection only in a serial manner.
+     *  *
+     * @param UpsertCollectionDataAsyncRequest $request UpsertCollectionDataAsyncRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param Request - UpsertCollectionDataAsyncRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpsertCollectionDataAsyncResponse
-     *
-     * @param UpsertCollectionDataAsyncRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return UpsertCollectionDataAsyncResponse
+     * @return UpsertCollectionDataAsyncResponse UpsertCollectionDataAsyncResponse
      */
     public function upsertCollectionDataAsyncWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->workspaceId) {
-            @$query['WorkspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
         }
-
         $body = [];
-        if (null !== $request->collection) {
-            @$body['Collection'] = $request->collection;
+        if (!Utils::isUnset($request->collection)) {
+            $body['Collection'] = $request->collection;
         }
-
-        if (null !== $request->fileUrl) {
-            @$body['FileUrl'] = $request->fileUrl;
+        if (!Utils::isUnset($request->fileUrl)) {
+            $body['FileUrl'] = $request->fileUrl;
         }
-
-        if (null !== $request->namespace) {
-            @$body['Namespace'] = $request->namespace;
+        if (!Utils::isUnset($request->namespace_)) {
+            $body['Namespace'] = $request->namespace_;
         }
-
-        if (null !== $request->namespacePassword) {
-            @$body['NamespacePassword'] = $request->namespacePassword;
+        if (!Utils::isUnset($request->namespacePassword)) {
+            $body['NamespacePassword'] = $request->namespacePassword;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpsertCollectionDataAsync',
@@ -17676,22 +14381,17 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Uploads vector data in an asynchronous manner by using an on-premises file or a password-free Internet-accessible file URL. The vector data can be up to 200 MB in size.
-     *
-     * @remarks
-     * This operation is the asynchronous operation of `UpsertCollectionData`. The `UpsertCollectionData` operation supports up to 10 MB of data, and this operation supports up to 200 MB of data.
+     * @summary Uploads vector data in an asynchronous manner by using an on-premises file or a password-free Internet-accessible file URL. The vector data can be up to 200 MB in size.
+     *  *
+     * @description This operation is the asynchronous operation of `UpsertCollectionData`. The `UpsertCollectionData` operation supports up to 10 MB of data, and this operation supports up to 200 MB of data.
      * >  Related operations:
      * *   You can call the GetUpsertCollectionDataJob operation to query the progress and result of an upload job.
      * *   You can call the CancelUpsertCollectionDataJob operation to cancel an upload job.
      * > You can upload data for the same collection only in a serial manner.
+     *  *
+     * @param UpsertCollectionDataAsyncRequest $request UpsertCollectionDataAsyncRequest
      *
-     * @param Request - UpsertCollectionDataAsyncRequest
-     *
-     * @returns UpsertCollectionDataAsyncResponse
-     *
-     * @param UpsertCollectionDataAsyncRequest $request
-     *
-     * @return UpsertCollectionDataAsyncResponse
+     * @return UpsertCollectionDataAsyncResponse UpsertCollectionDataAsyncResponse
      */
     public function upsertCollectionDataAsync($request)
     {
@@ -17705,31 +14405,31 @@ class Gpdb extends OpenApiClient
      * @param RuntimeOptions                          $runtime
      *
      * @return UpsertCollectionDataAsyncResponse
+     *
+     * @throws TeaError
      */
     public function upsertCollectionDataAsyncAdvance($request, $runtime)
     {
         // Step 0: init client
-        if (null === $this->_credential) {
-            throw new ClientException([
+        $credentialModel = null;
+        if (Utils::isUnset($this->_credential)) {
+            throw new TeaError([
                 'code' => 'InvalidCredentials',
                 'message' => 'Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.',
             ]);
         }
-
         $credentialModel = $this->_credential->getCredential();
         $accessKeyId = $credentialModel->accessKeyId;
         $accessKeySecret = $credentialModel->accessKeySecret;
         $securityToken = $credentialModel->securityToken;
         $credentialType = $credentialModel->type;
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (null === $openPlatformEndpoint || '' == $openPlatformEndpoint) {
+        if (Utils::empty_($openPlatformEndpoint)) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
-
-        if (null === $credentialType) {
+        if (Utils::isUnset($credentialType)) {
             $credentialType = 'access_key';
         }
-
         $authConfig = new Config([
             'accessKeyId' => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
@@ -17745,7 +14445,7 @@ class Gpdb extends OpenApiClient
             'RegionId' => $this->_regionId,
         ];
         $authReq = new OpenApiRequest([
-            'query' => Utils::query($authRequest),
+            'query' => OpenApiUtilClient::query($authRequest),
         ]);
         $authParams = new Params([
             'action' => 'AuthorizeFileUpload',
@@ -17765,11 +14465,12 @@ class Gpdb extends OpenApiClient
         $useAccelerate = false;
         $authResponseBody = [];
         $upsertCollectionDataAsyncReq = new UpsertCollectionDataAsyncRequest([]);
-        Utils::convert($request, $upsertCollectionDataAsyncReq);
-        if (null !== $request->fileUrlObject) {
-            $authResponse = $authClient->callApi($authParams, $authReq, $runtime);
-            $tmpBody = @$authResponse['body'];
-            $useAccelerate = (bool) (@$tmpBody['UseAccelerate']);
+        OpenApiUtilClient::convert($request, $upsertCollectionDataAsyncReq);
+        if (!Utils::isUnset($request->fileUrlObject)) {
+            $tmpResp0 = $authClient->callApi($authParams, $authReq, $runtime);
+            $authResponse = Utils::assertAsMap($tmpResp0);
+            $tmpBody = Utils::assertAsMap(@$authResponse['body']);
+            $useAccelerate = Utils::assertAsBoolean(@$tmpBody['UseAccelerate']);
             $authResponseBody = Utils::stringifyMapValue($tmpBody);
             $fileObj = new FileField([
                 'filename' => @$authResponseBody['ObjectKey'],
@@ -17777,7 +14478,7 @@ class Gpdb extends OpenApiClient
                 'contentType' => '',
             ]);
             $ossHeader = [
-                'host' => '' . @$authResponseBody['Bucket'] . '.' . Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
+                'host' => '' . @$authResponseBody['Bucket'] . '.' . OpenApiUtilClient::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
                 'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
                 'policy' => @$authResponseBody['EncodedPolicy'],
                 'Signature' => @$authResponseBody['Signature'],

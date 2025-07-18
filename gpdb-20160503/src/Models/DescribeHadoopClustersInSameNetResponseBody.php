@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeHadoopClustersInSameNetResponseBody extends Model
 {
@@ -14,6 +14,10 @@ class DescribeHadoopClustersInSameNetResponseBody extends Model
     public $clusters;
 
     /**
+     * @description The request ID.
+     *
+     * @example B4CAF581-2AC7-41AD-8940-D56DF7AADF5B
+     *
      * @var string
      */
     public $requestId;
@@ -22,28 +26,14 @@ class DescribeHadoopClustersInSameNetResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->clusters)) {
-            Model::validateArray($this->clusters);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->clusters) {
-            if (\is_array($this->clusters)) {
-                $res['Clusters'] = [];
-                $n1 = 0;
-                foreach ($this->clusters as $item1) {
-                    $res['Clusters'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['Clusters'] = $this->clusters;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -51,25 +41,19 @@ class DescribeHadoopClustersInSameNetResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeHadoopClustersInSameNetResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Clusters'])) {
             if (!empty($map['Clusters'])) {
-                $model->clusters = [];
-                $n1 = 0;
-                foreach ($map['Clusters'] as $item1) {
-                    $model->clusters[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->clusters = $map['Clusters'];
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

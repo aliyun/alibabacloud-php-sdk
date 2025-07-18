@@ -4,27 +4,41 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListStreamingDataSourcesResponseBody\dataSourceItems;
+use AlibabaCloud\Tea\Model;
 
 class ListStreamingDataSourcesResponseBody extends Model
 {
     /**
+     * @description The queried data sources.
+     *
      * @var dataSourceItems[]
      */
     public $dataSourceItems;
 
     /**
+     * @description The page number.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The request ID.
+     *
+     * @example B4CAF581-2AC7-41AD-8940-D56DF7AADF5B
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $totalRecordCount;
@@ -35,36 +49,26 @@ class ListStreamingDataSourcesResponseBody extends Model
         'totalRecordCount' => 'TotalRecordCount',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->dataSourceItems)) {
-            Model::validateArray($this->dataSourceItems);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dataSourceItems) {
-            if (\is_array($this->dataSourceItems)) {
-                $res['DataSourceItems'] = [];
-                $n1 = 0;
-                foreach ($this->dataSourceItems as $item1) {
-                    $res['DataSourceItems'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['DataSourceItems'] = [];
+            if (null !== $this->dataSourceItems && \is_array($this->dataSourceItems)) {
+                $n = 0;
+                foreach ($this->dataSourceItems as $item) {
+                    $res['DataSourceItems'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->totalRecordCount) {
             $res['TotalRecordCount'] = $this->totalRecordCount;
         }
@@ -72,33 +76,29 @@ class ListStreamingDataSourcesResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListStreamingDataSourcesResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DataSourceItems'])) {
             if (!empty($map['DataSourceItems'])) {
                 $model->dataSourceItems = [];
-                $n1 = 0;
-                foreach ($map['DataSourceItems'] as $item1) {
-                    $model->dataSourceItems[$n1] = dataSourceItems::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['DataSourceItems'] as $item) {
+                    $model->dataSourceItems[$n++] = null !== $item ? dataSourceItems::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['TotalRecordCount'])) {
             $model->totalRecordCount = $map['TotalRecordCount'];
         }

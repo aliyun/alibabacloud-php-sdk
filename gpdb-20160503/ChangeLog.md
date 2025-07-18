@@ -1,3 +1,7 @@
+2025-07-18 Version: 2.9.1
+- Update API UploadDocumentAsync: add request parameters VlEnhance.
+
+
 2025-07-10 Version: 2.9.0
 - Support API CreateSupabaseProject.
 - Support API DeleteSupabaseProject.

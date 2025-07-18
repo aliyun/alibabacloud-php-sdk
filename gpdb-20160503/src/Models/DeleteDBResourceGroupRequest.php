@@ -4,11 +4,19 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteDBResourceGroupRequest extends Model
 {
     /**
+     * @description The instance ID.
+     *
+     * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/196830.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+     *
+     * This parameter is required.
+     *
+     * @example gp-xxxxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
@@ -19,6 +27,12 @@ class DeleteDBResourceGroupRequest extends Model
     public $ownerId;
 
     /**
+     * @description The name of the resource group.
+     *
+     * This parameter is required.
+     *
+     * @example testgroup
+     *
      * @var string
      */
     public $resourceGroupName;
@@ -28,22 +42,17 @@ class DeleteDBResourceGroupRequest extends Model
         'resourceGroupName' => 'ResourceGroupName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
-
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-
         if (null !== $this->resourceGroupName) {
             $res['ResourceGroupName'] = $this->resourceGroupName;
         }
@@ -51,22 +60,20 @@ class DeleteDBResourceGroupRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteDBResourceGroupRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
-
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-
         if (isset($map['ResourceGroupName'])) {
             $model->resourceGroupName = $map['ResourceGroupName'];
         }

@@ -4,21 +4,37 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeIMVInfosRequest extends Model
 {
     /**
+     * @description The instance ID.
+     *
+     * This parameter is required.
+     *
+     * @example gp-xxxxxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The name of the database.
+     *
+     * This parameter is required.
+     *
+     * @example testdb
+     *
      * @var string
      */
     public $database;
 
     /**
+     * @description The name of MV
+     *
+     * @example public."mv1"
+     *
      * @var string
      */
     public $MVName;
@@ -28,22 +44,17 @@ class DescribeIMVInfosRequest extends Model
         'MVName' => 'MVName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
-
         if (null !== $this->database) {
             $res['Database'] = $this->database;
         }
-
         if (null !== $this->MVName) {
             $res['MVName'] = $this->MVName;
         }
@@ -51,22 +62,20 @@ class DescribeIMVInfosRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeIMVInfosRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
-
         if (isset($map['Database'])) {
             $model->database = $map['Database'];
         }
-
         if (isset($map['MVName'])) {
             $model->MVName = $map['MVName'];
         }

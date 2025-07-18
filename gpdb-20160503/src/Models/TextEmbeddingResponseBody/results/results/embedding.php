@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models\TextEmbeddingResponseBody\results\results;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class embedding extends Model
 {
@@ -16,47 +16,29 @@ class embedding extends Model
         'embedding' => 'Embedding',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->embedding)) {
-            Model::validateArray($this->embedding);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->embedding) {
-            if (\is_array($this->embedding)) {
-                $res['Embedding'] = [];
-                $n1 = 0;
-                foreach ($this->embedding as $item1) {
-                    $res['Embedding'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['Embedding'] = $this->embedding;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return embedding
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Embedding'])) {
             if (!empty($map['Embedding'])) {
-                $model->embedding = [];
-                $n1 = 0;
-                foreach ($map['Embedding'] as $item1) {
-                    $model->embedding[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->embedding = $map['Embedding'];
             }
         }
 

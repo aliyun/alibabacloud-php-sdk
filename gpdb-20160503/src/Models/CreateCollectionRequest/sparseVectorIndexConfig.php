@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateCollectionRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class sparseVectorIndexConfig extends Model
 {
@@ -22,18 +22,14 @@ class sparseVectorIndexConfig extends Model
         'hnswM' => 'HnswM',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->hnswEfConstruction) {
             $res['HnswEfConstruction'] = $this->hnswEfConstruction;
         }
-
         if (null !== $this->hnswM) {
             $res['HnswM'] = $this->hnswM;
         }
@@ -41,18 +37,17 @@ class sparseVectorIndexConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return sparseVectorIndexConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HnswEfConstruction'])) {
             $model->hnswEfConstruction = $map['HnswEfConstruction'];
         }
-
         if (isset($map['HnswM'])) {
             $model->hnswM = $map['HnswM'];
         }

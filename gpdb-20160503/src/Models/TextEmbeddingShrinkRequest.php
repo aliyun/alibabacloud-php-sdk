@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class TextEmbeddingShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example gp-xxxxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
@@ -24,6 +28,8 @@ class TextEmbeddingShrinkRequest extends Model
     public $inputShrink;
 
     /**
+     * @example text-embedding-v2
+     *
      * @var string
      */
     public $model;
@@ -34,6 +40,10 @@ class TextEmbeddingShrinkRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -46,34 +56,26 @@ class TextEmbeddingShrinkRequest extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
-
         if (null !== $this->dimension) {
             $res['Dimension'] = $this->dimension;
         }
-
         if (null !== $this->inputShrink) {
             $res['Input'] = $this->inputShrink;
         }
-
         if (null !== $this->model) {
             $res['Model'] = $this->model;
         }
-
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -81,34 +83,29 @@ class TextEmbeddingShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return TextEmbeddingShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
-
         if (isset($map['Dimension'])) {
             $model->dimension = $map['Dimension'];
         }
-
         if (isset($map['Input'])) {
             $model->inputShrink = $map['Input'];
         }
-
         if (isset($map['Model'])) {
             $model->model = $map['Model'];
         }
-
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

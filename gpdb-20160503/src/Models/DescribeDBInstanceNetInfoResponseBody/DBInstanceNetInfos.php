@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstanceNetInfoResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstanceNetInfoResponseBody\DBInstanceNetInfos\DBInstanceNetInfo;
+use AlibabaCloud\Tea\Model;
 
 class DBInstanceNetInfos extends Model
 {
@@ -17,24 +17,17 @@ class DBInstanceNetInfos extends Model
         'DBInstanceNetInfo' => 'DBInstanceNetInfo',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->DBInstanceNetInfo)) {
-            Model::validateArray($this->DBInstanceNetInfo);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->DBInstanceNetInfo) {
-            if (\is_array($this->DBInstanceNetInfo)) {
-                $res['DBInstanceNetInfo'] = [];
-                $n1 = 0;
-                foreach ($this->DBInstanceNetInfo as $item1) {
-                    $res['DBInstanceNetInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['DBInstanceNetInfo'] = [];
+            if (null !== $this->DBInstanceNetInfo && \is_array($this->DBInstanceNetInfo)) {
+                $n = 0;
+                foreach ($this->DBInstanceNetInfo as $item) {
+                    $res['DBInstanceNetInfo'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -42,21 +35,20 @@ class DBInstanceNetInfos extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DBInstanceNetInfos
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBInstanceNetInfo'])) {
             if (!empty($map['DBInstanceNetInfo'])) {
                 $model->DBInstanceNetInfo = [];
-                $n1 = 0;
-                foreach ($map['DBInstanceNetInfo'] as $item1) {
-                    $model->DBInstanceNetInfo[$n1] = DBInstanceNetInfo::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['DBInstanceNetInfo'] as $item) {
+                    $model->DBInstanceNetInfo[$n++] = null !== $item ? DBInstanceNetInfo::fromMap($item) : $item;
                 }
             }
         }

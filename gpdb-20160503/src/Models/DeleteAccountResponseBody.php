@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteAccountResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 7565770E-7C45-462D-BA4A-8A5396****
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class DeleteAccountResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class DeleteAccountResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteAccountResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

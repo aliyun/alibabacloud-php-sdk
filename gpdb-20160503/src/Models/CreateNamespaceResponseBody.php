@@ -4,21 +4,36 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateNamespaceResponseBody extends Model
 {
     /**
+     * @description The returned message.
+     *
+     * @example Successful
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The request ID.
+     *
+     * @example ABB39CC3-4488-4857-905D-2E4A051D0521
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **success**
+     *   **fail**
+     *
+     * @example success
+     *
      * @var string
      */
     public $status;
@@ -28,22 +43,17 @@ class CreateNamespaceResponseBody extends Model
         'status' => 'Status',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -51,22 +61,20 @@ class CreateNamespaceResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateNamespaceResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

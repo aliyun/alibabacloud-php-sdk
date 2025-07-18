@@ -4,16 +4,26 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models\GetUploadDocumentJobResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class usage extends Model
 {
     /**
+     * @description The count of embedding entries.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $embeddingEntries;
 
     /**
+     * @description The number of tokens that are used for vectorization.
+     *
+     * >  A token is the minimum unit for splitting text. A token can be a word, phrase, punctuation, or character.
+     *
+     * @example 475
+     *
      * @var int
      */
     public $embeddingTokens;
@@ -22,18 +32,14 @@ class usage extends Model
         'embeddingTokens' => 'EmbeddingTokens',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->embeddingEntries) {
             $res['EmbeddingEntries'] = $this->embeddingEntries;
         }
-
         if (null !== $this->embeddingTokens) {
             $res['EmbeddingTokens'] = $this->embeddingTokens;
         }
@@ -41,18 +47,17 @@ class usage extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return usage
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EmbeddingEntries'])) {
             $model->embeddingEntries = $map['EmbeddingEntries'];
         }
-
         if (isset($map['EmbeddingTokens'])) {
             $model->embeddingTokens = $map['EmbeddingTokens'];
         }

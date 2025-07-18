@@ -4,16 +4,27 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeDBResourceManagementModeResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example ABB39CC3-4488-4857-905D-2E4A051D0521
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The resource management mode. Valid values:
+     *
+     *   resourceGroup: resource group management.
+     *   resourceQueue: resource queue management.
+     *
+     * @example resourceGroup
+     *
      * @var string
      */
     public $resourceManagementMode;
@@ -22,18 +33,14 @@ class DescribeDBResourceManagementModeResponseBody extends Model
         'resourceManagementMode' => 'ResourceManagementMode',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->resourceManagementMode) {
             $res['ResourceManagementMode'] = $this->resourceManagementMode;
         }
@@ -41,18 +48,17 @@ class DescribeDBResourceManagementModeResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeDBResourceManagementModeResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['ResourceManagementMode'])) {
             $model->resourceManagementMode = $map['ResourceManagementMode'];
         }

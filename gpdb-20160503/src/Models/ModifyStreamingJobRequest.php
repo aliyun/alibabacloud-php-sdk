@@ -4,106 +4,320 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyStreamingJobRequest extends Model
 {
     /**
+     * @description Account name.
+     *
+     * @example test-account
+     *
      * @var string
      */
     public $account;
 
     /**
+     * @description The delivery guarantee setting.
+     *
+     * @example ATLEAST / EXACTLY
+     *
      * @var string
      */
     public $consistency;
 
     /**
+     * @description Instance ID
+     *
+     * This parameter is required.
+     *
+     * @example ModifyStreamingJob
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description Target data table mapping field list.
+     *
      * @var string[]
      */
     public $destColumns;
 
     /**
+     * @description Target database name.
+     *
+     * @example dest-db
+     *
      * @var string
      */
     public $destDatabase;
 
     /**
+     * @description Target schema.
+     *
+     * @example dest-schema
+     *
      * @var string
      */
     public $destSchema;
 
     /**
+     * @description Target table name.
+     *
+     * @example dest-table
+     *
      * @var string
      */
     public $destTable;
 
     /**
+     * @description When the data in Kafka does not match the ADBPG target table, it will cause a write failure. This value is the number of error rows allowed; exceeding this will cause the task to fail.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $errorLimitCount;
 
     /**
+     * @description The fallback offset for data consumption.
+     *
+     *   This parameter specifies the starting offset from which data consumption resumes when a consumer does not request a consumption offset or requests a consumption offset that is beyond the range of the offset information recorded in the current Kafka cluster. You can choose to start data consumption from the earliest or latest offset.
+     *
+     * Valid values:
+     *   EARLIEST
+     *   LATEST
+     *
+     * @example EARLIEST /  LATEST
+     *
      * @var string
      */
     public $fallbackOffset;
 
     /**
+     * @description Kafka group name
+     *
+     * @example group_name
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description Job configuration file, required for professional mode.
+     *
+     * @example DATABASE: adbpgss_test
+     * USER: adbpgss_test
+     * PASSWORD: adbpgssTest
+     * HOST: gp-xxx-master.gpdb.rds-aliyun-pre.rds.aliyuncs.com
+     * PORT: 5432
+     * KAFKA:
+     * INPUT:
+     * SOURCE:
+     * BROKERS: broker1:9092,broker2:9092,broker3:9092
+     * TOPIC: testtopic
+     * FALLBACK_OFFSET: earliest
+     * KEY:
+     * COLUMNS:
+     * - NAME: customer_id
+     * TYPE: int
+     * FORMAT: delimited
+     * DELIMITED_OPTION:
+     * DELIMITER: \\"|\\"
+     * VALUE:
+     * COLUMNS:
+     * - TYPE: integer
+     * NAME: l_orderkey
+     * - TYPE: integer
+     * NAME: l_partkey
+     * - TYPE: integer
+     * NAME: l_suppkey
+     * - TYPE: integer
+     * NAME: l_linenumber
+     * - TYPE: decimal
+     * NAME: l_quantity
+     * - TYPE: decimal
+     * NAME: l_extendedprice
+     * - TYPE: decimal
+     * NAME: l_discount
+     * - TYPE: decimal
+     * NAME: l_tax
+     * - TYPE: char
+     * NAME: l_returnflag
+     * - TYPE: char
+     * NAME: l_linestatus
+     * - TYPE: date
+     * NAME: l_shipdate
+     * - TYPE: date
+     * NAME: l_commitdate
+     * - TYPE: date
+     * NAME: l_receiptdate
+     * - TYPE: text
+     * NAME: l_shipinstruct
+     * - TYPE: text
+     * NAME: l_shipmode
+     * - TYPE: text
+     * NAME: l_comment
+     * FORMAT: delimited
+     * DELIMITED_OPTION:
+     * DELIMITER: \\"|\\"
+     * ERROR_LIMIT: 10
+     * OUTPUT:
+     * SCHEMA: adbpgss_test
+     * TABLE: write_with_insert_plaintext
+     * MODE: MERGE
+     * MATCH_COLUMNS:
+     * - l_orderkey
+     * - l_partkey
+     * - l_suppkey
+     * UPDATE_COLUMNS:
+     * - l_linenumber
+     * - l_quantity
+     * - l_extendedprice
+     * - l_discount
+     * - l_tax
+     * - l_returnflag
+     * - l_linestatus
+     * - l_shipdate
+     * - l_commitdate
+     * - l_receiptdate
+     * - l_shipinstruct
+     * - l_shipmode
+     * - l_comment
+     * MAPPING:
+     * - EXPRESSION: l_orderkey
+     * NAME: l_orderkey
+     * - EXPRESSION: l_partkey
+     * NAME: l_partkey
+     * - EXPRESSION: l_suppkey
+     * NAME: l_suppkey
+     * - EXPRESSION: l_linenumber
+     * NAME: l_linenumber
+     * - EXPRESSION: l_quantity
+     * NAME: l_quantity
+     * - EXPRESSION: l_extendedprice
+     * NAME: l_extendedprice
+     * - EXPRESSION: l_discount
+     * NAME: l_discount
+     * - EXPRESSION: l_tax
+     * NAME: l_tax
+     * - EXPRESSION: l_returnflag
+     * NAME: l_returnflag
+     * - EXPRESSION: l_linestatus
+     * NAME: l_linestatus
+     * - EXPRESSION: l_shipdate
+     * NAME: l_shipdate
+     * - EXPRESSION: l_commitdate
+     * NAME: l_commitdate
+     * - EXPRESSION: l_receiptdate
+     * NAME: l_receiptdate
+     * - EXPRESSION: l_shipinstruct
+     * NAME: l_shipinstruct
+     * - EXPRESSION: l_shipmode
+     * NAME: l_shipmode
+     * - EXPRESSION: l_comment
+     * NAME: l_comment
+     * COMMIT:
+     * MAX_ROW: 1000
+     * MINIMAL_INTERVAL: 1000
+     * CONSISTENCY: ATLEAST
+     * POLL:
+     * BATCHSIZE: 1000
+     * TIMEOUT: 1000
+     * PROPERTIES:
+     * group.id: testgroup
+     *
      * @var string
      */
     public $jobConfig;
 
     /**
+     * @description Job description.
+     *
+     * @example test-job
+     *
      * @var string
      */
     public $jobDescription;
 
     /**
+     * @description Job ID.
+     *
+     * This parameter is required.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $jobId;
 
     /**
+     * @description Match columns, usually all primary key columns of the target table. If all column values in this configuration are the same, the two rows of data are considered duplicates.
+     *
      * @var string[]
      */
     public $matchColumns;
 
     /**
+     * @description Password.
+     *
+     * @example pwd123
+     *
      * @var string
      */
     public $password;
 
     /**
+     * @description Region ID.
+     *
+     * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) API to view available region IDs.
+     *
+     * @example cn-beijing
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description Source data field list.
+     *
      * @var string[]
      */
     public $srcColumns;
 
     /**
+     * @description Specifies whether to test the real-time job. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * Default value: false.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $tryRun;
 
     /**
+     * @description Update columns, usually all non-primary key columns of the target table. When data duplication is determined through MatchColumns, updating the UpdateColumns column values will result in new data overwriting old data.
+     *
      * @var string[]
      */
     public $updateColumns;
 
     /**
+     * @description The write mode.
+     *
+     * Valid values:
+     *
+     *   MERGE
+     *   INSERT
+     *   UPDATE
+     *
+     * @example INSERT/UPDATE/MERGE
+     *
      * @var string
      */
     public $writeMode;
@@ -130,130 +344,68 @@ class ModifyStreamingJobRequest extends Model
         'writeMode' => 'WriteMode',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->destColumns)) {
-            Model::validateArray($this->destColumns);
-        }
-        if (\is_array($this->matchColumns)) {
-            Model::validateArray($this->matchColumns);
-        }
-        if (\is_array($this->srcColumns)) {
-            Model::validateArray($this->srcColumns);
-        }
-        if (\is_array($this->updateColumns)) {
-            Model::validateArray($this->updateColumns);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->account) {
             $res['Account'] = $this->account;
         }
-
         if (null !== $this->consistency) {
             $res['Consistency'] = $this->consistency;
         }
-
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
-
         if (null !== $this->destColumns) {
-            if (\is_array($this->destColumns)) {
-                $res['DestColumns'] = [];
-                $n1 = 0;
-                foreach ($this->destColumns as $item1) {
-                    $res['DestColumns'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['DestColumns'] = $this->destColumns;
         }
-
         if (null !== $this->destDatabase) {
             $res['DestDatabase'] = $this->destDatabase;
         }
-
         if (null !== $this->destSchema) {
             $res['DestSchema'] = $this->destSchema;
         }
-
         if (null !== $this->destTable) {
             $res['DestTable'] = $this->destTable;
         }
-
         if (null !== $this->errorLimitCount) {
             $res['ErrorLimitCount'] = $this->errorLimitCount;
         }
-
         if (null !== $this->fallbackOffset) {
             $res['FallbackOffset'] = $this->fallbackOffset;
         }
-
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
-
         if (null !== $this->jobConfig) {
             $res['JobConfig'] = $this->jobConfig;
         }
-
         if (null !== $this->jobDescription) {
             $res['JobDescription'] = $this->jobDescription;
         }
-
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
         }
-
         if (null !== $this->matchColumns) {
-            if (\is_array($this->matchColumns)) {
-                $res['MatchColumns'] = [];
-                $n1 = 0;
-                foreach ($this->matchColumns as $item1) {
-                    $res['MatchColumns'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['MatchColumns'] = $this->matchColumns;
         }
-
         if (null !== $this->password) {
             $res['Password'] = $this->password;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->srcColumns) {
-            if (\is_array($this->srcColumns)) {
-                $res['SrcColumns'] = [];
-                $n1 = 0;
-                foreach ($this->srcColumns as $item1) {
-                    $res['SrcColumns'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['SrcColumns'] = $this->srcColumns;
         }
-
         if (null !== $this->tryRun) {
             $res['TryRun'] = $this->tryRun;
         }
-
         if (null !== $this->updateColumns) {
-            if (\is_array($this->updateColumns)) {
-                $res['UpdateColumns'] = [];
-                $n1 = 0;
-                foreach ($this->updateColumns as $item1) {
-                    $res['UpdateColumns'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['UpdateColumns'] = $this->updateColumns;
         }
-
         if (null !== $this->writeMode) {
             $res['WriteMode'] = $this->writeMode;
         }
@@ -261,118 +413,79 @@ class ModifyStreamingJobRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyStreamingJobRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Account'])) {
             $model->account = $map['Account'];
         }
-
         if (isset($map['Consistency'])) {
             $model->consistency = $map['Consistency'];
         }
-
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
-
         if (isset($map['DestColumns'])) {
             if (!empty($map['DestColumns'])) {
-                $model->destColumns = [];
-                $n1 = 0;
-                foreach ($map['DestColumns'] as $item1) {
-                    $model->destColumns[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->destColumns = $map['DestColumns'];
             }
         }
-
         if (isset($map['DestDatabase'])) {
             $model->destDatabase = $map['DestDatabase'];
         }
-
         if (isset($map['DestSchema'])) {
             $model->destSchema = $map['DestSchema'];
         }
-
         if (isset($map['DestTable'])) {
             $model->destTable = $map['DestTable'];
         }
-
         if (isset($map['ErrorLimitCount'])) {
             $model->errorLimitCount = $map['ErrorLimitCount'];
         }
-
         if (isset($map['FallbackOffset'])) {
             $model->fallbackOffset = $map['FallbackOffset'];
         }
-
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }
-
         if (isset($map['JobConfig'])) {
             $model->jobConfig = $map['JobConfig'];
         }
-
         if (isset($map['JobDescription'])) {
             $model->jobDescription = $map['JobDescription'];
         }
-
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
         }
-
         if (isset($map['MatchColumns'])) {
             if (!empty($map['MatchColumns'])) {
-                $model->matchColumns = [];
-                $n1 = 0;
-                foreach ($map['MatchColumns'] as $item1) {
-                    $model->matchColumns[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->matchColumns = $map['MatchColumns'];
             }
         }
-
         if (isset($map['Password'])) {
             $model->password = $map['Password'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['SrcColumns'])) {
             if (!empty($map['SrcColumns'])) {
-                $model->srcColumns = [];
-                $n1 = 0;
-                foreach ($map['SrcColumns'] as $item1) {
-                    $model->srcColumns[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->srcColumns = $map['SrcColumns'];
             }
         }
-
         if (isset($map['TryRun'])) {
             $model->tryRun = $map['TryRun'];
         }
-
         if (isset($map['UpdateColumns'])) {
             if (!empty($map['UpdateColumns'])) {
-                $model->updateColumns = [];
-                $n1 = 0;
-                foreach ($map['UpdateColumns'] as $item1) {
-                    $model->updateColumns[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->updateColumns = $map['UpdateColumns'];
             }
         }
-
         if (isset($map['WriteMode'])) {
             $model->writeMode = $map['WriteMode'];
         }

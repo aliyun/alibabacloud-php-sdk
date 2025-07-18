@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models\ExecuteStatementResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class records extends Model
 {
@@ -16,24 +16,17 @@ class records extends Model
         'records' => 'Records',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->records)) {
-            Model::validateArray($this->records);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->records) {
-            if (\is_array($this->records)) {
-                $res['Records'] = [];
-                $n1 = 0;
-                foreach ($this->records as $item1) {
-                    $res['Records'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Records'] = [];
+            if (null !== $this->records && \is_array($this->records)) {
+                $n = 0;
+                foreach ($this->records as $item) {
+                    $res['Records'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,21 +34,20 @@ class records extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return records
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Records'])) {
             if (!empty($map['Records'])) {
                 $model->records = [];
-                $n1 = 0;
-                foreach ($map['Records'] as $item1) {
-                    $model->records[$n1] = records\records::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Records'] as $item) {
+                    $model->records[$n++] = null !== $item ? records\records::fromMap($item) : $item;
                 }
             }
         }

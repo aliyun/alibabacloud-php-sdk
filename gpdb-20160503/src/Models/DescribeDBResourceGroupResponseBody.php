@@ -4,17 +4,23 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBResourceGroupResponseBody\resourceGroupItems;
+use AlibabaCloud\Tea\Model;
 
 class DescribeDBResourceGroupResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example ABB39CC3-4488-4857-905D-2E4A051D0521
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The queried resource group information.
+     *
      * @var resourceGroupItems
      */
     public $resourceGroupItems;
@@ -23,40 +29,32 @@ class DescribeDBResourceGroupResponseBody extends Model
         'resourceGroupItems' => 'ResourceGroupItems',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->resourceGroupItems) {
-            $this->resourceGroupItems->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->resourceGroupItems) {
-            $res['ResourceGroupItems'] = null !== $this->resourceGroupItems ? $this->resourceGroupItems->toArray($noStream) : $this->resourceGroupItems;
+            $res['ResourceGroupItems'] = null !== $this->resourceGroupItems ? $this->resourceGroupItems->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeDBResourceGroupResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['ResourceGroupItems'])) {
             $model->resourceGroupItems = resourceGroupItems::fromMap($map['ResourceGroupItems']);
         }

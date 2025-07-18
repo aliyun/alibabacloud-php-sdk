@@ -4,16 +4,22 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetSupabaseProjectDashboardAccountRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example sbp-4ptxp5mp****
+     *
      * @var string
      */
     public $projectId;
 
     /**
+     * @example cn-beijing
+     *
      * @var string
      */
     public $regionId;
@@ -22,18 +28,14 @@ class GetSupabaseProjectDashboardAccountRequest extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -41,18 +43,17 @@ class GetSupabaseProjectDashboardAccountRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetSupabaseProjectDashboardAccountRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

@@ -4,22 +4,35 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeAvailableResourcesResponseBody\resources;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeAvailableResourcesResponseBody\resources\supportedEngines\supportedInstanceClasses;
+use AlibabaCloud\Tea\Model;
 
 class supportedEngines extends Model
 {
     /**
+     * @description The instance resource type. Valid values:
+     *
+     *   **ecs**: elastic storage mode
+     *   **serverless**: Serverless mode
+     *
+     * @example ecs
+     *
      * @var string
      */
     public $mode;
 
     /**
+     * @description The available engine version.
+     *
+     * @example 6.0
+     *
      * @var string
      */
     public $supportedEngineVersion;
 
     /**
+     * @description The available specifications.
+     *
      * @var supportedInstanceClasses[]
      */
     public $supportedInstanceClasses;
@@ -29,32 +42,23 @@ class supportedEngines extends Model
         'supportedInstanceClasses' => 'SupportedInstanceClasses',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->supportedInstanceClasses)) {
-            Model::validateArray($this->supportedInstanceClasses);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->mode) {
             $res['Mode'] = $this->mode;
         }
-
         if (null !== $this->supportedEngineVersion) {
             $res['SupportedEngineVersion'] = $this->supportedEngineVersion;
         }
-
         if (null !== $this->supportedInstanceClasses) {
-            if (\is_array($this->supportedInstanceClasses)) {
-                $res['SupportedInstanceClasses'] = [];
-                $n1 = 0;
-                foreach ($this->supportedInstanceClasses as $item1) {
-                    $res['SupportedInstanceClasses'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['SupportedInstanceClasses'] = [];
+            if (null !== $this->supportedInstanceClasses && \is_array($this->supportedInstanceClasses)) {
+                $n = 0;
+                foreach ($this->supportedInstanceClasses as $item) {
+                    $res['SupportedInstanceClasses'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -62,29 +66,26 @@ class supportedEngines extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return supportedEngines
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Mode'])) {
             $model->mode = $map['Mode'];
         }
-
         if (isset($map['SupportedEngineVersion'])) {
             $model->supportedEngineVersion = $map['SupportedEngineVersion'];
         }
-
         if (isset($map['SupportedInstanceClasses'])) {
             if (!empty($map['SupportedInstanceClasses'])) {
                 $model->supportedInstanceClasses = [];
-                $n1 = 0;
-                foreach ($map['SupportedInstanceClasses'] as $item1) {
-                    $model->supportedInstanceClasses[$n1] = supportedInstanceClasses::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['SupportedInstanceClasses'] as $item) {
+                    $model->supportedInstanceClasses[$n++] = null !== $item ? supportedInstanceClasses::fromMap($item) : $item;
                 }
             }
         }

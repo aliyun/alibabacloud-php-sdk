@@ -4,12 +4,14 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models\QueryContentResponseBody\windowMatches;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\QueryContentResponseBody\windowMatches\windowMatches\windowMatch;
+use AlibabaCloud\Tea\Model;
 
 class windowMatches extends Model
 {
     /**
+     * @description List of individual top windowed matches.
+     *
      * @var windowMatch
      */
     public $windowMatch;
@@ -17,29 +19,23 @@ class windowMatches extends Model
         'windowMatch' => 'WindowMatch',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->windowMatch) {
-            $this->windowMatch->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->windowMatch) {
-            $res['WindowMatch'] = null !== $this->windowMatch ? $this->windowMatch->toArray($noStream) : $this->windowMatch;
+            $res['WindowMatch'] = null !== $this->windowMatch ? $this->windowMatch->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return windowMatches
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

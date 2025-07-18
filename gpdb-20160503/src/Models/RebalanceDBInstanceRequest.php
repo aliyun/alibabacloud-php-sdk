@@ -4,16 +4,30 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class RebalanceDBInstanceRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests.
+     *
+     * The token can be up to 64 characters in length and can contain letters, digits, hyphens (-), and underscores (_).
+     *
+     * For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/134212.html).
+     *
+     * @example 0c593ea1-3bea-11e9-b96b-88**********
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The instance ID.
+     *
+     * This parameter is required.
+     *
+     * @example gp-bp***************
+     *
      * @var string
      */
     public $DBInstanceId;
@@ -22,18 +36,14 @@ class RebalanceDBInstanceRequest extends Model
         'DBInstanceId' => 'DBInstanceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
-
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
@@ -41,18 +51,17 @@ class RebalanceDBInstanceRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return RebalanceDBInstanceRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
-
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
