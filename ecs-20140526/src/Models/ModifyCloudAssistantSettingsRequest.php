@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyCloudAssistantSettingsRequest\agentUpgradeConfig;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyCloudAssistantSettingsRequest\ossDeliveryConfig;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyCloudAssistantSettingsRequest\sessionManagerConfig;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyCloudAssistantSettingsRequest\slsDeliveryConfig;
 use AlibabaCloud\Tea\Model;
 
@@ -57,6 +58,11 @@ class ModifyCloudAssistantSettingsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @var sessionManagerConfig
+     */
+    public $sessionManagerConfig;
+
+    /**
      * @description The Cloud Assistant feature. Valid values:
      *
      *   SessionManagerDelivery: the Session Record Delivery configurations.
@@ -85,6 +91,7 @@ class ModifyCloudAssistantSettingsRequest extends Model
         'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
+        'sessionManagerConfig' => 'SessionManagerConfig',
         'settingType' => 'SettingType',
         'slsDeliveryConfig' => 'SlsDeliveryConfig',
     ];
@@ -114,6 +121,9 @@ class ModifyCloudAssistantSettingsRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->sessionManagerConfig) {
+            $res['SessionManagerConfig'] = null !== $this->sessionManagerConfig ? $this->sessionManagerConfig->toMap() : null;
         }
         if (null !== $this->settingType) {
             $res['SettingType'] = $this->settingType;
@@ -153,6 +163,9 @@ class ModifyCloudAssistantSettingsRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['SessionManagerConfig'])) {
+            $model->sessionManagerConfig = sessionManagerConfig::fromMap($map['SessionManagerConfig']);
         }
         if (isset($map['SettingType'])) {
             $model->settingType = $map['SettingType'];

@@ -54,6 +54,11 @@ class ModifyCloudAssistantSettingsShrinkRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @var string
+     */
+    public $sessionManagerConfigShrink;
+
+    /**
      * @description The Cloud Assistant feature. Valid values:
      *
      *   SessionManagerDelivery: the Session Record Delivery configurations.
@@ -82,6 +87,7 @@ class ModifyCloudAssistantSettingsShrinkRequest extends Model
         'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
+        'sessionManagerConfigShrink' => 'SessionManagerConfig',
         'settingType' => 'SettingType',
         'slsDeliveryConfigShrink' => 'SlsDeliveryConfig',
     ];
@@ -111,6 +117,9 @@ class ModifyCloudAssistantSettingsShrinkRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->sessionManagerConfigShrink) {
+            $res['SessionManagerConfig'] = $this->sessionManagerConfigShrink;
         }
         if (null !== $this->settingType) {
             $res['SettingType'] = $this->settingType;
@@ -150,6 +159,9 @@ class ModifyCloudAssistantSettingsShrinkRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['SessionManagerConfig'])) {
+            $model->sessionManagerConfigShrink = $map['SessionManagerConfig'];
         }
         if (isset($map['SettingType'])) {
             $model->settingType = $map['SettingType'];

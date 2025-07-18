@@ -23068,6 +23068,9 @@ class Ecs extends OpenApiClient
         if (!Utils::isUnset($tmpReq->ossDeliveryConfig)) {
             $request->ossDeliveryConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ossDeliveryConfig, 'OssDeliveryConfig', 'json');
         }
+        if (!Utils::isUnset($tmpReq->sessionManagerConfig)) {
+            $request->sessionManagerConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sessionManagerConfig, 'SessionManagerConfig', 'json');
+        }
         if (!Utils::isUnset($tmpReq->slsDeliveryConfig)) {
             $request->slsDeliveryConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->slsDeliveryConfig, 'SlsDeliveryConfig', 'json');
         }
@@ -23092,6 +23095,9 @@ class Ecs extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->sessionManagerConfigShrink)) {
+            $query['SessionManagerConfig'] = $request->sessionManagerConfigShrink;
         }
         if (!Utils::isUnset($request->settingType)) {
             $query['SettingType'] = $request->settingType;
