@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models\CreateWmEmbedTaskRequest\documentControl\backgroundControl;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class bgInvisibleControl extends Model
 {
     /**
+     * @example 10
+     *
      * @var int
      */
     public $opacity;
@@ -16,12 +18,9 @@ class bgInvisibleControl extends Model
         'opacity' => 'Opacity',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->opacity) {
@@ -31,11 +30,11 @@ class bgInvisibleControl extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return bgInvisibleControl
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

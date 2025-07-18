@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetWmExtractTaskRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example wmt-9648c22d2eb2cb57bb855dcae7898464********
+     *
      * @var string
      */
     public $taskId;
@@ -16,12 +20,9 @@ class GetWmExtractTaskRequest extends Model
         'taskId' => 'TaskId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->taskId) {
@@ -31,11 +32,11 @@ class GetWmExtractTaskRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetWmExtractTaskRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

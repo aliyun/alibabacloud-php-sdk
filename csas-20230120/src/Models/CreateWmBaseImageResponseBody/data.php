@@ -4,21 +4,27 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models\CreateWmBaseImageResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @example fafb432cdede9b20640e12105845386e-496883833-8242409229217337*****
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @example https://example.com/test-*****.png
+     *
      * @var string
      */
     public $imageUrl;
 
     /**
+     * @example 17185*****
+     *
      * @var int
      */
     public $imageUrlExp;
@@ -28,22 +34,17 @@ class data extends Model
         'imageUrlExp' => 'ImageUrlExp',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
         }
-
         if (null !== $this->imageUrl) {
             $res['ImageUrl'] = $this->imageUrl;
         }
-
         if (null !== $this->imageUrlExp) {
             $res['ImageUrlExp'] = $this->imageUrlExp;
         }
@@ -51,22 +52,20 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
         }
-
         if (isset($map['ImageUrl'])) {
             $model->imageUrl = $map['ImageUrl'];
         }
-
         if (isset($map['ImageUrlExp'])) {
             $model->imageUrlExp = $map['ImageUrlExp'];
         }

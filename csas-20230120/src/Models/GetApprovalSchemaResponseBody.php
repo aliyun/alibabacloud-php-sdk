@@ -4,12 +4,14 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetApprovalSchemaResponseBody\schema;
+use AlibabaCloud\Tea\Model;
 
 class GetApprovalSchemaResponseBody extends Model
 {
     /**
+     * @example EFE7EBB2-449D-5BBB-B381-CA7839BC1649
+     *
      * @var string
      */
     public $requestId;
@@ -23,40 +25,32 @@ class GetApprovalSchemaResponseBody extends Model
         'schema' => 'Schema',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->schema) {
-            $this->schema->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->schema) {
-            $res['Schema'] = null !== $this->schema ? $this->schema->toArray($noStream) : $this->schema;
+            $res['Schema'] = null !== $this->schema ? $this->schema->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetApprovalSchemaResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['Schema'])) {
             $model->schema = schema::fromMap($map['Schema']);
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models\ListPolicesForPrivateAccessTagResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListPolicesForPrivateAccessTagResponseBody\tags\polices;
+use AlibabaCloud\Tea\Model;
 
 class tags extends Model
 {
@@ -15,6 +15,8 @@ class tags extends Model
     public $polices;
 
     /**
+     * @example tag-b927baf3e592****
+     *
      * @var string
      */
     public $tagId;
@@ -23,28 +25,20 @@ class tags extends Model
         'tagId' => 'TagId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->polices)) {
-            Model::validateArray($this->polices);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->polices) {
-            if (\is_array($this->polices)) {
-                $res['Polices'] = [];
-                $n1 = 0;
-                foreach ($this->polices as $item1) {
-                    $res['Polices'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Polices'] = [];
+            if (null !== $this->polices && \is_array($this->polices)) {
+                $n = 0;
+                foreach ($this->polices as $item) {
+                    $res['Polices'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->tagId) {
             $res['TagId'] = $this->tagId;
         }
@@ -52,25 +46,23 @@ class tags extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return tags
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Polices'])) {
             if (!empty($map['Polices'])) {
                 $model->polices = [];
-                $n1 = 0;
-                foreach ($map['Polices'] as $item1) {
-                    $model->polices[$n1] = polices::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Polices'] as $item) {
+                    $model->polices[$n++] = null !== $item ? polices::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['TagId'])) {
             $model->tagId = $map['TagId'];
         }

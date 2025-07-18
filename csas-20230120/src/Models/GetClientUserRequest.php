@@ -4,16 +4,22 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetClientUserRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 598
+     *
      * @var string
      */
     public $idpConfigId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $username;
@@ -22,18 +28,14 @@ class GetClientUserRequest extends Model
         'username' => 'Username',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->idpConfigId) {
             $res['IdpConfigId'] = $this->idpConfigId;
         }
-
         if (null !== $this->username) {
             $res['Username'] = $this->username;
         }
@@ -41,18 +43,17 @@ class GetClientUserRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetClientUserRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IdpConfigId'])) {
             $model->idpConfigId = $map['IdpConfigId'];
         }
-
         if (isset($map['Username'])) {
             $model->username = $map['Username'];
         }

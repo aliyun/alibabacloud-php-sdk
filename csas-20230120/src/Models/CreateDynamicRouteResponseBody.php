@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateDynamicRouteResponseBody extends Model
 {
     /**
+     * @example dr-ca9fddfac7c6****
+     *
      * @var string
      */
     public $dynamicRouteId;
 
     /**
+     * @example 102350E7-1A20-58F5-9D63-ABEA820AE6E1
+     *
      * @var string
      */
     public $requestId;
@@ -22,18 +26,14 @@ class CreateDynamicRouteResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dynamicRouteId) {
             $res['DynamicRouteId'] = $this->dynamicRouteId;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -41,18 +41,17 @@ class CreateDynamicRouteResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateDynamicRouteResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DynamicRouteId'])) {
             $model->dynamicRouteId = $map['DynamicRouteId'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

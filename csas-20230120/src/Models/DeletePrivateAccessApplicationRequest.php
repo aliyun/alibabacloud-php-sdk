@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeletePrivateAccessApplicationRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example pa-application-e12860ef6c48****
+     *
      * @var string
      */
     public $applicationId;
@@ -16,12 +20,9 @@ class DeletePrivateAccessApplicationRequest extends Model
         'applicationId' => 'ApplicationId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->applicationId) {
@@ -31,11 +32,11 @@ class DeletePrivateAccessApplicationRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeletePrivateAccessApplicationRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

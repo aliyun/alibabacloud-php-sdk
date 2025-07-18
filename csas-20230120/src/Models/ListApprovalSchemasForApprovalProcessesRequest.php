@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListApprovalSchemasForApprovalProcessesRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $processIds;
@@ -16,47 +18,29 @@ class ListApprovalSchemasForApprovalProcessesRequest extends Model
         'processIds' => 'ProcessIds',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->processIds)) {
-            Model::validateArray($this->processIds);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->processIds) {
-            if (\is_array($this->processIds)) {
-                $res['ProcessIds'] = [];
-                $n1 = 0;
-                foreach ($this->processIds as $item1) {
-                    $res['ProcessIds'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['ProcessIds'] = $this->processIds;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListApprovalSchemasForApprovalProcessesRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ProcessIds'])) {
             if (!empty($map['ProcessIds'])) {
-                $model->processIds = [];
-                $n1 = 0;
-                foreach ($map['ProcessIds'] as $item1) {
-                    $model->processIds[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->processIds = $map['ProcessIds'];
             }
         }
 

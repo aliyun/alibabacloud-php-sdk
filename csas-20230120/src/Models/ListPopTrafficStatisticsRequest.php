@@ -4,21 +4,27 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListPopTrafficStatisticsRequest extends Model
 {
     /**
+     * @example 1681293719
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @example 1681035708
+     *
      * @var string
      */
     public $startTime;
@@ -28,22 +34,17 @@ class ListPopTrafficStatisticsRequest extends Model
         'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
-
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
-
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -51,22 +52,20 @@ class ListPopTrafficStatisticsRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListPopTrafficStatisticsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
-
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }
-
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }

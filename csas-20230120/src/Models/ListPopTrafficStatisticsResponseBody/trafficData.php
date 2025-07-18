@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models\ListPopTrafficStatisticsResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListPopTrafficStatisticsResponseBody\trafficData\datapoints;
+use AlibabaCloud\Tea\Model;
 
 class trafficData extends Model
 {
@@ -15,6 +15,8 @@ class trafficData extends Model
     public $datapoints;
 
     /**
+     * @example InternetTx
+     *
      * @var string
      */
     public $metricName;
@@ -23,28 +25,20 @@ class trafficData extends Model
         'metricName' => 'MetricName',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->datapoints)) {
-            Model::validateArray($this->datapoints);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->datapoints) {
-            if (\is_array($this->datapoints)) {
-                $res['Datapoints'] = [];
-                $n1 = 0;
-                foreach ($this->datapoints as $item1) {
-                    $res['Datapoints'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Datapoints'] = [];
+            if (null !== $this->datapoints && \is_array($this->datapoints)) {
+                $n = 0;
+                foreach ($this->datapoints as $item) {
+                    $res['Datapoints'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->metricName) {
             $res['MetricName'] = $this->metricName;
         }
@@ -52,25 +46,23 @@ class trafficData extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return trafficData
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Datapoints'])) {
             if (!empty($map['Datapoints'])) {
                 $model->datapoints = [];
-                $n1 = 0;
-                foreach ($map['Datapoints'] as $item1) {
-                    $model->datapoints[$n1] = datapoints::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Datapoints'] as $item) {
+                    $model->datapoints[$n++] = null !== $item ? datapoints::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['MetricName'])) {
             $model->metricName = $map['MetricName'];
         }

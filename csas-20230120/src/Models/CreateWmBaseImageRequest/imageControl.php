@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models\CreateWmBaseImageRequest;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateWmBaseImageRequest\imageControl\logoVisibleControl;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateWmBaseImageRequest\imageControl\textVisibleControl;
+use AlibabaCloud\Tea\Model;
 
 class imageControl extends Model
 {
@@ -24,43 +24,32 @@ class imageControl extends Model
         'textVisibleControl' => 'TextVisibleControl',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->logoVisibleControl) {
-            $this->logoVisibleControl->validate();
-        }
-        if (null !== $this->textVisibleControl) {
-            $this->textVisibleControl->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->logoVisibleControl) {
-            $res['LogoVisibleControl'] = null !== $this->logoVisibleControl ? $this->logoVisibleControl->toArray($noStream) : $this->logoVisibleControl;
+            $res['LogoVisibleControl'] = null !== $this->logoVisibleControl ? $this->logoVisibleControl->toMap() : null;
         }
-
         if (null !== $this->textVisibleControl) {
-            $res['TextVisibleControl'] = null !== $this->textVisibleControl ? $this->textVisibleControl->toArray($noStream) : $this->textVisibleControl;
+            $res['TextVisibleControl'] = null !== $this->textVisibleControl ? $this->textVisibleControl->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return imageControl
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LogoVisibleControl'])) {
             $model->logoVisibleControl = logoVisibleControl::fromMap($map['LogoVisibleControl']);
         }
-
         if (isset($map['TextVisibleControl'])) {
             $model->textVisibleControl = textVisibleControl::fromMap($map['TextVisibleControl']);
         }

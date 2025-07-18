@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetRegistrationPolicyRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example reg-policy-dcbfd33cb004****
+     *
      * @var string
      */
     public $policyId;
@@ -16,12 +20,9 @@ class GetRegistrationPolicyRequest extends Model
         'policyId' => 'PolicyId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->policyId) {
@@ -31,11 +32,11 @@ class GetRegistrationPolicyRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetRegistrationPolicyRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteEnterpriseAccelerateTargetResponseBody extends Model
 {
     /**
+     * @example 655CE28F-2C0C-5801-A31E-C16BF54BD225
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +18,9 @@ class DeleteEnterpriseAccelerateTargetResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +30,11 @@ class DeleteEnterpriseAccelerateTargetResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteEnterpriseAccelerateTargetResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

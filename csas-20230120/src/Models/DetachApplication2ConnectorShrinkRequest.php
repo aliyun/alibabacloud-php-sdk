@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DetachApplication2ConnectorShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $applicationIdsShrink;
 
     /**
+     * @description ConnectorID。
+     *
+     * This parameter is required.
+     *
+     * @example connector-94db94e06b98****
+     *
      * @var string
      */
     public $connectorId;
@@ -22,18 +30,14 @@ class DetachApplication2ConnectorShrinkRequest extends Model
         'connectorId' => 'ConnectorId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->applicationIdsShrink) {
             $res['ApplicationIds'] = $this->applicationIdsShrink;
         }
-
         if (null !== $this->connectorId) {
             $res['ConnectorId'] = $this->connectorId;
         }
@@ -41,18 +45,17 @@ class DetachApplication2ConnectorShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DetachApplication2ConnectorShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApplicationIds'])) {
             $model->applicationIdsShrink = $map['ApplicationIds'];
         }
-
         if (isset($map['ConnectorId'])) {
             $model->connectorId = $map['ConnectorId'];
         }

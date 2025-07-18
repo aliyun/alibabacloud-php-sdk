@@ -4,7 +4,6 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Csas\V20230120\Models\PAL7Config\bypassConfig;
 use AlibabaCloud\SDK\Csas\V20230120\Models\PAL7Config\dnsConfig;
 use AlibabaCloud\SDK\Csas\V20230120\Models\PAL7Config\jsHookConfig;
@@ -12,6 +11,7 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\PAL7Config\requestHeaderRewriteConfig
 use AlibabaCloud\SDK\Csas\V20230120\Models\PAL7Config\requestQueryRewriteConfig;
 use AlibabaCloud\SDK\Csas\V20230120\Models\PAL7Config\responseHeaderRewriteConfig;
 use AlibabaCloud\SDK\Csas\V20230120\Models\PAL7Config\responseRewriteConfig;
+use AlibabaCloud\Tea\Model;
 
 class PAL7Config extends Model
 {
@@ -36,6 +36,8 @@ class PAL7Config extends Model
     public $jsHookConfig;
 
     /**
+     * @example 逗号分隔的枚举值：automatic,custom
+     *
      * @var int[]
      */
     public $proxyDomainTypes;
@@ -71,114 +73,74 @@ class PAL7Config extends Model
         'responseRewriteConfig' => 'ResponseRewriteConfig',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->bypassConfig) {
-            $this->bypassConfig->validate();
-        }
-        if (null !== $this->dnsConfig) {
-            $this->dnsConfig->validate();
-        }
-        if (null !== $this->jsHookConfig) {
-            $this->jsHookConfig->validate();
-        }
-        if (null !== $this->requestHeaderRewriteConfig) {
-            $this->requestHeaderRewriteConfig->validate();
-        }
-        if (null !== $this->requestQueryRewriteConfig) {
-            $this->requestQueryRewriteConfig->validate();
-        }
-        if (null !== $this->responseHeaderRewriteConfig) {
-            $this->responseHeaderRewriteConfig->validate();
-        }
-        if (null !== $this->responseRewriteConfig) {
-            $this->responseRewriteConfig->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->bypassConfig) {
-            $res['BypassConfig'] = null !== $this->bypassConfig ? $this->bypassConfig->toArray($noStream) : $this->bypassConfig;
+            $res['BypassConfig'] = null !== $this->bypassConfig ? $this->bypassConfig->toMap() : null;
         }
-
         if (null !== $this->certId) {
             $res['CertId'] = $this->certId;
         }
-
         if (null !== $this->dnsConfig) {
-            $res['DnsConfig'] = null !== $this->dnsConfig ? $this->dnsConfig->toArray($noStream) : $this->dnsConfig;
+            $res['DnsConfig'] = null !== $this->dnsConfig ? $this->dnsConfig->toMap() : null;
         }
-
         if (null !== $this->jsHookConfig) {
-            $res['JsHookConfig'] = null !== $this->jsHookConfig ? $this->jsHookConfig->toArray($noStream) : $this->jsHookConfig;
+            $res['JsHookConfig'] = null !== $this->jsHookConfig ? $this->jsHookConfig->toMap() : null;
         }
-
         if (null !== $this->proxyDomainTypes) {
             $res['ProxyDomainTypes'] = $this->proxyDomainTypes;
         }
-
         if (null !== $this->requestHeaderRewriteConfig) {
-            $res['RequestHeaderRewriteConfig'] = null !== $this->requestHeaderRewriteConfig ? $this->requestHeaderRewriteConfig->toArray($noStream) : $this->requestHeaderRewriteConfig;
+            $res['RequestHeaderRewriteConfig'] = null !== $this->requestHeaderRewriteConfig ? $this->requestHeaderRewriteConfig->toMap() : null;
         }
-
         if (null !== $this->requestQueryRewriteConfig) {
-            $res['RequestQueryRewriteConfig'] = null !== $this->requestQueryRewriteConfig ? $this->requestQueryRewriteConfig->toArray($noStream) : $this->requestQueryRewriteConfig;
+            $res['RequestQueryRewriteConfig'] = null !== $this->requestQueryRewriteConfig ? $this->requestQueryRewriteConfig->toMap() : null;
         }
-
         if (null !== $this->responseHeaderRewriteConfig) {
-            $res['ResponseHeaderRewriteConfig'] = null !== $this->responseHeaderRewriteConfig ? $this->responseHeaderRewriteConfig->toArray($noStream) : $this->responseHeaderRewriteConfig;
+            $res['ResponseHeaderRewriteConfig'] = null !== $this->responseHeaderRewriteConfig ? $this->responseHeaderRewriteConfig->toMap() : null;
         }
-
         if (null !== $this->responseRewriteConfig) {
-            $res['ResponseRewriteConfig'] = null !== $this->responseRewriteConfig ? $this->responseRewriteConfig->toArray($noStream) : $this->responseRewriteConfig;
+            $res['ResponseRewriteConfig'] = null !== $this->responseRewriteConfig ? $this->responseRewriteConfig->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return PAL7Config
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BypassConfig'])) {
             $model->bypassConfig = bypassConfig::fromMap($map['BypassConfig']);
         }
-
         if (isset($map['CertId'])) {
             $model->certId = $map['CertId'];
         }
-
         if (isset($map['DnsConfig'])) {
             $model->dnsConfig = dnsConfig::fromMap($map['DnsConfig']);
         }
-
         if (isset($map['JsHookConfig'])) {
             $model->jsHookConfig = jsHookConfig::fromMap($map['JsHookConfig']);
         }
-
         if (isset($map['ProxyDomainTypes'])) {
             $model->proxyDomainTypes = $map['ProxyDomainTypes'];
         }
-
         if (isset($map['RequestHeaderRewriteConfig'])) {
             $model->requestHeaderRewriteConfig = requestHeaderRewriteConfig::fromMap($map['RequestHeaderRewriteConfig']);
         }
-
         if (isset($map['RequestQueryRewriteConfig'])) {
             $model->requestQueryRewriteConfig = requestQueryRewriteConfig::fromMap($map['RequestQueryRewriteConfig']);
         }
-
         if (isset($map['ResponseHeaderRewriteConfig'])) {
             $model->responseHeaderRewriteConfig = responseHeaderRewriteConfig::fromMap($map['ResponseHeaderRewriteConfig']);
         }
-
         if (isset($map['ResponseRewriteConfig'])) {
             $model->responseRewriteConfig = responseRewriteConfig::fromMap($map['ResponseRewriteConfig']);
         }

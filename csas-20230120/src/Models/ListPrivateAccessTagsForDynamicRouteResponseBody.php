@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListPrivateAccessTagsForDynamicRouteResponseBody\dynamicRoutes;
+use AlibabaCloud\Tea\Model;
 
 class ListPrivateAccessTagsForDynamicRouteResponseBody extends Model
 {
@@ -15,6 +15,8 @@ class ListPrivateAccessTagsForDynamicRouteResponseBody extends Model
     public $dynamicRoutes;
 
     /**
+     * @example B608C6AE-623D-55C4-9454-601B88AE937E
+     *
      * @var string
      */
     public $requestId;
@@ -23,28 +25,20 @@ class ListPrivateAccessTagsForDynamicRouteResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->dynamicRoutes)) {
-            Model::validateArray($this->dynamicRoutes);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dynamicRoutes) {
-            if (\is_array($this->dynamicRoutes)) {
-                $res['DynamicRoutes'] = [];
-                $n1 = 0;
-                foreach ($this->dynamicRoutes as $item1) {
-                    $res['DynamicRoutes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['DynamicRoutes'] = [];
+            if (null !== $this->dynamicRoutes && \is_array($this->dynamicRoutes)) {
+                $n = 0;
+                foreach ($this->dynamicRoutes as $item) {
+                    $res['DynamicRoutes'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,25 +46,23 @@ class ListPrivateAccessTagsForDynamicRouteResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListPrivateAccessTagsForDynamicRouteResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DynamicRoutes'])) {
             if (!empty($map['DynamicRoutes'])) {
                 $model->dynamicRoutes = [];
-                $n1 = 0;
-                foreach ($map['DynamicRoutes'] as $item1) {
-                    $model->dynamicRoutes[$n1] = dynamicRoutes::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['DynamicRoutes'] as $item) {
+                    $model->dynamicRoutes[$n++] = null !== $item ? dynamicRoutes::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

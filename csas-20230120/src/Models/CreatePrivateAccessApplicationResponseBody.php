@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreatePrivateAccessApplicationResponseBody extends Model
 {
     /**
+     * @description The ID of the office application.
+     *
+     * @example pa-application-e12860ef6c48****
+     *
      * @var string
      */
     public $applicationId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example BE4FB974-11BC-5453-9BE1-1606A73EACA6
+     *
      * @var string
      */
     public $requestId;
@@ -22,18 +30,14 @@ class CreatePrivateAccessApplicationResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->applicationId) {
             $res['ApplicationId'] = $this->applicationId;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -41,18 +45,17 @@ class CreatePrivateAccessApplicationResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreatePrivateAccessApplicationResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApplicationId'])) {
             $model->applicationId = $map['ApplicationId'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

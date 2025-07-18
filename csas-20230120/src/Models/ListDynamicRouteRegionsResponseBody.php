@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListDynamicRouteRegionsResponseBody extends Model
 {
@@ -14,11 +14,15 @@ class ListDynamicRouteRegionsResponseBody extends Model
     public $regions;
 
     /**
+     * @example 58D6B23E-E5DA-5418-8F61-51A3B5A30049
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalNum;
@@ -28,32 +32,17 @@ class ListDynamicRouteRegionsResponseBody extends Model
         'totalNum' => 'TotalNum',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->regions)) {
-            Model::validateArray($this->regions);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->regions) {
-            if (\is_array($this->regions)) {
-                $res['Regions'] = [];
-                $n1 = 0;
-                foreach ($this->regions as $item1) {
-                    $res['Regions'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['Regions'] = $this->regions;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->totalNum) {
             $res['TotalNum'] = $this->totalNum;
         }
@@ -61,29 +50,22 @@ class ListDynamicRouteRegionsResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListDynamicRouteRegionsResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Regions'])) {
             if (!empty($map['Regions'])) {
-                $model->regions = [];
-                $n1 = 0;
-                foreach ($map['Regions'] as $item1) {
-                    $model->regions[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->regions = $map['Regions'];
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['TotalNum'])) {
             $model->totalNum = $map['TotalNum'];
         }

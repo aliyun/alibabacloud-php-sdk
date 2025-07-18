@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateRegistrationPolicyResponseBody\policy;
+use AlibabaCloud\Tea\Model;
 
 class UpdateRegistrationPolicyResponseBody extends Model
 {
@@ -15,6 +15,8 @@ class UpdateRegistrationPolicyResponseBody extends Model
     public $policy;
 
     /**
+     * @example 27064ECA-0936-59F3-8A98-EC821E5BD08F
+     *
      * @var string
      */
     public $requestId;
@@ -23,21 +25,14 @@ class UpdateRegistrationPolicyResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->policy) {
-            $this->policy->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->policy) {
-            $res['Policy'] = null !== $this->policy ? $this->policy->toArray($noStream) : $this->policy;
+            $res['Policy'] = null !== $this->policy ? $this->policy->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,18 +40,17 @@ class UpdateRegistrationPolicyResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateRegistrationPolicyResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Policy'])) {
             $model->policy = policy::fromMap($map['Policy']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateUserDevicesStatusResponseBody\devices;
+use AlibabaCloud\Tea\Model;
 
 class UpdateUserDevicesStatusResponseBody extends Model
 {
@@ -15,6 +15,8 @@ class UpdateUserDevicesStatusResponseBody extends Model
     public $devices;
 
     /**
+     * @example 5FEF5CFA-14CC-5DE5-BD1F-AFFE0996E71D
+     *
      * @var string
      */
     public $requestId;
@@ -23,28 +25,20 @@ class UpdateUserDevicesStatusResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->devices)) {
-            Model::validateArray($this->devices);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->devices) {
-            if (\is_array($this->devices)) {
-                $res['Devices'] = [];
-                $n1 = 0;
-                foreach ($this->devices as $item1) {
-                    $res['Devices'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Devices'] = [];
+            if (null !== $this->devices && \is_array($this->devices)) {
+                $n = 0;
+                foreach ($this->devices as $item) {
+                    $res['Devices'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,25 +46,23 @@ class UpdateUserDevicesStatusResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateUserDevicesStatusResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Devices'])) {
             if (!empty($map['Devices'])) {
                 $model->devices = [];
-                $n1 = 0;
-                foreach ($map['Devices'] as $item1) {
-                    $model->devices[$n1] = devices::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Devices'] as $item) {
+                    $model->devices[$n++] = null !== $item ? devices::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

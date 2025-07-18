@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ImportEnterpriseAccelerateTargetsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example eap-6457339b546c4cfb
+     *
      * @var string
      */
     public $eapId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example https://filename.xlsx
+     *
      * @var string
      */
     public $fileUrl;
@@ -22,18 +30,14 @@ class ImportEnterpriseAccelerateTargetsRequest extends Model
         'fileUrl' => 'FileUrl',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->eapId) {
             $res['EapId'] = $this->eapId;
         }
-
         if (null !== $this->fileUrl) {
             $res['FileUrl'] = $this->fileUrl;
         }
@@ -41,18 +45,17 @@ class ImportEnterpriseAccelerateTargetsRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ImportEnterpriseAccelerateTargetsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EapId'])) {
             $model->eapId = $map['EapId'];
         }
-
         if (isset($map['FileUrl'])) {
             $model->fileUrl = $map['FileUrl'];
         }

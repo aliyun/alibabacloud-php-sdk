@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteEnterpriseAcceleratePolicyRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example eap-6edfb9d722ef8429
+     *
      * @var string
      */
     public $eapId;
@@ -16,12 +20,9 @@ class DeleteEnterpriseAcceleratePolicyRequest extends Model
         'eapId' => 'EapId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->eapId) {
@@ -31,11 +32,11 @@ class DeleteEnterpriseAcceleratePolicyRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteEnterpriseAcceleratePolicyRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

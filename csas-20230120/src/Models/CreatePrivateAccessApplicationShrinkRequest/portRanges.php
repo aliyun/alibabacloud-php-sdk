@@ -4,16 +4,28 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models\CreatePrivateAccessApplicationShrinkRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class portRanges extends Model
 {
     /**
+     * @description The start port. The start port must be less than or equal to the end port.
+     *
+     * This parameter is required.
+     *
+     * @example 80
+     *
      * @var int
      */
     public $begin;
 
     /**
+     * @description The end port. The end port must be greater than or equal to the start port.
+     *
+     * This parameter is required.
+     *
+     * @example 81
+     *
      * @var int
      */
     public $end;
@@ -22,18 +34,14 @@ class portRanges extends Model
         'end' => 'End',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->begin) {
             $res['Begin'] = $this->begin;
         }
-
         if (null !== $this->end) {
             $res['End'] = $this->end;
         }
@@ -41,18 +49,17 @@ class portRanges extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return portRanges
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Begin'])) {
             $model->begin = $map['Begin'];
         }
-
         if (isset($map['End'])) {
             $model->end = $map['End'];
         }

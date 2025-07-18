@@ -4,21 +4,31 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class LookupWmInfoMappingRequest extends Model
 {
     /**
+     * @example 32
+     *
      * @var int
      */
     public $wmInfoSize;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 123***
+     *
      * @var string
      */
     public $wmInfoUint;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example PureDocument
+     *
      * @var string
      */
     public $wmType;
@@ -28,22 +38,17 @@ class LookupWmInfoMappingRequest extends Model
         'wmType' => 'WmType',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->wmInfoSize) {
             $res['WmInfoSize'] = $this->wmInfoSize;
         }
-
         if (null !== $this->wmInfoUint) {
             $res['WmInfoUint'] = $this->wmInfoUint;
         }
-
         if (null !== $this->wmType) {
             $res['WmType'] = $this->wmType;
         }
@@ -51,22 +56,20 @@ class LookupWmInfoMappingRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return LookupWmInfoMappingRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['WmInfoSize'])) {
             $model->wmInfoSize = $map['WmInfoSize'];
         }
-
         if (isset($map['WmInfoUint'])) {
             $model->wmInfoUint = $map['WmInfoUint'];
         }
-
         if (isset($map['WmType'])) {
             $model->wmType = $map['WmType'];
         }

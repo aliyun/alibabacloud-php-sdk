@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListEnterpriseAccelerateTargetsResponseBody extends Model
 {
     /**
+     * @example eap-7fed37a757a0de24
+     *
      * @var string
      */
     public $eapId;
 
     /**
+     * @example 529F755E-2E75-52EC-9C2E-6293FB8BF986
+     *
      * @var string
      */
     public $requestId;
@@ -24,6 +28,8 @@ class ListEnterpriseAccelerateTargetsResponseBody extends Model
     public $targets;
 
     /**
+     * @example 103
+     *
      * @var int
      */
     public $total;
@@ -34,36 +40,20 @@ class ListEnterpriseAccelerateTargetsResponseBody extends Model
         'total' => 'Total',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->targets)) {
-            Model::validateArray($this->targets);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->eapId) {
             $res['EapId'] = $this->eapId;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->targets) {
-            if (\is_array($this->targets)) {
-                $res['Targets'] = [];
-                $n1 = 0;
-                foreach ($this->targets as $item1) {
-                    $res['Targets'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['Targets'] = $this->targets;
         }
-
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
@@ -71,33 +61,25 @@ class ListEnterpriseAccelerateTargetsResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListEnterpriseAccelerateTargetsResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EapId'])) {
             $model->eapId = $map['EapId'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['Targets'])) {
             if (!empty($map['Targets'])) {
-                $model->targets = [];
-                $n1 = 0;
-                foreach ($map['Targets'] as $item1) {
-                    $model->targets[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->targets = $map['Targets'];
             }
         }
-
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }

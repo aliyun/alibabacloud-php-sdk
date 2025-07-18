@@ -4,16 +4,22 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateIdpDepartmentRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $departmentName;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 1222
+     *
      * @var string
      */
     public $idpConfigId;
@@ -22,18 +28,14 @@ class CreateIdpDepartmentRequest extends Model
         'idpConfigId' => 'IdpConfigId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->departmentName) {
             $res['DepartmentName'] = $this->departmentName;
         }
-
         if (null !== $this->idpConfigId) {
             $res['IdpConfigId'] = $this->idpConfigId;
         }
@@ -41,18 +43,17 @@ class CreateIdpDepartmentRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateIdpDepartmentRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DepartmentName'])) {
             $model->departmentName = $map['DepartmentName'];
         }
-
         if (isset($map['IdpConfigId'])) {
             $model->idpConfigId = $map['IdpConfigId'];
         }

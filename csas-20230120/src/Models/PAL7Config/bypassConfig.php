@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models\PAL7Config;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Csas\V20230120\Models\PAL7Config\bypassConfig\urlBypassRules;
+use AlibabaCloud\Tea\Model;
 
 class bypassConfig extends Model
 {
@@ -29,42 +29,23 @@ class bypassConfig extends Model
         'urlBypassRules' => 'UrlBypassRules',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->appBypassFroms)) {
-            Model::validateArray($this->appBypassFroms);
-        }
-        if (\is_array($this->urlBypassRules)) {
-            Model::validateArray($this->urlBypassRules);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appBypassFroms) {
-            if (\is_array($this->appBypassFroms)) {
-                $res['AppBypassFroms'] = [];
-                $n1 = 0;
-                foreach ($this->appBypassFroms as $item1) {
-                    $res['AppBypassFroms'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['AppBypassFroms'] = $this->appBypassFroms;
         }
-
         if (null !== $this->mode) {
             $res['Mode'] = $this->mode;
         }
-
         if (null !== $this->urlBypassRules) {
-            if (\is_array($this->urlBypassRules)) {
-                $res['UrlBypassRules'] = [];
-                $n1 = 0;
-                foreach ($this->urlBypassRules as $item1) {
-                    $res['UrlBypassRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['UrlBypassRules'] = [];
+            if (null !== $this->urlBypassRules && \is_array($this->urlBypassRules)) {
+                $n = 0;
+                foreach ($this->urlBypassRules as $item) {
+                    $res['UrlBypassRules'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -72,36 +53,28 @@ class bypassConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return bypassConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppBypassFroms'])) {
             if (!empty($map['AppBypassFroms'])) {
-                $model->appBypassFroms = [];
-                $n1 = 0;
-                foreach ($map['AppBypassFroms'] as $item1) {
-                    $model->appBypassFroms[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->appBypassFroms = $map['AppBypassFroms'];
             }
         }
-
         if (isset($map['Mode'])) {
             $model->mode = $map['Mode'];
         }
-
         if (isset($map['UrlBypassRules'])) {
             if (!empty($map['UrlBypassRules'])) {
                 $model->urlBypassRules = [];
-                $n1 = 0;
-                foreach ($map['UrlBypassRules'] as $item1) {
-                    $model->urlBypassRules[$n1] = urlBypassRules::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['UrlBypassRules'] as $item) {
+                    $model->urlBypassRules[$n++] = null !== $item ? urlBypassRules::fromMap($item) : $item;
                 }
             }
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListRegistrationPoliciesResponseBody\policies;
+use AlibabaCloud\Tea\Model;
 
 class ListRegistrationPoliciesResponseBody extends Model
 {
@@ -15,11 +15,15 @@ class ListRegistrationPoliciesResponseBody extends Model
     public $policies;
 
     /**
+     * @example 7A8FE38A-E29C-5678-B84A-FEDBCB83552F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $totalNum;
@@ -29,32 +33,23 @@ class ListRegistrationPoliciesResponseBody extends Model
         'totalNum' => 'TotalNum',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->policies)) {
-            Model::validateArray($this->policies);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->policies) {
-            if (\is_array($this->policies)) {
-                $res['Policies'] = [];
-                $n1 = 0;
-                foreach ($this->policies as $item1) {
-                    $res['Policies'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Policies'] = [];
+            if (null !== $this->policies && \is_array($this->policies)) {
+                $n = 0;
+                foreach ($this->policies as $item) {
+                    $res['Policies'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->totalNum) {
             $res['TotalNum'] = $this->totalNum;
         }
@@ -62,29 +57,26 @@ class ListRegistrationPoliciesResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListRegistrationPoliciesResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Policies'])) {
             if (!empty($map['Policies'])) {
                 $model->policies = [];
-                $n1 = 0;
-                foreach ($map['Policies'] as $item1) {
-                    $model->policies[$n1] = policies::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Policies'] as $item) {
+                    $model->policies[$n++] = null !== $item ? policies::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['TotalNum'])) {
             $model->totalNum = $map['TotalNum'];
         }

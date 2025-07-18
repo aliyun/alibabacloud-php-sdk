@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListApprovalSchemasForApprovalProcessesResponseBody\processes;
+use AlibabaCloud\Tea\Model;
 
 class ListApprovalSchemasForApprovalProcessesResponseBody extends Model
 {
@@ -15,6 +15,8 @@ class ListApprovalSchemasForApprovalProcessesResponseBody extends Model
     public $processes;
 
     /**
+     * @example 58D6B23E-E5DA-5418-8F61-51A3B5A30049
+     *
      * @var string
      */
     public $requestId;
@@ -23,28 +25,20 @@ class ListApprovalSchemasForApprovalProcessesResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->processes)) {
-            Model::validateArray($this->processes);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->processes) {
-            if (\is_array($this->processes)) {
-                $res['Processes'] = [];
-                $n1 = 0;
-                foreach ($this->processes as $item1) {
-                    $res['Processes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Processes'] = [];
+            if (null !== $this->processes && \is_array($this->processes)) {
+                $n = 0;
+                foreach ($this->processes as $item) {
+                    $res['Processes'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,25 +46,23 @@ class ListApprovalSchemasForApprovalProcessesResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListApprovalSchemasForApprovalProcessesResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Processes'])) {
             if (!empty($map['Processes'])) {
                 $model->processes = [];
-                $n1 = 0;
-                foreach ($map['Processes'] as $item1) {
-                    $model->processes[$n1] = processes::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Processes'] as $item) {
+                    $model->processes[$n++] = null !== $item ? processes::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

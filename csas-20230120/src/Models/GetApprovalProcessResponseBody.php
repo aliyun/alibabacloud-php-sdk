@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetApprovalProcessResponseBody\process;
+use AlibabaCloud\Tea\Model;
 
 class GetApprovalProcessResponseBody extends Model
 {
@@ -15,6 +15,8 @@ class GetApprovalProcessResponseBody extends Model
     public $process;
 
     /**
+     * @example C81E0B4B-AAEB-5FDD-B27E-3F5AF7EBD7EF
+     *
      * @var string
      */
     public $requestId;
@@ -23,21 +25,14 @@ class GetApprovalProcessResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->process) {
-            $this->process->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->process) {
-            $res['Process'] = null !== $this->process ? $this->process->toArray($noStream) : $this->process;
+            $res['Process'] = null !== $this->process ? $this->process->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,18 +40,17 @@ class GetApprovalProcessResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetApprovalProcessResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Process'])) {
             $model->process = process::fromMap($map['Process']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListPolicesForPrivateAccessApplicationRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $applicationIds;
@@ -16,47 +18,29 @@ class ListPolicesForPrivateAccessApplicationRequest extends Model
         'applicationIds' => 'ApplicationIds',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->applicationIds)) {
-            Model::validateArray($this->applicationIds);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->applicationIds) {
-            if (\is_array($this->applicationIds)) {
-                $res['ApplicationIds'] = [];
-                $n1 = 0;
-                foreach ($this->applicationIds as $item1) {
-                    $res['ApplicationIds'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['ApplicationIds'] = $this->applicationIds;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListPolicesForPrivateAccessApplicationRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApplicationIds'])) {
             if (!empty($map['ApplicationIds'])) {
-                $model->applicationIds = [];
-                $n1 = 0;
-                foreach ($map['ApplicationIds'] as $item1) {
-                    $model->applicationIds[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->applicationIds = $map['ApplicationIds'];
             }
         }
 

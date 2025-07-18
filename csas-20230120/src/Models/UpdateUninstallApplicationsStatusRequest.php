@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateUninstallApplicationsStatusRequest extends Model
 {
@@ -14,6 +14,8 @@ class UpdateUninstallApplicationsStatusRequest extends Model
     public $applicationIds;
 
     /**
+     * @example Approved
+     *
      * @var string
      */
     public $status;
@@ -22,28 +24,14 @@ class UpdateUninstallApplicationsStatusRequest extends Model
         'status' => 'Status',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->applicationIds)) {
-            Model::validateArray($this->applicationIds);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->applicationIds) {
-            if (\is_array($this->applicationIds)) {
-                $res['ApplicationIds'] = [];
-                $n1 = 0;
-                foreach ($this->applicationIds as $item1) {
-                    $res['ApplicationIds'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['ApplicationIds'] = $this->applicationIds;
         }
-
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -51,25 +39,19 @@ class UpdateUninstallApplicationsStatusRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateUninstallApplicationsStatusRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApplicationIds'])) {
             if (!empty($map['ApplicationIds'])) {
-                $model->applicationIds = [];
-                $n1 = 0;
-                foreach ($map['ApplicationIds'] as $item1) {
-                    $model->applicationIds[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->applicationIds = $map['ApplicationIds'];
             }
         }
-
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

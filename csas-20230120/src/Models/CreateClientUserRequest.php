@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateClientUserRequest extends Model
 {
     /**
+     * @example 10797
+     *
      * @var string
      */
     public $departmentId;
@@ -19,26 +21,40 @@ class CreateClientUserRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example johndoe@example.com
+     *
      * @var string
      */
     public $email;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 727
+     *
      * @var string
      */
     public $idpConfigId;
 
     /**
+     * @example 13641966835
+     *
      * @var string
      */
     public $mobileNumber;
 
     /**
+     * @example kehudiyi
+     *
      * @var string
      */
     public $password;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $username;
@@ -52,38 +68,29 @@ class CreateClientUserRequest extends Model
         'username' => 'Username',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->departmentId) {
             $res['DepartmentId'] = $this->departmentId;
         }
-
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-
         if (null !== $this->email) {
             $res['Email'] = $this->email;
         }
-
         if (null !== $this->idpConfigId) {
             $res['IdpConfigId'] = $this->idpConfigId;
         }
-
         if (null !== $this->mobileNumber) {
             $res['MobileNumber'] = $this->mobileNumber;
         }
-
         if (null !== $this->password) {
             $res['Password'] = $this->password;
         }
-
         if (null !== $this->username) {
             $res['Username'] = $this->username;
         }
@@ -91,38 +98,32 @@ class CreateClientUserRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateClientUserRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DepartmentId'])) {
             $model->departmentId = $map['DepartmentId'];
         }
-
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-
         if (isset($map['Email'])) {
             $model->email = $map['Email'];
         }
-
         if (isset($map['IdpConfigId'])) {
             $model->idpConfigId = $map['IdpConfigId'];
         }
-
         if (isset($map['MobileNumber'])) {
             $model->mobileNumber = $map['MobileNumber'];
         }
-
         if (isset($map['Password'])) {
             $model->password = $map['Password'];
         }
-
         if (isset($map['Username'])) {
             $model->username = $map['Username'];
         }

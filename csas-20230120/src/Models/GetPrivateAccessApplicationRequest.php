@@ -4,11 +4,20 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetPrivateAccessApplicationRequest extends Model
 {
     /**
+     * @description The ID of the office application. You can obtain the value by calling the following operations:
+     *
+     *   [ListPrivateAccessApplications](~~ListPrivateAccessApplications~~): queries office applications.
+     *   [CreatePrivateAccessApplication](~~CreatePrivateAccessApplication~~): creates an office application.
+     *
+     * This parameter is required.
+     *
+     * @example pa-application-e12860ef6c48****
+     *
      * @var string
      */
     public $applicationId;
@@ -16,12 +25,9 @@ class GetPrivateAccessApplicationRequest extends Model
         'applicationId' => 'ApplicationId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->applicationId) {
@@ -31,11 +37,11 @@ class GetPrivateAccessApplicationRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetPrivateAccessApplicationRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

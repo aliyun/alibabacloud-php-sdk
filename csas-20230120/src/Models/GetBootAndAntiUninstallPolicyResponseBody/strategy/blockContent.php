@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models\GetBootAndAntiUninstallPolicyResponseBody\strategy;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetBootAndAntiUninstallPolicyResponseBody\strategy\blockContent\blockTextEn;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetBootAndAntiUninstallPolicyResponseBody\strategy\blockContent\blockTextZh;
+use AlibabaCloud\Tea\Model;
 
 class blockContent extends Model
 {
@@ -24,43 +24,32 @@ class blockContent extends Model
         'blockTextZh' => 'BlockTextZh',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->blockTextEn) {
-            $this->blockTextEn->validate();
-        }
-        if (null !== $this->blockTextZh) {
-            $this->blockTextZh->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->blockTextEn) {
-            $res['BlockTextEn'] = null !== $this->blockTextEn ? $this->blockTextEn->toArray($noStream) : $this->blockTextEn;
+            $res['BlockTextEn'] = null !== $this->blockTextEn ? $this->blockTextEn->toMap() : null;
         }
-
         if (null !== $this->blockTextZh) {
-            $res['BlockTextZh'] = null !== $this->blockTextZh ? $this->blockTextZh->toArray($noStream) : $this->blockTextZh;
+            $res['BlockTextZh'] = null !== $this->blockTextZh ? $this->blockTextZh->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return blockContent
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BlockTextEn'])) {
             $model->blockTextEn = blockTextEn::fromMap($map['BlockTextEn']);
         }
-
         if (isset($map['BlockTextZh'])) {
             $model->blockTextZh = blockTextZh::fromMap($map['BlockTextZh']);
         }

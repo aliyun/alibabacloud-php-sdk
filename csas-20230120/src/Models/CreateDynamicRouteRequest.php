@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateDynamicRouteRequest extends Model
 {
@@ -14,6 +14,10 @@ class CreateDynamicRouteRequest extends Model
     public $applicationIds;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example Application
+     *
      * @var string
      */
     public $applicationType;
@@ -24,31 +28,53 @@ class CreateDynamicRouteRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example connector
+     *
      * @var string
      */
     public $dynamicRouteType;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example dynamic_route_name
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example connector-8ccb13b6f52c****
+     *
      * @var string
      */
     public $nextHop;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 99
+     *
      * @var int
      */
     public $priority;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $regionIds;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example Disabled
+     *
      * @var string
      */
     public $status;
@@ -70,153 +96,87 @@ class CreateDynamicRouteRequest extends Model
         'tagIds' => 'TagIds',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->applicationIds)) {
-            Model::validateArray($this->applicationIds);
-        }
-        if (\is_array($this->regionIds)) {
-            Model::validateArray($this->regionIds);
-        }
-        if (\is_array($this->tagIds)) {
-            Model::validateArray($this->tagIds);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->applicationIds) {
-            if (\is_array($this->applicationIds)) {
-                $res['ApplicationIds'] = [];
-                $n1 = 0;
-                foreach ($this->applicationIds as $item1) {
-                    $res['ApplicationIds'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['ApplicationIds'] = $this->applicationIds;
         }
-
         if (null !== $this->applicationType) {
             $res['ApplicationType'] = $this->applicationType;
         }
-
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-
         if (null !== $this->dynamicRouteType) {
             $res['DynamicRouteType'] = $this->dynamicRouteType;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->nextHop) {
             $res['NextHop'] = $this->nextHop;
         }
-
         if (null !== $this->priority) {
             $res['Priority'] = $this->priority;
         }
-
         if (null !== $this->regionIds) {
-            if (\is_array($this->regionIds)) {
-                $res['RegionIds'] = [];
-                $n1 = 0;
-                foreach ($this->regionIds as $item1) {
-                    $res['RegionIds'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['RegionIds'] = $this->regionIds;
         }
-
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-
         if (null !== $this->tagIds) {
-            if (\is_array($this->tagIds)) {
-                $res['TagIds'] = [];
-                $n1 = 0;
-                foreach ($this->tagIds as $item1) {
-                    $res['TagIds'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['TagIds'] = $this->tagIds;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateDynamicRouteRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApplicationIds'])) {
             if (!empty($map['ApplicationIds'])) {
-                $model->applicationIds = [];
-                $n1 = 0;
-                foreach ($map['ApplicationIds'] as $item1) {
-                    $model->applicationIds[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->applicationIds = $map['ApplicationIds'];
             }
         }
-
         if (isset($map['ApplicationType'])) {
             $model->applicationType = $map['ApplicationType'];
         }
-
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-
         if (isset($map['DynamicRouteType'])) {
             $model->dynamicRouteType = $map['DynamicRouteType'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['NextHop'])) {
             $model->nextHop = $map['NextHop'];
         }
-
         if (isset($map['Priority'])) {
             $model->priority = $map['Priority'];
         }
-
         if (isset($map['RegionIds'])) {
             if (!empty($map['RegionIds'])) {
-                $model->regionIds = [];
-                $n1 = 0;
-                foreach ($map['RegionIds'] as $item1) {
-                    $model->regionIds[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->regionIds = $map['RegionIds'];
             }
         }
-
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-
         if (isset($map['TagIds'])) {
             if (!empty($map['TagIds'])) {
-                $model->tagIds = [];
-                $n1 = 0;
-                foreach ($map['TagIds'] as $item1) {
-                    $model->tagIds[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->tagIds = $map['TagIds'];
             }
         }
 

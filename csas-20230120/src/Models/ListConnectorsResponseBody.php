@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListConnectorsResponseBody\connectors;
+use AlibabaCloud\Tea\Model;
 
 class ListConnectorsResponseBody extends Model
 {
@@ -15,11 +15,15 @@ class ListConnectorsResponseBody extends Model
     public $connectors;
 
     /**
+     * @example 58D6B23E-E5DA-5418-8F61-51A3B5A30049
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalNum;
@@ -29,32 +33,23 @@ class ListConnectorsResponseBody extends Model
         'totalNum' => 'TotalNum',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->connectors)) {
-            Model::validateArray($this->connectors);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->connectors) {
-            if (\is_array($this->connectors)) {
-                $res['Connectors'] = [];
-                $n1 = 0;
-                foreach ($this->connectors as $item1) {
-                    $res['Connectors'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Connectors'] = [];
+            if (null !== $this->connectors && \is_array($this->connectors)) {
+                $n = 0;
+                foreach ($this->connectors as $item) {
+                    $res['Connectors'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->totalNum) {
             $res['TotalNum'] = $this->totalNum;
         }
@@ -62,29 +57,26 @@ class ListConnectorsResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListConnectorsResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Connectors'])) {
             if (!empty($map['Connectors'])) {
                 $model->connectors = [];
-                $n1 = 0;
-                foreach ($map['Connectors'] as $item1) {
-                    $model->connectors[$n1] = connectors::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Connectors'] as $item) {
+                    $model->connectors[$n++] = null !== $item ? connectors::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['TotalNum'])) {
             $model->totalNum = $map['TotalNum'];
         }

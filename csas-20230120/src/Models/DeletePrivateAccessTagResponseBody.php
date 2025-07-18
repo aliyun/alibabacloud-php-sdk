@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeletePrivateAccessTagResponseBody extends Model
 {
     /**
+     * @example FD724DBC-CD76-5235-BF76-59C51B73296D
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +18,9 @@ class DeletePrivateAccessTagResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +30,11 @@ class DeletePrivateAccessTagResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeletePrivateAccessTagResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

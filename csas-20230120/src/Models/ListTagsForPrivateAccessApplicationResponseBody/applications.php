@@ -4,12 +4,14 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models\ListTagsForPrivateAccessApplicationResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListTagsForPrivateAccessApplicationResponseBody\applications\tags;
+use AlibabaCloud\Tea\Model;
 
 class applications extends Model
 {
     /**
+     * @example pa-application-7a4445897856****
+     *
      * @var string
      */
     public $applicationId;
@@ -23,28 +25,20 @@ class applications extends Model
         'tags' => 'Tags',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->tags)) {
-            Model::validateArray($this->tags);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->applicationId) {
             $res['ApplicationId'] = $this->applicationId;
         }
-
         if (null !== $this->tags) {
-            if (\is_array($this->tags)) {
-                $res['Tags'] = [];
-                $n1 = 0;
-                foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -52,25 +46,23 @@ class applications extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return applications
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApplicationId'])) {
             $model->applicationId = $map['ApplicationId'];
         }
-
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1 = 0;
-                foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1] = tags::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
                 }
             }
         }

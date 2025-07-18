@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models\UpdateApprovalProcessResponseBody\process;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class appUninstallPolicies extends Model
 {
@@ -14,6 +14,8 @@ class appUninstallPolicies extends Model
     public $policyIds;
 
     /**
+     * @example approval-schema-090134f1ebff****
+     *
      * @var string
      */
     public $schemaId;
@@ -22,28 +24,14 @@ class appUninstallPolicies extends Model
         'schemaId' => 'SchemaId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->policyIds)) {
-            Model::validateArray($this->policyIds);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->policyIds) {
-            if (\is_array($this->policyIds)) {
-                $res['PolicyIds'] = [];
-                $n1 = 0;
-                foreach ($this->policyIds as $item1) {
-                    $res['PolicyIds'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['PolicyIds'] = $this->policyIds;
         }
-
         if (null !== $this->schemaId) {
             $res['SchemaId'] = $this->schemaId;
         }
@@ -51,25 +39,19 @@ class appUninstallPolicies extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return appUninstallPolicies
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PolicyIds'])) {
             if (!empty($map['PolicyIds'])) {
-                $model->policyIds = [];
-                $n1 = 0;
-                foreach ($map['PolicyIds'] as $item1) {
-                    $model->policyIds[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->policyIds = $map['PolicyIds'];
             }
         }
-
         if (isset($map['SchemaId'])) {
             $model->schemaId = $map['SchemaId'];
         }

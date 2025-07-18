@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateClientUserPasswordResponseBody extends Model
 {
     /**
+     * @example EFE7EBB2-449D-5BBB-B381-CA7839BC1649
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +18,9 @@ class UpdateClientUserPasswordResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +30,11 @@ class UpdateClientUserPasswordResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateClientUserPasswordResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

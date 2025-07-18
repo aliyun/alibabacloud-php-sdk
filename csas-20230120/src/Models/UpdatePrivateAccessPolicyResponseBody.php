@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdatePrivateAccessPolicyResponseBody extends Model
 {
     /**
+     * @description The ID of this request.
+     *
+     * @example 5FEF5CFA-14CC-5DE5-BD1F-AFFE0996E71D
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class UpdatePrivateAccessPolicyResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class UpdatePrivateAccessPolicyResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdatePrivateAccessPolicyResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

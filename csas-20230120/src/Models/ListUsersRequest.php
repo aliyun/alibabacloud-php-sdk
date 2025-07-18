@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListUsersRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
@@ -24,6 +28,10 @@ class ListUsersRequest extends Model
     public $fuzzyUsername;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
@@ -39,6 +47,8 @@ class ListUsersRequest extends Model
     public $saseUserIds;
 
     /**
+     * @example Enabled
+     *
      * @var string
      */
     public $status;
@@ -52,48 +62,29 @@ class ListUsersRequest extends Model
         'status' => 'Status',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->saseUserIds)) {
-            Model::validateArray($this->saseUserIds);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
-
         if (null !== $this->department) {
             $res['Department'] = $this->department;
         }
-
         if (null !== $this->fuzzyUsername) {
             $res['FuzzyUsername'] = $this->fuzzyUsername;
         }
-
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-
         if (null !== $this->preciseUsername) {
             $res['PreciseUsername'] = $this->preciseUsername;
         }
-
         if (null !== $this->saseUserIds) {
-            if (\is_array($this->saseUserIds)) {
-                $res['SaseUserIds'] = [];
-                $n1 = 0;
-                foreach ($this->saseUserIds as $item1) {
-                    $res['SaseUserIds'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['SaseUserIds'] = $this->saseUserIds;
         }
-
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -101,45 +92,34 @@ class ListUsersRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListUsersRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
-
         if (isset($map['Department'])) {
             $model->department = $map['Department'];
         }
-
         if (isset($map['FuzzyUsername'])) {
             $model->fuzzyUsername = $map['FuzzyUsername'];
         }
-
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-
         if (isset($map['PreciseUsername'])) {
             $model->preciseUsername = $map['PreciseUsername'];
         }
-
         if (isset($map['SaseUserIds'])) {
             if (!empty($map['SaseUserIds'])) {
-                $model->saseUserIds = [];
-                $n1 = 0;
-                foreach ($map['SaseUserIds'] as $item1) {
-                    $model->saseUserIds[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->saseUserIds = $map['SaseUserIds'];
             }
         }
-
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

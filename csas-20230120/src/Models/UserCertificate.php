@@ -4,21 +4,27 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UserCertificate extends Model
 {
     /**
+     * @example cert-aabbccdd
+     *
      * @var string
      */
     public $certId;
 
     /**
+     * @example 用于测试
+     *
      * @var string
      */
     public $certificate;
 
     /**
+     * @example xxxx
+     *
      * @var string
      */
     public $description;
@@ -29,26 +35,36 @@ class UserCertificate extends Model
     public $dnsNames;
 
     /**
+     * @example 1734492686
+     *
      * @var int
      */
     public $expTimeUnix;
 
     /**
+     * @example 1734523812
+     *
      * @var int
      */
     public $gmtCreateUnix;
 
     /**
+     * @example 1734523812
+     *
      * @var int
      */
     public $gmtModifiedUnix;
 
     /**
+     * @example 证书1
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example xxxx
+     *
      * @var string
      */
     public $privateKey;
@@ -64,56 +80,35 @@ class UserCertificate extends Model
         'privateKey' => 'PrivateKey',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->dnsNames)) {
-            Model::validateArray($this->dnsNames);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->certId) {
             $res['CertId'] = $this->certId;
         }
-
         if (null !== $this->certificate) {
             $res['Certificate'] = $this->certificate;
         }
-
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-
         if (null !== $this->dnsNames) {
-            if (\is_array($this->dnsNames)) {
-                $res['DnsNames'] = [];
-                $n1 = 0;
-                foreach ($this->dnsNames as $item1) {
-                    $res['DnsNames'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['DnsNames'] = $this->dnsNames;
         }
-
         if (null !== $this->expTimeUnix) {
             $res['ExpTimeUnix'] = $this->expTimeUnix;
         }
-
         if (null !== $this->gmtCreateUnix) {
             $res['GmtCreateUnix'] = $this->gmtCreateUnix;
         }
-
         if (null !== $this->gmtModifiedUnix) {
             $res['GmtModifiedUnix'] = $this->gmtModifiedUnix;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->privateKey) {
             $res['PrivateKey'] = $this->privateKey;
         }
@@ -121,53 +116,40 @@ class UserCertificate extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UserCertificate
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CertId'])) {
             $model->certId = $map['CertId'];
         }
-
         if (isset($map['Certificate'])) {
             $model->certificate = $map['Certificate'];
         }
-
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-
         if (isset($map['DnsNames'])) {
             if (!empty($map['DnsNames'])) {
-                $model->dnsNames = [];
-                $n1 = 0;
-                foreach ($map['DnsNames'] as $item1) {
-                    $model->dnsNames[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->dnsNames = $map['DnsNames'];
             }
         }
-
         if (isset($map['ExpTimeUnix'])) {
             $model->expTimeUnix = $map['ExpTimeUnix'];
         }
-
         if (isset($map['GmtCreateUnix'])) {
             $model->gmtCreateUnix = $map['GmtCreateUnix'];
         }
-
         if (isset($map['GmtModifiedUnix'])) {
             $model->gmtModifiedUnix = $map['GmtModifiedUnix'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['PrivateKey'])) {
             $model->privateKey = $map['PrivateKey'];
         }

@@ -4,7 +4,8 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120;
 
-use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Csas\V20230120\Models\AttachApplication2ConnectorRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\AttachApplication2ConnectorResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\AttachApplication2ConnectorShrinkRequest;
@@ -240,10 +241,12 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateUserGroupRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateUserGroupResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateUsersStatusRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateUsersStatusResponse;
+use AlibabaCloud\Tea\Tea;
+use AlibabaCloud\Tea\Utils\Utils;
+use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
-use Darabonba\OpenApi\Utils;
 
 class Csas extends OpenApiClient
 {
@@ -268,50 +271,41 @@ class Csas extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (null !== $endpoint) {
+        if (!Utils::empty_($endpoint)) {
             return $endpoint;
         }
-
-        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
+        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
             return @$endpointMap[$regionId];
         }
 
-        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * 挂载connector的应用.
+     * @summary 挂载connector的应用
+     *  *
+     * @param AttachApplication2ConnectorRequest $tmpReq  AttachApplication2ConnectorRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - AttachApplication2ConnectorRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns AttachApplication2ConnectorResponse
-     *
-     * @param AttachApplication2ConnectorRequest $tmpReq
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return AttachApplication2ConnectorResponse
+     * @return AttachApplication2ConnectorResponse AttachApplication2ConnectorResponse
      */
     public function attachApplication2ConnectorWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new AttachApplication2ConnectorShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->applicationIds) {
-            $request->applicationIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->applicationIds, 'ApplicationIds', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->applicationIds)) {
+            $request->applicationIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->applicationIds, 'ApplicationIds', 'json');
         }
-
         $body = [];
-        if (null !== $request->applicationIdsShrink) {
-            @$body['ApplicationIds'] = $request->applicationIdsShrink;
+        if (!Utils::isUnset($request->applicationIdsShrink)) {
+            $body['ApplicationIds'] = $request->applicationIdsShrink;
         }
-
-        if (null !== $request->connectorId) {
-            @$body['ConnectorId'] = $request->connectorId;
+        if (!Utils::isUnset($request->connectorId)) {
+            $body['ConnectorId'] = $request->connectorId;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'AttachApplication2Connector',
@@ -329,15 +323,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 挂载connector的应用.
+     * @summary 挂载connector的应用
+     *  *
+     * @param AttachApplication2ConnectorRequest $request AttachApplication2ConnectorRequest
      *
-     * @param request - AttachApplication2ConnectorRequest
-     *
-     * @returns AttachApplication2ConnectorResponse
-     *
-     * @param AttachApplication2ConnectorRequest $request
-     *
-     * @return AttachApplication2ConnectorResponse
+     * @return AttachApplication2ConnectorResponse AttachApplication2ConnectorResponse
      */
     public function attachApplication2Connector($request)
     {
@@ -347,36 +337,28 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 挂载业务策略至指定审批流程.
+     * @summary 挂载业务策略至指定审批流程
+     *  *
+     * @param AttachPolicy2ApprovalProcessRequest $request AttachPolicy2ApprovalProcessRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - AttachPolicy2ApprovalProcessRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns AttachPolicy2ApprovalProcessResponse
-     *
-     * @param AttachPolicy2ApprovalProcessRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return AttachPolicy2ApprovalProcessResponse
+     * @return AttachPolicy2ApprovalProcessResponse AttachPolicy2ApprovalProcessResponse
      */
     public function attachPolicy2ApprovalProcessWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->policyId) {
-            @$body['PolicyId'] = $request->policyId;
+        if (!Utils::isUnset($request->policyId)) {
+            $body['PolicyId'] = $request->policyId;
         }
-
-        if (null !== $request->policyType) {
-            @$body['PolicyType'] = $request->policyType;
+        if (!Utils::isUnset($request->policyType)) {
+            $body['PolicyType'] = $request->policyType;
         }
-
-        if (null !== $request->processId) {
-            @$body['ProcessId'] = $request->processId;
+        if (!Utils::isUnset($request->processId)) {
+            $body['ProcessId'] = $request->processId;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'AttachPolicy2ApprovalProcess',
@@ -394,15 +376,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 挂载业务策略至指定审批流程.
+     * @summary 挂载业务策略至指定审批流程
+     *  *
+     * @param AttachPolicy2ApprovalProcessRequest $request AttachPolicy2ApprovalProcessRequest
      *
-     * @param request - AttachPolicy2ApprovalProcessRequest
-     *
-     * @returns AttachPolicy2ApprovalProcessResponse
-     *
-     * @param AttachPolicy2ApprovalProcessRequest $request
-     *
-     * @return AttachPolicy2ApprovalProcessResponse
+     * @return AttachPolicy2ApprovalProcessResponse AttachPolicy2ApprovalProcessResponse
      */
     public function attachPolicy2ApprovalProcess($request)
     {
@@ -412,49 +390,38 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 创建审批流程.
+     * @summary 创建审批流程
+     *  *
+     * @param CreateApprovalProcessRequest $tmpReq  CreateApprovalProcessRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - CreateApprovalProcessRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateApprovalProcessResponse
-     *
-     * @param CreateApprovalProcessRequest $tmpReq
-     * @param RuntimeOptions               $runtime
-     *
-     * @return CreateApprovalProcessResponse
+     * @return CreateApprovalProcessResponse CreateApprovalProcessResponse
      */
     public function createApprovalProcessWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new CreateApprovalProcessShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->matchSchemas) {
-            $request->matchSchemasShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->matchSchemas, 'MatchSchemas', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->matchSchemas)) {
+            $request->matchSchemasShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->matchSchemas, 'MatchSchemas', 'json');
         }
-
         $body = [];
-        if (null !== $request->description) {
-            @$body['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
         }
-
-        if (null !== $request->matchSchemasShrink) {
-            @$body['MatchSchemas'] = $request->matchSchemasShrink;
+        if (!Utils::isUnset($request->matchSchemasShrink)) {
+            $body['MatchSchemas'] = $request->matchSchemasShrink;
         }
-
-        if (null !== $request->processName) {
-            @$body['ProcessName'] = $request->processName;
+        if (!Utils::isUnset($request->processName)) {
+            $body['ProcessName'] = $request->processName;
         }
-
         $bodyFlat = [];
-        if (null !== $request->processNodes) {
-            @$bodyFlat['ProcessNodes'] = $request->processNodes;
+        if (!Utils::isUnset($request->processNodes)) {
+            $bodyFlat['ProcessNodes'] = $request->processNodes;
         }
-
-        $body = Dara::merge([
-        ], $body, Utils::query($bodyFlat));
+        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateApprovalProcess',
@@ -472,15 +439,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 创建审批流程.
+     * @summary 创建审批流程
+     *  *
+     * @param CreateApprovalProcessRequest $request CreateApprovalProcessRequest
      *
-     * @param request - CreateApprovalProcessRequest
-     *
-     * @returns CreateApprovalProcessResponse
-     *
-     * @param CreateApprovalProcessRequest $request
-     *
-     * @return CreateApprovalProcessResponse
+     * @return CreateApprovalProcessResponse CreateApprovalProcessResponse
      */
     public function createApprovalProcess($request)
     {
@@ -490,52 +453,40 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 创建自定义身份源用户.
+     * @summary 创建自定义身份源用户
+     *  *
+     * @param CreateClientUserRequest $request CreateClientUserRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateClientUserRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateClientUserResponse
-     *
-     * @param CreateClientUserRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return CreateClientUserResponse
+     * @return CreateClientUserResponse CreateClientUserResponse
      */
     public function createClientUserWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->departmentId) {
-            @$query['DepartmentId'] = $request->departmentId;
+        if (!Utils::isUnset($request->departmentId)) {
+            $query['DepartmentId'] = $request->departmentId;
         }
-
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->email) {
-            @$query['Email'] = $request->email;
+        if (!Utils::isUnset($request->email)) {
+            $query['Email'] = $request->email;
         }
-
-        if (null !== $request->idpConfigId) {
-            @$query['IdpConfigId'] = $request->idpConfigId;
+        if (!Utils::isUnset($request->idpConfigId)) {
+            $query['IdpConfigId'] = $request->idpConfigId;
         }
-
-        if (null !== $request->mobileNumber) {
-            @$query['MobileNumber'] = $request->mobileNumber;
+        if (!Utils::isUnset($request->mobileNumber)) {
+            $query['MobileNumber'] = $request->mobileNumber;
         }
-
-        if (null !== $request->password) {
-            @$query['Password'] = $request->password;
+        if (!Utils::isUnset($request->password)) {
+            $query['Password'] = $request->password;
         }
-
-        if (null !== $request->username) {
-            @$query['Username'] = $request->username;
+        if (!Utils::isUnset($request->username)) {
+            $query['Username'] = $request->username;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateClientUser',
@@ -553,15 +504,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 创建自定义身份源用户.
+     * @summary 创建自定义身份源用户
+     *  *
+     * @param CreateClientUserRequest $request CreateClientUserRequest
      *
-     * @param request - CreateClientUserRequest
-     *
-     * @returns CreateClientUserResponse
-     *
-     * @param CreateClientUserRequest $request
-     *
-     * @return CreateClientUserResponse
+     * @return CreateClientUserResponse CreateClientUserResponse
      */
     public function createClientUser($request)
     {
@@ -571,67 +518,51 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 创建动态路由.
+     * @summary 创建动态路由
+     *  *
+     * @param CreateDynamicRouteRequest $request CreateDynamicRouteRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateDynamicRouteRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateDynamicRouteResponse
-     *
-     * @param CreateDynamicRouteRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return CreateDynamicRouteResponse
+     * @return CreateDynamicRouteResponse CreateDynamicRouteResponse
      */
     public function createDynamicRouteWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
         $bodyFlat = [];
-        if (null !== $request->applicationIds) {
-            @$bodyFlat['ApplicationIds'] = $request->applicationIds;
+        if (!Utils::isUnset($request->applicationIds)) {
+            $bodyFlat['ApplicationIds'] = $request->applicationIds;
         }
-
-        if (null !== $request->applicationType) {
-            @$body['ApplicationType'] = $request->applicationType;
+        if (!Utils::isUnset($request->applicationType)) {
+            $body['ApplicationType'] = $request->applicationType;
         }
-
-        if (null !== $request->description) {
-            @$body['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
         }
-
-        if (null !== $request->dynamicRouteType) {
-            @$body['DynamicRouteType'] = $request->dynamicRouteType;
+        if (!Utils::isUnset($request->dynamicRouteType)) {
+            $body['DynamicRouteType'] = $request->dynamicRouteType;
         }
-
-        if (null !== $request->name) {
-            @$body['Name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
         }
-
-        if (null !== $request->nextHop) {
-            @$body['NextHop'] = $request->nextHop;
+        if (!Utils::isUnset($request->nextHop)) {
+            $body['NextHop'] = $request->nextHop;
         }
-
-        if (null !== $request->priority) {
-            @$body['Priority'] = $request->priority;
+        if (!Utils::isUnset($request->priority)) {
+            $body['Priority'] = $request->priority;
         }
-
-        if (null !== $request->regionIds) {
-            @$bodyFlat['RegionIds'] = $request->regionIds;
+        if (!Utils::isUnset($request->regionIds)) {
+            $bodyFlat['RegionIds'] = $request->regionIds;
         }
-
-        if (null !== $request->status) {
-            @$body['Status'] = $request->status;
+        if (!Utils::isUnset($request->status)) {
+            $body['Status'] = $request->status;
         }
-
-        if (null !== $request->tagIds) {
-            @$bodyFlat['TagIds'] = $request->tagIds;
+        if (!Utils::isUnset($request->tagIds)) {
+            $bodyFlat['TagIds'] = $request->tagIds;
         }
-
-        $body = Dara::merge([
-        ], $body, Utils::query($bodyFlat));
+        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateDynamicRoute',
@@ -649,15 +580,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 创建动态路由.
+     * @summary 创建动态路由
+     *  *
+     * @param CreateDynamicRouteRequest $request CreateDynamicRouteRequest
      *
-     * @param request - CreateDynamicRouteRequest
-     *
-     * @returns CreateDynamicRouteResponse
-     *
-     * @param CreateDynamicRouteRequest $request
-     *
-     * @return CreateDynamicRouteResponse
+     * @return CreateDynamicRouteResponse CreateDynamicRouteResponse
      */
     public function createDynamicRoute($request)
     {
@@ -667,60 +594,46 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 创建加速策略.
+     * @summary 创建加速策略
+     *  *
+     * @param CreateEnterpriseAcceleratePolicyRequest $request CreateEnterpriseAcceleratePolicyRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateEnterpriseAcceleratePolicyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateEnterpriseAcceleratePolicyResponse
-     *
-     * @param CreateEnterpriseAcceleratePolicyRequest $request
-     * @param RuntimeOptions                          $runtime
-     *
-     * @return CreateEnterpriseAcceleratePolicyResponse
+     * @return CreateEnterpriseAcceleratePolicyResponse CreateEnterpriseAcceleratePolicyResponse
      */
     public function createEnterpriseAcceleratePolicyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->accelerationType) {
-            @$body['AccelerationType'] = $request->accelerationType;
+        if (!Utils::isUnset($request->accelerationType)) {
+            $body['AccelerationType'] = $request->accelerationType;
         }
-
-        if (null !== $request->description) {
-            @$body['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
         }
-
-        if (null !== $request->name) {
-            @$body['Name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
         }
-
-        if (null !== $request->priority) {
-            @$body['Priority'] = $request->priority;
+        if (!Utils::isUnset($request->priority)) {
+            $body['Priority'] = $request->priority;
         }
-
-        if (null !== $request->showInClient) {
-            @$body['ShowInClient'] = $request->showInClient;
+        if (!Utils::isUnset($request->showInClient)) {
+            $body['ShowInClient'] = $request->showInClient;
         }
-
-        if (null !== $request->upstreamHost) {
-            @$body['UpstreamHost'] = $request->upstreamHost;
+        if (!Utils::isUnset($request->upstreamHost)) {
+            $body['UpstreamHost'] = $request->upstreamHost;
         }
-
-        if (null !== $request->upstreamPort) {
-            @$body['UpstreamPort'] = $request->upstreamPort;
+        if (!Utils::isUnset($request->upstreamPort)) {
+            $body['UpstreamPort'] = $request->upstreamPort;
         }
-
-        if (null !== $request->upstreamType) {
-            @$body['UpstreamType'] = $request->upstreamType;
+        if (!Utils::isUnset($request->upstreamType)) {
+            $body['UpstreamType'] = $request->upstreamType;
         }
-
-        if (null !== $request->userAttributeGroup) {
-            @$body['UserAttributeGroup'] = $request->userAttributeGroup;
+        if (!Utils::isUnset($request->userAttributeGroup)) {
+            $body['UserAttributeGroup'] = $request->userAttributeGroup;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateEnterpriseAcceleratePolicy',
@@ -738,15 +651,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 创建加速策略.
+     * @summary 创建加速策略
+     *  *
+     * @param CreateEnterpriseAcceleratePolicyRequest $request CreateEnterpriseAcceleratePolicyRequest
      *
-     * @param request - CreateEnterpriseAcceleratePolicyRequest
-     *
-     * @returns CreateEnterpriseAcceleratePolicyResponse
-     *
-     * @param CreateEnterpriseAcceleratePolicyRequest $request
-     *
-     * @return CreateEnterpriseAcceleratePolicyResponse
+     * @return CreateEnterpriseAcceleratePolicyResponse CreateEnterpriseAcceleratePolicyResponse
      */
     public function createEnterpriseAcceleratePolicy($request)
     {
@@ -756,35 +665,27 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 创建加速对象
+     * @summary 创建加速对象
+     *  *
+     * @param CreateEnterpriseAccelerateTargetRequest $request CreateEnterpriseAccelerateTargetRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateEnterpriseAccelerateTargetRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateEnterpriseAccelerateTargetResponse
-     *
-     * @param CreateEnterpriseAccelerateTargetRequest $request
-     * @param RuntimeOptions                          $runtime
-     *
-     * @return CreateEnterpriseAccelerateTargetResponse
+     * @return CreateEnterpriseAccelerateTargetResponse CreateEnterpriseAccelerateTargetResponse
      */
     public function createEnterpriseAccelerateTargetWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->eapId) {
-            @$body['EapId'] = $request->eapId;
+        if (!Utils::isUnset($request->eapId)) {
+            $body['EapId'] = $request->eapId;
         }
-
         $bodyFlat = [];
-        if (null !== $request->target) {
-            @$bodyFlat['Target'] = $request->target;
+        if (!Utils::isUnset($request->target)) {
+            $bodyFlat['Target'] = $request->target;
         }
-
-        $body = Dara::merge([
-        ], $body, Utils::query($bodyFlat));
+        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateEnterpriseAccelerateTarget',
@@ -802,15 +703,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 创建加速对象
+     * @summary 创建加速对象
+     *  *
+     * @param CreateEnterpriseAccelerateTargetRequest $request CreateEnterpriseAccelerateTargetRequest
      *
-     * @param request - CreateEnterpriseAccelerateTargetRequest
-     *
-     * @returns CreateEnterpriseAccelerateTargetResponse
-     *
-     * @param CreateEnterpriseAccelerateTargetRequest $request
-     *
-     * @return CreateEnterpriseAccelerateTargetResponse
+     * @return CreateEnterpriseAccelerateTargetResponse CreateEnterpriseAccelerateTargetResponse
      */
     public function createEnterpriseAccelerateTarget($request)
     {
@@ -820,32 +717,25 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 创建自定义身份源部门.
+     * @summary 创建自定义身份源部门
+     *  *
+     * @param CreateIdpDepartmentRequest $request CreateIdpDepartmentRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateIdpDepartmentRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateIdpDepartmentResponse
-     *
-     * @param CreateIdpDepartmentRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return CreateIdpDepartmentResponse
+     * @return CreateIdpDepartmentResponse CreateIdpDepartmentResponse
      */
     public function createIdpDepartmentWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->departmentName) {
-            @$query['DepartmentName'] = $request->departmentName;
+        if (!Utils::isUnset($request->departmentName)) {
+            $query['DepartmentName'] = $request->departmentName;
         }
-
-        if (null !== $request->idpConfigId) {
-            @$query['IdpConfigId'] = $request->idpConfigId;
+        if (!Utils::isUnset($request->idpConfigId)) {
+            $query['IdpConfigId'] = $request->idpConfigId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateIdpDepartment',
@@ -863,15 +753,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 创建自定义身份源部门.
+     * @summary 创建自定义身份源部门
+     *  *
+     * @param CreateIdpDepartmentRequest $request CreateIdpDepartmentRequest
      *
-     * @param request - CreateIdpDepartmentRequest
-     *
-     * @returns CreateIdpDepartmentResponse
-     *
-     * @param CreateIdpDepartmentRequest $request
-     *
-     * @return CreateIdpDepartmentResponse
+     * @return CreateIdpDepartmentResponse CreateIdpDepartmentResponse
      */
     public function createIdpDepartment($request)
     {
@@ -881,80 +767,61 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Creates an office application within the current Alibaba Cloud account.
+     * @summary Creates an office application within the current Alibaba Cloud account.
+     *  *
+     * @description By default, you can create a maximum of 500 office applications.
+     *  *
+     * @param CreatePrivateAccessApplicationRequest $tmpReq  CreatePrivateAccessApplicationRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * By default, you can create a maximum of 500 office applications.
-     *
-     * @param tmpReq - CreatePrivateAccessApplicationRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreatePrivateAccessApplicationResponse
-     *
-     * @param CreatePrivateAccessApplicationRequest $tmpReq
-     * @param RuntimeOptions                        $runtime
-     *
-     * @return CreatePrivateAccessApplicationResponse
+     * @return CreatePrivateAccessApplicationResponse CreatePrivateAccessApplicationResponse
      */
     public function createPrivateAccessApplicationWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new CreatePrivateAccessApplicationShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->l7Config) {
-            $request->l7ConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->l7Config, 'L7Config', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->l7Config)) {
+            $request->l7ConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->l7Config, 'L7Config', 'json');
         }
-
         $body = [];
         $bodyFlat = [];
-        if (null !== $request->addresses) {
-            @$bodyFlat['Addresses'] = $request->addresses;
+        if (!Utils::isUnset($request->addresses)) {
+            $bodyFlat['Addresses'] = $request->addresses;
         }
-
-        if (null !== $request->browserAccessStatus) {
-            @$body['BrowserAccessStatus'] = $request->browserAccessStatus;
+        if (!Utils::isUnset($request->browserAccessStatus)) {
+            $body['BrowserAccessStatus'] = $request->browserAccessStatus;
         }
-
-        if (null !== $request->description) {
-            @$body['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
         }
-
-        if (null !== $request->l7ConfigShrink) {
-            @$body['L7Config'] = $request->l7ConfigShrink;
+        if (!Utils::isUnset($request->l7ConfigShrink)) {
+            $body['L7Config'] = $request->l7ConfigShrink;
         }
-
-        if (null !== $request->l7ProxyDomainAutomaticPrefix) {
-            @$body['L7ProxyDomainAutomaticPrefix'] = $request->l7ProxyDomainAutomaticPrefix;
+        if (!Utils::isUnset($request->l7ProxyDomainAutomaticPrefix)) {
+            $body['L7ProxyDomainAutomaticPrefix'] = $request->l7ProxyDomainAutomaticPrefix;
         }
-
-        if (null !== $request->l7ProxyDomainCustom) {
-            @$body['L7ProxyDomainCustom'] = $request->l7ProxyDomainCustom;
+        if (!Utils::isUnset($request->l7ProxyDomainCustom)) {
+            $body['L7ProxyDomainCustom'] = $request->l7ProxyDomainCustom;
         }
-
-        if (null !== $request->name) {
-            @$body['Name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
         }
-
-        if (null !== $request->portRanges) {
-            @$bodyFlat['PortRanges'] = $request->portRanges;
+        if (!Utils::isUnset($request->portRanges)) {
+            $bodyFlat['PortRanges'] = $request->portRanges;
         }
-
-        if (null !== $request->protocol) {
-            @$body['Protocol'] = $request->protocol;
+        if (!Utils::isUnset($request->protocol)) {
+            $body['Protocol'] = $request->protocol;
         }
-
-        if (null !== $request->status) {
-            @$body['Status'] = $request->status;
+        if (!Utils::isUnset($request->status)) {
+            $body['Status'] = $request->status;
         }
-
-        if (null !== $request->tagIds) {
-            @$bodyFlat['TagIds'] = $request->tagIds;
+        if (!Utils::isUnset($request->tagIds)) {
+            $bodyFlat['TagIds'] = $request->tagIds;
         }
-
-        $body = Dara::merge([
-        ], $body, Utils::query($bodyFlat));
+        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreatePrivateAccessApplication',
@@ -972,18 +839,13 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Creates an office application within the current Alibaba Cloud account.
+     * @summary Creates an office application within the current Alibaba Cloud account.
+     *  *
+     * @description By default, you can create a maximum of 500 office applications.
+     *  *
+     * @param CreatePrivateAccessApplicationRequest $request CreatePrivateAccessApplicationRequest
      *
-     * @remarks
-     * By default, you can create a maximum of 500 office applications.
-     *
-     * @param request - CreatePrivateAccessApplicationRequest
-     *
-     * @returns CreatePrivateAccessApplicationResponse
-     *
-     * @param CreatePrivateAccessApplicationRequest $request
-     *
-     * @return CreatePrivateAccessApplicationResponse
+     * @return CreatePrivateAccessApplicationResponse CreatePrivateAccessApplicationResponse
      */
     public function createPrivateAccessApplication($request)
     {
@@ -993,98 +855,74 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Create Private Access Policy.
+     * @summary Create Private Access Policy
+     *  *
+     * @description By default, up to 500 private access policies can be created.
+     *  *
+     * @param CreatePrivateAccessPolicyRequest $request CreatePrivateAccessPolicyRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * By default, up to 500 private access policies can be created.
-     *
-     * @param request - CreatePrivateAccessPolicyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreatePrivateAccessPolicyResponse
-     *
-     * @param CreatePrivateAccessPolicyRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return CreatePrivateAccessPolicyResponse
+     * @return CreatePrivateAccessPolicyResponse CreatePrivateAccessPolicyResponse
      */
     public function createPrivateAccessPolicyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
         $bodyFlat = [];
-        if (null !== $request->applicationIds) {
-            @$bodyFlat['ApplicationIds'] = $request->applicationIds;
+        if (!Utils::isUnset($request->applicationIds)) {
+            $bodyFlat['ApplicationIds'] = $request->applicationIds;
         }
-
-        if (null !== $request->applicationType) {
-            @$body['ApplicationType'] = $request->applicationType;
+        if (!Utils::isUnset($request->applicationType)) {
+            $body['ApplicationType'] = $request->applicationType;
         }
-
-        if (null !== $request->customUserAttributes) {
-            @$bodyFlat['CustomUserAttributes'] = $request->customUserAttributes;
+        if (!Utils::isUnset($request->customUserAttributes)) {
+            $bodyFlat['CustomUserAttributes'] = $request->customUserAttributes;
         }
-
-        if (null !== $request->description) {
-            @$body['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
         }
-
-        if (null !== $request->deviceAttributeAction) {
-            @$body['DeviceAttributeAction'] = $request->deviceAttributeAction;
+        if (!Utils::isUnset($request->deviceAttributeAction)) {
+            $body['DeviceAttributeAction'] = $request->deviceAttributeAction;
         }
-
-        if (null !== $request->deviceAttributeId) {
-            @$body['DeviceAttributeId'] = $request->deviceAttributeId;
+        if (!Utils::isUnset($request->deviceAttributeId)) {
+            $body['DeviceAttributeId'] = $request->deviceAttributeId;
         }
-
-        if (null !== $request->name) {
-            @$body['Name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
         }
-
-        if (null !== $request->policyAction) {
-            @$body['PolicyAction'] = $request->policyAction;
+        if (!Utils::isUnset($request->policyAction)) {
+            $body['PolicyAction'] = $request->policyAction;
         }
-
-        if (null !== $request->priority) {
-            @$body['Priority'] = $request->priority;
+        if (!Utils::isUnset($request->priority)) {
+            $body['Priority'] = $request->priority;
         }
-
-        if (null !== $request->status) {
-            @$body['Status'] = $request->status;
+        if (!Utils::isUnset($request->status)) {
+            $body['Status'] = $request->status;
         }
-
-        if (null !== $request->tagIds) {
-            @$bodyFlat['TagIds'] = $request->tagIds;
+        if (!Utils::isUnset($request->tagIds)) {
+            $bodyFlat['TagIds'] = $request->tagIds;
         }
-
-        if (null !== $request->triggerTemplateId) {
-            @$body['TriggerTemplateId'] = $request->triggerTemplateId;
+        if (!Utils::isUnset($request->triggerTemplateId)) {
+            $body['TriggerTemplateId'] = $request->triggerTemplateId;
         }
-
-        if (null !== $request->trustedProcessGroupIds) {
-            @$bodyFlat['TrustedProcessGroupIds'] = $request->trustedProcessGroupIds;
+        if (!Utils::isUnset($request->trustedProcessGroupIds)) {
+            $bodyFlat['TrustedProcessGroupIds'] = $request->trustedProcessGroupIds;
         }
-
-        if (null !== $request->trustedProcessStatus) {
-            @$body['TrustedProcessStatus'] = $request->trustedProcessStatus;
+        if (!Utils::isUnset($request->trustedProcessStatus)) {
+            $body['TrustedProcessStatus'] = $request->trustedProcessStatus;
         }
-
-        if (null !== $request->trustedSoftwareIds) {
-            @$bodyFlat['TrustedSoftwareIds'] = $request->trustedSoftwareIds;
+        if (!Utils::isUnset($request->trustedSoftwareIds)) {
+            $bodyFlat['TrustedSoftwareIds'] = $request->trustedSoftwareIds;
         }
-
-        if (null !== $request->userGroupIds) {
-            @$bodyFlat['UserGroupIds'] = $request->userGroupIds;
+        if (!Utils::isUnset($request->userGroupIds)) {
+            $bodyFlat['UserGroupIds'] = $request->userGroupIds;
         }
-
-        if (null !== $request->userGroupMode) {
-            @$body['UserGroupMode'] = $request->userGroupMode;
+        if (!Utils::isUnset($request->userGroupMode)) {
+            $body['UserGroupMode'] = $request->userGroupMode;
         }
-
-        $body = Dara::merge([
-        ], $body, Utils::query($bodyFlat));
+        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreatePrivateAccessPolicy',
@@ -1102,18 +940,13 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Create Private Access Policy.
+     * @summary Create Private Access Policy
+     *  *
+     * @description By default, up to 500 private access policies can be created.
+     *  *
+     * @param CreatePrivateAccessPolicyRequest $request CreatePrivateAccessPolicyRequest
      *
-     * @remarks
-     * By default, up to 500 private access policies can be created.
-     *
-     * @param request - CreatePrivateAccessPolicyRequest
-     *
-     * @returns CreatePrivateAccessPolicyResponse
-     *
-     * @param CreatePrivateAccessPolicyRequest $request
-     *
-     * @return CreatePrivateAccessPolicyResponse
+     * @return CreatePrivateAccessPolicyResponse CreatePrivateAccessPolicyResponse
      */
     public function createPrivateAccessPolicy($request)
     {
@@ -1123,32 +956,25 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 创建内网访问标签.
+     * @summary 创建内网访问标签
+     *  *
+     * @param CreatePrivateAccessTagRequest $request CreatePrivateAccessTagRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreatePrivateAccessTagRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreatePrivateAccessTagResponse
-     *
-     * @param CreatePrivateAccessTagRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return CreatePrivateAccessTagResponse
+     * @return CreatePrivateAccessTagResponse CreatePrivateAccessTagResponse
      */
     public function createPrivateAccessTagWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->description) {
-            @$body['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
         }
-
-        if (null !== $request->name) {
-            @$body['Name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreatePrivateAccessTag',
@@ -1166,15 +992,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 创建内网访问标签.
+     * @summary 创建内网访问标签
+     *  *
+     * @param CreatePrivateAccessTagRequest $request CreatePrivateAccessTagRequest
      *
-     * @param request - CreatePrivateAccessTagRequest
-     *
-     * @returns CreatePrivateAccessTagResponse
-     *
-     * @param CreatePrivateAccessTagRequest $request
-     *
-     * @return CreatePrivateAccessTagResponse
+     * @return CreatePrivateAccessTagResponse CreatePrivateAccessTagResponse
      */
     public function createPrivateAccessTag($request)
     {
@@ -1184,81 +1006,62 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 创建设备注册策略.
+     * @summary 创建设备注册策略
+     *  *
+     * @param CreateRegistrationPolicyRequest $tmpReq  CreateRegistrationPolicyRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - CreateRegistrationPolicyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateRegistrationPolicyResponse
-     *
-     * @param CreateRegistrationPolicyRequest $tmpReq
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return CreateRegistrationPolicyResponse
+     * @return CreateRegistrationPolicyResponse CreateRegistrationPolicyResponse
      */
     public function createRegistrationPolicyWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new CreateRegistrationPolicyShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->companyLimitCount) {
-            $request->companyLimitCountShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->companyLimitCount, 'CompanyLimitCount', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->companyLimitCount)) {
+            $request->companyLimitCountShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->companyLimitCount, 'CompanyLimitCount', 'json');
         }
-
-        if (null !== $tmpReq->personalLimitCount) {
-            $request->personalLimitCountShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->personalLimitCount, 'PersonalLimitCount', 'json');
+        if (!Utils::isUnset($tmpReq->personalLimitCount)) {
+            $request->personalLimitCountShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->personalLimitCount, 'PersonalLimitCount', 'json');
         }
-
         $body = [];
-        if (null !== $request->companyLimitCountShrink) {
-            @$body['CompanyLimitCount'] = $request->companyLimitCountShrink;
+        if (!Utils::isUnset($request->companyLimitCountShrink)) {
+            $body['CompanyLimitCount'] = $request->companyLimitCountShrink;
         }
-
-        if (null !== $request->companyLimitType) {
-            @$body['CompanyLimitType'] = $request->companyLimitType;
+        if (!Utils::isUnset($request->companyLimitType)) {
+            $body['CompanyLimitType'] = $request->companyLimitType;
         }
-
-        if (null !== $request->description) {
-            @$body['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
         }
-
-        if (null !== $request->matchMode) {
-            @$body['MatchMode'] = $request->matchMode;
+        if (!Utils::isUnset($request->matchMode)) {
+            $body['MatchMode'] = $request->matchMode;
         }
-
-        if (null !== $request->name) {
-            @$body['Name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
         }
-
-        if (null !== $request->personalLimitCountShrink) {
-            @$body['PersonalLimitCount'] = $request->personalLimitCountShrink;
+        if (!Utils::isUnset($request->personalLimitCountShrink)) {
+            $body['PersonalLimitCount'] = $request->personalLimitCountShrink;
         }
-
-        if (null !== $request->personalLimitType) {
-            @$body['PersonalLimitType'] = $request->personalLimitType;
+        if (!Utils::isUnset($request->personalLimitType)) {
+            $body['PersonalLimitType'] = $request->personalLimitType;
         }
-
-        if (null !== $request->priority) {
-            @$body['Priority'] = $request->priority;
+        if (!Utils::isUnset($request->priority)) {
+            $body['Priority'] = $request->priority;
         }
-
-        if (null !== $request->status) {
-            @$body['Status'] = $request->status;
+        if (!Utils::isUnset($request->status)) {
+            $body['Status'] = $request->status;
         }
-
         $bodyFlat = [];
-        if (null !== $request->userGroupIds) {
-            @$bodyFlat['UserGroupIds'] = $request->userGroupIds;
+        if (!Utils::isUnset($request->userGroupIds)) {
+            $bodyFlat['UserGroupIds'] = $request->userGroupIds;
         }
-
-        if (null !== $request->whitelist) {
-            @$bodyFlat['Whitelist'] = $request->whitelist;
+        if (!Utils::isUnset($request->whitelist)) {
+            $bodyFlat['Whitelist'] = $request->whitelist;
         }
-
-        $body = Dara::merge([
-        ], $body, Utils::query($bodyFlat));
+        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateRegistrationPolicy',
@@ -1276,15 +1079,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 创建设备注册策略.
+     * @summary 创建设备注册策略
+     *  *
+     * @param CreateRegistrationPolicyRequest $request CreateRegistrationPolicyRequest
      *
-     * @param request - CreateRegistrationPolicyRequest
-     *
-     * @returns CreateRegistrationPolicyResponse
-     *
-     * @param CreateRegistrationPolicyRequest $request
-     *
-     * @return CreateRegistrationPolicyResponse
+     * @return CreateRegistrationPolicyResponse CreateRegistrationPolicyResponse
      */
     public function createRegistrationPolicy($request)
     {
@@ -1294,39 +1093,30 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 创建用户组.
+     * @summary 创建用户组
+     *  *
+     * @param CreateUserGroupRequest $request CreateUserGroupRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateUserGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateUserGroupResponse
-     *
-     * @param CreateUserGroupRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return CreateUserGroupResponse
+     * @return CreateUserGroupResponse CreateUserGroupResponse
      */
     public function createUserGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
         $bodyFlat = [];
-        if (null !== $request->attributes) {
-            @$bodyFlat['Attributes'] = $request->attributes;
+        if (!Utils::isUnset($request->attributes)) {
+            $bodyFlat['Attributes'] = $request->attributes;
         }
-
-        if (null !== $request->description) {
-            @$body['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
         }
-
-        if (null !== $request->name) {
-            @$body['Name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
         }
-
-        $body = Dara::merge([
-        ], $body, Utils::query($bodyFlat));
+        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateUserGroup',
@@ -1344,15 +1134,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 创建用户组.
+     * @summary 创建用户组
+     *  *
+     * @param CreateUserGroupRequest $request CreateUserGroupRequest
      *
-     * @param request - CreateUserGroupRequest
-     *
-     * @returns CreateUserGroupResponse
-     *
-     * @param CreateUserGroupRequest $request
-     *
-     * @return CreateUserGroupResponse
+     * @return CreateUserGroupResponse CreateUserGroupResponse
      */
     public function createUserGroup($request)
     {
@@ -1362,66 +1148,51 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 创建数字水印暗水印透明底图.
+     * @summary 创建数字水印暗水印透明底图
+     *  *
+     * @param CreateWmBaseImageRequest $tmpReq  CreateWmBaseImageRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - CreateWmBaseImageRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateWmBaseImageResponse
-     *
-     * @param CreateWmBaseImageRequest $tmpReq
-     * @param RuntimeOptions           $runtime
-     *
-     * @return CreateWmBaseImageResponse
+     * @return CreateWmBaseImageResponse CreateWmBaseImageResponse
      */
     public function createWmBaseImageWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new CreateWmBaseImageShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->imageControl) {
-            $request->imageControlShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->imageControl, 'ImageControl', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->imageControl)) {
+            $request->imageControlShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->imageControl, 'ImageControl', 'json');
         }
-
         $body = [];
-        if (null !== $request->height) {
-            @$body['Height'] = $request->height;
+        if (!Utils::isUnset($request->height)) {
+            $body['Height'] = $request->height;
         }
-
-        if (null !== $request->imageControlShrink) {
-            @$body['ImageControl'] = $request->imageControlShrink;
+        if (!Utils::isUnset($request->imageControlShrink)) {
+            $body['ImageControl'] = $request->imageControlShrink;
         }
-
-        if (null !== $request->opacity) {
-            @$body['Opacity'] = $request->opacity;
+        if (!Utils::isUnset($request->opacity)) {
+            $body['Opacity'] = $request->opacity;
         }
-
-        if (null !== $request->scale) {
-            @$body['Scale'] = $request->scale;
+        if (!Utils::isUnset($request->scale)) {
+            $body['Scale'] = $request->scale;
         }
-
-        if (null !== $request->width) {
-            @$body['Width'] = $request->width;
+        if (!Utils::isUnset($request->width)) {
+            $body['Width'] = $request->width;
         }
-
-        if (null !== $request->wmInfoBytesB64) {
-            @$body['WmInfoBytesB64'] = $request->wmInfoBytesB64;
+        if (!Utils::isUnset($request->wmInfoBytesB64)) {
+            $body['WmInfoBytesB64'] = $request->wmInfoBytesB64;
         }
-
-        if (null !== $request->wmInfoSize) {
-            @$body['WmInfoSize'] = $request->wmInfoSize;
+        if (!Utils::isUnset($request->wmInfoSize)) {
+            $body['WmInfoSize'] = $request->wmInfoSize;
         }
-
-        if (null !== $request->wmInfoUint) {
-            @$body['WmInfoUint'] = $request->wmInfoUint;
+        if (!Utils::isUnset($request->wmInfoUint)) {
+            $body['WmInfoUint'] = $request->wmInfoUint;
         }
-
-        if (null !== $request->wmType) {
-            @$body['WmType'] = $request->wmType;
+        if (!Utils::isUnset($request->wmType)) {
+            $body['WmType'] = $request->wmType;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateWmBaseImage',
@@ -1439,15 +1210,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 创建数字水印暗水印透明底图.
+     * @summary 创建数字水印暗水印透明底图
+     *  *
+     * @param CreateWmBaseImageRequest $request CreateWmBaseImageRequest
      *
-     * @param request - CreateWmBaseImageRequest
-     *
-     * @returns CreateWmBaseImageResponse
-     *
-     * @param CreateWmBaseImageRequest $request
-     *
-     * @return CreateWmBaseImageResponse
+     * @return CreateWmBaseImageResponse CreateWmBaseImageResponse
      */
     public function createWmBaseImage($request)
     {
@@ -1457,84 +1224,65 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 创建嵌入水印任务
+     * @summary 创建嵌入水印任务
+     *  *
+     * @param CreateWmEmbedTaskRequest $tmpReq  CreateWmEmbedTaskRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - CreateWmEmbedTaskRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateWmEmbedTaskResponse
-     *
-     * @param CreateWmEmbedTaskRequest $tmpReq
-     * @param RuntimeOptions           $runtime
-     *
-     * @return CreateWmEmbedTaskResponse
+     * @return CreateWmEmbedTaskResponse CreateWmEmbedTaskResponse
      */
     public function createWmEmbedTaskWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new CreateWmEmbedTaskShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->csvControl) {
-            $request->csvControlShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->csvControl, 'CsvControl', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->csvControl)) {
+            $request->csvControlShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->csvControl, 'CsvControl', 'json');
         }
-
-        if (null !== $tmpReq->documentControl) {
-            $request->documentControlShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->documentControl, 'DocumentControl', 'json');
+        if (!Utils::isUnset($tmpReq->documentControl)) {
+            $request->documentControlShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->documentControl, 'DocumentControl', 'json');
         }
-
         $query = [];
-        if (null !== $request->csvControlShrink) {
-            @$query['CsvControl'] = $request->csvControlShrink;
+        if (!Utils::isUnset($request->csvControlShrink)) {
+            $query['CsvControl'] = $request->csvControlShrink;
         }
-
         $body = [];
-        if (null !== $request->documentControlShrink) {
-            @$body['DocumentControl'] = $request->documentControlShrink;
+        if (!Utils::isUnset($request->documentControlShrink)) {
+            $body['DocumentControl'] = $request->documentControlShrink;
         }
-
-        if (null !== $request->fileUrl) {
-            @$body['FileUrl'] = $request->fileUrl;
+        if (!Utils::isUnset($request->fileUrl)) {
+            $body['FileUrl'] = $request->fileUrl;
         }
-
-        if (null !== $request->filename) {
-            @$body['Filename'] = $request->filename;
+        if (!Utils::isUnset($request->filename)) {
+            $body['Filename'] = $request->filename;
         }
-
-        if (null !== $request->imageEmbedJpegQuality) {
-            @$body['ImageEmbedJpegQuality'] = $request->imageEmbedJpegQuality;
+        if (!Utils::isUnset($request->imageEmbedJpegQuality)) {
+            $body['ImageEmbedJpegQuality'] = $request->imageEmbedJpegQuality;
         }
-
-        if (null !== $request->imageEmbedLevel) {
-            @$body['ImageEmbedLevel'] = $request->imageEmbedLevel;
+        if (!Utils::isUnset($request->imageEmbedLevel)) {
+            $body['ImageEmbedLevel'] = $request->imageEmbedLevel;
         }
-
-        if (null !== $request->videoBitrate) {
-            @$body['VideoBitrate'] = $request->videoBitrate;
+        if (!Utils::isUnset($request->videoBitrate)) {
+            $body['VideoBitrate'] = $request->videoBitrate;
         }
-
-        if (null !== $request->videoIsLong) {
-            @$body['VideoIsLong'] = $request->videoIsLong;
+        if (!Utils::isUnset($request->videoIsLong)) {
+            $body['VideoIsLong'] = $request->videoIsLong;
         }
-
-        if (null !== $request->wmInfoBytesB64) {
-            @$body['WmInfoBytesB64'] = $request->wmInfoBytesB64;
+        if (!Utils::isUnset($request->wmInfoBytesB64)) {
+            $body['WmInfoBytesB64'] = $request->wmInfoBytesB64;
         }
-
-        if (null !== $request->wmInfoSize) {
-            @$body['WmInfoSize'] = $request->wmInfoSize;
+        if (!Utils::isUnset($request->wmInfoSize)) {
+            $body['WmInfoSize'] = $request->wmInfoSize;
         }
-
-        if (null !== $request->wmInfoUint) {
-            @$body['WmInfoUint'] = $request->wmInfoUint;
+        if (!Utils::isUnset($request->wmInfoUint)) {
+            $body['WmInfoUint'] = $request->wmInfoUint;
         }
-
-        if (null !== $request->wmType) {
-            @$body['WmType'] = $request->wmType;
+        if (!Utils::isUnset($request->wmType)) {
+            $body['WmType'] = $request->wmType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateWmEmbedTask',
@@ -1552,15 +1300,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 创建嵌入水印任务
+     * @summary 创建嵌入水印任务
+     *  *
+     * @param CreateWmEmbedTaskRequest $request CreateWmEmbedTaskRequest
      *
-     * @param request - CreateWmEmbedTaskRequest
-     *
-     * @returns CreateWmEmbedTaskResponse
-     *
-     * @param CreateWmEmbedTaskRequest $request
-     *
-     * @return CreateWmEmbedTaskResponse
+     * @return CreateWmEmbedTaskResponse CreateWmEmbedTaskResponse
      */
     public function createWmEmbedTask($request)
     {
@@ -1570,68 +1314,53 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Creates a digital watermark extraction task.
+     * @summary Creates a digital watermark extraction task.
+     *  *
+     * @param CreateWmExtractTaskRequest $tmpReq  CreateWmExtractTaskRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - CreateWmExtractTaskRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateWmExtractTaskResponse
-     *
-     * @param CreateWmExtractTaskRequest $tmpReq
-     * @param RuntimeOptions             $runtime
-     *
-     * @return CreateWmExtractTaskResponse
+     * @return CreateWmExtractTaskResponse CreateWmExtractTaskResponse
      */
     public function createWmExtractTaskWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new CreateWmExtractTaskShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->csvControl) {
-            $request->csvControlShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->csvControl, 'CsvControl', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->csvControl)) {
+            $request->csvControlShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->csvControl, 'CsvControl', 'json');
         }
-
         $query = [];
-        if (null !== $request->csvControlShrink) {
-            @$query['CsvControl'] = $request->csvControlShrink;
+        if (!Utils::isUnset($request->csvControlShrink)) {
+            $query['CsvControl'] = $request->csvControlShrink;
         }
-
-        if (null !== $request->isClientEmbed) {
-            @$query['IsClientEmbed'] = $request->isClientEmbed;
+        if (!Utils::isUnset($request->isClientEmbed)) {
+            $query['IsClientEmbed'] = $request->isClientEmbed;
         }
-
         $body = [];
-        if (null !== $request->documentIsCapture) {
-            @$body['DocumentIsCapture'] = $request->documentIsCapture;
+        if (!Utils::isUnset($request->documentIsCapture)) {
+            $body['DocumentIsCapture'] = $request->documentIsCapture;
         }
-
-        if (null !== $request->fileUrl) {
-            @$body['FileUrl'] = $request->fileUrl;
+        if (!Utils::isUnset($request->fileUrl)) {
+            $body['FileUrl'] = $request->fileUrl;
         }
-
-        if (null !== $request->filename) {
-            @$body['Filename'] = $request->filename;
+        if (!Utils::isUnset($request->filename)) {
+            $body['Filename'] = $request->filename;
         }
-
-        if (null !== $request->videoIsLong) {
-            @$body['VideoIsLong'] = $request->videoIsLong;
+        if (!Utils::isUnset($request->videoIsLong)) {
+            $body['VideoIsLong'] = $request->videoIsLong;
         }
-
-        if (null !== $request->videoSpeed) {
-            @$body['VideoSpeed'] = $request->videoSpeed;
+        if (!Utils::isUnset($request->videoSpeed)) {
+            $body['VideoSpeed'] = $request->videoSpeed;
         }
-
-        if (null !== $request->wmInfoSize) {
-            @$body['WmInfoSize'] = $request->wmInfoSize;
+        if (!Utils::isUnset($request->wmInfoSize)) {
+            $body['WmInfoSize'] = $request->wmInfoSize;
         }
-
-        if (null !== $request->wmType) {
-            @$body['WmType'] = $request->wmType;
+        if (!Utils::isUnset($request->wmType)) {
+            $body['WmType'] = $request->wmType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateWmExtractTask',
@@ -1649,15 +1378,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Creates a digital watermark extraction task.
+     * @summary Creates a digital watermark extraction task.
+     *  *
+     * @param CreateWmExtractTaskRequest $request CreateWmExtractTaskRequest
      *
-     * @param request - CreateWmExtractTaskRequest
-     *
-     * @returns CreateWmExtractTaskResponse
-     *
-     * @param CreateWmExtractTaskRequest $request
-     *
-     * @return CreateWmExtractTaskResponse
+     * @return CreateWmExtractTaskResponse CreateWmExtractTaskResponse
      */
     public function createWmExtractTask($request)
     {
@@ -1667,36 +1392,28 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 创建一条字符串水印信息到数字水印信息的映射记录.
+     * @summary 创建一条字符串水印信息到数字水印信息的映射记录
+     *  *
+     * @param CreateWmInfoMappingRequest $request CreateWmInfoMappingRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateWmInfoMappingRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateWmInfoMappingResponse
-     *
-     * @param CreateWmInfoMappingRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return CreateWmInfoMappingResponse
+     * @return CreateWmInfoMappingResponse CreateWmInfoMappingResponse
      */
     public function createWmInfoMappingWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->wmInfoBytesB64) {
-            @$body['WmInfoBytesB64'] = $request->wmInfoBytesB64;
+        if (!Utils::isUnset($request->wmInfoBytesB64)) {
+            $body['WmInfoBytesB64'] = $request->wmInfoBytesB64;
         }
-
-        if (null !== $request->wmInfoSize) {
-            @$body['WmInfoSize'] = $request->wmInfoSize;
+        if (!Utils::isUnset($request->wmInfoSize)) {
+            $body['WmInfoSize'] = $request->wmInfoSize;
         }
-
-        if (null !== $request->wmType) {
-            @$body['WmType'] = $request->wmType;
+        if (!Utils::isUnset($request->wmType)) {
+            $body['WmType'] = $request->wmType;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateWmInfoMapping',
@@ -1714,15 +1431,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 创建一条字符串水印信息到数字水印信息的映射记录.
+     * @summary 创建一条字符串水印信息到数字水印信息的映射记录
+     *  *
+     * @param CreateWmInfoMappingRequest $request CreateWmInfoMappingRequest
      *
-     * @param request - CreateWmInfoMappingRequest
-     *
-     * @returns CreateWmInfoMappingResponse
-     *
-     * @param CreateWmInfoMappingRequest $request
-     *
-     * @return CreateWmInfoMappingResponse
+     * @return CreateWmInfoMappingResponse CreateWmInfoMappingResponse
      */
     public function createWmInfoMapping($request)
     {
@@ -1732,31 +1445,24 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量删除审批流程.
+     * @summary 批量删除审批流程
+     *  *
+     * @param DeleteApprovalProcessesRequest $request DeleteApprovalProcessesRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteApprovalProcessesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteApprovalProcessesResponse
-     *
-     * @param DeleteApprovalProcessesRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DeleteApprovalProcessesResponse
+     * @return DeleteApprovalProcessesResponse DeleteApprovalProcessesResponse
      */
     public function deleteApprovalProcessesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
         $bodyFlat = [];
-        if (null !== $request->processIds) {
-            @$bodyFlat['ProcessIds'] = $request->processIds;
+        if (!Utils::isUnset($request->processIds)) {
+            $bodyFlat['ProcessIds'] = $request->processIds;
         }
-
-        $body = Dara::merge([
-        ], $body, Utils::query($bodyFlat));
+        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DeleteApprovalProcesses',
@@ -1774,15 +1480,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量删除审批流程.
+     * @summary 批量删除审批流程
+     *  *
+     * @param DeleteApprovalProcessesRequest $request DeleteApprovalProcessesRequest
      *
-     * @param request - DeleteApprovalProcessesRequest
-     *
-     * @returns DeleteApprovalProcessesResponse
-     *
-     * @param DeleteApprovalProcessesRequest $request
-     *
-     * @return DeleteApprovalProcessesResponse
+     * @return DeleteApprovalProcessesResponse DeleteApprovalProcessesResponse
      */
     public function deleteApprovalProcesses($request)
     {
@@ -1792,28 +1494,22 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 删除自定义身份源指定用户.
+     * @summary 删除自定义身份源指定用户
+     *  *
+     * @param DeleteClientUserRequest $request DeleteClientUserRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteClientUserRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteClientUserResponse
-     *
-     * @param DeleteClientUserRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return DeleteClientUserResponse
+     * @return DeleteClientUserResponse DeleteClientUserResponse
      */
     public function deleteClientUserWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->id) {
-            @$query['Id'] = $request->id;
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteClientUser',
@@ -1831,15 +1527,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 删除自定义身份源指定用户.
+     * @summary 删除自定义身份源指定用户
+     *  *
+     * @param DeleteClientUserRequest $request DeleteClientUserRequest
      *
-     * @param request - DeleteClientUserRequest
-     *
-     * @returns DeleteClientUserResponse
-     *
-     * @param DeleteClientUserRequest $request
-     *
-     * @return DeleteClientUserResponse
+     * @return DeleteClientUserResponse DeleteClientUserResponse
      */
     public function deleteClientUser($request)
     {
@@ -1849,28 +1541,22 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 删除动态路由.
+     * @summary 删除动态路由
+     *  *
+     * @param DeleteDynamicRouteRequest $request DeleteDynamicRouteRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteDynamicRouteRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteDynamicRouteResponse
-     *
-     * @param DeleteDynamicRouteRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DeleteDynamicRouteResponse
+     * @return DeleteDynamicRouteResponse DeleteDynamicRouteResponse
      */
     public function deleteDynamicRouteWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->dynamicRouteId) {
-            @$query['DynamicRouteId'] = $request->dynamicRouteId;
+        if (!Utils::isUnset($request->dynamicRouteId)) {
+            $query['DynamicRouteId'] = $request->dynamicRouteId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteDynamicRoute',
@@ -1888,15 +1574,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 删除动态路由.
+     * @summary 删除动态路由
+     *  *
+     * @param DeleteDynamicRouteRequest $request DeleteDynamicRouteRequest
      *
-     * @param request - DeleteDynamicRouteRequest
-     *
-     * @returns DeleteDynamicRouteResponse
-     *
-     * @param DeleteDynamicRouteRequest $request
-     *
-     * @return DeleteDynamicRouteResponse
+     * @return DeleteDynamicRouteResponse DeleteDynamicRouteResponse
      */
     public function deleteDynamicRoute($request)
     {
@@ -1906,28 +1588,22 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 删除加速策略.
+     * @summary 删除加速策略
+     *  *
+     * @param DeleteEnterpriseAcceleratePolicyRequest $request DeleteEnterpriseAcceleratePolicyRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteEnterpriseAcceleratePolicyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteEnterpriseAcceleratePolicyResponse
-     *
-     * @param DeleteEnterpriseAcceleratePolicyRequest $request
-     * @param RuntimeOptions                          $runtime
-     *
-     * @return DeleteEnterpriseAcceleratePolicyResponse
+     * @return DeleteEnterpriseAcceleratePolicyResponse DeleteEnterpriseAcceleratePolicyResponse
      */
     public function deleteEnterpriseAcceleratePolicyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->eapId) {
-            @$body['EapId'] = $request->eapId;
+        if (!Utils::isUnset($request->eapId)) {
+            $body['EapId'] = $request->eapId;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DeleteEnterpriseAcceleratePolicy',
@@ -1945,15 +1621,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 删除加速策略.
+     * @summary 删除加速策略
+     *  *
+     * @param DeleteEnterpriseAcceleratePolicyRequest $request DeleteEnterpriseAcceleratePolicyRequest
      *
-     * @param request - DeleteEnterpriseAcceleratePolicyRequest
-     *
-     * @returns DeleteEnterpriseAcceleratePolicyResponse
-     *
-     * @param DeleteEnterpriseAcceleratePolicyRequest $request
-     *
-     * @return DeleteEnterpriseAcceleratePolicyResponse
+     * @return DeleteEnterpriseAcceleratePolicyResponse DeleteEnterpriseAcceleratePolicyResponse
      */
     public function deleteEnterpriseAcceleratePolicy($request)
     {
@@ -1963,35 +1635,27 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 删除加速对象
+     * @summary 删除加速对象
+     *  *
+     * @param DeleteEnterpriseAccelerateTargetRequest $request DeleteEnterpriseAccelerateTargetRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteEnterpriseAccelerateTargetRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteEnterpriseAccelerateTargetResponse
-     *
-     * @param DeleteEnterpriseAccelerateTargetRequest $request
-     * @param RuntimeOptions                          $runtime
-     *
-     * @return DeleteEnterpriseAccelerateTargetResponse
+     * @return DeleteEnterpriseAccelerateTargetResponse DeleteEnterpriseAccelerateTargetResponse
      */
     public function deleteEnterpriseAccelerateTargetWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->eapId) {
-            @$body['EapId'] = $request->eapId;
+        if (!Utils::isUnset($request->eapId)) {
+            $body['EapId'] = $request->eapId;
         }
-
         $bodyFlat = [];
-        if (null !== $request->target) {
-            @$bodyFlat['Target'] = $request->target;
+        if (!Utils::isUnset($request->target)) {
+            $bodyFlat['Target'] = $request->target;
         }
-
-        $body = Dara::merge([
-        ], $body, Utils::query($bodyFlat));
+        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DeleteEnterpriseAccelerateTarget',
@@ -2009,15 +1673,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 删除加速对象
+     * @summary 删除加速对象
+     *  *
+     * @param DeleteEnterpriseAccelerateTargetRequest $request DeleteEnterpriseAccelerateTargetRequest
      *
-     * @param request - DeleteEnterpriseAccelerateTargetRequest
-     *
-     * @returns DeleteEnterpriseAccelerateTargetResponse
-     *
-     * @param DeleteEnterpriseAccelerateTargetRequest $request
-     *
-     * @return DeleteEnterpriseAccelerateTargetResponse
+     * @return DeleteEnterpriseAccelerateTargetResponse DeleteEnterpriseAccelerateTargetResponse
      */
     public function deleteEnterpriseAccelerateTarget($request)
     {
@@ -2027,32 +1687,25 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 删除指定自定义身份源部门.
+     * @summary 删除指定自定义身份源部门
+     *  *
+     * @param DeleteIdpDepartmentRequest $request DeleteIdpDepartmentRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteIdpDepartmentRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteIdpDepartmentResponse
-     *
-     * @param DeleteIdpDepartmentRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DeleteIdpDepartmentResponse
+     * @return DeleteIdpDepartmentResponse DeleteIdpDepartmentResponse
      */
     public function deleteIdpDepartmentWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->departmentId) {
-            @$query['DepartmentId'] = $request->departmentId;
+        if (!Utils::isUnset($request->departmentId)) {
+            $query['DepartmentId'] = $request->departmentId;
         }
-
-        if (null !== $request->idpConfigId) {
-            @$query['IdpConfigId'] = $request->idpConfigId;
+        if (!Utils::isUnset($request->idpConfigId)) {
+            $query['IdpConfigId'] = $request->idpConfigId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteIdpDepartment',
@@ -2070,15 +1723,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 删除指定自定义身份源部门.
+     * @summary 删除指定自定义身份源部门
+     *  *
+     * @param DeleteIdpDepartmentRequest $request DeleteIdpDepartmentRequest
      *
-     * @param request - DeleteIdpDepartmentRequest
-     *
-     * @returns DeleteIdpDepartmentResponse
-     *
-     * @param DeleteIdpDepartmentRequest $request
-     *
-     * @return DeleteIdpDepartmentResponse
+     * @return DeleteIdpDepartmentResponse DeleteIdpDepartmentResponse
      */
     public function deleteIdpDepartment($request)
     {
@@ -2088,28 +1737,22 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * DeleteOtpConfig.
+     * @summary DeleteOtpConfig
+     *  *
+     * @param DeleteOtpConfigRequest $request DeleteOtpConfigRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteOtpConfigRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteOtpConfigResponse
-     *
-     * @param DeleteOtpConfigRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return DeleteOtpConfigResponse
+     * @return DeleteOtpConfigResponse DeleteOtpConfigResponse
      */
     public function deleteOtpConfigWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->username) {
-            @$body['Username'] = $request->username;
+        if (!Utils::isUnset($request->username)) {
+            $body['Username'] = $request->username;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DeleteOtpConfig',
@@ -2127,15 +1770,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * DeleteOtpConfig.
+     * @summary DeleteOtpConfig
+     *  *
+     * @param DeleteOtpConfigRequest $request DeleteOtpConfigRequest
      *
-     * @param request - DeleteOtpConfigRequest
-     *
-     * @returns DeleteOtpConfigResponse
-     *
-     * @param DeleteOtpConfigRequest $request
-     *
-     * @return DeleteOtpConfigResponse
+     * @return DeleteOtpConfigResponse DeleteOtpConfigResponse
      */
     public function deleteOtpConfig($request)
     {
@@ -2145,28 +1784,22 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 删除内网访问应用.
+     * @summary 删除内网访问应用
+     *  *
+     * @param DeletePrivateAccessApplicationRequest $request DeletePrivateAccessApplicationRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeletePrivateAccessApplicationRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeletePrivateAccessApplicationResponse
-     *
-     * @param DeletePrivateAccessApplicationRequest $request
-     * @param RuntimeOptions                        $runtime
-     *
-     * @return DeletePrivateAccessApplicationResponse
+     * @return DeletePrivateAccessApplicationResponse DeletePrivateAccessApplicationResponse
      */
     public function deletePrivateAccessApplicationWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->applicationId) {
-            @$body['ApplicationId'] = $request->applicationId;
+        if (!Utils::isUnset($request->applicationId)) {
+            $body['ApplicationId'] = $request->applicationId;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DeletePrivateAccessApplication',
@@ -2184,15 +1817,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 删除内网访问应用.
+     * @summary 删除内网访问应用
+     *  *
+     * @param DeletePrivateAccessApplicationRequest $request DeletePrivateAccessApplicationRequest
      *
-     * @param request - DeletePrivateAccessApplicationRequest
-     *
-     * @returns DeletePrivateAccessApplicationResponse
-     *
-     * @param DeletePrivateAccessApplicationRequest $request
-     *
-     * @return DeletePrivateAccessApplicationResponse
+     * @return DeletePrivateAccessApplicationResponse DeletePrivateAccessApplicationResponse
      */
     public function deletePrivateAccessApplication($request)
     {
@@ -2202,28 +1831,22 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 删除内网访问策略.
+     * @summary 删除内网访问策略
+     *  *
+     * @param DeletePrivateAccessPolicyRequest $request DeletePrivateAccessPolicyRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeletePrivateAccessPolicyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeletePrivateAccessPolicyResponse
-     *
-     * @param DeletePrivateAccessPolicyRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DeletePrivateAccessPolicyResponse
+     * @return DeletePrivateAccessPolicyResponse DeletePrivateAccessPolicyResponse
      */
     public function deletePrivateAccessPolicyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->policyId) {
-            @$body['PolicyId'] = $request->policyId;
+        if (!Utils::isUnset($request->policyId)) {
+            $body['PolicyId'] = $request->policyId;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DeletePrivateAccessPolicy',
@@ -2241,15 +1864,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 删除内网访问策略.
+     * @summary 删除内网访问策略
+     *  *
+     * @param DeletePrivateAccessPolicyRequest $request DeletePrivateAccessPolicyRequest
      *
-     * @param request - DeletePrivateAccessPolicyRequest
-     *
-     * @returns DeletePrivateAccessPolicyResponse
-     *
-     * @param DeletePrivateAccessPolicyRequest $request
-     *
-     * @return DeletePrivateAccessPolicyResponse
+     * @return DeletePrivateAccessPolicyResponse DeletePrivateAccessPolicyResponse
      */
     public function deletePrivateAccessPolicy($request)
     {
@@ -2259,28 +1878,22 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 删除内网访问标签.
+     * @summary 删除内网访问标签
+     *  *
+     * @param DeletePrivateAccessTagRequest $request DeletePrivateAccessTagRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeletePrivateAccessTagRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeletePrivateAccessTagResponse
-     *
-     * @param DeletePrivateAccessTagRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return DeletePrivateAccessTagResponse
+     * @return DeletePrivateAccessTagResponse DeletePrivateAccessTagResponse
      */
     public function deletePrivateAccessTagWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->tagId) {
-            @$body['TagId'] = $request->tagId;
+        if (!Utils::isUnset($request->tagId)) {
+            $body['TagId'] = $request->tagId;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DeletePrivateAccessTag',
@@ -2298,15 +1911,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 删除内网访问标签.
+     * @summary 删除内网访问标签
+     *  *
+     * @param DeletePrivateAccessTagRequest $request DeletePrivateAccessTagRequest
      *
-     * @param request - DeletePrivateAccessTagRequest
-     *
-     * @returns DeletePrivateAccessTagResponse
-     *
-     * @param DeletePrivateAccessTagRequest $request
-     *
-     * @return DeletePrivateAccessTagResponse
+     * @return DeletePrivateAccessTagResponse DeletePrivateAccessTagResponse
      */
     public function deletePrivateAccessTag($request)
     {
@@ -2316,31 +1925,24 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 删除设备注册策略.
+     * @summary 删除设备注册策略
+     *  *
+     * @param DeleteRegistrationPoliciesRequest $request DeleteRegistrationPoliciesRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteRegistrationPoliciesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteRegistrationPoliciesResponse
-     *
-     * @param DeleteRegistrationPoliciesRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return DeleteRegistrationPoliciesResponse
+     * @return DeleteRegistrationPoliciesResponse DeleteRegistrationPoliciesResponse
      */
     public function deleteRegistrationPoliciesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
         $bodyFlat = [];
-        if (null !== $request->policyIds) {
-            @$bodyFlat['PolicyIds'] = $request->policyIds;
+        if (!Utils::isUnset($request->policyIds)) {
+            $bodyFlat['PolicyIds'] = $request->policyIds;
         }
-
-        $body = Dara::merge([
-        ], $body, Utils::query($bodyFlat));
+        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DeleteRegistrationPolicies',
@@ -2358,15 +1960,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 删除设备注册策略.
+     * @summary 删除设备注册策略
+     *  *
+     * @param DeleteRegistrationPoliciesRequest $request DeleteRegistrationPoliciesRequest
      *
-     * @param request - DeleteRegistrationPoliciesRequest
-     *
-     * @returns DeleteRegistrationPoliciesResponse
-     *
-     * @param DeleteRegistrationPoliciesRequest $request
-     *
-     * @return DeleteRegistrationPoliciesResponse
+     * @return DeleteRegistrationPoliciesResponse DeleteRegistrationPoliciesResponse
      */
     public function deleteRegistrationPolicies($request)
     {
@@ -2376,31 +1974,24 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量删除用户非在线设备.
+     * @summary 批量删除用户非在线设备
+     *  *
+     * @param DeleteUserDevicesRequest $request DeleteUserDevicesRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteUserDevicesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteUserDevicesResponse
-     *
-     * @param DeleteUserDevicesRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return DeleteUserDevicesResponse
+     * @return DeleteUserDevicesResponse DeleteUserDevicesResponse
      */
     public function deleteUserDevicesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
         $bodyFlat = [];
-        if (null !== $request->deviceTags) {
-            @$bodyFlat['DeviceTags'] = $request->deviceTags;
+        if (!Utils::isUnset($request->deviceTags)) {
+            $bodyFlat['DeviceTags'] = $request->deviceTags;
         }
-
-        $body = Dara::merge([
-        ], $body, Utils::query($bodyFlat));
+        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DeleteUserDevices',
@@ -2418,15 +2009,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量删除用户非在线设备.
+     * @summary 批量删除用户非在线设备
+     *  *
+     * @param DeleteUserDevicesRequest $request DeleteUserDevicesRequest
      *
-     * @param request - DeleteUserDevicesRequest
-     *
-     * @returns DeleteUserDevicesResponse
-     *
-     * @param DeleteUserDevicesRequest $request
-     *
-     * @return DeleteUserDevicesResponse
+     * @return DeleteUserDevicesResponse DeleteUserDevicesResponse
      */
     public function deleteUserDevices($request)
     {
@@ -2436,28 +2023,22 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 删除用户组.
+     * @summary 删除用户组
+     *  *
+     * @param DeleteUserGroupRequest $request DeleteUserGroupRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteUserGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteUserGroupResponse
-     *
-     * @param DeleteUserGroupRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return DeleteUserGroupResponse
+     * @return DeleteUserGroupResponse DeleteUserGroupResponse
      */
     public function deleteUserGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->userGroupId) {
-            @$body['UserGroupId'] = $request->userGroupId;
+        if (!Utils::isUnset($request->userGroupId)) {
+            $body['UserGroupId'] = $request->userGroupId;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DeleteUserGroup',
@@ -2475,15 +2056,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 删除用户组.
+     * @summary 删除用户组
+     *  *
+     * @param DeleteUserGroupRequest $request DeleteUserGroupRequest
      *
-     * @param request - DeleteUserGroupRequest
-     *
-     * @returns DeleteUserGroupResponse
-     *
-     * @param DeleteUserGroupRequest $request
-     *
-     * @return DeleteUserGroupResponse
+     * @return DeleteUserGroupResponse DeleteUserGroupResponse
      */
     public function deleteUserGroup($request)
     {
@@ -2493,38 +2070,30 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 卸载connector的应用.
+     * @summary 卸载connector的应用
+     *  *
+     * @param DetachApplication2ConnectorRequest $tmpReq  DetachApplication2ConnectorRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - DetachApplication2ConnectorRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DetachApplication2ConnectorResponse
-     *
-     * @param DetachApplication2ConnectorRequest $tmpReq
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return DetachApplication2ConnectorResponse
+     * @return DetachApplication2ConnectorResponse DetachApplication2ConnectorResponse
      */
     public function detachApplication2ConnectorWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new DetachApplication2ConnectorShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->applicationIds) {
-            $request->applicationIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->applicationIds, 'ApplicationIds', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->applicationIds)) {
+            $request->applicationIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->applicationIds, 'ApplicationIds', 'json');
         }
-
         $body = [];
-        if (null !== $request->applicationIdsShrink) {
-            @$body['ApplicationIds'] = $request->applicationIdsShrink;
+        if (!Utils::isUnset($request->applicationIdsShrink)) {
+            $body['ApplicationIds'] = $request->applicationIdsShrink;
         }
-
-        if (null !== $request->connectorId) {
-            @$body['ConnectorId'] = $request->connectorId;
+        if (!Utils::isUnset($request->connectorId)) {
+            $body['ConnectorId'] = $request->connectorId;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DetachApplication2Connector',
@@ -2542,15 +2111,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 卸载connector的应用.
+     * @summary 卸载connector的应用
+     *  *
+     * @param DetachApplication2ConnectorRequest $request DetachApplication2ConnectorRequest
      *
-     * @param request - DetachApplication2ConnectorRequest
-     *
-     * @returns DetachApplication2ConnectorResponse
-     *
-     * @param DetachApplication2ConnectorRequest $request
-     *
-     * @return DetachApplication2ConnectorResponse
+     * @return DetachApplication2ConnectorResponse DetachApplication2ConnectorResponse
      */
     public function detachApplication2Connector($request)
     {
@@ -2560,36 +2125,28 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 解绑业务策略与审批流程.
+     * @summary 解绑业务策略与审批流程
+     *  *
+     * @param DetachPolicy2ApprovalProcessRequest $request DetachPolicy2ApprovalProcessRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DetachPolicy2ApprovalProcessRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DetachPolicy2ApprovalProcessResponse
-     *
-     * @param DetachPolicy2ApprovalProcessRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return DetachPolicy2ApprovalProcessResponse
+     * @return DetachPolicy2ApprovalProcessResponse DetachPolicy2ApprovalProcessResponse
      */
     public function detachPolicy2ApprovalProcessWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->policyId) {
-            @$body['PolicyId'] = $request->policyId;
+        if (!Utils::isUnset($request->policyId)) {
+            $body['PolicyId'] = $request->policyId;
         }
-
-        if (null !== $request->policyType) {
-            @$body['PolicyType'] = $request->policyType;
+        if (!Utils::isUnset($request->policyType)) {
+            $body['PolicyType'] = $request->policyType;
         }
-
-        if (null !== $request->processId) {
-            @$body['ProcessId'] = $request->processId;
+        if (!Utils::isUnset($request->processId)) {
+            $body['ProcessId'] = $request->processId;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DetachPolicy2ApprovalProcess',
@@ -2607,15 +2164,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 解绑业务策略与审批流程.
+     * @summary 解绑业务策略与审批流程
+     *  *
+     * @param DetachPolicy2ApprovalProcessRequest $request DetachPolicy2ApprovalProcessRequest
      *
-     * @param request - DetachPolicy2ApprovalProcessRequest
-     *
-     * @returns DetachPolicy2ApprovalProcessResponse
-     *
-     * @param DetachPolicy2ApprovalProcessRequest $request
-     *
-     * @return DetachPolicy2ApprovalProcessResponse
+     * @return DetachPolicy2ApprovalProcessResponse DetachPolicy2ApprovalProcessResponse
      */
     public function detachPolicy2ApprovalProcess($request)
     {
@@ -2625,28 +2178,22 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 禁用加速策略.
+     * @summary 禁用加速策略
+     *  *
+     * @param DisableEnterpriseAcceleratePolicyRequest $request DisableEnterpriseAcceleratePolicyRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DisableEnterpriseAcceleratePolicyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DisableEnterpriseAcceleratePolicyResponse
-     *
-     * @param DisableEnterpriseAcceleratePolicyRequest $request
-     * @param RuntimeOptions                           $runtime
-     *
-     * @return DisableEnterpriseAcceleratePolicyResponse
+     * @return DisableEnterpriseAcceleratePolicyResponse DisableEnterpriseAcceleratePolicyResponse
      */
     public function disableEnterpriseAcceleratePolicyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->eapId) {
-            @$body['EapId'] = $request->eapId;
+        if (!Utils::isUnset($request->eapId)) {
+            $body['EapId'] = $request->eapId;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DisableEnterpriseAcceleratePolicy',
@@ -2664,15 +2211,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 禁用加速策略.
+     * @summary 禁用加速策略
+     *  *
+     * @param DisableEnterpriseAcceleratePolicyRequest $request DisableEnterpriseAcceleratePolicyRequest
      *
-     * @param request - DisableEnterpriseAcceleratePolicyRequest
-     *
-     * @returns DisableEnterpriseAcceleratePolicyResponse
-     *
-     * @param DisableEnterpriseAcceleratePolicyRequest $request
-     *
-     * @return DisableEnterpriseAcceleratePolicyResponse
+     * @return DisableEnterpriseAcceleratePolicyResponse DisableEnterpriseAcceleratePolicyResponse
      */
     public function disableEnterpriseAcceleratePolicy($request)
     {
@@ -2682,28 +2225,22 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 启用加速策略.
+     * @summary 启用加速策略
+     *  *
+     * @param EnableEnterpriseAcceleratePolicyRequest $request EnableEnterpriseAcceleratePolicyRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - EnableEnterpriseAcceleratePolicyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns EnableEnterpriseAcceleratePolicyResponse
-     *
-     * @param EnableEnterpriseAcceleratePolicyRequest $request
-     * @param RuntimeOptions                          $runtime
-     *
-     * @return EnableEnterpriseAcceleratePolicyResponse
+     * @return EnableEnterpriseAcceleratePolicyResponse EnableEnterpriseAcceleratePolicyResponse
      */
     public function enableEnterpriseAcceleratePolicyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->eapId) {
-            @$body['EapId'] = $request->eapId;
+        if (!Utils::isUnset($request->eapId)) {
+            $body['EapId'] = $request->eapId;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'EnableEnterpriseAcceleratePolicy',
@@ -2721,15 +2258,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 启用加速策略.
+     * @summary 启用加速策略
+     *  *
+     * @param EnableEnterpriseAcceleratePolicyRequest $request EnableEnterpriseAcceleratePolicyRequest
      *
-     * @param request - EnableEnterpriseAcceleratePolicyRequest
-     *
-     * @returns EnableEnterpriseAcceleratePolicyResponse
-     *
-     * @param EnableEnterpriseAcceleratePolicyRequest $request
-     *
-     * @return EnableEnterpriseAcceleratePolicyResponse
+     * @return EnableEnterpriseAcceleratePolicyResponse EnableEnterpriseAcceleratePolicyResponse
      */
     public function enableEnterpriseAcceleratePolicy($request)
     {
@@ -2739,87 +2272,66 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询用户设备列表.
+     * @summary 批量查询用户设备列表
+     *  *
+     * @param ExportUserDevicesRequest $request ExportUserDevicesRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ExportUserDevicesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ExportUserDevicesResponse
-     *
-     * @param ExportUserDevicesRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return ExportUserDevicesResponse
+     * @return ExportUserDevicesResponse ExportUserDevicesResponse
      */
     public function exportUserDevicesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
         $bodyFlat = [];
-        if (null !== $request->appStatuses) {
-            @$bodyFlat['AppStatuses'] = $request->appStatuses;
+        if (!Utils::isUnset($request->appStatuses)) {
+            $bodyFlat['AppStatuses'] = $request->appStatuses;
         }
-
-        if (null !== $request->department) {
-            @$body['Department'] = $request->department;
+        if (!Utils::isUnset($request->department)) {
+            $body['Department'] = $request->department;
         }
-
-        if (null !== $request->deviceBelong) {
-            @$body['DeviceBelong'] = $request->deviceBelong;
+        if (!Utils::isUnset($request->deviceBelong)) {
+            $body['DeviceBelong'] = $request->deviceBelong;
         }
-
-        if (null !== $request->deviceStatuses) {
-            @$bodyFlat['DeviceStatuses'] = $request->deviceStatuses;
+        if (!Utils::isUnset($request->deviceStatuses)) {
+            $bodyFlat['DeviceStatuses'] = $request->deviceStatuses;
         }
-
-        if (null !== $request->deviceTags) {
-            @$bodyFlat['DeviceTags'] = $request->deviceTags;
+        if (!Utils::isUnset($request->deviceTags)) {
+            $bodyFlat['DeviceTags'] = $request->deviceTags;
         }
-
-        if (null !== $request->deviceTypes) {
-            @$bodyFlat['DeviceTypes'] = $request->deviceTypes;
+        if (!Utils::isUnset($request->deviceTypes)) {
+            $bodyFlat['DeviceTypes'] = $request->deviceTypes;
         }
-
-        if (null !== $request->dlpStatuses) {
-            @$bodyFlat['DlpStatuses'] = $request->dlpStatuses;
+        if (!Utils::isUnset($request->dlpStatuses)) {
+            $bodyFlat['DlpStatuses'] = $request->dlpStatuses;
         }
-
-        if (null !== $request->hostname) {
-            @$body['Hostname'] = $request->hostname;
+        if (!Utils::isUnset($request->hostname)) {
+            $body['Hostname'] = $request->hostname;
         }
-
-        if (null !== $request->iaStatuses) {
-            @$bodyFlat['IaStatuses'] = $request->iaStatuses;
+        if (!Utils::isUnset($request->iaStatuses)) {
+            $bodyFlat['IaStatuses'] = $request->iaStatuses;
         }
-
-        if (null !== $request->mac) {
-            @$body['Mac'] = $request->mac;
+        if (!Utils::isUnset($request->mac)) {
+            $body['Mac'] = $request->mac;
         }
-
-        if (null !== $request->nacStatuses) {
-            @$bodyFlat['NacStatuses'] = $request->nacStatuses;
+        if (!Utils::isUnset($request->nacStatuses)) {
+            $bodyFlat['NacStatuses'] = $request->nacStatuses;
         }
-
-        if (null !== $request->paStatuses) {
-            @$bodyFlat['PaStatuses'] = $request->paStatuses;
+        if (!Utils::isUnset($request->paStatuses)) {
+            $bodyFlat['PaStatuses'] = $request->paStatuses;
         }
-
-        if (null !== $request->saseUserId) {
-            @$body['SaseUserId'] = $request->saseUserId;
+        if (!Utils::isUnset($request->saseUserId)) {
+            $body['SaseUserId'] = $request->saseUserId;
         }
-
-        if (null !== $request->sharingStatus) {
-            @$body['SharingStatus'] = $request->sharingStatus;
+        if (!Utils::isUnset($request->sharingStatus)) {
+            $body['SharingStatus'] = $request->sharingStatus;
         }
-
-        if (null !== $request->username) {
-            @$body['Username'] = $request->username;
+        if (!Utils::isUnset($request->username)) {
+            $body['Username'] = $request->username;
         }
-
-        $body = Dara::merge([
-        ], $body, Utils::query($bodyFlat));
+        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ExportUserDevices',
@@ -2837,15 +2349,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询用户设备列表.
+     * @summary 批量查询用户设备列表
+     *  *
+     * @param ExportUserDevicesRequest $request ExportUserDevicesRequest
      *
-     * @param request - ExportUserDevicesRequest
-     *
-     * @returns ExportUserDevicesResponse
-     *
-     * @param ExportUserDevicesRequest $request
-     *
-     * @return ExportUserDevicesResponse
+     * @return ExportUserDevicesResponse ExportUserDevicesResponse
      */
     public function exportUserDevices($request)
     {
@@ -2855,16 +2363,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询已启用的身份源配置.
+     * @summary 查询已启用的身份源配置
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetActiveIdpConfigRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetActiveIdpConfigResponse
-     *
-     * @param RuntimeOptions $runtime
-     *
-     * @return GetActiveIdpConfigResponse
+     * @return GetActiveIdpConfigResponse GetActiveIdpConfigResponse
      */
     public function getActiveIdpConfigWithOptions($runtime)
     {
@@ -2885,11 +2388,9 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询已启用的身份源配置.
-     *
-     * @returns GetActiveIdpConfigResponse
-     *
-     * @return GetActiveIdpConfigResponse
+     * @summary 查询已启用的身份源配置
+     *  *
+     * @return GetActiveIdpConfigResponse GetActiveIdpConfigResponse
      */
     public function getActiveIdpConfig()
     {
@@ -2899,24 +2400,19 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询审批.
+     * @summary 查询审批
+     *  *
+     * @param GetApprovalRequest $request GetApprovalRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetApprovalRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetApprovalResponse
-     *
-     * @param GetApprovalRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return GetApprovalResponse
+     * @return GetApprovalResponse GetApprovalResponse
      */
     public function getApprovalWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetApproval',
@@ -2934,15 +2430,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询审批.
+     * @summary 查询审批
+     *  *
+     * @param GetApprovalRequest $request GetApprovalRequest
      *
-     * @param request - GetApprovalRequest
-     *
-     * @returns GetApprovalResponse
-     *
-     * @param GetApprovalRequest $request
-     *
-     * @return GetApprovalResponse
+     * @return GetApprovalResponse GetApprovalResponse
      */
     public function getApproval($request)
     {
@@ -2952,24 +2444,19 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询审批流程.
+     * @summary 查询审批流程
+     *  *
+     * @param GetApprovalProcessRequest $request GetApprovalProcessRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetApprovalProcessRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetApprovalProcessResponse
-     *
-     * @param GetApprovalProcessRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return GetApprovalProcessResponse
+     * @return GetApprovalProcessResponse GetApprovalProcessResponse
      */
     public function getApprovalProcessWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetApprovalProcess',
@@ -2987,15 +2474,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询审批流程.
+     * @summary 查询审批流程
+     *  *
+     * @param GetApprovalProcessRequest $request GetApprovalProcessRequest
      *
-     * @param request - GetApprovalProcessRequest
-     *
-     * @returns GetApprovalProcessResponse
-     *
-     * @param GetApprovalProcessRequest $request
-     *
-     * @return GetApprovalProcessResponse
+     * @return GetApprovalProcessResponse GetApprovalProcessResponse
      */
     public function getApprovalProcess($request)
     {
@@ -3005,24 +2488,19 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询审批动态模板
+     * @summary 查询审批动态模板
+     *  *
+     * @param GetApprovalSchemaRequest $request GetApprovalSchemaRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetApprovalSchemaRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetApprovalSchemaResponse
-     *
-     * @param GetApprovalSchemaRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return GetApprovalSchemaResponse
+     * @return GetApprovalSchemaResponse GetApprovalSchemaResponse
      */
     public function getApprovalSchemaWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetApprovalSchema',
@@ -3040,15 +2518,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询审批动态模板
+     * @summary 查询审批动态模板
+     *  *
+     * @param GetApprovalSchemaRequest $request GetApprovalSchemaRequest
      *
-     * @param request - GetApprovalSchemaRequest
-     *
-     * @returns GetApprovalSchemaResponse
-     *
-     * @param GetApprovalSchemaRequest $request
-     *
-     * @return GetApprovalSchemaResponse
+     * @return GetApprovalSchemaResponse GetApprovalSchemaResponse
      */
     public function getApprovalSchema($request)
     {
@@ -3058,16 +2532,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询自启动与防卸载策略配置.
+     * @summary 查询自启动与防卸载策略配置
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetBootAndAntiUninstallPolicyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetBootAndAntiUninstallPolicyResponse
-     *
-     * @param RuntimeOptions $runtime
-     *
-     * @return GetBootAndAntiUninstallPolicyResponse
+     * @return GetBootAndAntiUninstallPolicyResponse GetBootAndAntiUninstallPolicyResponse
      */
     public function getBootAndAntiUninstallPolicyWithOptions($runtime)
     {
@@ -3088,11 +2557,9 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询自启动与防卸载策略配置.
-     *
-     * @returns GetBootAndAntiUninstallPolicyResponse
-     *
-     * @return GetBootAndAntiUninstallPolicyResponse
+     * @summary 查询自启动与防卸载策略配置
+     *  *
+     * @return GetBootAndAntiUninstallPolicyResponse GetBootAndAntiUninstallPolicyResponse
      */
     public function getBootAndAntiUninstallPolicy()
     {
@@ -3102,24 +2569,19 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询自定义身份源指定用户.
+     * @summary 查询自定义身份源指定用户
+     *  *
+     * @param GetClientUserRequest $request GetClientUserRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetClientUserRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetClientUserResponse
-     *
-     * @param GetClientUserRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return GetClientUserResponse
+     * @return GetClientUserResponse GetClientUserResponse
      */
     public function getClientUserWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetClientUser',
@@ -3137,15 +2599,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询自定义身份源指定用户.
+     * @summary 查询自定义身份源指定用户
+     *  *
+     * @param GetClientUserRequest $request GetClientUserRequest
      *
-     * @param request - GetClientUserRequest
-     *
-     * @returns GetClientUserResponse
-     *
-     * @param GetClientUserRequest $request
-     *
-     * @return GetClientUserResponse
+     * @return GetClientUserResponse GetClientUserResponse
      */
     public function getClientUser($request)
     {
@@ -3155,24 +2613,19 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询动态路由详情.
+     * @summary 查询动态路由详情
+     *  *
+     * @param GetDynamicRouteRequest $request GetDynamicRouteRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetDynamicRouteRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetDynamicRouteResponse
-     *
-     * @param GetDynamicRouteRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return GetDynamicRouteResponse
+     * @return GetDynamicRouteResponse GetDynamicRouteResponse
      */
     public function getDynamicRouteWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetDynamicRoute',
@@ -3190,15 +2643,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询动态路由详情.
+     * @summary 查询动态路由详情
+     *  *
+     * @param GetDynamicRouteRequest $request GetDynamicRouteRequest
      *
-     * @param request - GetDynamicRouteRequest
-     *
-     * @returns GetDynamicRouteResponse
-     *
-     * @param GetDynamicRouteRequest $request
-     *
-     * @return GetDynamicRouteResponse
+     * @return GetDynamicRouteResponse GetDynamicRouteResponse
      */
     public function getDynamicRoute($request)
     {
@@ -3208,24 +2657,19 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询身份源配置详情.
+     * @summary 查询身份源配置详情
+     *  *
+     * @param GetIdpConfigRequest $request GetIdpConfigRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetIdpConfigRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetIdpConfigResponse
-     *
-     * @param GetIdpConfigRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return GetIdpConfigResponse
+     * @return GetIdpConfigResponse GetIdpConfigResponse
      */
     public function getIdpConfigWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetIdpConfig',
@@ -3243,15 +2687,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询身份源配置详情.
+     * @summary 查询身份源配置详情
+     *  *
+     * @param GetIdpConfigRequest $request GetIdpConfigRequest
      *
-     * @param request - GetIdpConfigRequest
-     *
-     * @returns GetIdpConfigResponse
-     *
-     * @param GetIdpConfigRequest $request
-     *
-     * @return GetIdpConfigResponse
+     * @return GetIdpConfigResponse GetIdpConfigResponse
      */
     public function getIdpConfig($request)
     {
@@ -3261,24 +2701,19 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries the details of the office applications that belong to the current Alibaba Cloud account.
+     * @summary Queries the details of the office applications that belong to the current Alibaba Cloud account.
+     *  *
+     * @param GetPrivateAccessApplicationRequest $request GetPrivateAccessApplicationRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetPrivateAccessApplicationRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetPrivateAccessApplicationResponse
-     *
-     * @param GetPrivateAccessApplicationRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return GetPrivateAccessApplicationResponse
+     * @return GetPrivateAccessApplicationResponse GetPrivateAccessApplicationResponse
      */
     public function getPrivateAccessApplicationWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetPrivateAccessApplication',
@@ -3296,15 +2731,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries the details of the office applications that belong to the current Alibaba Cloud account.
+     * @summary Queries the details of the office applications that belong to the current Alibaba Cloud account.
+     *  *
+     * @param GetPrivateAccessApplicationRequest $request GetPrivateAccessApplicationRequest
      *
-     * @param request - GetPrivateAccessApplicationRequest
-     *
-     * @returns GetPrivateAccessApplicationResponse
-     *
-     * @param GetPrivateAccessApplicationRequest $request
-     *
-     * @return GetPrivateAccessApplicationResponse
+     * @return GetPrivateAccessApplicationResponse GetPrivateAccessApplicationResponse
      */
     public function getPrivateAccessApplication($request)
     {
@@ -3314,24 +2745,19 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Query Intranet Access Policy Details.
+     * @summary Query Intranet Access Policy Details
+     *  *
+     * @param GetPrivateAccessPolicyRequest $request GetPrivateAccessPolicyRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetPrivateAccessPolicyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetPrivateAccessPolicyResponse
-     *
-     * @param GetPrivateAccessPolicyRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return GetPrivateAccessPolicyResponse
+     * @return GetPrivateAccessPolicyResponse GetPrivateAccessPolicyResponse
      */
     public function getPrivateAccessPolicyWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetPrivateAccessPolicy',
@@ -3349,15 +2775,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Query Intranet Access Policy Details.
+     * @summary Query Intranet Access Policy Details
+     *  *
+     * @param GetPrivateAccessPolicyRequest $request GetPrivateAccessPolicyRequest
      *
-     * @param request - GetPrivateAccessPolicyRequest
-     *
-     * @returns GetPrivateAccessPolicyResponse
-     *
-     * @param GetPrivateAccessPolicyRequest $request
-     *
-     * @return GetPrivateAccessPolicyResponse
+     * @return GetPrivateAccessPolicyResponse GetPrivateAccessPolicyResponse
      */
     public function getPrivateAccessPolicy($request)
     {
@@ -3367,24 +2789,19 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询设备注册策略详情.
+     * @summary 查询设备注册策略详情
+     *  *
+     * @param GetRegistrationPolicyRequest $request GetRegistrationPolicyRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetRegistrationPolicyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetRegistrationPolicyResponse
-     *
-     * @param GetRegistrationPolicyRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return GetRegistrationPolicyResponse
+     * @return GetRegistrationPolicyResponse GetRegistrationPolicyResponse
      */
     public function getRegistrationPolicyWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetRegistrationPolicy',
@@ -3402,15 +2819,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询设备注册策略详情.
+     * @summary 查询设备注册策略详情
+     *  *
+     * @param GetRegistrationPolicyRequest $request GetRegistrationPolicyRequest
      *
-     * @param request - GetRegistrationPolicyRequest
-     *
-     * @returns GetRegistrationPolicyResponse
-     *
-     * @param GetRegistrationPolicyRequest $request
-     *
-     * @return GetRegistrationPolicyResponse
+     * @return GetRegistrationPolicyResponse GetRegistrationPolicyResponse
      */
     public function getRegistrationPolicy($request)
     {
@@ -3420,24 +2833,19 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询用户设备详情.
+     * @summary 查询用户设备详情
+     *  *
+     * @param GetUserDeviceRequest $request GetUserDeviceRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetUserDeviceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetUserDeviceResponse
-     *
-     * @param GetUserDeviceRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return GetUserDeviceResponse
+     * @return GetUserDeviceResponse GetUserDeviceResponse
      */
     public function getUserDeviceWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetUserDevice',
@@ -3455,15 +2863,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询用户设备详情.
+     * @summary 查询用户设备详情
+     *  *
+     * @param GetUserDeviceRequest $request GetUserDeviceRequest
      *
-     * @param request - GetUserDeviceRequest
-     *
-     * @returns GetUserDeviceResponse
-     *
-     * @param GetUserDeviceRequest $request
-     *
-     * @return GetUserDeviceResponse
+     * @return GetUserDeviceResponse GetUserDeviceResponse
      */
     public function getUserDevice($request)
     {
@@ -3473,24 +2877,19 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询用户组详情.
+     * @summary 查询用户组详情
+     *  *
+     * @param GetUserGroupRequest $request GetUserGroupRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetUserGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetUserGroupResponse
-     *
-     * @param GetUserGroupRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return GetUserGroupResponse
+     * @return GetUserGroupResponse GetUserGroupResponse
      */
     public function getUserGroupWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetUserGroup',
@@ -3508,15 +2907,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询用户组详情.
+     * @summary 查询用户组详情
+     *  *
+     * @param GetUserGroupRequest $request GetUserGroupRequest
      *
-     * @param request - GetUserGroupRequest
-     *
-     * @returns GetUserGroupResponse
-     *
-     * @param GetUserGroupRequest $request
-     *
-     * @return GetUserGroupResponse
+     * @return GetUserGroupResponse GetUserGroupResponse
      */
     public function getUserGroup($request)
     {
@@ -3526,24 +2921,19 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询嵌入水印任务
+     * @summary 查询嵌入水印任务
+     *  *
+     * @param GetWmEmbedTaskRequest $request GetWmEmbedTaskRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetWmEmbedTaskRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetWmEmbedTaskResponse
-     *
-     * @param GetWmEmbedTaskRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return GetWmEmbedTaskResponse
+     * @return GetWmEmbedTaskResponse GetWmEmbedTaskResponse
      */
     public function getWmEmbedTaskWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetWmEmbedTask',
@@ -3561,15 +2951,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询嵌入水印任务
+     * @summary 查询嵌入水印任务
+     *  *
+     * @param GetWmEmbedTaskRequest $request GetWmEmbedTaskRequest
      *
-     * @param request - GetWmEmbedTaskRequest
-     *
-     * @returns GetWmEmbedTaskResponse
-     *
-     * @param GetWmEmbedTaskRequest $request
-     *
-     * @return GetWmEmbedTaskResponse
+     * @return GetWmEmbedTaskResponse GetWmEmbedTaskResponse
      */
     public function getWmEmbedTask($request)
     {
@@ -3579,24 +2965,19 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询文件水印提取任务详情.
+     * @summary 查询文件水印提取任务详情
+     *  *
+     * @param GetWmExtractTaskRequest $request GetWmExtractTaskRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetWmExtractTaskRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetWmExtractTaskResponse
-     *
-     * @param GetWmExtractTaskRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return GetWmExtractTaskResponse
+     * @return GetWmExtractTaskResponse GetWmExtractTaskResponse
      */
     public function getWmExtractTaskWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetWmExtractTask',
@@ -3614,15 +2995,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询文件水印提取任务详情.
+     * @summary 查询文件水印提取任务详情
+     *  *
+     * @param GetWmExtractTaskRequest $request GetWmExtractTaskRequest
      *
-     * @param request - GetWmExtractTaskRequest
-     *
-     * @returns GetWmExtractTaskResponse
-     *
-     * @param GetWmExtractTaskRequest $request
-     *
-     * @return GetWmExtractTaskResponse
+     * @return GetWmExtractTaskResponse GetWmExtractTaskResponse
      */
     public function getWmExtractTask($request)
     {
@@ -3632,32 +3009,25 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量导入加速对象异步任务
+     * @summary 批量导入加速对象异步任务
+     *  *
+     * @param ImportEnterpriseAccelerateTargetsRequest $request ImportEnterpriseAccelerateTargetsRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ImportEnterpriseAccelerateTargetsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ImportEnterpriseAccelerateTargetsResponse
-     *
-     * @param ImportEnterpriseAccelerateTargetsRequest $request
-     * @param RuntimeOptions                           $runtime
-     *
-     * @return ImportEnterpriseAccelerateTargetsResponse
+     * @return ImportEnterpriseAccelerateTargetsResponse ImportEnterpriseAccelerateTargetsResponse
      */
     public function importEnterpriseAccelerateTargetsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->eapId) {
-            @$body['EapId'] = $request->eapId;
+        if (!Utils::isUnset($request->eapId)) {
+            $body['EapId'] = $request->eapId;
         }
-
-        if (null !== $request->fileUrl) {
-            @$body['FileUrl'] = $request->fileUrl;
+        if (!Utils::isUnset($request->fileUrl)) {
+            $body['FileUrl'] = $request->fileUrl;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ImportEnterpriseAccelerateTargets',
@@ -3675,15 +3045,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量导入加速对象异步任务
+     * @summary 批量导入加速对象异步任务
+     *  *
+     * @param ImportEnterpriseAccelerateTargetsRequest $request ImportEnterpriseAccelerateTargetsRequest
      *
-     * @param request - ImportEnterpriseAccelerateTargetsRequest
-     *
-     * @returns ImportEnterpriseAccelerateTargetsResponse
-     *
-     * @param ImportEnterpriseAccelerateTargetsRequest $request
-     *
-     * @return ImportEnterpriseAccelerateTargetsResponse
+     * @return ImportEnterpriseAccelerateTargetsResponse ImportEnterpriseAccelerateTargetsResponse
      */
     public function importEnterpriseAccelerateTargets($request)
     {
@@ -3693,24 +3059,19 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询内网访问策略的应用.
+     * @summary 批量查询内网访问策略的应用
+     *  *
+     * @param ListApplicationsForPrivateAccessPolicyRequest $request ListApplicationsForPrivateAccessPolicyRequest
+     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListApplicationsForPrivateAccessPolicyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListApplicationsForPrivateAccessPolicyResponse
-     *
-     * @param ListApplicationsForPrivateAccessPolicyRequest $request
-     * @param RuntimeOptions                                $runtime
-     *
-     * @return ListApplicationsForPrivateAccessPolicyResponse
+     * @return ListApplicationsForPrivateAccessPolicyResponse ListApplicationsForPrivateAccessPolicyResponse
      */
     public function listApplicationsForPrivateAccessPolicyWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListApplicationsForPrivateAccessPolicy',
@@ -3728,15 +3089,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询内网访问策略的应用.
+     * @summary 批量查询内网访问策略的应用
+     *  *
+     * @param ListApplicationsForPrivateAccessPolicyRequest $request ListApplicationsForPrivateAccessPolicyRequest
      *
-     * @param request - ListApplicationsForPrivateAccessPolicyRequest
-     *
-     * @returns ListApplicationsForPrivateAccessPolicyResponse
-     *
-     * @param ListApplicationsForPrivateAccessPolicyRequest $request
-     *
-     * @return ListApplicationsForPrivateAccessPolicyResponse
+     * @return ListApplicationsForPrivateAccessPolicyResponse ListApplicationsForPrivateAccessPolicyResponse
      */
     public function listApplicationsForPrivateAccessPolicy($request)
     {
@@ -3746,24 +3103,19 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询内网访问标签的应用.
+     * @summary 批量查询内网访问标签的应用
+     *  *
+     * @param ListApplicationsForPrivateAccessTagRequest $request ListApplicationsForPrivateAccessTagRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListApplicationsForPrivateAccessTagRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListApplicationsForPrivateAccessTagResponse
-     *
-     * @param ListApplicationsForPrivateAccessTagRequest $request
-     * @param RuntimeOptions                             $runtime
-     *
-     * @return ListApplicationsForPrivateAccessTagResponse
+     * @return ListApplicationsForPrivateAccessTagResponse ListApplicationsForPrivateAccessTagResponse
      */
     public function listApplicationsForPrivateAccessTagWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListApplicationsForPrivateAccessTag',
@@ -3781,15 +3133,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询内网访问标签的应用.
+     * @summary 批量查询内网访问标签的应用
+     *  *
+     * @param ListApplicationsForPrivateAccessTagRequest $request ListApplicationsForPrivateAccessTagRequest
      *
-     * @param request - ListApplicationsForPrivateAccessTagRequest
-     *
-     * @returns ListApplicationsForPrivateAccessTagResponse
-     *
-     * @param ListApplicationsForPrivateAccessTagRequest $request
-     *
-     * @return ListApplicationsForPrivateAccessTagResponse
+     * @return ListApplicationsForPrivateAccessTagResponse ListApplicationsForPrivateAccessTagResponse
      */
     public function listApplicationsForPrivateAccessTag($request)
     {
@@ -3799,24 +3147,19 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 列表查询审批流程.
+     * @summary 列表查询审批流程
+     *  *
+     * @param ListApprovalProcessesRequest $request ListApprovalProcessesRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListApprovalProcessesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListApprovalProcessesResponse
-     *
-     * @param ListApprovalProcessesRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return ListApprovalProcessesResponse
+     * @return ListApprovalProcessesResponse ListApprovalProcessesResponse
      */
     public function listApprovalProcessesWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListApprovalProcesses',
@@ -3834,15 +3177,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 列表查询审批流程.
+     * @summary 列表查询审批流程
+     *  *
+     * @param ListApprovalProcessesRequest $request ListApprovalProcessesRequest
      *
-     * @param request - ListApprovalProcessesRequest
-     *
-     * @returns ListApprovalProcessesResponse
-     *
-     * @param ListApprovalProcessesRequest $request
-     *
-     * @return ListApprovalProcessesResponse
+     * @return ListApprovalProcessesResponse ListApprovalProcessesResponse
      */
     public function listApprovalProcesses($request)
     {
@@ -3852,24 +3191,19 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询审批渲染模板关联的流程.
+     * @summary 查询审批渲染模板关联的流程
+     *  *
+     * @param ListApprovalProcessesForApprovalSchemasRequest $request ListApprovalProcessesForApprovalSchemasRequest
+     * @param RuntimeOptions                                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListApprovalProcessesForApprovalSchemasRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListApprovalProcessesForApprovalSchemasResponse
-     *
-     * @param ListApprovalProcessesForApprovalSchemasRequest $request
-     * @param RuntimeOptions                                 $runtime
-     *
-     * @return ListApprovalProcessesForApprovalSchemasResponse
+     * @return ListApprovalProcessesForApprovalSchemasResponse ListApprovalProcessesForApprovalSchemasResponse
      */
     public function listApprovalProcessesForApprovalSchemasWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListApprovalProcessesForApprovalSchemas',
@@ -3887,15 +3221,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询审批渲染模板关联的流程.
+     * @summary 查询审批渲染模板关联的流程
+     *  *
+     * @param ListApprovalProcessesForApprovalSchemasRequest $request ListApprovalProcessesForApprovalSchemasRequest
      *
-     * @param request - ListApprovalProcessesForApprovalSchemasRequest
-     *
-     * @returns ListApprovalProcessesForApprovalSchemasResponse
-     *
-     * @param ListApprovalProcessesForApprovalSchemasRequest $request
-     *
-     * @return ListApprovalProcessesForApprovalSchemasResponse
+     * @return ListApprovalProcessesForApprovalSchemasResponse ListApprovalProcessesForApprovalSchemasResponse
      */
     public function listApprovalProcessesForApprovalSchemas($request)
     {
@@ -3905,24 +3235,19 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 列表查询审批动态模板
+     * @summary 列表查询审批动态模板
+     *  *
+     * @param ListApprovalSchemasRequest $request ListApprovalSchemasRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListApprovalSchemasRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListApprovalSchemasResponse
-     *
-     * @param ListApprovalSchemasRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return ListApprovalSchemasResponse
+     * @return ListApprovalSchemasResponse ListApprovalSchemasResponse
      */
     public function listApprovalSchemasWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListApprovalSchemas',
@@ -3940,15 +3265,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 列表查询审批动态模板
+     * @summary 列表查询审批动态模板
+     *  *
+     * @param ListApprovalSchemasRequest $request ListApprovalSchemasRequest
      *
-     * @param request - ListApprovalSchemasRequest
-     *
-     * @returns ListApprovalSchemasResponse
-     *
-     * @param ListApprovalSchemasRequest $request
-     *
-     * @return ListApprovalSchemasResponse
+     * @return ListApprovalSchemasResponse ListApprovalSchemasResponse
      */
     public function listApprovalSchemas($request)
     {
@@ -3958,24 +3279,19 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询审批流程关联的渲染模板
+     * @summary 查询审批流程关联的渲染模板
+     *  *
+     * @param ListApprovalSchemasForApprovalProcessesRequest $request ListApprovalSchemasForApprovalProcessesRequest
+     * @param RuntimeOptions                                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListApprovalSchemasForApprovalProcessesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListApprovalSchemasForApprovalProcessesResponse
-     *
-     * @param ListApprovalSchemasForApprovalProcessesRequest $request
-     * @param RuntimeOptions                                 $runtime
-     *
-     * @return ListApprovalSchemasForApprovalProcessesResponse
+     * @return ListApprovalSchemasForApprovalProcessesResponse ListApprovalSchemasForApprovalProcessesResponse
      */
     public function listApprovalSchemasForApprovalProcessesWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListApprovalSchemasForApprovalProcesses',
@@ -3993,15 +3309,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询审批流程关联的渲染模板
+     * @summary 查询审批流程关联的渲染模板
+     *  *
+     * @param ListApprovalSchemasForApprovalProcessesRequest $request ListApprovalSchemasForApprovalProcessesRequest
      *
-     * @param request - ListApprovalSchemasForApprovalProcessesRequest
-     *
-     * @returns ListApprovalSchemasForApprovalProcessesResponse
-     *
-     * @param ListApprovalSchemasForApprovalProcessesRequest $request
-     *
-     * @return ListApprovalSchemasForApprovalProcessesResponse
+     * @return ListApprovalSchemasForApprovalProcessesResponse ListApprovalSchemasForApprovalProcessesResponse
      */
     public function listApprovalSchemasForApprovalProcesses($request)
     {
@@ -4011,24 +3323,19 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询审批.
+     * @summary 批量查询审批
+     *  *
+     * @param ListApprovalsRequest $request ListApprovalsRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListApprovalsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListApprovalsResponse
-     *
-     * @param ListApprovalsRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return ListApprovalsResponse
+     * @return ListApprovalsResponse ListApprovalsResponse
      */
     public function listApprovalsWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListApprovals',
@@ -4046,15 +3353,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询审批.
+     * @summary 批量查询审批
+     *  *
+     * @param ListApprovalsRequest $request ListApprovalsRequest
      *
-     * @param request - ListApprovalsRequest
-     *
-     * @returns ListApprovalsResponse
-     *
-     * @param ListApprovalsRequest $request
-     *
-     * @return ListApprovalsResponse
+     * @return ListApprovalsResponse ListApprovalsResponse
      */
     public function listApprovals($request)
     {
@@ -4064,24 +3367,19 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询自定义身份源用户.
+     * @summary 查询自定义身份源用户
+     *  *
+     * @param ListClientUsersRequest $request ListClientUsersRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListClientUsersRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListClientUsersResponse
-     *
-     * @param ListClientUsersRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return ListClientUsersResponse
+     * @return ListClientUsersResponse ListClientUsersResponse
      */
     public function listClientUsersWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListClientUsers',
@@ -4099,15 +3397,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询自定义身份源用户.
+     * @summary 查询自定义身份源用户
+     *  *
+     * @param ListClientUsersRequest $request ListClientUsersRequest
      *
-     * @param request - ListClientUsersRequest
-     *
-     * @returns ListClientUsersResponse
-     *
-     * @param ListClientUsersRequest $request
-     *
-     * @return ListClientUsersResponse
+     * @return ListClientUsersResponse ListClientUsersResponse
      */
     public function listClientUsers($request)
     {
@@ -4117,24 +3411,19 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询connector.
+     * @summary 批量查询connector
+     *  *
+     * @param ListConnectorsRequest $request ListConnectorsRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListConnectorsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListConnectorsResponse
-     *
-     * @param ListConnectorsRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return ListConnectorsResponse
+     * @return ListConnectorsResponse ListConnectorsResponse
      */
     public function listConnectorsWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListConnectors',
@@ -4152,15 +3441,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询connector.
+     * @summary 批量查询connector
+     *  *
+     * @param ListConnectorsRequest $request ListConnectorsRequest
      *
-     * @param request - ListConnectorsRequest
-     *
-     * @returns ListConnectorsResponse
-     *
-     * @param ListConnectorsRequest $request
-     *
-     * @return ListConnectorsResponse
+     * @return ListConnectorsResponse ListConnectorsResponse
      */
     public function listConnectors($request)
     {
@@ -4170,24 +3455,19 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Batch Query Dynamic Policy Disposal Processes.
+     * @summary Batch Query Dynamic Policy Disposal Processes
+     *  *
+     * @param ListDynamicDisposalProcessesRequest $request ListDynamicDisposalProcessesRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListDynamicDisposalProcessesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListDynamicDisposalProcessesResponse
-     *
-     * @param ListDynamicDisposalProcessesRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return ListDynamicDisposalProcessesResponse
+     * @return ListDynamicDisposalProcessesResponse ListDynamicDisposalProcessesResponse
      */
     public function listDynamicDisposalProcessesWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListDynamicDisposalProcesses',
@@ -4205,15 +3485,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Batch Query Dynamic Policy Disposal Processes.
+     * @summary Batch Query Dynamic Policy Disposal Processes
+     *  *
+     * @param ListDynamicDisposalProcessesRequest $request ListDynamicDisposalProcessesRequest
      *
-     * @param request - ListDynamicDisposalProcessesRequest
-     *
-     * @returns ListDynamicDisposalProcessesResponse
-     *
-     * @param ListDynamicDisposalProcessesRequest $request
-     *
-     * @return ListDynamicDisposalProcessesResponse
+     * @return ListDynamicDisposalProcessesResponse ListDynamicDisposalProcessesResponse
      */
     public function listDynamicDisposalProcesses($request)
     {
@@ -4223,16 +3499,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询动态路由的地域
+     * @summary 批量查询动态路由的地域
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListDynamicRouteRegionsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListDynamicRouteRegionsResponse
-     *
-     * @param RuntimeOptions $runtime
-     *
-     * @return ListDynamicRouteRegionsResponse
+     * @return ListDynamicRouteRegionsResponse ListDynamicRouteRegionsResponse
      */
     public function listDynamicRouteRegionsWithOptions($runtime)
     {
@@ -4253,11 +3524,9 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询动态路由的地域
-     *
-     * @returns ListDynamicRouteRegionsResponse
-     *
-     * @return ListDynamicRouteRegionsResponse
+     * @summary 批量查询动态路由的地域
+     *  *
+     * @return ListDynamicRouteRegionsResponse ListDynamicRouteRegionsResponse
      */
     public function listDynamicRouteRegions()
     {
@@ -4267,24 +3536,19 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询动态路由.
+     * @summary 批量查询动态路由
+     *  *
+     * @param ListDynamicRoutesRequest $request ListDynamicRoutesRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListDynamicRoutesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListDynamicRoutesResponse
-     *
-     * @param ListDynamicRoutesRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return ListDynamicRoutesResponse
+     * @return ListDynamicRoutesResponse ListDynamicRoutesResponse
      */
     public function listDynamicRoutesWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListDynamicRoutes',
@@ -4302,15 +3566,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询动态路由.
+     * @summary 批量查询动态路由
+     *  *
+     * @param ListDynamicRoutesRequest $request ListDynamicRoutesRequest
      *
-     * @param request - ListDynamicRoutesRequest
-     *
-     * @returns ListDynamicRoutesResponse
-     *
-     * @param ListDynamicRoutesRequest $request
-     *
-     * @return ListDynamicRoutesResponse
+     * @return ListDynamicRoutesResponse ListDynamicRoutesResponse
      */
     public function listDynamicRoutes($request)
     {
@@ -4320,24 +3580,19 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询加速策略日志列表.
+     * @summary 查询加速策略日志列表
+     *  *
+     * @param ListEnterpriseAccelerateLogsRequest $request ListEnterpriseAccelerateLogsRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListEnterpriseAccelerateLogsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListEnterpriseAccelerateLogsResponse
-     *
-     * @param ListEnterpriseAccelerateLogsRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return ListEnterpriseAccelerateLogsResponse
+     * @return ListEnterpriseAccelerateLogsResponse ListEnterpriseAccelerateLogsResponse
      */
     public function listEnterpriseAccelerateLogsWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListEnterpriseAccelerateLogs',
@@ -4355,15 +3610,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询加速策略日志列表.
+     * @summary 查询加速策略日志列表
+     *  *
+     * @param ListEnterpriseAccelerateLogsRequest $request ListEnterpriseAccelerateLogsRequest
      *
-     * @param request - ListEnterpriseAccelerateLogsRequest
-     *
-     * @returns ListEnterpriseAccelerateLogsResponse
-     *
-     * @param ListEnterpriseAccelerateLogsRequest $request
-     *
-     * @return ListEnterpriseAccelerateLogsResponse
+     * @return ListEnterpriseAccelerateLogsResponse ListEnterpriseAccelerateLogsResponse
      */
     public function listEnterpriseAccelerateLogs($request)
     {
@@ -4373,24 +3624,19 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询加速策略列表.
+     * @summary 查询加速策略列表
+     *  *
+     * @param ListEnterpriseAcceleratePoliciesRequest $request ListEnterpriseAcceleratePoliciesRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListEnterpriseAcceleratePoliciesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListEnterpriseAcceleratePoliciesResponse
-     *
-     * @param ListEnterpriseAcceleratePoliciesRequest $request
-     * @param RuntimeOptions                          $runtime
-     *
-     * @return ListEnterpriseAcceleratePoliciesResponse
+     * @return ListEnterpriseAcceleratePoliciesResponse ListEnterpriseAcceleratePoliciesResponse
      */
     public function listEnterpriseAcceleratePoliciesWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListEnterpriseAcceleratePolicies',
@@ -4408,15 +3654,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询加速策略列表.
+     * @summary 查询加速策略列表
+     *  *
+     * @param ListEnterpriseAcceleratePoliciesRequest $request ListEnterpriseAcceleratePoliciesRequest
      *
-     * @param request - ListEnterpriseAcceleratePoliciesRequest
-     *
-     * @returns ListEnterpriseAcceleratePoliciesResponse
-     *
-     * @param ListEnterpriseAcceleratePoliciesRequest $request
-     *
-     * @return ListEnterpriseAcceleratePoliciesResponse
+     * @return ListEnterpriseAcceleratePoliciesResponse ListEnterpriseAcceleratePoliciesResponse
      */
     public function listEnterpriseAcceleratePolicies($request)
     {
@@ -4426,24 +3668,19 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询加速对象列表.
+     * @summary 查询加速对象列表
+     *  *
+     * @param ListEnterpriseAccelerateTargetsRequest $request ListEnterpriseAccelerateTargetsRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListEnterpriseAccelerateTargetsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListEnterpriseAccelerateTargetsResponse
-     *
-     * @param ListEnterpriseAccelerateTargetsRequest $request
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return ListEnterpriseAccelerateTargetsResponse
+     * @return ListEnterpriseAccelerateTargetsResponse ListEnterpriseAccelerateTargetsResponse
      */
     public function listEnterpriseAccelerateTargetsWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListEnterpriseAccelerateTargets',
@@ -4461,15 +3698,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询加速对象列表.
+     * @summary 查询加速对象列表
+     *  *
+     * @param ListEnterpriseAccelerateTargetsRequest $request ListEnterpriseAccelerateTargetsRequest
      *
-     * @param request - ListEnterpriseAccelerateTargetsRequest
-     *
-     * @returns ListEnterpriseAccelerateTargetsResponse
-     *
-     * @param ListEnterpriseAccelerateTargetsRequest $request
-     *
-     * @return ListEnterpriseAccelerateTargetsResponse
+     * @return ListEnterpriseAccelerateTargetsResponse ListEnterpriseAccelerateTargetsResponse
      */
     public function listEnterpriseAccelerateTargets($request)
     {
@@ -4479,24 +3712,19 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询超额注册申请列表.
+     * @summary 批量查询超额注册申请列表
+     *  *
+     * @param ListExcessiveDeviceRegistrationApplicationsRequest $request ListExcessiveDeviceRegistrationApplicationsRequest
+     * @param RuntimeOptions                                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListExcessiveDeviceRegistrationApplicationsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListExcessiveDeviceRegistrationApplicationsResponse
-     *
-     * @param ListExcessiveDeviceRegistrationApplicationsRequest $request
-     * @param RuntimeOptions                                     $runtime
-     *
-     * @return ListExcessiveDeviceRegistrationApplicationsResponse
+     * @return ListExcessiveDeviceRegistrationApplicationsResponse ListExcessiveDeviceRegistrationApplicationsResponse
      */
     public function listExcessiveDeviceRegistrationApplicationsWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListExcessiveDeviceRegistrationApplications',
@@ -4514,15 +3742,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询超额注册申请列表.
+     * @summary 批量查询超额注册申请列表
+     *  *
+     * @param ListExcessiveDeviceRegistrationApplicationsRequest $request ListExcessiveDeviceRegistrationApplicationsRequest
      *
-     * @param request - ListExcessiveDeviceRegistrationApplicationsRequest
-     *
-     * @returns ListExcessiveDeviceRegistrationApplicationsResponse
-     *
-     * @param ListExcessiveDeviceRegistrationApplicationsRequest $request
-     *
-     * @return ListExcessiveDeviceRegistrationApplicationsResponse
+     * @return ListExcessiveDeviceRegistrationApplicationsResponse ListExcessiveDeviceRegistrationApplicationsResponse
      */
     public function listExcessiveDeviceRegistrationApplications($request)
     {
@@ -4532,24 +3756,19 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询IDP配置.
+     * @summary 查询IDP配置
+     *  *
+     * @param ListIdpConfigsRequest $request ListIdpConfigsRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListIdpConfigsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListIdpConfigsResponse
-     *
-     * @param ListIdpConfigsRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return ListIdpConfigsResponse
+     * @return ListIdpConfigsResponse ListIdpConfigsResponse
      */
     public function listIdpConfigsWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListIdpConfigs',
@@ -4567,15 +3786,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询IDP配置.
+     * @summary 查询IDP配置
+     *  *
+     * @param ListIdpConfigsRequest $request ListIdpConfigsRequest
      *
-     * @param request - ListIdpConfigsRequest
-     *
-     * @returns ListIdpConfigsResponse
-     *
-     * @param ListIdpConfigsRequest $request
-     *
-     * @return ListIdpConfigsResponse
+     * @return ListIdpConfigsResponse ListIdpConfigsResponse
      */
     public function listIdpConfigs($request)
     {
@@ -4585,24 +3800,19 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询自定义身份源部门.
+     * @summary 查询自定义身份源部门
+     *  *
+     * @param ListIdpDepartmentsRequest $request ListIdpDepartmentsRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListIdpDepartmentsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListIdpDepartmentsResponse
-     *
-     * @param ListIdpDepartmentsRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return ListIdpDepartmentsResponse
+     * @return ListIdpDepartmentsResponse ListIdpDepartmentsResponse
      */
     public function listIdpDepartmentsWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListIdpDepartments',
@@ -4620,15 +3830,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询自定义身份源部门.
+     * @summary 查询自定义身份源部门
+     *  *
+     * @param ListIdpDepartmentsRequest $request ListIdpDepartmentsRequest
      *
-     * @param request - ListIdpDepartmentsRequest
-     *
-     * @returns ListIdpDepartmentsResponse
-     *
-     * @param ListIdpDepartmentsRequest $request
-     *
-     * @return ListIdpDepartmentsResponse
+     * @return ListIdpDepartmentsResponse ListIdpDepartmentsResponse
      */
     public function listIdpDepartments($request)
     {
@@ -4638,56 +3844,43 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 入网用户列表.
+     * @summary 入网用户列表
+     *  *
+     * @param ListNacUserCertRequest $request ListNacUserCertRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListNacUserCertRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListNacUserCertResponse
-     *
-     * @param ListNacUserCertRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return ListNacUserCertResponse
+     * @return ListNacUserCertResponse ListNacUserCertResponse
      */
     public function listNacUserCertWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->currentPage) {
-            @$query['CurrentPage'] = $request->currentPage;
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
         }
-
-        if (null !== $request->department) {
-            @$query['Department'] = $request->department;
+        if (!Utils::isUnset($request->department)) {
+            $query['Department'] = $request->department;
         }
-
-        if (null !== $request->deviceType) {
-            @$query['DeviceType'] = $request->deviceType;
+        if (!Utils::isUnset($request->deviceType)) {
+            $query['DeviceType'] = $request->deviceType;
         }
-
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
-        if (null !== $request->status) {
-            @$query['Status'] = $request->status;
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
         }
-
-        if (null !== $request->username) {
-            @$query['Username'] = $request->username;
+        if (!Utils::isUnset($request->username)) {
+            $query['Username'] = $request->username;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListNacUserCert',
@@ -4705,15 +3898,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 入网用户列表.
+     * @summary 入网用户列表
+     *  *
+     * @param ListNacUserCertRequest $request ListNacUserCertRequest
      *
-     * @param request - ListNacUserCertRequest
-     *
-     * @returns ListNacUserCertResponse
-     *
-     * @param ListNacUserCertRequest $request
-     *
-     * @return ListNacUserCertResponse
+     * @return ListNacUserCertResponse ListNacUserCertResponse
      */
     public function listNacUserCert($request)
     {
@@ -4723,24 +3912,19 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询内网访问应用的策略.
+     * @summary 批量查询内网访问应用的策略
+     *  *
+     * @param ListPolicesForPrivateAccessApplicationRequest $request ListPolicesForPrivateAccessApplicationRequest
+     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListPolicesForPrivateAccessApplicationRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListPolicesForPrivateAccessApplicationResponse
-     *
-     * @param ListPolicesForPrivateAccessApplicationRequest $request
-     * @param RuntimeOptions                                $runtime
-     *
-     * @return ListPolicesForPrivateAccessApplicationResponse
+     * @return ListPolicesForPrivateAccessApplicationResponse ListPolicesForPrivateAccessApplicationResponse
      */
     public function listPolicesForPrivateAccessApplicationWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListPolicesForPrivateAccessApplication',
@@ -4758,15 +3942,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询内网访问应用的策略.
+     * @summary 批量查询内网访问应用的策略
+     *  *
+     * @param ListPolicesForPrivateAccessApplicationRequest $request ListPolicesForPrivateAccessApplicationRequest
      *
-     * @param request - ListPolicesForPrivateAccessApplicationRequest
-     *
-     * @returns ListPolicesForPrivateAccessApplicationResponse
-     *
-     * @param ListPolicesForPrivateAccessApplicationRequest $request
-     *
-     * @return ListPolicesForPrivateAccessApplicationResponse
+     * @return ListPolicesForPrivateAccessApplicationResponse ListPolicesForPrivateAccessApplicationResponse
      */
     public function listPolicesForPrivateAccessApplication($request)
     {
@@ -4776,24 +3956,19 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询内网访问标签的策略.
+     * @summary 批量查询内网访问标签的策略
+     *  *
+     * @param ListPolicesForPrivateAccessTagRequest $request ListPolicesForPrivateAccessTagRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListPolicesForPrivateAccessTagRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListPolicesForPrivateAccessTagResponse
-     *
-     * @param ListPolicesForPrivateAccessTagRequest $request
-     * @param RuntimeOptions                        $runtime
-     *
-     * @return ListPolicesForPrivateAccessTagResponse
+     * @return ListPolicesForPrivateAccessTagResponse ListPolicesForPrivateAccessTagResponse
      */
     public function listPolicesForPrivateAccessTagWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListPolicesForPrivateAccessTag',
@@ -4811,15 +3986,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询内网访问标签的策略.
+     * @summary 批量查询内网访问标签的策略
+     *  *
+     * @param ListPolicesForPrivateAccessTagRequest $request ListPolicesForPrivateAccessTagRequest
      *
-     * @param request - ListPolicesForPrivateAccessTagRequest
-     *
-     * @returns ListPolicesForPrivateAccessTagResponse
-     *
-     * @param ListPolicesForPrivateAccessTagRequest $request
-     *
-     * @return ListPolicesForPrivateAccessTagResponse
+     * @return ListPolicesForPrivateAccessTagResponse ListPolicesForPrivateAccessTagResponse
      */
     public function listPolicesForPrivateAccessTag($request)
     {
@@ -4829,24 +4000,19 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询用户组的策略.
+     * @summary 批量查询用户组的策略
+     *  *
+     * @param ListPolicesForUserGroupRequest $request ListPolicesForUserGroupRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListPolicesForUserGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListPolicesForUserGroupResponse
-     *
-     * @param ListPolicesForUserGroupRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return ListPolicesForUserGroupResponse
+     * @return ListPolicesForUserGroupResponse ListPolicesForUserGroupResponse
      */
     public function listPolicesForUserGroupWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListPolicesForUserGroup',
@@ -4864,15 +4030,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询用户组的策略.
+     * @summary 批量查询用户组的策略
+     *  *
+     * @param ListPolicesForUserGroupRequest $request ListPolicesForUserGroupRequest
      *
-     * @param request - ListPolicesForUserGroupRequest
-     *
-     * @returns ListPolicesForUserGroupResponse
-     *
-     * @param ListPolicesForUserGroupRequest $request
-     *
-     * @return ListPolicesForUserGroupResponse
+     * @return ListPolicesForUserGroupResponse ListPolicesForUserGroupResponse
      */
     public function listPolicesForUserGroup($request)
     {
@@ -4882,24 +4044,19 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * pop节点流量统计
+     * @summary pop节点流量统计
+     *  *
+     * @param ListPopTrafficStatisticsRequest $request ListPopTrafficStatisticsRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListPopTrafficStatisticsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListPopTrafficStatisticsResponse
-     *
-     * @param ListPopTrafficStatisticsRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return ListPopTrafficStatisticsResponse
+     * @return ListPopTrafficStatisticsResponse ListPopTrafficStatisticsResponse
      */
     public function listPopTrafficStatisticsWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListPopTrafficStatistics',
@@ -4917,15 +4074,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * pop节点流量统计
+     * @summary pop节点流量统计
+     *  *
+     * @param ListPopTrafficStatisticsRequest $request ListPopTrafficStatisticsRequest
      *
-     * @param request - ListPopTrafficStatisticsRequest
-     *
-     * @returns ListPopTrafficStatisticsResponse
-     *
-     * @param ListPopTrafficStatisticsRequest $request
-     *
-     * @return ListPopTrafficStatisticsResponse
+     * @return ListPopTrafficStatisticsResponse ListPopTrafficStatisticsResponse
      */
     public function listPopTrafficStatistics($request)
     {
@@ -4935,64 +4088,49 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询内网访问应用.
+     * @summary 批量查询内网访问应用
+     *  *
+     * @param ListPrivateAccessApplicationsRequest $request ListPrivateAccessApplicationsRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListPrivateAccessApplicationsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListPrivateAccessApplicationsResponse
-     *
-     * @param ListPrivateAccessApplicationsRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return ListPrivateAccessApplicationsResponse
+     * @return ListPrivateAccessApplicationsResponse ListPrivateAccessApplicationsResponse
      */
     public function listPrivateAccessApplicationsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accessModes) {
-            @$query['AccessModes'] = $request->accessModes;
+        if (!Utils::isUnset($request->accessModes)) {
+            $query['AccessModes'] = $request->accessModes;
         }
-
-        if (null !== $request->address) {
-            @$query['Address'] = $request->address;
+        if (!Utils::isUnset($request->address)) {
+            $query['Address'] = $request->address;
         }
-
-        if (null !== $request->applicationIds) {
-            @$query['ApplicationIds'] = $request->applicationIds;
+        if (!Utils::isUnset($request->applicationIds)) {
+            $query['ApplicationIds'] = $request->applicationIds;
         }
-
-        if (null !== $request->connectorId) {
-            @$query['ConnectorId'] = $request->connectorId;
+        if (!Utils::isUnset($request->connectorId)) {
+            $query['ConnectorId'] = $request->connectorId;
         }
-
-        if (null !== $request->currentPage) {
-            @$query['CurrentPage'] = $request->currentPage;
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
         }
-
-        if (null !== $request->name) {
-            @$query['Name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->policyId) {
-            @$query['PolicyId'] = $request->policyId;
+        if (!Utils::isUnset($request->policyId)) {
+            $query['PolicyId'] = $request->policyId;
         }
-
-        if (null !== $request->status) {
-            @$query['Status'] = $request->status;
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
         }
-
-        if (null !== $request->tagId) {
-            @$query['TagId'] = $request->tagId;
+        if (!Utils::isUnset($request->tagId)) {
+            $query['TagId'] = $request->tagId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListPrivateAccessApplications',
@@ -5010,15 +4148,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询内网访问应用.
+     * @summary 批量查询内网访问应用
+     *  *
+     * @param ListPrivateAccessApplicationsRequest $request ListPrivateAccessApplicationsRequest
      *
-     * @param request - ListPrivateAccessApplicationsRequest
-     *
-     * @returns ListPrivateAccessApplicationsResponse
-     *
-     * @param ListPrivateAccessApplicationsRequest $request
-     *
-     * @return ListPrivateAccessApplicationsResponse
+     * @return ListPrivateAccessApplicationsResponse ListPrivateAccessApplicationsResponse
      */
     public function listPrivateAccessApplications($request)
     {
@@ -5028,24 +4162,19 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询动态路由的内网访问应用.
+     * @summary 批量查询动态路由的内网访问应用
+     *  *
+     * @param ListPrivateAccessApplicationsForDynamicRouteRequest $request ListPrivateAccessApplicationsForDynamicRouteRequest
+     * @param RuntimeOptions                                      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListPrivateAccessApplicationsForDynamicRouteRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListPrivateAccessApplicationsForDynamicRouteResponse
-     *
-     * @param ListPrivateAccessApplicationsForDynamicRouteRequest $request
-     * @param RuntimeOptions                                      $runtime
-     *
-     * @return ListPrivateAccessApplicationsForDynamicRouteResponse
+     * @return ListPrivateAccessApplicationsForDynamicRouteResponse ListPrivateAccessApplicationsForDynamicRouteResponse
      */
     public function listPrivateAccessApplicationsForDynamicRouteWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListPrivateAccessApplicationsForDynamicRoute',
@@ -5063,15 +4192,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询动态路由的内网访问应用.
+     * @summary 批量查询动态路由的内网访问应用
+     *  *
+     * @param ListPrivateAccessApplicationsForDynamicRouteRequest $request ListPrivateAccessApplicationsForDynamicRouteRequest
      *
-     * @param request - ListPrivateAccessApplicationsForDynamicRouteRequest
-     *
-     * @returns ListPrivateAccessApplicationsForDynamicRouteResponse
-     *
-     * @param ListPrivateAccessApplicationsForDynamicRouteRequest $request
-     *
-     * @return ListPrivateAccessApplicationsForDynamicRouteResponse
+     * @return ListPrivateAccessApplicationsForDynamicRouteResponse ListPrivateAccessApplicationsForDynamicRouteResponse
      */
     public function listPrivateAccessApplicationsForDynamicRoute($request)
     {
@@ -5081,24 +4206,19 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries the private access policies within the current Alibaba Cloud account.
+     * @summary Queries the private access policies within the current Alibaba Cloud account.
+     *  *
+     * @param ListPrivateAccessPolicesRequest $request ListPrivateAccessPolicesRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListPrivateAccessPolicesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListPrivateAccessPolicesResponse
-     *
-     * @param ListPrivateAccessPolicesRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return ListPrivateAccessPolicesResponse
+     * @return ListPrivateAccessPolicesResponse ListPrivateAccessPolicesResponse
      */
     public function listPrivateAccessPolicesWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListPrivateAccessPolices',
@@ -5116,15 +4236,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries the private access policies within the current Alibaba Cloud account.
+     * @summary Queries the private access policies within the current Alibaba Cloud account.
+     *  *
+     * @param ListPrivateAccessPolicesRequest $request ListPrivateAccessPolicesRequest
      *
-     * @param request - ListPrivateAccessPolicesRequest
-     *
-     * @returns ListPrivateAccessPolicesResponse
-     *
-     * @param ListPrivateAccessPolicesRequest $request
-     *
-     * @return ListPrivateAccessPolicesResponse
+     * @return ListPrivateAccessPolicesResponse ListPrivateAccessPolicesResponse
      */
     public function listPrivateAccessPolices($request)
     {
@@ -5134,24 +4250,19 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries the information about all internal access tags within the current Alibaba Cloud account.
+     * @summary Queries the information about all internal access tags within the current Alibaba Cloud account.
+     *  *
+     * @param ListPrivateAccessTagsRequest $request ListPrivateAccessTagsRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListPrivateAccessTagsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListPrivateAccessTagsResponse
-     *
-     * @param ListPrivateAccessTagsRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return ListPrivateAccessTagsResponse
+     * @return ListPrivateAccessTagsResponse ListPrivateAccessTagsResponse
      */
     public function listPrivateAccessTagsWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListPrivateAccessTags',
@@ -5169,15 +4280,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries the information about all internal access tags within the current Alibaba Cloud account.
+     * @summary Queries the information about all internal access tags within the current Alibaba Cloud account.
+     *  *
+     * @param ListPrivateAccessTagsRequest $request ListPrivateAccessTagsRequest
      *
-     * @param request - ListPrivateAccessTagsRequest
-     *
-     * @returns ListPrivateAccessTagsResponse
-     *
-     * @param ListPrivateAccessTagsRequest $request
-     *
-     * @return ListPrivateAccessTagsResponse
+     * @return ListPrivateAccessTagsResponse ListPrivateAccessTagsResponse
      */
     public function listPrivateAccessTags($request)
     {
@@ -5187,24 +4294,19 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询动态路由的内网访问标签.
+     * @summary 批量查询动态路由的内网访问标签
+     *  *
+     * @param ListPrivateAccessTagsForDynamicRouteRequest $request ListPrivateAccessTagsForDynamicRouteRequest
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListPrivateAccessTagsForDynamicRouteRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListPrivateAccessTagsForDynamicRouteResponse
-     *
-     * @param ListPrivateAccessTagsForDynamicRouteRequest $request
-     * @param RuntimeOptions                              $runtime
-     *
-     * @return ListPrivateAccessTagsForDynamicRouteResponse
+     * @return ListPrivateAccessTagsForDynamicRouteResponse ListPrivateAccessTagsForDynamicRouteResponse
      */
     public function listPrivateAccessTagsForDynamicRouteWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListPrivateAccessTagsForDynamicRoute',
@@ -5222,15 +4324,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询动态路由的内网访问标签.
+     * @summary 批量查询动态路由的内网访问标签
+     *  *
+     * @param ListPrivateAccessTagsForDynamicRouteRequest $request ListPrivateAccessTagsForDynamicRouteRequest
      *
-     * @param request - ListPrivateAccessTagsForDynamicRouteRequest
-     *
-     * @returns ListPrivateAccessTagsForDynamicRouteResponse
-     *
-     * @param ListPrivateAccessTagsForDynamicRouteRequest $request
-     *
-     * @return ListPrivateAccessTagsForDynamicRouteResponse
+     * @return ListPrivateAccessTagsForDynamicRouteResponse ListPrivateAccessTagsForDynamicRouteResponse
      */
     public function listPrivateAccessTagsForDynamicRoute($request)
     {
@@ -5240,24 +4338,19 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询用户设备注册策略列表.
+     * @summary 查询用户设备注册策略列表
+     *  *
+     * @param ListRegistrationPoliciesRequest $request ListRegistrationPoliciesRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListRegistrationPoliciesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListRegistrationPoliciesResponse
-     *
-     * @param ListRegistrationPoliciesRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return ListRegistrationPoliciesResponse
+     * @return ListRegistrationPoliciesResponse ListRegistrationPoliciesResponse
      */
     public function listRegistrationPoliciesWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListRegistrationPolicies',
@@ -5275,15 +4368,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询用户设备注册策略列表.
+     * @summary 查询用户设备注册策略列表
+     *  *
+     * @param ListRegistrationPoliciesRequest $request ListRegistrationPoliciesRequest
      *
-     * @param request - ListRegistrationPoliciesRequest
-     *
-     * @returns ListRegistrationPoliciesResponse
-     *
-     * @param ListRegistrationPoliciesRequest $request
-     *
-     * @return ListRegistrationPoliciesResponse
+     * @return ListRegistrationPoliciesResponse ListRegistrationPoliciesResponse
      */
     public function listRegistrationPolicies($request)
     {
@@ -5293,24 +4382,19 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询用户组相关的设备注册策略.
+     * @summary 查询用户组相关的设备注册策略
+     *  *
+     * @param ListRegistrationPoliciesForUserGroupRequest $request ListRegistrationPoliciesForUserGroupRequest
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListRegistrationPoliciesForUserGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListRegistrationPoliciesForUserGroupResponse
-     *
-     * @param ListRegistrationPoliciesForUserGroupRequest $request
-     * @param RuntimeOptions                              $runtime
-     *
-     * @return ListRegistrationPoliciesForUserGroupResponse
+     * @return ListRegistrationPoliciesForUserGroupResponse ListRegistrationPoliciesForUserGroupResponse
      */
     public function listRegistrationPoliciesForUserGroupWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListRegistrationPoliciesForUserGroup',
@@ -5328,15 +4412,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询用户组相关的设备注册策略.
+     * @summary 查询用户组相关的设备注册策略
+     *  *
+     * @param ListRegistrationPoliciesForUserGroupRequest $request ListRegistrationPoliciesForUserGroupRequest
      *
-     * @param request - ListRegistrationPoliciesForUserGroupRequest
-     *
-     * @returns ListRegistrationPoliciesForUserGroupResponse
-     *
-     * @param ListRegistrationPoliciesForUserGroupRequest $request
-     *
-     * @return ListRegistrationPoliciesForUserGroupResponse
+     * @return ListRegistrationPoliciesForUserGroupResponse ListRegistrationPoliciesForUserGroupResponse
      */
     public function listRegistrationPoliciesForUserGroup($request)
     {
@@ -5346,24 +4426,19 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询终端安装软件列表.
+     * @summary 批量查询终端安装软件列表
+     *  *
+     * @param ListSoftwareForUserDeviceRequest $request ListSoftwareForUserDeviceRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListSoftwareForUserDeviceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListSoftwareForUserDeviceResponse
-     *
-     * @param ListSoftwareForUserDeviceRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return ListSoftwareForUserDeviceResponse
+     * @return ListSoftwareForUserDeviceResponse ListSoftwareForUserDeviceResponse
      */
     public function listSoftwareForUserDeviceWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListSoftwareForUserDevice',
@@ -5381,15 +4456,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询终端安装软件列表.
+     * @summary 批量查询终端安装软件列表
+     *  *
+     * @param ListSoftwareForUserDeviceRequest $request ListSoftwareForUserDeviceRequest
      *
-     * @param request - ListSoftwareForUserDeviceRequest
-     *
-     * @returns ListSoftwareForUserDeviceResponse
-     *
-     * @param ListSoftwareForUserDeviceRequest $request
-     *
-     * @return ListSoftwareForUserDeviceResponse
+     * @return ListSoftwareForUserDeviceResponse ListSoftwareForUserDeviceResponse
      */
     public function listSoftwareForUserDevice($request)
     {
@@ -5399,24 +4470,19 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询内网访问应用的标签.
+     * @summary 批量查询内网访问应用的标签
+     *  *
+     * @param ListTagsForPrivateAccessApplicationRequest $request ListTagsForPrivateAccessApplicationRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListTagsForPrivateAccessApplicationRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListTagsForPrivateAccessApplicationResponse
-     *
-     * @param ListTagsForPrivateAccessApplicationRequest $request
-     * @param RuntimeOptions                             $runtime
-     *
-     * @return ListTagsForPrivateAccessApplicationResponse
+     * @return ListTagsForPrivateAccessApplicationResponse ListTagsForPrivateAccessApplicationResponse
      */
     public function listTagsForPrivateAccessApplicationWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListTagsForPrivateAccessApplication',
@@ -5434,15 +4500,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询内网访问应用的标签.
+     * @summary 批量查询内网访问应用的标签
+     *  *
+     * @param ListTagsForPrivateAccessApplicationRequest $request ListTagsForPrivateAccessApplicationRequest
      *
-     * @param request - ListTagsForPrivateAccessApplicationRequest
-     *
-     * @returns ListTagsForPrivateAccessApplicationResponse
-     *
-     * @param ListTagsForPrivateAccessApplicationRequest $request
-     *
-     * @return ListTagsForPrivateAccessApplicationResponse
+     * @return ListTagsForPrivateAccessApplicationResponse ListTagsForPrivateAccessApplicationResponse
      */
     public function listTagsForPrivateAccessApplication($request)
     {
@@ -5452,24 +4514,19 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询内网访问策略的标签.
+     * @summary 批量查询内网访问策略的标签
+     *  *
+     * @param ListTagsForPrivateAccessPolicyRequest $request ListTagsForPrivateAccessPolicyRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListTagsForPrivateAccessPolicyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListTagsForPrivateAccessPolicyResponse
-     *
-     * @param ListTagsForPrivateAccessPolicyRequest $request
-     * @param RuntimeOptions                        $runtime
-     *
-     * @return ListTagsForPrivateAccessPolicyResponse
+     * @return ListTagsForPrivateAccessPolicyResponse ListTagsForPrivateAccessPolicyResponse
      */
     public function listTagsForPrivateAccessPolicyWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListTagsForPrivateAccessPolicy',
@@ -5487,15 +4544,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询内网访问策略的标签.
+     * @summary 批量查询内网访问策略的标签
+     *  *
+     * @param ListTagsForPrivateAccessPolicyRequest $request ListTagsForPrivateAccessPolicyRequest
      *
-     * @param request - ListTagsForPrivateAccessPolicyRequest
-     *
-     * @returns ListTagsForPrivateAccessPolicyResponse
-     *
-     * @param ListTagsForPrivateAccessPolicyRequest $request
-     *
-     * @return ListTagsForPrivateAccessPolicyResponse
+     * @return ListTagsForPrivateAccessPolicyResponse ListTagsForPrivateAccessPolicyResponse
      */
     public function listTagsForPrivateAccessPolicy($request)
     {
@@ -5505,24 +4558,19 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 列表查询卸载申请列表.
+     * @summary 列表查询卸载申请列表
+     *  *
+     * @param ListUninstallApplicationsRequest $request ListUninstallApplicationsRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListUninstallApplicationsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListUninstallApplicationsResponse
-     *
-     * @param ListUninstallApplicationsRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return ListUninstallApplicationsResponse
+     * @return ListUninstallApplicationsResponse ListUninstallApplicationsResponse
      */
     public function listUninstallApplicationsWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListUninstallApplications',
@@ -5540,15 +4588,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 列表查询卸载申请列表.
+     * @summary 列表查询卸载申请列表
+     *  *
+     * @param ListUninstallApplicationsRequest $request ListUninstallApplicationsRequest
      *
-     * @param request - ListUninstallApplicationsRequest
-     *
-     * @returns ListUninstallApplicationsResponse
-     *
-     * @param ListUninstallApplicationsRequest $request
-     *
-     * @return ListUninstallApplicationsResponse
+     * @return ListUninstallApplicationsResponse ListUninstallApplicationsResponse
      */
     public function listUninstallApplications($request)
     {
@@ -5558,24 +4602,19 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 列表查询用户应用权限.
+     * @summary 列表查询用户应用权限
+     *  *
+     * @param ListUserApplicationsRequest $request ListUserApplicationsRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListUserApplicationsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListUserApplicationsResponse
-     *
-     * @param ListUserApplicationsRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return ListUserApplicationsResponse
+     * @return ListUserApplicationsResponse ListUserApplicationsResponse
      */
     public function listUserApplicationsWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListUserApplications',
@@ -5593,15 +4632,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 列表查询用户应用权限.
+     * @summary 列表查询用户应用权限
+     *  *
+     * @param ListUserApplicationsRequest $request ListUserApplicationsRequest
      *
-     * @param request - ListUserApplicationsRequest
-     *
-     * @returns ListUserApplicationsResponse
-     *
-     * @param ListUserApplicationsRequest $request
-     *
-     * @return ListUserApplicationsResponse
+     * @return ListUserApplicationsResponse ListUserApplicationsResponse
      */
     public function listUserApplications($request)
     {
@@ -5611,24 +4646,19 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询用户设备列表.
+     * @summary 批量查询用户设备列表
+     *  *
+     * @param ListUserDevicesRequest $request ListUserDevicesRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListUserDevicesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListUserDevicesResponse
-     *
-     * @param ListUserDevicesRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return ListUserDevicesResponse
+     * @return ListUserDevicesResponse ListUserDevicesResponse
      */
     public function listUserDevicesWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListUserDevices',
@@ -5646,15 +4676,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询用户设备列表.
+     * @summary 批量查询用户设备列表
+     *  *
+     * @param ListUserDevicesRequest $request ListUserDevicesRequest
      *
-     * @param request - ListUserDevicesRequest
-     *
-     * @returns ListUserDevicesResponse
-     *
-     * @param ListUserDevicesRequest $request
-     *
-     * @return ListUserDevicesResponse
+     * @return ListUserDevicesResponse ListUserDevicesResponse
      */
     public function listUserDevices($request)
     {
@@ -5664,24 +4690,19 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询用户组.
+     * @summary 批量查询用户组
+     *  *
+     * @param ListUserGroupsRequest $request ListUserGroupsRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListUserGroupsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListUserGroupsResponse
-     *
-     * @param ListUserGroupsRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return ListUserGroupsResponse
+     * @return ListUserGroupsResponse ListUserGroupsResponse
      */
     public function listUserGroupsWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListUserGroups',
@@ -5699,15 +4720,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询用户组.
+     * @summary 批量查询用户组
+     *  *
+     * @param ListUserGroupsRequest $request ListUserGroupsRequest
      *
-     * @param request - ListUserGroupsRequest
-     *
-     * @returns ListUserGroupsResponse
-     *
-     * @param ListUserGroupsRequest $request
-     *
-     * @return ListUserGroupsResponse
+     * @return ListUserGroupsResponse ListUserGroupsResponse
      */
     public function listUserGroups($request)
     {
@@ -5717,24 +4734,19 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询内网访问策略的用户组.
+     * @summary 批量查询内网访问策略的用户组
+     *  *
+     * @param ListUserGroupsForPrivateAccessPolicyRequest $request ListUserGroupsForPrivateAccessPolicyRequest
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListUserGroupsForPrivateAccessPolicyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListUserGroupsForPrivateAccessPolicyResponse
-     *
-     * @param ListUserGroupsForPrivateAccessPolicyRequest $request
-     * @param RuntimeOptions                              $runtime
-     *
-     * @return ListUserGroupsForPrivateAccessPolicyResponse
+     * @return ListUserGroupsForPrivateAccessPolicyResponse ListUserGroupsForPrivateAccessPolicyResponse
      */
     public function listUserGroupsForPrivateAccessPolicyWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListUserGroupsForPrivateAccessPolicy',
@@ -5752,15 +4764,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询内网访问策略的用户组.
+     * @summary 批量查询内网访问策略的用户组
+     *  *
+     * @param ListUserGroupsForPrivateAccessPolicyRequest $request ListUserGroupsForPrivateAccessPolicyRequest
      *
-     * @param request - ListUserGroupsForPrivateAccessPolicyRequest
-     *
-     * @returns ListUserGroupsForPrivateAccessPolicyResponse
-     *
-     * @param ListUserGroupsForPrivateAccessPolicyRequest $request
-     *
-     * @return ListUserGroupsForPrivateAccessPolicyResponse
+     * @return ListUserGroupsForPrivateAccessPolicyResponse ListUserGroupsForPrivateAccessPolicyResponse
      */
     public function listUserGroupsForPrivateAccessPolicy($request)
     {
@@ -5770,24 +4778,19 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询设备注册策略相关用户组.
+     * @summary 查询设备注册策略相关用户组
+     *  *
+     * @param ListUserGroupsForRegistrationPolicyRequest $request ListUserGroupsForRegistrationPolicyRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListUserGroupsForRegistrationPolicyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListUserGroupsForRegistrationPolicyResponse
-     *
-     * @param ListUserGroupsForRegistrationPolicyRequest $request
-     * @param RuntimeOptions                             $runtime
-     *
-     * @return ListUserGroupsForRegistrationPolicyResponse
+     * @return ListUserGroupsForRegistrationPolicyResponse ListUserGroupsForRegistrationPolicyResponse
      */
     public function listUserGroupsForRegistrationPolicyWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListUserGroupsForRegistrationPolicy',
@@ -5805,15 +4808,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询设备注册策略相关用户组.
+     * @summary 查询设备注册策略相关用户组
+     *  *
+     * @param ListUserGroupsForRegistrationPolicyRequest $request ListUserGroupsForRegistrationPolicyRequest
      *
-     * @param request - ListUserGroupsForRegistrationPolicyRequest
-     *
-     * @returns ListUserGroupsForRegistrationPolicyResponse
-     *
-     * @param ListUserGroupsForRegistrationPolicyRequest $request
-     *
-     * @return ListUserGroupsForRegistrationPolicyResponse
+     * @return ListUserGroupsForRegistrationPolicyResponse ListUserGroupsForRegistrationPolicyResponse
      */
     public function listUserGroupsForRegistrationPolicy($request)
     {
@@ -5823,24 +4822,19 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * List query of user zero trust policies.
+     * @summary List query of user zero trust policies
+     *  *
+     * @param ListUserPrivateAccessPoliciesRequest $request ListUserPrivateAccessPoliciesRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListUserPrivateAccessPoliciesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListUserPrivateAccessPoliciesResponse
-     *
-     * @param ListUserPrivateAccessPoliciesRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return ListUserPrivateAccessPoliciesResponse
+     * @return ListUserPrivateAccessPoliciesResponse ListUserPrivateAccessPoliciesResponse
      */
     public function listUserPrivateAccessPoliciesWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListUserPrivateAccessPolicies',
@@ -5858,15 +4852,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * List query of user zero trust policies.
+     * @summary List query of user zero trust policies
+     *  *
+     * @param ListUserPrivateAccessPoliciesRequest $request ListUserPrivateAccessPoliciesRequest
      *
-     * @param request - ListUserPrivateAccessPoliciesRequest
-     *
-     * @returns ListUserPrivateAccessPoliciesResponse
-     *
-     * @param ListUserPrivateAccessPoliciesRequest $request
-     *
-     * @return ListUserPrivateAccessPoliciesResponse
+     * @return ListUserPrivateAccessPoliciesResponse ListUserPrivateAccessPoliciesResponse
      */
     public function listUserPrivateAccessPolicies($request)
     {
@@ -5876,24 +4866,19 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 列表查询登陆用户.
+     * @summary 列表查询登陆用户
+     *  *
+     * @param ListUsersRequest $request ListUsersRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListUsersRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListUsersResponse
-     *
-     * @param ListUsersRequest $request
-     * @param RuntimeOptions   $runtime
-     *
-     * @return ListUsersResponse
+     * @return ListUsersResponse ListUsersResponse
      */
     public function listUsersWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListUsers',
@@ -5911,15 +4896,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 列表查询登陆用户.
+     * @summary 列表查询登陆用户
+     *  *
+     * @param ListUsersRequest $request ListUsersRequest
      *
-     * @param request - ListUsersRequest
-     *
-     * @returns ListUsersResponse
-     *
-     * @param ListUsersRequest $request
-     *
-     * @return ListUsersResponse
+     * @return ListUsersResponse ListUsersResponse
      */
     public function listUsers($request)
     {
@@ -5929,24 +4910,19 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 根据数字水印信息查询字符串水印信息.
+     * @summary 根据数字水印信息查询字符串水印信息
+     *  *
+     * @param LookupWmInfoMappingRequest $request LookupWmInfoMappingRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - LookupWmInfoMappingRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns LookupWmInfoMappingResponse
-     *
-     * @param LookupWmInfoMappingRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return LookupWmInfoMappingResponse
+     * @return LookupWmInfoMappingResponse LookupWmInfoMappingResponse
      */
     public function lookupWmInfoMappingWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'LookupWmInfoMapping',
@@ -5964,15 +4940,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 根据数字水印信息查询字符串水印信息.
+     * @summary 根据数字水印信息查询字符串水印信息
+     *  *
+     * @param LookupWmInfoMappingRequest $request LookupWmInfoMappingRequest
      *
-     * @param request - LookupWmInfoMappingRequest
-     *
-     * @returns LookupWmInfoMappingResponse
-     *
-     * @param LookupWmInfoMappingRequest $request
-     *
-     * @return LookupWmInfoMappingResponse
+     * @return LookupWmInfoMappingResponse LookupWmInfoMappingResponse
      */
     public function lookupWmInfoMapping($request)
     {
@@ -5982,68 +4954,52 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 修改加速策略.
+     * @summary 修改加速策略
+     *  *
+     * @param ModifyEnterpriseAcceleratePolicyRequest $request ModifyEnterpriseAcceleratePolicyRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyEnterpriseAcceleratePolicyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyEnterpriseAcceleratePolicyResponse
-     *
-     * @param ModifyEnterpriseAcceleratePolicyRequest $request
-     * @param RuntimeOptions                          $runtime
-     *
-     * @return ModifyEnterpriseAcceleratePolicyResponse
+     * @return ModifyEnterpriseAcceleratePolicyResponse ModifyEnterpriseAcceleratePolicyResponse
      */
     public function modifyEnterpriseAcceleratePolicyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->accelerationType) {
-            @$body['AccelerationType'] = $request->accelerationType;
+        if (!Utils::isUnset($request->accelerationType)) {
+            $body['AccelerationType'] = $request->accelerationType;
         }
-
-        if (null !== $request->description) {
-            @$body['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
         }
-
-        if (null !== $request->eapId) {
-            @$body['EapId'] = $request->eapId;
+        if (!Utils::isUnset($request->eapId)) {
+            $body['EapId'] = $request->eapId;
         }
-
-        if (null !== $request->name) {
-            @$body['Name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
         }
-
-        if (null !== $request->onTls) {
-            @$body['OnTls'] = $request->onTls;
+        if (!Utils::isUnset($request->onTls)) {
+            $body['OnTls'] = $request->onTls;
         }
-
-        if (null !== $request->priority) {
-            @$body['Priority'] = $request->priority;
+        if (!Utils::isUnset($request->priority)) {
+            $body['Priority'] = $request->priority;
         }
-
-        if (null !== $request->showInClient) {
-            @$body['ShowInClient'] = $request->showInClient;
+        if (!Utils::isUnset($request->showInClient)) {
+            $body['ShowInClient'] = $request->showInClient;
         }
-
-        if (null !== $request->upstreamHost) {
-            @$body['UpstreamHost'] = $request->upstreamHost;
+        if (!Utils::isUnset($request->upstreamHost)) {
+            $body['UpstreamHost'] = $request->upstreamHost;
         }
-
-        if (null !== $request->upstreamPort) {
-            @$body['UpstreamPort'] = $request->upstreamPort;
+        if (!Utils::isUnset($request->upstreamPort)) {
+            $body['UpstreamPort'] = $request->upstreamPort;
         }
-
-        if (null !== $request->upstreamType) {
-            @$body['UpstreamType'] = $request->upstreamType;
+        if (!Utils::isUnset($request->upstreamType)) {
+            $body['UpstreamType'] = $request->upstreamType;
         }
-
-        if (null !== $request->userAttributeGroup) {
-            @$body['UserAttributeGroup'] = $request->userAttributeGroup;
+        if (!Utils::isUnset($request->userAttributeGroup)) {
+            $body['UserAttributeGroup'] = $request->userAttributeGroup;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ModifyEnterpriseAcceleratePolicy',
@@ -6061,15 +5017,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 修改加速策略.
+     * @summary 修改加速策略
+     *  *
+     * @param ModifyEnterpriseAcceleratePolicyRequest $request ModifyEnterpriseAcceleratePolicyRequest
      *
-     * @param request - ModifyEnterpriseAcceleratePolicyRequest
-     *
-     * @returns ModifyEnterpriseAcceleratePolicyResponse
-     *
-     * @param ModifyEnterpriseAcceleratePolicyRequest $request
-     *
-     * @return ModifyEnterpriseAcceleratePolicyResponse
+     * @return ModifyEnterpriseAcceleratePolicyResponse ModifyEnterpriseAcceleratePolicyResponse
      */
     public function modifyEnterpriseAcceleratePolicy($request)
     {
@@ -6078,36 +5030,30 @@ class Csas extends OpenApiClient
         return $this->modifyEnterpriseAcceleratePolicyWithOptions($request, $runtime);
     }
 
-    // Deprecated
     /**
-     * 吊销用户登录会话.
-     *
      * @deprecated OpenAPI RevokeUserSession is deprecated
+     *  *
+     * @summary 吊销用户登录会话
+     *  *
+     * Deprecated
      *
-     * @param request - RevokeUserSessionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
+     * @param RevokeUserSessionRequest $request RevokeUserSessionRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @returns RevokeUserSessionResponse
-     *
-     * @param RevokeUserSessionRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return RevokeUserSessionResponse
+     * @return RevokeUserSessionResponse RevokeUserSessionResponse
      */
     public function revokeUserSessionWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->externalIds) {
-            @$query['ExternalIds'] = $request->externalIds;
+        if (!Utils::isUnset($request->externalIds)) {
+            $query['ExternalIds'] = $request->externalIds;
         }
-
-        if (null !== $request->idpId) {
-            @$query['IdpId'] = $request->idpId;
+        if (!Utils::isUnset($request->idpId)) {
+            $query['IdpId'] = $request->idpId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'RevokeUserSession',
@@ -6124,19 +5070,16 @@ class Csas extends OpenApiClient
         return RevokeUserSessionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
-    // Deprecated
     /**
-     * 吊销用户登录会话.
-     *
      * @deprecated OpenAPI RevokeUserSession is deprecated
+     *  *
+     * @summary 吊销用户登录会话
+     *  *
+     * Deprecated
      *
-     * @param request - RevokeUserSessionRequest
+     * @param RevokeUserSessionRequest $request RevokeUserSessionRequest
      *
-     * @returns RevokeUserSessionResponse
-     *
-     * @param RevokeUserSessionRequest $request
-     *
-     * @return RevokeUserSessionResponse
+     * @return RevokeUserSessionResponse RevokeUserSessionResponse
      */
     public function revokeUserSession($request)
     {
@@ -6146,53 +5089,41 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 更新审批流程.
+     * @summary 更新审批流程
+     *  *
+     * @param UpdateApprovalProcessRequest $tmpReq  UpdateApprovalProcessRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - UpdateApprovalProcessRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateApprovalProcessResponse
-     *
-     * @param UpdateApprovalProcessRequest $tmpReq
-     * @param RuntimeOptions               $runtime
-     *
-     * @return UpdateApprovalProcessResponse
+     * @return UpdateApprovalProcessResponse UpdateApprovalProcessResponse
      */
     public function updateApprovalProcessWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new UpdateApprovalProcessShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->matchSchemas) {
-            $request->matchSchemasShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->matchSchemas, 'MatchSchemas', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->matchSchemas)) {
+            $request->matchSchemasShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->matchSchemas, 'MatchSchemas', 'json');
         }
-
         $body = [];
-        if (null !== $request->description) {
-            @$body['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
         }
-
-        if (null !== $request->matchSchemasShrink) {
-            @$body['MatchSchemas'] = $request->matchSchemasShrink;
+        if (!Utils::isUnset($request->matchSchemasShrink)) {
+            $body['MatchSchemas'] = $request->matchSchemasShrink;
         }
-
-        if (null !== $request->processId) {
-            @$body['ProcessId'] = $request->processId;
+        if (!Utils::isUnset($request->processId)) {
+            $body['ProcessId'] = $request->processId;
         }
-
-        if (null !== $request->processName) {
-            @$body['ProcessName'] = $request->processName;
+        if (!Utils::isUnset($request->processName)) {
+            $body['ProcessName'] = $request->processName;
         }
-
         $bodyFlat = [];
-        if (null !== $request->processNodes) {
-            @$bodyFlat['ProcessNodes'] = $request->processNodes;
+        if (!Utils::isUnset($request->processNodes)) {
+            $bodyFlat['ProcessNodes'] = $request->processNodes;
         }
-
-        $body = Dara::merge([
-        ], $body, Utils::query($bodyFlat));
+        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateApprovalProcess',
@@ -6210,15 +5141,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 更新审批流程.
+     * @summary 更新审批流程
+     *  *
+     * @param UpdateApprovalProcessRequest $request UpdateApprovalProcessRequest
      *
-     * @param request - UpdateApprovalProcessRequest
-     *
-     * @returns UpdateApprovalProcessResponse
-     *
-     * @param UpdateApprovalProcessRequest $request
-     *
-     * @return UpdateApprovalProcessResponse
+     * @return UpdateApprovalProcessResponse UpdateApprovalProcessResponse
      */
     public function updateApprovalProcess($request)
     {
@@ -6228,32 +5155,25 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 修改审批状态
+     * @summary 修改审批状态
+     *  *
+     * @param UpdateApprovalStatusRequest $request UpdateApprovalStatusRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateApprovalStatusRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateApprovalStatusResponse
-     *
-     * @param UpdateApprovalStatusRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return UpdateApprovalStatusResponse
+     * @return UpdateApprovalStatusResponse UpdateApprovalStatusResponse
      */
     public function updateApprovalStatusWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->approvalId) {
-            @$query['ApprovalId'] = $request->approvalId;
+        if (!Utils::isUnset($request->approvalId)) {
+            $query['ApprovalId'] = $request->approvalId;
         }
-
-        if (null !== $request->status) {
-            @$query['Status'] = $request->status;
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateApprovalStatus',
@@ -6271,15 +5191,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 修改审批状态
+     * @summary 修改审批状态
+     *  *
+     * @param UpdateApprovalStatusRequest $request UpdateApprovalStatusRequest
      *
-     * @param request - UpdateApprovalStatusRequest
-     *
-     * @returns UpdateApprovalStatusResponse
-     *
-     * @param UpdateApprovalStatusRequest $request
-     *
-     * @return UpdateApprovalStatusResponse
+     * @return UpdateApprovalStatusResponse UpdateApprovalStatusResponse
      */
     public function updateApprovalStatus($request)
     {
@@ -6289,57 +5205,44 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 更新自启动与防卸载策略配置.
+     * @summary 更新自启动与防卸载策略配置
+     *  *
+     * @param UpdateBootAndAntiUninstallPolicyRequest $tmpReq  UpdateBootAndAntiUninstallPolicyRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - UpdateBootAndAntiUninstallPolicyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateBootAndAntiUninstallPolicyResponse
-     *
-     * @param UpdateBootAndAntiUninstallPolicyRequest $tmpReq
-     * @param RuntimeOptions                          $runtime
-     *
-     * @return UpdateBootAndAntiUninstallPolicyResponse
+     * @return UpdateBootAndAntiUninstallPolicyResponse UpdateBootAndAntiUninstallPolicyResponse
      */
     public function updateBootAndAntiUninstallPolicyWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new UpdateBootAndAntiUninstallPolicyShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->blockContent) {
-            $request->blockContentShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->blockContent, 'BlockContent', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->blockContent)) {
+            $request->blockContentShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->blockContent, 'BlockContent', 'json');
         }
-
         $body = [];
-        if (null !== $request->allowReport) {
-            @$body['AllowReport'] = $request->allowReport;
+        if (!Utils::isUnset($request->allowReport)) {
+            $body['AllowReport'] = $request->allowReport;
         }
-
-        if (null !== $request->blockContentShrink) {
-            @$body['BlockContent'] = $request->blockContentShrink;
+        if (!Utils::isUnset($request->blockContentShrink)) {
+            $body['BlockContent'] = $request->blockContentShrink;
         }
-
-        if (null !== $request->isAntiUninstall) {
-            @$body['IsAntiUninstall'] = $request->isAntiUninstall;
+        if (!Utils::isUnset($request->isAntiUninstall)) {
+            $body['IsAntiUninstall'] = $request->isAntiUninstall;
         }
-
-        if (null !== $request->isBoot) {
-            @$body['IsBoot'] = $request->isBoot;
+        if (!Utils::isUnset($request->isBoot)) {
+            $body['IsBoot'] = $request->isBoot;
         }
-
         $bodyFlat = [];
-        if (null !== $request->userGroupIds) {
-            @$bodyFlat['UserGroupIds'] = $request->userGroupIds;
+        if (!Utils::isUnset($request->userGroupIds)) {
+            $bodyFlat['UserGroupIds'] = $request->userGroupIds;
         }
-
-        if (null !== $request->whitelistUsers) {
-            @$bodyFlat['WhitelistUsers'] = $request->whitelistUsers;
+        if (!Utils::isUnset($request->whitelistUsers)) {
+            $bodyFlat['WhitelistUsers'] = $request->whitelistUsers;
         }
-
-        $body = Dara::merge([
-        ], $body, Utils::query($bodyFlat));
+        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateBootAndAntiUninstallPolicy',
@@ -6357,15 +5260,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 更新自启动与防卸载策略配置.
+     * @summary 更新自启动与防卸载策略配置
+     *  *
+     * @param UpdateBootAndAntiUninstallPolicyRequest $request UpdateBootAndAntiUninstallPolicyRequest
      *
-     * @param request - UpdateBootAndAntiUninstallPolicyRequest
-     *
-     * @returns UpdateBootAndAntiUninstallPolicyResponse
-     *
-     * @param UpdateBootAndAntiUninstallPolicyRequest $request
-     *
-     * @return UpdateBootAndAntiUninstallPolicyResponse
+     * @return UpdateBootAndAntiUninstallPolicyResponse UpdateBootAndAntiUninstallPolicyResponse
      */
     public function updateBootAndAntiUninstallPolicy($request)
     {
@@ -6375,44 +5274,34 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 修改自定义身份源指定用户.
+     * @summary 修改自定义身份源指定用户
+     *  *
+     * @param UpdateClientUserRequest $request UpdateClientUserRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateClientUserRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateClientUserResponse
-     *
-     * @param UpdateClientUserRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return UpdateClientUserResponse
+     * @return UpdateClientUserResponse UpdateClientUserResponse
      */
     public function updateClientUserWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->departmentId) {
-            @$query['DepartmentId'] = $request->departmentId;
+        if (!Utils::isUnset($request->departmentId)) {
+            $query['DepartmentId'] = $request->departmentId;
         }
-
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->email) {
-            @$query['Email'] = $request->email;
+        if (!Utils::isUnset($request->email)) {
+            $query['Email'] = $request->email;
         }
-
-        if (null !== $request->id) {
-            @$query['Id'] = $request->id;
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
         }
-
-        if (null !== $request->mobileNumber) {
-            @$query['MobileNumber'] = $request->mobileNumber;
+        if (!Utils::isUnset($request->mobileNumber)) {
+            $query['MobileNumber'] = $request->mobileNumber;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateClientUser',
@@ -6430,15 +5319,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 修改自定义身份源指定用户.
+     * @summary 修改自定义身份源指定用户
+     *  *
+     * @param UpdateClientUserRequest $request UpdateClientUserRequest
      *
-     * @param request - UpdateClientUserRequest
-     *
-     * @returns UpdateClientUserResponse
-     *
-     * @param UpdateClientUserRequest $request
-     *
-     * @return UpdateClientUserResponse
+     * @return UpdateClientUserResponse UpdateClientUserResponse
      */
     public function updateClientUser($request)
     {
@@ -6448,36 +5333,28 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 修改自定义身份源指定用户密码
+     * @summary 修改自定义身份源指定用户密码
+     *  *
+     * @param UpdateClientUserPasswordRequest $request UpdateClientUserPasswordRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateClientUserPasswordRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateClientUserPasswordResponse
-     *
-     * @param UpdateClientUserPasswordRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return UpdateClientUserPasswordResponse
+     * @return UpdateClientUserPasswordResponse UpdateClientUserPasswordResponse
      */
     public function updateClientUserPasswordWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->id) {
-            @$query['Id'] = $request->id;
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
         }
-
-        if (null !== $request->password) {
-            @$query['Password'] = $request->password;
+        if (!Utils::isUnset($request->password)) {
+            $query['Password'] = $request->password;
         }
-
-        if (null !== $request->username) {
-            @$query['Username'] = $request->username;
+        if (!Utils::isUnset($request->username)) {
+            $query['Username'] = $request->username;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateClientUserPassword',
@@ -6495,15 +5372,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 修改自定义身份源指定用户密码
+     * @summary 修改自定义身份源指定用户密码
+     *  *
+     * @param UpdateClientUserPasswordRequest $request UpdateClientUserPasswordRequest
      *
-     * @param request - UpdateClientUserPasswordRequest
-     *
-     * @returns UpdateClientUserPasswordResponse
-     *
-     * @param UpdateClientUserPasswordRequest $request
-     *
-     * @return UpdateClientUserPasswordResponse
+     * @return UpdateClientUserPasswordResponse UpdateClientUserPasswordResponse
      */
     public function updateClientUserPassword($request)
     {
@@ -6513,32 +5386,25 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 修改自定义身份源指定用户启用状态
+     * @summary 修改自定义身份源指定用户启用状态
+     *  *
+     * @param UpdateClientUserStatusRequest $request UpdateClientUserStatusRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateClientUserStatusRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateClientUserStatusResponse
-     *
-     * @param UpdateClientUserStatusRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return UpdateClientUserStatusResponse
+     * @return UpdateClientUserStatusResponse UpdateClientUserStatusResponse
      */
     public function updateClientUserStatusWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->id) {
-            @$query['Id'] = $request->id;
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
         }
-
-        if (null !== $request->status) {
-            @$query['Status'] = $request->status;
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateClientUserStatus',
@@ -6556,15 +5422,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 修改自定义身份源指定用户启用状态
+     * @summary 修改自定义身份源指定用户启用状态
+     *  *
+     * @param UpdateClientUserStatusRequest $request UpdateClientUserStatusRequest
      *
-     * @param request - UpdateClientUserStatusRequest
-     *
-     * @returns UpdateClientUserStatusResponse
-     *
-     * @param UpdateClientUserStatusRequest $request
-     *
-     * @return UpdateClientUserStatusResponse
+     * @return UpdateClientUserStatusResponse UpdateClientUserStatusResponse
      */
     public function updateClientUserStatus($request)
     {
@@ -6574,75 +5436,57 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 修改动态路由.
+     * @summary 修改动态路由
+     *  *
+     * @param UpdateDynamicRouteRequest $request UpdateDynamicRouteRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateDynamicRouteRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateDynamicRouteResponse
-     *
-     * @param UpdateDynamicRouteRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return UpdateDynamicRouteResponse
+     * @return UpdateDynamicRouteResponse UpdateDynamicRouteResponse
      */
     public function updateDynamicRouteWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
         $bodyFlat = [];
-        if (null !== $request->applicationIds) {
-            @$bodyFlat['ApplicationIds'] = $request->applicationIds;
+        if (!Utils::isUnset($request->applicationIds)) {
+            $bodyFlat['ApplicationIds'] = $request->applicationIds;
         }
-
-        if (null !== $request->applicationType) {
-            @$body['ApplicationType'] = $request->applicationType;
+        if (!Utils::isUnset($request->applicationType)) {
+            $body['ApplicationType'] = $request->applicationType;
         }
-
-        if (null !== $request->description) {
-            @$body['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
         }
-
-        if (null !== $request->dynamicRouteId) {
-            @$body['DynamicRouteId'] = $request->dynamicRouteId;
+        if (!Utils::isUnset($request->dynamicRouteId)) {
+            $body['DynamicRouteId'] = $request->dynamicRouteId;
         }
-
-        if (null !== $request->dynamicRouteType) {
-            @$body['DynamicRouteType'] = $request->dynamicRouteType;
+        if (!Utils::isUnset($request->dynamicRouteType)) {
+            $body['DynamicRouteType'] = $request->dynamicRouteType;
         }
-
-        if (null !== $request->modifyType) {
-            @$body['ModifyType'] = $request->modifyType;
+        if (!Utils::isUnset($request->modifyType)) {
+            $body['ModifyType'] = $request->modifyType;
         }
-
-        if (null !== $request->name) {
-            @$body['Name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
         }
-
-        if (null !== $request->nextHop) {
-            @$body['NextHop'] = $request->nextHop;
+        if (!Utils::isUnset($request->nextHop)) {
+            $body['NextHop'] = $request->nextHop;
         }
-
-        if (null !== $request->priority) {
-            @$body['Priority'] = $request->priority;
+        if (!Utils::isUnset($request->priority)) {
+            $body['Priority'] = $request->priority;
         }
-
-        if (null !== $request->regionIds) {
-            @$bodyFlat['RegionIds'] = $request->regionIds;
+        if (!Utils::isUnset($request->regionIds)) {
+            $bodyFlat['RegionIds'] = $request->regionIds;
         }
-
-        if (null !== $request->status) {
-            @$body['Status'] = $request->status;
+        if (!Utils::isUnset($request->status)) {
+            $body['Status'] = $request->status;
         }
-
-        if (null !== $request->tagIds) {
-            @$bodyFlat['TagIds'] = $request->tagIds;
+        if (!Utils::isUnset($request->tagIds)) {
+            $bodyFlat['TagIds'] = $request->tagIds;
         }
-
-        $body = Dara::merge([
-        ], $body, Utils::query($bodyFlat));
+        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateDynamicRoute',
@@ -6660,15 +5504,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 修改动态路由.
+     * @summary 修改动态路由
+     *  *
+     * @param UpdateDynamicRouteRequest $request UpdateDynamicRouteRequest
      *
-     * @param request - UpdateDynamicRouteRequest
-     *
-     * @returns UpdateDynamicRouteResponse
-     *
-     * @param UpdateDynamicRouteRequest $request
-     *
-     * @return UpdateDynamicRouteResponse
+     * @return UpdateDynamicRouteResponse UpdateDynamicRouteResponse
      */
     public function updateDynamicRoute($request)
     {
@@ -6678,35 +5518,27 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量更新超额注册申请状态
+     * @summary 批量更新超额注册申请状态
+     *  *
+     * @param UpdateExcessiveDeviceRegistrationApplicationsStatusRequest $request UpdateExcessiveDeviceRegistrationApplicationsStatusRequest
+     * @param RuntimeOptions                                             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateExcessiveDeviceRegistrationApplicationsStatusRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateExcessiveDeviceRegistrationApplicationsStatusResponse
-     *
-     * @param UpdateExcessiveDeviceRegistrationApplicationsStatusRequest $request
-     * @param RuntimeOptions                                             $runtime
-     *
-     * @return UpdateExcessiveDeviceRegistrationApplicationsStatusResponse
+     * @return UpdateExcessiveDeviceRegistrationApplicationsStatusResponse UpdateExcessiveDeviceRegistrationApplicationsStatusResponse
      */
     public function updateExcessiveDeviceRegistrationApplicationsStatusWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
         $bodyFlat = [];
-        if (null !== $request->applicationIds) {
-            @$bodyFlat['ApplicationIds'] = $request->applicationIds;
+        if (!Utils::isUnset($request->applicationIds)) {
+            $bodyFlat['ApplicationIds'] = $request->applicationIds;
         }
-
-        if (null !== $request->status) {
-            @$body['Status'] = $request->status;
+        if (!Utils::isUnset($request->status)) {
+            $body['Status'] = $request->status;
         }
-
-        $body = Dara::merge([
-        ], $body, Utils::query($bodyFlat));
+        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateExcessiveDeviceRegistrationApplicationsStatus',
@@ -6724,15 +5556,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量更新超额注册申请状态
+     * @summary 批量更新超额注册申请状态
+     *  *
+     * @param UpdateExcessiveDeviceRegistrationApplicationsStatusRequest $request UpdateExcessiveDeviceRegistrationApplicationsStatusRequest
      *
-     * @param request - UpdateExcessiveDeviceRegistrationApplicationsStatusRequest
-     *
-     * @returns UpdateExcessiveDeviceRegistrationApplicationsStatusResponse
-     *
-     * @param UpdateExcessiveDeviceRegistrationApplicationsStatusRequest $request
-     *
-     * @return UpdateExcessiveDeviceRegistrationApplicationsStatusResponse
+     * @return UpdateExcessiveDeviceRegistrationApplicationsStatusResponse UpdateExcessiveDeviceRegistrationApplicationsStatusResponse
      */
     public function updateExcessiveDeviceRegistrationApplicationsStatus($request)
     {
@@ -6742,36 +5570,28 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 修改指定自定义身份源部门.
+     * @summary 修改指定自定义身份源部门
+     *  *
+     * @param UpdateIdpDepartmentRequest $request UpdateIdpDepartmentRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateIdpDepartmentRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateIdpDepartmentResponse
-     *
-     * @param UpdateIdpDepartmentRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return UpdateIdpDepartmentResponse
+     * @return UpdateIdpDepartmentResponse UpdateIdpDepartmentResponse
      */
     public function updateIdpDepartmentWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->departmentId) {
-            @$query['DepartmentId'] = $request->departmentId;
+        if (!Utils::isUnset($request->departmentId)) {
+            $query['DepartmentId'] = $request->departmentId;
         }
-
-        if (null !== $request->departmentName) {
-            @$query['DepartmentName'] = $request->departmentName;
+        if (!Utils::isUnset($request->departmentName)) {
+            $query['DepartmentName'] = $request->departmentName;
         }
-
-        if (null !== $request->idpConfigId) {
-            @$query['IdpConfigId'] = $request->idpConfigId;
+        if (!Utils::isUnset($request->idpConfigId)) {
+            $query['IdpConfigId'] = $request->idpConfigId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateIdpDepartment',
@@ -6789,15 +5609,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 修改指定自定义身份源部门.
+     * @summary 修改指定自定义身份源部门
+     *  *
+     * @param UpdateIdpDepartmentRequest $request UpdateIdpDepartmentRequest
      *
-     * @param request - UpdateIdpDepartmentRequest
-     *
-     * @returns UpdateIdpDepartmentResponse
-     *
-     * @param UpdateIdpDepartmentRequest $request
-     *
-     * @return UpdateIdpDepartmentResponse
+     * @return UpdateIdpDepartmentResponse UpdateIdpDepartmentResponse
      */
     public function updateIdpDepartment($request)
     {
@@ -6807,35 +5623,27 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 更新NAC User 状态
+     * @summary 更新NAC User 状态
+     *  *
+     * @param UpdateNacUserCertStatusRequest $request UpdateNacUserCertStatusRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateNacUserCertStatusRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateNacUserCertStatusResponse
-     *
-     * @param UpdateNacUserCertStatusRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return UpdateNacUserCertStatusResponse
+     * @return UpdateNacUserCertStatusResponse UpdateNacUserCertStatusResponse
      */
     public function updateNacUserCertStatusWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
         $bodyFlat = [];
-        if (null !== $request->idList) {
-            @$bodyFlat['IdList'] = $request->idList;
+        if (!Utils::isUnset($request->idList)) {
+            $bodyFlat['IdList'] = $request->idList;
         }
-
-        if (null !== $request->status) {
-            @$body['Status'] = $request->status;
+        if (!Utils::isUnset($request->status)) {
+            $body['Status'] = $request->status;
         }
-
-        $body = Dara::merge([
-        ], $body, Utils::query($bodyFlat));
+        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateNacUserCertStatus',
@@ -6853,15 +5661,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 更新NAC User 状态
+     * @summary 更新NAC User 状态
+     *  *
+     * @param UpdateNacUserCertStatusRequest $request UpdateNacUserCertStatusRequest
      *
-     * @param request - UpdateNacUserCertStatusRequest
-     *
-     * @returns UpdateNacUserCertStatusResponse
-     *
-     * @param UpdateNacUserCertStatusRequest $request
-     *
-     * @return UpdateNacUserCertStatusResponse
+     * @return UpdateNacUserCertStatusResponse UpdateNacUserCertStatusResponse
      */
     public function updateNacUserCertStatus($request)
     {
@@ -6871,81 +5675,62 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Modifies the office applications of the current Alibaba Cloud account.
+     * @summary Modifies the office applications of the current Alibaba Cloud account.
+     *  *
+     * @param UpdatePrivateAccessApplicationRequest $tmpReq  UpdatePrivateAccessApplicationRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - UpdatePrivateAccessApplicationRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdatePrivateAccessApplicationResponse
-     *
-     * @param UpdatePrivateAccessApplicationRequest $tmpReq
-     * @param RuntimeOptions                        $runtime
-     *
-     * @return UpdatePrivateAccessApplicationResponse
+     * @return UpdatePrivateAccessApplicationResponse UpdatePrivateAccessApplicationResponse
      */
     public function updatePrivateAccessApplicationWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new UpdatePrivateAccessApplicationShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->l7Config) {
-            $request->l7ConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->l7Config, 'L7Config', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->l7Config)) {
+            $request->l7ConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->l7Config, 'L7Config', 'json');
         }
-
         $body = [];
         $bodyFlat = [];
-        if (null !== $request->addresses) {
-            @$bodyFlat['Addresses'] = $request->addresses;
+        if (!Utils::isUnset($request->addresses)) {
+            $bodyFlat['Addresses'] = $request->addresses;
         }
-
-        if (null !== $request->applicationId) {
-            @$body['ApplicationId'] = $request->applicationId;
+        if (!Utils::isUnset($request->applicationId)) {
+            $body['ApplicationId'] = $request->applicationId;
         }
-
-        if (null !== $request->description) {
-            @$body['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
         }
-
-        if (null !== $request->l7ConfigShrink) {
-            @$body['L7Config'] = $request->l7ConfigShrink;
+        if (!Utils::isUnset($request->l7ConfigShrink)) {
+            $body['L7Config'] = $request->l7ConfigShrink;
         }
-
-        if (null !== $request->l7ProxyDomainAutomaticPrefix) {
-            @$body['L7ProxyDomainAutomaticPrefix'] = $request->l7ProxyDomainAutomaticPrefix;
+        if (!Utils::isUnset($request->l7ProxyDomainAutomaticPrefix)) {
+            $body['L7ProxyDomainAutomaticPrefix'] = $request->l7ProxyDomainAutomaticPrefix;
         }
-
-        if (null !== $request->l7ProxyDomainCustom) {
-            @$body['L7ProxyDomainCustom'] = $request->l7ProxyDomainCustom;
+        if (!Utils::isUnset($request->l7ProxyDomainCustom)) {
+            $body['L7ProxyDomainCustom'] = $request->l7ProxyDomainCustom;
         }
-
-        if (null !== $request->l7ProxyDomainPrivate) {
-            @$body['L7ProxyDomainPrivate'] = $request->l7ProxyDomainPrivate;
+        if (!Utils::isUnset($request->l7ProxyDomainPrivate)) {
+            $body['L7ProxyDomainPrivate'] = $request->l7ProxyDomainPrivate;
         }
-
-        if (null !== $request->modifyType) {
-            @$body['ModifyType'] = $request->modifyType;
+        if (!Utils::isUnset($request->modifyType)) {
+            $body['ModifyType'] = $request->modifyType;
         }
-
-        if (null !== $request->portRanges) {
-            @$bodyFlat['PortRanges'] = $request->portRanges;
+        if (!Utils::isUnset($request->portRanges)) {
+            $bodyFlat['PortRanges'] = $request->portRanges;
         }
-
-        if (null !== $request->protocol) {
-            @$body['Protocol'] = $request->protocol;
+        if (!Utils::isUnset($request->protocol)) {
+            $body['Protocol'] = $request->protocol;
         }
-
-        if (null !== $request->status) {
-            @$body['Status'] = $request->status;
+        if (!Utils::isUnset($request->status)) {
+            $body['Status'] = $request->status;
         }
-
-        if (null !== $request->tagIds) {
-            @$bodyFlat['TagIds'] = $request->tagIds;
+        if (!Utils::isUnset($request->tagIds)) {
+            $bodyFlat['TagIds'] = $request->tagIds;
         }
-
-        $body = Dara::merge([
-        ], $body, Utils::query($bodyFlat));
+        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdatePrivateAccessApplication',
@@ -6963,15 +5748,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Modifies the office applications of the current Alibaba Cloud account.
+     * @summary Modifies the office applications of the current Alibaba Cloud account.
+     *  *
+     * @param UpdatePrivateAccessApplicationRequest $request UpdatePrivateAccessApplicationRequest
      *
-     * @param request - UpdatePrivateAccessApplicationRequest
-     *
-     * @returns UpdatePrivateAccessApplicationResponse
-     *
-     * @param UpdatePrivateAccessApplicationRequest $request
-     *
-     * @return UpdatePrivateAccessApplicationResponse
+     * @return UpdatePrivateAccessApplicationResponse UpdatePrivateAccessApplicationResponse
      */
     public function updatePrivateAccessApplication($request)
     {
@@ -6981,99 +5762,75 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Modify Private Access Policy.
+     * @summary Modify Private Access Policy
+     *  *
+     * @param UpdatePrivateAccessPolicyRequest $request UpdatePrivateAccessPolicyRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdatePrivateAccessPolicyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdatePrivateAccessPolicyResponse
-     *
-     * @param UpdatePrivateAccessPolicyRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return UpdatePrivateAccessPolicyResponse
+     * @return UpdatePrivateAccessPolicyResponse UpdatePrivateAccessPolicyResponse
      */
     public function updatePrivateAccessPolicyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
         $bodyFlat = [];
-        if (null !== $request->applicationIds) {
-            @$bodyFlat['ApplicationIds'] = $request->applicationIds;
+        if (!Utils::isUnset($request->applicationIds)) {
+            $bodyFlat['ApplicationIds'] = $request->applicationIds;
         }
-
-        if (null !== $request->applicationType) {
-            @$body['ApplicationType'] = $request->applicationType;
+        if (!Utils::isUnset($request->applicationType)) {
+            $body['ApplicationType'] = $request->applicationType;
         }
-
-        if (null !== $request->customUserAttributes) {
-            @$bodyFlat['CustomUserAttributes'] = $request->customUserAttributes;
+        if (!Utils::isUnset($request->customUserAttributes)) {
+            $bodyFlat['CustomUserAttributes'] = $request->customUserAttributes;
         }
-
-        if (null !== $request->description) {
-            @$body['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
         }
-
-        if (null !== $request->deviceAttributeAction) {
-            @$body['DeviceAttributeAction'] = $request->deviceAttributeAction;
+        if (!Utils::isUnset($request->deviceAttributeAction)) {
+            $body['DeviceAttributeAction'] = $request->deviceAttributeAction;
         }
-
-        if (null !== $request->deviceAttributeId) {
-            @$body['DeviceAttributeId'] = $request->deviceAttributeId;
+        if (!Utils::isUnset($request->deviceAttributeId)) {
+            $body['DeviceAttributeId'] = $request->deviceAttributeId;
         }
-
-        if (null !== $request->modifyType) {
-            @$body['ModifyType'] = $request->modifyType;
+        if (!Utils::isUnset($request->modifyType)) {
+            $body['ModifyType'] = $request->modifyType;
         }
-
-        if (null !== $request->policyAction) {
-            @$body['PolicyAction'] = $request->policyAction;
+        if (!Utils::isUnset($request->policyAction)) {
+            $body['PolicyAction'] = $request->policyAction;
         }
-
-        if (null !== $request->policyId) {
-            @$body['PolicyId'] = $request->policyId;
+        if (!Utils::isUnset($request->policyId)) {
+            $body['PolicyId'] = $request->policyId;
         }
-
-        if (null !== $request->priority) {
-            @$body['Priority'] = $request->priority;
+        if (!Utils::isUnset($request->priority)) {
+            $body['Priority'] = $request->priority;
         }
-
-        if (null !== $request->status) {
-            @$body['Status'] = $request->status;
+        if (!Utils::isUnset($request->status)) {
+            $body['Status'] = $request->status;
         }
-
-        if (null !== $request->tagIds) {
-            @$bodyFlat['TagIds'] = $request->tagIds;
+        if (!Utils::isUnset($request->tagIds)) {
+            $bodyFlat['TagIds'] = $request->tagIds;
         }
-
-        if (null !== $request->triggerTemplateId) {
-            @$body['TriggerTemplateId'] = $request->triggerTemplateId;
+        if (!Utils::isUnset($request->triggerTemplateId)) {
+            $body['TriggerTemplateId'] = $request->triggerTemplateId;
         }
-
-        if (null !== $request->trustedProcessGroupIds) {
-            @$bodyFlat['TrustedProcessGroupIds'] = $request->trustedProcessGroupIds;
+        if (!Utils::isUnset($request->trustedProcessGroupIds)) {
+            $bodyFlat['TrustedProcessGroupIds'] = $request->trustedProcessGroupIds;
         }
-
-        if (null !== $request->trustedProcessStatus) {
-            @$body['TrustedProcessStatus'] = $request->trustedProcessStatus;
+        if (!Utils::isUnset($request->trustedProcessStatus)) {
+            $body['TrustedProcessStatus'] = $request->trustedProcessStatus;
         }
-
-        if (null !== $request->trustedSoftwareIds) {
-            @$bodyFlat['TrustedSoftwareIds'] = $request->trustedSoftwareIds;
+        if (!Utils::isUnset($request->trustedSoftwareIds)) {
+            $bodyFlat['TrustedSoftwareIds'] = $request->trustedSoftwareIds;
         }
-
-        if (null !== $request->userGroupIds) {
-            @$bodyFlat['UserGroupIds'] = $request->userGroupIds;
+        if (!Utils::isUnset($request->userGroupIds)) {
+            $bodyFlat['UserGroupIds'] = $request->userGroupIds;
         }
-
-        if (null !== $request->userGroupMode) {
-            @$body['UserGroupMode'] = $request->userGroupMode;
+        if (!Utils::isUnset($request->userGroupMode)) {
+            $body['UserGroupMode'] = $request->userGroupMode;
         }
-
-        $body = Dara::merge([
-        ], $body, Utils::query($bodyFlat));
+        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdatePrivateAccessPolicy',
@@ -7091,15 +5848,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Modify Private Access Policy.
+     * @summary Modify Private Access Policy
+     *  *
+     * @param UpdatePrivateAccessPolicyRequest $request UpdatePrivateAccessPolicyRequest
      *
-     * @param request - UpdatePrivateAccessPolicyRequest
-     *
-     * @returns UpdatePrivateAccessPolicyResponse
-     *
-     * @param UpdatePrivateAccessPolicyRequest $request
-     *
-     * @return UpdatePrivateAccessPolicyResponse
+     * @return UpdatePrivateAccessPolicyResponse UpdatePrivateAccessPolicyResponse
      */
     public function updatePrivateAccessPolicy($request)
     {
@@ -7109,85 +5862,65 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 修改设备注册策略.
+     * @summary 修改设备注册策略
+     *  *
+     * @param UpdateRegistrationPolicyRequest $tmpReq  UpdateRegistrationPolicyRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - UpdateRegistrationPolicyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateRegistrationPolicyResponse
-     *
-     * @param UpdateRegistrationPolicyRequest $tmpReq
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return UpdateRegistrationPolicyResponse
+     * @return UpdateRegistrationPolicyResponse UpdateRegistrationPolicyResponse
      */
     public function updateRegistrationPolicyWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new UpdateRegistrationPolicyShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->companyLimitCount) {
-            $request->companyLimitCountShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->companyLimitCount, 'CompanyLimitCount', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->companyLimitCount)) {
+            $request->companyLimitCountShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->companyLimitCount, 'CompanyLimitCount', 'json');
         }
-
-        if (null !== $tmpReq->personalLimitCount) {
-            $request->personalLimitCountShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->personalLimitCount, 'PersonalLimitCount', 'json');
+        if (!Utils::isUnset($tmpReq->personalLimitCount)) {
+            $request->personalLimitCountShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->personalLimitCount, 'PersonalLimitCount', 'json');
         }
-
         $body = [];
-        if (null !== $request->companyLimitCountShrink) {
-            @$body['CompanyLimitCount'] = $request->companyLimitCountShrink;
+        if (!Utils::isUnset($request->companyLimitCountShrink)) {
+            $body['CompanyLimitCount'] = $request->companyLimitCountShrink;
         }
-
-        if (null !== $request->companyLimitType) {
-            @$body['CompanyLimitType'] = $request->companyLimitType;
+        if (!Utils::isUnset($request->companyLimitType)) {
+            $body['CompanyLimitType'] = $request->companyLimitType;
         }
-
-        if (null !== $request->description) {
-            @$body['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
         }
-
-        if (null !== $request->matchMode) {
-            @$body['MatchMode'] = $request->matchMode;
+        if (!Utils::isUnset($request->matchMode)) {
+            $body['MatchMode'] = $request->matchMode;
         }
-
-        if (null !== $request->name) {
-            @$body['Name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
         }
-
-        if (null !== $request->personalLimitCountShrink) {
-            @$body['PersonalLimitCount'] = $request->personalLimitCountShrink;
+        if (!Utils::isUnset($request->personalLimitCountShrink)) {
+            $body['PersonalLimitCount'] = $request->personalLimitCountShrink;
         }
-
-        if (null !== $request->personalLimitType) {
-            @$body['PersonalLimitType'] = $request->personalLimitType;
+        if (!Utils::isUnset($request->personalLimitType)) {
+            $body['PersonalLimitType'] = $request->personalLimitType;
         }
-
-        if (null !== $request->policyId) {
-            @$body['PolicyId'] = $request->policyId;
+        if (!Utils::isUnset($request->policyId)) {
+            $body['PolicyId'] = $request->policyId;
         }
-
-        if (null !== $request->priority) {
-            @$body['Priority'] = $request->priority;
+        if (!Utils::isUnset($request->priority)) {
+            $body['Priority'] = $request->priority;
         }
-
-        if (null !== $request->status) {
-            @$body['Status'] = $request->status;
+        if (!Utils::isUnset($request->status)) {
+            $body['Status'] = $request->status;
         }
-
         $bodyFlat = [];
-        if (null !== $request->userGroupIds) {
-            @$bodyFlat['UserGroupIds'] = $request->userGroupIds;
+        if (!Utils::isUnset($request->userGroupIds)) {
+            $bodyFlat['UserGroupIds'] = $request->userGroupIds;
         }
-
-        if (null !== $request->whitelist) {
-            @$bodyFlat['Whitelist'] = $request->whitelist;
+        if (!Utils::isUnset($request->whitelist)) {
+            $bodyFlat['Whitelist'] = $request->whitelist;
         }
-
-        $body = Dara::merge([
-        ], $body, Utils::query($bodyFlat));
+        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateRegistrationPolicy',
@@ -7205,15 +5938,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 修改设备注册策略.
+     * @summary 修改设备注册策略
+     *  *
+     * @param UpdateRegistrationPolicyRequest $request UpdateRegistrationPolicyRequest
      *
-     * @param request - UpdateRegistrationPolicyRequest
-     *
-     * @returns UpdateRegistrationPolicyResponse
-     *
-     * @param UpdateRegistrationPolicyRequest $request
-     *
-     * @return UpdateRegistrationPolicyResponse
+     * @return UpdateRegistrationPolicyResponse UpdateRegistrationPolicyResponse
      */
     public function updateRegistrationPolicy($request)
     {
@@ -7223,35 +5952,27 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量修改卸载申请状态
+     * @summary 批量修改卸载申请状态
+     *  *
+     * @param UpdateUninstallApplicationsStatusRequest $request UpdateUninstallApplicationsStatusRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateUninstallApplicationsStatusRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateUninstallApplicationsStatusResponse
-     *
-     * @param UpdateUninstallApplicationsStatusRequest $request
-     * @param RuntimeOptions                           $runtime
-     *
-     * @return UpdateUninstallApplicationsStatusResponse
+     * @return UpdateUninstallApplicationsStatusResponse UpdateUninstallApplicationsStatusResponse
      */
     public function updateUninstallApplicationsStatusWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
         $bodyFlat = [];
-        if (null !== $request->applicationIds) {
-            @$bodyFlat['ApplicationIds'] = $request->applicationIds;
+        if (!Utils::isUnset($request->applicationIds)) {
+            $bodyFlat['ApplicationIds'] = $request->applicationIds;
         }
-
-        if (null !== $request->status) {
-            @$body['Status'] = $request->status;
+        if (!Utils::isUnset($request->status)) {
+            $body['Status'] = $request->status;
         }
-
-        $body = Dara::merge([
-        ], $body, Utils::query($bodyFlat));
+        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateUninstallApplicationsStatus',
@@ -7269,15 +5990,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量修改卸载申请状态
+     * @summary 批量修改卸载申请状态
+     *  *
+     * @param UpdateUninstallApplicationsStatusRequest $request UpdateUninstallApplicationsStatusRequest
      *
-     * @param request - UpdateUninstallApplicationsStatusRequest
-     *
-     * @returns UpdateUninstallApplicationsStatusResponse
-     *
-     * @param UpdateUninstallApplicationsStatusRequest $request
-     *
-     * @return UpdateUninstallApplicationsStatusResponse
+     * @return UpdateUninstallApplicationsStatusResponse UpdateUninstallApplicationsStatusResponse
      */
     public function updateUninstallApplicationsStatus($request)
     {
@@ -7287,35 +6004,27 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量更新用户设备共享状态
+     * @summary 批量更新用户设备共享状态
+     *  *
+     * @param UpdateUserDevicesSharingStatusRequest $request UpdateUserDevicesSharingStatusRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateUserDevicesSharingStatusRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateUserDevicesSharingStatusResponse
-     *
-     * @param UpdateUserDevicesSharingStatusRequest $request
-     * @param RuntimeOptions                        $runtime
-     *
-     * @return UpdateUserDevicesSharingStatusResponse
+     * @return UpdateUserDevicesSharingStatusResponse UpdateUserDevicesSharingStatusResponse
      */
     public function updateUserDevicesSharingStatusWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
         $bodyFlat = [];
-        if (null !== $request->deviceTags) {
-            @$bodyFlat['DeviceTags'] = $request->deviceTags;
+        if (!Utils::isUnset($request->deviceTags)) {
+            $bodyFlat['DeviceTags'] = $request->deviceTags;
         }
-
-        if (null !== $request->sharingStatus) {
-            @$body['SharingStatus'] = $request->sharingStatus;
+        if (!Utils::isUnset($request->sharingStatus)) {
+            $body['SharingStatus'] = $request->sharingStatus;
         }
-
-        $body = Dara::merge([
-        ], $body, Utils::query($bodyFlat));
+        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateUserDevicesSharingStatus',
@@ -7333,15 +6042,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量更新用户设备共享状态
+     * @summary 批量更新用户设备共享状态
+     *  *
+     * @param UpdateUserDevicesSharingStatusRequest $request UpdateUserDevicesSharingStatusRequest
      *
-     * @param request - UpdateUserDevicesSharingStatusRequest
-     *
-     * @returns UpdateUserDevicesSharingStatusResponse
-     *
-     * @param UpdateUserDevicesSharingStatusRequest $request
-     *
-     * @return UpdateUserDevicesSharingStatusResponse
+     * @return UpdateUserDevicesSharingStatusResponse UpdateUserDevicesSharingStatusResponse
      */
     public function updateUserDevicesSharingStatus($request)
     {
@@ -7351,35 +6056,27 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量更新用户设备状态
+     * @summary 批量更新用户设备状态
+     *  *
+     * @param UpdateUserDevicesStatusRequest $request UpdateUserDevicesStatusRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateUserDevicesStatusRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateUserDevicesStatusResponse
-     *
-     * @param UpdateUserDevicesStatusRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return UpdateUserDevicesStatusResponse
+     * @return UpdateUserDevicesStatusResponse UpdateUserDevicesStatusResponse
      */
     public function updateUserDevicesStatusWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->deviceAction) {
-            @$body['DeviceAction'] = $request->deviceAction;
+        if (!Utils::isUnset($request->deviceAction)) {
+            $body['DeviceAction'] = $request->deviceAction;
         }
-
         $bodyFlat = [];
-        if (null !== $request->deviceTags) {
-            @$bodyFlat['DeviceTags'] = $request->deviceTags;
+        if (!Utils::isUnset($request->deviceTags)) {
+            $bodyFlat['DeviceTags'] = $request->deviceTags;
         }
-
-        $body = Dara::merge([
-        ], $body, Utils::query($bodyFlat));
+        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateUserDevicesStatus',
@@ -7397,15 +6094,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量更新用户设备状态
+     * @summary 批量更新用户设备状态
+     *  *
+     * @param UpdateUserDevicesStatusRequest $request UpdateUserDevicesStatusRequest
      *
-     * @param request - UpdateUserDevicesStatusRequest
-     *
-     * @returns UpdateUserDevicesStatusResponse
-     *
-     * @param UpdateUserDevicesStatusRequest $request
-     *
-     * @return UpdateUserDevicesStatusResponse
+     * @return UpdateUserDevicesStatusResponse UpdateUserDevicesStatusResponse
      */
     public function updateUserDevicesStatus($request)
     {
@@ -7415,43 +6108,33 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 修改用户组.
+     * @summary 修改用户组
+     *  *
+     * @param UpdateUserGroupRequest $request UpdateUserGroupRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateUserGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateUserGroupResponse
-     *
-     * @param UpdateUserGroupRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return UpdateUserGroupResponse
+     * @return UpdateUserGroupResponse UpdateUserGroupResponse
      */
     public function updateUserGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
         $bodyFlat = [];
-        if (null !== $request->attributes) {
-            @$bodyFlat['Attributes'] = $request->attributes;
+        if (!Utils::isUnset($request->attributes)) {
+            $bodyFlat['Attributes'] = $request->attributes;
         }
-
-        if (null !== $request->description) {
-            @$body['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
         }
-
-        if (null !== $request->modifyType) {
-            @$body['ModifyType'] = $request->modifyType;
+        if (!Utils::isUnset($request->modifyType)) {
+            $body['ModifyType'] = $request->modifyType;
         }
-
-        if (null !== $request->userGroupId) {
-            @$body['UserGroupId'] = $request->userGroupId;
+        if (!Utils::isUnset($request->userGroupId)) {
+            $body['UserGroupId'] = $request->userGroupId;
         }
-
-        $body = Dara::merge([
-        ], $body, Utils::query($bodyFlat));
+        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateUserGroup',
@@ -7469,15 +6152,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 修改用户组.
+     * @summary 修改用户组
+     *  *
+     * @param UpdateUserGroupRequest $request UpdateUserGroupRequest
      *
-     * @param request - UpdateUserGroupRequest
-     *
-     * @returns UpdateUserGroupResponse
-     *
-     * @param UpdateUserGroupRequest $request
-     *
-     * @return UpdateUserGroupResponse
+     * @return UpdateUserGroupResponse UpdateUserGroupResponse
      */
     public function updateUserGroup($request)
     {
@@ -7487,32 +6166,25 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量修改登陆用户状态
+     * @summary 批量修改登陆用户状态
+     *  *
+     * @param UpdateUsersStatusRequest $request UpdateUsersStatusRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateUsersStatusRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateUsersStatusResponse
-     *
-     * @param UpdateUsersStatusRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return UpdateUsersStatusResponse
+     * @return UpdateUsersStatusResponse UpdateUsersStatusResponse
      */
     public function updateUsersStatusWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->saseUserIds) {
-            @$query['SaseUserIds'] = $request->saseUserIds;
+        if (!Utils::isUnset($request->saseUserIds)) {
+            $query['SaseUserIds'] = $request->saseUserIds;
         }
-
-        if (null !== $request->status) {
-            @$query['Status'] = $request->status;
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateUsersStatus',
@@ -7530,15 +6202,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量修改登陆用户状态
+     * @summary 批量修改登陆用户状态
+     *  *
+     * @param UpdateUsersStatusRequest $request UpdateUsersStatusRequest
      *
-     * @param request - UpdateUsersStatusRequest
-     *
-     * @returns UpdateUsersStatusResponse
-     *
-     * @param UpdateUsersStatusRequest $request
-     *
-     * @return UpdateUsersStatusResponse
+     * @return UpdateUsersStatusResponse UpdateUsersStatusResponse
      */
     public function updateUsersStatus($request)
     {

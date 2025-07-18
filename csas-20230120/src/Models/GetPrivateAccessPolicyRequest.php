@@ -4,11 +4,19 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetPrivateAccessPolicyRequest extends Model
 {
     /**
+     * @description Intranet access policy ID. The value can be obtained from:
+     * - [ListPrivateAccessPolices](~~ListPrivateAccessPolices~~): Query multiple intranet access policies in bulk.
+     * - [CreatePrivateAccessPolicy](~~CreatePrivateAccessPolicy~~): Create an intranet access policy.
+     *
+     * This parameter is required.
+     *
+     * @example pa-policy-63b2f1844b86****
+     *
      * @var string
      */
     public $policyId;
@@ -16,12 +24,9 @@ class GetPrivateAccessPolicyRequest extends Model
         'policyId' => 'PolicyId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->policyId) {
@@ -31,11 +36,11 @@ class GetPrivateAccessPolicyRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetPrivateAccessPolicyRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

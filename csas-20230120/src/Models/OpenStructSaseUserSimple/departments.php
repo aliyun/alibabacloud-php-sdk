@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models\OpenStructSaseUserSimple;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class departments extends Model
 {
@@ -22,18 +22,14 @@ class departments extends Model
         'name' => 'Name',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->departmentId) {
             $res['DepartmentId'] = $this->departmentId;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -41,18 +37,17 @@ class departments extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return departments
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DepartmentId'])) {
             $model->departmentId = $map['DepartmentId'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

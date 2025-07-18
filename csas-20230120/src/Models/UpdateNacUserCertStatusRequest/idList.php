@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models\UpdateNacUserCertStatusRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class idList extends Model
 {
     /**
+     * @example 36efa42d-2c32-c4dc-e3fc-8541e33a****
+     *
      * @var string
      */
     public $devTag;
 
     /**
+     * @example su_e8f218fb171edd167c2ad917d21f53148bdefc510ca1f3c3cc0249d3643d****
+     *
      * @var string
      */
     public $userId;
@@ -22,18 +26,14 @@ class idList extends Model
         'userId' => 'UserId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->devTag) {
             $res['DevTag'] = $this->devTag;
         }
-
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
@@ -41,18 +41,17 @@ class idList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return idList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DevTag'])) {
             $model->devTag = $map['DevTag'];
         }
-
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }

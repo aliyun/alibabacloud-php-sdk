@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListEnterpriseAccelerateLogsRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
@@ -24,11 +26,17 @@ class ListEnterpriseAccelerateLogsRequest extends Model
     public $dstAddr;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 1748422694
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
@@ -39,6 +47,10 @@ class ListEnterpriseAccelerateLogsRequest extends Model
     public $searchMode;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 1748419094
+     *
      * @var int
      */
     public $startTime;
@@ -58,42 +70,32 @@ class ListEnterpriseAccelerateLogsRequest extends Model
         'username' => 'Username',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
-
         if (null !== $this->department) {
             $res['Department'] = $this->department;
         }
-
         if (null !== $this->dstAddr) {
             $res['DstAddr'] = $this->dstAddr;
         }
-
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
-
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-
         if (null !== $this->searchMode) {
             $res['SearchMode'] = $this->searchMode;
         }
-
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
-
         if (null !== $this->username) {
             $res['Username'] = $this->username;
         }
@@ -101,42 +103,35 @@ class ListEnterpriseAccelerateLogsRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListEnterpriseAccelerateLogsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
-
         if (isset($map['Department'])) {
             $model->department = $map['Department'];
         }
-
         if (isset($map['DstAddr'])) {
             $model->dstAddr = $map['DstAddr'];
         }
-
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
-
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-
         if (isset($map['SearchMode'])) {
             $model->searchMode = $map['SearchMode'];
         }
-
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
-
         if (isset($map['Username'])) {
             $model->username = $map['Username'];
         }
