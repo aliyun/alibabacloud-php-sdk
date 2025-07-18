@@ -45,6 +45,8 @@ use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\InitializeRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\InitializeResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\InitializeShrinkRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\KeepaliveIntlResponse;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\Mobile2MetaVerifyIntlRequest;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\Mobile2MetaVerifyIntlResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\Mobile3MetaVerifyIntlRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\Mobile3MetaVerifyIntlResponse;
 use AlibabaCloud\Tea\Exception\TeaError;
@@ -218,7 +220,9 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * @summary 银行卡核验
+     * @summary Bank Card Verification
+     *  *
+     * @description Verification of bank card elements, including: two-element verification (name + bank card number), three-element verification (name + ID number + bank card number), and four-element verification (name + ID number + phone number + bank card number) for consistency.
      *  *
      * @param BankMetaVerifyIntlRequest $request BankMetaVerifyIntlRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -275,7 +279,9 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * @summary 银行卡核验
+     * @summary Bank Card Verification
+     *  *
+     * @description Verification of bank card elements, including: two-element verification (name + bank card number), three-element verification (name + ID number + bank card number), and four-element verification (name + ID number + phone number + bank card number) for consistency.
      *  *
      * @param BankMetaVerifyIntlRequest $request BankMetaVerifyIntlRequest
      *
@@ -1572,6 +1578,62 @@ class Cloudauthintl extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->keepaliveIntlWithOptions($runtime);
+    }
+
+    /**
+     * @summary 手机号二要素核验API
+     *  *
+     * @param Mobile2MetaVerifyIntlRequest $request Mobile2MetaVerifyIntlRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return Mobile2MetaVerifyIntlResponse Mobile2MetaVerifyIntlResponse
+     */
+    public function mobile2MetaVerifyIntlWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->mobile)) {
+            $body['Mobile'] = $request->mobile;
+        }
+        if (!Utils::isUnset($request->paramType)) {
+            $body['ParamType'] = $request->paramType;
+        }
+        if (!Utils::isUnset($request->productCode)) {
+            $body['ProductCode'] = $request->productCode;
+        }
+        if (!Utils::isUnset($request->userName)) {
+            $body['UserName'] = $request->userName;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'Mobile2MetaVerifyIntl',
+            'version' => '2022-08-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return Mobile2MetaVerifyIntlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 手机号二要素核验API
+     *  *
+     * @param Mobile2MetaVerifyIntlRequest $request Mobile2MetaVerifyIntlRequest
+     *
+     * @return Mobile2MetaVerifyIntlResponse Mobile2MetaVerifyIntlResponse
+     */
+    public function mobile2MetaVerifyIntl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->mobile2MetaVerifyIntlWithOptions($request, $runtime);
     }
 
     /**

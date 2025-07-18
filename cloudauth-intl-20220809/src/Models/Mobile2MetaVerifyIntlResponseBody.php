@@ -4,23 +4,19 @@
 
 namespace AlibabaCloud\SDK\Cloudauthintl\V20220809\Models;
 
-use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\BankMetaVerifyIntlResponseBody\resultObject;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\Mobile2MetaVerifyIntlResponseBody\result;
 use AlibabaCloud\Tea\Model;
 
-class BankMetaVerifyIntlResponseBody extends Model
+class Mobile2MetaVerifyIntlResponseBody extends Model
 {
     /**
-     * @description Return code: 200 for success, others for failure.
-     *
-     * @example 200
+     * @example Success
      *
      * @var string
      */
     public $code;
 
     /**
-     * @description Return message
-     *
      * @example success
      *
      * @var string
@@ -28,7 +24,7 @@ class BankMetaVerifyIntlResponseBody extends Model
     public $message;
 
     /**
-     * @description Request ID.
+     * @description Id of the request
      *
      * @example 4EB35****87EBA1
      *
@@ -37,16 +33,14 @@ class BankMetaVerifyIntlResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Returned result information
-     *
-     * @var resultObject
+     * @var result
      */
-    public $resultObject;
+    public $result;
     protected $_name = [
         'code' => 'Code',
         'message' => 'Message',
         'requestId' => 'RequestId',
-        'resultObject' => 'ResultObject',
+        'result' => 'Result',
     ];
 
     public function validate() {}
@@ -63,8 +57,8 @@ class BankMetaVerifyIntlResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->resultObject) {
-            $res['ResultObject'] = null !== $this->resultObject ? $this->resultObject->toMap() : null;
+        if (null !== $this->result) {
+            $res['Result'] = null !== $this->result ? $this->result->toMap() : null;
         }
 
         return $res;
@@ -73,7 +67,7 @@ class BankMetaVerifyIntlResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return BankMetaVerifyIntlResponseBody
+     * @return Mobile2MetaVerifyIntlResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -87,8 +81,8 @@ class BankMetaVerifyIntlResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['ResultObject'])) {
-            $model->resultObject = resultObject::fromMap($map['ResultObject']);
+        if (isset($map['Result'])) {
+            $model->result = result::fromMap($map['Result']);
         }
 
         return $model;
