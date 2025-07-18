@@ -84,6 +84,11 @@ class data extends Model
     public $gatewayType;
 
     /**
+     * @var string
+     */
+    public $isp;
+
+    /**
      * @description The ingress addresses of the instance.
      *
      * @var loadBalancers[]
@@ -216,6 +221,7 @@ class data extends Model
         'expireTimestamp' => 'expireTimestamp',
         'gatewayId' => 'gatewayId',
         'gatewayType' => 'gatewayType',
+        'isp' => 'isp',
         'loadBalancers' => 'loadBalancers',
         'name' => 'name',
         'replicas' => 'replicas',
@@ -263,6 +269,9 @@ class data extends Model
         }
         if (null !== $this->gatewayType) {
             $res['gatewayType'] = $this->gatewayType;
+        }
+        if (null !== $this->isp) {
+            $res['isp'] = $this->isp;
         }
         if (null !== $this->loadBalancers) {
             $res['loadBalancers'] = [];
@@ -362,6 +371,9 @@ class data extends Model
         }
         if (isset($map['gatewayType'])) {
             $model->gatewayType = $map['gatewayType'];
+        }
+        if (isset($map['isp'])) {
+            $model->isp = $map['isp'];
         }
         if (isset($map['loadBalancers'])) {
             if (!empty($map['loadBalancers'])) {
