@@ -17,6 +17,7 @@ class ReEncryptRequest extends Model
      *   Asymmetric encryption: the public key-encrypted ciphertext returned after you call the [GenerateAndExportDataKey](https://help.aliyun.com/document_detail/176804.html) operation, or the ciphertext encrypted by using the public key of an asymmetric key pair outside KMS
      *
      * This parameter is required.
+     *
      * @example ODZhOWVmZDktM2QxNi00ODk0LWJkNGYtMWZjNDNmM2YyYWJmS7FmDBBQ0BkKsQrtRnidtPwirmDcS0ZuJCU41xxAAWk4Z8qsADfbV0b+i6kQmlvj79dJdGOvtX69Uycs901q********
      *
      * @var string
@@ -36,6 +37,7 @@ class ReEncryptRequest extends Model
      * @description The ID of the symmetric CMK that is used to re-encrypt the ciphertext after the ciphertext is decrypted.
      *
      * This parameter is required.
+     *
      * @example 1234abcd-12ab-34cd-56ef-12345678****
      *
      * @var string
@@ -57,6 +59,7 @@ class ReEncryptRequest extends Model
      *   SM2PKE
      *
      * >  If you set CiphertextBlob to the public key-encrypted ciphertext that is returned after an asymmetric encryption operation, specify this parameter.
+     *
      * @example RSAES_OAEP_SHA_256
      *
      * @var string
@@ -67,6 +70,7 @@ class ReEncryptRequest extends Model
      * @description A JSON string that consists of key-value pairs. If you specify EncryptionContext when you call the [Encrypt](https://help.aliyun.com/document_detail/28949.html), [GenerateDataKey](https://help.aliyun.com/document_detail/28948.html), [GenerateDataKeyWithoutPlaintext](https://help.aliyun.com/document_detail/134043.html), or [GenerateAndExportDataKey](https://help.aliyun.com/document_detail/176804.html) operation to encrypt the data or data key, an equivalent value is required here. For more information, see [EncryptionContext](https://help.aliyun.com/document_detail/42975.html).
      *
      * >  If you set CiphertextBlob to the ciphertext that is returned after a symmetric encryption operation, specify this parameter.
+     *
      * @example {"Example":"Example"}
      *
      * @var mixed[]
@@ -76,7 +80,10 @@ class ReEncryptRequest extends Model
     /**
      * @description The ID of the CMK that is used to decrypt the ciphertext.
      *
+     * This parameter is the globally unique ID of the CMK.
+     *
      * >  If you set CiphertextBlob to the public key-encrypted ciphertext that is returned after an asymmetric encryption operation, specify this parameter.
+     *
      * @example 5c438b18-05be-40ad-b6c2-3be6752c****
      *
      * @var string
@@ -87,25 +94,24 @@ class ReEncryptRequest extends Model
      * @description The ID of the CMK version that is used to decrypt the ciphertext.
      *
      * >  If you set CiphertextBlob to the public key-encrypted ciphertext that is returned after an asymmetric encryption operation, specify this parameter.
+     *
      * @example 2ab1a983-7072-4bbc-a582-584b5bd8****
      *
      * @var string
      */
     public $sourceKeyVersionId;
     protected $_name = [
-        'ciphertextBlob'               => 'CiphertextBlob',
+        'ciphertextBlob' => 'CiphertextBlob',
         'destinationEncryptionContext' => 'DestinationEncryptionContext',
-        'destinationKeyId'             => 'DestinationKeyId',
-        'dryRun'                       => 'DryRun',
-        'sourceEncryptionAlgorithm'    => 'SourceEncryptionAlgorithm',
-        'sourceEncryptionContext'      => 'SourceEncryptionContext',
-        'sourceKeyId'                  => 'SourceKeyId',
-        'sourceKeyVersionId'           => 'SourceKeyVersionId',
+        'destinationKeyId' => 'DestinationKeyId',
+        'dryRun' => 'DryRun',
+        'sourceEncryptionAlgorithm' => 'SourceEncryptionAlgorithm',
+        'sourceEncryptionContext' => 'SourceEncryptionContext',
+        'sourceKeyId' => 'SourceKeyId',
+        'sourceKeyVersionId' => 'SourceKeyVersionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -44,15 +44,13 @@ class CreateCertificateResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'arn'           => 'Arn',
+        'arn' => 'Arn',
         'certificateId' => 'CertificateId',
-        'csr'           => 'Csr',
-        'requestId'     => 'RequestId',
+        'csr' => 'Csr',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

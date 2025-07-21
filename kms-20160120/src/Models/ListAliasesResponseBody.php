@@ -52,16 +52,14 @@ class ListAliasesResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'aliases'    => 'Aliases',
+        'aliases' => 'Aliases',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

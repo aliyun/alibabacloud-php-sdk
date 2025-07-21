@@ -20,7 +20,10 @@ class keyMetadata extends Model
     /**
      * @description The status of automatic key rotation. Valid values:
      *
+     * - Enabled
+     * - Disabled
      * - Suspended
+     *
      * @example Enabled
      *
      * @var string
@@ -58,6 +61,7 @@ class keyMetadata extends Model
      * @description The time when the key is scheduled for deletion. For more information, see ScheduleKeyDeletion.
      *
      * This parameter is returned only when the value of KeyState is PendingDeletion.
+     *
      * @example 2025-03-25T10:00:00Z
      *
      * @var string
@@ -95,6 +99,7 @@ class keyMetadata extends Model
      * @description The status of the key.
      *
      * For more information, see [Impacts of key status on API operations](https://help.aliyun.com/document_detail/44211.html).
+     *
      * @example Enabled
      *
      * @var string
@@ -114,6 +119,7 @@ class keyMetadata extends Model
      * @description The time when the last rotation was performed. The time is displayed in UTC.
      *
      * For a new key, this parameter value is the time when the initial version of the key was generated.
+     *
      * @example 2023-03-25T10:00:00Z
      *
      * @var string
@@ -124,6 +130,7 @@ class keyMetadata extends Model
      * @description The time when the key material expires. The time is displayed in UTC.
      *
      * If this parameter value is empty, the key material does not expire.
+     *
      * @example 2025-03-25T10:00:00Z
      *
      * @var string
@@ -134,6 +141,7 @@ class keyMetadata extends Model
      * @description The time when the key is next rotated.
      *
      * This value is returned only when the value of AutomaticRotation is Enabled or Suspended.
+     *
      * @example 2024-03-25T10:00:00Z
      *
      * @var string
@@ -171,35 +179,34 @@ class keyMetadata extends Model
      * @description The interval for automatic key rotation. Unit: seconds. The format is an integer value followed by the character s. For example, if the rotation period is seven days, this parameter is set to 604800s.
      *
      * This value is returned only when the value of AutomaticRotation is Enabled or Suspended.
+     *
      * @example 31536000s
      *
      * @var string
      */
     public $rotationInterval;
     protected $_name = [
-        'arn'                => 'Arn',
-        'automaticRotation'  => 'AutomaticRotation',
-        'creationDate'       => 'CreationDate',
-        'creator'            => 'Creator',
-        'DKMSInstanceId'     => 'DKMSInstanceId',
-        'deleteDate'         => 'DeleteDate',
-        'description'        => 'Description',
-        'keyId'              => 'KeyId',
-        'keySpec'            => 'KeySpec',
-        'keyState'           => 'KeyState',
-        'keyUsage'           => 'KeyUsage',
-        'lastRotationDate'   => 'LastRotationDate',
+        'arn' => 'Arn',
+        'automaticRotation' => 'AutomaticRotation',
+        'creationDate' => 'CreationDate',
+        'creator' => 'Creator',
+        'DKMSInstanceId' => 'DKMSInstanceId',
+        'deleteDate' => 'DeleteDate',
+        'description' => 'Description',
+        'keyId' => 'KeyId',
+        'keySpec' => 'KeySpec',
+        'keyState' => 'KeyState',
+        'keyUsage' => 'KeyUsage',
+        'lastRotationDate' => 'LastRotationDate',
         'materialExpireTime' => 'MaterialExpireTime',
-        'nextRotationDate'   => 'NextRotationDate',
-        'origin'             => 'Origin',
-        'primaryKeyVersion'  => 'PrimaryKeyVersion',
-        'protectionLevel'    => 'ProtectionLevel',
-        'rotationInterval'   => 'RotationInterval',
+        'nextRotationDate' => 'NextRotationDate',
+        'origin' => 'Origin',
+        'primaryKeyVersion' => 'PrimaryKeyVersion',
+        'protectionLevel' => 'ProtectionLevel',
+        'rotationInterval' => 'RotationInterval',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

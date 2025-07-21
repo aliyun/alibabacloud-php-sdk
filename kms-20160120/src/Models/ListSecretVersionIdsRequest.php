@@ -17,6 +17,7 @@ class ListSecretVersionIdsRequest extends Model
      *   true: yes
      *
      * Default value: false.
+     *
      * @example false
      *
      * @var string
@@ -45,6 +46,7 @@ class ListSecretVersionIdsRequest extends Model
      * @description The name of the secret.
      *
      * This parameter is required.
+     *
      * @example secret001
      *
      * @var string
@@ -52,14 +54,12 @@ class ListSecretVersionIdsRequest extends Model
     public $secretName;
     protected $_name = [
         'includeDeprecated' => 'IncludeDeprecated',
-        'pageNumber'        => 'PageNumber',
-        'pageSize'          => 'PageSize',
-        'secretName'        => 'SecretName',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'secretName' => 'SecretName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

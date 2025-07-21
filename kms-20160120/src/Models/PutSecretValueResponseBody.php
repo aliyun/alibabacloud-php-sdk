@@ -43,15 +43,13 @@ class PutSecretValueResponseBody extends Model
      */
     public $versionStages;
     protected $_name = [
-        'requestId'     => 'RequestId',
-        'secretName'    => 'SecretName',
-        'versionId'     => 'VersionId',
+        'requestId' => 'RequestId',
+        'secretName' => 'SecretName',
+        'versionId' => 'VersionId',
         'versionStages' => 'VersionStages',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

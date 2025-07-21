@@ -11,7 +11,10 @@ class DescribeKeyVersionRequest extends Model
     /**
      * @description The globally unique ID of the CMK.
      *
+     * You can also set this parameter to an alias that is bound to the CMK. For more information, see [Alias overview](https://help.aliyun.com/document_detail/68522.html).
+     *
      * This parameter is required.
+     *
      * @example 1234abcd-12ab-34cd-56ef-12345678****
      *
      * @var string
@@ -21,20 +24,21 @@ class DescribeKeyVersionRequest extends Model
     /**
      * @description The globally unique ID of the CMK version.
      *
+     * You can call the [ListKeyVersions](https://help.aliyun.com/document_detail/133966.html) operation to query the versions of the CMK.
+     *
      * This parameter is required.
+     *
      * @example 2ab1a983-7072-4bbc-a582-584b5bd8****
      *
      * @var string
      */
     public $keyVersionId;
     protected $_name = [
-        'keyId'        => 'KeyId',
+        'keyId' => 'KeyId',
         'keyVersionId' => 'KeyVersionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

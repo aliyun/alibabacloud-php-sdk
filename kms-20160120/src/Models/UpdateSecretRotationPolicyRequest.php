@@ -15,6 +15,7 @@ class UpdateSecretRotationPolicyRequest extends Model
      *   false: does not enable automatic rotation. This is the default value.
      *
      * This parameter is required.
+     *
      * @example true
      *
      * @var bool
@@ -24,7 +25,12 @@ class UpdateSecretRotationPolicyRequest extends Model
     /**
      * @description The interval for automatic rotation. Valid values: 6 hours to 8,760 hours (365 days).
      *
+     * The value is in the `integer[unit]` format.````
+     *
+     * The unit can be d (day), h (hour), m (minute), or s (second). For example, both 7d and 604800s indicate a seven-day interval.
+     *
      * >  This parameter is required if you set the EnableAutomaticRotation parameter to true. This parameter is ignored if you set the EnableAutomaticRotation parameter to false or does not specify the EnableAutomaticRotation parameter.
+     *
      * @example 30d
      *
      * @var string
@@ -35,6 +41,7 @@ class UpdateSecretRotationPolicyRequest extends Model
      * @description The name of the secret.
      *
      * This parameter is required.
+     *
      * @example RdsSecret/Mysql5.4/MyCred
      *
      * @var string
@@ -42,13 +49,11 @@ class UpdateSecretRotationPolicyRequest extends Model
     public $secretName;
     protected $_name = [
         'enableAutomaticRotation' => 'EnableAutomaticRotation',
-        'rotationInterval'        => 'RotationInterval',
-        'secretName'              => 'SecretName',
+        'rotationInterval' => 'RotationInterval',
+        'secretName' => 'SecretName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

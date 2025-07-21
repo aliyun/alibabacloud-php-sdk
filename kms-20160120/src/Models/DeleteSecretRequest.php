@@ -35,6 +35,7 @@ class DeleteSecretRequest extends Model
      * @description The name of the secret.
      *
      * This parameter is required.
+     *
      * @example secret001
      *
      * @var string
@@ -42,13 +43,11 @@ class DeleteSecretRequest extends Model
     public $secretName;
     protected $_name = [
         'forceDeleteWithoutRecovery' => 'ForceDeleteWithoutRecovery',
-        'recoveryWindowInDays'       => 'RecoveryWindowInDays',
-        'secretName'                 => 'SecretName',
+        'recoveryWindowInDays' => 'RecoveryWindowInDays',
+        'secretName' => 'SecretName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

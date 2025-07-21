@@ -12,6 +12,7 @@ class UpdateSecretVersionStageRequest extends Model
      * @description The version from which you want to remove the specified stage label.
      *
      * >  You must specify at least one of the RemoveFromVersion and MoveToVersion parameters.
+     *
      * @example 002
      *
      * @var string
@@ -35,6 +36,7 @@ class UpdateSecretVersionStageRequest extends Model
      * @description The operation that you want to perform. Set the value to **UpdateSecretVersionStage**.
      *
      * This parameter is required.
+     *
      * @example secret001
      *
      * @var string
@@ -45,21 +47,20 @@ class UpdateSecretVersionStageRequest extends Model
      * @description The name of the secret.
      *
      * This parameter is required.
+     *
      * @example ACSCurrent
      *
      * @var string
      */
     public $versionStage;
     protected $_name = [
-        'moveToVersion'     => 'MoveToVersion',
+        'moveToVersion' => 'MoveToVersion',
         'removeFromVersion' => 'RemoveFromVersion',
-        'secretName'        => 'SecretName',
-        'versionStage'      => 'VersionStage',
+        'secretName' => 'SecretName',
+        'versionStage' => 'VersionStage',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

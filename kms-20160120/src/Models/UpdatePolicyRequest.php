@@ -12,6 +12,7 @@ class UpdatePolicyRequest extends Model
      * @description The access control rule.
      *
      * > For more information about how to query created access control rules, see [ListNetworkRules](https://help.aliyun.com/document_detail/2539433.html).
+     *
      * @example {"NetworkRules":["kst-hzz62ee817bvyyr5x****.efkd","kst-hzz62ee817bvyyr5x****.eyyp"]}
      *
      * @var string
@@ -31,6 +32,7 @@ class UpdatePolicyRequest extends Model
      * @description The name of the permission policy that you want to update.
      *
      * This parameter is required.
+     *
      * @example policy_test
      *
      * @var string
@@ -44,6 +46,7 @@ class UpdatePolicyRequest extends Model
      *   RbacPermission/Template/CryptoServiceSecretUser: allows you to perform secret-related operations.
      *
      * You can select both.
+     *
      * @example ["RbacPermission/Template/CryptoServiceKeyUser", "RbacPermission/Template/CryptoServiceSecretUser"]
      *
      * @var string
@@ -63,15 +66,13 @@ class UpdatePolicyRequest extends Model
     public $resources;
     protected $_name = [
         'accessControlRules' => 'AccessControlRules',
-        'description'        => 'Description',
-        'name'               => 'Name',
-        'permissions'        => 'Permissions',
-        'resources'          => 'Resources',
+        'description' => 'Description',
+        'name' => 'Name',
+        'permissions' => 'Permissions',
+        'resources' => 'Resources',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

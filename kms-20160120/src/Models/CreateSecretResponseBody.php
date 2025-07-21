@@ -47,6 +47,7 @@ class CreateSecretResponseBody extends Model
      * @description The extended configuration of the secret.
      *
      * >  This parameter is returned if you set the SecretType parameter to Rds, RAMCredentials, or ECS.
+     *
      * @example 2022-07-06T18:22:03Z
      *
      * @var string
@@ -57,6 +58,7 @@ class CreateSecretResponseBody extends Model
      * @description The time when the next rotation will be performed.
      *
      * >  This parameter is returned if automatic rotation is enabled.
+     *
      * @example 3bf02f7a-015b-4f93-be0f-cc043fda2dd3
      *
      * @var string
@@ -73,7 +75,10 @@ class CreateSecretResponseBody extends Model
     /**
      * @description The interval for automatic rotation.
      *
+     * The value is in the `integer[unit]` format. The value of the `unit` field is fixed as s. For example, if the value is 604800s, automatic rotation is performed at a 7-day interval.
+     *
      * >  This parameter is returned if automatic rotation is enabled.
+     *
      * @example mydbconninfo
      *
      * @var string
@@ -98,21 +103,19 @@ class CreateSecretResponseBody extends Model
      */
     public $versionId;
     protected $_name = [
-        'arn'               => 'Arn',
+        'arn' => 'Arn',
         'automaticRotation' => 'AutomaticRotation',
-        'DKMSInstanceId'    => 'DKMSInstanceId',
-        'extendedConfig'    => 'ExtendedConfig',
-        'nextRotationDate'  => 'NextRotationDate',
-        'requestId'         => 'RequestId',
-        'rotationInterval'  => 'RotationInterval',
-        'secretName'        => 'SecretName',
-        'secretType'        => 'SecretType',
-        'versionId'         => 'VersionId',
+        'DKMSInstanceId' => 'DKMSInstanceId',
+        'extendedConfig' => 'ExtendedConfig',
+        'nextRotationDate' => 'NextRotationDate',
+        'requestId' => 'RequestId',
+        'rotationInterval' => 'RotationInterval',
+        'secretName' => 'SecretName',
+        'secretType' => 'SecretType',
+        'versionId' => 'VersionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

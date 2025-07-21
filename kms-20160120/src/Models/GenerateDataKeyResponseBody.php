@@ -21,6 +21,7 @@ class GenerateDataKeyResponseBody extends Model
      * @description The ID of the CMK. The ID must be globally unique.
      *
      * >  If you set the KeyId parameter in the request to an alias of the CMK, the ID of the CMK to which the alias is bound is returned.
+     *
      * @example 7906979c-8e06-46a2-be2d-68e3ccbc****
      *
      * @var string
@@ -55,15 +56,13 @@ class GenerateDataKeyResponseBody extends Model
     public $requestId;
     protected $_name = [
         'ciphertextBlob' => 'CiphertextBlob',
-        'keyId'          => 'KeyId',
-        'keyVersionId'   => 'KeyVersionId',
-        'plaintext'      => 'Plaintext',
-        'requestId'      => 'RequestId',
+        'keyId' => 'KeyId',
+        'keyVersionId' => 'KeyVersionId',
+        'plaintext' => 'Plaintext',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

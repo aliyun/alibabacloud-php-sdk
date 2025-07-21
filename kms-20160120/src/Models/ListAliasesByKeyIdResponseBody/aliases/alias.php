@@ -35,14 +35,12 @@ class alias extends Model
      */
     public $keyId;
     protected $_name = [
-        'aliasArn'  => 'AliasArn',
+        'aliasArn' => 'AliasArn',
         'aliasName' => 'AliasName',
-        'keyId'     => 'KeyId',
+        'keyId' => 'KeyId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

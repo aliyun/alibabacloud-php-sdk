@@ -22,19 +22,18 @@ class UpdateSecretVersionStageResponseBody extends Model
      *
      * > * You must specify at least one of the RemoveFromVersion and MoveToVersion parameters.
      * > * If the VersionStage parameter is set to ACSCurrent or ACSPrevious, this parameter is required.
+     *
      * @example secret001
      *
      * @var string
      */
     public $secretName;
     protected $_name = [
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
         'secretName' => 'SecretName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

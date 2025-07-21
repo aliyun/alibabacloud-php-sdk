@@ -12,6 +12,7 @@ class ListResourceTagsRequest extends Model
      * @description The globally unique ID of the CMK.
      *
      * This parameter is required.
+     *
      * @example 1234abcd-12ab-34cd-56ef-12345678****
      *
      * @var string
@@ -21,9 +22,7 @@ class ListResourceTagsRequest extends Model
         'keyId' => 'KeyId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

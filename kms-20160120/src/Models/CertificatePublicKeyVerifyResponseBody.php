@@ -38,14 +38,12 @@ class CertificatePublicKeyVerifyResponseBody extends Model
      */
     public $signatureValid;
     protected $_name = [
-        'certificateId'  => 'CertificateId',
-        'requestId'      => 'RequestId',
+        'certificateId' => 'CertificateId',
+        'requestId' => 'RequestId',
         'signatureValid' => 'SignatureValid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

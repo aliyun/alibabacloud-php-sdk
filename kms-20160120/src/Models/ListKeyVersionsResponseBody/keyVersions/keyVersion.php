@@ -21,6 +21,7 @@ class keyVersion extends Model
      * @description The globally unique ID of the CMK.
      *
      * >  If you set the KeyId parameter to the alias of the CMK, the ID of the CMK to which the alias is bound is returned.
+     *
      * @example 0b30658a-ed1a-4922-b8f7-a673ca9c****
      *
      * @var string
@@ -37,13 +38,11 @@ class keyVersion extends Model
     public $keyVersionId;
     protected $_name = [
         'creationDate' => 'CreationDate',
-        'keyId'        => 'KeyId',
+        'keyId' => 'KeyId',
         'keyVersionId' => 'KeyVersionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

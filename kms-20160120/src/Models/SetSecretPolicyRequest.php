@@ -33,14 +33,12 @@ class SetSecretPolicyRequest extends Model
      */
     public $secretName;
     protected $_name = [
-        'policy'     => 'Policy',
+        'policy' => 'Policy',
         'policyName' => 'PolicyName',
         'secretName' => 'SecretName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

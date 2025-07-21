@@ -13,6 +13,7 @@ class kmsInstance extends Model
      * @description A list of associated VPCs.
      *
      * >  If your self-managed applications are deployed in multiple VPCs in the same region, you can associate VPCs with the KMS instance beyond the VPC that you specify when you enable the KMS instance. The VPCs can belong to the same Alibaba Cloud account or different Alibaba Cloud accounts. After the configuration is complete, self-managed applications in the VPCs can access the specified KMS instance.
+     *
      * @var bindVpcs
      */
     public $bindVpcs;
@@ -25,6 +26,11 @@ class kmsInstance extends Model
      * @var string
      */
     public $caCertificateChainPem;
+
+    /**
+     * @var string
+     */
+    public $chargeType;
 
     /**
      * @description The time when the KMS instance is created.
@@ -70,6 +76,11 @@ class kmsInstance extends Model
      * @var int
      */
     public $keyNum;
+
+    /**
+     * @var string
+     */
+    public $productVersion;
 
     /**
      * @description The number of secrets that can be created for the KMS instance.
@@ -149,26 +160,26 @@ class kmsInstance extends Model
      */
     public $zoneIds;
     protected $_name = [
-        'bindVpcs'              => 'BindVpcs',
+        'bindVpcs' => 'BindVpcs',
         'caCertificateChainPem' => 'CaCertificateChainPem',
-        'createTime'            => 'CreateTime',
-        'endDate'               => 'EndDate',
-        'instanceId'            => 'InstanceId',
-        'instanceName'          => 'InstanceName',
-        'keyNum'                => 'KeyNum',
-        'secretNum'             => 'SecretNum',
-        'spec'                  => 'Spec',
-        'startDate'             => 'StartDate',
-        'status'                => 'Status',
-        'vpcId'                 => 'VpcId',
-        'vpcNum'                => 'VpcNum',
-        'vswitchIds'            => 'VswitchIds',
-        'zoneIds'               => 'ZoneIds',
+        'chargeType' => 'ChargeType',
+        'createTime' => 'CreateTime',
+        'endDate' => 'EndDate',
+        'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
+        'keyNum' => 'KeyNum',
+        'productVersion' => 'ProductVersion',
+        'secretNum' => 'SecretNum',
+        'spec' => 'Spec',
+        'startDate' => 'StartDate',
+        'status' => 'Status',
+        'vpcId' => 'VpcId',
+        'vpcNum' => 'VpcNum',
+        'vswitchIds' => 'VswitchIds',
+        'zoneIds' => 'ZoneIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -178,6 +189,9 @@ class kmsInstance extends Model
         }
         if (null !== $this->caCertificateChainPem) {
             $res['CaCertificateChainPem'] = $this->caCertificateChainPem;
+        }
+        if (null !== $this->chargeType) {
+            $res['ChargeType'] = $this->chargeType;
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
@@ -193,6 +207,9 @@ class kmsInstance extends Model
         }
         if (null !== $this->keyNum) {
             $res['KeyNum'] = $this->keyNum;
+        }
+        if (null !== $this->productVersion) {
+            $res['ProductVersion'] = $this->productVersion;
         }
         if (null !== $this->secretNum) {
             $res['SecretNum'] = $this->secretNum;
@@ -236,6 +253,9 @@ class kmsInstance extends Model
         if (isset($map['CaCertificateChainPem'])) {
             $model->caCertificateChainPem = $map['CaCertificateChainPem'];
         }
+        if (isset($map['ChargeType'])) {
+            $model->chargeType = $map['ChargeType'];
+        }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
@@ -250,6 +270,9 @@ class kmsInstance extends Model
         }
         if (isset($map['KeyNum'])) {
             $model->keyNum = $map['KeyNum'];
+        }
+        if (isset($map['ProductVersion'])) {
+            $model->productVersion = $map['ProductVersion'];
         }
         if (isset($map['SecretNum'])) {
             $model->secretNum = $map['SecretNum'];

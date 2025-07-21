@@ -27,6 +27,7 @@ class UpdateSecretRequest extends Model
      * @description The name of the secret.
      *
      * This parameter is required.
+     *
      * @example secret001
      *
      * @var string
@@ -34,13 +35,11 @@ class UpdateSecretRequest extends Model
     public $secretName;
     protected $_name = [
         'extendedConfig' => 'ExtendedConfig',
-        'description'    => 'Description',
-        'secretName'     => 'SecretName',
+        'description' => 'Description',
+        'secretName' => 'SecretName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -27,12 +27,10 @@ class key extends Model
     public $keyId;
     protected $_name = [
         'keyArn' => 'KeyArn',
-        'keyId'  => 'KeyId',
+        'keyId' => 'KeyId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

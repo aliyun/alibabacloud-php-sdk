@@ -21,6 +21,7 @@ class ExportDataKeyResponseBody extends Model
      * @description The ID of the CMK that is used to decrypt the specified ciphertext of the data key.
      *
      * This parameter is the globally unique ID of the CMK.
+     *
      * @example 202b9877-5a25-46e3-a763-e20791b5****
      *
      * @var string
@@ -46,14 +47,12 @@ class ExportDataKeyResponseBody extends Model
     public $requestId;
     protected $_name = [
         'exportedDataKey' => 'ExportedDataKey',
-        'keyId'           => 'KeyId',
-        'keyVersionId'    => 'KeyVersionId',
-        'requestId'       => 'RequestId',
+        'keyId' => 'KeyId',
+        'keyVersionId' => 'KeyVersionId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

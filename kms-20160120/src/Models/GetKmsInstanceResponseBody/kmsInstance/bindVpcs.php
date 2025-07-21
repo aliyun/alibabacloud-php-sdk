@@ -17,9 +17,7 @@ class bindVpcs extends Model
         'bindVpc' => 'BindVpc',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class bindVpcs extends Model
         if (isset($map['BindVpc'])) {
             if (!empty($map['BindVpc'])) {
                 $model->bindVpc = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['BindVpc'] as $item) {
                     $model->bindVpc[$n++] = null !== $item ? bindVpc::fromMap($item) : $item;
                 }

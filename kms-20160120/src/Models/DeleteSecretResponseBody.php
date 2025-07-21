@@ -36,13 +36,11 @@ class DeleteSecretResponseBody extends Model
     public $secretName;
     protected $_name = [
         'plannedDeleteTime' => 'PlannedDeleteTime',
-        'requestId'         => 'RequestId',
-        'secretName'        => 'SecretName',
+        'requestId' => 'RequestId',
+        'secretName' => 'SecretName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

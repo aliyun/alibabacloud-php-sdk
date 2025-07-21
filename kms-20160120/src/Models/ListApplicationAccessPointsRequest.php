@@ -27,12 +27,10 @@ class ListApplicationAccessPointsRequest extends Model
     public $pageSize;
     protected $_name = [
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
+        'pageSize' => 'PageSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

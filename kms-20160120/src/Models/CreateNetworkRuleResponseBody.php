@@ -62,17 +62,15 @@ class CreateNetworkRuleResponseBody extends Model
      */
     public $type;
     protected $_name = [
-        'arn'             => 'Arn',
-        'description'     => 'Description',
-        'name'            => 'Name',
-        'requestId'       => 'RequestId',
+        'arn' => 'Arn',
+        'description' => 'Description',
+        'name' => 'Name',
+        'requestId' => 'RequestId',
         'sourcePrivateIp' => 'SourcePrivateIp',
-        'type'            => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class CreateClientKeyRequest extends Model
      * @description The operation that you want to perform. Set the value to **CreateClientKey**.
      *
      * This parameter is required.
+     *
      * @example aap_test
      *
      * @var string
@@ -22,6 +23,7 @@ class CreateClientKeyRequest extends Model
      * @description The encryption password of the client key.
      *
      * The password must be 8 to 64 characters in length and must contain at least two of the following types: digits, letters, and special characters. Special characters include `~ ! @ # $ % ^ & * ? _ -`.
+     *
      * @example 2028-08-31T17:14:33Z
      *
      * @var string
@@ -30,6 +32,8 @@ class CreateClientKeyRequest extends Model
 
     /**
      * @description The end of the validity period of the client key.
+     *
+     * Specify the time in the ISO 8601 standard. The time must be in UTC. The time must be in the yyyy-MM-ddTHH:mm:ssZ format.
      *
      * >
      *
@@ -46,21 +50,20 @@ class CreateClientKeyRequest extends Model
      * @description The name of the AAP.
      *
      * This parameter is required.
+     *
      * @example bcfefe15-46f0****
      *
      * @var string
      */
     public $password;
     protected $_name = [
-        'aapName'   => 'AapName',
-        'notAfter'  => 'NotAfter',
+        'aapName' => 'AapName',
+        'notAfter' => 'NotAfter',
         'notBefore' => 'NotBefore',
-        'password'  => 'Password',
+        'password' => 'Password',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

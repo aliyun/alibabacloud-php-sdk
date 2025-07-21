@@ -45,14 +45,12 @@ class EncryptResponseBody extends Model
     public $requestId;
     protected $_name = [
         'ciphertextBlob' => 'CiphertextBlob',
-        'keyId'          => 'KeyId',
-        'keyVersionId'   => 'KeyVersionId',
-        'requestId'      => 'RequestId',
+        'keyId' => 'KeyId',
+        'keyVersionId' => 'KeyVersionId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

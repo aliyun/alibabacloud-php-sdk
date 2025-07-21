@@ -12,6 +12,7 @@ class GetPublicKeyResponseBody extends Model
      * @description The globally unique ID of the CMK.
      *
      * >  If you set the KeyId parameter to the alias of the CMK, the ID of the CMK to which the alias is bound is returned.
+     *
      * @example 5c438b18-05be-40ad-b6c2-3be6752c****
      *
      * @var string
@@ -45,15 +46,13 @@ class GetPublicKeyResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'keyId'        => 'KeyId',
+        'keyId' => 'KeyId',
         'keyVersionId' => 'KeyVersionId',
-        'publicKey'    => 'PublicKey',
-        'requestId'    => 'RequestId',
+        'publicKey' => 'PublicKey',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

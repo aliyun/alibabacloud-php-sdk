@@ -41,14 +41,12 @@ class UntagResourceRequest extends Model
     public $tagKeys;
     protected $_name = [
         'certificateId' => 'CertificateId',
-        'keyId'         => 'KeyId',
-        'secretName'    => 'SecretName',
-        'tagKeys'       => 'TagKeys',
+        'keyId' => 'KeyId',
+        'secretName' => 'SecretName',
+        'tagKeys' => 'TagKeys',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

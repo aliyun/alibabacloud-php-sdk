@@ -4,7 +4,6 @@
 
 namespace AlibabaCloud\SDK\Kms\V20160120\Models;
 
-use AlibabaCloud\SDK\Kms\V20160120\Models\GetSecretValueResponseBody\versionStages;
 use AlibabaCloud\Tea\Model;
 
 class GetSecretValueResponseBody extends Model
@@ -17,6 +16,7 @@ class GetSecretValueResponseBody extends Model
      *   Invalid: indicates that the status of automatic rotation is abnormal. In this case, Secrets Manager cannot automatically rotate the secret.
      *
      * >  This parameter is returned only for a managed ApsaraDB RDS secret, a managed RAM secret, or a managed ECS secret.
+     *
      * @example Enabled
      *
      * @var string
@@ -36,6 +36,7 @@ class GetSecretValueResponseBody extends Model
      * @description The extended configuration of the secret.
      *
      * >  This parameter is returned if you set the FetchExtendedConfig parameter to true. This parameter is returned only for a managed ApsaraDB RDS secret, a managed RAM secret, or a managed ECS secret.
+     *
      * @example {\\"SecretSubType\\":\\"SingleUser\\", \\"DBInstanceId\\":\\"rm-uf667446pc955****\\",  \\"CustomData\\":{} }
      *
      * @var string
@@ -46,6 +47,7 @@ class GetSecretValueResponseBody extends Model
      * @description The time when the last rotation was performed.
      *
      * >  This parameter is returned if the secret was rotated.
+     *
      * @example 2020-07-05T08:22:03Z
      *
      * @var string
@@ -56,6 +58,7 @@ class GetSecretValueResponseBody extends Model
      * @description The time when the next rotation will be performed.
      *
      * >  This parameter is returned if automatic rotation is enabled.
+     *
      * @example 2020-07-06T18:22:03Z
      *
      * @var string
@@ -74,7 +77,10 @@ class GetSecretValueResponseBody extends Model
     /**
      * @description The interval for automatic rotation.
      *
+     * The value is in the `integer[unit]` format. The `unit` field has a fixed value of s. For example, if the value is 604800s, automatic rotation is performed at a 7-day interval.
+     *
      * >  This parameter is returned if automatic rotation is enabled.
+     *
      * @example 604800s
      *
      * @var string
@@ -148,28 +154,26 @@ class GetSecretValueResponseBody extends Model
     /**
      * @description The stage labels that mark the secret versions.
      *
-     * @var versionStages
+     * @var string[]
      */
     public $versionStages;
     protected $_name = [
         'automaticRotation' => 'AutomaticRotation',
-        'createTime'        => 'CreateTime',
-        'extendedConfig'    => 'ExtendedConfig',
-        'lastRotationDate'  => 'LastRotationDate',
-        'nextRotationDate'  => 'NextRotationDate',
-        'requestId'         => 'RequestId',
-        'rotationInterval'  => 'RotationInterval',
-        'secretData'        => 'SecretData',
-        'secretDataType'    => 'SecretDataType',
-        'secretName'        => 'SecretName',
-        'secretType'        => 'SecretType',
-        'versionId'         => 'VersionId',
-        'versionStages'     => 'VersionStages',
+        'createTime' => 'CreateTime',
+        'extendedConfig' => 'ExtendedConfig',
+        'lastRotationDate' => 'LastRotationDate',
+        'nextRotationDate' => 'NextRotationDate',
+        'requestId' => 'RequestId',
+        'rotationInterval' => 'RotationInterval',
+        'secretData' => 'SecretData',
+        'secretDataType' => 'SecretDataType',
+        'secretName' => 'SecretName',
+        'secretType' => 'SecretType',
+        'versionId' => 'VersionId',
+        'versionStages' => 'VersionStages',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -211,7 +215,7 @@ class GetSecretValueResponseBody extends Model
             $res['VersionId'] = $this->versionId;
         }
         if (null !== $this->versionStages) {
-            $res['VersionStages'] = null !== $this->versionStages ? $this->versionStages->toMap() : null;
+            $res['VersionStages'] = $this->versionStages;
         }
 
         return $res;
@@ -262,7 +266,9 @@ class GetSecretValueResponseBody extends Model
             $model->versionId = $map['VersionId'];
         }
         if (isset($map['VersionStages'])) {
-            $model->versionStages = versionStages::fromMap($map['VersionStages']);
+            if (!empty($map['VersionStages'])) {
+                $model->versionStages = $map['VersionStages'];
+            }
         }
 
         return $model;

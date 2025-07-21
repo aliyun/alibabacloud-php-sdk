@@ -21,6 +21,7 @@ class CertificatePrivateKeyDecryptResponseBody extends Model
      * @description The plaintext after data is decrypted.
      *
      * The value is encoded in Base64.
+     *
      * @example VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wcyBvdmVyIHRoZSBsYXp5IGRvZy4
      *
      * @var string
@@ -37,13 +38,11 @@ class CertificatePrivateKeyDecryptResponseBody extends Model
     public $requestId;
     protected $_name = [
         'certificateId' => 'CertificateId',
-        'plaintext'     => 'Plaintext',
-        'requestId'     => 'RequestId',
+        'plaintext' => 'Plaintext',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

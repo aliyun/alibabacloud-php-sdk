@@ -17,9 +17,7 @@ class applicationAccessPoints extends Model
         'applicationAccessPoint' => 'ApplicationAccessPoint',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class applicationAccessPoints extends Model
         if (isset($map['ApplicationAccessPoint'])) {
             if (!empty($map['ApplicationAccessPoint'])) {
                 $model->applicationAccessPoint = [];
-                $n                             = 0;
+                $n = 0;
                 foreach ($map['ApplicationAccessPoint'] as $item) {
                     $model->applicationAccessPoint[$n++] = null !== $item ? applicationAccessPoint::fromMap($item) : $item;
                 }

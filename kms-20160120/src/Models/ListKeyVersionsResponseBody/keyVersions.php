@@ -17,9 +17,7 @@ class keyVersions extends Model
         'keyVersion' => 'KeyVersion',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class keyVersions extends Model
         if (isset($map['KeyVersion'])) {
             if (!empty($map['KeyVersion'])) {
                 $model->keyVersion = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['KeyVersion'] as $item) {
                     $model->keyVersion[$n++] = null !== $item ? keyVersion::fromMap($item) : $item;
                 }

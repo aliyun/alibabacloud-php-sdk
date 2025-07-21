@@ -53,15 +53,13 @@ class ListPoliciesResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'policies'   => 'Policies',
-        'requestId'  => 'RequestId',
+        'pageSize' => 'PageSize',
+        'policies' => 'Policies',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -17,9 +17,7 @@ class keys extends Model
         'key' => 'Key',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class keys extends Model
         if (isset($map['Key'])) {
             if (!empty($map['Key'])) {
                 $model->key = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['Key'] as $item) {
                     $model->key[$n++] = null !== $item ? key::fromMap($item) : $item;
                 }

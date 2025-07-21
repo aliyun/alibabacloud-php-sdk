@@ -26,6 +26,7 @@ class GenerateAndExportDataKeyShrinkRequest extends Model
      * @description The globally unique ID of the CMK. You can also set this parameter to an alias that is bound to the CMK. For more information, see [Use aliases](https://help.aliyun.com/document_detail/68522.html).
      *
      * This parameter is required.
+     *
      * @example 1234abcd-12ab-34cd-56ef-12345678****
      *
      * @var string
@@ -39,6 +40,7 @@ class GenerateAndExportDataKeyShrinkRequest extends Model
      *   AES_128: a 128-bit symmetric key
      *
      * >  We recommend that you use the KeySpec or NumberOfBytes parameter to specify the length of a data key. If both parameters are not specified, KMS generates a 256-bit data key. If both parameters are specified, KMS ignores the KeySpec parameter.
+     *
      * @example AES_256
      *
      * @var string
@@ -48,7 +50,10 @@ class GenerateAndExportDataKeyShrinkRequest extends Model
     /**
      * @description The length of the data key that you want to generate.
      *
+     * Valid values: 1 to 1024.
+     *
      * Unit: bytes.
+     *
      * @example 32
      *
      * @var int
@@ -59,6 +64,7 @@ class GenerateAndExportDataKeyShrinkRequest extends Model
      * @description A Base64-encoded public key.
      *
      * This parameter is required.
+     *
      * @example MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAndKfC2ReLL2+y8a0+ZBBeAft/uBYo86GZiYJuflqgUzKxpyuvlo3uQkBv6b+nx+0tz8g8v7GhpPWMSW5L9mNHYsvYFsa7jTxsYdt17yj6GlUHPuMIs8hr5qbwl38IHU1iIa7nYWwE2fb3ePOvLDACRJVgGpU0yxioW80d2QD+9aU4jF5dlAahcfgsNzo2CXzCUc1+xbmNuq7Rp+H9VJB9dyYOwqnW3RhOLBo21FzpORapf0UiRlrHRpk1V6ez+aE1dofaYh/9bh0m6ioxj7j5hpZbWccuEZTMBKd+cbuBkRhJzc6Tti6qwZbDiu4fUwbZS0Tqpuo1UadiyxMW********
      *
      * @var string
@@ -75,6 +81,7 @@ class GenerateAndExportDataKeyShrinkRequest extends Model
      *   SM2PKE
      *
      * This parameter is required.
+     *
      * @example RSAES_OAEP_SHA_256
      *
      * @var string
@@ -90,25 +97,24 @@ class GenerateAndExportDataKeyShrinkRequest extends Model
      *   EC_SM2
      *
      * This parameter is required.
+     *
      * @example RSA_2048
      *
      * @var string
      */
     public $wrappingKeySpec;
     protected $_name = [
-        'dryRun'                  => 'DryRun',
+        'dryRun' => 'DryRun',
         'encryptionContextShrink' => 'EncryptionContext',
-        'keyId'                   => 'KeyId',
-        'keySpec'                 => 'KeySpec',
-        'numberOfBytes'           => 'NumberOfBytes',
-        'publicKeyBlob'           => 'PublicKeyBlob',
-        'wrappingAlgorithm'       => 'WrappingAlgorithm',
-        'wrappingKeySpec'         => 'WrappingKeySpec',
+        'keyId' => 'KeyId',
+        'keySpec' => 'KeySpec',
+        'numberOfBytes' => 'NumberOfBytes',
+        'publicKeyBlob' => 'PublicKeyBlob',
+        'wrappingAlgorithm' => 'WrappingAlgorithm',
+        'wrappingKeySpec' => 'WrappingKeySpec',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

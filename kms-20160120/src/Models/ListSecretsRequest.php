@@ -11,7 +11,10 @@ class ListSecretsRequest extends Model
     /**
      * @description The number of entries to return on each page.
      *
+     * Valid values: 1 to 100.
+     *
      * Default value: 10.
+     *
      * @example false
      *
      * @var string
@@ -59,6 +62,7 @@ class ListSecretsRequest extends Model
      *   If the Key field is set to TagValue, the value must be 1 to 256 characters in length and can contain letters, numbers, and special characters `/ _ - . + = @ :`.
      *
      * The logical relationship between values of the Values field in a key-value pair is OR. Example: `[ {"Key":"SecretName", "Values":["sec1","sec2"]}]`. In this example, the semantics are `SecretName=sec 1 OR SecretName=sec 2`.
+     *
      * @example 1
      *
      * @var int
@@ -74,15 +78,13 @@ class ListSecretsRequest extends Model
      */
     public $pageSize;
     protected $_name = [
-        'fetchTags'  => 'FetchTags',
-        'filters'    => 'Filters',
+        'fetchTags' => 'FetchTags',
+        'filters' => 'Filters',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
+        'pageSize' => 'PageSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

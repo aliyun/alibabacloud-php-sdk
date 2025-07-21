@@ -30,20 +30,19 @@ class CertificatePrivateKeySignResponseBody extends Model
      * @description The signature value.
      *
      * The value is encoded in Base64.
+     *
      * @example ZOyIygCyaOW6Gj****MlNKiuyjfzw=
      *
      * @var string
      */
     public $signatureValue;
     protected $_name = [
-        'certificateId'  => 'CertificateId',
-        'requestId'      => 'RequestId',
+        'certificateId' => 'CertificateId',
+        'requestId' => 'RequestId',
         'signatureValue' => 'SignatureValue',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

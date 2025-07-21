@@ -18,6 +18,7 @@ class DecryptShrinkRequest extends Model
      *   [GenerateDataKeyWithoutPlaintext](https://help.aliyun.com/document_detail/134043.html)
      *
      * This parameter is required.
+     *
      * @example DZhOWVmZDktM2QxNi00ODk0LWJkNGYtMWZjNDNmM2YyYWJmaaSl+TztSIMe43nbTH/Z1Wr4XfLftKhAciUmDQXuMRl4WTvKhxjMThjK****
      *
      * @var string
@@ -33,20 +34,19 @@ class DecryptShrinkRequest extends Model
      * @description The JSON string that consists of key-value pairs.
      *
      * >  If you specify the EncryptionContext parameter when you call the [GenerateDataKey](https://help.aliyun.com/document_detail/28948.html), [Encrypt](https://help.aliyun.com/document_detail/28949.html), or [GenerateDataKeyWithoutPlaintext](https://help.aliyun.com/document_detail/134043.html) operation, you must specify the same context when you call the Decrypt operation. For more information, see [EncryptionContext](https://help.aliyun.com/document_detail/42975.html).
+     *
      * @example {"Example":"Example"}
      *
      * @var string
      */
     public $encryptionContextShrink;
     protected $_name = [
-        'ciphertextBlob'          => 'CiphertextBlob',
-        'dryRun'                  => 'DryRun',
+        'ciphertextBlob' => 'CiphertextBlob',
+        'dryRun' => 'DryRun',
         'encryptionContextShrink' => 'EncryptionContext',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -81,18 +81,16 @@ class DescribePolicyResponseBody extends Model
     public $resources;
     protected $_name = [
         'accessControlRules' => 'AccessControlRules',
-        'arn'                => 'Arn',
-        'description'        => 'Description',
-        'kmsInstance'        => 'KmsInstance',
-        'name'               => 'Name',
-        'permissions'        => 'Permissions',
-        'requestId'          => 'RequestId',
-        'resources'          => 'Resources',
+        'arn' => 'Arn',
+        'description' => 'Description',
+        'kmsInstance' => 'KmsInstance',
+        'name' => 'Name',
+        'permissions' => 'Permissions',
+        'requestId' => 'RequestId',
+        'resources' => 'Resources',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

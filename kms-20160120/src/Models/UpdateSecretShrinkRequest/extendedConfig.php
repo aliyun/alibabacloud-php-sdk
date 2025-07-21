@@ -13,6 +13,7 @@ class extendedConfig extends Model
      *
      * > *   If this parameter is specified, the existing extended configuration of the secret is updated.
      * > *   This parameter is unavailable for generic secrets.
+     *
      * @example {"DBName":"app1","Port":"3306"}
      *
      * @var string
@@ -22,9 +23,7 @@ class extendedConfig extends Model
         'customData' => 'CustomData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

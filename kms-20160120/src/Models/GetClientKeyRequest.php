@@ -12,6 +12,7 @@ class GetClientKeyRequest extends Model
      * @description The ID of the client key.
      *
      * This parameter is required.
+     *
      * @example KAAP.66abf237-63f6-4625-b8cf-47e1086e****
      *
      * @var string
@@ -21,9 +22,7 @@ class GetClientKeyRequest extends Model
         'clientKeyId' => 'ClientKeyId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

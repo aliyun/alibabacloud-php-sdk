@@ -53,16 +53,14 @@ class DescribeNetworkRuleResponseBody extends Model
      */
     public $type;
     protected $_name = [
-        'arn'             => 'Arn',
-        'description'     => 'Description',
-        'requestId'       => 'RequestId',
+        'arn' => 'Arn',
+        'description' => 'Description',
+        'requestId' => 'RequestId',
         'sourcePrivateIp' => 'SourcePrivateIp',
-        'type'            => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

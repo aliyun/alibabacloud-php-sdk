@@ -17,9 +17,7 @@ class networkRules extends Model
         'networkRule' => 'NetworkRule',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class networkRules extends Model
         if (isset($map['NetworkRule'])) {
             if (!empty($map['NetworkRule'])) {
                 $model->networkRule = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['NetworkRule'] as $item) {
                     $model->networkRule[$n++] = null !== $item ? networkRule::fromMap($item) : $item;
                 }

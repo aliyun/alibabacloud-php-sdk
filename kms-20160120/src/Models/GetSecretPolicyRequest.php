@@ -28,9 +28,7 @@ class GetSecretPolicyRequest extends Model
         'secretName' => 'SecretName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

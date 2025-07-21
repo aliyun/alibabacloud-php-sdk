@@ -36,13 +36,11 @@ class keyVersion extends Model
     public $keyVersionId;
     protected $_name = [
         'creationDate' => 'CreationDate',
-        'keyId'        => 'KeyId',
+        'keyId' => 'KeyId',
         'keyVersionId' => 'KeyVersionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

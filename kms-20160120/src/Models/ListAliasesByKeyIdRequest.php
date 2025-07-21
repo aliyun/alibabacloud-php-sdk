@@ -12,6 +12,7 @@ class ListAliasesByKeyIdRequest extends Model
      * @description The globally unique ID of the CMK.
      *
      * This parameter is required.
+     *
      * @example 1234abcd-12ab-34cd-56ef-12345678****
      *
      * @var string
@@ -21,7 +22,10 @@ class ListAliasesByKeyIdRequest extends Model
     /**
      * @description The number of the page to return.
      *
+     * Valid values: an integer that is greater than 0.
+     *
      * Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -31,21 +35,22 @@ class ListAliasesByKeyIdRequest extends Model
     /**
      * @description The number of entries to return on each page.
      *
+     * Valid values: 0 to 101.
+     *
      * Default value: 10
+     *
      * @example 10
      *
      * @var int
      */
     public $pageSize;
     protected $_name = [
-        'keyId'      => 'KeyId',
+        'keyId' => 'KeyId',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
+        'pageSize' => 'PageSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

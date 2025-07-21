@@ -26,12 +26,10 @@ class CreateKeyResponseBody extends Model
     public $requestId;
     protected $_name = [
         'keyMetadata' => 'KeyMetadata',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

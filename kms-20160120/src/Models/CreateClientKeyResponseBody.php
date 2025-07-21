@@ -56,6 +56,8 @@ class CreateClientKeyResponseBody extends Model
     /**
      * @description The beginning of the validity period of the client key.
      *
+     * Specify the time in the ISO 8601 standard. The time must be in UTC. The time must be in the yyyy-MM-ddTHH:mm:ssZ format.
+     *
      * >
      *
      *   If you do not configure NotBefore, the default value is the time when the client key was created.
@@ -67,17 +69,15 @@ class CreateClientKeyResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'clientKeyId'    => 'ClientKeyId',
-        'keyAlgorithm'   => 'KeyAlgorithm',
-        'notAfter'       => 'NotAfter',
-        'notBefore'      => 'NotBefore',
+        'clientKeyId' => 'ClientKeyId',
+        'keyAlgorithm' => 'KeyAlgorithm',
+        'notAfter' => 'NotAfter',
+        'notBefore' => 'NotBefore',
         'privateKeyData' => 'PrivateKeyData',
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

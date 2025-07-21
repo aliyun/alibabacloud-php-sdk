@@ -21,6 +21,7 @@ class UpdateApplicationAccessPointRequest extends Model
      * @description The name of the AAP that you want to update.
      *
      * This parameter is required.
+     *
      * @example aap_test
      *
      * @var string
@@ -30,6 +31,7 @@ class UpdateApplicationAccessPointRequest extends Model
     /**
      * @description The permission policy that you want to update.
      * > You can associate up to three permission policies with each AAP.
+     *
      * @example ["kst-hzz62ee817bvyyr5x****.efkd","kst-hzz62ee817bvyyr5x****.eyyp"]
      *
      * @var string
@@ -37,13 +39,11 @@ class UpdateApplicationAccessPointRequest extends Model
     public $policies;
     protected $_name = [
         'description' => 'Description',
-        'name'        => 'Name',
-        'policies'    => 'Policies',
+        'name' => 'Name',
+        'policies' => 'Policies',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

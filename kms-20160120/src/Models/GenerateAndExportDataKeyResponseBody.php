@@ -30,6 +30,7 @@ class GenerateAndExportDataKeyResponseBody extends Model
      * @description The globally unique ID of the CMK.
      *
      * >  If you set the KeyId parameter to an alias, the ID of the CMK to which the alias is bound is returned.
+     *
      * @example 599fa825-17de-417e-9554-bb032cc6****
      *
      * @var string
@@ -54,16 +55,14 @@ class GenerateAndExportDataKeyResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'ciphertextBlob'  => 'CiphertextBlob',
+        'ciphertextBlob' => 'CiphertextBlob',
         'exportedDataKey' => 'ExportedDataKey',
-        'keyId'           => 'KeyId',
-        'keyVersionId'    => 'KeyVersionId',
-        'requestId'       => 'RequestId',
+        'keyId' => 'KeyId',
+        'keyVersionId' => 'KeyVersionId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

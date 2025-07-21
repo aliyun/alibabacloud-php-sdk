@@ -20,9 +20,7 @@ class ListClientKeysRequest extends Model
         'aapName' => 'AapName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

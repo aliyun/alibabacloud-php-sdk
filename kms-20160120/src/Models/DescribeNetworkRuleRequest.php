@@ -12,6 +12,7 @@ class DescribeNetworkRuleRequest extends Model
      * @description The name of the access control rule that you want to query.
      *
      * This parameter is required.
+     *
      * @example networkrule_test
      *
      * @var string
@@ -21,9 +22,7 @@ class DescribeNetworkRuleRequest extends Model
         'name' => 'Name',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -34,14 +34,12 @@ class versionId extends Model
      */
     public $versionStages;
     protected $_name = [
-        'createTime'    => 'CreateTime',
-        'versionId'     => 'VersionId',
+        'createTime' => 'CreateTime',
+        'versionId' => 'VersionId',
         'versionStages' => 'VersionStages',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

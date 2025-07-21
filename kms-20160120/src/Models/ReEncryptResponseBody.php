@@ -21,6 +21,7 @@ class ReEncryptResponseBody extends Model
      * @description The ID of the CMK that is used to decrypt the original ciphertext.
      *
      * This parameter is the globally unique ID of the CMK.
+     *
      * @example 2ab1a983-7072-4bbc-a582-584b5bd8****
      *
      * @var string
@@ -46,14 +47,12 @@ class ReEncryptResponseBody extends Model
     public $requestId;
     protected $_name = [
         'ciphertextBlob' => 'CiphertextBlob',
-        'keyId'          => 'KeyId',
-        'keyVersionId'   => 'KeyVersionId',
-        'requestId'      => 'RequestId',
+        'keyId' => 'KeyId',
+        'keyVersionId' => 'KeyVersionId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

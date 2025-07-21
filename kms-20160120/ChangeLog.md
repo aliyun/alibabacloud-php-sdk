@@ -1,3 +1,9 @@
+2025-07-21 Version: 1.3.0
+- Support API GetDefaultKmsInstance.
+- Update API CreateKey: add request parameters KeyStorageMechanism.
+- Update API GetKmsInstance: add response parameters Body.KmsInstance.ProductVersion.
+
+
 2024-08-30 Version: 1.2.3
 - Generated php 2016-01-20 for Kms.
 

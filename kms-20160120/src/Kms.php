@@ -104,6 +104,7 @@ use AlibabaCloud\SDK\Kms\V20160120\Models\GetCertificateRequest;
 use AlibabaCloud\SDK\Kms\V20160120\Models\GetCertificateResponse;
 use AlibabaCloud\SDK\Kms\V20160120\Models\GetClientKeyRequest;
 use AlibabaCloud\SDK\Kms\V20160120\Models\GetClientKeyResponse;
+use AlibabaCloud\SDK\Kms\V20160120\Models\GetDefaultKmsInstanceResponse;
 use AlibabaCloud\SDK\Kms\V20160120\Models\GetKeyPolicyRequest;
 use AlibabaCloud\SDK\Kms\V20160120\Models\GetKeyPolicyResponse;
 use AlibabaCloud\SDK\Kms\V20160120\Models\GetKmsInstanceRequest;
@@ -152,6 +153,8 @@ use AlibabaCloud\SDK\Kms\V20160120\Models\PutSecretValueResponse;
 use AlibabaCloud\SDK\Kms\V20160120\Models\ReEncryptRequest;
 use AlibabaCloud\SDK\Kms\V20160120\Models\ReEncryptResponse;
 use AlibabaCloud\SDK\Kms\V20160120\Models\ReEncryptShrinkRequest;
+use AlibabaCloud\SDK\Kms\V20160120\Models\ReleaseKmsInstanceRequest;
+use AlibabaCloud\SDK\Kms\V20160120\Models\ReleaseKmsInstanceResponse;
 use AlibabaCloud\SDK\Kms\V20160120\Models\RestoreSecretRequest;
 use AlibabaCloud\SDK\Kms\V20160120\Models\RestoreSecretResponse;
 use AlibabaCloud\SDK\Kms\V20160120\Models\RotateSecretRequest;
@@ -208,9 +211,9 @@ class Kms extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_productId    = 'Kms';
-        $gatewayClient       = new Client();
-        $this->_spi          = $gatewayClient;
+        $this->_productId = 'Kms';
+        $gatewayClient = new Client();
+        $this->_spi = $gatewayClient;
         $this->_endpointRule = 'regional';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('kms', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -280,21 +283,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AsymmetricDecrypt',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AsymmetricDecrypt',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return AsymmetricDecryptResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AsymmetricDecryptResponse::fromMap($this->execute($params, $req, $runtime));
+        return AsymmetricDecryptResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -362,21 +362,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AsymmetricEncrypt',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AsymmetricEncrypt',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return AsymmetricEncryptResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AsymmetricEncryptResponse::fromMap($this->execute($params, $req, $runtime));
+        return AsymmetricEncryptResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -436,21 +433,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AsymmetricSign',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AsymmetricSign',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return AsymmetricSignResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AsymmetricSignResponse::fromMap($this->execute($params, $req, $runtime));
+        return AsymmetricSignResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -515,21 +509,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AsymmetricVerify',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AsymmetricVerify',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return AsymmetricVerifyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AsymmetricVerifyResponse::fromMap($this->execute($params, $req, $runtime));
+        return AsymmetricVerifyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -577,21 +568,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CancelKeyDeletion',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CancelKeyDeletion',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CancelKeyDeletionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CancelKeyDeletionResponse::fromMap($this->execute($params, $req, $runtime));
+        return CancelKeyDeletionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -642,21 +630,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CertificatePrivateKeyDecrypt',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CertificatePrivateKeyDecrypt',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CertificatePrivateKeyDecryptResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CertificatePrivateKeyDecryptResponse::fromMap($this->execute($params, $req, $runtime));
+        return CertificatePrivateKeyDecryptResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -719,21 +704,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CertificatePrivateKeySign',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CertificatePrivateKeySign',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CertificatePrivateKeySignResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CertificatePrivateKeySignResponse::fromMap($this->execute($params, $req, $runtime));
+        return CertificatePrivateKeySignResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -793,21 +775,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CertificatePublicKeyEncrypt',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CertificatePublicKeyEncrypt',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CertificatePublicKeyEncryptResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CertificatePublicKeyEncryptResponse::fromMap($this->execute($params, $req, $runtime));
+        return CertificatePublicKeyEncryptResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -873,21 +852,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CertificatePublicKeyVerify',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CertificatePublicKeyVerify',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CertificatePublicKeyVerifyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CertificatePublicKeyVerifyResponse::fromMap($this->execute($params, $req, $runtime));
+        return CertificatePublicKeyVerifyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -947,21 +923,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ConnectKmsInstance',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ConnectKmsInstance',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ConnectKmsInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ConnectKmsInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return ConnectKmsInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1005,21 +978,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateAlias',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateAlias',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateAliasResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateAliasResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateAliasResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1072,21 +1042,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateApplicationAccessPoint',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateApplicationAccessPoint',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateApplicationAccessPointResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateApplicationAccessPointResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateApplicationAccessPointResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1143,21 +1110,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateCertificate',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateCertificate',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateCertificateResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1211,21 +1175,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateClientKey',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateClientKey',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateClientKeyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateClientKeyResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateClientKeyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1276,6 +1237,9 @@ class Kms extends OpenApiClient
         if (!Utils::isUnset($request->keySpec)) {
             $query['KeySpec'] = $request->keySpec;
         }
+        if (!Utils::isUnset($request->keyStorageMechanism)) {
+            $query['KeyStorageMechanism'] = $request->keyStorageMechanism;
+        }
         if (!Utils::isUnset($request->keyUsage)) {
             $query['KeyUsage'] = $request->keyUsage;
         }
@@ -1298,21 +1262,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateKey',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateKey',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateKeyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateKeyResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateKeyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1356,21 +1317,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateKeyVersion',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateKeyVersion',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateKeyVersionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateKeyVersionResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateKeyVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1427,21 +1385,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateNetworkRule',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateNetworkRule',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateNetworkRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateNetworkRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateNetworkRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1504,21 +1459,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreatePolicy',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreatePolicy',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreatePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreatePolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreatePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1607,21 +1559,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateSecret',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateSecret',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateSecretResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateSecretResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateSecretResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1674,21 +1623,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'Decrypt',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'Decrypt',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DecryptResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DecryptResponse::fromMap($this->execute($params, $req, $runtime));
+        return DecryptResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1722,21 +1668,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteAlias',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteAlias',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteAliasResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteAliasResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteAliasResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1772,21 +1715,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteApplicationAccessPoint',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteApplicationAccessPoint',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteApplicationAccessPointResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteApplicationAccessPointResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteApplicationAccessPointResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1825,21 +1765,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteCertificate',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteCertificate',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteCertificateResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1876,21 +1813,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteClientKey',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteClientKey',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteClientKeyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteClientKeyResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteClientKeyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1928,21 +1862,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteKeyMaterial',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteKeyMaterial',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteKeyMaterialResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteKeyMaterialResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteKeyMaterialResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1982,21 +1913,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteNetworkRule',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteNetworkRule',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteNetworkRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteNetworkRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteNetworkRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2036,21 +1964,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeletePolicy',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeletePolicy',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeletePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeletePolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeletePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2095,21 +2020,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteSecret',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteSecret',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteSecretResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteSecretResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteSecretResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2134,23 +2056,20 @@ class Kms extends OpenApiClient
      */
     public function describeAccountKmsStatusWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'DescribeAccountKmsStatus',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAccountKmsStatus',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeAccountKmsStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeAccountKmsStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeAccountKmsStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2182,21 +2101,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeApplicationAccessPoint',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeApplicationAccessPoint',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeApplicationAccessPointResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeApplicationAccessPointResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeApplicationAccessPointResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2232,21 +2148,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCertificate',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCertificate',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeCertificateResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2284,21 +2197,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeKey',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeKey',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeKeyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeKeyResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeKeyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2339,21 +2249,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeKeyVersion',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeKeyVersion',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeKeyVersionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeKeyVersionResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeKeyVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2389,21 +2296,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeNetworkRule',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeNetworkRule',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeNetworkRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeNetworkRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeNetworkRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2439,21 +2343,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribePolicy',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribePolicy',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribePolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2482,23 +2383,20 @@ class Kms extends OpenApiClient
      */
     public function describeRegionsWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'DescribeRegions',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRegions',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeRegionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2539,21 +2437,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSecret',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSecret',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeSecretResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSecretResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSecretResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2591,21 +2486,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DisableKey',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DisableKey',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DisableKeyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DisableKeyResponse::fromMap($this->execute($params, $req, $runtime));
+        return DisableKeyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2640,21 +2532,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'EnableKey',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EnableKey',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return EnableKeyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return EnableKeyResponse::fromMap($this->execute($params, $req, $runtime));
+        return EnableKeyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2704,21 +2593,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'Encrypt',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'Encrypt',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return EncryptResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return EncryptResponse::fromMap($this->execute($params, $req, $runtime));
+        return EncryptResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2777,21 +2663,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ExportDataKey',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ExportDataKey',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ExportDataKeyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ExportDataKeyResponse::fromMap($this->execute($params, $req, $runtime));
+        return ExportDataKeyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2858,21 +2741,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GenerateAndExportDataKey',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GenerateAndExportDataKey',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GenerateAndExportDataKeyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GenerateAndExportDataKeyResponse::fromMap($this->execute($params, $req, $runtime));
+        return GenerateAndExportDataKeyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2940,21 +2820,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GenerateDataKey',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GenerateDataKey',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GenerateDataKeyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GenerateDataKeyResponse::fromMap($this->execute($params, $req, $runtime));
+        return GenerateDataKeyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3023,21 +2900,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GenerateDataKeyWithoutPlaintext',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GenerateDataKeyWithoutPlaintext',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GenerateDataKeyWithoutPlaintextResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GenerateDataKeyWithoutPlaintextResponse::fromMap($this->execute($params, $req, $runtime));
+        return GenerateDataKeyWithoutPlaintextResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3078,21 +2952,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetCertificate',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetCertificate',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetCertificateResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3121,25 +2992,22 @@ class Kms extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetClientKey',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetClientKey',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetClientKeyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetClientKeyResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetClientKeyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3154,6 +3022,43 @@ class Kms extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getClientKeyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取默认KMS实例
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetDefaultKmsInstanceResponse GetDefaultKmsInstanceResponse
+     */
+    public function getDefaultKmsInstanceWithOptions($runtime)
+    {
+        $req = new OpenApiRequest([]);
+        $params = new Params([
+            'action' => 'GetDefaultKmsInstance',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetDefaultKmsInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取默认KMS实例
+     *  *
+     * @return GetDefaultKmsInstanceResponse GetDefaultKmsInstanceResponse
+     */
+    public function getDefaultKmsInstance()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDefaultKmsInstanceWithOptions($runtime);
     }
 
     /**
@@ -3178,21 +3083,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetKeyPolicy',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetKeyPolicy',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetKeyPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetKeyPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetKeyPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3228,21 +3130,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetKmsInstance',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetKmsInstance',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetKmsInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetKmsInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetKmsInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3298,21 +3197,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetParametersForImport',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetParametersForImport',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetParametersForImportResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetParametersForImportResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetParametersForImportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3366,21 +3262,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetPublicKey',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetPublicKey',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetPublicKeyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetPublicKeyResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetPublicKeyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3430,21 +3323,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetRandomPassword',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetRandomPassword',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetRandomPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetRandomPasswordResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetRandomPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3481,21 +3371,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetSecretPolicy',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetSecretPolicy',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetSecretPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetSecretPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetSecretPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3547,21 +3434,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetSecretValue',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetSecretValue',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetSecretValueResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetSecretValueResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetSecretValueResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3619,21 +3503,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ImportKeyMaterial',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ImportKeyMaterial',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ImportKeyMaterialResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ImportKeyMaterialResponse::fromMap($this->execute($params, $req, $runtime));
+        return ImportKeyMaterialResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3681,21 +3562,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListAliases',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListAliases',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListAliasesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListAliasesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListAliasesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3735,21 +3613,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListAliasesByKeyId',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListAliasesByKeyId',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListAliasesByKeyIdResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListAliasesByKeyIdResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListAliasesByKeyIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3786,21 +3661,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListApplicationAccessPoints',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListApplicationAccessPoints',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListApplicationAccessPointsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListApplicationAccessPointsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListApplicationAccessPointsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3827,25 +3699,22 @@ class Kms extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListClientKeys',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListClientKeys',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListClientKeysResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListClientKeysResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListClientKeysResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3885,21 +3754,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListKeyVersions',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListKeyVersions',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListKeyVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListKeyVersionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListKeyVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3941,21 +3807,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListKeys',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListKeys',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListKeysResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListKeysResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListKeysResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3994,21 +3857,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListKmsInstances',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListKmsInstances',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListKmsInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListKmsInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListKmsInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4047,21 +3907,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListNetworkRules',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListNetworkRules',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListNetworkRulesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListNetworkRulesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListNetworkRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4100,21 +3957,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListPolicies',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListPolicies',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListPoliciesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4150,21 +4004,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListResourceTags',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListResourceTags',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListResourceTagsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListResourceTagsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListResourceTagsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4209,21 +4060,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListSecretVersionIds',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListSecretVersionIds',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListSecretVersionIdsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListSecretVersionIdsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListSecretVersionIdsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4270,21 +4118,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListSecrets',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListSecrets',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListSecretsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListSecretsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListSecretsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4334,21 +4179,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTagResources',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTagResources',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4379,23 +4221,20 @@ class Kms extends OpenApiClient
      */
     public function openKmsServiceWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'OpenKmsService',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'OpenKmsService',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return OpenKmsServiceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return OpenKmsServiceResponse::fromMap($this->execute($params, $req, $runtime));
+        return OpenKmsServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4453,21 +4292,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PutSecretValue',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PutSecretValue',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return PutSecretValueResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return PutSecretValueResponse::fromMap($this->execute($params, $req, $runtime));
+        return PutSecretValueResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4546,21 +4382,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ReEncrypt',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ReEncrypt',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ReEncryptResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ReEncryptResponse::fromMap($this->execute($params, $req, $runtime));
+        return ReEncryptResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4585,6 +4418,56 @@ class Kms extends OpenApiClient
     }
 
     /**
+     * @summary 仅后付费实例支持释放，预付费实例需要从用户中心-退订管理释放。
+     *  *
+     * @param ReleaseKmsInstanceRequest $request ReleaseKmsInstanceRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ReleaseKmsInstanceResponse ReleaseKmsInstanceResponse
+     */
+    public function releaseKmsInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->forceDeleteWithoutBackup)) {
+            $query['ForceDeleteWithoutBackup'] = $request->forceDeleteWithoutBackup;
+        }
+        if (!Utils::isUnset($request->kmsInstanceId)) {
+            $query['KmsInstanceId'] = $request->kmsInstanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ReleaseKmsInstance',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ReleaseKmsInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 仅后付费实例支持释放，预付费实例需要从用户中心-退订管理释放。
+     *  *
+     * @param ReleaseKmsInstanceRequest $request ReleaseKmsInstanceRequest
+     *
+     * @return ReleaseKmsInstanceResponse ReleaseKmsInstanceResponse
+     */
+    public function releaseKmsInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->releaseKmsInstanceWithOptions($request, $runtime);
+    }
+
+    /**
      * @description You can only use this operation to restore a deleted secret that is within its recovery period. If you set **ForceDeleteWithoutRecovery** to **true** when you delete the secret, you cannot restore it.
      *  *
      * @param RestoreSecretRequest $request RestoreSecretRequest
@@ -4603,21 +4486,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RestoreSecret',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RestoreSecret',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return RestoreSecretResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RestoreSecretResponse::fromMap($this->execute($params, $req, $runtime));
+        return RestoreSecretResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4659,21 +4539,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RotateSecret',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RotateSecret',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return RotateSecretResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RotateSecretResponse::fromMap($this->execute($params, $req, $runtime));
+        return RotateSecretResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4717,21 +4594,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ScheduleKeyDeletion',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ScheduleKeyDeletion',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ScheduleKeyDeletionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ScheduleKeyDeletionResponse::fromMap($this->execute($params, $req, $runtime));
+        return ScheduleKeyDeletionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4772,6 +4646,9 @@ class Kms extends OpenApiClient
         if (!Utils::isUnset($request->enableDeletionProtection)) {
             $query['EnableDeletionProtection'] = $request->enableDeletionProtection;
         }
+        if (!Utils::isUnset($request->keyId)) {
+            $query['KeyId'] = $request->keyId;
+        }
         if (!Utils::isUnset($request->protectedResourceArn)) {
             $query['ProtectedResourceArn'] = $request->protectedResourceArn;
         }
@@ -4779,21 +4656,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SetDeletionProtection',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SetDeletionProtection',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SetDeletionProtectionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetDeletionProtectionResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetDeletionProtectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4839,21 +4713,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SetKeyPolicy',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SetKeyPolicy',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SetKeyPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetKeyPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetKeyPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4895,21 +4766,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SetSecretPolicy',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SetSecretPolicy',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SetSecretPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetSecretPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetSecretPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4955,21 +4823,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TagResource',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TagResource',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return TagResourceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return TagResourceResponse::fromMap($this->execute($params, $req, $runtime));
+        return TagResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5017,21 +4882,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TagResources',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TagResources',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return TagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5080,21 +4942,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UntagResource',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UntagResource',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UntagResourceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UntagResourceResponse::fromMap($this->execute($params, $req, $runtime));
+        return UntagResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5147,21 +5006,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UntagResources',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UntagResources',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UntagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5201,21 +5057,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateAlias',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateAlias',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateAliasResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateAliasResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateAliasResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5255,21 +5108,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateApplicationAccessPoint',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateApplicationAccessPoint',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateApplicationAccessPointResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateApplicationAccessPointResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateApplicationAccessPointResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5308,21 +5158,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateCertificateStatus',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateCertificateStatus',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateCertificateStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateCertificateStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateCertificateStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5363,21 +5210,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateKeyDescription',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateKeyDescription',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateKeyDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateKeyDescriptionResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateKeyDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5412,25 +5256,22 @@ class Kms extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateKmsInstanceBindVpc',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateKmsInstanceBindVpc',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateKmsInstanceBindVpcResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateKmsInstanceBindVpcResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateKmsInstanceBindVpcResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5479,21 +5320,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateNetworkRule',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateNetworkRule',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateNetworkRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateNetworkRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateNetworkRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5547,21 +5385,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdatePolicy',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdatePolicy',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdatePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdatePolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdatePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5612,21 +5447,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateRotationPolicy',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateRotationPolicy',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateRotationPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateRotationPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateRotationPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5676,21 +5508,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateSecret',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateSecret',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateSecretResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateSecretResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateSecretResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5738,21 +5567,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateSecretRotationPolicy',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateSecretRotationPolicy',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateSecretRotationPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateSecretRotationPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateSecretRotationPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5803,21 +5629,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateSecretVersionStage',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateSecretVersionStage',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateSecretVersionStageResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateSecretVersionStageResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateSecretVersionStageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5861,21 +5684,18 @@ class Kms extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UploadCertificate',
-            'version'     => '2016-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UploadCertificate',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UploadCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UploadCertificateResponse::fromMap($this->execute($params, $req, $runtime));
+        return UploadCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

@@ -12,6 +12,7 @@ class DeletePolicyRequest extends Model
      * @description The name of the permission policy that you want to delete.
      *
      * This parameter is required.
+     *
      * @example policy_test
      *
      * @var string
@@ -21,9 +22,7 @@ class DeletePolicyRequest extends Model
         'name' => 'Name',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

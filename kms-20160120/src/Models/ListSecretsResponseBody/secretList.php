@@ -17,9 +17,7 @@ class secretList extends Model
         'secret' => 'Secret',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class secretList extends Model
         if (isset($map['Secret'])) {
             if (!empty($map['Secret'])) {
                 $model->secret = [];
-                $n             = 0;
+                $n = 0;
                 foreach ($map['Secret'] as $item) {
                     $model->secret[$n++] = null !== $item ? secret::fromMap($item) : $item;
                 }

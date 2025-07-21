@@ -49,7 +49,10 @@ class ListKeysRequest extends Model
      *
      *   If Key is set to CreatorType, the value can be User or Service. User indicates that CMKs created by the current account are queried. Service indicates that CMKs automatically created by other cloud services authorized by the current account are queried.
      *
+     * The logical relationship between different keys is AND, and the logical relationship between multiple items in the same key is OR. Example:
+     *
      * `[ {"Key":"KeyState", "Values":["Enabled","Disabled"]}, {"Key":"KeyState", "Values":["PendingDeletion"]}, {"Key":"KeySpec", "Values":["Aliyun_AES_256"]}]`. In this example, the semantics are:`(KeyState=Enabled OR KeyState=Disabled OR KeyState=PendingDeletion) AND (KeySpec=Aliyun_AES_ 256)`.
+     *
      * @example [{"Key":"KeyState", "Values":["Enabled","Disabled"]}]
      *
      * @var string
@@ -59,7 +62,10 @@ class ListKeysRequest extends Model
     /**
      * @description The number of the page to return.
      *
+     * Pages start from page 1.
+     *
      * Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -69,21 +75,22 @@ class ListKeysRequest extends Model
     /**
      * @description The number of entries to return on each page.
      *
+     * Valid values: 1 to 100.
+     *
      * Default value: 10
+     *
      * @example 10
      *
      * @var int
      */
     public $pageSize;
     protected $_name = [
-        'filters'    => 'Filters',
+        'filters' => 'Filters',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
+        'pageSize' => 'PageSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

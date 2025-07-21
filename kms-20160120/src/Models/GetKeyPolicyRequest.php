@@ -24,13 +24,11 @@ class GetKeyPolicyRequest extends Model
      */
     public $policyName;
     protected $_name = [
-        'keyId'      => 'KeyId',
+        'keyId' => 'KeyId',
         'policyName' => 'PolicyName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

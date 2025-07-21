@@ -12,7 +12,10 @@ class TagResourcesRequest extends Model
     /**
      * @description The region ID of the resource.
      *
+     * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/601478.html) to query the most recent region list.
+     *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -22,7 +25,10 @@ class TagResourcesRequest extends Model
     /**
      * @description The IDs of the resources to which you want to add tags. You can enter a maximum of 50 resource IDs.
      *
+     * Enter multiple resource IDs in the `["ResourceId. 1","ResourceId. 2",...]` format.
+     *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $resourceId;
@@ -34,6 +40,7 @@ class TagResourcesRequest extends Model
      *   secret
      *
      * This parameter is required.
+     *
      * @example key
      *
      * @var string
@@ -43,20 +50,21 @@ class TagResourcesRequest extends Model
     /**
      * @description A list of tags. You can enter up to 20 tags.
      *
+     * A tag consists of a key-value pair. Enter multiple tags in the `[{"Key":"key1","Value":"value1"},{"Key":"key2","Value":"value2"},..]` format.
+     *
      * This parameter is required.
+     *
      * @var tag[]
      */
     public $tag;
     protected $_name = [
-        'regionId'     => 'RegionId',
-        'resourceId'   => 'ResourceId',
+        'regionId' => 'RegionId',
+        'resourceId' => 'ResourceId',
         'resourceType' => 'ResourceType',
-        'tag'          => 'Tag',
+        'tag' => 'Tag',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -105,7 +113,7 @@ class TagResourcesRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }

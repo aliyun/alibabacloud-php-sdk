@@ -24,6 +24,7 @@ class CreateSecretShrinkRequest extends Model
      *   false: specifies to disable automatic rotation. This is the default value.
      *
      * >  This parameter is valid if you set the SecretType parameter to Rds, RAMCredentials, or ECS.
+     *
      * @example mydbinfo
      *
      * @var string
@@ -38,6 +39,7 @@ class CreateSecretShrinkRequest extends Model
      *   Invalid: indicates that the status of automatic rotation is abnormal. In this case, Secrets Manager cannot automatically rotate the secret.
      *
      * >  This parameter is returned if you set the SecretType parameter to Rds, RAMCredentials, or ECS.
+     *
      * @example true
      *
      * @var bool
@@ -80,6 +82,7 @@ class CreateSecretShrinkRequest extends Model
      * @description The tags of the secret.
      *
      * This parameter is required.
+     *
      * @example The type of the secret. Valid values:
      *
      *   Generic: specifies a generic secret.
@@ -127,6 +130,7 @@ class CreateSecretShrinkRequest extends Model
      *   CustomData: optional. The custom data. The value is a collection of key-value pairs in the JSON format. Up to 10 key-value pairs can be specified. Separate multiple key-value pairs with commas (,). The default value is a pair of empty braces (`{}`).
      *
      * >  This parameter is required if you set the SecretType parameter to Rds, RAMCredentials, or ECS.
+     *
      * @example text
      *
      * @var string
@@ -148,6 +152,7 @@ class CreateSecretShrinkRequest extends Model
      *   `{"UserName":"","PublicKey": "", "PrivateKey": ""}`: In the format, `PublicKey` indicates the SSH public key that is used to log on to the ECS instance, and `PrivateKey` specifies the SSH private key that is used to log on to the ECS instance.
      *
      * This parameter is required.
+     *
      * @example mydbconninfo
      *
      * @var string
@@ -166,7 +171,12 @@ class CreateSecretShrinkRequest extends Model
     /**
      * @description The interval for automatic rotation. Valid values: 6 hours to 8,760 hours (365 days).
      *
+     * The value is in the `integer[unit]` format.
+     *
+     * The unit can be d (day), h (hour), m (minute), or s (second). For example, both 7d and 604800s indicate a seven-day interval.
+     *
      * >  This parameter is required if you set the EnableAutomaticRotation parameter to true. This parameter is ignored if you set the EnableAutomaticRotation parameter to false or if the EnableAutomaticRotation parameter is not configured.
+     *
      * @example [{\\"TagKey\\":\\"key1\\",\\"TagValue\\":\\"val1\\"},{\\"TagKey\\":\\"key2\\",\\"TagValue\\":\\"val2\\"}]
      *
      * @var string
@@ -179,31 +189,32 @@ class CreateSecretShrinkRequest extends Model
      *   text
      *   binary
      *
+     * >  If you set the SecretType parameter to Rds, RAMCredentials, or ECS, the SecretDataType parameter must be set to text.
+     *
      * This parameter is required.
+     *
      * @example v1
      *
      * @var string
      */
     public $versionId;
     protected $_name = [
-        'DKMSInstanceId'          => 'DKMSInstanceId',
-        'description'             => 'Description',
+        'DKMSInstanceId' => 'DKMSInstanceId',
+        'description' => 'Description',
         'enableAutomaticRotation' => 'EnableAutomaticRotation',
-        'encryptionKeyId'         => 'EncryptionKeyId',
-        'extendedConfigShrink'    => 'ExtendedConfig',
-        'policy'                  => 'Policy',
-        'rotationInterval'        => 'RotationInterval',
-        'secretData'              => 'SecretData',
-        'secretDataType'          => 'SecretDataType',
-        'secretName'              => 'SecretName',
-        'secretType'              => 'SecretType',
-        'tags'                    => 'Tags',
-        'versionId'               => 'VersionId',
+        'encryptionKeyId' => 'EncryptionKeyId',
+        'extendedConfigShrink' => 'ExtendedConfig',
+        'policy' => 'Policy',
+        'rotationInterval' => 'RotationInterval',
+        'secretData' => 'SecretData',
+        'secretDataType' => 'SecretDataType',
+        'secretName' => 'SecretName',
+        'secretType' => 'SecretType',
+        'tags' => 'Tags',
+        'versionId' => 'VersionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

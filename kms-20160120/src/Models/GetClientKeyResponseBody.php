@@ -48,6 +48,7 @@ class GetClientKeyResponseBody extends Model
      * @description The provider of the client key.
      *
      * Currently, only Key Management Service (KMS) is supported. The value is fixed as KMS_PROVIDED.
+     *
      * @example KMS_PROVIDED
      *
      * @var string
@@ -90,20 +91,18 @@ class GetClientKeyResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'aapName'       => 'AapName',
-        'clientKeyId'   => 'ClientKeyId',
-        'createTime'    => 'CreateTime',
-        'keyAlgorithm'  => 'KeyAlgorithm',
-        'keyOrigin'     => 'KeyOrigin',
-        'notAfter'      => 'NotAfter',
-        'notBefore'     => 'NotBefore',
+        'aapName' => 'AapName',
+        'clientKeyId' => 'ClientKeyId',
+        'createTime' => 'CreateTime',
+        'keyAlgorithm' => 'KeyAlgorithm',
+        'keyOrigin' => 'KeyOrigin',
+        'notAfter' => 'NotAfter',
+        'notBefore' => 'NotBefore',
         'publicKeyData' => 'PublicKeyData',
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

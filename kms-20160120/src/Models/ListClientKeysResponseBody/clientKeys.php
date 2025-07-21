@@ -48,6 +48,7 @@ class clientKeys extends Model
      * @description The provider of the client key.
      *
      * Currently, only KMS is supported. The value is fixed as KMS_PROVIDED.
+     *
      * @example KMS_PROVIDED
      *
      * @var string
@@ -81,19 +82,17 @@ class clientKeys extends Model
      */
     public $publicKeyData;
     protected $_name = [
-        'aapName'       => 'AapName',
-        'clientKeyId'   => 'ClientKeyId',
-        'createTime'    => 'CreateTime',
-        'keyAlgorithm'  => 'KeyAlgorithm',
-        'keyOrigin'     => 'KeyOrigin',
-        'notAfter'      => 'NotAfter',
-        'notBefore'     => 'NotBefore',
+        'aapName' => 'AapName',
+        'clientKeyId' => 'ClientKeyId',
+        'createTime' => 'CreateTime',
+        'keyAlgorithm' => 'KeyAlgorithm',
+        'keyOrigin' => 'KeyOrigin',
+        'notAfter' => 'NotAfter',
+        'notBefore' => 'NotBefore',
         'publicKeyData' => 'PublicKeyData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

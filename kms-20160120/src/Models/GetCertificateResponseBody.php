@@ -53,16 +53,14 @@ class GetCertificateResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'certificate'      => 'Certificate',
+        'certificate' => 'Certificate',
         'certificateChain' => 'CertificateChain',
-        'certificateId'    => 'CertificateId',
-        'csr'              => 'Csr',
-        'requestId'        => 'RequestId',
+        'certificateId' => 'CertificateId',
+        'csr' => 'Csr',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

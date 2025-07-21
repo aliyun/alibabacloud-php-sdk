@@ -141,6 +141,7 @@ class DescribeCertificateResponseBody extends Model
      * @description The alias of the certificate subject.
      *
      * A domain name list is supported. A maximum of 10 domain names are supported.
+     *
      * @var string[]
      */
     public $subjectAlternativeNames;
@@ -181,29 +182,27 @@ class DescribeCertificateResponseBody extends Model
      */
     public $updatedAt;
     protected $_name = [
-        'arn'                     => 'Arn',
-        'certificateId'           => 'CertificateId',
-        'createdAt'               => 'CreatedAt',
-        'exportablePrivateKey'    => 'ExportablePrivateKey',
-        'issuer'                  => 'Issuer',
-        'keySpec'                 => 'KeySpec',
-        'notAfter'                => 'NotAfter',
-        'notBefore'               => 'NotBefore',
-        'requestId'               => 'RequestId',
-        'serial'                  => 'Serial',
-        'signatureAlgorithm'      => 'SignatureAlgorithm',
-        'status'                  => 'Status',
-        'subject'                 => 'Subject',
+        'arn' => 'Arn',
+        'certificateId' => 'CertificateId',
+        'createdAt' => 'CreatedAt',
+        'exportablePrivateKey' => 'ExportablePrivateKey',
+        'issuer' => 'Issuer',
+        'keySpec' => 'KeySpec',
+        'notAfter' => 'NotAfter',
+        'notBefore' => 'NotBefore',
+        'requestId' => 'RequestId',
+        'serial' => 'Serial',
+        'signatureAlgorithm' => 'SignatureAlgorithm',
+        'status' => 'Status',
+        'subject' => 'Subject',
         'subjectAlternativeNames' => 'SubjectAlternativeNames',
-        'subjectKeyIdentifier'    => 'SubjectKeyIdentifier',
-        'subjectPublicKey'        => 'SubjectPublicKey',
-        'tags'                    => 'Tags',
-        'updatedAt'               => 'UpdatedAt',
+        'subjectKeyIdentifier' => 'SubjectKeyIdentifier',
+        'subjectPublicKey' => 'SubjectPublicKey',
+        'tags' => 'Tags',
+        'updatedAt' => 'UpdatedAt',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -24,19 +24,18 @@ class DescribeSecretRequest extends Model
      * @description The name of the secret.
      *
      * This parameter is required.
+     *
      * @example secret001
      *
      * @var string
      */
     public $secretName;
     protected $_name = [
-        'fetchTags'  => 'FetchTags',
+        'fetchTags' => 'FetchTags',
         'secretName' => 'SecretName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

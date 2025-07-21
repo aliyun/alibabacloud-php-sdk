@@ -24,7 +24,10 @@ class keyMetadata extends Model
      *   Disabled
      *   Suspended
      *
+     * For more information, see [Automatic key rotation](https://help.aliyun.com/document_detail/134270.html).
+     *
      * >  Only symmetric CMKs support automatic key rotation.
+     *
      * @example Disabled
      *
      * @var string
@@ -61,7 +64,10 @@ class keyMetadata extends Model
     /**
      * @description The time at which the CMK is scheduled for deletion. The time is displayed in UTC.
      *
+     * For more information, see [ScheduleKeyDeletion](https://help.aliyun.com/document_detail/44196.html).
+     *
      * >  This parameter is returned only when the value of the KeyState parameter is PendingDeletion.
+     *
      * @example 2021-05-26T18:22:03Z
      *
      * @var string
@@ -120,6 +126,7 @@ class keyMetadata extends Model
      * @description The status of the CMK.
      *
      * For more information, see [Impact of CMK status on API operations](https://help.aliyun.com/document_detail/44211.html).
+     *
      * @example Enabled
      *
      * @var string
@@ -157,6 +164,7 @@ class keyMetadata extends Model
      * @description The time when the next rotation will be performed.
      *
      * >  This parameter is returned only when the value of the AutomaticRotation parameter is Enabled or Suspended.
+     *
      * @example 2021-07-06T18:22:03Z
      *
      * @var string
@@ -193,38 +201,41 @@ class keyMetadata extends Model
     /**
      * @description The interval for automatic key rotation.
      *
+     * Unit: seconds.
+     *
+     * For example, if the value is 604800s, automatic key rotation is performed at a 7-day interval.
+     *
      * >  This parameter is returned only when the value of the AutomaticRotation parameter is Enabled or Suspended.
+     *
      * @example 31536000s
      *
      * @var string
      */
     public $rotationInterval;
     protected $_name = [
-        'arn'                           => 'Arn',
-        'automaticRotation'             => 'AutomaticRotation',
-        'creationDate'                  => 'CreationDate',
-        'creator'                       => 'Creator',
-        'DKMSInstanceId'                => 'DKMSInstanceId',
-        'deleteDate'                    => 'DeleteDate',
-        'deletionProtection'            => 'DeletionProtection',
+        'arn' => 'Arn',
+        'automaticRotation' => 'AutomaticRotation',
+        'creationDate' => 'CreationDate',
+        'creator' => 'Creator',
+        'DKMSInstanceId' => 'DKMSInstanceId',
+        'deleteDate' => 'DeleteDate',
+        'deletionProtection' => 'DeletionProtection',
         'deletionProtectionDescription' => 'DeletionProtectionDescription',
-        'description'                   => 'Description',
-        'keyId'                         => 'KeyId',
-        'keySpec'                       => 'KeySpec',
-        'keyState'                      => 'KeyState',
-        'keyUsage'                      => 'KeyUsage',
-        'lastRotationDate'              => 'LastRotationDate',
-        'materialExpireTime'            => 'MaterialExpireTime',
-        'nextRotationDate'              => 'NextRotationDate',
-        'origin'                        => 'Origin',
-        'primaryKeyVersion'             => 'PrimaryKeyVersion',
-        'protectionLevel'               => 'ProtectionLevel',
-        'rotationInterval'              => 'RotationInterval',
+        'description' => 'Description',
+        'keyId' => 'KeyId',
+        'keySpec' => 'KeySpec',
+        'keyState' => 'KeyState',
+        'keyUsage' => 'KeyUsage',
+        'lastRotationDate' => 'LastRotationDate',
+        'materialExpireTime' => 'MaterialExpireTime',
+        'nextRotationDate' => 'NextRotationDate',
+        'origin' => 'Origin',
+        'primaryKeyVersion' => 'PrimaryKeyVersion',
+        'protectionLevel' => 'ProtectionLevel',
+        'rotationInterval' => 'RotationInterval',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

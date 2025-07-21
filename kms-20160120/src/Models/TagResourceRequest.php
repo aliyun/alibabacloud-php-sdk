@@ -12,6 +12,7 @@ class TagResourceRequest extends Model
      * @description The ID of the certificate.
      *
      * >  You can configure only one of the KeyId, SecretName, and CertificateId parameters.
+     *
      * @example 770dbe42-e146-43d1-a55a-1355db86****
      *
      * @var string
@@ -22,6 +23,7 @@ class TagResourceRequest extends Model
      * @description The ID of the customer master key (CMK). The ID must be globally unique.
      *
      * >  You can configure only one of the KeyId, SecretName, and CertificateId parameters.
+     *
      * @example 08c33a6f-4e0a-4a1b-a3fa-7ddf****
      *
      * @var string
@@ -32,6 +34,7 @@ class TagResourceRequest extends Model
      * @description The name of the secret.
      *
      * >  You can configure only one of the KeyId, SecretName, and CertificateId parameters.
+     *
      * @example MyDbC****
      *
      * @var string
@@ -47,6 +50,7 @@ class TagResourceRequest extends Model
      *   TagValue: the tag value.
      *
      * This parameter is required.
+     *
      * @example [{"TagKey":"S1key1","TagValue":"S1val1"},{"TagKey":"S1key2","TagValue":"S2val2"}]
      *
      * @var string
@@ -54,14 +58,12 @@ class TagResourceRequest extends Model
     public $tags;
     protected $_name = [
         'certificateId' => 'CertificateId',
-        'keyId'         => 'KeyId',
-        'secretName'    => 'SecretName',
-        'tags'          => 'Tags',
+        'keyId' => 'KeyId',
+        'secretName' => 'SecretName',
+        'tags' => 'Tags',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

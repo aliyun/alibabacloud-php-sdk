@@ -35,14 +35,12 @@ class tag extends Model
      */
     public $tagValue;
     protected $_name = [
-        'keyId'    => 'KeyId',
-        'tagKey'   => 'TagKey',
+        'keyId' => 'KeyId',
+        'tagKey' => 'TagKey',
         'tagValue' => 'TagValue',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

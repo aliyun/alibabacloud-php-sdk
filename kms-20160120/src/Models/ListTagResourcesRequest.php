@@ -13,6 +13,7 @@ class ListTagResourcesRequest extends Model
      * @description The pagination token that is used in the next request to retrieve a new page of results.
      *
      * >  If the call does not return all result entries, the value of the NextToken parameter is returned. By default, 200 rows are returned. You can call this operation again and set the value of the parameter to the value of the parameter that is returned in the last call to implement paged query.
+     *
      * @example caeba0bbb2be03f84eb48b699f0a4883
      *
      * @var string
@@ -22,7 +23,10 @@ class ListTagResourcesRequest extends Model
     /**
      * @description The region ID of the resource.
      *
+     * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/601478.html) to query the most recent region list.
+     *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -33,6 +37,7 @@ class ListTagResourcesRequest extends Model
      * @description A list of resource IDs for which you want to query tags. You can enter a maximum of 50 resource IDs.
      *
      * Enter multiple resource IDs in the `["ResourceId. 1","ResourceId. 2",...]` format.
+     *
      * @var string[]
      */
     public $resourceId;
@@ -44,6 +49,7 @@ class ListTagResourcesRequest extends Model
      *   secret
      *
      * This parameter is required.
+     *
      * @example key
      *
      * @var string
@@ -57,16 +63,14 @@ class ListTagResourcesRequest extends Model
      */
     public $tag;
     protected $_name = [
-        'nextToken'    => 'NextToken',
-        'regionId'     => 'RegionId',
-        'resourceId'   => 'ResourceId',
+        'nextToken' => 'NextToken',
+        'regionId' => 'RegionId',
+        'resourceId' => 'ResourceId',
         'resourceType' => 'ResourceType',
-        'tag'          => 'Tag',
+        'tag' => 'Tag',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -121,7 +125,7 @@ class ListTagResourcesRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }

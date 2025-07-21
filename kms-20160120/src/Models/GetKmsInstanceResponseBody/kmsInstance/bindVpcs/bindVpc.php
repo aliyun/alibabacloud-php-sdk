@@ -44,15 +44,13 @@ class bindVpc extends Model
      */
     public $vpcOwnerId;
     protected $_name = [
-        'regionId'   => 'RegionId',
-        'vSwitchId'  => 'VSwitchId',
-        'vpcId'      => 'VpcId',
+        'regionId' => 'RegionId',
+        'vSwitchId' => 'VSwitchId',
+        'vpcId' => 'VpcId',
         'vpcOwnerId' => 'VpcOwnerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

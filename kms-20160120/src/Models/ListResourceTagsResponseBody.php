@@ -26,12 +26,10 @@ class ListResourceTagsResponseBody extends Model
     public $tags;
     protected $_name = [
         'requestId' => 'RequestId',
-        'tags'      => 'Tags',
+        'tags' => 'Tags',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

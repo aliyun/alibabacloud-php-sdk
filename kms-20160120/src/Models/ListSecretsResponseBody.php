@@ -53,15 +53,13 @@ class ListSecretsResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'secretList' => 'SecretList',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

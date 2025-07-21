@@ -26,12 +26,10 @@ class ListClientKeysResponseBody extends Model
     public $requestId;
     protected $_name = [
         'clientKeys' => 'ClientKeys',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class ListClientKeysResponseBody extends Model
         if (isset($map['ClientKeys'])) {
             if (!empty($map['ClientKeys'])) {
                 $model->clientKeys = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['ClientKeys'] as $item) {
                     $model->clientKeys[$n++] = null !== $item ? clientKeys::fromMap($item) : $item;
                 }

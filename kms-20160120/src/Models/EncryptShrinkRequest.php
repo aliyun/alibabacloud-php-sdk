@@ -26,6 +26,7 @@ class EncryptShrinkRequest extends Model
      * @description The globally unique ID of the CMK. You can also set this parameter to an alias that is bound to the CMK. For more information, see [Use aliases](https://help.aliyun.com/document_detail/68522.html).
      *
      * This parameter is required.
+     *
      * @example 1234abcd-12ab-34cd-56ef-12345678****
      *
      * @var string
@@ -36,21 +37,20 @@ class EncryptShrinkRequest extends Model
      * @description The plaintext to be encrypted. The plaintext must be Base64 encoded.
      *
      * This parameter is required.
+     *
      * @example SGVsbG8gd29y****
      *
      * @var string
      */
     public $plaintext;
     protected $_name = [
-        'dryRun'                  => 'DryRun',
+        'dryRun' => 'DryRun',
         'encryptionContextShrink' => 'EncryptionContext',
-        'keyId'                   => 'KeyId',
-        'plaintext'               => 'Plaintext',
+        'keyId' => 'KeyId',
+        'plaintext' => 'Plaintext',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

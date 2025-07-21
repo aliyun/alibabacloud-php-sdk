@@ -44,15 +44,13 @@ class RotateSecretResponseBody extends Model
      */
     public $versionId;
     protected $_name = [
-        'arn'        => 'Arn',
-        'requestId'  => 'RequestId',
+        'arn' => 'Arn',
+        'requestId' => 'RequestId',
         'secretName' => 'SecretName',
-        'versionId'  => 'VersionId',
+        'versionId' => 'VersionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -21,6 +21,7 @@ class AsymmetricEncryptResponseBody extends Model
      * @description The ID of the CMK. The ID must be globally unique.
      *
      * >  If you set the KeyId parameter in the request to an alias, the ID of the CMK to which the alias is bound is returned.
+     *
      * @example 5c438b18-05be-40ad-b6c2-3be6752c****
      *
      * @var string
@@ -46,14 +47,12 @@ class AsymmetricEncryptResponseBody extends Model
     public $requestId;
     protected $_name = [
         'ciphertextBlob' => 'CiphertextBlob',
-        'keyId'          => 'KeyId',
-        'keyVersionId'   => 'KeyVersionId',
-        'requestId'      => 'RequestId',
+        'keyId' => 'KeyId',
+        'keyVersionId' => 'KeyVersionId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

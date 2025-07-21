@@ -11,7 +11,10 @@ class CreateAliasRequest extends Model
     /**
      * @description The alias of the CMK.
      *
+     * The alias must be 1 to 255 characters in length and must contain the prefix `alias/`. The alias cannot be prefixed with the reserved word `alias/acs`.
+     *
      * This parameter is required.
+     *
      * @example alias/example
      *
      * @var string
@@ -22,6 +25,7 @@ class CreateAliasRequest extends Model
      * @description The ID of the CMK. The ID must be globally unique.
      *
      * This parameter is required.
+     *
      * @example 7906979c-8e06-46a2-be2d-68e3ccbc****
      *
      * @var string
@@ -29,12 +33,10 @@ class CreateAliasRequest extends Model
     public $keyId;
     protected $_name = [
         'aliasName' => 'AliasName',
-        'keyId'     => 'KeyId',
+        'keyId' => 'KeyId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

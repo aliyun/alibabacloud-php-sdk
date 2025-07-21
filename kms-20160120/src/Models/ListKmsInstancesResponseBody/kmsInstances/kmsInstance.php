@@ -27,12 +27,10 @@ class kmsInstance extends Model
     public $kmsInstanceId;
     protected $_name = [
         'kmsInstanceArn' => 'KmsInstanceArn',
-        'kmsInstanceId'  => 'KmsInstanceId',
+        'kmsInstanceId' => 'KmsInstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

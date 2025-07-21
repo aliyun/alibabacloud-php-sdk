@@ -17,9 +17,7 @@ class kmsInstances extends Model
         'kmsInstance' => 'KmsInstance',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class kmsInstances extends Model
         if (isset($map['KmsInstance'])) {
             if (!empty($map['KmsInstance'])) {
                 $model->kmsInstance = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['KmsInstance'] as $item) {
                     $model->kmsInstance[$n++] = null !== $item ? kmsInstance::fromMap($item) : $item;
                 }

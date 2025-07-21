@@ -12,6 +12,7 @@ class GetParametersForImportResponseBody extends Model
      * @description The token that is used to import key material.
      *
      * The token is valid for 24 hours. The value of this parameter is required when you call the [ImportKeyMaterial](https://help.aliyun.com/document_detail/68622.html) operation.
+     *
      * @example Base64String
      *
      * @var string
@@ -22,6 +23,7 @@ class GetParametersForImportResponseBody extends Model
      * @description The globally unique ID of the CMK.
      *
      * The value of this parameter is required when you call the [ImportKeyMaterial](https://help.aliyun.com/document_detail/68622.html) operation.
+     *
      * @example 202b9877-5a25-46e3-a763-e20791b5****
      *
      * @var string
@@ -32,6 +34,7 @@ class GetParametersForImportResponseBody extends Model
      * @description The public key that is used to encrypt key material.
      *
      * The public key is Base64-encoded.
+     *
      * @example MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAlls4uIBxD0GG84C+lGBO6Dhpf1J3XimC6cPmPNaKKJMOzoX4tD+C+r7aZv8lZ3vnPfxuxvy/YwG+whUxTEEFUdqJTOIzhPfYucupqKM92crVHIuG+xtMVeHKjyTr+UrtKCsQikqHT+19yDRN/RMoo2HUx0gmEnRyXd8t3JyUXun9FdoxKA08GrsV7nodb9ZsoBLhnev7tTLcXvLyKW6XG1ZQCQm6dPnbnwLeDXR7uK0Lqn9PM28mBIdaiQUQxj2XbM1CoJA+JiyVX3Ptdb+4rqukb4Rb05B80Bs9xV/cf7FIku08l7xGhrGiQFq+DFXwQWtwihXHZxz3LhldU+4ZPwID****
      *
      * @var string
@@ -56,16 +59,14 @@ class GetParametersForImportResponseBody extends Model
      */
     public $tokenExpireTime;
     protected $_name = [
-        'importToken'     => 'ImportToken',
-        'keyId'           => 'KeyId',
-        'publicKey'       => 'PublicKey',
-        'requestId'       => 'RequestId',
+        'importToken' => 'ImportToken',
+        'keyId' => 'KeyId',
+        'publicKey' => 'PublicKey',
+        'requestId' => 'RequestId',
         'tokenExpireTime' => 'TokenExpireTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

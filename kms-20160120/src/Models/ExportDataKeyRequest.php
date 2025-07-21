@@ -12,6 +12,7 @@ class ExportDataKeyRequest extends Model
      * @description The ciphertext of the data key encrypted by using a CMK.
      *
      * This parameter is required.
+     *
      * @example ODZhOWVmZDktM2QxNi00ODk0LWJkNGYtMWZjNDNmM2YyYWJmS7FmDBBQ0BkKsQrtRnidtPwirmDcS0ZuJCU41xxAAWk4Z8qsADfbV0b+i6kQmlvj79dJdGOvtX69Uycs901q********
      *
      * @var string
@@ -36,6 +37,7 @@ class ExportDataKeyRequest extends Model
      * @description A Base64-encoded public key.
      *
      * This parameter is required.
+     *
      * @example MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAndKfC2ReLL2+y8a0+ZBBeAft/uBYo86GZiYJuflqgUzKxpyuvlo3uQkBv6b+nx+0tz8g8v7GhpPWMSW5L9mNHYsvYFsa7jTxsYdt17yj6GlUHPuMIs8hr5qbwl38IHU1iIa7nYWwE2fb3ePOvLDACRJVgGpU0yxioW80d2QD+9aU4jF5dlAahcfgsNzo2CXzCUc1+xbmNuq7Rp+H9VJB9dyYOwqnW3RhOLBo21FzpORapf0UiRlrHRpk1V6ez+aE1dofaYh/9bh0m6ioxj7j5hpZbWccuEZTMBKd+cbuBkRhJzc6Tti6qwZbDiu4fUwbZS0Tqpuo1UadiyxMW********
      *
      * @var string
@@ -52,6 +54,7 @@ class ExportDataKeyRequest extends Model
      *   SM2PKE
      *
      * This parameter is required.
+     *
      * @example RSAES_OAEP_SHA_256
      *
      * @var string
@@ -67,23 +70,22 @@ class ExportDataKeyRequest extends Model
      *   EC_SM2
      *
      * This parameter is required.
+     *
      * @example RSA_2048
      *
      * @var string
      */
     public $wrappingKeySpec;
     protected $_name = [
-        'ciphertextBlob'    => 'CiphertextBlob',
-        'dryRun'            => 'DryRun',
+        'ciphertextBlob' => 'CiphertextBlob',
+        'dryRun' => 'DryRun',
         'encryptionContext' => 'EncryptionContext',
-        'publicKeyBlob'     => 'PublicKeyBlob',
+        'publicKeyBlob' => 'PublicKeyBlob',
         'wrappingAlgorithm' => 'WrappingAlgorithm',
-        'wrappingKeySpec'   => 'WrappingKeySpec',
+        'wrappingKeySpec' => 'WrappingKeySpec',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

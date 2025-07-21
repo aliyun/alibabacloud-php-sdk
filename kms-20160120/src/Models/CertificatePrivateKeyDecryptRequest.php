@@ -17,7 +17,10 @@ class CertificatePrivateKeyDecryptRequest extends Model
      *
      *   SM2PKE
      *
+     * > The SM2PKE encryption algorithm is supported only in regions in mainland China. In these regions, managed hardware security modules (HSMs) are used. For more information, see [Managed HSM overview](https://help.aliyun.com/document_detail/125803.html).
+     *
      * This parameter is required.
+     *
      * @example RSAES_OAEP_SHA_256
      *
      * @var string
@@ -28,6 +31,7 @@ class CertificatePrivateKeyDecryptRequest extends Model
      * @description The ID of the certificate. The ID must be globally unique in Certificates Manager.
      *
      * This parameter is required.
+     *
      * @example 12345678-1234-1234-1234-12345678****
      *
      * @var string
@@ -37,21 +41,22 @@ class CertificatePrivateKeyDecryptRequest extends Model
     /**
      * @description The data that you want to decrypt.
      *
+     * The value is encoded in Base64.
+     *
      * This parameter is required.
+     *
      * @example ZOyIygCyaOW6Gj****MlNKiuyjfzw=
      *
      * @var string
      */
     public $ciphertextBlob;
     protected $_name = [
-        'algorithm'      => 'Algorithm',
-        'certificateId'  => 'CertificateId',
+        'algorithm' => 'Algorithm',
+        'certificateId' => 'CertificateId',
         'ciphertextBlob' => 'CiphertextBlob',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

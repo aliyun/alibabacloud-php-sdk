@@ -12,6 +12,7 @@ class ListKeyVersionsRequest extends Model
      * @description The globally unique ID of the CMK. You can also set this parameter to an alias that is bound to the CMK. For more information, see [Use aliases](https://help.aliyun.com/document_detail/68522.html).
      *
      * This parameter is required.
+     *
      * @example 0b30658a-ed1a-4922-b8f7-a673ca9c****
      *
      * @var string
@@ -21,7 +22,10 @@ class ListKeyVersionsRequest extends Model
     /**
      * @description The number of the page to return.
      *
+     * Pages start from page 1.
+     *
      * Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -31,21 +35,22 @@ class ListKeyVersionsRequest extends Model
     /**
      * @description The number of entries to return on each page.
      *
+     * Valid values: 0 to 101.
+     *
      * Default value: 10.
+     *
      * @example 10
      *
      * @var int
      */
     public $pageSize;
     protected $_name = [
-        'keyId'      => 'KeyId',
+        'keyId' => 'KeyId',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
+        'pageSize' => 'PageSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -11,7 +11,10 @@ class ListAliasesRequest extends Model
     /**
      * @description The number of the page to return.
      *
+     * Pages start from page 1.
+     *
      * Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -21,7 +24,10 @@ class ListAliasesRequest extends Model
     /**
      * @description The number of entries to return on each page.
      *
+     * Valid values: 0 to 100.
+     *
      * Default value: 10.
+     *
      * @example 10
      *
      * @var int
@@ -29,12 +35,10 @@ class ListAliasesRequest extends Model
     public $pageSize;
     protected $_name = [
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
+        'pageSize' => 'PageSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

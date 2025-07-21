@@ -52,16 +52,14 @@ class ListKeysResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'keys'       => 'Keys',
+        'keys' => 'Keys',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

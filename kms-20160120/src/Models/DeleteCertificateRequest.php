@@ -12,6 +12,7 @@ class DeleteCertificateRequest extends Model
      * @description The ID of the certificate. It is the globally unique identifier (GUID) of the certificate in Alibaba Cloud Certificate Manager.
      *
      * This parameter is required.
+     *
      * @example 9a28de48-8d8b-484d-a766-dec4****
      *
      * @var string
@@ -21,9 +22,7 @@ class DeleteCertificateRequest extends Model
         'certificateId' => 'CertificateId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -62,17 +62,15 @@ class DescribeApplicationAccessPointResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'arn'                  => 'Arn',
+        'arn' => 'Arn',
         'authenticationMethod' => 'AuthenticationMethod',
-        'description'          => 'Description',
-        'name'                 => 'Name',
-        'policies'             => 'Policies',
-        'requestId'            => 'RequestId',
+        'description' => 'Description',
+        'name' => 'Name',
+        'policies' => 'Policies',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

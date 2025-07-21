@@ -26,6 +26,7 @@ class DescribeSecretResponseBody extends Model
      *   Invalid: indicates that the status of automatic rotation is abnormal. In this case, Secrets Manager cannot automatically rotate the secret.
      *
      * >  This parameter is returned only for a managed ApsaraDB RDS secret, a managed RAM secret, or a managed ECS secret.
+     *
      * @example Enabled
      *
      * @var string
@@ -72,6 +73,7 @@ class DescribeSecretResponseBody extends Model
      * @description The extended configuration of the secret.
      *
      * >  This parameter is returned only for a managed ApsaraDB RDS secret, a managed Resource Access Management (RAM) secret, or a managed Elastic Compute Service (ECS) secret.
+     *
      * @example {\\"SecretSubType\\":\\"SingleUser\\", \\"DBInstanceId\\":\\"rm-uf667446pc955****\\",  \\"CustomData\\":{} }
      *
      * @var string
@@ -82,6 +84,7 @@ class DescribeSecretResponseBody extends Model
      * @description The time when the last rotation was performed.
      *
      * >  This parameter is returned if the secret was rotated.
+     *
      * @example 2022-07-05T08:22:03Z
      *
      * @var string
@@ -92,6 +95,7 @@ class DescribeSecretResponseBody extends Model
      * @description The time when the next rotation will be performed.
      *
      * >  This parameter is returned when automatic rotation is enabled.
+     *
      * @example 2022-07-06T18:22:03Z
      *
      * @var string
@@ -119,7 +123,10 @@ class DescribeSecretResponseBody extends Model
     /**
      * @description The interval for automatic rotation.
      *
+     * The value is in the `integer[unit]` format. `integer` indicates the length of time. `unit`: indicates the time unit. The value of `unit` is fixed as s. For example, if the value is 604800s, automatic rotation is performed at a 7-day interval.
+     *
      * >  This parameter is returned when automatic rotation is enabled.
+     *
      * @example 3153600s
      *
      * @var string
@@ -153,6 +160,7 @@ class DescribeSecretResponseBody extends Model
      * @description The resource tags of the secret.
      *
      * This parameter is not returned if you set the FetchTags parameter to false or you do not specify the FetchTags parameter.
+     *
      * @var tags
      */
     public $tags;
@@ -166,27 +174,25 @@ class DescribeSecretResponseBody extends Model
      */
     public $updateTime;
     protected $_name = [
-        'arn'               => 'Arn',
+        'arn' => 'Arn',
         'automaticRotation' => 'AutomaticRotation',
-        'createTime'        => 'CreateTime',
-        'DKMSInstanceId'    => 'DKMSInstanceId',
-        'description'       => 'Description',
-        'encryptionKeyId'   => 'EncryptionKeyId',
-        'extendedConfig'    => 'ExtendedConfig',
-        'lastRotationDate'  => 'LastRotationDate',
-        'nextRotationDate'  => 'NextRotationDate',
+        'createTime' => 'CreateTime',
+        'DKMSInstanceId' => 'DKMSInstanceId',
+        'description' => 'Description',
+        'encryptionKeyId' => 'EncryptionKeyId',
+        'extendedConfig' => 'ExtendedConfig',
+        'lastRotationDate' => 'LastRotationDate',
+        'nextRotationDate' => 'NextRotationDate',
         'plannedDeleteTime' => 'PlannedDeleteTime',
-        'requestId'         => 'RequestId',
-        'rotationInterval'  => 'RotationInterval',
-        'secretName'        => 'SecretName',
-        'secretType'        => 'SecretType',
-        'tags'              => 'Tags',
-        'updateTime'        => 'UpdateTime',
+        'requestId' => 'RequestId',
+        'rotationInterval' => 'RotationInterval',
+        'secretName' => 'SecretName',
+        'secretType' => 'SecretType',
+        'tags' => 'Tags',
+        'updateTime' => 'UpdateTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -16,6 +16,7 @@ class GetRandomPasswordRequest extends Model
      * ` Valid characters: 0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ! \\"#$%&\\"()*+,-. /:;<=>? @[\\] your_project_id} ~  `.
      *
      * This parameter is empty by default.
+     *
      * @example ABCabc
      *
      * @var string
@@ -81,7 +82,10 @@ class GetRandomPasswordRequest extends Model
     /**
      * @description The number of bytes that the password to be generated contains.
      *
+     * Valid values: 8 to 128.
+     *
      * Default value: 32
+     *
      * @example 32
      *
      * @var string
@@ -102,18 +106,16 @@ class GetRandomPasswordRequest extends Model
      */
     public $requireEachIncludedType;
     protected $_name = [
-        'excludeCharacters'       => 'ExcludeCharacters',
-        'excludeLowercase'        => 'ExcludeLowercase',
-        'excludeNumbers'          => 'ExcludeNumbers',
-        'excludePunctuation'      => 'ExcludePunctuation',
-        'excludeUppercase'        => 'ExcludeUppercase',
-        'passwordLength'          => 'PasswordLength',
+        'excludeCharacters' => 'ExcludeCharacters',
+        'excludeLowercase' => 'ExcludeLowercase',
+        'excludeNumbers' => 'ExcludeNumbers',
+        'excludePunctuation' => 'ExcludePunctuation',
+        'excludeUppercase' => 'ExcludeUppercase',
+        'passwordLength' => 'PasswordLength',
         'requireEachIncludedType' => 'RequireEachIncludedType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

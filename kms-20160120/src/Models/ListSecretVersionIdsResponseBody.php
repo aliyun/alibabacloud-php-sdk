@@ -62,16 +62,14 @@ class ListSecretVersionIdsResponseBody extends Model
     public $versionIds;
     protected $_name = [
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'secretName' => 'SecretName',
         'totalCount' => 'TotalCount',
         'versionIds' => 'VersionIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

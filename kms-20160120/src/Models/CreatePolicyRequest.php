@@ -12,6 +12,7 @@ class CreatePolicyRequest extends Model
      * @description The name of the access control rule.
      *
      * > For more information about how to query created access control rules, see [ListNetworkRules](https://help.aliyun.com/document_detail/2539433.html).
+     *
      * @example {"NetworkRules":["kst-hzz62ee817bvyyr5x****.efkd","kst-hzz62ee817bvyyr5x****.eyyp"]}
      *
      * @var string
@@ -40,6 +41,7 @@ class CreatePolicyRequest extends Model
      * @description The name of the permission policy.
      *
      * This parameter is required.
+     *
      * @example policy_test
      *
      * @var string
@@ -52,7 +54,10 @@ class CreatePolicyRequest extends Model
      *   RbacPermission/Template/CryptoServiceKeyUser: allows you to perform cryptographic operations.
      *   RbacPermission/Template/CryptoServiceSecretUser: allows you to perform secret-related operations.
      *
+     * You can select both.
+     *
      * This parameter is required.
+     *
      * @example ["RbacPermission/Template/CryptoServiceKeyUser", "RbacPermission/Template/CryptoServiceSecretUser"]
      *
      * @var string
@@ -66,6 +71,7 @@ class CreatePolicyRequest extends Model
      *   Secret: Enter a secret in the `secret/${SecretName}` format. To allow access to all secrets of a KMS instance, enter secret/\\*.
      *
      * This parameter is required.
+     *
      * @example ["secret/acs/ram/user/ram-secret", "secret/acs/ram/user/acr-master", "key/key-hzz63d9c8d3dfv8cv****"]
      *
      * @var string
@@ -73,16 +79,14 @@ class CreatePolicyRequest extends Model
     public $resources;
     protected $_name = [
         'accessControlRules' => 'AccessControlRules',
-        'description'        => 'Description',
-        'kmsInstance'        => 'KmsInstance',
-        'name'               => 'Name',
-        'permissions'        => 'Permissions',
-        'resources'          => 'Resources',
+        'description' => 'Description',
+        'kmsInstance' => 'KmsInstance',
+        'name' => 'Name',
+        'permissions' => 'Permissions',
+        'resources' => 'Resources',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

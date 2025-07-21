@@ -17,9 +17,7 @@ class policies extends Model
         'policy' => 'Policy',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class policies extends Model
         if (isset($map['Policy'])) {
             if (!empty($map['Policy'])) {
                 $model->policy = [];
-                $n             = 0;
+                $n = 0;
                 foreach ($map['Policy'] as $item) {
                     $model->policy[$n++] = null !== $item ? policy::fromMap($item) : $item;
                 }

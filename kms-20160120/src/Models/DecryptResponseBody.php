@@ -12,6 +12,7 @@ class DecryptResponseBody extends Model
      * @description The ID of the customer master key (CMK) that is used to decrypt the ciphertext.
      *
      * It is the GUID of the CMK.
+     *
      * @example 202b9877-5a25-46e3-a763-e20791b5****
      *
      * @var string
@@ -45,15 +46,13 @@ class DecryptResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'keyId'        => 'KeyId',
+        'keyId' => 'KeyId',
         'keyVersionId' => 'KeyVersionId',
-        'plaintext'    => 'Plaintext',
-        'requestId'    => 'RequestId',
+        'plaintext' => 'Plaintext',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

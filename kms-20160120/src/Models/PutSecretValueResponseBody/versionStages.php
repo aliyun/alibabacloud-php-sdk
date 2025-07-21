@@ -16,9 +16,7 @@ class versionStages extends Model
         'versionStage' => 'VersionStage',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

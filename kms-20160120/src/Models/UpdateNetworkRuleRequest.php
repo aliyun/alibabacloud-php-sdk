@@ -21,6 +21,7 @@ class UpdateNetworkRuleRequest extends Model
      * @description The name of the access control rule that you want to update.
      *
      * This parameter is required.
+     *
      * @example networkrule_test
      *
      * @var string
@@ -36,14 +37,12 @@ class UpdateNetworkRuleRequest extends Model
      */
     public $sourcePrivateIp;
     protected $_name = [
-        'description'     => 'Description',
-        'name'            => 'Name',
+        'description' => 'Description',
+        'name' => 'Name',
         'sourcePrivateIp' => 'SourcePrivateIp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

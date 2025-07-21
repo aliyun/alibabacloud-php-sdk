@@ -26,13 +26,11 @@ class UpdateSecretRotationPolicyResponseBody extends Model
      */
     public $secretName;
     protected $_name = [
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
         'secretName' => 'SecretName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

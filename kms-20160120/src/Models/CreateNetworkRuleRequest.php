@@ -21,6 +21,7 @@ class CreateNetworkRuleRequest extends Model
      * @description The name of the access control rule.
      *
      * This parameter is required.
+     *
      * @example networkrule_test
      *
      * @var string
@@ -39,22 +40,23 @@ class CreateNetworkRuleRequest extends Model
     /**
      * @description The network type.
      *
+     * Only private IP addresses are supported. Set the value to Private.
+     *
      * This parameter is required.
+     *
      * @example Private
      *
      * @var string
      */
     public $type;
     protected $_name = [
-        'description'     => 'Description',
-        'name'            => 'Name',
+        'description' => 'Description',
+        'name' => 'Name',
         'sourcePrivateIp' => 'SourcePrivateIp',
-        'type'            => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

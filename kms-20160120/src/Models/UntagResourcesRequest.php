@@ -15,6 +15,7 @@ class UntagResourcesRequest extends Model
      *   false (default)
      *
      * >  This parameter takes effect only when you specify an empty tag key.
+     *
      * @example false
      *
      * @var bool
@@ -24,7 +25,10 @@ class UntagResourcesRequest extends Model
     /**
      * @description The region ID of the resource.
      *
+     * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/601478.html) operation to query the most recent region list.
+     *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -34,7 +38,10 @@ class UntagResourcesRequest extends Model
     /**
      * @description The IDs of the resources from which you want to remove tags. You can enter up to 50 resource IDs.
      *
+     * Enter multiple resource IDs in the `["ResourceId.1","ResourceId.2",...]` format.
+     *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $resourceId;
@@ -46,6 +53,7 @@ class UntagResourcesRequest extends Model
      *   secret
      *
      * This parameter is required.
+     *
      * @example key
      *
      * @var string
@@ -55,21 +63,22 @@ class UntagResourcesRequest extends Model
     /**
      * @description The keys of the tags that you want to remove. You can enter up to 20 tag keys.
      *
+     * Enter multiple tag keys in the `["key.1","key.2",...]` format.
+     *
      * >  The tag key cannot start with aliyun or acs:.
+     *
      * @var string[]
      */
     public $tagKey;
     protected $_name = [
-        'all'          => 'All',
-        'regionId'     => 'RegionId',
-        'resourceId'   => 'ResourceId',
+        'all' => 'All',
+        'regionId' => 'RegionId',
+        'resourceId' => 'ResourceId',
         'resourceType' => 'ResourceType',
-        'tagKey'       => 'TagKey',
+        'tagKey' => 'TagKey',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

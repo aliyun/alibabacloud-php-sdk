@@ -21,6 +21,7 @@ class CertificatePublicKeyEncryptResponseBody extends Model
      * @description The ciphertext.
      *
      * The value is encoded in Base64.
+     *
      * @example ZOyIygCyaOW6Gj****MlNKiuyjfzw=
      *
      * @var string
@@ -36,14 +37,12 @@ class CertificatePublicKeyEncryptResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'certificateId'  => 'CertificateId',
+        'certificateId' => 'CertificateId',
         'ciphertextBlob' => 'CiphertextBlob',
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

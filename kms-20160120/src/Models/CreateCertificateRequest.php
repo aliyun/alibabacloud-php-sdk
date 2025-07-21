@@ -28,6 +28,7 @@ class CreateCertificateRequest extends Model
      *   EC_SM2
      *
      * This parameter is required.
+     *
      * @example RSA_2048
      *
      * @var string
@@ -36,6 +37,10 @@ class CreateCertificateRequest extends Model
 
     /**
      * @description The certificate subject, which is the owner of the certificate.
+     *
+     * Specify the value in the distinguished name (DN) format, as defined in [RFC 2253](https://tools.ietf.org/html/rfc2253?spm=a2c4g.11186623.2.13.265f1a1cGFCn3Q). A DN is a sequence of relative distinguished names (RDNs).
+     *
+     * RDNs are key-value pairs in the format of `attribute1=value1,attribute2=value2`. Separate multiple RDNs with commas (,).
      *
      * The Subject parameter consists of the following fields:
      *
@@ -47,6 +52,7 @@ class CreateCertificateRequest extends Model
      *   L: optional. The name of the city.
      *
      * This parameter is required.
+     *
      * @example CN=userName,OU=kms,O=aliyun,C=CN
      *
      * @var string
@@ -57,21 +63,20 @@ class CreateCertificateRequest extends Model
      * @description The subject alternative names.
      *
      * A domain name list is supported. A maximum of 10 domain names are supported.
+     *
      * @example ["test1.example.com","test2.example.com"]
      *
      * @var mixed[]
      */
     public $subjectAlternativeNames;
     protected $_name = [
-        'exportablePrivateKey'    => 'ExportablePrivateKey',
-        'keySpec'                 => 'KeySpec',
-        'subject'                 => 'Subject',
+        'exportablePrivateKey' => 'ExportablePrivateKey',
+        'keySpec' => 'KeySpec',
+        'subject' => 'Subject',
         'subjectAlternativeNames' => 'SubjectAlternativeNames',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

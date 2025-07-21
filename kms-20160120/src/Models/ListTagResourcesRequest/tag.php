@@ -11,7 +11,10 @@ class tag extends Model
     /**
      * @description The key of the tag. A tag consists of a key-value pair.
      *
+     * You can enter up to 20 tags. Enter multiple tags in the `[{"Key":"key1","Value":"value1"},{"Key":"key2","Value":"value2"},..]` format.
+     *
      * >  The key cannot start with aliyun or acs:.
+     *
      * @example disk-encryption
      *
      * @var string
@@ -22,19 +25,18 @@ class tag extends Model
      * @description The value of the tag. A tag consists of a key-value pair.
      *
      * You can enter up to 20 tags. Enter multiple tags in the `[{"Key":"key1","Value":"value1"},{"Key":"key2","Value":"value2"},..]` format.
+     *
      * @example true
      *
      * @var string
      */
     public $value;
     protected $_name = [
-        'key'   => 'Key',
+        'key' => 'Key',
         'value' => 'Value',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -37,14 +37,12 @@ class ListTagResourcesResponseBody extends Model
      */
     public $tagResources;
     protected $_name = [
-        'nextToken'    => 'NextToken',
-        'requestId'    => 'RequestId',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
         'tagResources' => 'TagResources',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
