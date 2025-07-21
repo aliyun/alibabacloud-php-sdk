@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Amqpopen\V20191212\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateBindingResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 09768C14-E51C-4F4A-8077-30810032C***
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class CreateBindingResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class CreateBindingResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateBindingResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

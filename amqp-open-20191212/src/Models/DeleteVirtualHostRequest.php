@@ -4,16 +4,28 @@
 
 namespace AlibabaCloud\SDK\Amqpopen\V20191212\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteVirtualHostRequest extends Model
 {
     /**
+     * @description The ID of the ApsaraMQ for RabbitMQ instance to which the vhost you want to delete belongs.
+     *
+     * This parameter is required.
+     *
+     * @example amqp-cn-v0h1kb9nu***
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The name of the vhost that you want to delete.
+     *
+     * This parameter is required.
+     *
+     * @example test
+     *
      * @var string
      */
     public $virtualHost;
@@ -22,18 +34,14 @@ class DeleteVirtualHostRequest extends Model
         'virtualHost' => 'VirtualHost',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->virtualHost) {
             $res['VirtualHost'] = $this->virtualHost;
         }
@@ -41,18 +49,17 @@ class DeleteVirtualHostRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteVirtualHostRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['VirtualHost'])) {
             $model->virtualHost = $map['VirtualHost'];
         }

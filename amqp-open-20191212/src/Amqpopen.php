@@ -4,7 +4,8 @@
 
 namespace AlibabaCloud\SDK\Amqpopen\V20191212;
 
-use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\CreateAccountRequest;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\CreateAccountResponse;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\CreateBindingRequest;
@@ -55,10 +56,11 @@ use AlibabaCloud\SDK\Amqpopen\V20191212\Models\UpdateInstanceNameRequest;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\UpdateInstanceNameResponse;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\UpdateInstanceRequest;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\UpdateInstanceResponse;
+use AlibabaCloud\Tea\Utils\Utils;
+use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
-use Darabonba\OpenApi\Utils;
 
 class Amqpopen extends OpenApiClient
 {
@@ -83,60 +85,48 @@ class Amqpopen extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (null !== $endpoint) {
+        if (!Utils::empty_($endpoint)) {
             return $endpoint;
         }
-
-        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
+        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
             return @$endpointMap[$regionId];
         }
 
-        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * Creates a pair of static username and password. If you access an ApsaraMQ for RabbitMQ broker from an open source RabbitMQ client, you must use a pair of username and password for authentication. You can access the ApsaraMQ for RabbitMQ broker only after the authentication is passed. ApsaraMQ for RabbitMQ allows you to generate usernames and passwords by using AccessKey pairs provided by Alibaba Cloud Resource Access Management (RAM).
+     * @summary Creates a pair of static username and password. If you access an ApsaraMQ for RabbitMQ broker from an open source RabbitMQ client, you must use a pair of username and password for authentication. You can access the ApsaraMQ for RabbitMQ broker only after the authentication is passed. ApsaraMQ for RabbitMQ allows you to generate usernames and passwords by using AccessKey pairs provided by Alibaba Cloud Resource Access Management (RAM).
+     *  *
+     * @param CreateAccountRequest $request CreateAccountRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateAccountRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateAccountResponse
-     *
-     * @param CreateAccountRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return CreateAccountResponse
+     * @return CreateAccountResponse CreateAccountResponse
      */
     public function createAccountWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountAccessKey) {
-            @$query['accountAccessKey'] = $request->accountAccessKey;
+        if (!Utils::isUnset($request->accountAccessKey)) {
+            $query['accountAccessKey'] = $request->accountAccessKey;
         }
-
-        if (null !== $request->createTimestamp) {
-            @$query['createTimestamp'] = $request->createTimestamp;
+        if (!Utils::isUnset($request->createTimestamp)) {
+            $query['createTimestamp'] = $request->createTimestamp;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['instanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['instanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->secretSign) {
-            @$query['secretSign'] = $request->secretSign;
+        if (!Utils::isUnset($request->secretSign)) {
+            $query['secretSign'] = $request->secretSign;
         }
-
-        if (null !== $request->signature) {
-            @$query['signature'] = $request->signature;
+        if (!Utils::isUnset($request->signature)) {
+            $query['signature'] = $request->signature;
         }
-
-        if (null !== $request->userName) {
-            @$query['userName'] = $request->userName;
+        if (!Utils::isUnset($request->userName)) {
+            $query['userName'] = $request->userName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateAccount',
@@ -154,15 +144,11 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * Creates a pair of static username and password. If you access an ApsaraMQ for RabbitMQ broker from an open source RabbitMQ client, you must use a pair of username and password for authentication. You can access the ApsaraMQ for RabbitMQ broker only after the authentication is passed. ApsaraMQ for RabbitMQ allows you to generate usernames and passwords by using AccessKey pairs provided by Alibaba Cloud Resource Access Management (RAM).
+     * @summary Creates a pair of static username and password. If you access an ApsaraMQ for RabbitMQ broker from an open source RabbitMQ client, you must use a pair of username and password for authentication. You can access the ApsaraMQ for RabbitMQ broker only after the authentication is passed. ApsaraMQ for RabbitMQ allows you to generate usernames and passwords by using AccessKey pairs provided by Alibaba Cloud Resource Access Management (RAM).
+     *  *
+     * @param CreateAccountRequest $request CreateAccountRequest
      *
-     * @param request - CreateAccountRequest
-     *
-     * @returns CreateAccountResponse
-     *
-     * @param CreateAccountRequest $request
-     *
-     * @return CreateAccountResponse
+     * @return CreateAccountResponse CreateAccountResponse
      */
     public function createAccount($request)
     {
@@ -172,52 +158,40 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * Creates a binding. In ApsaraMQ for RabbitMQ, after a producer sends a message to an exchange, the exchange routes the message to a queue or another exchange based on the binding relationship and the routing rule.
+     * @summary Creates a binding. In ApsaraMQ for RabbitMQ, after a producer sends a message to an exchange, the exchange routes the message to a queue or another exchange based on the binding relationship and the routing rule.
+     *  *
+     * @param CreateBindingRequest $request CreateBindingRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateBindingRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateBindingResponse
-     *
-     * @param CreateBindingRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return CreateBindingResponse
+     * @return CreateBindingResponse CreateBindingResponse
      */
     public function createBindingWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->argument) {
-            @$body['Argument'] = $request->argument;
+        if (!Utils::isUnset($request->argument)) {
+            $body['Argument'] = $request->argument;
         }
-
-        if (null !== $request->bindingKey) {
-            @$body['BindingKey'] = $request->bindingKey;
+        if (!Utils::isUnset($request->bindingKey)) {
+            $body['BindingKey'] = $request->bindingKey;
         }
-
-        if (null !== $request->bindingType) {
-            @$body['BindingType'] = $request->bindingType;
+        if (!Utils::isUnset($request->bindingType)) {
+            $body['BindingType'] = $request->bindingType;
         }
-
-        if (null !== $request->destinationName) {
-            @$body['DestinationName'] = $request->destinationName;
+        if (!Utils::isUnset($request->destinationName)) {
+            $body['DestinationName'] = $request->destinationName;
         }
-
-        if (null !== $request->instanceId) {
-            @$body['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->sourceExchange) {
-            @$body['SourceExchange'] = $request->sourceExchange;
+        if (!Utils::isUnset($request->sourceExchange)) {
+            $body['SourceExchange'] = $request->sourceExchange;
         }
-
-        if (null !== $request->virtualHost) {
-            @$body['VirtualHost'] = $request->virtualHost;
+        if (!Utils::isUnset($request->virtualHost)) {
+            $body['VirtualHost'] = $request->virtualHost;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateBinding',
@@ -235,15 +209,11 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * Creates a binding. In ApsaraMQ for RabbitMQ, after a producer sends a message to an exchange, the exchange routes the message to a queue or another exchange based on the binding relationship and the routing rule.
+     * @summary Creates a binding. In ApsaraMQ for RabbitMQ, after a producer sends a message to an exchange, the exchange routes the message to a queue or another exchange based on the binding relationship and the routing rule.
+     *  *
+     * @param CreateBindingRequest $request CreateBindingRequest
      *
-     * @param request - CreateBindingRequest
-     *
-     * @returns CreateBindingResponse
-     *
-     * @param CreateBindingRequest $request
-     *
-     * @return CreateBindingResponse
+     * @return CreateBindingResponse CreateBindingResponse
      */
     public function createBinding($request)
     {
@@ -253,56 +223,43 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * Creates an exchange. In ApsaraMQ for RabbitMQ, an exchange is used to route a message that is received from a producer to one or more queues or to discard the message. An exchange routes a message to queues by using the routing key and binding keys.
+     * @summary Creates an exchange. In ApsaraMQ for RabbitMQ, an exchange is used to route a message that is received from a producer to one or more queues or to discard the message. An exchange routes a message to queues by using the routing key and binding keys.
+     *  *
+     * @param CreateExchangeRequest $request CreateExchangeRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateExchangeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateExchangeResponse
-     *
-     * @param CreateExchangeRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return CreateExchangeResponse
+     * @return CreateExchangeResponse CreateExchangeResponse
      */
     public function createExchangeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->alternateExchange) {
-            @$body['AlternateExchange'] = $request->alternateExchange;
+        if (!Utils::isUnset($request->alternateExchange)) {
+            $body['AlternateExchange'] = $request->alternateExchange;
         }
-
-        if (null !== $request->autoDeleteState) {
-            @$body['AutoDeleteState'] = $request->autoDeleteState;
+        if (!Utils::isUnset($request->autoDeleteState)) {
+            $body['AutoDeleteState'] = $request->autoDeleteState;
         }
-
-        if (null !== $request->exchangeName) {
-            @$body['ExchangeName'] = $request->exchangeName;
+        if (!Utils::isUnset($request->exchangeName)) {
+            $body['ExchangeName'] = $request->exchangeName;
         }
-
-        if (null !== $request->exchangeType) {
-            @$body['ExchangeType'] = $request->exchangeType;
+        if (!Utils::isUnset($request->exchangeType)) {
+            $body['ExchangeType'] = $request->exchangeType;
         }
-
-        if (null !== $request->instanceId) {
-            @$body['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->internal) {
-            @$body['Internal'] = $request->internal;
+        if (!Utils::isUnset($request->internal)) {
+            $body['Internal'] = $request->internal;
         }
-
-        if (null !== $request->virtualHost) {
-            @$body['VirtualHost'] = $request->virtualHost;
+        if (!Utils::isUnset($request->virtualHost)) {
+            $body['VirtualHost'] = $request->virtualHost;
         }
-
-        if (null !== $request->XDelayedType) {
-            @$body['XDelayedType'] = $request->XDelayedType;
+        if (!Utils::isUnset($request->XDelayedType)) {
+            $body['XDelayedType'] = $request->XDelayedType;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateExchange',
@@ -320,15 +277,11 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * Creates an exchange. In ApsaraMQ for RabbitMQ, an exchange is used to route a message that is received from a producer to one or more queues or to discard the message. An exchange routes a message to queues by using the routing key and binding keys.
+     * @summary Creates an exchange. In ApsaraMQ for RabbitMQ, an exchange is used to route a message that is received from a producer to one or more queues or to discard the message. An exchange routes a message to queues by using the routing key and binding keys.
+     *  *
+     * @param CreateExchangeRequest $request CreateExchangeRequest
      *
-     * @param request - CreateExchangeRequest
-     *
-     * @returns CreateExchangeResponse
-     *
-     * @param CreateExchangeRequest $request
-     *
-     * @return CreateExchangeResponse
+     * @return CreateExchangeResponse CreateExchangeResponse
      */
     public function createExchange($request)
     {
@@ -338,123 +291,93 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * Creates an ApsaraMQ for RabbitMQ instance.
+     * @summary Creates an ApsaraMQ for RabbitMQ instance.
+     *  *
+     * @description **Before you call this operation, make sure that you fully understand the [billing methods and pricing](https://help.aliyun.com/document_detail/606747.html) of ApsaraMQ for RabbitMQ.
+     *  *
+     * @param CreateInstanceRequest $request CreateInstanceRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * *Before you call this operation, make sure that you fully understand the [billing methods and pricing](https://help.aliyun.com/document_detail/606747.html) of ApsaraMQ for RabbitMQ.
-     *
-     * @param request - CreateInstanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateInstanceResponse
-     *
-     * @param CreateInstanceRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return CreateInstanceResponse
+     * @return CreateInstanceResponse CreateInstanceResponse
      */
     public function createInstanceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->autoRenew) {
-            @$query['AutoRenew'] = $request->autoRenew;
+        if (!Utils::isUnset($request->autoRenew)) {
+            $query['AutoRenew'] = $request->autoRenew;
         }
-
-        if (null !== $request->autoRenewPeriod) {
-            @$query['AutoRenewPeriod'] = $request->autoRenewPeriod;
+        if (!Utils::isUnset($request->autoRenewPeriod)) {
+            $query['AutoRenewPeriod'] = $request->autoRenewPeriod;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->edition) {
-            @$query['Edition'] = $request->edition;
+        if (!Utils::isUnset($request->edition)) {
+            $query['Edition'] = $request->edition;
         }
-
-        if (null !== $request->encryptedInstance) {
-            @$query['EncryptedInstance'] = $request->encryptedInstance;
+        if (!Utils::isUnset($request->encryptedInstance)) {
+            $query['EncryptedInstance'] = $request->encryptedInstance;
         }
-
-        if (null !== $request->instanceName) {
-            @$query['InstanceName'] = $request->instanceName;
+        if (!Utils::isUnset($request->instanceName)) {
+            $query['InstanceName'] = $request->instanceName;
         }
-
-        if (null !== $request->instanceType) {
-            @$query['InstanceType'] = $request->instanceType;
+        if (!Utils::isUnset($request->instanceType)) {
+            $query['InstanceType'] = $request->instanceType;
         }
-
-        if (null !== $request->kmsKeyId) {
-            @$query['KmsKeyId'] = $request->kmsKeyId;
+        if (!Utils::isUnset($request->kmsKeyId)) {
+            $query['KmsKeyId'] = $request->kmsKeyId;
         }
-
-        if (null !== $request->maxConnections) {
-            @$query['MaxConnections'] = $request->maxConnections;
+        if (!Utils::isUnset($request->maxConnections)) {
+            $query['MaxConnections'] = $request->maxConnections;
         }
-
-        if (null !== $request->maxEipTps) {
-            @$query['MaxEipTps'] = $request->maxEipTps;
+        if (!Utils::isUnset($request->maxEipTps)) {
+            $query['MaxEipTps'] = $request->maxEipTps;
         }
-
-        if (null !== $request->maxPrivateTps) {
-            @$query['MaxPrivateTps'] = $request->maxPrivateTps;
+        if (!Utils::isUnset($request->maxPrivateTps)) {
+            $query['MaxPrivateTps'] = $request->maxPrivateTps;
         }
-
-        if (null !== $request->paymentType) {
-            @$query['PaymentType'] = $request->paymentType;
+        if (!Utils::isUnset($request->paymentType)) {
+            $query['PaymentType'] = $request->paymentType;
         }
-
-        if (null !== $request->period) {
-            @$query['Period'] = $request->period;
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
         }
-
-        if (null !== $request->periodCycle) {
-            @$query['PeriodCycle'] = $request->periodCycle;
+        if (!Utils::isUnset($request->periodCycle)) {
+            $query['PeriodCycle'] = $request->periodCycle;
         }
-
-        if (null !== $request->provisionedCapacity) {
-            @$query['ProvisionedCapacity'] = $request->provisionedCapacity;
+        if (!Utils::isUnset($request->provisionedCapacity)) {
+            $query['ProvisionedCapacity'] = $request->provisionedCapacity;
         }
-
-        if (null !== $request->queueCapacity) {
-            @$query['QueueCapacity'] = $request->queueCapacity;
+        if (!Utils::isUnset($request->queueCapacity)) {
+            $query['QueueCapacity'] = $request->queueCapacity;
         }
-
-        if (null !== $request->renewStatus) {
-            @$query['RenewStatus'] = $request->renewStatus;
+        if (!Utils::isUnset($request->renewStatus)) {
+            $query['RenewStatus'] = $request->renewStatus;
         }
-
-        if (null !== $request->renewalDurationUnit) {
-            @$query['RenewalDurationUnit'] = $request->renewalDurationUnit;
+        if (!Utils::isUnset($request->renewalDurationUnit)) {
+            $query['RenewalDurationUnit'] = $request->renewalDurationUnit;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->serverlessChargeType) {
-            @$query['ServerlessChargeType'] = $request->serverlessChargeType;
+        if (!Utils::isUnset($request->serverlessChargeType)) {
+            $query['ServerlessChargeType'] = $request->serverlessChargeType;
         }
-
-        if (null !== $request->storageSize) {
-            @$query['StorageSize'] = $request->storageSize;
+        if (!Utils::isUnset($request->storageSize)) {
+            $query['StorageSize'] = $request->storageSize;
         }
-
-        if (null !== $request->supportEip) {
-            @$query['SupportEip'] = $request->supportEip;
+        if (!Utils::isUnset($request->supportEip)) {
+            $query['SupportEip'] = $request->supportEip;
         }
-
-        if (null !== $request->supportTracing) {
-            @$query['SupportTracing'] = $request->supportTracing;
+        if (!Utils::isUnset($request->supportTracing)) {
+            $query['SupportTracing'] = $request->supportTracing;
         }
-
-        if (null !== $request->tracingStorageTime) {
-            @$query['TracingStorageTime'] = $request->tracingStorageTime;
+        if (!Utils::isUnset($request->tracingStorageTime)) {
+            $query['TracingStorageTime'] = $request->tracingStorageTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateInstance',
@@ -472,18 +395,13 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * Creates an ApsaraMQ for RabbitMQ instance.
+     * @summary Creates an ApsaraMQ for RabbitMQ instance.
+     *  *
+     * @description **Before you call this operation, make sure that you fully understand the [billing methods and pricing](https://help.aliyun.com/document_detail/606747.html) of ApsaraMQ for RabbitMQ.
+     *  *
+     * @param CreateInstanceRequest $request CreateInstanceRequest
      *
-     * @remarks
-     * *Before you call this operation, make sure that you fully understand the [billing methods and pricing](https://help.aliyun.com/document_detail/606747.html) of ApsaraMQ for RabbitMQ.
-     *
-     * @param request - CreateInstanceRequest
-     *
-     * @returns CreateInstanceResponse
-     *
-     * @param CreateInstanceRequest $request
-     *
-     * @return CreateInstanceResponse
+     * @return CreateInstanceResponse CreateInstanceResponse
      */
     public function createInstance($request)
     {
@@ -493,68 +411,52 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * Creates a queue. In ApsaraMQ for RabbitMQ, a queue is a message queue. All messages in ApsaraMQ for RabbitMQ are sent to a specific exchange and then routed to a bound queue by the exchange.
+     * @summary Creates a queue. In ApsaraMQ for RabbitMQ, a queue is a message queue. All messages in ApsaraMQ for RabbitMQ are sent to a specific exchange and then routed to a bound queue by the exchange.
+     *  *
+     * @param CreateQueueRequest $request CreateQueueRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateQueueRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateQueueResponse
-     *
-     * @param CreateQueueRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return CreateQueueResponse
+     * @return CreateQueueResponse CreateQueueResponse
      */
     public function createQueueWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->autoDeleteState) {
-            @$body['AutoDeleteState'] = $request->autoDeleteState;
+        if (!Utils::isUnset($request->autoDeleteState)) {
+            $body['AutoDeleteState'] = $request->autoDeleteState;
         }
-
-        if (null !== $request->autoExpireState) {
-            @$body['AutoExpireState'] = $request->autoExpireState;
+        if (!Utils::isUnset($request->autoExpireState)) {
+            $body['AutoExpireState'] = $request->autoExpireState;
         }
-
-        if (null !== $request->deadLetterExchange) {
-            @$body['DeadLetterExchange'] = $request->deadLetterExchange;
+        if (!Utils::isUnset($request->deadLetterExchange)) {
+            $body['DeadLetterExchange'] = $request->deadLetterExchange;
         }
-
-        if (null !== $request->deadLetterRoutingKey) {
-            @$body['DeadLetterRoutingKey'] = $request->deadLetterRoutingKey;
+        if (!Utils::isUnset($request->deadLetterRoutingKey)) {
+            $body['DeadLetterRoutingKey'] = $request->deadLetterRoutingKey;
         }
-
-        if (null !== $request->exclusiveState) {
-            @$body['ExclusiveState'] = $request->exclusiveState;
+        if (!Utils::isUnset($request->exclusiveState)) {
+            $body['ExclusiveState'] = $request->exclusiveState;
         }
-
-        if (null !== $request->instanceId) {
-            @$body['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->maxLength) {
-            @$body['MaxLength'] = $request->maxLength;
+        if (!Utils::isUnset($request->maxLength)) {
+            $body['MaxLength'] = $request->maxLength;
         }
-
-        if (null !== $request->maximumPriority) {
-            @$body['MaximumPriority'] = $request->maximumPriority;
+        if (!Utils::isUnset($request->maximumPriority)) {
+            $body['MaximumPriority'] = $request->maximumPriority;
         }
-
-        if (null !== $request->messageTTL) {
-            @$body['MessageTTL'] = $request->messageTTL;
+        if (!Utils::isUnset($request->messageTTL)) {
+            $body['MessageTTL'] = $request->messageTTL;
         }
-
-        if (null !== $request->queueName) {
-            @$body['QueueName'] = $request->queueName;
+        if (!Utils::isUnset($request->queueName)) {
+            $body['QueueName'] = $request->queueName;
         }
-
-        if (null !== $request->virtualHost) {
-            @$body['VirtualHost'] = $request->virtualHost;
+        if (!Utils::isUnset($request->virtualHost)) {
+            $body['VirtualHost'] = $request->virtualHost;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateQueue',
@@ -572,15 +474,11 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * Creates a queue. In ApsaraMQ for RabbitMQ, a queue is a message queue. All messages in ApsaraMQ for RabbitMQ are sent to a specific exchange and then routed to a bound queue by the exchange.
+     * @summary Creates a queue. In ApsaraMQ for RabbitMQ, a queue is a message queue. All messages in ApsaraMQ for RabbitMQ are sent to a specific exchange and then routed to a bound queue by the exchange.
+     *  *
+     * @param CreateQueueRequest $request CreateQueueRequest
      *
-     * @param request - CreateQueueRequest
-     *
-     * @returns CreateQueueResponse
-     *
-     * @param CreateQueueRequest $request
-     *
-     * @return CreateQueueResponse
+     * @return CreateQueueResponse CreateQueueResponse
      */
     public function createQueue($request)
     {
@@ -590,32 +488,25 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * Creates a vhost. A vhost is used to logically isolate resources. Each vhost manages its own exchanges, queues, and bindings. Applications can run on independent vhosts in a secure manner. This way, the business of an application is not affected by other applications. Before you connect producers and consumers to an ApsaraMQ for RabbitMQ instance, you must specify vhosts for the producers and consumers.
+     * @summary Creates a vhost. A vhost is used to logically isolate resources. Each vhost manages its own exchanges, queues, and bindings. Applications can run on independent vhosts in a secure manner. This way, the business of an application is not affected by other applications. Before you connect producers and consumers to an ApsaraMQ for RabbitMQ instance, you must specify vhosts for the producers and consumers.
+     *  *
+     * @param CreateVirtualHostRequest $request CreateVirtualHostRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateVirtualHostRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateVirtualHostResponse
-     *
-     * @param CreateVirtualHostRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return CreateVirtualHostResponse
+     * @return CreateVirtualHostResponse CreateVirtualHostResponse
      */
     public function createVirtualHostWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->instanceId) {
-            @$body['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->virtualHost) {
-            @$body['VirtualHost'] = $request->virtualHost;
+        if (!Utils::isUnset($request->virtualHost)) {
+            $body['VirtualHost'] = $request->virtualHost;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateVirtualHost',
@@ -633,15 +524,11 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * Creates a vhost. A vhost is used to logically isolate resources. Each vhost manages its own exchanges, queues, and bindings. Applications can run on independent vhosts in a secure manner. This way, the business of an application is not affected by other applications. Before you connect producers and consumers to an ApsaraMQ for RabbitMQ instance, you must specify vhosts for the producers and consumers.
+     * @summary Creates a vhost. A vhost is used to logically isolate resources. Each vhost manages its own exchanges, queues, and bindings. Applications can run on independent vhosts in a secure manner. This way, the business of an application is not affected by other applications. Before you connect producers and consumers to an ApsaraMQ for RabbitMQ instance, you must specify vhosts for the producers and consumers.
+     *  *
+     * @param CreateVirtualHostRequest $request CreateVirtualHostRequest
      *
-     * @param request - CreateVirtualHostRequest
-     *
-     * @returns CreateVirtualHostResponse
-     *
-     * @param CreateVirtualHostRequest $request
-     *
-     * @return CreateVirtualHostResponse
+     * @return CreateVirtualHostResponse CreateVirtualHostResponse
      */
     public function createVirtualHost($request)
     {
@@ -651,32 +538,25 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * Deletes a pair of username and password.
+     * @summary Deletes a pair of username and password.
+     *  *
+     * @param DeleteAccountRequest $request DeleteAccountRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteAccountRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteAccountResponse
-     *
-     * @param DeleteAccountRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return DeleteAccountResponse
+     * @return DeleteAccountResponse DeleteAccountResponse
      */
     public function deleteAccountWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->createTimestamp) {
-            @$query['CreateTimestamp'] = $request->createTimestamp;
+        if (!Utils::isUnset($request->createTimestamp)) {
+            $query['CreateTimestamp'] = $request->createTimestamp;
         }
-
-        if (null !== $request->userName) {
-            @$query['UserName'] = $request->userName;
+        if (!Utils::isUnset($request->userName)) {
+            $query['UserName'] = $request->userName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteAccount',
@@ -694,15 +574,11 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * Deletes a pair of username and password.
+     * @summary Deletes a pair of username and password.
+     *  *
+     * @param DeleteAccountRequest $request DeleteAccountRequest
      *
-     * @param request - DeleteAccountRequest
-     *
-     * @returns DeleteAccountResponse
-     *
-     * @param DeleteAccountRequest $request
-     *
-     * @return DeleteAccountResponse
+     * @return DeleteAccountResponse DeleteAccountResponse
      */
     public function deleteAccount($request)
     {
@@ -712,48 +588,37 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * Deletes a binding to unbind a queue or an exchange from a source exchange.
+     * @summary Deletes a binding to unbind a queue or an exchange from a source exchange.
+     *  *
+     * @param DeleteBindingRequest $request DeleteBindingRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteBindingRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteBindingResponse
-     *
-     * @param DeleteBindingRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return DeleteBindingResponse
+     * @return DeleteBindingResponse DeleteBindingResponse
      */
     public function deleteBindingWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->bindingKey) {
-            @$body['BindingKey'] = $request->bindingKey;
+        if (!Utils::isUnset($request->bindingKey)) {
+            $body['BindingKey'] = $request->bindingKey;
         }
-
-        if (null !== $request->bindingType) {
-            @$body['BindingType'] = $request->bindingType;
+        if (!Utils::isUnset($request->bindingType)) {
+            $body['BindingType'] = $request->bindingType;
         }
-
-        if (null !== $request->destinationName) {
-            @$body['DestinationName'] = $request->destinationName;
+        if (!Utils::isUnset($request->destinationName)) {
+            $body['DestinationName'] = $request->destinationName;
         }
-
-        if (null !== $request->instanceId) {
-            @$body['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->sourceExchange) {
-            @$body['SourceExchange'] = $request->sourceExchange;
+        if (!Utils::isUnset($request->sourceExchange)) {
+            $body['SourceExchange'] = $request->sourceExchange;
         }
-
-        if (null !== $request->virtualHost) {
-            @$body['VirtualHost'] = $request->virtualHost;
+        if (!Utils::isUnset($request->virtualHost)) {
+            $body['VirtualHost'] = $request->virtualHost;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DeleteBinding',
@@ -771,15 +636,11 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * Deletes a binding to unbind a queue or an exchange from a source exchange.
+     * @summary Deletes a binding to unbind a queue or an exchange from a source exchange.
+     *  *
+     * @param DeleteBindingRequest $request DeleteBindingRequest
      *
-     * @param request - DeleteBindingRequest
-     *
-     * @returns DeleteBindingResponse
-     *
-     * @param DeleteBindingRequest $request
-     *
-     * @return DeleteBindingResponse
+     * @return DeleteBindingResponse DeleteBindingResponse
      */
     public function deleteBinding($request)
     {
@@ -789,41 +650,32 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * Deletes an exchange.
-     *
-     * @remarks
-     * ## [](#)Usage notes
+     * @summary Deletes an exchange.
+     *  *
+     * @description ## [](#)Usage notes
      * *   You cannot delete exchanges of the **headers** and **x-jms-topic** types.
      * *   You cannot delete built-in exchanges in a vhost. These exchanges are amq.direct, amq.topic, and amq.fanout.
+     *  *
+     * @param DeleteExchangeRequest $request DeleteExchangeRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteExchangeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteExchangeResponse
-     *
-     * @param DeleteExchangeRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return DeleteExchangeResponse
+     * @return DeleteExchangeResponse DeleteExchangeResponse
      */
     public function deleteExchangeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->exchangeName) {
-            @$body['ExchangeName'] = $request->exchangeName;
+        if (!Utils::isUnset($request->exchangeName)) {
+            $body['ExchangeName'] = $request->exchangeName;
         }
-
-        if (null !== $request->instanceId) {
-            @$body['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->virtualHost) {
-            @$body['VirtualHost'] = $request->virtualHost;
+        if (!Utils::isUnset($request->virtualHost)) {
+            $body['VirtualHost'] = $request->virtualHost;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DeleteExchange',
@@ -841,20 +693,15 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * Deletes an exchange.
-     *
-     * @remarks
-     * ## [](#)Usage notes
+     * @summary Deletes an exchange.
+     *  *
+     * @description ## [](#)Usage notes
      * *   You cannot delete exchanges of the **headers** and **x-jms-topic** types.
      * *   You cannot delete built-in exchanges in a vhost. These exchanges are amq.direct, amq.topic, and amq.fanout.
+     *  *
+     * @param DeleteExchangeRequest $request DeleteExchangeRequest
      *
-     * @param request - DeleteExchangeRequest
-     *
-     * @returns DeleteExchangeResponse
-     *
-     * @param DeleteExchangeRequest $request
-     *
-     * @return DeleteExchangeResponse
+     * @return DeleteExchangeResponse DeleteExchangeResponse
      */
     public function deleteExchange($request)
     {
@@ -864,36 +711,28 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * Deletes a queue.
+     * @summary Deletes a queue.
+     *  *
+     * @param DeleteQueueRequest $request DeleteQueueRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteQueueRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteQueueResponse
-     *
-     * @param DeleteQueueRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return DeleteQueueResponse
+     * @return DeleteQueueResponse DeleteQueueResponse
      */
     public function deleteQueueWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->instanceId) {
-            @$body['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->queueName) {
-            @$body['QueueName'] = $request->queueName;
+        if (!Utils::isUnset($request->queueName)) {
+            $body['QueueName'] = $request->queueName;
         }
-
-        if (null !== $request->virtualHost) {
-            @$body['VirtualHost'] = $request->virtualHost;
+        if (!Utils::isUnset($request->virtualHost)) {
+            $body['VirtualHost'] = $request->virtualHost;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DeleteQueue',
@@ -911,15 +750,11 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * Deletes a queue.
+     * @summary Deletes a queue.
+     *  *
+     * @param DeleteQueueRequest $request DeleteQueueRequest
      *
-     * @param request - DeleteQueueRequest
-     *
-     * @returns DeleteQueueResponse
-     *
-     * @param DeleteQueueRequest $request
-     *
-     * @return DeleteQueueResponse
+     * @return DeleteQueueResponse DeleteQueueResponse
      */
     public function deleteQueue($request)
     {
@@ -929,35 +764,27 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * Deletes a virtual host (vhost).
+     * @summary Deletes a virtual host (vhost).
+     *  *
+     * @description Before you delete a vhost, make sure that all exchanges and queues in the vhost are deleted.
+     *  *
+     * @param DeleteVirtualHostRequest $request DeleteVirtualHostRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * Before you delete a vhost, make sure that all exchanges and queues in the vhost are deleted.
-     *
-     * @param request - DeleteVirtualHostRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteVirtualHostResponse
-     *
-     * @param DeleteVirtualHostRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return DeleteVirtualHostResponse
+     * @return DeleteVirtualHostResponse DeleteVirtualHostResponse
      */
     public function deleteVirtualHostWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->instanceId) {
-            @$body['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->virtualHost) {
-            @$body['VirtualHost'] = $request->virtualHost;
+        if (!Utils::isUnset($request->virtualHost)) {
+            $body['VirtualHost'] = $request->virtualHost;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DeleteVirtualHost',
@@ -975,18 +802,13 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * Deletes a virtual host (vhost).
+     * @summary Deletes a virtual host (vhost).
+     *  *
+     * @description Before you delete a vhost, make sure that all exchanges and queues in the vhost are deleted.
+     *  *
+     * @param DeleteVirtualHostRequest $request DeleteVirtualHostRequest
      *
-     * @remarks
-     * Before you delete a vhost, make sure that all exchanges and queues in the vhost are deleted.
-     *
-     * @param request - DeleteVirtualHostRequest
-     *
-     * @returns DeleteVirtualHostResponse
-     *
-     * @param DeleteVirtualHostRequest $request
-     *
-     * @return DeleteVirtualHostResponse
+     * @return DeleteVirtualHostResponse DeleteVirtualHostResponse
      */
     public function deleteVirtualHost($request)
     {
@@ -996,24 +818,19 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * 获取实例详情.
+     * @summary 获取实例详情
+     *  *
+     * @param GetInstanceRequest $request GetInstanceRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetInstanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetInstanceResponse
-     *
-     * @param GetInstanceRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return GetInstanceResponse
+     * @return GetInstanceResponse GetInstanceResponse
      */
     public function getInstanceWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetInstance',
@@ -1031,15 +848,11 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * 获取实例详情.
+     * @summary 获取实例详情
+     *  *
+     * @param GetInstanceRequest $request GetInstanceRequest
      *
-     * @param request - GetInstanceRequest
-     *
-     * @returns GetInstanceResponse
-     *
-     * @param GetInstanceRequest $request
-     *
-     * @return GetInstanceResponse
+     * @return GetInstanceResponse GetInstanceResponse
      */
     public function getInstance($request)
     {
@@ -1049,24 +862,19 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * Queries the maximum number of vhosts, exchanges, and queues that you can create and the number of created vhosts, exchanges, and queues on an ApsaraMQ for RabbitMQ instance.
+     * @summary Queries the maximum number of vhosts, exchanges, and queues that you can create and the number of created vhosts, exchanges, and queues on an ApsaraMQ for RabbitMQ instance.
+     *  *
+     * @param GetMetadataAmountRequest $request GetMetadataAmountRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetMetadataAmountRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetMetadataAmountResponse
-     *
-     * @param GetMetadataAmountRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return GetMetadataAmountResponse
+     * @return GetMetadataAmountResponse GetMetadataAmountResponse
      */
     public function getMetadataAmountWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetMetadataAmount',
@@ -1084,15 +892,11 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * Queries the maximum number of vhosts, exchanges, and queues that you can create and the number of created vhosts, exchanges, and queues on an ApsaraMQ for RabbitMQ instance.
+     * @summary Queries the maximum number of vhosts, exchanges, and queues that you can create and the number of created vhosts, exchanges, and queues on an ApsaraMQ for RabbitMQ instance.
+     *  *
+     * @param GetMetadataAmountRequest $request GetMetadataAmountRequest
      *
-     * @param request - GetMetadataAmountRequest
-     *
-     * @returns GetMetadataAmountResponse
-     *
-     * @param GetMetadataAmountRequest $request
-     *
-     * @return GetMetadataAmountResponse
+     * @return GetMetadataAmountResponse GetMetadataAmountResponse
      */
     public function getMetadataAmount($request)
     {
@@ -1102,28 +906,22 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * Queries the static username and password of an ApsaraMQ for RabbitMQ.
+     * @summary Queries the static username and password of an ApsaraMQ for RabbitMQ.
+     *  *
+     * @param ListAccountsRequest $request ListAccountsRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListAccountsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListAccountsResponse
-     *
-     * @param ListAccountsRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return ListAccountsResponse
+     * @return ListAccountsResponse ListAccountsResponse
      */
     public function listAccountsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListAccounts',
@@ -1141,15 +939,11 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * Queries the static username and password of an ApsaraMQ for RabbitMQ.
+     * @summary Queries the static username and password of an ApsaraMQ for RabbitMQ.
+     *  *
+     * @param ListAccountsRequest $request ListAccountsRequest
      *
-     * @param request - ListAccountsRequest
-     *
-     * @returns ListAccountsResponse
-     *
-     * @param ListAccountsRequest $request
-     *
-     * @return ListAccountsResponse
+     * @return ListAccountsResponse ListAccountsResponse
      */
     public function listAccounts($request)
     {
@@ -1159,24 +953,19 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * Queries all bindings of a virtual host (vhost) on an ApsaraMQ for RabbitMQ instance.
+     * @summary Queries all bindings of a virtual host (vhost) on an ApsaraMQ for RabbitMQ instance.
+     *  *
+     * @param ListBindingsRequest $request ListBindingsRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListBindingsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListBindingsResponse
-     *
-     * @param ListBindingsRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return ListBindingsResponse
+     * @return ListBindingsResponse ListBindingsResponse
      */
     public function listBindingsWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListBindings',
@@ -1194,15 +983,11 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * Queries all bindings of a virtual host (vhost) on an ApsaraMQ for RabbitMQ instance.
+     * @summary Queries all bindings of a virtual host (vhost) on an ApsaraMQ for RabbitMQ instance.
+     *  *
+     * @param ListBindingsRequest $request ListBindingsRequest
      *
-     * @param request - ListBindingsRequest
-     *
-     * @returns ListBindingsResponse
-     *
-     * @param ListBindingsRequest $request
-     *
-     * @return ListBindingsResponse
+     * @return ListBindingsResponse ListBindingsResponse
      */
     public function listBindings($request)
     {
@@ -1212,24 +997,19 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * Queries all exchanges or queues to which an exchange is bound.
+     * @summary Queries all exchanges or queues to which an exchange is bound.
+     *  *
+     * @param ListDownStreamBindingsRequest $request ListDownStreamBindingsRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListDownStreamBindingsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListDownStreamBindingsResponse
-     *
-     * @param ListDownStreamBindingsRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return ListDownStreamBindingsResponse
+     * @return ListDownStreamBindingsResponse ListDownStreamBindingsResponse
      */
     public function listDownStreamBindingsWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListDownStreamBindings',
@@ -1247,15 +1027,11 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * Queries all exchanges or queues to which an exchange is bound.
+     * @summary Queries all exchanges or queues to which an exchange is bound.
+     *  *
+     * @param ListDownStreamBindingsRequest $request ListDownStreamBindingsRequest
      *
-     * @param request - ListDownStreamBindingsRequest
-     *
-     * @returns ListDownStreamBindingsResponse
-     *
-     * @param ListDownStreamBindingsRequest $request
-     *
-     * @return ListDownStreamBindingsResponse
+     * @return ListDownStreamBindingsResponse ListDownStreamBindingsResponse
      */
     public function listDownStreamBindings($request)
     {
@@ -1265,24 +1041,19 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * Queries all queues or exchanges that are bound to an exchange.
+     * @summary Queries all queues or exchanges that are bound to an exchange.
+     *  *
+     * @param ListExchangeUpStreamBindingsRequest $request ListExchangeUpStreamBindingsRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListExchangeUpStreamBindingsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListExchangeUpStreamBindingsResponse
-     *
-     * @param ListExchangeUpStreamBindingsRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return ListExchangeUpStreamBindingsResponse
+     * @return ListExchangeUpStreamBindingsResponse ListExchangeUpStreamBindingsResponse
      */
     public function listExchangeUpStreamBindingsWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListExchangeUpStreamBindings',
@@ -1300,15 +1071,11 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * Queries all queues or exchanges that are bound to an exchange.
+     * @summary Queries all queues or exchanges that are bound to an exchange.
+     *  *
+     * @param ListExchangeUpStreamBindingsRequest $request ListExchangeUpStreamBindingsRequest
      *
-     * @param request - ListExchangeUpStreamBindingsRequest
-     *
-     * @returns ListExchangeUpStreamBindingsResponse
-     *
-     * @param ListExchangeUpStreamBindingsRequest $request
-     *
-     * @return ListExchangeUpStreamBindingsResponse
+     * @return ListExchangeUpStreamBindingsResponse ListExchangeUpStreamBindingsResponse
      */
     public function listExchangeUpStreamBindings($request)
     {
@@ -1318,24 +1085,19 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * Queries all exchanges that are created in a virtual host (vhost).
+     * @summary Queries all exchanges that are created in a virtual host (vhost).
+     *  *
+     * @param ListExchangesRequest $request ListExchangesRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListExchangesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListExchangesResponse
-     *
-     * @param ListExchangesRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return ListExchangesResponse
+     * @return ListExchangesResponse ListExchangesResponse
      */
     public function listExchangesWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListExchanges',
@@ -1353,15 +1115,11 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * Queries all exchanges that are created in a virtual host (vhost).
+     * @summary Queries all exchanges that are created in a virtual host (vhost).
+     *  *
+     * @param ListExchangesRequest $request ListExchangesRequest
      *
-     * @param request - ListExchangesRequest
-     *
-     * @returns ListExchangesResponse
-     *
-     * @param ListExchangesRequest $request
-     *
-     * @return ListExchangesResponse
+     * @return ListExchangesResponse ListExchangesResponse
      */
     public function listExchanges($request)
     {
@@ -1371,24 +1129,19 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * Queries all AparaMQ for RabbitMQ instances in a region. The returned data includes the basic information, endpoint, and specification limits of each instance.
+     * @summary Queries all AparaMQ for RabbitMQ instances in a region. The returned data includes the basic information, endpoint, and specification limits of each instance.
+     *  *
+     * @param ListInstancesRequest $request ListInstancesRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListInstancesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListInstancesResponse
-     *
-     * @param ListInstancesRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return ListInstancesResponse
+     * @return ListInstancesResponse ListInstancesResponse
      */
     public function listInstancesWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListInstances',
@@ -1406,15 +1159,11 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * Queries all AparaMQ for RabbitMQ instances in a region. The returned data includes the basic information, endpoint, and specification limits of each instance.
+     * @summary Queries all AparaMQ for RabbitMQ instances in a region. The returned data includes the basic information, endpoint, and specification limits of each instance.
+     *  *
+     * @param ListInstancesRequest $request ListInstancesRequest
      *
-     * @param request - ListInstancesRequest
-     *
-     * @returns ListInstancesResponse
-     *
-     * @param ListInstancesRequest $request
-     *
-     * @return ListInstancesResponse
+     * @return ListInstancesResponse ListInstancesResponse
      */
     public function listInstances($request)
     {
@@ -1424,27 +1173,21 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * Queries the online consumers of a queue.
+     * @summary Queries the online consumers of a queue.
+     *  *
+     * @description ApsaraMQ for RabbitMQ allows you to query only online consumers.
+     *  *
+     * @param ListQueueConsumersRequest $request ListQueueConsumersRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * ApsaraMQ for RabbitMQ allows you to query only online consumers.
-     *
-     * @param request - ListQueueConsumersRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListQueueConsumersResponse
-     *
-     * @param ListQueueConsumersRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return ListQueueConsumersResponse
+     * @return ListQueueConsumersResponse ListQueueConsumersResponse
      */
     public function listQueueConsumersWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListQueueConsumers',
@@ -1462,18 +1205,13 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * Queries the online consumers of a queue.
+     * @summary Queries the online consumers of a queue.
+     *  *
+     * @description ApsaraMQ for RabbitMQ allows you to query only online consumers.
+     *  *
+     * @param ListQueueConsumersRequest $request ListQueueConsumersRequest
      *
-     * @remarks
-     * ApsaraMQ for RabbitMQ allows you to query only online consumers.
-     *
-     * @param request - ListQueueConsumersRequest
-     *
-     * @returns ListQueueConsumersResponse
-     *
-     * @param ListQueueConsumersRequest $request
-     *
-     * @return ListQueueConsumersResponse
+     * @return ListQueueConsumersResponse ListQueueConsumersResponse
      */
     public function listQueueConsumers($request)
     {
@@ -1483,24 +1221,19 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * Queries the exchanges that are bound to a queue.
+     * @summary Queries the exchanges that are bound to a queue.
+     *  *
+     * @param ListQueueUpStreamBindingsRequest $request ListQueueUpStreamBindingsRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListQueueUpStreamBindingsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListQueueUpStreamBindingsResponse
-     *
-     * @param ListQueueUpStreamBindingsRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return ListQueueUpStreamBindingsResponse
+     * @return ListQueueUpStreamBindingsResponse ListQueueUpStreamBindingsResponse
      */
     public function listQueueUpStreamBindingsWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListQueueUpStreamBindings',
@@ -1518,15 +1251,11 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * Queries the exchanges that are bound to a queue.
+     * @summary Queries the exchanges that are bound to a queue.
+     *  *
+     * @param ListQueueUpStreamBindingsRequest $request ListQueueUpStreamBindingsRequest
      *
-     * @param request - ListQueueUpStreamBindingsRequest
-     *
-     * @returns ListQueueUpStreamBindingsResponse
-     *
-     * @param ListQueueUpStreamBindingsRequest $request
-     *
-     * @return ListQueueUpStreamBindingsResponse
+     * @return ListQueueUpStreamBindingsResponse ListQueueUpStreamBindingsResponse
      */
     public function listQueueUpStreamBindings($request)
     {
@@ -1536,24 +1265,19 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * Queries all queues in a vhost of an ApsaraMQ for RabbitMQ instance.
+     * @summary Queries all queues in a vhost of an ApsaraMQ for RabbitMQ instance.
+     *  *
+     * @param ListQueuesRequest $request ListQueuesRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListQueuesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListQueuesResponse
-     *
-     * @param ListQueuesRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return ListQueuesResponse
+     * @return ListQueuesResponse ListQueuesResponse
      */
     public function listQueuesWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListQueues',
@@ -1571,15 +1295,11 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * Queries all queues in a vhost of an ApsaraMQ for RabbitMQ instance.
+     * @summary Queries all queues in a vhost of an ApsaraMQ for RabbitMQ instance.
+     *  *
+     * @param ListQueuesRequest $request ListQueuesRequest
      *
-     * @param request - ListQueuesRequest
-     *
-     * @returns ListQueuesResponse
-     *
-     * @param ListQueuesRequest $request
-     *
-     * @return ListQueuesResponse
+     * @return ListQueuesResponse ListQueuesResponse
      */
     public function listQueues($request)
     {
@@ -1589,24 +1309,19 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * Queries all virtual hosts (vhosts) on an ApsaraMQ for RabbitMQ instance.
+     * @summary Queries all virtual hosts (vhosts) on an ApsaraMQ for RabbitMQ instance.
+     *  *
+     * @param ListVirtualHostsRequest $request ListVirtualHostsRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListVirtualHostsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListVirtualHostsResponse
-     *
-     * @param ListVirtualHostsRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return ListVirtualHostsResponse
+     * @return ListVirtualHostsResponse ListVirtualHostsResponse
      */
     public function listVirtualHostsWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListVirtualHosts',
@@ -1624,15 +1339,11 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * Queries all virtual hosts (vhosts) on an ApsaraMQ for RabbitMQ instance.
+     * @summary Queries all virtual hosts (vhosts) on an ApsaraMQ for RabbitMQ instance.
+     *  *
+     * @param ListVirtualHostsRequest $request ListVirtualHostsRequest
      *
-     * @param request - ListVirtualHostsRequest
-     *
-     * @returns ListVirtualHostsResponse
-     *
-     * @param ListVirtualHostsRequest $request
-     *
-     * @return ListVirtualHostsResponse
+     * @return ListVirtualHostsResponse ListVirtualHostsResponse
      */
     public function listVirtualHosts($request)
     {
@@ -1642,92 +1353,70 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * Upgrades or downgrades the configurations of an ApsaraMQ for RabbitMQ instance.
+     * @summary Upgrades or downgrades the configurations of an ApsaraMQ for RabbitMQ instance.
+     *  *
+     * @param UpdateInstanceRequest $request UpdateInstanceRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateInstanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateInstanceResponse
-     *
-     * @param UpdateInstanceRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return UpdateInstanceResponse
+     * @return UpdateInstanceResponse UpdateInstanceResponse
      */
     public function updateInstanceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->edition) {
-            @$query['Edition'] = $request->edition;
+        if (!Utils::isUnset($request->edition)) {
+            $query['Edition'] = $request->edition;
         }
-
-        if (null !== $request->encryptedInstance) {
-            @$query['EncryptedInstance'] = $request->encryptedInstance;
+        if (!Utils::isUnset($request->encryptedInstance)) {
+            $query['EncryptedInstance'] = $request->encryptedInstance;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->instanceType) {
-            @$query['InstanceType'] = $request->instanceType;
+        if (!Utils::isUnset($request->instanceType)) {
+            $query['InstanceType'] = $request->instanceType;
         }
-
-        if (null !== $request->kmsKeyId) {
-            @$query['KmsKeyId'] = $request->kmsKeyId;
+        if (!Utils::isUnset($request->kmsKeyId)) {
+            $query['KmsKeyId'] = $request->kmsKeyId;
         }
-
-        if (null !== $request->maxConnections) {
-            @$query['MaxConnections'] = $request->maxConnections;
+        if (!Utils::isUnset($request->maxConnections)) {
+            $query['MaxConnections'] = $request->maxConnections;
         }
-
-        if (null !== $request->maxEipTps) {
-            @$query['MaxEipTps'] = $request->maxEipTps;
+        if (!Utils::isUnset($request->maxEipTps)) {
+            $query['MaxEipTps'] = $request->maxEipTps;
         }
-
-        if (null !== $request->maxPrivateTps) {
-            @$query['MaxPrivateTps'] = $request->maxPrivateTps;
+        if (!Utils::isUnset($request->maxPrivateTps)) {
+            $query['MaxPrivateTps'] = $request->maxPrivateTps;
         }
-
-        if (null !== $request->modifyType) {
-            @$query['ModifyType'] = $request->modifyType;
+        if (!Utils::isUnset($request->modifyType)) {
+            $query['ModifyType'] = $request->modifyType;
         }
-
-        if (null !== $request->provisionedCapacity) {
-            @$query['ProvisionedCapacity'] = $request->provisionedCapacity;
+        if (!Utils::isUnset($request->provisionedCapacity)) {
+            $query['ProvisionedCapacity'] = $request->provisionedCapacity;
         }
-
-        if (null !== $request->queueCapacity) {
-            @$query['QueueCapacity'] = $request->queueCapacity;
+        if (!Utils::isUnset($request->queueCapacity)) {
+            $query['QueueCapacity'] = $request->queueCapacity;
         }
-
-        if (null !== $request->serverlessChargeType) {
-            @$query['ServerlessChargeType'] = $request->serverlessChargeType;
+        if (!Utils::isUnset($request->serverlessChargeType)) {
+            $query['ServerlessChargeType'] = $request->serverlessChargeType;
         }
-
-        if (null !== $request->storageSize) {
-            @$query['StorageSize'] = $request->storageSize;
+        if (!Utils::isUnset($request->storageSize)) {
+            $query['StorageSize'] = $request->storageSize;
         }
-
-        if (null !== $request->supportEip) {
-            @$query['SupportEip'] = $request->supportEip;
+        if (!Utils::isUnset($request->supportEip)) {
+            $query['SupportEip'] = $request->supportEip;
         }
-
-        if (null !== $request->supportTracing) {
-            @$query['SupportTracing'] = $request->supportTracing;
+        if (!Utils::isUnset($request->supportTracing)) {
+            $query['SupportTracing'] = $request->supportTracing;
         }
-
-        if (null !== $request->tracingStorageTime) {
-            @$query['TracingStorageTime'] = $request->tracingStorageTime;
+        if (!Utils::isUnset($request->tracingStorageTime)) {
+            $query['TracingStorageTime'] = $request->tracingStorageTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateInstance',
@@ -1745,15 +1434,11 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * Upgrades or downgrades the configurations of an ApsaraMQ for RabbitMQ instance.
+     * @summary Upgrades or downgrades the configurations of an ApsaraMQ for RabbitMQ instance.
+     *  *
+     * @param UpdateInstanceRequest $request UpdateInstanceRequest
      *
-     * @param request - UpdateInstanceRequest
-     *
-     * @returns UpdateInstanceResponse
-     *
-     * @param UpdateInstanceRequest $request
-     *
-     * @return UpdateInstanceResponse
+     * @return UpdateInstanceResponse UpdateInstanceResponse
      */
     public function updateInstance($request)
     {
@@ -1763,32 +1448,25 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * Updates the name of an ApsaraMQ for RabbitMQ instance. After an ApsaraMQ for RabbitMQ instance is created, the ID of the instance is used as its name by default. You can specify a custom name for an instance to facilitate instance identification.
+     * @summary Updates the name of an ApsaraMQ for RabbitMQ instance. After an ApsaraMQ for RabbitMQ instance is created, the ID of the instance is used as its name by default. You can specify a custom name for an instance to facilitate instance identification.
+     *  *
+     * @param UpdateInstanceNameRequest $request UpdateInstanceNameRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateInstanceNameRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateInstanceNameResponse
-     *
-     * @param UpdateInstanceNameRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return UpdateInstanceNameResponse
+     * @return UpdateInstanceNameResponse UpdateInstanceNameResponse
      */
     public function updateInstanceNameWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->instanceName) {
-            @$query['InstanceName'] = $request->instanceName;
+        if (!Utils::isUnset($request->instanceName)) {
+            $query['InstanceName'] = $request->instanceName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateInstanceName',
@@ -1806,15 +1484,11 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * Updates the name of an ApsaraMQ for RabbitMQ instance. After an ApsaraMQ for RabbitMQ instance is created, the ID of the instance is used as its name by default. You can specify a custom name for an instance to facilitate instance identification.
+     * @summary Updates the name of an ApsaraMQ for RabbitMQ instance. After an ApsaraMQ for RabbitMQ instance is created, the ID of the instance is used as its name by default. You can specify a custom name for an instance to facilitate instance identification.
+     *  *
+     * @param UpdateInstanceNameRequest $request UpdateInstanceNameRequest
      *
-     * @param request - UpdateInstanceNameRequest
-     *
-     * @returns UpdateInstanceNameResponse
-     *
-     * @param UpdateInstanceNameRequest $request
-     *
-     * @return UpdateInstanceNameResponse
+     * @return UpdateInstanceNameResponse UpdateInstanceNameResponse
      */
     public function updateInstanceName($request)
     {

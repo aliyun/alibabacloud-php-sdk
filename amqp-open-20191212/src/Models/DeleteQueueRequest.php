@@ -4,21 +4,39 @@
 
 namespace AlibabaCloud\SDK\Amqpopen\V20191212\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteQueueRequest extends Model
 {
     /**
+     * @description The instance ID.
+     *
+     * This parameter is required.
+     *
+     * @example 1880770869023***
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The queue name.
+     *
+     * This parameter is required.
+     *
+     * @example DemoQueue
+     *
      * @var string
      */
     public $queueName;
 
     /**
+     * @description The vhost name.
+     *
+     * This parameter is required.
+     *
+     * @example Test
+     *
      * @var string
      */
     public $virtualHost;
@@ -28,22 +46,17 @@ class DeleteQueueRequest extends Model
         'virtualHost' => 'VirtualHost',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->queueName) {
             $res['QueueName'] = $this->queueName;
         }
-
         if (null !== $this->virtualHost) {
             $res['VirtualHost'] = $this->virtualHost;
         }
@@ -51,22 +64,20 @@ class DeleteQueueRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteQueueRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['QueueName'])) {
             $model->queueName = $map['QueueName'];
         }
-
         if (isset($map['VirtualHost'])) {
             $model->virtualHost = $map['VirtualHost'];
         }

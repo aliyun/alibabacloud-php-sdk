@@ -4,36 +4,73 @@
 
 namespace AlibabaCloud\SDK\Amqpopen\V20191212\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteBindingRequest extends Model
 {
     /**
+     * @description The binding key.
+     *
+     * @example .test.
+     *
      * @var string
      */
     public $bindingKey;
 
     /**
+     * @description The type of the object that you want to unbind from the source exchange. Valid values:
+     *
+     *   **QUEUE**
+     *   **EXCHANGE**
+     *
+     * This parameter is required.
+     *
+     * @example QUEUE
+     *
      * @var string
      */
     public $bindingType;
 
     /**
+     * @description The name of the object that you want to unbind from the source exchange.
+     *
+     * This parameter is required.
+     *
+     * @example DemoQueue
+     *
      * @var string
      */
     public $destinationName;
 
     /**
+     * @description The instance ID.
+     *
+     * This parameter is required.
+     *
+     * @example amqp-cn-v0h1kb9nu***
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The name of the source exchange.
+     *
+     * This parameter is required.
+     *
+     * @example NormalEX
+     *
      * @var string
      */
     public $sourceExchange;
 
     /**
+     * @description The vhost name.
+     *
+     * This parameter is required.
+     *
+     * @example test
+     *
      * @var string
      */
     public $virtualHost;
@@ -46,34 +83,26 @@ class DeleteBindingRequest extends Model
         'virtualHost' => 'VirtualHost',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->bindingKey) {
             $res['BindingKey'] = $this->bindingKey;
         }
-
         if (null !== $this->bindingType) {
             $res['BindingType'] = $this->bindingType;
         }
-
         if (null !== $this->destinationName) {
             $res['DestinationName'] = $this->destinationName;
         }
-
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->sourceExchange) {
             $res['SourceExchange'] = $this->sourceExchange;
         }
-
         if (null !== $this->virtualHost) {
             $res['VirtualHost'] = $this->virtualHost;
         }
@@ -81,34 +110,29 @@ class DeleteBindingRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteBindingRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BindingKey'])) {
             $model->bindingKey = $map['BindingKey'];
         }
-
         if (isset($map['BindingType'])) {
             $model->bindingType = $map['BindingType'];
         }
-
         if (isset($map['DestinationName'])) {
             $model->destinationName = $map['DestinationName'];
         }
-
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['SourceExchange'])) {
             $model->sourceExchange = $map['SourceExchange'];
         }
-
         if (isset($map['VirtualHost'])) {
             $model->virtualHost = $map['VirtualHost'];
         }

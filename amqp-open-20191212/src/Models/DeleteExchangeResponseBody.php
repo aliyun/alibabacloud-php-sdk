@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Amqpopen\V20191212\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteExchangeResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 6961FFB8-6358-4EDC-9E3C-4A0C56CE6***
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class DeleteExchangeResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class DeleteExchangeResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteExchangeResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

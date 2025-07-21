@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Amqpopen\V20191212\Models\ListVirtualHostsResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class virtualHosts extends Model
 {
     /**
+     * @description The vhost name.
+     *
+     * @example test
+     *
      * @var string
      */
     public $name;
@@ -16,12 +20,9 @@ class virtualHosts extends Model
         'name' => 'Name',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->name) {
@@ -31,11 +32,11 @@ class virtualHosts extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return virtualHosts
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

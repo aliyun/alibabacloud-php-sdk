@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Amqpopen\V20191212\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateQueueResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 59B52E2C-0B8E-44EC-A314-D0314A50***
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class CreateQueueResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class CreateQueueResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateQueueResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
