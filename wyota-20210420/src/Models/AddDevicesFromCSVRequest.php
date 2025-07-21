@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Wyota\V20210420\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class AddDevicesFromCSVRequest extends Model
 {
@@ -40,30 +40,23 @@ class AddDevicesFromCSVRequest extends Model
         'siteName' => 'SiteName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->fileName) {
             $res['FileName'] = $this->fileName;
         }
-
         if (null !== $this->fileType) {
             $res['FileType'] = $this->fileType;
         }
-
         if (null !== $this->seatCol) {
             $res['SeatCol'] = $this->seatCol;
         }
-
         if (null !== $this->siteId) {
             $res['SiteId'] = $this->siteId;
         }
-
         if (null !== $this->siteName) {
             $res['SiteName'] = $this->siteName;
         }
@@ -71,30 +64,26 @@ class AddDevicesFromCSVRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return AddDevicesFromCSVRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FileName'])) {
             $model->fileName = $map['FileName'];
         }
-
         if (isset($map['FileType'])) {
             $model->fileType = $map['FileType'];
         }
-
         if (isset($map['SeatCol'])) {
             $model->seatCol = $map['SeatCol'];
         }
-
         if (isset($map['SiteId'])) {
             $model->siteId = $map['SiteId'];
         }
-
         if (isset($map['SiteName'])) {
             $model->siteName = $map['SiteName'];
         }

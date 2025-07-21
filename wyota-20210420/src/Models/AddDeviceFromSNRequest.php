@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Wyota\V20210420\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class AddDeviceFromSNRequest extends Model
 {
@@ -34,6 +34,8 @@ class AddDeviceFromSNRequest extends Model
     public $secureNetworkType;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $serialNo;
@@ -46,34 +48,26 @@ class AddDeviceFromSNRequest extends Model
         'serialNo' => 'SerialNo',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->alias) {
             $res['Alias'] = $this->alias;
         }
-
         if (null !== $this->customProperty) {
             $res['CustomProperty'] = $this->customProperty;
         }
-
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
-
         if (null !== $this->labelContents) {
             $res['LabelContents'] = $this->labelContents;
         }
-
         if (null !== $this->secureNetworkType) {
             $res['SecureNetworkType'] = $this->secureNetworkType;
         }
-
         if (null !== $this->serialNo) {
             $res['SerialNo'] = $this->serialNo;
         }
@@ -81,34 +75,29 @@ class AddDeviceFromSNRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return AddDeviceFromSNRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Alias'])) {
             $model->alias = $map['Alias'];
         }
-
         if (isset($map['CustomProperty'])) {
             $model->customProperty = $map['CustomProperty'];
         }
-
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
-
         if (isset($map['LabelContents'])) {
             $model->labelContents = $map['LabelContents'];
         }
-
         if (isset($map['SecureNetworkType'])) {
             $model->secureNetworkType = $map['SecureNetworkType'];
         }
-
         if (isset($map['SerialNo'])) {
             $model->serialNo = $map['SerialNo'];
         }

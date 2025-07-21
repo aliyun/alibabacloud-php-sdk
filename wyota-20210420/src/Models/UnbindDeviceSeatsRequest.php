@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Wyota\V20210420\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UnbindDeviceSeatsRequest extends Model
 {
@@ -16,47 +16,29 @@ class UnbindDeviceSeatsRequest extends Model
         'serialNoList' => 'SerialNoList',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->serialNoList)) {
-            Model::validateArray($this->serialNoList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->serialNoList) {
-            if (\is_array($this->serialNoList)) {
-                $res['SerialNoList'] = [];
-                $n1 = 0;
-                foreach ($this->serialNoList as $item1) {
-                    $res['SerialNoList'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['SerialNoList'] = $this->serialNoList;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UnbindDeviceSeatsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SerialNoList'])) {
             if (!empty($map['SerialNoList'])) {
-                $model->serialNoList = [];
-                $n1 = 0;
-                foreach ($map['SerialNoList'] as $item1) {
-                    $model->serialNoList[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->serialNoList = $map['SerialNoList'];
             }
         }
 

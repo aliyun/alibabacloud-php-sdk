@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Wyota\V20210420\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class SetDeviceOtaAutoStatusRequest extends Model
 {
@@ -40,30 +40,23 @@ class SetDeviceOtaAutoStatusRequest extends Model
         'status' => 'Status',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->autoUpdate) {
             $res['AutoUpdate'] = $this->autoUpdate;
         }
-
         if (null !== $this->autoUpdateTimeSchedule) {
             $res['AutoUpdateTimeSchedule'] = $this->autoUpdateTimeSchedule;
         }
-
         if (null !== $this->clientType) {
             $res['ClientType'] = $this->clientType;
         }
-
         if (null !== $this->forceUpgrade) {
             $res['ForceUpgrade'] = $this->forceUpgrade;
         }
-
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -71,30 +64,26 @@ class SetDeviceOtaAutoStatusRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return SetDeviceOtaAutoStatusRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AutoUpdate'])) {
             $model->autoUpdate = $map['AutoUpdate'];
         }
-
         if (isset($map['AutoUpdateTimeSchedule'])) {
             $model->autoUpdateTimeSchedule = $map['AutoUpdateTimeSchedule'];
         }
-
         if (isset($map['ClientType'])) {
             $model->clientType = $map['ClientType'];
         }
-
         if (isset($map['ForceUpgrade'])) {
             $model->forceUpgrade = $map['ForceUpgrade'];
         }
-
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

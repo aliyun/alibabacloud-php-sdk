@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Wyota\V20210420\Models\GetDeviceOtaTaskVersionInfoResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -28,22 +28,17 @@ class data extends Model
         'version' => 'Version',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->releaseNote) {
             $res['ReleaseNote'] = $this->releaseNote;
         }
-
         if (null !== $this->size) {
             $res['Size'] = $this->size;
         }
-
         if (null !== $this->version) {
             $res['Version'] = $this->version;
         }
@@ -51,22 +46,20 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ReleaseNote'])) {
             $model->releaseNote = $map['ReleaseNote'];
         }
-
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
         }
-
         if (isset($map['Version'])) {
             $model->version = $map['Version'];
         }

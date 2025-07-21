@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Wyota\V20210420\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListLabelsRequest extends Model
 {
@@ -34,26 +34,20 @@ class ListLabelsRequest extends Model
         'nextToken' => 'NextToken',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->labelContent) {
             $res['LabelContent'] = $this->labelContent;
         }
-
         if (null !== $this->labelId) {
             $res['LabelId'] = $this->labelId;
         }
-
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
-
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
@@ -61,26 +55,23 @@ class ListLabelsRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListLabelsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LabelContent'])) {
             $model->labelContent = $map['LabelContent'];
         }
-
         if (isset($map['LabelId'])) {
             $model->labelId = $map['LabelId'];
         }
-
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
-
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }

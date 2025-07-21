@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\Wyota\V20210420\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DetachEndUsersRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $endUserIds;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $serialNo;
@@ -22,18 +26,14 @@ class DetachEndUsersRequest extends Model
         'serialNo' => 'SerialNo',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->endUserIds) {
             $res['EndUserIds'] = $this->endUserIds;
         }
-
         if (null !== $this->serialNo) {
             $res['SerialNo'] = $this->serialNo;
         }
@@ -41,18 +41,17 @@ class DetachEndUsersRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DetachEndUsersRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EndUserIds'])) {
             $model->endUserIds = $map['EndUserIds'];
         }
-
         if (isset($map['SerialNo'])) {
             $model->serialNo = $map['SerialNo'];
         }

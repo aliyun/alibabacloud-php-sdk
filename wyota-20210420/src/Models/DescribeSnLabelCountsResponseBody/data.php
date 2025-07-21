@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Wyota\V20210420\Models\DescribeSnLabelCountsResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Wyota\V20210420\Models\DescribeSnLabelCountsResponseBody\data\labelCountDTOList;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -23,28 +23,20 @@ class data extends Model
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->labelCountDTOList)) {
-            Model::validateArray($this->labelCountDTOList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->labelCountDTOList) {
-            if (\is_array($this->labelCountDTOList)) {
-                $res['LabelCountDTOList'] = [];
-                $n1 = 0;
-                foreach ($this->labelCountDTOList as $item1) {
-                    $res['LabelCountDTOList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['LabelCountDTOList'] = [];
+            if (null !== $this->labelCountDTOList && \is_array($this->labelCountDTOList)) {
+                $n = 0;
+                foreach ($this->labelCountDTOList as $item) {
+                    $res['LabelCountDTOList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -52,25 +44,23 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LabelCountDTOList'])) {
             if (!empty($map['LabelCountDTOList'])) {
                 $model->labelCountDTOList = [];
-                $n1 = 0;
-                foreach ($map['LabelCountDTOList'] as $item1) {
-                    $model->labelCountDTOList[$n1] = labelCountDTOList::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['LabelCountDTOList'] as $item) {
+                    $model->labelCountDTOList[$n++] = null !== $item ? labelCountDTOList::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

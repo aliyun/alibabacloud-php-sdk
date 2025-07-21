@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Wyota\V20210420\Models\SendOpsMessageToTerminalsResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -40,30 +40,23 @@ class data extends Model
         'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->failReason) {
             $res['FailReason'] = $this->failReason;
         }
-
         if (null !== $this->result) {
             $res['Result'] = $this->result;
         }
-
         if (null !== $this->serialNumber) {
             $res['SerialNumber'] = $this->serialNumber;
         }
-
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
-
         if (null !== $this->uuid) {
             $res['Uuid'] = $this->uuid;
         }
@@ -71,30 +64,26 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FailReason'])) {
             $model->failReason = $map['FailReason'];
         }
-
         if (isset($map['Result'])) {
             $model->result = $map['Result'];
         }
-
         if (isset($map['SerialNumber'])) {
             $model->serialNumber = $map['SerialNumber'];
         }
-
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }
-
         if (isset($map['Uuid'])) {
             $model->uuid = $map['Uuid'];
         }

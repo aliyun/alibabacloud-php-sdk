@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Wyota\V20210420\Models\GetDeviceOtaInfoTestResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Wyota\V20210420\Models\GetDeviceOtaInfoTestResponseBody\data\version;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -17,29 +17,23 @@ class data extends Model
         'version' => 'Version',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->version) {
-            $this->version->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->version) {
-            $res['Version'] = null !== $this->version ? $this->version->toArray($noStream) : $this->version;
+            $res['Version'] = null !== $this->version ? $this->version->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

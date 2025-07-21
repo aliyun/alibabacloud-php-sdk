@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Wyota\V20210420\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DetachLabelsRequest extends Model
 {
@@ -28,22 +28,17 @@ class DetachLabelsRequest extends Model
         'serialNoList' => 'SerialNoList',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->labelIds) {
             $res['LabelIds'] = $this->labelIds;
         }
-
         if (null !== $this->serialNo) {
             $res['SerialNo'] = $this->serialNo;
         }
-
         if (null !== $this->serialNoList) {
             $res['SerialNoList'] = $this->serialNoList;
         }
@@ -51,22 +46,20 @@ class DetachLabelsRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DetachLabelsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LabelIds'])) {
             $model->labelIds = $map['LabelIds'];
         }
-
         if (isset($map['SerialNo'])) {
             $model->serialNo = $map['SerialNo'];
         }
-
         if (isset($map['SerialNoList'])) {
             $model->serialNoList = $map['SerialNoList'];
         }

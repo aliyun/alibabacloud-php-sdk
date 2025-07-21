@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Wyota\V20210420\Models\ListUserFbIssuesResponseBody\data\feedbackIssueData;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class fileList extends Model
 {
@@ -40,30 +40,23 @@ class fileList extends Model
         'ossUrl' => 'OssUrl',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->fileMd5) {
             $res['FileMd5'] = $this->fileMd5;
         }
-
         if (null !== $this->fileName) {
             $res['FileName'] = $this->fileName;
         }
-
         if (null !== $this->fileSize) {
             $res['FileSize'] = $this->fileSize;
         }
-
         if (null !== $this->fileType) {
             $res['FileType'] = $this->fileType;
         }
-
         if (null !== $this->ossUrl) {
             $res['OssUrl'] = $this->ossUrl;
         }
@@ -71,30 +64,26 @@ class fileList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return fileList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FileMd5'])) {
             $model->fileMd5 = $map['FileMd5'];
         }
-
         if (isset($map['FileName'])) {
             $model->fileName = $map['FileName'];
         }
-
         if (isset($map['FileSize'])) {
             $model->fileSize = $map['FileSize'];
         }
-
         if (isset($map['FileType'])) {
             $model->fileType = $map['FileType'];
         }
-
         if (isset($map['OssUrl'])) {
             $model->ossUrl = $map['OssUrl'];
         }

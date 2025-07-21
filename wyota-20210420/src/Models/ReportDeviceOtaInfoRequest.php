@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Wyota\V20210420\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ReportDeviceOtaInfoRequest extends Model
 {
@@ -46,34 +46,26 @@ class ReportDeviceOtaInfoRequest extends Model
         'targetVersion' => 'TargetVersion',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->baseVersion) {
             $res['BaseVersion'] = $this->baseVersion;
         }
-
         if (null !== $this->deviceId) {
             $res['DeviceId'] = $this->deviceId;
         }
-
         if (null !== $this->model) {
             $res['Model'] = $this->model;
         }
-
         if (null !== $this->note) {
             $res['Note'] = $this->note;
         }
-
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-
         if (null !== $this->targetVersion) {
             $res['TargetVersion'] = $this->targetVersion;
         }
@@ -81,34 +73,29 @@ class ReportDeviceOtaInfoRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ReportDeviceOtaInfoRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BaseVersion'])) {
             $model->baseVersion = $map['BaseVersion'];
         }
-
         if (isset($map['DeviceId'])) {
             $model->deviceId = $map['DeviceId'];
         }
-
         if (isset($map['Model'])) {
             $model->model = $map['Model'];
         }
-
         if (isset($map['Note'])) {
             $model->note = $map['Note'];
         }
-
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-
         if (isset($map['TargetVersion'])) {
             $model->targetVersion = $map['TargetVersion'];
         }

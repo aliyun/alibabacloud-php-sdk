@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Wyota\V20210420\Models\DescribeDeviceVersionDetailResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -130,90 +130,68 @@ class data extends Model
         'versionType' => 'VersionType',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->androidHorizontalMultiCnImageDownloadUrl) {
             $res['AndroidHorizontalMultiCnImageDownloadUrl'] = $this->androidHorizontalMultiCnImageDownloadUrl;
         }
-
         if (null !== $this->androidHorizontalMultiEnImageDownloadUrl) {
             $res['AndroidHorizontalMultiEnImageDownloadUrl'] = $this->androidHorizontalMultiEnImageDownloadUrl;
         }
-
         if (null !== $this->androidVerticalMultiCnImageDownloadUrl) {
             $res['AndroidVerticalMultiCnImageDownloadUrl'] = $this->androidVerticalMultiCnImageDownloadUrl;
         }
-
         if (null !== $this->androidVerticalMultiEnImageDownloadUrl) {
             $res['AndroidVerticalMultiEnImageDownloadUrl'] = $this->androidVerticalMultiEnImageDownloadUrl;
         }
-
         if (null !== $this->channel) {
             $res['Channel'] = $this->channel;
         }
-
         if (null !== $this->clientType) {
             $res['ClientType'] = $this->clientType;
         }
-
         if (null !== $this->cnImageDownloadUrl) {
             $res['CnImageDownloadUrl'] = $this->cnImageDownloadUrl;
         }
-
         if (null !== $this->creator) {
             $res['Creator'] = $this->creator;
         }
-
         if (null !== $this->downloadUrl) {
             $res['DownloadUrl'] = $this->downloadUrl;
         }
-
         if (null !== $this->enImageDownloadUrl) {
             $res['EnImageDownloadUrl'] = $this->enImageDownloadUrl;
         }
-
         if (null !== $this->md5) {
             $res['Md5'] = $this->md5;
         }
-
         if (null !== $this->model) {
             $res['Model'] = $this->model;
         }
-
         if (null !== $this->multiCnImageDownloadUrl) {
             $res['MultiCnImageDownloadUrl'] = $this->multiCnImageDownloadUrl;
         }
-
         if (null !== $this->multiEnImageDownloadUrl) {
             $res['MultiEnImageDownloadUrl'] = $this->multiEnImageDownloadUrl;
         }
-
         if (null !== $this->releaseNote) {
             $res['ReleaseNote'] = $this->releaseNote;
         }
-
         if (null !== $this->releaseNoteEn) {
             $res['ReleaseNoteEn'] = $this->releaseNoteEn;
         }
-
         if (null !== $this->size) {
             $res['Size'] = $this->size;
         }
-
         if (null !== $this->version) {
             $res['Version'] = $this->version;
         }
-
         if (null !== $this->versionCode) {
             $res['VersionCode'] = $this->versionCode;
         }
-
         if (null !== $this->versionType) {
             $res['VersionType'] = $this->versionType;
         }
@@ -221,90 +199,71 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AndroidHorizontalMultiCnImageDownloadUrl'])) {
             $model->androidHorizontalMultiCnImageDownloadUrl = $map['AndroidHorizontalMultiCnImageDownloadUrl'];
         }
-
         if (isset($map['AndroidHorizontalMultiEnImageDownloadUrl'])) {
             $model->androidHorizontalMultiEnImageDownloadUrl = $map['AndroidHorizontalMultiEnImageDownloadUrl'];
         }
-
         if (isset($map['AndroidVerticalMultiCnImageDownloadUrl'])) {
             $model->androidVerticalMultiCnImageDownloadUrl = $map['AndroidVerticalMultiCnImageDownloadUrl'];
         }
-
         if (isset($map['AndroidVerticalMultiEnImageDownloadUrl'])) {
             $model->androidVerticalMultiEnImageDownloadUrl = $map['AndroidVerticalMultiEnImageDownloadUrl'];
         }
-
         if (isset($map['Channel'])) {
             $model->channel = $map['Channel'];
         }
-
         if (isset($map['ClientType'])) {
             $model->clientType = $map['ClientType'];
         }
-
         if (isset($map['CnImageDownloadUrl'])) {
             $model->cnImageDownloadUrl = $map['CnImageDownloadUrl'];
         }
-
         if (isset($map['Creator'])) {
             $model->creator = $map['Creator'];
         }
-
         if (isset($map['DownloadUrl'])) {
             $model->downloadUrl = $map['DownloadUrl'];
         }
-
         if (isset($map['EnImageDownloadUrl'])) {
             $model->enImageDownloadUrl = $map['EnImageDownloadUrl'];
         }
-
         if (isset($map['Md5'])) {
             $model->md5 = $map['Md5'];
         }
-
         if (isset($map['Model'])) {
             $model->model = $map['Model'];
         }
-
         if (isset($map['MultiCnImageDownloadUrl'])) {
             $model->multiCnImageDownloadUrl = $map['MultiCnImageDownloadUrl'];
         }
-
         if (isset($map['MultiEnImageDownloadUrl'])) {
             $model->multiEnImageDownloadUrl = $map['MultiEnImageDownloadUrl'];
         }
-
         if (isset($map['ReleaseNote'])) {
             $model->releaseNote = $map['ReleaseNote'];
         }
-
         if (isset($map['ReleaseNoteEn'])) {
             $model->releaseNoteEn = $map['ReleaseNoteEn'];
         }
-
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
         }
-
         if (isset($map['Version'])) {
             $model->version = $map['Version'];
         }
-
         if (isset($map['VersionCode'])) {
             $model->versionCode = $map['VersionCode'];
         }
-
         if (isset($map['VersionType'])) {
             $model->versionType = $map['VersionType'];
         }

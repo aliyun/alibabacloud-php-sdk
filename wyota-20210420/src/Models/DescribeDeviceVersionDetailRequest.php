@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Wyota\V20210420\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeDeviceVersionDetailRequest extends Model
 {
@@ -34,26 +34,20 @@ class DescribeDeviceVersionDetailRequest extends Model
         'versionName' => 'VersionName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->model) {
             $res['Model'] = $this->model;
         }
-
         if (null !== $this->networkType) {
             $res['NetworkType'] = $this->networkType;
         }
-
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
-
         if (null !== $this->versionName) {
             $res['VersionName'] = $this->versionName;
         }
@@ -61,26 +55,23 @@ class DescribeDeviceVersionDetailRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeDeviceVersionDetailRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Model'])) {
             $model->model = $map['Model'];
         }
-
         if (isset($map['NetworkType'])) {
             $model->networkType = $map['NetworkType'];
         }
-
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }
-
         if (isset($map['VersionName'])) {
             $model->versionName = $map['VersionName'];
         }

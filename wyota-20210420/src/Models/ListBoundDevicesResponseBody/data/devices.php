@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Wyota\V20210420\Models\ListBoundDevicesResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class devices extends Model
 {
@@ -130,90 +130,68 @@ class devices extends Model
         'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->alias) {
             $res['Alias'] = $this->alias;
         }
-
         if (null !== $this->boundTime) {
             $res['BoundTime'] = $this->boundTime;
         }
-
         if (null !== $this->buildId) {
             $res['BuildId'] = $this->buildId;
         }
-
         if (null !== $this->clientType) {
             $res['ClientType'] = $this->clientType;
         }
-
         if (null !== $this->connectionStatus) {
             $res['ConnectionStatus'] = $this->connectionStatus;
         }
-
         if (null !== $this->deviceMqttConnectionStatus) {
             $res['DeviceMqttConnectionStatus'] = $this->deviceMqttConnectionStatus;
         }
-
         if (null !== $this->deviceOs) {
             $res['DeviceOs'] = $this->deviceOs;
         }
-
         if (null !== $this->devicePlatform) {
             $res['DevicePlatform'] = $this->devicePlatform;
         }
-
         if (null !== $this->inManage) {
             $res['InManage'] = $this->inManage;
         }
-
         if (null !== $this->lastLoginTime) {
             $res['LastLoginTime'] = $this->lastLoginTime;
         }
-
         if (null !== $this->lastLoginUser) {
             $res['LastLoginUser'] = $this->lastLoginUser;
         }
-
         if (null !== $this->loginUser) {
             $res['LoginUser'] = $this->loginUser;
         }
-
         if (null !== $this->model) {
             $res['Model'] = $this->model;
         }
-
         if (null !== $this->passwordFreeLoginUser) {
             $res['PasswordFreeLoginUser'] = $this->passwordFreeLoginUser;
         }
-
         if (null !== $this->passwordFreeLoginUserNickName) {
             $res['PasswordFreeLoginUserNickName'] = $this->passwordFreeLoginUserNickName;
         }
-
         if (null !== $this->privateIp) {
             $res['PrivateIp'] = $this->privateIp;
         }
-
         if (null !== $this->productName) {
             $res['ProductName'] = $this->productName;
         }
-
         if (null !== $this->publicIp) {
             $res['PublicIp'] = $this->publicIp;
         }
-
         if (null !== $this->serialNo) {
             $res['SerialNo'] = $this->serialNo;
         }
-
         if (null !== $this->uuid) {
             $res['Uuid'] = $this->uuid;
         }
@@ -221,90 +199,71 @@ class devices extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return devices
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Alias'])) {
             $model->alias = $map['Alias'];
         }
-
         if (isset($map['BoundTime'])) {
             $model->boundTime = $map['BoundTime'];
         }
-
         if (isset($map['BuildId'])) {
             $model->buildId = $map['BuildId'];
         }
-
         if (isset($map['ClientType'])) {
             $model->clientType = $map['ClientType'];
         }
-
         if (isset($map['ConnectionStatus'])) {
             $model->connectionStatus = $map['ConnectionStatus'];
         }
-
         if (isset($map['DeviceMqttConnectionStatus'])) {
             $model->deviceMqttConnectionStatus = $map['DeviceMqttConnectionStatus'];
         }
-
         if (isset($map['DeviceOs'])) {
             $model->deviceOs = $map['DeviceOs'];
         }
-
         if (isset($map['DevicePlatform'])) {
             $model->devicePlatform = $map['DevicePlatform'];
         }
-
         if (isset($map['InManage'])) {
             $model->inManage = $map['InManage'];
         }
-
         if (isset($map['LastLoginTime'])) {
             $model->lastLoginTime = $map['LastLoginTime'];
         }
-
         if (isset($map['LastLoginUser'])) {
             $model->lastLoginUser = $map['LastLoginUser'];
         }
-
         if (isset($map['LoginUser'])) {
             $model->loginUser = $map['LoginUser'];
         }
-
         if (isset($map['Model'])) {
             $model->model = $map['Model'];
         }
-
         if (isset($map['PasswordFreeLoginUser'])) {
             $model->passwordFreeLoginUser = $map['PasswordFreeLoginUser'];
         }
-
         if (isset($map['PasswordFreeLoginUserNickName'])) {
             $model->passwordFreeLoginUserNickName = $map['PasswordFreeLoginUserNickName'];
         }
-
         if (isset($map['PrivateIp'])) {
             $model->privateIp = $map['PrivateIp'];
         }
-
         if (isset($map['ProductName'])) {
             $model->productName = $map['ProductName'];
         }
-
         if (isset($map['PublicIp'])) {
             $model->publicIp = $map['PublicIp'];
         }
-
         if (isset($map['SerialNo'])) {
             $model->serialNo = $map['SerialNo'];
         }
-
         if (isset($map['Uuid'])) {
             $model->uuid = $map['Uuid'];
         }

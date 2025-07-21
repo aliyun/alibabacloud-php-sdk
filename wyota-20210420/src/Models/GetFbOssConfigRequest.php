@@ -4,10 +4,15 @@
 
 namespace AlibabaCloud\SDK\Wyota\V20210420\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetFbOssConfigRequest extends Model
 {
+    /**
+     * @var string
+     */
+    public $areaSite;
+
     /**
      * @var string
      */
@@ -23,27 +28,26 @@ class GetFbOssConfigRequest extends Model
      */
     public $region;
     protected $_name = [
+        'areaSite' => 'AreaSite',
         'dirPrefix' => 'DirPrefix',
         'isDedicatedLine' => 'IsDedicatedLine',
         'region' => 'Region',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
+        if (null !== $this->areaSite) {
+            $res['AreaSite'] = $this->areaSite;
+        }
         if (null !== $this->dirPrefix) {
             $res['DirPrefix'] = $this->dirPrefix;
         }
-
         if (null !== $this->isDedicatedLine) {
             $res['IsDedicatedLine'] = $this->isDedicatedLine;
         }
-
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
@@ -51,22 +55,23 @@ class GetFbOssConfigRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetFbOssConfigRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AreaSite'])) {
+            $model->areaSite = $map['AreaSite'];
+        }
         if (isset($map['DirPrefix'])) {
             $model->dirPrefix = $map['DirPrefix'];
         }
-
         if (isset($map['IsDedicatedLine'])) {
             $model->isDedicatedLine = $map['IsDedicatedLine'];
         }
-
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }

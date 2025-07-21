@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Wyota\V20210420\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GenerateOssUrlRequest extends Model
 {
@@ -22,28 +22,14 @@ class GenerateOssUrlRequest extends Model
         'sessionId' => 'SessionId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->objectNameList)) {
-            Model::validateArray($this->objectNameList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->objectNameList) {
-            if (\is_array($this->objectNameList)) {
-                $res['ObjectNameList'] = [];
-                $n1 = 0;
-                foreach ($this->objectNameList as $item1) {
-                    $res['ObjectNameList'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['ObjectNameList'] = $this->objectNameList;
         }
-
         if (null !== $this->sessionId) {
             $res['SessionId'] = $this->sessionId;
         }
@@ -51,25 +37,19 @@ class GenerateOssUrlRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GenerateOssUrlRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ObjectNameList'])) {
             if (!empty($map['ObjectNameList'])) {
-                $model->objectNameList = [];
-                $n1 = 0;
-                foreach ($map['ObjectNameList'] as $item1) {
-                    $model->objectNameList[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->objectNameList = $map['ObjectNameList'];
             }
         }
-
         if (isset($map['SessionId'])) {
             $model->sessionId = $map['SessionId'];
         }

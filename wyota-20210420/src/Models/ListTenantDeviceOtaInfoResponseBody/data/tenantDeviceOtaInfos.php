@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Wyota\V20210420\Models\ListTenantDeviceOtaInfoResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class tenantDeviceOtaInfos extends Model
 {
@@ -28,22 +28,17 @@ class tenantDeviceOtaInfos extends Model
         'model' => 'Model',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->currentVersion) {
             $res['CurrentVersion'] = $this->currentVersion;
         }
-
         if (null !== $this->deviceId) {
             $res['DeviceId'] = $this->deviceId;
         }
-
         if (null !== $this->model) {
             $res['Model'] = $this->model;
         }
@@ -51,22 +46,20 @@ class tenantDeviceOtaInfos extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return tenantDeviceOtaInfos
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CurrentVersion'])) {
             $model->currentVersion = $map['CurrentVersion'];
         }
-
         if (isset($map['DeviceId'])) {
             $model->deviceId = $map['DeviceId'];
         }
-
         if (isset($map['Model'])) {
             $model->model = $map['Model'];
         }

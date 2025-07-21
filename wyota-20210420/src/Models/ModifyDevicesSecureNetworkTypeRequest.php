@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Wyota\V20210420\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyDevicesSecureNetworkTypeRequest extends Model
 {
@@ -14,6 +14,8 @@ class ModifyDevicesSecureNetworkTypeRequest extends Model
     public $allDevices;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $secureNetworkType;
@@ -28,22 +30,17 @@ class ModifyDevicesSecureNetworkTypeRequest extends Model
         'serialNos' => 'SerialNos',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->allDevices) {
             $res['AllDevices'] = $this->allDevices;
         }
-
         if (null !== $this->secureNetworkType) {
             $res['SecureNetworkType'] = $this->secureNetworkType;
         }
-
         if (null !== $this->serialNos) {
             $res['SerialNos'] = $this->serialNos;
         }
@@ -51,22 +48,20 @@ class ModifyDevicesSecureNetworkTypeRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyDevicesSecureNetworkTypeRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AllDevices'])) {
             $model->allDevices = $map['AllDevices'];
         }
-
         if (isset($map['SecureNetworkType'])) {
             $model->secureNetworkType = $map['SecureNetworkType'];
         }
-
         if (isset($map['SerialNos'])) {
             $model->serialNos = $map['SerialNos'];
         }

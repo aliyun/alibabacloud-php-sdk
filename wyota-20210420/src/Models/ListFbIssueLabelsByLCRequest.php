@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Wyota\V20210420\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListFbIssueLabelsByLCRequest extends Model
 {
@@ -22,18 +22,14 @@ class ListFbIssueLabelsByLCRequest extends Model
         'languageType' => 'LanguageType',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->caller) {
             $res['Caller'] = $this->caller;
         }
-
         if (null !== $this->languageType) {
             $res['LanguageType'] = $this->languageType;
         }
@@ -41,18 +37,17 @@ class ListFbIssueLabelsByLCRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListFbIssueLabelsByLCRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Caller'])) {
             $model->caller = $map['Caller'];
         }
-
         if (isset($map['LanguageType'])) {
             $model->languageType = $map['LanguageType'];
         }

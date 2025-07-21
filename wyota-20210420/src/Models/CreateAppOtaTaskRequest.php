@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Wyota\V20210420\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateAppOtaTaskRequest extends Model
 {
@@ -100,193 +100,117 @@ class CreateAppOtaTaskRequest extends Model
         'tenantIdList' => 'TenantIdList',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->clientIdList)) {
-            Model::validateArray($this->clientIdList);
-        }
-        if (\is_array($this->regions)) {
-            Model::validateArray($this->regions);
-        }
-        if (\is_array($this->tenantIdList)) {
-            Model::validateArray($this->tenantIdList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appVersionUid) {
             $res['AppVersionUid'] = $this->appVersionUid;
         }
-
         if (null !== $this->channel) {
             $res['Channel'] = $this->channel;
         }
-
         if (null !== $this->clientIdList) {
-            if (\is_array($this->clientIdList)) {
-                $res['ClientIdList'] = [];
-                $n1 = 0;
-                foreach ($this->clientIdList as $item1) {
-                    $res['ClientIdList'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['ClientIdList'] = $this->clientIdList;
         }
-
         if (null !== $this->clientType) {
             $res['ClientType'] = $this->clientType;
         }
-
         if (null !== $this->creator) {
             $res['Creator'] = $this->creator;
         }
-
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-
         if (null !== $this->forceUpgrade) {
             $res['ForceUpgrade'] = $this->forceUpgrade;
         }
-
         if (null !== $this->label) {
             $res['Label'] = $this->label;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->project) {
             $res['Project'] = $this->project;
         }
-
         if (null !== $this->regions) {
-            if (\is_array($this->regions)) {
-                $res['Regions'] = [];
-                $n1 = 0;
-                foreach ($this->regions as $item1) {
-                    $res['Regions'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['Regions'] = $this->regions;
         }
-
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-
         if (null !== $this->taskType) {
             $res['TaskType'] = $this->taskType;
         }
-
         if (null !== $this->tenantId) {
             $res['TenantId'] = $this->tenantId;
         }
-
         if (null !== $this->tenantIdList) {
-            if (\is_array($this->tenantIdList)) {
-                $res['TenantIdList'] = [];
-                $n1 = 0;
-                foreach ($this->tenantIdList as $item1) {
-                    $res['TenantIdList'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['TenantIdList'] = $this->tenantIdList;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateAppOtaTaskRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppVersionUid'])) {
             $model->appVersionUid = $map['AppVersionUid'];
         }
-
         if (isset($map['Channel'])) {
             $model->channel = $map['Channel'];
         }
-
         if (isset($map['ClientIdList'])) {
             if (!empty($map['ClientIdList'])) {
-                $model->clientIdList = [];
-                $n1 = 0;
-                foreach ($map['ClientIdList'] as $item1) {
-                    $model->clientIdList[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->clientIdList = $map['ClientIdList'];
             }
         }
-
         if (isset($map['ClientType'])) {
             $model->clientType = $map['ClientType'];
         }
-
         if (isset($map['Creator'])) {
             $model->creator = $map['Creator'];
         }
-
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-
         if (isset($map['ForceUpgrade'])) {
             $model->forceUpgrade = $map['ForceUpgrade'];
         }
-
         if (isset($map['Label'])) {
             $model->label = $map['Label'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['Project'])) {
             $model->project = $map['Project'];
         }
-
         if (isset($map['Regions'])) {
             if (!empty($map['Regions'])) {
-                $model->regions = [];
-                $n1 = 0;
-                foreach ($map['Regions'] as $item1) {
-                    $model->regions[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->regions = $map['Regions'];
             }
         }
-
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-
         if (isset($map['TaskType'])) {
             $model->taskType = $map['TaskType'];
         }
-
         if (isset($map['TenantId'])) {
             $model->tenantId = $map['TenantId'];
         }
-
         if (isset($map['TenantIdList'])) {
             if (!empty($map['TenantIdList'])) {
-                $model->tenantIdList = [];
-                $n1 = 0;
-                foreach ($map['TenantIdList'] as $item1) {
-                    $model->tenantIdList[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->tenantIdList = $map['TenantIdList'];
             }
         }
 

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Wyota\V20210420\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListTrustDevicesRequest extends Model
 {
@@ -34,26 +34,20 @@ class ListTrustDevicesRequest extends Model
         'userCustomId' => 'UserCustomId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->labelContent) {
             $res['LabelContent'] = $this->labelContent;
         }
-
         if (null !== $this->labelId) {
             $res['LabelId'] = $this->labelId;
         }
-
         if (null !== $this->serialNo) {
             $res['SerialNo'] = $this->serialNo;
         }
-
         if (null !== $this->userCustomId) {
             $res['UserCustomId'] = $this->userCustomId;
         }
@@ -61,26 +55,23 @@ class ListTrustDevicesRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListTrustDevicesRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LabelContent'])) {
             $model->labelContent = $map['LabelContent'];
         }
-
         if (isset($map['LabelId'])) {
             $model->labelId = $map['LabelId'];
         }
-
         if (isset($map['SerialNo'])) {
             $model->serialNo = $map['SerialNo'];
         }
-
         if (isset($map['UserCustomId'])) {
             $model->userCustomId = $map['UserCustomId'];
         }

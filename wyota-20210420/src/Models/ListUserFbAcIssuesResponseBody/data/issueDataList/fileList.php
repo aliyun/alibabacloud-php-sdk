@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Wyota\V20210420\Models\ListUserFbAcIssuesResponseBody\data\issueDataList;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class fileList extends Model
 {
@@ -34,26 +34,20 @@ class fileList extends Model
         'sessionId' => 'SessionId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->fileName) {
             $res['FileName'] = $this->fileName;
         }
-
         if (null !== $this->fileSize) {
             $res['FileSize'] = $this->fileSize;
         }
-
         if (null !== $this->fileType) {
             $res['FileType'] = $this->fileType;
         }
-
         if (null !== $this->sessionId) {
             $res['SessionId'] = $this->sessionId;
         }
@@ -61,26 +55,23 @@ class fileList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return fileList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FileName'])) {
             $model->fileName = $map['FileName'];
         }
-
         if (isset($map['FileSize'])) {
             $model->fileSize = $map['FileSize'];
         }
-
         if (isset($map['FileType'])) {
             $model->fileType = $map['FileType'];
         }
-
         if (isset($map['SessionId'])) {
             $model->sessionId = $map['SessionId'];
         }

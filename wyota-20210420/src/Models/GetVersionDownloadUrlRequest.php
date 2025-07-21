@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Wyota\V20210420\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetVersionDownloadUrlRequest extends Model
 {
@@ -16,12 +16,9 @@ class GetVersionDownloadUrlRequest extends Model
         'versionName' => 'VersionName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->versionName) {
@@ -31,11 +28,11 @@ class GetVersionDownloadUrlRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetVersionDownloadUrlRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

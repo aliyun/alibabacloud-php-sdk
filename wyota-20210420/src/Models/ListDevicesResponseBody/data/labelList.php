@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Wyota\V20210420\Models\ListDevicesResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class labelList extends Model
 {
@@ -40,30 +40,23 @@ class labelList extends Model
         'tenantId' => 'TenantId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
-
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
         }
-
         if (null !== $this->gmtModified) {
             $res['GmtModified'] = $this->gmtModified;
         }
-
         if (null !== $this->labelId) {
             $res['LabelId'] = $this->labelId;
         }
-
         if (null !== $this->tenantId) {
             $res['TenantId'] = $this->tenantId;
         }
@@ -71,30 +64,26 @@ class labelList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return labelList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
-
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
         }
-
         if (isset($map['GmtModified'])) {
             $model->gmtModified = $map['GmtModified'];
         }
-
         if (isset($map['LabelId'])) {
             $model->labelId = $map['LabelId'];
         }
-
         if (isset($map['TenantId'])) {
             $model->tenantId = $map['TenantId'];
         }

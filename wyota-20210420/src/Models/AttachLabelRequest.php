@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Wyota\V20210420\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class AttachLabelRequest extends Model
 {
@@ -19,6 +19,8 @@ class AttachLabelRequest extends Model
     public $labelId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $serialNo;
@@ -28,22 +30,17 @@ class AttachLabelRequest extends Model
         'serialNo' => 'SerialNo',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->labelContent) {
             $res['LabelContent'] = $this->labelContent;
         }
-
         if (null !== $this->labelId) {
             $res['LabelId'] = $this->labelId;
         }
-
         if (null !== $this->serialNo) {
             $res['SerialNo'] = $this->serialNo;
         }
@@ -51,22 +48,20 @@ class AttachLabelRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return AttachLabelRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LabelContent'])) {
             $model->labelContent = $map['LabelContent'];
         }
-
         if (isset($map['LabelId'])) {
             $model->labelId = $map['LabelId'];
         }
-
         if (isset($map['SerialNo'])) {
             $model->serialNo = $map['SerialNo'];
         }

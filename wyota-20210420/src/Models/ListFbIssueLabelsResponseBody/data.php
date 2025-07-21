@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Wyota\V20210420\Models\ListFbIssueLabelsResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -16,47 +16,29 @@ class data extends Model
         'issueLabel' => 'IssueLabel',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->issueLabel)) {
-            Model::validateArray($this->issueLabel);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->issueLabel) {
-            if (\is_array($this->issueLabel)) {
-                $res['IssueLabel'] = [];
-                $n1 = 0;
-                foreach ($this->issueLabel as $item1) {
-                    $res['IssueLabel'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['IssueLabel'] = $this->issueLabel;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IssueLabel'])) {
             if (!empty($map['IssueLabel'])) {
-                $model->issueLabel = [];
-                $n1 = 0;
-                foreach ($map['IssueLabel'] as $item1) {
-                    $model->issueLabel[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->issueLabel = $map['IssueLabel'];
             }
         }
 

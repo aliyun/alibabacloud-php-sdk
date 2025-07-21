@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Wyota\V20210420\Models\GetOssConfigResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -40,30 +40,23 @@ class data extends Model
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->accessKeyId) {
             $res['AccessKeyId'] = $this->accessKeyId;
         }
-
         if (null !== $this->endPoint) {
             $res['EndPoint'] = $this->endPoint;
         }
-
         if (null !== $this->ossPolicy) {
             $res['OssPolicy'] = $this->ossPolicy;
         }
-
         if (null !== $this->ossSignature) {
             $res['OssSignature'] = $this->ossSignature;
         }
-
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
@@ -71,30 +64,26 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccessKeyId'])) {
             $model->accessKeyId = $map['AccessKeyId'];
         }
-
         if (isset($map['EndPoint'])) {
             $model->endPoint = $map['EndPoint'];
         }
-
         if (isset($map['OssPolicy'])) {
             $model->ossPolicy = $map['OssPolicy'];
         }
-
         if (isset($map['OssSignature'])) {
             $model->ossSignature = $map['OssSignature'];
         }
-
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }

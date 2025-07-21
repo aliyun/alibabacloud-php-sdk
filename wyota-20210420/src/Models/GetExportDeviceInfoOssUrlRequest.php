@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Wyota\V20210420\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetExportDeviceInfoOssUrlRequest extends Model
 {
@@ -28,22 +28,17 @@ class GetExportDeviceInfoOssUrlRequest extends Model
         'zoneName' => 'ZoneName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->tenantId) {
             $res['TenantId'] = $this->tenantId;
         }
-
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
-
         if (null !== $this->zoneName) {
             $res['ZoneName'] = $this->zoneName;
         }
@@ -51,22 +46,20 @@ class GetExportDeviceInfoOssUrlRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetExportDeviceInfoOssUrlRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TenantId'])) {
             $model->tenantId = $map['TenantId'];
         }
-
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
         }
-
         if (isset($map['ZoneName'])) {
             $model->zoneName = $map['ZoneName'];
         }

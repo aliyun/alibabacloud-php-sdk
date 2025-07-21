@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Wyota\V20210420\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class AddOrUpdateDeviceSeatsRequest extends Model
 {
@@ -28,22 +28,17 @@ class AddOrUpdateDeviceSeatsRequest extends Model
         'zoneId' => 'ZoneId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->fileName) {
             $res['FileName'] = $this->fileName;
         }
-
         if (null !== $this->userCustomId) {
             $res['UserCustomId'] = $this->userCustomId;
         }
-
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
@@ -51,22 +46,20 @@ class AddOrUpdateDeviceSeatsRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return AddOrUpdateDeviceSeatsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FileName'])) {
             $model->fileName = $map['FileName'];
         }
-
         if (isset($map['UserCustomId'])) {
             $model->userCustomId = $map['UserCustomId'];
         }
-
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
         }

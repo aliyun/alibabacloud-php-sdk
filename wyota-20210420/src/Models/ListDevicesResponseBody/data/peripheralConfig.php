@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Wyota\V20210420\Models\ListDevicesResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class peripheralConfig extends Model
 {
@@ -40,30 +40,23 @@ class peripheralConfig extends Model
         'usbStorage' => 'UsbStorage',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->defaultPolicy) {
             $res['DefaultPolicy'] = $this->defaultPolicy;
         }
-
         if (null !== $this->policyStrategy) {
             $res['PolicyStrategy'] = $this->policyStrategy;
         }
-
         if (null !== $this->usbAndInternalCamera) {
             $res['UsbAndInternalCamera'] = $this->usbAndInternalCamera;
         }
-
         if (null !== $this->usbPrinter) {
             $res['UsbPrinter'] = $this->usbPrinter;
         }
-
         if (null !== $this->usbStorage) {
             $res['UsbStorage'] = $this->usbStorage;
         }
@@ -71,30 +64,26 @@ class peripheralConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return peripheralConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DefaultPolicy'])) {
             $model->defaultPolicy = $map['DefaultPolicy'];
         }
-
         if (isset($map['PolicyStrategy'])) {
             $model->policyStrategy = $map['PolicyStrategy'];
         }
-
         if (isset($map['UsbAndInternalCamera'])) {
             $model->usbAndInternalCamera = $map['UsbAndInternalCamera'];
         }
-
         if (isset($map['UsbPrinter'])) {
             $model->usbPrinter = $map['UsbPrinter'];
         }
-
         if (isset($map['UsbStorage'])) {
             $model->usbStorage = $map['UsbStorage'];
         }
