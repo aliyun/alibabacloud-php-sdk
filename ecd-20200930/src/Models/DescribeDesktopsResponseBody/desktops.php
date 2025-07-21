@@ -203,6 +203,11 @@ class desktops extends Model
     public $disks;
 
     /**
+     * @var string
+     */
+    public $domainType;
+
+    /**
      * @description The number of times for which the cloud desktop can be downgraded.
      *
      * @example 3
@@ -659,6 +664,7 @@ class desktops extends Model
         'directoryId' => 'DirectoryId',
         'directoryType' => 'DirectoryType',
         'disks' => 'Disks',
+        'domainType' => 'DomainType',
         'downgradeQuota' => 'DowngradeQuota',
         'downgradedTimes' => 'DowngradedTimes',
         'endUserIds' => 'EndUserIds',
@@ -777,6 +783,9 @@ class desktops extends Model
                     $res['Disks'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->domainType) {
+            $res['DomainType'] = $this->domainType;
         }
         if (null !== $this->downgradeQuota) {
             $res['DowngradeQuota'] = $this->downgradeQuota;
@@ -1011,6 +1020,9 @@ class desktops extends Model
                     $model->disks[$n++] = null !== $item ? disks::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['DomainType'])) {
+            $model->domainType = $map['DomainType'];
         }
         if (isset($map['DowngradeQuota'])) {
             $model->downgradeQuota = $map['DowngradeQuota'];
