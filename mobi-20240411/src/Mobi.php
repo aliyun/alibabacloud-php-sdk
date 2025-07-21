@@ -4,13 +4,15 @@
 
 namespace AlibabaCloud\SDK\Mobi\V20240411;
 
-use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Mobi\V20240411\Models\CreateAppFromTemplateRequest;
 use AlibabaCloud\SDK\Mobi\V20240411\Models\CreateAppFromTemplateResponse;
+use AlibabaCloud\Tea\Utils\Utils;
+use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
-use Darabonba\OpenApi\Utils;
 
 class Mobi extends OpenApiClient
 {
@@ -35,80 +37,66 @@ class Mobi extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (null !== $endpoint) {
+        if (!Utils::empty_($endpoint)) {
             return $endpoint;
         }
-
-        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
+        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
             return @$endpointMap[$regionId];
         }
 
-        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * 通过模板创建应用.
+     * @summary 通过模板创建应用
+     *  *
+     * @param CreateAppFromTemplateRequest $request CreateAppFromTemplateRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateAppFromTemplateRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateAppFromTemplateResponse
-     *
-     * @param CreateAppFromTemplateRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return CreateAppFromTemplateResponse
+     * @return CreateAppFromTemplateResponse CreateAppFromTemplateResponse
      */
     public function createAppFromTemplateWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->actualParameters) {
-            @$query['ActualParameters'] = $request->actualParameters;
+        if (!Utils::isUnset($request->actualParameters)) {
+            $query['ActualParameters'] = $request->actualParameters;
         }
-
-        if (null !== $request->connectionsContent) {
-            @$query['ConnectionsContent'] = $request->connectionsContent;
+        if (!Utils::isUnset($request->agentId)) {
+            $query['AgentId'] = $request->agentId;
         }
-
-        if (null !== $request->databasesContent) {
-            @$query['DatabasesContent'] = $request->databasesContent;
+        if (!Utils::isUnset($request->connectionsContent)) {
+            $query['ConnectionsContent'] = $request->connectionsContent;
         }
-
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->databasesContent)) {
+            $query['DatabasesContent'] = $request->databasesContent;
         }
-
-        if (null !== $request->from) {
-            @$query['From'] = $request->from;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->icon) {
-            @$query['Icon'] = $request->icon;
+        if (!Utils::isUnset($request->from)) {
+            $query['From'] = $request->from;
         }
-
-        if (null !== $request->name) {
-            @$query['Name'] = $request->name;
+        if (!Utils::isUnset($request->icon)) {
+            $query['Icon'] = $request->icon;
         }
-
-        if (null !== $request->templateId) {
-            @$query['TemplateId'] = $request->templateId;
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
         }
-
-        if (null !== $request->type) {
-            @$query['Type'] = $request->type;
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
         }
-
-        if (null !== $request->variablesContent) {
-            @$query['VariablesContent'] = $request->variablesContent;
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
         }
-
-        if (null !== $request->workspaceId) {
-            @$query['WorkspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->variablesContent)) {
+            $query['VariablesContent'] = $request->variablesContent;
         }
-
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
+        }
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateAppFromTemplate',
@@ -121,23 +109,16 @@ class Mobi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateAppFromTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateAppFromTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateAppFromTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 通过模板创建应用.
+     * @summary 通过模板创建应用
+     *  *
+     * @param CreateAppFromTemplateRequest $request CreateAppFromTemplateRequest
      *
-     * @param request - CreateAppFromTemplateRequest
-     *
-     * @returns CreateAppFromTemplateResponse
-     *
-     * @param CreateAppFromTemplateRequest $request
-     *
-     * @return CreateAppFromTemplateResponse
+     * @return CreateAppFromTemplateResponse CreateAppFromTemplateResponse
      */
     public function createAppFromTemplate($request)
     {
