@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Dm\V20151123\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteIpfilterByEdmIdRequest extends Model
 {
     /**
+     * @description Deprecated, kept for historical compatibility.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $fromType;
 
     /**
+     * @description Record ID
+     *
+     * @example 10120
+     *
      * @var string
      */
     public $id;
@@ -40,30 +48,23 @@ class DeleteIpfilterByEdmIdRequest extends Model
         'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->fromType) {
             $res['FromType'] = $this->fromType;
         }
-
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
-
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
@@ -71,30 +72,26 @@ class DeleteIpfilterByEdmIdRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteIpfilterByEdmIdRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FromType'])) {
             $model->fromType = $map['FromType'];
         }
-
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
-
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }

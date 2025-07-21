@@ -4,12 +4,14 @@
 
 namespace AlibabaCloud\SDK\Dm\V20151123\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dm\V20151123\Models\UpdateUserRequest\user;
+use AlibabaCloud\Tea\Model;
 
 class UpdateUserRequest extends Model
 {
     /**
+     * @description User Information
+     *
      * @var user
      */
     public $user;
@@ -17,29 +19,23 @@ class UpdateUserRequest extends Model
         'user' => 'User',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->user) {
-            $this->user->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->user) {
-            $res['User'] = null !== $this->user ? $this->user->toArray($noStream) : $this->user;
+            $res['User'] = null !== $this->user ? $this->user->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateUserRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dm\V20151123\Models\SingleSendMailAdvanceRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 use GuzzleHttp\Psr7\Stream;
 
 class attachments extends Model
@@ -23,18 +23,14 @@ class attachments extends Model
         'attachmentUrlObject' => 'AttachmentUrl',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->attachmentName) {
             $res['AttachmentName'] = $this->attachmentName;
         }
-
         if (null !== $this->attachmentUrlObject) {
             $res['AttachmentUrl'] = $this->attachmentUrlObject;
         }
@@ -42,18 +38,17 @@ class attachments extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return attachments
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AttachmentName'])) {
             $model->attachmentName = $map['AttachmentName'];
         }
-
         if (isset($map['AttachmentUrl'])) {
             $model->attachmentUrlObject = $map['AttachmentUrl'];
         }

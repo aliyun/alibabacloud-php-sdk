@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dm\V20151123\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteReceiverDetailRequest extends Model
 {
     /**
+     * @description The single recipient to be deleted from the recipient list
+     *
+     * @example test@example.com
+     *
      * @var string
      */
     public $email;
@@ -19,6 +23,12 @@ class DeleteReceiverDetailRequest extends Model
     public $ownerId;
 
     /**
+     * @description Recipient list ID
+     *
+     * This parameter is required.
+     *
+     * @example 53228b7d80c36257927ecd029ccd3c9a
+     *
      * @var string
      */
     public $receiverId;
@@ -40,30 +50,23 @@ class DeleteReceiverDetailRequest extends Model
         'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->email) {
             $res['Email'] = $this->email;
         }
-
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-
         if (null !== $this->receiverId) {
             $res['ReceiverId'] = $this->receiverId;
         }
-
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
-
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
@@ -71,30 +74,26 @@ class DeleteReceiverDetailRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteReceiverDetailRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Email'])) {
             $model->email = $map['Email'];
         }
-
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-
         if (isset($map['ReceiverId'])) {
             $model->receiverId = $map['ReceiverId'];
         }
-
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
-
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }

@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Dm\V20151123\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateDomainResponseBody extends Model
 {
     /**
+     * @description Domain ID
+     *
+     * @example 158910
+     *
      * @var string
      */
     public $domainId;
 
     /**
+     * @description Request ID
+     *
+     * @example B49AD828-25D1-488C-90B7-8853C1944486
+     *
      * @var string
      */
     public $requestId;
@@ -22,18 +30,14 @@ class CreateDomainResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->domainId) {
             $res['DomainId'] = $this->domainId;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -41,18 +45,17 @@ class CreateDomainResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateDomainResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainId'])) {
             $model->domainId = $map['DomainId'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

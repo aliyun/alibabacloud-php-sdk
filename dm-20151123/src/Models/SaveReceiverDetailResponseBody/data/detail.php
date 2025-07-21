@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dm\V20151123\Models\SaveReceiverDetailResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class detail extends Model
 {
     /**
+     * @description Recipient address.
+     *
+     * @example test@example.com
+     *
      * @var string
      */
     public $email;
@@ -16,12 +20,9 @@ class detail extends Model
         'email' => 'Email',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->email) {
@@ -31,11 +32,11 @@ class detail extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return detail
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

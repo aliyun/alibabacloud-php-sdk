@@ -4,27 +4,41 @@
 
 namespace AlibabaCloud\SDK\Dm\V20151123\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dm\V20151123\Models\QueryInvalidAddressResponseBody\data;
+use AlibabaCloud\Tea\Model;
 
 class QueryInvalidAddressResponseBody extends Model
 {
     /**
+     * @description Next request starting position.
+     *
+     * @example 2
+     *
      * @var string
      */
     public $nextStart;
 
     /**
+     * @description Request ID.
+     *
+     * @example 95A7D497-F8DD-4834-B81E-C1783236E55F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Total count.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $totalCount;
 
     /**
+     * @description Records.
+     *
      * @var data
      */
     public $data;
@@ -35,56 +49,44 @@ class QueryInvalidAddressResponseBody extends Model
         'data' => 'data',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->data) {
-            $this->data->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->nextStart) {
             $res['NextStart'] = $this->nextStart;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
-
         if (null !== $this->data) {
-            $res['data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
+            $res['data'] = null !== $this->data ? $this->data->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return QueryInvalidAddressResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NextStart'])) {
             $model->nextStart = $map['NextStart'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }
-
         if (isset($map['data'])) {
             $model->data = data::fromMap($map['data']);
         }

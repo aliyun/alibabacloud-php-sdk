@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dm\V20151123\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetSuppressionListLevelResponseBody extends Model
 {
@@ -22,18 +22,14 @@ class GetSuppressionListLevelResponseBody extends Model
         'suppressionListLevel' => 'SuppressionListLevel',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->suppressionListLevel) {
             $res['SuppressionListLevel'] = $this->suppressionListLevel;
         }
@@ -41,18 +37,17 @@ class GetSuppressionListLevelResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetSuppressionListLevelResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['SuppressionListLevel'])) {
             $model->suppressionListLevel = $map['SuppressionListLevel'];
         }

@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Dm\V20151123\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class BatchSendMailResponseBody extends Model
 {
     /**
+     * @description Event ID
+     *
+     * @example xxx
+     *
      * @var string
      */
     public $envId;
 
     /**
+     * @description Request ID
+     *
+     * @example 12D086F6-8F31-4658-84C1-006DED011A85
+     *
      * @var string
      */
     public $requestId;
@@ -22,18 +30,14 @@ class BatchSendMailResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->envId) {
             $res['EnvId'] = $this->envId;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -41,18 +45,17 @@ class BatchSendMailResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return BatchSendMailResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EnvId'])) {
             $model->envId = $map['EnvId'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

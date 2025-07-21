@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dm\V20151123\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteInvalidAddressResponseBody extends Model
 {
     /**
+     * @description Request ID
+     *
+     * @example 2D086F6-xxxx-xxxx-xxxx-006DED011A85
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class DeleteInvalidAddressResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class DeleteInvalidAddressResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteInvalidAddressResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

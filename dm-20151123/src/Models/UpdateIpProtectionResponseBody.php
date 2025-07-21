@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dm\V20151123\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateIpProtectionResponseBody extends Model
 {
     /**
+     * @description Request ID
+     *
+     * @example B653A6FC-D1AD-5936-A262-F50994ED2574
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class UpdateIpProtectionResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class UpdateIpProtectionResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateIpProtectionResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dm\V20151123\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ApproveReplyMailAddressRequest extends Model
 {
@@ -24,6 +24,12 @@ class ApproveReplyMailAddressRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description Email address Ticket credential, part of the string in the verification email\\"s URL.
+     *
+     * This parameter is required.
+     *
+     * @example a724068dac9a45d19574375adeca0d7d
+     *
      * @var string
      */
     public $ticket;
@@ -34,26 +40,20 @@ class ApproveReplyMailAddressRequest extends Model
         'ticket' => 'Ticket',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
-
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-
         if (null !== $this->ticket) {
             $res['Ticket'] = $this->ticket;
         }
@@ -61,26 +61,23 @@ class ApproveReplyMailAddressRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ApproveReplyMailAddressRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
-
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-
         if (isset($map['Ticket'])) {
             $model->ticket = $map['Ticket'];
         }

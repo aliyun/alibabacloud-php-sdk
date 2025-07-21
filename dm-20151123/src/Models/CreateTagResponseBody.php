@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Dm\V20151123\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateTagResponseBody extends Model
 {
     /**
+     * @description Request ID
+     *
+     * @example 10A1AD70-E48E-476D-98D9-39BD92193837
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Tag ID
+     *
+     * @example 91141
+     *
      * @var string
      */
     public $tagId;
@@ -22,18 +30,14 @@ class CreateTagResponseBody extends Model
         'tagId' => 'TagId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->tagId) {
             $res['TagId'] = $this->tagId;
         }
@@ -41,18 +45,17 @@ class CreateTagResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateTagResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['TagId'])) {
             $model->tagId = $map['TagId'];
         }

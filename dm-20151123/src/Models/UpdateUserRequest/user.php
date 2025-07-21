@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dm\V20151123\Models\UpdateUserRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class user extends Model
 {
     /**
+     * @description Whether EventBridge is enabled
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enableEventbridge;
@@ -16,12 +20,9 @@ class user extends Model
         'enableEventbridge' => 'EnableEventbridge',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->enableEventbridge) {
@@ -31,11 +32,11 @@ class user extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return user
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

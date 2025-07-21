@@ -4,41 +4,69 @@
 
 namespace AlibabaCloud\SDK\Dm\V20151123\Models\SenderStatisticsByTagNameAndBatchIDResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class stat extends Model
 {
     /**
+     * @description Creation time
+     *
+     * @example 2021-07-02
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description Failure count
+     *
+     * @example 0
+     *
      * @var string
      */
     public $faildCount;
 
     /**
+     * @description Request count
+     *
+     * @example 4
+     *
      * @var string
      */
     public $requestCount;
 
     /**
+     * @description Success rate
+     *
+     * @example 100.00%
+     *
      * @var string
      */
     public $succeededPercent;
 
     /**
+     * @description Success count
+     *
+     * @example 4
+     *
      * @var string
      */
     public $successCount;
 
     /**
+     * @description Invalid count
+     *
+     * @example 0
+     *
      * @var string
      */
     public $unavailableCount;
 
     /**
+     * @description Unavailability rate
+     *
+     * @example 0%
+     *
      * @var string
      */
     public $unavailablePercent;
@@ -52,38 +80,29 @@ class stat extends Model
         'unavailablePercent' => 'unavailablePercent',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-
         if (null !== $this->faildCount) {
             $res['faildCount'] = $this->faildCount;
         }
-
         if (null !== $this->requestCount) {
             $res['requestCount'] = $this->requestCount;
         }
-
         if (null !== $this->succeededPercent) {
             $res['succeededPercent'] = $this->succeededPercent;
         }
-
         if (null !== $this->successCount) {
             $res['successCount'] = $this->successCount;
         }
-
         if (null !== $this->unavailableCount) {
             $res['unavailableCount'] = $this->unavailableCount;
         }
-
         if (null !== $this->unavailablePercent) {
             $res['unavailablePercent'] = $this->unavailablePercent;
         }
@@ -91,38 +110,32 @@ class stat extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return stat
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
-
         if (isset($map['faildCount'])) {
             $model->faildCount = $map['faildCount'];
         }
-
         if (isset($map['requestCount'])) {
             $model->requestCount = $map['requestCount'];
         }
-
         if (isset($map['succeededPercent'])) {
             $model->succeededPercent = $map['succeededPercent'];
         }
-
         if (isset($map['successCount'])) {
             $model->successCount = $map['successCount'];
         }
-
         if (isset($map['unavailableCount'])) {
             $model->unavailableCount = $map['unavailableCount'];
         }
-
         if (isset($map['unavailablePercent'])) {
             $model->unavailablePercent = $map['unavailablePercent'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dm\V20151123\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateTagRequest extends Model
 {
@@ -24,11 +24,21 @@ class CreateTagRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description Tag description
+     *
+     * @example test description
+     *
      * @var string
      */
     public $tagDescription;
 
     /**
+     * @description Tag name. Limitations: 1-50 characters, allowing English letters, numbers, and underscores.
+     *
+     * This parameter is required.
+     *
+     * @example test
+     *
      * @var string
      */
     public $tagName;
@@ -40,30 +50,23 @@ class CreateTagRequest extends Model
         'tagName' => 'TagName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
-
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-
         if (null !== $this->tagDescription) {
             $res['TagDescription'] = $this->tagDescription;
         }
-
         if (null !== $this->tagName) {
             $res['TagName'] = $this->tagName;
         }
@@ -71,30 +74,26 @@ class CreateTagRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateTagRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
-
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-
         if (isset($map['TagDescription'])) {
             $model->tagDescription = $map['TagDescription'];
         }
-
         if (isset($map['TagName'])) {
             $model->tagName = $map['TagName'];
         }

@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Dm\V20151123\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class RemoveUserSuppressionResponseBody extends Model
 {
     /**
+     * @example 1A846D66-5EC7-551B-9687-5BF1963DCFC1
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +18,9 @@ class RemoveUserSuppressionResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +30,11 @@ class RemoveUserSuppressionResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return RemoveUserSuppressionResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

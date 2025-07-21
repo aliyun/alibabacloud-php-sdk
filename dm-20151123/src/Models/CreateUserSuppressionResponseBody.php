@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Dm\V20151123\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateUserSuppressionResponseBody extends Model
 {
     /**
+     * @description Request ID
+     *
+     * @example 1A846D66-5EC7-551B-9687-5BF1963DCFC1
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Invalid address number
+     *
+     * @example 59511
+     *
      * @var string
      */
     public $suppressionId;
@@ -22,18 +30,14 @@ class CreateUserSuppressionResponseBody extends Model
         'suppressionId' => 'SuppressionId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->suppressionId) {
             $res['SuppressionId'] = $this->suppressionId;
         }
@@ -41,18 +45,17 @@ class CreateUserSuppressionResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateUserSuppressionResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['SuppressionId'])) {
             $model->suppressionId = $map['SuppressionId'];
         }
