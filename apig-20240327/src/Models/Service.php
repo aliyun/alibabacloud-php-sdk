@@ -30,6 +30,13 @@ class Service extends Model
     public $createTimestamp;
 
     /**
+     * @example StartExecution
+     *
+     * @var string
+     */
+    public $expressType;
+
+    /**
      * @example gw-xxxx
      *
      * @var string
@@ -52,6 +59,11 @@ class Service extends Model
      * @var string
      */
     public $healthStatus;
+
+    /**
+     * @var LabelDetail
+     */
+    public $labelDetails;
 
     /**
      * @var string
@@ -113,10 +125,12 @@ class Service extends Model
         'agentServiceConfig' => 'agentServiceConfig',
         'aiServiceConfig' => 'aiServiceConfig',
         'createTimestamp' => 'createTimestamp',
+        'expressType' => 'expressType',
         'gatewayId' => 'gatewayId',
         'groupName' => 'groupName',
         'healthCheck' => 'healthCheck',
         'healthStatus' => 'healthStatus',
+        'labelDetails' => 'labelDetails',
         'name' => 'name',
         'namespace' => 'namespace',
         'ports' => 'ports',
@@ -146,6 +160,9 @@ class Service extends Model
         if (null !== $this->createTimestamp) {
             $res['createTimestamp'] = $this->createTimestamp;
         }
+        if (null !== $this->expressType) {
+            $res['expressType'] = $this->expressType;
+        }
         if (null !== $this->gatewayId) {
             $res['gatewayId'] = $this->gatewayId;
         }
@@ -157,6 +174,9 @@ class Service extends Model
         }
         if (null !== $this->healthStatus) {
             $res['healthStatus'] = $this->healthStatus;
+        }
+        if (null !== $this->labelDetails) {
+            $res['labelDetails'] = null !== $this->labelDetails ? $this->labelDetails->toMap() : null;
         }
         if (null !== $this->name) {
             $res['name'] = $this->name;
@@ -220,6 +240,9 @@ class Service extends Model
         if (isset($map['createTimestamp'])) {
             $model->createTimestamp = $map['createTimestamp'];
         }
+        if (isset($map['expressType'])) {
+            $model->expressType = $map['expressType'];
+        }
         if (isset($map['gatewayId'])) {
             $model->gatewayId = $map['gatewayId'];
         }
@@ -231,6 +254,9 @@ class Service extends Model
         }
         if (isset($map['healthStatus'])) {
             $model->healthStatus = $map['healthStatus'];
+        }
+        if (isset($map['labelDetails'])) {
+            $model->labelDetails = LabelDetail::fromMap($map['labelDetails']);
         }
         if (isset($map['name'])) {
             $model->name = $map['name'];

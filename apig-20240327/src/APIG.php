@@ -8,12 +8,22 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\APIG\V20240327\Models\AddGatewaySecurityGroupRuleRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\AddGatewaySecurityGroupRuleResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\BatchDeleteConsumerAuthorizationRuleRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\BatchDeleteConsumerAuthorizationRuleResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ChangeResourceGroupRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ChangeResourceGroupResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\CreateConsumerAuthorizationRuleRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\CreateConsumerAuthorizationRuleResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\CreateConsumerAuthorizationRulesRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\CreateConsumerAuthorizationRulesResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\CreateConsumerRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\CreateConsumerResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateDomainRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateDomainResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateEnvironmentRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateEnvironmentResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\CreateGatewayRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\CreateGatewayResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateHttpApiOperationRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateHttpApiOperationResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateHttpApiRequest;
@@ -28,6 +38,8 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\CreatePolicyRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreatePolicyResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateServiceRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateServiceResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteConsumerAuthorizationRuleResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteConsumerResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteDomainResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteEnvironmentResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteGatewayResponse;
@@ -43,6 +55,8 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteServiceResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeployHttpApiRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeployHttpApiResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ExportHttpApiResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\GetConsumerAuthorizationRuleResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\GetConsumerResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetDashboardRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetDashboardResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetDashboardShrinkRequest;
@@ -64,6 +78,8 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\GetTraceConfigRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetTraceConfigResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ImportHttpApiRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ImportHttpApiResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListConsumersRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListConsumersResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListDomainsRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListDomainsResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListEnvironmentsRequest;
@@ -88,9 +104,16 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\ListServicesResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListSslCertsRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListSslCertsResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListZonesResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\QueryConsumerAuthorizationRulesRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\QueryConsumerAuthorizationRulesResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\RemoveConsumerAuthorizationRuleResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\RestartGatewayResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UndeployHttpApiRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UndeployHttpApiResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateConsumerAuthorizationRuleRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateConsumerAuthorizationRuleResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateConsumerRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateConsumerResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateDomainRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateDomainResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateEnvironmentRequest;
@@ -209,6 +232,56 @@ class APIG extends OpenApiClient
     }
 
     /**
+     * @summary Removes consumer authentication rules.
+     *  *
+     * @param BatchDeleteConsumerAuthorizationRuleRequest $request BatchDeleteConsumerAuthorizationRuleRequest
+     * @param string[]                                    $headers map
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return BatchDeleteConsumerAuthorizationRuleResponse BatchDeleteConsumerAuthorizationRuleResponse
+     */
+    public function batchDeleteConsumerAuthorizationRuleWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->consumerAuthorizationRuleIds)) {
+            $query['consumerAuthorizationRuleIds'] = $request->consumerAuthorizationRuleIds;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'BatchDeleteConsumerAuthorizationRule',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/authorization-rules',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return BatchDeleteConsumerAuthorizationRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Removes consumer authentication rules.
+     *  *
+     * @param BatchDeleteConsumerAuthorizationRuleRequest $request BatchDeleteConsumerAuthorizationRuleRequest
+     *
+     * @return BatchDeleteConsumerAuthorizationRuleResponse BatchDeleteConsumerAuthorizationRuleResponse
+     */
+    public function batchDeleteConsumerAuthorizationRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->batchDeleteConsumerAuthorizationRuleWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @summary Resource Group Transfer
      *  *
      * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
@@ -265,6 +338,188 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->changeResourceGroupWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 创建消费者
+     *  *
+     * @param CreateConsumerRequest $request CreateConsumerRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateConsumerResponse CreateConsumerResponse
+     */
+    public function createConsumerWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->akSkIdentityConfigs)) {
+            $body['akSkIdentityConfigs'] = $request->akSkIdentityConfigs;
+        }
+        if (!Utils::isUnset($request->apikeyIdentityConfig)) {
+            $body['apikeyIdentityConfig'] = $request->apikeyIdentityConfig;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->enable)) {
+            $body['enable'] = $request->enable;
+        }
+        if (!Utils::isUnset($request->gatewayType)) {
+            $body['gatewayType'] = $request->gatewayType;
+        }
+        if (!Utils::isUnset($request->jwtIdentityConfig)) {
+            $body['jwtIdentityConfig'] = $request->jwtIdentityConfig;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateConsumer',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/consumers',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateConsumerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建消费者
+     *  *
+     * @param CreateConsumerRequest $request CreateConsumerRequest
+     *
+     * @return CreateConsumerResponse CreateConsumerResponse
+     */
+    public function createConsumer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createConsumerWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 创建消费者授权规则
+     *  *
+     * @param string                                 $consumerId
+     * @param CreateConsumerAuthorizationRuleRequest $request    CreateConsumerAuthorizationRuleRequest
+     * @param string[]                               $headers    map
+     * @param RuntimeOptions                         $runtime    runtime options for this request RuntimeOptions
+     *
+     * @return CreateConsumerAuthorizationRuleResponse CreateConsumerAuthorizationRuleResponse
+     */
+    public function createConsumerAuthorizationRuleWithOptions($consumerId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->authorizationResourceInfos)) {
+            $body['authorizationResourceInfos'] = $request->authorizationResourceInfos;
+        }
+        if (!Utils::isUnset($request->expireMode)) {
+            $body['expireMode'] = $request->expireMode;
+        }
+        if (!Utils::isUnset($request->expireTimestamp)) {
+            $body['expireTimestamp'] = $request->expireTimestamp;
+        }
+        if (!Utils::isUnset($request->parentResourceType)) {
+            $body['parentResourceType'] = $request->parentResourceType;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $body['resourceType'] = $request->resourceType;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateConsumerAuthorizationRule',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/consumers/' . OpenApiUtilClient::getEncodeParam($consumerId) . '/authorization-rules',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateConsumerAuthorizationRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建消费者授权规则
+     *  *
+     * @param string                                 $consumerId
+     * @param CreateConsumerAuthorizationRuleRequest $request    CreateConsumerAuthorizationRuleRequest
+     *
+     * @return CreateConsumerAuthorizationRuleResponse CreateConsumerAuthorizationRuleResponse
+     */
+    public function createConsumerAuthorizationRule($consumerId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createConsumerAuthorizationRuleWithOptions($consumerId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary Creates a consumer authentication rule.
+     *  *
+     * @param CreateConsumerAuthorizationRulesRequest $request CreateConsumerAuthorizationRulesRequest
+     * @param string[]                                $headers map
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateConsumerAuthorizationRulesResponse CreateConsumerAuthorizationRulesResponse
+     */
+    public function createConsumerAuthorizationRulesWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->authorizationRules)) {
+            $body['authorizationRules'] = $request->authorizationRules;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateConsumerAuthorizationRules',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/authorization-rules',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateConsumerAuthorizationRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Creates a consumer authentication rule.
+     *  *
+     * @param CreateConsumerAuthorizationRulesRequest $request CreateConsumerAuthorizationRulesRequest
+     *
+     * @return CreateConsumerAuthorizationRulesResponse CreateConsumerAuthorizationRulesResponse
+     */
+    public function createConsumerAuthorizationRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createConsumerAuthorizationRulesWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -429,6 +684,83 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->createEnvironmentWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 创建云原生网关
+     *  *
+     * @param CreateGatewayRequest $request CreateGatewayRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateGatewayResponse CreateGatewayResponse
+     */
+    public function createGatewayWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->chargeType)) {
+            $body['chargeType'] = $request->chargeType;
+        }
+        if (!Utils::isUnset($request->gatewayType)) {
+            $body['gatewayType'] = $request->gatewayType;
+        }
+        if (!Utils::isUnset($request->logConfig)) {
+            $body['logConfig'] = $request->logConfig;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->networkAccessConfig)) {
+            $body['networkAccessConfig'] = $request->networkAccessConfig;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $body['resourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->spec)) {
+            $body['spec'] = $request->spec;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $body['tag'] = $request->tag;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $body['vpcId'] = $request->vpcId;
+        }
+        if (!Utils::isUnset($request->zoneConfig)) {
+            $body['zoneConfig'] = $request->zoneConfig;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateGateway',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/gateways',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建云原生网关
+     *  *
+     * @param CreateGatewayRequest $request CreateGatewayRequest
+     *
+     * @return CreateGatewayResponse CreateGatewayResponse
+     */
+    public function createGateway($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createGatewayWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -898,6 +1230,96 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->createServiceWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 删除消费者
+     *  *
+     * @param string         $consumerId
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
+     *
+     * @return DeleteConsumerResponse DeleteConsumerResponse
+     */
+    public function deleteConsumerWithOptions($consumerId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteConsumer',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/consumers/' . OpenApiUtilClient::getEncodeParam($consumerId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteConsumerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除消费者
+     *  *
+     * @param string $consumerId
+     *
+     * @return DeleteConsumerResponse DeleteConsumerResponse
+     */
+    public function deleteConsumer($consumerId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteConsumerWithOptions($consumerId, $headers, $runtime);
+    }
+
+    /**
+     * @summary 删除消费者授权规则
+     *  *
+     * @param string         $consumerAuthorizationRuleId
+     * @param string         $consumerId
+     * @param string[]       $headers                     map
+     * @param RuntimeOptions $runtime                     runtime options for this request RuntimeOptions
+     *
+     * @return DeleteConsumerAuthorizationRuleResponse DeleteConsumerAuthorizationRuleResponse
+     */
+    public function deleteConsumerAuthorizationRuleWithOptions($consumerAuthorizationRuleId, $consumerId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteConsumerAuthorizationRule',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/consumers/' . OpenApiUtilClient::getEncodeParam($consumerId) . '/authorization-rules/' . OpenApiUtilClient::getEncodeParam($consumerAuthorizationRuleId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteConsumerAuthorizationRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除消费者授权规则
+     *  *
+     * @param string $consumerAuthorizationRuleId
+     * @param string $consumerId
+     *
+     * @return DeleteConsumerAuthorizationRuleResponse DeleteConsumerAuthorizationRuleResponse
+     */
+    public function deleteConsumerAuthorizationRule($consumerAuthorizationRuleId, $consumerId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteConsumerAuthorizationRuleWithOptions($consumerAuthorizationRuleId, $consumerId, $headers, $runtime);
     }
 
     /**
@@ -1506,6 +1928,96 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->exportHttpApiWithOptions($httpApiId, $headers, $runtime);
+    }
+
+    /**
+     * @summary 查询消费者
+     *  *
+     * @param string         $consumerId
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
+     *
+     * @return GetConsumerResponse GetConsumerResponse
+     */
+    public function getConsumerWithOptions($consumerId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetConsumer',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/consumers/' . OpenApiUtilClient::getEncodeParam($consumerId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetConsumerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询消费者
+     *  *
+     * @param string $consumerId
+     *
+     * @return GetConsumerResponse GetConsumerResponse
+     */
+    public function getConsumer($consumerId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getConsumerWithOptions($consumerId, $headers, $runtime);
+    }
+
+    /**
+     * @summary 查询消费者授权规则
+     *  *
+     * @param string         $consumerAuthorizationRuleId
+     * @param string         $consumerId
+     * @param string[]       $headers                     map
+     * @param RuntimeOptions $runtime                     runtime options for this request RuntimeOptions
+     *
+     * @return GetConsumerAuthorizationRuleResponse GetConsumerAuthorizationRuleResponse
+     */
+    public function getConsumerAuthorizationRuleWithOptions($consumerAuthorizationRuleId, $consumerId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetConsumerAuthorizationRule',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/consumers/' . OpenApiUtilClient::getEncodeParam($consumerId) . '/authorization-rules/' . OpenApiUtilClient::getEncodeParam($consumerAuthorizationRuleId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetConsumerAuthorizationRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询消费者授权规则
+     *  *
+     * @param string $consumerAuthorizationRuleId
+     * @param string $consumerId
+     *
+     * @return GetConsumerAuthorizationRuleResponse GetConsumerAuthorizationRuleResponse
+     */
+    public function getConsumerAuthorizationRule($consumerAuthorizationRuleId, $consumerId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getConsumerAuthorizationRuleWithOptions($consumerAuthorizationRuleId, $consumerId, $headers, $runtime);
     }
 
     /**
@@ -2240,6 +2752,65 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->importHttpApiWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 查询消费者列表
+     *  *
+     * @param ListConsumersRequest $request ListConsumersRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListConsumersResponse ListConsumersResponse
+     */
+    public function listConsumersWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->gatewayType)) {
+            $query['gatewayType'] = $request->gatewayType;
+        }
+        if (!Utils::isUnset($request->nameLike)) {
+            $query['nameLike'] = $request->nameLike;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['pageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['pageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListConsumers',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/consumers',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListConsumersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询消费者列表
+     *  *
+     * @param ListConsumersRequest $request ListConsumersRequest
+     *
+     * @return ListConsumersResponse ListConsumersResponse
+     */
+    public function listConsumers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listConsumersWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3118,6 +3689,127 @@ class APIG extends OpenApiClient
     }
 
     /**
+     * @summary Queries a list of consumer authentication rules.
+     *  *
+     * @param QueryConsumerAuthorizationRulesRequest $request QueryConsumerAuthorizationRulesRequest
+     * @param string[]                               $headers map
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return QueryConsumerAuthorizationRulesResponse QueryConsumerAuthorizationRulesResponse
+     */
+    public function queryConsumerAuthorizationRulesWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->apiNameLike)) {
+            $query['apiNameLike'] = $request->apiNameLike;
+        }
+        if (!Utils::isUnset($request->consumerId)) {
+            $query['consumerId'] = $request->consumerId;
+        }
+        if (!Utils::isUnset($request->consumerNameLike)) {
+            $query['consumerNameLike'] = $request->consumerNameLike;
+        }
+        if (!Utils::isUnset($request->environmentId)) {
+            $query['environmentId'] = $request->environmentId;
+        }
+        if (!Utils::isUnset($request->groupByApi)) {
+            $query['groupByApi'] = $request->groupByApi;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['pageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['pageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->parentResourceId)) {
+            $query['parentResourceId'] = $request->parentResourceId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['resourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['resourceType'] = $request->resourceType;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryConsumerAuthorizationRules',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/authorization-rules',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryConsumerAuthorizationRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries a list of consumer authentication rules.
+     *  *
+     * @param QueryConsumerAuthorizationRulesRequest $request QueryConsumerAuthorizationRulesRequest
+     *
+     * @return QueryConsumerAuthorizationRulesResponse QueryConsumerAuthorizationRulesResponse
+     */
+    public function queryConsumerAuthorizationRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->queryConsumerAuthorizationRulesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary Deletes a consumer authorization rule.
+     *  *
+     * @param string         $consumerAuthorizationRuleId
+     * @param string[]       $headers                     map
+     * @param RuntimeOptions $runtime                     runtime options for this request RuntimeOptions
+     *
+     * @return RemoveConsumerAuthorizationRuleResponse RemoveConsumerAuthorizationRuleResponse
+     */
+    public function removeConsumerAuthorizationRuleWithOptions($consumerAuthorizationRuleId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'RemoveConsumerAuthorizationRule',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/authorization-rules/' . OpenApiUtilClient::getEncodeParam($consumerAuthorizationRuleId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return RemoveConsumerAuthorizationRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Deletes a consumer authorization rule.
+     *  *
+     * @param string $consumerAuthorizationRuleId
+     *
+     * @return RemoveConsumerAuthorizationRuleResponse RemoveConsumerAuthorizationRuleResponse
+     */
+    public function removeConsumerAuthorizationRule($consumerAuthorizationRuleId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->removeConsumerAuthorizationRuleWithOptions($consumerAuthorizationRuleId, $headers, $runtime);
+    }
+
+    /**
      * @summary Gateway Restart
      *  *
      * @param string         $gatewayId
@@ -3220,6 +3912,130 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->undeployHttpApiWithOptions($httpApiId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 更新消费者
+     *  *
+     * @param string                $consumerId
+     * @param UpdateConsumerRequest $request    UpdateConsumerRequest
+     * @param string[]              $headers    map
+     * @param RuntimeOptions        $runtime    runtime options for this request RuntimeOptions
+     *
+     * @return UpdateConsumerResponse UpdateConsumerResponse
+     */
+    public function updateConsumerWithOptions($consumerId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->akSkIdentityConfigs)) {
+            $body['akSkIdentityConfigs'] = $request->akSkIdentityConfigs;
+        }
+        if (!Utils::isUnset($request->apikeyIdentityConfig)) {
+            $body['apikeyIdentityConfig'] = $request->apikeyIdentityConfig;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->enable)) {
+            $body['enable'] = $request->enable;
+        }
+        if (!Utils::isUnset($request->jwtIdentityConfig)) {
+            $body['jwtIdentityConfig'] = $request->jwtIdentityConfig;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateConsumer',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/consumers/' . OpenApiUtilClient::getEncodeParam($consumerId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateConsumerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新消费者
+     *  *
+     * @param string                $consumerId
+     * @param UpdateConsumerRequest $request    UpdateConsumerRequest
+     *
+     * @return UpdateConsumerResponse UpdateConsumerResponse
+     */
+    public function updateConsumer($consumerId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateConsumerWithOptions($consumerId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 更新消费者授权规则
+     *  *
+     * @param string                                 $consumerId
+     * @param string                                 $consumerAuthorizationRuleId
+     * @param UpdateConsumerAuthorizationRuleRequest $request                     UpdateConsumerAuthorizationRuleRequest
+     * @param string[]                               $headers                     map
+     * @param RuntimeOptions                         $runtime                     runtime options for this request RuntimeOptions
+     *
+     * @return UpdateConsumerAuthorizationRuleResponse UpdateConsumerAuthorizationRuleResponse
+     */
+    public function updateConsumerAuthorizationRuleWithOptions($consumerId, $consumerAuthorizationRuleId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->authorizationResourceInfos)) {
+            $body['authorizationResourceInfos'] = $request->authorizationResourceInfos;
+        }
+        if (!Utils::isUnset($request->expireMode)) {
+            $body['expireMode'] = $request->expireMode;
+        }
+        if (!Utils::isUnset($request->expireTimestamp)) {
+            $body['expireTimestamp'] = $request->expireTimestamp;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateConsumerAuthorizationRule',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/consumers/' . OpenApiUtilClient::getEncodeParam($consumerId) . '/authorization-rules/' . OpenApiUtilClient::getEncodeParam($consumerAuthorizationRuleId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateConsumerAuthorizationRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新消费者授权规则
+     *  *
+     * @param string                                 $consumerId
+     * @param string                                 $consumerAuthorizationRuleId
+     * @param UpdateConsumerAuthorizationRuleRequest $request                     UpdateConsumerAuthorizationRuleRequest
+     *
+     * @return UpdateConsumerAuthorizationRuleResponse UpdateConsumerAuthorizationRuleResponse
+     */
+    public function updateConsumerAuthorizationRule($consumerId, $consumerAuthorizationRuleId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateConsumerAuthorizationRuleWithOptions($consumerId, $consumerAuthorizationRuleId, $request, $headers, $runtime);
     }
 
     /**
