@@ -4,16 +4,30 @@
 
 namespace AlibabaCloud\SDK\Cams\V20200606\Models\GetCommerceSettingResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description Indicates whether the shopping cart button is displayed. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example false
+     *
      * @var bool
      */
     public $cartEnable;
 
     /**
+     * @description Indicates whether the catalog button is displayed. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example false
+     *
      * @var bool
      */
     public $catalogVisible;
@@ -22,18 +36,14 @@ class data extends Model
         'catalogVisible' => 'CatalogVisible',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->cartEnable) {
             $res['CartEnable'] = $this->cartEnable;
         }
-
         if (null !== $this->catalogVisible) {
             $res['CatalogVisible'] = $this->catalogVisible;
         }
@@ -41,18 +51,17 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CartEnable'])) {
             $model->cartEnable = $map['CartEnable'];
         }
-
         if (isset($map['CatalogVisible'])) {
             $model->catalogVisible = $map['CatalogVisible'];
         }

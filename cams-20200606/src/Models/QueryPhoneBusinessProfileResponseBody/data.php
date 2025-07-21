@@ -4,41 +4,67 @@
 
 namespace AlibabaCloud\SDK\Cams\V20200606\Models\QueryPhoneBusinessProfileResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description Regarding.
+     *
+     * @example business profile
+     *
      * @var string
      */
     public $about;
 
     /**
+     * @description The address.
+     *
+     * @example Changsha
+     *
      * @var string
      */
     public $address;
 
     /**
+     * @description The description.
+     *
+     * @example Description
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The email address.
+     *
+     * @example aa@aliyun.com
+     *
      * @var string
      */
     public $email;
 
     /**
+     * @description The profile picture.
+     *
+     * @example https://....img
+     *
      * @var string
      */
     public $profilePictureUrl;
 
     /**
+     * @description The industry.
+     *
+     * @example Retail
+     *
      * @var string
      */
     public $vertical;
 
     /**
+     * @description The website.
+     *
      * @var string[]
      */
     public $websites;
@@ -52,95 +78,65 @@ class data extends Model
         'websites' => 'Websites',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->websites)) {
-            Model::validateArray($this->websites);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->about) {
             $res['About'] = $this->about;
         }
-
         if (null !== $this->address) {
             $res['Address'] = $this->address;
         }
-
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-
         if (null !== $this->email) {
             $res['Email'] = $this->email;
         }
-
         if (null !== $this->profilePictureUrl) {
             $res['ProfilePictureUrl'] = $this->profilePictureUrl;
         }
-
         if (null !== $this->vertical) {
             $res['Vertical'] = $this->vertical;
         }
-
         if (null !== $this->websites) {
-            if (\is_array($this->websites)) {
-                $res['Websites'] = [];
-                $n1 = 0;
-                foreach ($this->websites as $item1) {
-                    $res['Websites'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['Websites'] = $this->websites;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['About'])) {
             $model->about = $map['About'];
         }
-
         if (isset($map['Address'])) {
             $model->address = $map['Address'];
         }
-
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-
         if (isset($map['Email'])) {
             $model->email = $map['Email'];
         }
-
         if (isset($map['ProfilePictureUrl'])) {
             $model->profilePictureUrl = $map['ProfilePictureUrl'];
         }
-
         if (isset($map['Vertical'])) {
             $model->vertical = $map['Vertical'];
         }
-
         if (isset($map['Websites'])) {
             if (!empty($map['Websites'])) {
-                $model->websites = [];
-                $n1 = 0;
-                foreach ($map['Websites'] as $item1) {
-                    $model->websites[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->websites = $map['Websites'];
             }
         }
 

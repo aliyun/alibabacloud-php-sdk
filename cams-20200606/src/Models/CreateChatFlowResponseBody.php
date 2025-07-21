@@ -4,41 +4,65 @@
 
 namespace AlibabaCloud\SDK\Cams\V20200606\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateChatFlowResponseBody extends Model
 {
     /**
+     * @description Access denied details, this field is returned only when RAM verification fails.
+     *
+     * @example 无
+     *
      * @var string
      */
     public $accessDeniedDetail;
 
     /**
+     * @description Error code
+     *
+     * @example 示例值
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description Returned data object.
+     *
      * @var mixed[]
      */
     public $data;
 
     /**
+     * @description Error message.
+     *
+     * @example 示例值示例值
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description Unique request ID.
+     *
+     * @example 示例值
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Response data
+     *
      * @var mixed[]
      */
     public $response;
 
     /**
+     * @description Whether the call was successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;
@@ -52,54 +76,29 @@ class CreateChatFlowResponseBody extends Model
         'success' => 'Success',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->data)) {
-            Model::validateArray($this->data);
-        }
-        if (\is_array($this->response)) {
-            Model::validateArray($this->response);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->accessDeniedDetail) {
             $res['AccessDeniedDetail'] = $this->accessDeniedDetail;
         }
-
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-
         if (null !== $this->data) {
-            if (\is_array($this->data)) {
-                $res['Data'] = [];
-                foreach ($this->data as $key1 => $value1) {
-                    $res['Data'][$key1] = $value1;
-                }
-            }
+            $res['Data'] = $this->data;
         }
-
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->response) {
-            if (\is_array($this->response)) {
-                $res['Response'] = [];
-                foreach ($this->response as $key1 => $value1) {
-                    $res['Response'][$key1] = $value1;
-                }
-            }
+            $res['Response'] = $this->response;
         }
-
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -107,48 +106,32 @@ class CreateChatFlowResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateChatFlowResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccessDeniedDetail'])) {
             $model->accessDeniedDetail = $map['AccessDeniedDetail'];
         }
-
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-
         if (isset($map['Data'])) {
-            if (!empty($map['Data'])) {
-                $model->data = [];
-                foreach ($map['Data'] as $key1 => $value1) {
-                    $model->data[$key1] = $value1;
-                }
-            }
+            $model->data = $map['Data'];
         }
-
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['Response'])) {
-            if (!empty($map['Response'])) {
-                $model->response = [];
-                foreach ($map['Response'] as $key1 => $value1) {
-                    $model->response[$key1] = $value1;
-                }
-            }
+            $model->response = $map['Response'];
         }
-
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

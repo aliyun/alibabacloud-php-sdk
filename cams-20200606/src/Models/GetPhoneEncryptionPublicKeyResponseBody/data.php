@@ -4,21 +4,44 @@
 
 namespace AlibabaCloud\SDK\Cams\V20200606\Models\GetPhoneEncryptionPublicKeyResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description The public key.
+     *
+     * @example -----BEGIN PUBLIC KEY-----
+     * AAA
+     * BBB
+     * CCC
+     * DDD
+     * EEE
+     * FFF
+     * GGG
+     * -----END PUBLIC KEY-----
+     *
      * @var string
      */
     public $encryptionPublicKey;
 
     /**
+     * @description The validity state of the public key. Valid values:
+     *
+     *   MISMATCH: The public key is invalid.
+     *   VALID: The public key is valid.
+     *
+     * @example VALID
+     *
      * @var string
      */
     public $encryptionPublicKeyStatus;
 
     /**
+     * @description The phone number.
+     *
+     * @example 86138000**
+     *
      * @var string
      */
     public $phoneNumber;
@@ -28,22 +51,17 @@ class data extends Model
         'phoneNumber' => 'PhoneNumber',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->encryptionPublicKey) {
             $res['EncryptionPublicKey'] = $this->encryptionPublicKey;
         }
-
         if (null !== $this->encryptionPublicKeyStatus) {
             $res['EncryptionPublicKeyStatus'] = $this->encryptionPublicKeyStatus;
         }
-
         if (null !== $this->phoneNumber) {
             $res['PhoneNumber'] = $this->phoneNumber;
         }
@@ -51,22 +69,20 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EncryptionPublicKey'])) {
             $model->encryptionPublicKey = $map['EncryptionPublicKey'];
         }
-
         if (isset($map['EncryptionPublicKeyStatus'])) {
             $model->encryptionPublicKeyStatus = $map['EncryptionPublicKeyStatus'];
         }
-
         if (isset($map['PhoneNumber'])) {
             $model->phoneNumber = $map['PhoneNumber'];
         }

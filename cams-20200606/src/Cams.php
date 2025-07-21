@@ -4,7 +4,8 @@
 
 namespace AlibabaCloud\SDK\Cams\V20200606;
 
-use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Cams\V20200606\Models\AddChatappPhoneNumberRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\AddChatappPhoneNumberResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\AddChatGroupInviteLinkRequest;
@@ -124,6 +125,9 @@ use AlibabaCloud\SDK\Cams\V20200606\Models\IsvGetAppIdRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\IsvGetAppIdResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ListBindingRelationsForFlowVersionRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ListBindingRelationsForFlowVersionResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\ListChatappMessageRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\ListChatappMessageResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\ListChatappMessageShrinkRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ListChatappTemplateRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ListChatappTemplateResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ListChatappTemplateShrinkRequest;
@@ -138,6 +142,8 @@ use AlibabaCloud\SDK\Cams\V20200606\Models\ListChatGroupParticipantsShrinkReques
 use AlibabaCloud\SDK\Cams\V20200606\Models\ListChatGroupRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ListChatGroupResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ListChatGroupShrinkRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\ListFlowNodePrototypeV2Request;
+use AlibabaCloud\SDK\Cams\V20200606\Models\ListFlowNodePrototypeV2Response;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ListFlowRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ListFlowResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ListFlowShrinkRequest;
@@ -221,10 +227,11 @@ use AlibabaCloud\SDK\Cams\V20200606\Models\UpdatePhoneMessageQrdlRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\UpdatePhoneMessageQrdlResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\UpdatePhoneWebhookRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\UpdatePhoneWebhookResponse;
+use AlibabaCloud\Tea\Utils\Utils;
+use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
-use Darabonba\OpenApi\Utils;
 
 class Cams extends OpenApiClient
 {
@@ -249,68 +256,54 @@ class Cams extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (null !== $endpoint) {
+        if (!Utils::empty_($endpoint)) {
             return $endpoint;
         }
-
-        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
+        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
             return @$endpointMap[$regionId];
         }
 
-        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * AddChatGroup.
+     * @summary AddChatGroup
+     *  *
+     * @param AddChatGroupRequest $request AddChatGroupRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - AddChatGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns AddChatGroupResponse
-     *
-     * @param AddChatGroupRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return AddChatGroupResponse
+     * @return AddChatGroupResponse AddChatGroupResponse
      */
     public function addChatGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->businessNumber) {
-            @$query['BusinessNumber'] = $request->businessNumber;
+        if (!Utils::isUnset($request->businessNumber)) {
+            $query['BusinessNumber'] = $request->businessNumber;
         }
-
-        if (null !== $request->channelType) {
-            @$query['ChannelType'] = $request->channelType;
+        if (!Utils::isUnset($request->channelType)) {
+            $query['ChannelType'] = $request->channelType;
         }
-
-        if (null !== $request->custSpaceId) {
-            @$query['CustSpaceId'] = $request->custSpaceId;
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
         }
-
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->subject) {
-            @$query['Subject'] = $request->subject;
+        if (!Utils::isUnset($request->subject)) {
+            $query['Subject'] = $request->subject;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'AddChatGroup',
@@ -328,15 +321,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * AddChatGroup.
+     * @summary AddChatGroup
+     *  *
+     * @param AddChatGroupRequest $request AddChatGroupRequest
      *
-     * @param request - AddChatGroupRequest
-     *
-     * @returns AddChatGroupResponse
-     *
-     * @param AddChatGroupRequest $request
-     *
-     * @return AddChatGroupResponse
+     * @return AddChatGroupResponse AddChatGroupResponse
      */
     public function addChatGroup($request)
     {
@@ -346,52 +335,40 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * AddChatGroupInviteLink.
+     * @summary AddChatGroupInviteLink
+     *  *
+     * @param AddChatGroupInviteLinkRequest $request AddChatGroupInviteLinkRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - AddChatGroupInviteLinkRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns AddChatGroupInviteLinkResponse
-     *
-     * @param AddChatGroupInviteLinkRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return AddChatGroupInviteLinkResponse
+     * @return AddChatGroupInviteLinkResponse AddChatGroupInviteLinkResponse
      */
     public function addChatGroupInviteLinkWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->businessNumber) {
-            @$query['BusinessNumber'] = $request->businessNumber;
+        if (!Utils::isUnset($request->businessNumber)) {
+            $query['BusinessNumber'] = $request->businessNumber;
         }
-
-        if (null !== $request->channelType) {
-            @$query['ChannelType'] = $request->channelType;
+        if (!Utils::isUnset($request->channelType)) {
+            $query['ChannelType'] = $request->channelType;
         }
-
-        if (null !== $request->custSpaceId) {
-            @$query['CustSpaceId'] = $request->custSpaceId;
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'AddChatGroupInviteLink',
@@ -409,15 +386,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * AddChatGroupInviteLink.
+     * @summary AddChatGroupInviteLink
+     *  *
+     * @param AddChatGroupInviteLinkRequest $request AddChatGroupInviteLinkRequest
      *
-     * @param request - AddChatGroupInviteLinkRequest
-     *
-     * @returns AddChatGroupInviteLinkResponse
-     *
-     * @param AddChatGroupInviteLinkRequest $request
-     *
-     * @return AddChatGroupInviteLinkResponse
+     * @return AddChatGroupInviteLinkResponse AddChatGroupInviteLinkResponse
      */
     public function addChatGroupInviteLink($request)
     {
@@ -427,56 +400,43 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Adds a phone number for a WhatsApp Business account (WABA).
+     * @summary Adds a phone number for a WhatsApp Business account (WABA).
+     *  *
+     * @param AddChatappPhoneNumberRequest $request AddChatappPhoneNumberRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - AddChatappPhoneNumberRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns AddChatappPhoneNumberResponse
-     *
-     * @param AddChatappPhoneNumberRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return AddChatappPhoneNumberResponse
+     * @return AddChatappPhoneNumberResponse AddChatappPhoneNumberResponse
      */
     public function addChatappPhoneNumberWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->cc) {
-            @$query['Cc'] = $request->cc;
+        if (!Utils::isUnset($request->cc)) {
+            $query['Cc'] = $request->cc;
         }
-
-        if (null !== $request->custSpaceId) {
-            @$query['CustSpaceId'] = $request->custSpaceId;
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->phoneNumber) {
-            @$query['PhoneNumber'] = $request->phoneNumber;
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $query['PhoneNumber'] = $request->phoneNumber;
         }
-
-        if (null !== $request->preValidateId) {
-            @$query['PreValidateId'] = $request->preValidateId;
+        if (!Utils::isUnset($request->preValidateId)) {
+            $query['PreValidateId'] = $request->preValidateId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->verifiedName) {
-            @$query['VerifiedName'] = $request->verifiedName;
+        if (!Utils::isUnset($request->verifiedName)) {
+            $query['VerifiedName'] = $request->verifiedName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'AddChatappPhoneNumber',
@@ -494,15 +454,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Adds a phone number for a WhatsApp Business account (WABA).
+     * @summary Adds a phone number for a WhatsApp Business account (WABA).
+     *  *
+     * @param AddChatappPhoneNumberRequest $request AddChatappPhoneNumberRequest
      *
-     * @param request - AddChatappPhoneNumberRequest
-     *
-     * @returns AddChatappPhoneNumberResponse
-     *
-     * @param AddChatappPhoneNumberRequest $request
-     *
-     * @return AddChatappPhoneNumberResponse
+     * @return AddChatappPhoneNumberResponse AddChatappPhoneNumberResponse
      */
     public function addChatappPhoneNumber($request)
     {
@@ -512,43 +468,33 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Binds the WhatsApp Business account with ChatApp.
+     * @summary Binds the WhatsApp Business account with ChatApp.
+     *  *
+     * @description You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param ChatappBindWabaRequest $request ChatappBindWabaRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
-     * @param request - ChatappBindWabaRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ChatappBindWabaResponse
-     *
-     * @param ChatappBindWabaRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return ChatappBindWabaResponse
+     * @return ChatappBindWabaResponse ChatappBindWabaResponse
      */
     public function chatappBindWabaWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->wabaId) {
-            @$query['WabaId'] = $request->wabaId;
+        if (!Utils::isUnset($request->wabaId)) {
+            $query['WabaId'] = $request->wabaId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ChatappBindWaba',
@@ -566,18 +512,13 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Binds the WhatsApp Business account with ChatApp.
+     * @summary Binds the WhatsApp Business account with ChatApp.
+     *  *
+     * @description You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param ChatappBindWabaRequest $request ChatappBindWabaRequest
      *
-     * @remarks
-     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
-     * @param request - ChatappBindWabaRequest
-     *
-     * @returns ChatappBindWabaResponse
-     *
-     * @param ChatappBindWabaRequest $request
-     *
-     * @return ChatappBindWabaResponse
+     * @return ChatappBindWabaResponse ChatappBindWabaResponse
      */
     public function chatappBindWaba($request)
     {
@@ -587,31 +528,33 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Queries WhatsApp Business account (WABA) information after embedded signup. You do not need to call this API operation if you use Version 2 of WhatsApp embedded signup.
+     * @summary Queries WhatsApp Business account (WABA) information after embedded signup. You do not need to call this API operation if you use Version 2 of WhatsApp embedded signup.
+     *  *
+     * @description You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param ChatappEmbedSignUpRequest $request ChatappEmbedSignUpRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
-     * @param request - ChatappEmbedSignUpRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ChatappEmbedSignUpResponse
-     *
-     * @param ChatappEmbedSignUpRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return ChatappEmbedSignUpResponse
+     * @return ChatappEmbedSignUpResponse ChatappEmbedSignUpResponse
      */
     public function chatappEmbedSignUpWithOptions($request, $runtime)
     {
-        $request->validate();
-        $body = [];
-        if (null !== $request->inputToken) {
-            @$body['InputToken'] = $request->inputToken;
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->inputToken)) {
+            $query['InputToken'] = $request->inputToken;
         }
-
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ChatappEmbedSignUp',
@@ -629,18 +572,13 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Queries WhatsApp Business account (WABA) information after embedded signup. You do not need to call this API operation if you use Version 2 of WhatsApp embedded signup.
+     * @summary Queries WhatsApp Business account (WABA) information after embedded signup. You do not need to call this API operation if you use Version 2 of WhatsApp embedded signup.
+     *  *
+     * @description You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param ChatappEmbedSignUpRequest $request ChatappEmbedSignUpRequest
      *
-     * @remarks
-     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
-     * @param request - ChatappEmbedSignUpRequest
-     *
-     * @returns ChatappEmbedSignUpResponse
-     *
-     * @param ChatappEmbedSignUpRequest $request
-     *
-     * @return ChatappEmbedSignUpResponse
+     * @return ChatappEmbedSignUpResponse ChatappEmbedSignUpResponse
      */
     public function chatappEmbedSignUp($request)
     {
@@ -650,35 +588,36 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Registers a phone number for migration.
+     * @summary Registers a phone number for migration.
+     *  *
+     * @description The space ID of the RAM user within the independent software vendor (ISV) account.
+     *  *
+     * @param ChatappMigrationRegisterRequest $request ChatappMigrationRegisterRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * The space ID of the RAM user within the independent software vendor (ISV) account.
-     *
-     * @param request - ChatappMigrationRegisterRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ChatappMigrationRegisterResponse
-     *
-     * @param ChatappMigrationRegisterRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return ChatappMigrationRegisterResponse
+     * @return ChatappMigrationRegisterResponse ChatappMigrationRegisterResponse
      */
     public function chatappMigrationRegisterWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->custSpaceId) {
-            @$query['CustSpaceId'] = $request->custSpaceId;
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
         }
-
-        if (null !== $request->phoneNumber) {
-            @$query['PhoneNumber'] = $request->phoneNumber;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $query['PhoneNumber'] = $request->phoneNumber;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ChatappMigrationRegister',
@@ -696,18 +635,13 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Registers a phone number for migration.
+     * @summary Registers a phone number for migration.
+     *  *
+     * @description The space ID of the RAM user within the independent software vendor (ISV) account.
+     *  *
+     * @param ChatappMigrationRegisterRequest $request ChatappMigrationRegisterRequest
      *
-     * @remarks
-     * The space ID of the RAM user within the independent software vendor (ISV) account.
-     *
-     * @param request - ChatappMigrationRegisterRequest
-     *
-     * @returns ChatappMigrationRegisterResponse
-     *
-     * @param ChatappMigrationRegisterRequest $request
-     *
-     * @return ChatappMigrationRegisterResponse
+     * @return ChatappMigrationRegisterResponse ChatappMigrationRegisterResponse
      */
     public function chatappMigrationRegister($request)
     {
@@ -717,39 +651,39 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Verifies a specified phone number for migration.
+     * @summary Verifies a specified phone number for migration.
+     *  *
+     * @description You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param ChatappMigrationVerifiedRequest $request ChatappMigrationVerifiedRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
-     * @param request - ChatappMigrationVerifiedRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ChatappMigrationVerifiedResponse
-     *
-     * @param ChatappMigrationVerifiedRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return ChatappMigrationVerifiedResponse
+     * @return ChatappMigrationVerifiedResponse ChatappMigrationVerifiedResponse
      */
     public function chatappMigrationVerifiedWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->custSpaceId) {
-            @$query['CustSpaceId'] = $request->custSpaceId;
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
         }
-
-        if (null !== $request->phoneNumber) {
-            @$query['PhoneNumber'] = $request->phoneNumber;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->verifyCode) {
-            @$query['VerifyCode'] = $request->verifyCode;
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $query['PhoneNumber'] = $request->phoneNumber;
         }
-
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->verifyCode)) {
+            $query['VerifyCode'] = $request->verifyCode;
+        }
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ChatappMigrationVerified',
@@ -767,18 +701,13 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Verifies a specified phone number for migration.
+     * @summary Verifies a specified phone number for migration.
+     *  *
+     * @description You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param ChatappMigrationVerifiedRequest $request ChatappMigrationVerifiedRequest
      *
-     * @remarks
-     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
-     * @param request - ChatappMigrationVerifiedRequest
-     *
-     * @returns ChatappMigrationVerifiedResponse
-     *
-     * @param ChatappMigrationVerifiedRequest $request
-     *
-     * @return ChatappMigrationVerifiedResponse
+     * @return ChatappMigrationVerifiedResponse ChatappMigrationVerifiedResponse
      */
     public function chatappMigrationVerified($request)
     {
@@ -788,35 +717,36 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Deregisters a phone number from a WhatsApp Business account (WABA).
+     * @summary Deregisters a phone number from a WhatsApp Business account (WABA).
+     *  *
+     * @description You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param ChatappPhoneNumberDeregisterRequest $request ChatappPhoneNumberDeregisterRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
-     * @param request - ChatappPhoneNumberDeregisterRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ChatappPhoneNumberDeregisterResponse
-     *
-     * @param ChatappPhoneNumberDeregisterRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return ChatappPhoneNumberDeregisterResponse
+     * @return ChatappPhoneNumberDeregisterResponse ChatappPhoneNumberDeregisterResponse
      */
     public function chatappPhoneNumberDeregisterWithOptions($request, $runtime)
     {
-        $request->validate();
-        $body = [];
-        if (null !== $request->custSpaceId) {
-            @$body['CustSpaceId'] = $request->custSpaceId;
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
         }
-
-        if (null !== $request->phoneNumber) {
-            @$body['PhoneNumber'] = $request->phoneNumber;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $query['PhoneNumber'] = $request->phoneNumber;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ChatappPhoneNumberDeregister',
@@ -834,18 +764,13 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Deregisters a phone number from a WhatsApp Business account (WABA).
+     * @summary Deregisters a phone number from a WhatsApp Business account (WABA).
+     *  *
+     * @description You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param ChatappPhoneNumberDeregisterRequest $request ChatappPhoneNumberDeregisterRequest
      *
-     * @remarks
-     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
-     * @param request - ChatappPhoneNumberDeregisterRequest
-     *
-     * @returns ChatappPhoneNumberDeregisterResponse
-     *
-     * @param ChatappPhoneNumberDeregisterRequest $request
-     *
-     * @return ChatappPhoneNumberDeregisterResponse
+     * @return ChatappPhoneNumberDeregisterResponse ChatappPhoneNumberDeregisterResponse
      */
     public function chatappPhoneNumberDeregister($request)
     {
@@ -855,47 +780,36 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Registers a phone number.
+     * @summary Registers a phone number.
+     *  *
+     * @description You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param ChatappPhoneNumberRegisterRequest $request ChatappPhoneNumberRegisterRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
-     * @param request - ChatappPhoneNumberRegisterRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ChatappPhoneNumberRegisterResponse
-     *
-     * @param ChatappPhoneNumberRegisterRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return ChatappPhoneNumberRegisterResponse
+     * @return ChatappPhoneNumberRegisterResponse ChatappPhoneNumberRegisterResponse
      */
     public function chatappPhoneNumberRegisterWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->custSpaceId) {
-            @$query['CustSpaceId'] = $request->custSpaceId;
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->phoneNumber) {
-            @$query['PhoneNumber'] = $request->phoneNumber;
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $query['PhoneNumber'] = $request->phoneNumber;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ChatappPhoneNumberRegister',
@@ -913,18 +827,13 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Registers a phone number.
+     * @summary Registers a phone number.
+     *  *
+     * @description You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param ChatappPhoneNumberRegisterRequest $request ChatappPhoneNumberRegisterRequest
      *
-     * @remarks
-     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
-     * @param request - ChatappPhoneNumberRegisterRequest
-     *
-     * @returns ChatappPhoneNumberRegisterResponse
-     *
-     * @param ChatappPhoneNumberRegisterRequest $request
-     *
-     * @return ChatappPhoneNumberRegisterResponse
+     * @return ChatappPhoneNumberRegisterResponse ChatappPhoneNumberRegisterResponse
      */
     public function chatappPhoneNumberRegister($request)
     {
@@ -934,43 +843,33 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Synchronizes phone numbers.
+     * @summary Synchronizes phone numbers.
+     *  *
+     * @description You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param ChatappSyncPhoneNumberRequest $request ChatappSyncPhoneNumberRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
-     * @param request - ChatappSyncPhoneNumberRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ChatappSyncPhoneNumberResponse
-     *
-     * @param ChatappSyncPhoneNumberRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return ChatappSyncPhoneNumberResponse
+     * @return ChatappSyncPhoneNumberResponse ChatappSyncPhoneNumberResponse
      */
     public function chatappSyncPhoneNumberWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->custSpaceId) {
-            @$query['CustSpaceId'] = $request->custSpaceId;
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ChatappSyncPhoneNumber',
@@ -988,18 +887,13 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Synchronizes phone numbers.
+     * @summary Synchronizes phone numbers.
+     *  *
+     * @description You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param ChatappSyncPhoneNumberRequest $request ChatappSyncPhoneNumberRequest
      *
-     * @remarks
-     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
-     * @param request - ChatappSyncPhoneNumberRequest
-     *
-     * @returns ChatappSyncPhoneNumberResponse
-     *
-     * @param ChatappSyncPhoneNumberRequest $request
-     *
-     * @return ChatappSyncPhoneNumberResponse
+     * @return ChatappSyncPhoneNumberResponse ChatappSyncPhoneNumberResponse
      */
     public function chatappSyncPhoneNumber($request)
     {
@@ -1009,51 +903,39 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Associates a phone number with a WhatsApp Business account (WABA).
+     * @summary Associates a phone number with a WhatsApp Business account (WABA).
+     *  *
+     * @description You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param ChatappVerifyAndRegisterRequest $request ChatappVerifyAndRegisterRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
-     * @param request - ChatappVerifyAndRegisterRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ChatappVerifyAndRegisterResponse
-     *
-     * @param ChatappVerifyAndRegisterRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return ChatappVerifyAndRegisterResponse
+     * @return ChatappVerifyAndRegisterResponse ChatappVerifyAndRegisterResponse
      */
     public function chatappVerifyAndRegisterWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->custSpaceId) {
-            @$query['CustSpaceId'] = $request->custSpaceId;
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->phoneNumber) {
-            @$query['PhoneNumber'] = $request->phoneNumber;
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $query['PhoneNumber'] = $request->phoneNumber;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->verifyCode) {
-            @$query['VerifyCode'] = $request->verifyCode;
+        if (!Utils::isUnset($request->verifyCode)) {
+            $query['VerifyCode'] = $request->verifyCode;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ChatappVerifyAndRegister',
@@ -1071,18 +953,13 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Associates a phone number with a WhatsApp Business account (WABA).
+     * @summary Associates a phone number with a WhatsApp Business account (WABA).
+     *  *
+     * @description You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param ChatappVerifyAndRegisterRequest $request ChatappVerifyAndRegisterRequest
      *
-     * @remarks
-     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
-     * @param request - ChatappVerifyAndRegisterRequest
-     *
-     * @returns ChatappVerifyAndRegisterResponse
-     *
-     * @param ChatappVerifyAndRegisterRequest $request
-     *
-     * @return ChatappVerifyAndRegisterResponse
+     * @return ChatappVerifyAndRegisterResponse ChatappVerifyAndRegisterResponse
      */
     public function chatappVerifyAndRegister($request)
     {
@@ -1092,62 +969,48 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Create Chatflow.
+     * @summary Create Chatflow
+     *  *
+     * @param CreateChatFlowRequest $tmpReq  CreateChatFlowRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - CreateChatFlowRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateChatFlowResponse
-     *
-     * @param CreateChatFlowRequest $tmpReq
-     * @param RuntimeOptions        $runtime
-     *
-     * @return CreateChatFlowResponse
+     * @return CreateChatFlowResponse CreateChatFlowResponse
      */
     public function createChatFlowWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new CreateChatFlowShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->bizExtend) {
-            $request->bizExtendShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->bizExtend, 'BizExtend', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->bizExtend)) {
+            $request->bizExtendShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->bizExtend, 'BizExtend', 'json');
         }
-
         $query = [];
-        if (null !== $request->bizCode) {
-            @$query['BizCode'] = $request->bizCode;
+        if (!Utils::isUnset($request->bizCode)) {
+            $query['BizCode'] = $request->bizCode;
         }
-
-        if (null !== $request->bizExtendShrink) {
-            @$query['BizExtend'] = $request->bizExtendShrink;
+        if (!Utils::isUnset($request->bizExtendShrink)) {
+            $query['BizExtend'] = $request->bizExtendShrink;
         }
-
-        if (null !== $request->flowTriggerType) {
-            @$query['FlowTriggerType'] = $request->flowTriggerType;
+        if (!Utils::isUnset($request->flowTriggerType)) {
+            $query['FlowTriggerType'] = $request->flowTriggerType;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->remark) {
-            @$query['Remark'] = $request->remark;
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->title) {
-            @$query['Title'] = $request->title;
+        if (!Utils::isUnset($request->title)) {
+            $query['Title'] = $request->title;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateChatFlow',
@@ -1165,15 +1028,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Create Chatflow.
+     * @summary Create Chatflow
+     *  *
+     * @param CreateChatFlowRequest $request CreateChatFlowRequest
      *
-     * @param request - CreateChatFlowRequest
-     *
-     * @returns CreateChatFlowResponse
-     *
-     * @param CreateChatFlowRequest $request
-     *
-     * @return CreateChatFlowResponse
+     * @return CreateChatFlowResponse CreateChatFlowResponse
      */
     public function createChatFlow($request)
     {
@@ -1183,62 +1042,48 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Import and create flow.
+     * @summary Import and create flow
+     *  *
+     * @param CreateChatFlowByImportRequest $tmpReq  CreateChatFlowByImportRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - CreateChatFlowByImportRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateChatFlowByImportResponse
-     *
-     * @param CreateChatFlowByImportRequest $tmpReq
-     * @param RuntimeOptions                $runtime
-     *
-     * @return CreateChatFlowByImportResponse
+     * @return CreateChatFlowByImportResponse CreateChatFlowByImportResponse
      */
     public function createChatFlowByImportWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new CreateChatFlowByImportShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->bizExtend) {
-            $request->bizExtendShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->bizExtend, 'BizExtend', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->bizExtend)) {
+            $request->bizExtendShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->bizExtend, 'BizExtend', 'json');
         }
-
         $query = [];
-        if (null !== $request->bizCode) {
-            @$query['BizCode'] = $request->bizCode;
+        if (!Utils::isUnset($request->bizCode)) {
+            $query['BizCode'] = $request->bizCode;
         }
-
-        if (null !== $request->bizExtendShrink) {
-            @$query['BizExtend'] = $request->bizExtendShrink;
+        if (!Utils::isUnset($request->bizExtendShrink)) {
+            $query['BizExtend'] = $request->bizExtendShrink;
         }
-
-        if (null !== $request->flowViewModel) {
-            @$query['FlowViewModel'] = $request->flowViewModel;
+        if (!Utils::isUnset($request->flowViewModel)) {
+            $query['FlowViewModel'] = $request->flowViewModel;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->remark) {
-            @$query['Remark'] = $request->remark;
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->title) {
-            @$query['Title'] = $request->title;
+        if (!Utils::isUnset($request->title)) {
+            $query['Title'] = $request->title;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateChatFlowByImport',
@@ -1256,15 +1101,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Import and create flow.
+     * @summary Import and create flow
+     *  *
+     * @param CreateChatFlowByImportRequest $request CreateChatFlowByImportRequest
      *
-     * @param request - CreateChatFlowByImportRequest
-     *
-     * @returns CreateChatFlowByImportResponse
-     *
-     * @param CreateChatFlowByImportRequest $request
-     *
-     * @return CreateChatFlowByImportResponse
+     * @return CreateChatFlowByImportResponse CreateChatFlowByImportResponse
      */
     public function createChatFlowByImport($request)
     {
@@ -1274,40 +1115,31 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Create chatFlow log setting.
+     * @summary Create chatFlow log setting
+     *  *
+     * @param CreateChatFlowLogSettingRequest $request CreateChatFlowLogSettingRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateChatFlowLogSettingRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateChatFlowLogSettingResponse
-     *
-     * @param CreateChatFlowLogSettingRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return CreateChatFlowLogSettingResponse
+     * @return CreateChatFlowLogSettingResponse CreateChatFlowLogSettingResponse
      */
     public function createChatFlowLogSettingWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->flowCode) {
-            @$query['FlowCode'] = $request->flowCode;
+        if (!Utils::isUnset($request->flowCode)) {
+            $query['FlowCode'] = $request->flowCode;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateChatFlowLogSetting',
@@ -1325,15 +1157,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Create chatFlow log setting.
+     * @summary Create chatFlow log setting
+     *  *
+     * @param CreateChatFlowLogSettingRequest $request CreateChatFlowLogSettingRequest
      *
-     * @param request - CreateChatFlowLogSettingRequest
-     *
-     * @returns CreateChatFlowLogSettingResponse
-     *
-     * @param CreateChatFlowLogSettingRequest $request
-     *
-     * @return CreateChatFlowLogSettingResponse
+     * @return CreateChatFlowLogSettingResponse CreateChatFlowLogSettingResponse
      */
     public function createChatFlowLogSetting($request)
     {
@@ -1343,39 +1171,39 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * The ID of the number.
+     * @summary The ID of the number.
+     *  *
+     * @description The status of the phone number.
+     *  *
+     * @param CreateChatappMigrationInitiateRequest $request CreateChatappMigrationInitiateRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * The status of the phone number.
-     *
-     * @param request - CreateChatappMigrationInitiateRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateChatappMigrationInitiateResponse
-     *
-     * @param CreateChatappMigrationInitiateRequest $request
-     * @param RuntimeOptions                        $runtime
-     *
-     * @return CreateChatappMigrationInitiateResponse
+     * @return CreateChatappMigrationInitiateResponse CreateChatappMigrationInitiateResponse
      */
     public function createChatappMigrationInitiateWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->countryCode) {
-            @$query['CountryCode'] = $request->countryCode;
+        if (!Utils::isUnset($request->countryCode)) {
+            $query['CountryCode'] = $request->countryCode;
         }
-
-        if (null !== $request->custSpaceId) {
-            @$query['CustSpaceId'] = $request->custSpaceId;
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
         }
-
-        if (null !== $request->mobileNumber) {
-            @$query['MobileNumber'] = $request->mobileNumber;
+        if (!Utils::isUnset($request->mobileNumber)) {
+            $query['MobileNumber'] = $request->mobileNumber;
         }
-
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateChatappMigrationInitiate',
@@ -1393,18 +1221,13 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * The ID of the number.
+     * @summary The ID of the number.
+     *  *
+     * @description The status of the phone number.
+     *  *
+     * @param CreateChatappMigrationInitiateRequest $request CreateChatappMigrationInitiateRequest
      *
-     * @remarks
-     * The status of the phone number.
-     *
-     * @param request - CreateChatappMigrationInitiateRequest
-     *
-     * @returns CreateChatappMigrationInitiateResponse
-     *
-     * @param CreateChatappMigrationInitiateRequest $request
-     *
-     * @return CreateChatappMigrationInitiateResponse
+     * @return CreateChatappMigrationInitiateResponse CreateChatappMigrationInitiateResponse
      */
     public function createChatappMigrationInitiate($request)
     {
@@ -1414,88 +1237,68 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * The HTTP status code.
+     * @summary The HTTP status code.
      * \\\\\\\\*   Example: OK. This parameter indicates that the request is successful.
      * \\\\\\\\*   Other values indicate that the request fails. For more information, see \\\\\\[Error codes]\\\\\\(https://www.alibabacloud.com/help/zh/cams/latest/api-error-codes).
-     *
-     * @remarks
-     * ### [](#qps-)QPS limit
+     *  *
+     * @description ### [](#qps-)QPS limit
      * You can call this operation up to 50 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param CreateChatappTemplateRequest $tmpReq  CreateChatappTemplateRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - CreateChatappTemplateRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateChatappTemplateResponse
-     *
-     * @param CreateChatappTemplateRequest $tmpReq
-     * @param RuntimeOptions               $runtime
-     *
-     * @return CreateChatappTemplateResponse
+     * @return CreateChatappTemplateResponse CreateChatappTemplateResponse
      */
     public function createChatappTemplateWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new CreateChatappTemplateShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->components) {
-            $request->componentsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->components, 'Components', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->components)) {
+            $request->componentsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->components, 'Components', 'json');
         }
-
-        if (null !== $tmpReq->example) {
-            $request->exampleShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->example, 'Example', 'json');
+        if (!Utils::isUnset($tmpReq->example)) {
+            $request->exampleShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->example, 'Example', 'json');
         }
-
         $body = [];
-        if (null !== $request->allowCategoryChange) {
-            @$body['AllowCategoryChange'] = $request->allowCategoryChange;
+        if (!Utils::isUnset($request->allowCategoryChange)) {
+            $body['AllowCategoryChange'] = $request->allowCategoryChange;
         }
-
-        if (null !== $request->category) {
-            @$body['Category'] = $request->category;
+        if (!Utils::isUnset($request->category)) {
+            $body['Category'] = $request->category;
         }
-
-        if (null !== $request->categoryChangePaused) {
-            @$body['CategoryChangePaused'] = $request->categoryChangePaused;
+        if (!Utils::isUnset($request->categoryChangePaused)) {
+            $body['CategoryChangePaused'] = $request->categoryChangePaused;
         }
-
-        if (null !== $request->componentsShrink) {
-            @$body['Components'] = $request->componentsShrink;
+        if (!Utils::isUnset($request->componentsShrink)) {
+            $body['Components'] = $request->componentsShrink;
         }
-
-        if (null !== $request->custSpaceId) {
-            @$body['CustSpaceId'] = $request->custSpaceId;
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $body['CustSpaceId'] = $request->custSpaceId;
         }
-
-        if (null !== $request->custWabaId) {
-            @$body['CustWabaId'] = $request->custWabaId;
+        if (!Utils::isUnset($request->custWabaId)) {
+            $body['CustWabaId'] = $request->custWabaId;
         }
-
-        if (null !== $request->exampleShrink) {
-            @$body['Example'] = $request->exampleShrink;
+        if (!Utils::isUnset($request->exampleShrink)) {
+            $body['Example'] = $request->exampleShrink;
         }
-
-        if (null !== $request->isvCode) {
-            @$body['IsvCode'] = $request->isvCode;
+        if (!Utils::isUnset($request->isvCode)) {
+            $body['IsvCode'] = $request->isvCode;
         }
-
-        if (null !== $request->language) {
-            @$body['Language'] = $request->language;
+        if (!Utils::isUnset($request->language)) {
+            $body['Language'] = $request->language;
         }
-
-        if (null !== $request->messageSendTtlSeconds) {
-            @$body['MessageSendTtlSeconds'] = $request->messageSendTtlSeconds;
+        if (!Utils::isUnset($request->messageSendTtlSeconds)) {
+            $body['MessageSendTtlSeconds'] = $request->messageSendTtlSeconds;
         }
-
-        if (null !== $request->name) {
-            @$body['Name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
         }
-
-        if (null !== $request->templateType) {
-            @$body['TemplateType'] = $request->templateType;
+        if (!Utils::isUnset($request->templateType)) {
+            $body['TemplateType'] = $request->templateType;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateChatappTemplate',
@@ -1513,21 +1316,16 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * The HTTP status code.
+     * @summary The HTTP status code.
      * \\\\\\\\*   Example: OK. This parameter indicates that the request is successful.
      * \\\\\\\\*   Other values indicate that the request fails. For more information, see \\\\\\[Error codes]\\\\\\(https://www.alibabacloud.com/help/zh/cams/latest/api-error-codes).
-     *
-     * @remarks
-     * ### [](#qps-)QPS limit
+     *  *
+     * @description ### [](#qps-)QPS limit
      * You can call this operation up to 50 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param CreateChatappTemplateRequest $request CreateChatappTemplateRequest
      *
-     * @param request - CreateChatappTemplateRequest
-     *
-     * @returns CreateChatappTemplateResponse
-     *
-     * @param CreateChatappTemplateRequest $request
-     *
-     * @return CreateChatappTemplateResponse
+     * @return CreateChatappTemplateResponse CreateChatappTemplateResponse
      */
     public function createChatappTemplate($request)
     {
@@ -1537,45 +1335,44 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Creates a Flow.
+     * @summary Creates a Flow.
+     *  *
+     * @description You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param CreateFlowRequest $tmpReq  CreateFlowRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
-     * @param tmpReq - CreateFlowRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateFlowResponse
-     *
-     * @param CreateFlowRequest $tmpReq
-     * @param RuntimeOptions    $runtime
-     *
-     * @return CreateFlowResponse
+     * @return CreateFlowResponse CreateFlowResponse
      */
     public function createFlowWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new CreateFlowShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->categories) {
-            $request->categoriesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->categories, 'Categories', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->categories)) {
+            $request->categoriesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->categories, 'Categories', 'json');
         }
-
-        $body = [];
-        if (null !== $request->categoriesShrink) {
-            @$body['Categories'] = $request->categoriesShrink;
+        $query = [];
+        if (!Utils::isUnset($request->categoriesShrink)) {
+            $query['Categories'] = $request->categoriesShrink;
         }
-
-        if (null !== $request->custSpaceId) {
-            @$body['CustSpaceId'] = $request->custSpaceId;
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
         }
-
-        if (null !== $request->flowName) {
-            @$body['FlowName'] = $request->flowName;
+        if (!Utils::isUnset($request->flowName)) {
+            $query['FlowName'] = $request->flowName;
         }
-
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateFlow',
@@ -1593,18 +1390,13 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Creates a Flow.
+     * @summary Creates a Flow.
+     *  *
+     * @description You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param CreateFlowRequest $request CreateFlowRequest
      *
-     * @remarks
-     * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
-     * @param request - CreateFlowRequest
-     *
-     * @returns CreateFlowResponse
-     *
-     * @param CreateFlowRequest $request
-     *
-     * @return CreateFlowResponse
+     * @return CreateFlowResponse CreateFlowResponse
      */
     public function createFlow($request)
     {
@@ -1614,62 +1406,48 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * CreateFlowVersion.
+     * @summary CreateFlowVersion
+     *  *
+     * @param CreateFlowVersionRequest $tmpReq  CreateFlowVersionRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - CreateFlowVersionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateFlowVersionResponse
-     *
-     * @param CreateFlowVersionRequest $tmpReq
-     * @param RuntimeOptions           $runtime
-     *
-     * @return CreateFlowVersionResponse
+     * @return CreateFlowVersionResponse CreateFlowVersionResponse
      */
     public function createFlowVersionWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new CreateFlowVersionShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->bizExtend) {
-            $request->bizExtendShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->bizExtend, 'BizExtend', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->bizExtend)) {
+            $request->bizExtendShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->bizExtend, 'BizExtend', 'json');
         }
-
         $query = [];
-        if (null !== $request->bizCode) {
-            @$query['BizCode'] = $request->bizCode;
+        if (!Utils::isUnset($request->bizCode)) {
+            $query['BizCode'] = $request->bizCode;
         }
-
-        if (null !== $request->bizExtendShrink) {
-            @$query['BizExtend'] = $request->bizExtendShrink;
+        if (!Utils::isUnset($request->bizExtendShrink)) {
+            $query['BizExtend'] = $request->bizExtendShrink;
         }
-
-        if (null !== $request->flowCode) {
-            @$query['FlowCode'] = $request->flowCode;
+        if (!Utils::isUnset($request->flowCode)) {
+            $query['FlowCode'] = $request->flowCode;
         }
-
-        if (null !== $request->flowVersionCopyFrom) {
-            @$query['FlowVersionCopyFrom'] = $request->flowVersionCopyFrom;
+        if (!Utils::isUnset($request->flowVersionCopyFrom)) {
+            $query['FlowVersionCopyFrom'] = $request->flowVersionCopyFrom;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->remark) {
-            @$query['Remark'] = $request->remark;
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateFlowVersion',
@@ -1687,15 +1465,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * CreateFlowVersion.
+     * @summary CreateFlowVersion
+     *  *
+     * @param CreateFlowVersionRequest $request CreateFlowVersionRequest
      *
-     * @param request - CreateFlowVersionRequest
-     *
-     * @returns CreateFlowVersionResponse
-     *
-     * @param CreateFlowVersionRequest $request
-     *
-     * @return CreateFlowVersionResponse
+     * @return CreateFlowVersionResponse CreateFlowVersionResponse
      */
     public function createFlowVersion($request)
     {
@@ -1705,40 +1479,40 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Creates a quick-response (QR) code that contains a message.
+     * @summary Creates a quick-response (QR) code that contains a message.
+     *  *
+     * @param CreatePhoneMessageQrdlRequest $request CreatePhoneMessageQrdlRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreatePhoneMessageQrdlRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreatePhoneMessageQrdlResponse
-     *
-     * @param CreatePhoneMessageQrdlRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return CreatePhoneMessageQrdlResponse
+     * @return CreatePhoneMessageQrdlResponse CreatePhoneMessageQrdlResponse
      */
     public function createPhoneMessageQrdlWithOptions($request, $runtime)
     {
-        $request->validate();
-        $body = [];
-        if (null !== $request->custSpaceId) {
-            @$body['CustSpaceId'] = $request->custSpaceId;
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
         }
-
-        if (null !== $request->generateQrImage) {
-            @$body['GenerateQrImage'] = $request->generateQrImage;
+        if (!Utils::isUnset($request->generateQrImage)) {
+            $query['GenerateQrImage'] = $request->generateQrImage;
         }
-
-        if (null !== $request->phoneNumber) {
-            @$body['PhoneNumber'] = $request->phoneNumber;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->prefilledMessage) {
-            @$body['PrefilledMessage'] = $request->prefilledMessage;
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $query['PhoneNumber'] = $request->phoneNumber;
         }
-
+        if (!Utils::isUnset($request->prefilledMessage)) {
+            $query['PrefilledMessage'] = $request->prefilledMessage;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreatePhoneMessageQrdl',
@@ -1756,15 +1530,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Creates a quick-response (QR) code that contains a message.
+     * @summary Creates a quick-response (QR) code that contains a message.
+     *  *
+     * @param CreatePhoneMessageQrdlRequest $request CreatePhoneMessageQrdlRequest
      *
-     * @param request - CreatePhoneMessageQrdlRequest
-     *
-     * @returns CreatePhoneMessageQrdlResponse
-     *
-     * @param CreatePhoneMessageQrdlRequest $request
-     *
-     * @return CreatePhoneMessageQrdlResponse
+     * @return CreatePhoneMessageQrdlResponse CreatePhoneMessageQrdlResponse
      */
     public function createPhoneMessageQrdl($request)
     {
@@ -1774,54 +1544,42 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Delete Process.
+     * @summary Delete Process
+     *  *
+     * @param DeleteChatFlowRequest $tmpReq  DeleteChatFlowRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - DeleteChatFlowRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteChatFlowResponse
-     *
-     * @param DeleteChatFlowRequest $tmpReq
-     * @param RuntimeOptions        $runtime
-     *
-     * @return DeleteChatFlowResponse
+     * @return DeleteChatFlowResponse DeleteChatFlowResponse
      */
     public function deleteChatFlowWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new DeleteChatFlowShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->bizExtend) {
-            $request->bizExtendShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->bizExtend, 'BizExtend', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->bizExtend)) {
+            $request->bizExtendShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->bizExtend, 'BizExtend', 'json');
         }
-
         $query = [];
-        if (null !== $request->bizCode) {
-            @$query['BizCode'] = $request->bizCode;
+        if (!Utils::isUnset($request->bizCode)) {
+            $query['BizCode'] = $request->bizCode;
         }
-
-        if (null !== $request->bizExtendShrink) {
-            @$query['BizExtend'] = $request->bizExtendShrink;
+        if (!Utils::isUnset($request->bizExtendShrink)) {
+            $query['BizExtend'] = $request->bizExtendShrink;
         }
-
-        if (null !== $request->flowCode) {
-            @$query['FlowCode'] = $request->flowCode;
+        if (!Utils::isUnset($request->flowCode)) {
+            $query['FlowCode'] = $request->flowCode;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteChatFlow',
@@ -1839,15 +1597,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Delete Process.
+     * @summary Delete Process
+     *  *
+     * @param DeleteChatFlowRequest $request DeleteChatFlowRequest
      *
-     * @param request - DeleteChatFlowRequest
-     *
-     * @returns DeleteChatFlowResponse
-     *
-     * @param DeleteChatFlowRequest $request
-     *
-     * @return DeleteChatFlowResponse
+     * @return DeleteChatFlowResponse DeleteChatFlowResponse
      */
     public function deleteChatFlow($request)
     {
@@ -1857,52 +1611,40 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * DeleteChatGroup.
+     * @summary DeleteChatGroup
+     *  *
+     * @param DeleteChatGroupRequest $request DeleteChatGroupRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteChatGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteChatGroupResponse
-     *
-     * @param DeleteChatGroupRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return DeleteChatGroupResponse
+     * @return DeleteChatGroupResponse DeleteChatGroupResponse
      */
     public function deleteChatGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->businessNumber) {
-            @$query['BusinessNumber'] = $request->businessNumber;
+        if (!Utils::isUnset($request->businessNumber)) {
+            $query['BusinessNumber'] = $request->businessNumber;
         }
-
-        if (null !== $request->channelType) {
-            @$query['ChannelType'] = $request->channelType;
+        if (!Utils::isUnset($request->channelType)) {
+            $query['ChannelType'] = $request->channelType;
         }
-
-        if (null !== $request->custSpaceId) {
-            @$query['CustSpaceId'] = $request->custSpaceId;
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteChatGroup',
@@ -1920,15 +1662,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * DeleteChatGroup.
+     * @summary DeleteChatGroup
+     *  *
+     * @param DeleteChatGroupRequest $request DeleteChatGroupRequest
      *
-     * @param request - DeleteChatGroupRequest
-     *
-     * @returns DeleteChatGroupResponse
-     *
-     * @param DeleteChatGroupRequest $request
-     *
-     * @return DeleteChatGroupResponse
+     * @return DeleteChatGroupResponse DeleteChatGroupResponse
      */
     public function deleteChatGroup($request)
     {
@@ -1938,52 +1676,40 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * DeleteChatGroupInviteLink.
+     * @summary DeleteChatGroupInviteLink
+     *  *
+     * @param DeleteChatGroupInviteLinkRequest $request DeleteChatGroupInviteLinkRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteChatGroupInviteLinkRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteChatGroupInviteLinkResponse
-     *
-     * @param DeleteChatGroupInviteLinkRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DeleteChatGroupInviteLinkResponse
+     * @return DeleteChatGroupInviteLinkResponse DeleteChatGroupInviteLinkResponse
      */
     public function deleteChatGroupInviteLinkWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->businessNumber) {
-            @$query['BusinessNumber'] = $request->businessNumber;
+        if (!Utils::isUnset($request->businessNumber)) {
+            $query['BusinessNumber'] = $request->businessNumber;
         }
-
-        if (null !== $request->channelType) {
-            @$query['ChannelType'] = $request->channelType;
+        if (!Utils::isUnset($request->channelType)) {
+            $query['ChannelType'] = $request->channelType;
         }
-
-        if (null !== $request->custSpaceId) {
-            @$query['CustSpaceId'] = $request->custSpaceId;
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteChatGroupInviteLink',
@@ -2001,15 +1727,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * DeleteChatGroupInviteLink.
+     * @summary DeleteChatGroupInviteLink
+     *  *
+     * @param DeleteChatGroupInviteLinkRequest $request DeleteChatGroupInviteLinkRequest
      *
-     * @param request - DeleteChatGroupInviteLinkRequest
-     *
-     * @returns DeleteChatGroupInviteLinkResponse
-     *
-     * @param DeleteChatGroupInviteLinkRequest $request
-     *
-     * @return DeleteChatGroupInviteLinkResponse
+     * @return DeleteChatGroupInviteLinkResponse DeleteChatGroupInviteLinkResponse
      */
     public function deleteChatGroupInviteLink($request)
     {
@@ -2019,62 +1741,48 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * DeleteChatGroupParticipants.
+     * @summary DeleteChatGroupParticipants
+     *  *
+     * @param DeleteChatGroupParticipantsRequest $tmpReq  DeleteChatGroupParticipantsRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - DeleteChatGroupParticipantsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteChatGroupParticipantsResponse
-     *
-     * @param DeleteChatGroupParticipantsRequest $tmpReq
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return DeleteChatGroupParticipantsResponse
+     * @return DeleteChatGroupParticipantsResponse DeleteChatGroupParticipantsResponse
      */
     public function deleteChatGroupParticipantsWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new DeleteChatGroupParticipantsShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->list) {
-            $request->listShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->list, 'List', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->list_)) {
+            $request->listShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->list_, 'List', 'json');
         }
-
         $query = [];
-        if (null !== $request->businessNumber) {
-            @$query['BusinessNumber'] = $request->businessNumber;
+        if (!Utils::isUnset($request->businessNumber)) {
+            $query['BusinessNumber'] = $request->businessNumber;
         }
-
-        if (null !== $request->channelType) {
-            @$query['ChannelType'] = $request->channelType;
+        if (!Utils::isUnset($request->channelType)) {
+            $query['ChannelType'] = $request->channelType;
         }
-
-        if (null !== $request->custSpaceId) {
-            @$query['CustSpaceId'] = $request->custSpaceId;
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->listShrink) {
-            @$query['List'] = $request->listShrink;
+        if (!Utils::isUnset($request->listShrink)) {
+            $query['List'] = $request->listShrink;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteChatGroupParticipants',
@@ -2092,15 +1800,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * DeleteChatGroupParticipants.
+     * @summary DeleteChatGroupParticipants
+     *  *
+     * @param DeleteChatGroupParticipantsRequest $request DeleteChatGroupParticipantsRequest
      *
-     * @param request - DeleteChatGroupParticipantsRequest
-     *
-     * @returns DeleteChatGroupParticipantsResponse
-     *
-     * @param DeleteChatGroupParticipantsRequest $request
-     *
-     * @return DeleteChatGroupParticipantsResponse
+     * @return DeleteChatGroupParticipantsResponse DeleteChatGroupParticipantsResponse
      */
     public function deleteChatGroupParticipants($request)
     {
@@ -2110,68 +1814,52 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Deletes a message template.
-     *
-     * @remarks
-     * ### QPS limit
+     * @summary Deletes a message template.
+     *  *
+     * @description ### QPS limit
      * You can call this operation up to five times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DeleteChatappTemplateRequest $request DeleteChatappTemplateRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteChatappTemplateRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteChatappTemplateResponse
-     *
-     * @param DeleteChatappTemplateRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DeleteChatappTemplateResponse
+     * @return DeleteChatappTemplateResponse DeleteChatappTemplateResponse
      */
     public function deleteChatappTemplateWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->custSpaceId) {
-            @$query['CustSpaceId'] = $request->custSpaceId;
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
         }
-
-        if (null !== $request->custWabaId) {
-            @$query['CustWabaId'] = $request->custWabaId;
+        if (!Utils::isUnset($request->custWabaId)) {
+            $query['CustWabaId'] = $request->custWabaId;
         }
-
-        if (null !== $request->isvCode) {
-            @$query['IsvCode'] = $request->isvCode;
+        if (!Utils::isUnset($request->isvCode)) {
+            $query['IsvCode'] = $request->isvCode;
         }
-
-        if (null !== $request->language) {
-            @$query['Language'] = $request->language;
+        if (!Utils::isUnset($request->language)) {
+            $query['Language'] = $request->language;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->templateCode) {
-            @$query['TemplateCode'] = $request->templateCode;
+        if (!Utils::isUnset($request->templateCode)) {
+            $query['TemplateCode'] = $request->templateCode;
         }
-
-        if (null !== $request->templateName) {
-            @$query['TemplateName'] = $request->templateName;
+        if (!Utils::isUnset($request->templateName)) {
+            $query['TemplateName'] = $request->templateName;
         }
-
-        if (null !== $request->templateType) {
-            @$query['TemplateType'] = $request->templateType;
+        if (!Utils::isUnset($request->templateType)) {
+            $query['TemplateType'] = $request->templateType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteChatappTemplate',
@@ -2189,19 +1877,14 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Deletes a message template.
-     *
-     * @remarks
-     * ### QPS limit
+     * @summary Deletes a message template.
+     *  *
+     * @description ### QPS limit
      * You can call this operation up to five times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DeleteChatappTemplateRequest $request DeleteChatappTemplateRequest
      *
-     * @param request - DeleteChatappTemplateRequest
-     *
-     * @returns DeleteChatappTemplateResponse
-     *
-     * @param DeleteChatappTemplateRequest $request
-     *
-     * @return DeleteChatappTemplateResponse
+     * @return DeleteChatappTemplateResponse DeleteChatappTemplateResponse
      */
     public function deleteChatappTemplate($request)
     {
@@ -2211,35 +1894,36 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Deletes a Flow. Only Flows in the DRAFT state can be deleted.
+     * @summary Deletes a Flow. Only Flows in the DRAFT state can be deleted.
+     *  *
+     * @description You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DeleteFlowRequest $request DeleteFlowRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
-     * @param request - DeleteFlowRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteFlowResponse
-     *
-     * @param DeleteFlowRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return DeleteFlowResponse
+     * @return DeleteFlowResponse DeleteFlowResponse
      */
     public function deleteFlowWithOptions($request, $runtime)
     {
-        $request->validate();
-        $body = [];
-        if (null !== $request->custSpaceId) {
-            @$body['CustSpaceId'] = $request->custSpaceId;
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
         }
-
-        if (null !== $request->flowId) {
-            @$body['FlowId'] = $request->flowId;
+        if (!Utils::isUnset($request->flowId)) {
+            $query['FlowId'] = $request->flowId;
         }
-
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteFlow',
@@ -2257,18 +1941,13 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Deletes a Flow. Only Flows in the DRAFT state can be deleted.
+     * @summary Deletes a Flow. Only Flows in the DRAFT state can be deleted.
+     *  *
+     * @description You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DeleteFlowRequest $request DeleteFlowRequest
      *
-     * @remarks
-     * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
-     * @param request - DeleteFlowRequest
-     *
-     * @returns DeleteFlowResponse
-     *
-     * @param DeleteFlowRequest $request
-     *
-     * @return DeleteFlowResponse
+     * @return DeleteFlowResponse DeleteFlowResponse
      */
     public function deleteFlow($request)
     {
@@ -2278,58 +1957,45 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Delete Flow Version.
+     * @summary Delete Flow Version
+     *  *
+     * @param DeleteFlowVersionRequest $tmpReq  DeleteFlowVersionRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - DeleteFlowVersionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteFlowVersionResponse
-     *
-     * @param DeleteFlowVersionRequest $tmpReq
-     * @param RuntimeOptions           $runtime
-     *
-     * @return DeleteFlowVersionResponse
+     * @return DeleteFlowVersionResponse DeleteFlowVersionResponse
      */
     public function deleteFlowVersionWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new DeleteFlowVersionShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->bizExtend) {
-            $request->bizExtendShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->bizExtend, 'BizExtend', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->bizExtend)) {
+            $request->bizExtendShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->bizExtend, 'BizExtend', 'json');
         }
-
         $query = [];
-        if (null !== $request->bizCode) {
-            @$query['BizCode'] = $request->bizCode;
+        if (!Utils::isUnset($request->bizCode)) {
+            $query['BizCode'] = $request->bizCode;
         }
-
-        if (null !== $request->bizExtendShrink) {
-            @$query['BizExtend'] = $request->bizExtendShrink;
+        if (!Utils::isUnset($request->bizExtendShrink)) {
+            $query['BizExtend'] = $request->bizExtendShrink;
         }
-
-        if (null !== $request->flowCode) {
-            @$query['FlowCode'] = $request->flowCode;
+        if (!Utils::isUnset($request->flowCode)) {
+            $query['FlowCode'] = $request->flowCode;
         }
-
-        if (null !== $request->flowVersion) {
-            @$query['FlowVersion'] = $request->flowVersion;
+        if (!Utils::isUnset($request->flowVersion)) {
+            $query['FlowVersion'] = $request->flowVersion;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteFlowVersion',
@@ -2347,15 +2013,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Delete Flow Version.
+     * @summary Delete Flow Version
+     *  *
+     * @param DeleteFlowVersionRequest $request DeleteFlowVersionRequest
      *
-     * @param request - DeleteFlowVersionRequest
-     *
-     * @returns DeleteFlowVersionResponse
-     *
-     * @param DeleteFlowVersionRequest $request
-     *
-     * @return DeleteFlowVersionResponse
+     * @return DeleteFlowVersionResponse DeleteFlowVersionResponse
      */
     public function deleteFlowVersion($request)
     {
@@ -2365,36 +2027,37 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Deletes a quick-response (QR) code that contains a message.
+     * @summary Deletes a quick-response (QR) code that contains a message.
+     *  *
+     * @param DeletePhoneMessageQrdlRequest $request DeletePhoneMessageQrdlRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeletePhoneMessageQrdlRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeletePhoneMessageQrdlResponse
-     *
-     * @param DeletePhoneMessageQrdlRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return DeletePhoneMessageQrdlResponse
+     * @return DeletePhoneMessageQrdlResponse DeletePhoneMessageQrdlResponse
      */
     public function deletePhoneMessageQrdlWithOptions($request, $runtime)
     {
-        $request->validate();
-        $body = [];
-        if (null !== $request->custSpaceId) {
-            @$body['CustSpaceId'] = $request->custSpaceId;
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
         }
-
-        if (null !== $request->phoneNumber) {
-            @$body['PhoneNumber'] = $request->phoneNumber;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->qrdlCode) {
-            @$body['QrdlCode'] = $request->qrdlCode;
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $query['PhoneNumber'] = $request->phoneNumber;
         }
-
+        if (!Utils::isUnset($request->qrdlCode)) {
+            $query['QrdlCode'] = $request->qrdlCode;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeletePhoneMessageQrdl',
@@ -2412,15 +2075,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Deletes a quick-response (QR) code that contains a message.
+     * @summary Deletes a quick-response (QR) code that contains a message.
+     *  *
+     * @param DeletePhoneMessageQrdlRequest $request DeletePhoneMessageQrdlRequest
      *
-     * @param request - DeletePhoneMessageQrdlRequest
-     *
-     * @returns DeletePhoneMessageQrdlResponse
-     *
-     * @param DeletePhoneMessageQrdlRequest $request
-     *
-     * @return DeletePhoneMessageQrdlResponse
+     * @return DeletePhoneMessageQrdlResponse DeletePhoneMessageQrdlResponse
      */
     public function deletePhoneMessageQrdl($request)
     {
@@ -2430,32 +2089,34 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Deprecates a Flow.
+     * @summary Deprecates a Flow.
+     *  *
+     * @param DeprecateFlowRequest $request DeprecateFlowRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeprecateFlowRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeprecateFlowResponse
-     *
-     * @param DeprecateFlowRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return DeprecateFlowResponse
+     * @return DeprecateFlowResponse DeprecateFlowResponse
      */
     public function deprecateFlowWithOptions($request, $runtime)
     {
-        $request->validate();
-        $body = [];
-        if (null !== $request->custSpaceId) {
-            @$body['CustSpaceId'] = $request->custSpaceId;
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
         }
-
-        if (null !== $request->flowId) {
-            @$body['FlowId'] = $request->flowId;
+        if (!Utils::isUnset($request->flowId)) {
+            $query['FlowId'] = $request->flowId;
         }
-
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeprecateFlow',
@@ -2473,15 +2134,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Deprecates a Flow.
+     * @summary Deprecates a Flow.
+     *  *
+     * @param DeprecateFlowRequest $request DeprecateFlowRequest
      *
-     * @param request - DeprecateFlowRequest
-     *
-     * @returns DeprecateFlowResponse
-     *
-     * @param DeprecateFlowRequest $request
-     *
-     * @return DeprecateFlowResponse
+     * @return DeprecateFlowResponse DeprecateFlowResponse
      */
     public function deprecateFlow($request)
     {
@@ -2491,35 +2148,36 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Enables the statistics on the metrics that are related to WhatsApp.
+     * @summary Enables the statistics on the metrics that are related to WhatsApp.
+     *  *
+     * @description You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param EnableWhatsappROIMetricRequest $request EnableWhatsappROIMetricRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
-     * @param request - EnableWhatsappROIMetricRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns EnableWhatsappROIMetricResponse
-     *
-     * @param EnableWhatsappROIMetricRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return EnableWhatsappROIMetricResponse
+     * @return EnableWhatsappROIMetricResponse EnableWhatsappROIMetricResponse
      */
     public function enableWhatsappROIMetricWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->custSpaceId) {
-            @$query['CustSpaceId'] = $request->custSpaceId;
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
         }
-
-        if (null !== $request->isvCode) {
-            @$query['IsvCode'] = $request->isvCode;
+        if (!Utils::isUnset($request->isvCode)) {
+            $query['IsvCode'] = $request->isvCode;
         }
-
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'EnableWhatsappROIMetric',
@@ -2537,18 +2195,13 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Enables the statistics on the metrics that are related to WhatsApp.
+     * @summary Enables the statistics on the metrics that are related to WhatsApp.
+     *  *
+     * @description You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param EnableWhatsappROIMetricRequest $request EnableWhatsappROIMetricRequest
      *
-     * @remarks
-     * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
-     * @param request - EnableWhatsappROIMetricRequest
-     *
-     * @returns EnableWhatsappROIMetricResponse
-     *
-     * @param EnableWhatsappROIMetricRequest $request
-     *
-     * @return EnableWhatsappROIMetricResponse
+     * @return EnableWhatsappROIMetricResponse EnableWhatsappROIMetricResponse
      */
     public function enableWhatsappROIMetric($request)
     {
@@ -2558,66 +2211,51 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Bind phone numbers to flow.
+     * @summary Bind phone numbers to flow
+     *  *
+     * @param FlowBindPhoneRequest $tmpReq  FlowBindPhoneRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - FlowBindPhoneRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns FlowBindPhoneResponse
-     *
-     * @param FlowBindPhoneRequest $tmpReq
-     * @param RuntimeOptions       $runtime
-     *
-     * @return FlowBindPhoneResponse
+     * @return FlowBindPhoneResponse FlowBindPhoneResponse
      */
     public function flowBindPhoneWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new FlowBindPhoneShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->phoneNumbers) {
-            $request->phoneNumbersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->phoneNumbers, 'PhoneNumbers', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->phoneNumbers)) {
+            $request->phoneNumbersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->phoneNumbers, 'PhoneNumbers', 'json');
         }
-
         $query = [];
-        if (null !== $request->channelCode) {
-            @$query['ChannelCode'] = $request->channelCode;
+        if (!Utils::isUnset($request->channelCode)) {
+            $query['ChannelCode'] = $request->channelCode;
         }
-
-        if (null !== $request->channelType) {
-            @$query['ChannelType'] = $request->channelType;
+        if (!Utils::isUnset($request->channelType)) {
+            $query['ChannelType'] = $request->channelType;
         }
-
-        if (null !== $request->flowCode) {
-            @$query['FlowCode'] = $request->flowCode;
+        if (!Utils::isUnset($request->flowCode)) {
+            $query['FlowCode'] = $request->flowCode;
         }
-
-        if (null !== $request->flowVersion) {
-            @$query['FlowVersion'] = $request->flowVersion;
+        if (!Utils::isUnset($request->flowVersion)) {
+            $query['FlowVersion'] = $request->flowVersion;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->phoneNumbersShrink) {
-            @$query['PhoneNumbers'] = $request->phoneNumbersShrink;
+        if (!Utils::isUnset($request->phoneNumbersShrink)) {
+            $query['PhoneNumbers'] = $request->phoneNumbersShrink;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->wabaId) {
-            @$query['WabaId'] = $request->wabaId;
+        if (!Utils::isUnset($request->wabaId)) {
+            $query['WabaId'] = $request->wabaId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'FlowBindPhone',
@@ -2635,15 +2273,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Bind phone numbers to flow.
+     * @summary Bind phone numbers to flow
+     *  *
+     * @param FlowBindPhoneRequest $request FlowBindPhoneRequest
      *
-     * @param request - FlowBindPhoneRequest
-     *
-     * @returns FlowBindPhoneResponse
-     *
-     * @param FlowBindPhoneRequest $request
-     *
-     * @return FlowBindPhoneResponse
+     * @return FlowBindPhoneResponse FlowBindPhoneResponse
      */
     public function flowBindPhone($request)
     {
@@ -2653,66 +2287,51 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Rebind phone number for flow.
+     * @summary Rebind phone number for flow
+     *  *
+     * @param FlowRebindPhoneRequest $tmpReq  FlowRebindPhoneRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - FlowRebindPhoneRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns FlowRebindPhoneResponse
-     *
-     * @param FlowRebindPhoneRequest $tmpReq
-     * @param RuntimeOptions         $runtime
-     *
-     * @return FlowRebindPhoneResponse
+     * @return FlowRebindPhoneResponse FlowRebindPhoneResponse
      */
     public function flowRebindPhoneWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new FlowRebindPhoneShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->phoneNumbers) {
-            $request->phoneNumbersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->phoneNumbers, 'PhoneNumbers', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->phoneNumbers)) {
+            $request->phoneNumbersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->phoneNumbers, 'PhoneNumbers', 'json');
         }
-
         $query = [];
-        if (null !== $request->channelCode) {
-            @$query['ChannelCode'] = $request->channelCode;
+        if (!Utils::isUnset($request->channelCode)) {
+            $query['ChannelCode'] = $request->channelCode;
         }
-
-        if (null !== $request->channelType) {
-            @$query['ChannelType'] = $request->channelType;
+        if (!Utils::isUnset($request->channelType)) {
+            $query['ChannelType'] = $request->channelType;
         }
-
-        if (null !== $request->flowCode) {
-            @$query['FlowCode'] = $request->flowCode;
+        if (!Utils::isUnset($request->flowCode)) {
+            $query['FlowCode'] = $request->flowCode;
         }
-
-        if (null !== $request->flowVersion) {
-            @$query['FlowVersion'] = $request->flowVersion;
+        if (!Utils::isUnset($request->flowVersion)) {
+            $query['FlowVersion'] = $request->flowVersion;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->phoneNumbersShrink) {
-            @$query['PhoneNumbers'] = $request->phoneNumbersShrink;
+        if (!Utils::isUnset($request->phoneNumbersShrink)) {
+            $query['PhoneNumbers'] = $request->phoneNumbersShrink;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->wabaId) {
-            @$query['WabaId'] = $request->wabaId;
+        if (!Utils::isUnset($request->wabaId)) {
+            $query['WabaId'] = $request->wabaId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'FlowRebindPhone',
@@ -2730,15 +2349,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Rebind phone number for flow.
+     * @summary Rebind phone number for flow
+     *  *
+     * @param FlowRebindPhoneRequest $request FlowRebindPhoneRequest
      *
-     * @param request - FlowRebindPhoneRequest
-     *
-     * @returns FlowRebindPhoneResponse
-     *
-     * @param FlowRebindPhoneRequest $request
-     *
-     * @return FlowRebindPhoneResponse
+     * @return FlowRebindPhoneResponse FlowRebindPhoneResponse
      */
     public function flowRebindPhone($request)
     {
@@ -2748,58 +2363,45 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Unbind phone number from flow.
+     * @summary Unbind phone number from flow
+     *  *
+     * @param FlowUnbindPhoneRequest $tmpReq  FlowUnbindPhoneRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - FlowUnbindPhoneRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns FlowUnbindPhoneResponse
-     *
-     * @param FlowUnbindPhoneRequest $tmpReq
-     * @param RuntimeOptions         $runtime
-     *
-     * @return FlowUnbindPhoneResponse
+     * @return FlowUnbindPhoneResponse FlowUnbindPhoneResponse
      */
     public function flowUnbindPhoneWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new FlowUnbindPhoneShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->phoneNumbers) {
-            $request->phoneNumbersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->phoneNumbers, 'PhoneNumbers', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->phoneNumbers)) {
+            $request->phoneNumbersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->phoneNumbers, 'PhoneNumbers', 'json');
         }
-
         $query = [];
-        if (null !== $request->channelType) {
-            @$query['ChannelType'] = $request->channelType;
+        if (!Utils::isUnset($request->channelType)) {
+            $query['ChannelType'] = $request->channelType;
         }
-
-        if (null !== $request->flowCode) {
-            @$query['FlowCode'] = $request->flowCode;
+        if (!Utils::isUnset($request->flowCode)) {
+            $query['FlowCode'] = $request->flowCode;
         }
-
-        if (null !== $request->flowVersion) {
-            @$query['FlowVersion'] = $request->flowVersion;
+        if (!Utils::isUnset($request->flowVersion)) {
+            $query['FlowVersion'] = $request->flowVersion;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->phoneNumbersShrink) {
-            @$query['PhoneNumbers'] = $request->phoneNumbersShrink;
+        if (!Utils::isUnset($request->phoneNumbersShrink)) {
+            $query['PhoneNumbers'] = $request->phoneNumbersShrink;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'FlowUnbindPhone',
@@ -2817,15 +2419,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Unbind phone number from flow.
+     * @summary Unbind phone number from flow
+     *  *
+     * @param FlowUnbindPhoneRequest $request FlowUnbindPhoneRequest
      *
-     * @param request - FlowUnbindPhoneRequest
-     *
-     * @returns FlowUnbindPhoneResponse
-     *
-     * @param FlowUnbindPhoneRequest $request
-     *
-     * @return FlowUnbindPhoneResponse
+     * @return FlowUnbindPhoneResponse FlowUnbindPhoneResponse
      */
     public function flowUnbindPhone($request)
     {
@@ -2835,70 +2433,60 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Get ChatFlow Runtime Data.
+     * @summary Get ChatFlow Runtime Data
+     *  *
+     * @param GetChatFlowMetricRequest $tmpReq  GetChatFlowMetricRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - GetChatFlowMetricRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetChatFlowMetricResponse
-     *
-     * @param GetChatFlowMetricRequest $tmpReq
-     * @param RuntimeOptions           $runtime
-     *
-     * @return GetChatFlowMetricResponse
+     * @return GetChatFlowMetricResponse GetChatFlowMetricResponse
      */
     public function getChatFlowMetricWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new GetChatFlowMetricShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->bizExtend) {
-            $request->bizExtendShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->bizExtend, 'BizExtend', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->bizExtend)) {
+            $request->bizExtendShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->bizExtend, 'BizExtend', 'json');
         }
-
+        if (!Utils::isUnset($tmpReq->metricParam)) {
+            $request->metricParamShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->metricParam, 'MetricParam', 'json');
+        }
         $query = [];
-        if (null !== $request->bizCode) {
-            @$query['BizCode'] = $request->bizCode;
+        if (!Utils::isUnset($request->bizCode)) {
+            $query['BizCode'] = $request->bizCode;
         }
-
-        if (null !== $request->bizExtendShrink) {
-            @$query['BizExtend'] = $request->bizExtendShrink;
+        if (!Utils::isUnset($request->bizExtendShrink)) {
+            $query['BizExtend'] = $request->bizExtendShrink;
         }
-
-        if (null !== $request->flowCode) {
-            @$query['FlowCode'] = $request->flowCode;
+        if (!Utils::isUnset($request->flowCode)) {
+            $query['FlowCode'] = $request->flowCode;
         }
-
-        if (null !== $request->flowVersion) {
-            @$query['FlowVersion'] = $request->flowVersion;
+        if (!Utils::isUnset($request->flowVersion)) {
+            $query['FlowVersion'] = $request->flowVersion;
         }
-
-        if (null !== $request->from) {
-            @$query['From'] = $request->from;
+        if (!Utils::isUnset($request->from)) {
+            $query['From'] = $request->from;
         }
-
-        if (null !== $request->metricName) {
-            @$query['MetricName'] = $request->metricName;
+        if (!Utils::isUnset($request->metricName)) {
+            $query['MetricName'] = $request->metricName;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->metricParamShrink)) {
+            $query['MetricParam'] = $request->metricParamShrink;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->to) {
-            @$query['To'] = $request->to;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
+        if (!Utils::isUnset($request->to)) {
+            $query['To'] = $request->to;
+        }
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetChatFlowMetric',
@@ -2916,15 +2504,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Get ChatFlow Runtime Data.
+     * @summary Get ChatFlow Runtime Data
+     *  *
+     * @param GetChatFlowMetricRequest $request GetChatFlowMetricRequest
      *
-     * @param request - GetChatFlowMetricRequest
-     *
-     * @returns GetChatFlowMetricResponse
-     *
-     * @param GetChatFlowMetricRequest $request
-     *
-     * @return GetChatFlowMetricResponse
+     * @return GetChatFlowMetricResponse GetChatFlowMetricResponse
      */
     public function getChatFlowMetric($request)
     {
@@ -2934,44 +2518,34 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Query chatFlow template.
+     * @summary Query chatFlow template
+     *  *
+     * @param GetChatFlowTemplateRequest $request GetChatFlowTemplateRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetChatFlowTemplateRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetChatFlowTemplateResponse
-     *
-     * @param GetChatFlowTemplateRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return GetChatFlowTemplateResponse
+     * @return GetChatFlowTemplateResponse GetChatFlowTemplateResponse
      */
     public function getChatFlowTemplateWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->bizCode) {
-            @$query['BizCode'] = $request->bizCode;
+        if (!Utils::isUnset($request->bizCode)) {
+            $query['BizCode'] = $request->bizCode;
         }
-
-        if (null !== $request->id) {
-            @$query['Id'] = $request->id;
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetChatFlowTemplate',
@@ -2989,15 +2563,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Query chatFlow template.
+     * @summary Query chatFlow template
+     *  *
+     * @param GetChatFlowTemplateRequest $request GetChatFlowTemplateRequest
      *
-     * @param request - GetChatFlowTemplateRequest
-     *
-     * @returns GetChatFlowTemplateResponse
-     *
-     * @param GetChatFlowTemplateRequest $request
-     *
-     * @return GetChatFlowTemplateResponse
+     * @return GetChatFlowTemplateResponse GetChatFlowTemplateResponse
      */
     public function getChatFlowTemplate($request)
     {
@@ -3007,51 +2577,48 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Queries the number of messages that are sent by using a phone number by a specific metric.
+     * @summary Queries the number of messages that are sent by using a phone number by a specific metric.
+     *  *
+     * @description You can call this operation up to 50 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param GetChatappPhoneNumberMetricRequest $request GetChatappPhoneNumberMetricRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can call this operation up to 50 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
-     * @param request - GetChatappPhoneNumberMetricRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetChatappPhoneNumberMetricResponse
-     *
-     * @param GetChatappPhoneNumberMetricRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return GetChatappPhoneNumberMetricResponse
+     * @return GetChatappPhoneNumberMetricResponse GetChatappPhoneNumberMetricResponse
      */
     public function getChatappPhoneNumberMetricWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->custSpaceId) {
-            @$query['CustSpaceId'] = $request->custSpaceId;
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
         }
-
-        if (null !== $request->end) {
-            @$query['End'] = $request->end;
+        if (!Utils::isUnset($request->end)) {
+            $query['End'] = $request->end;
         }
-
-        if (null !== $request->granularity) {
-            @$query['Granularity'] = $request->granularity;
+        if (!Utils::isUnset($request->granularity)) {
+            $query['Granularity'] = $request->granularity;
         }
-
-        if (null !== $request->isvCode) {
-            @$query['IsvCode'] = $request->isvCode;
+        if (!Utils::isUnset($request->isvCode)) {
+            $query['IsvCode'] = $request->isvCode;
         }
-
-        if (null !== $request->phoneNumber) {
-            @$query['PhoneNumber'] = $request->phoneNumber;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->start) {
-            @$query['Start'] = $request->start;
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $query['PhoneNumber'] = $request->phoneNumber;
         }
-
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->start)) {
+            $query['Start'] = $request->start;
+        }
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetChatappPhoneNumberMetric',
@@ -3069,18 +2636,13 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Queries the number of messages that are sent by using a phone number by a specific metric.
+     * @summary Queries the number of messages that are sent by using a phone number by a specific metric.
+     *  *
+     * @description You can call this operation up to 50 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param GetChatappPhoneNumberMetricRequest $request GetChatappPhoneNumberMetricRequest
      *
-     * @remarks
-     * You can call this operation up to 50 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
-     * @param request - GetChatappPhoneNumberMetricRequest
-     *
-     * @returns GetChatappPhoneNumberMetricResponse
-     *
-     * @param GetChatappPhoneNumberMetricRequest $request
-     *
-     * @return GetChatappPhoneNumberMetricResponse
+     * @return GetChatappPhoneNumberMetricResponse GetChatappPhoneNumberMetricResponse
      */
     public function getChatappPhoneNumberMetric($request)
     {
@@ -3090,56 +2652,43 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Queries the information of a message template.
-     *
-     * @remarks
-     * ### QPS limit
+     * @summary Queries the information of a message template.
+     *  *
+     * @description ### QPS limit
      * You can call this API operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param GetChatappTemplateDetailRequest $request GetChatappTemplateDetailRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetChatappTemplateDetailRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetChatappTemplateDetailResponse
-     *
-     * @param GetChatappTemplateDetailRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return GetChatappTemplateDetailResponse
+     * @return GetChatappTemplateDetailResponse GetChatappTemplateDetailResponse
      */
     public function getChatappTemplateDetailWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->custSpaceId) {
-            @$query['CustSpaceId'] = $request->custSpaceId;
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
         }
-
-        if (null !== $request->custWabaId) {
-            @$query['CustWabaId'] = $request->custWabaId;
+        if (!Utils::isUnset($request->custWabaId)) {
+            $query['CustWabaId'] = $request->custWabaId;
         }
-
-        if (null !== $request->isvCode) {
-            @$query['IsvCode'] = $request->isvCode;
+        if (!Utils::isUnset($request->isvCode)) {
+            $query['IsvCode'] = $request->isvCode;
         }
-
-        if (null !== $request->language) {
-            @$query['Language'] = $request->language;
+        if (!Utils::isUnset($request->language)) {
+            $query['Language'] = $request->language;
         }
-
-        if (null !== $request->templateCode) {
-            @$query['TemplateCode'] = $request->templateCode;
+        if (!Utils::isUnset($request->templateCode)) {
+            $query['TemplateCode'] = $request->templateCode;
         }
-
-        if (null !== $request->templateName) {
-            @$query['TemplateName'] = $request->templateName;
+        if (!Utils::isUnset($request->templateName)) {
+            $query['TemplateName'] = $request->templateName;
         }
-
-        if (null !== $request->templateType) {
-            @$query['TemplateType'] = $request->templateType;
+        if (!Utils::isUnset($request->templateType)) {
+            $query['TemplateType'] = $request->templateType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetChatappTemplateDetail',
@@ -3157,19 +2706,14 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Queries the information of a message template.
-     *
-     * @remarks
-     * ### QPS limit
+     * @summary Queries the information of a message template.
+     *  *
+     * @description ### QPS limit
      * You can call this API operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param GetChatappTemplateDetailRequest $request GetChatappTemplateDetailRequest
      *
-     * @param request - GetChatappTemplateDetailRequest
-     *
-     * @returns GetChatappTemplateDetailResponse
-     *
-     * @param GetChatappTemplateDetailRequest $request
-     *
-     * @return GetChatappTemplateDetailResponse
+     * @return GetChatappTemplateDetailResponse GetChatappTemplateDetailResponse
      */
     public function getChatappTemplateDetail($request)
     {
@@ -3179,59 +2723,54 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Queries the metrics about a marketing template.
+     * @summary Queries the metrics about a marketing template.
+     *  *
+     * @description You can call this operation up to 50 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param GetChatappTemplateMetricRequest $request GetChatappTemplateMetricRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can call this operation up to 50 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
-     * @param request - GetChatappTemplateMetricRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetChatappTemplateMetricResponse
-     *
-     * @param GetChatappTemplateMetricRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return GetChatappTemplateMetricResponse
+     * @return GetChatappTemplateMetricResponse GetChatappTemplateMetricResponse
      */
     public function getChatappTemplateMetricWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->custSpaceId) {
-            @$query['CustSpaceId'] = $request->custSpaceId;
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
         }
-
-        if (null !== $request->end) {
-            @$query['End'] = $request->end;
+        if (!Utils::isUnset($request->end)) {
+            $query['End'] = $request->end;
         }
-
-        if (null !== $request->granularity) {
-            @$query['Granularity'] = $request->granularity;
+        if (!Utils::isUnset($request->granularity)) {
+            $query['Granularity'] = $request->granularity;
         }
-
-        if (null !== $request->isvCode) {
-            @$query['IsvCode'] = $request->isvCode;
+        if (!Utils::isUnset($request->isvCode)) {
+            $query['IsvCode'] = $request->isvCode;
         }
-
-        if (null !== $request->language) {
-            @$query['Language'] = $request->language;
+        if (!Utils::isUnset($request->language)) {
+            $query['Language'] = $request->language;
         }
-
-        if (null !== $request->start) {
-            @$query['Start'] = $request->start;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->templateCode) {
-            @$query['TemplateCode'] = $request->templateCode;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->templateType) {
-            @$query['TemplateType'] = $request->templateType;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
+        if (!Utils::isUnset($request->start)) {
+            $query['Start'] = $request->start;
+        }
+        if (!Utils::isUnset($request->templateCode)) {
+            $query['TemplateCode'] = $request->templateCode;
+        }
+        if (!Utils::isUnset($request->templateType)) {
+            $query['TemplateType'] = $request->templateType;
+        }
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetChatappTemplateMetric',
@@ -3249,18 +2788,13 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Queries the metrics about a marketing template.
+     * @summary Queries the metrics about a marketing template.
+     *  *
+     * @description You can call this operation up to 50 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param GetChatappTemplateMetricRequest $request GetChatappTemplateMetricRequest
      *
-     * @remarks
-     * You can call this operation up to 50 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
-     * @param request - GetChatappTemplateMetricRequest
-     *
-     * @returns GetChatappTemplateMetricResponse
-     *
-     * @param GetChatappTemplateMetricRequest $request
-     *
-     * @return GetChatappTemplateMetricResponse
+     * @return GetChatappTemplateMetricResponse GetChatappTemplateMetricResponse
      */
     public function getChatappTemplateMetric($request)
     {
@@ -3270,31 +2804,33 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Obtains the authentication information that is used to upload a file.
+     * @summary Obtains the authentication information that is used to upload a file.
+     *  *
+     * @description You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param GetChatappUploadAuthorizationRequest $request GetChatappUploadAuthorizationRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
-     * @param request - GetChatappUploadAuthorizationRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetChatappUploadAuthorizationResponse
-     *
-     * @param GetChatappUploadAuthorizationRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return GetChatappUploadAuthorizationResponse
+     * @return GetChatappUploadAuthorizationResponse GetChatappUploadAuthorizationResponse
      */
     public function getChatappUploadAuthorizationWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->custSpaceId) {
-            @$query['CustSpaceId'] = $request->custSpaceId;
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
         }
-
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetChatappUploadAuthorization',
@@ -3312,18 +2848,13 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Obtains the authentication information that is used to upload a file.
+     * @summary Obtains the authentication information that is used to upload a file.
+     *  *
+     * @description You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param GetChatappUploadAuthorizationRequest $request GetChatappUploadAuthorizationRequest
      *
-     * @remarks
-     * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
-     * @param request - GetChatappUploadAuthorizationRequest
-     *
-     * @returns GetChatappUploadAuthorizationResponse
-     *
-     * @param GetChatappUploadAuthorizationRequest $request
-     *
-     * @return GetChatappUploadAuthorizationResponse
+     * @return GetChatappUploadAuthorizationResponse GetChatappUploadAuthorizationResponse
      */
     public function getChatappUploadAuthorization($request)
     {
@@ -3333,55 +2864,42 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Obtains a verification code.
+     * @summary Obtains a verification code.
+     *  *
+     * @description You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param GetChatappVerifyCodeRequest $request GetChatappVerifyCodeRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
-     * @param request - GetChatappVerifyCodeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetChatappVerifyCodeResponse
-     *
-     * @param GetChatappVerifyCodeRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return GetChatappVerifyCodeResponse
+     * @return GetChatappVerifyCodeResponse GetChatappVerifyCodeResponse
      */
     public function getChatappVerifyCodeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->custSpaceId) {
-            @$query['CustSpaceId'] = $request->custSpaceId;
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
         }
-
-        if (null !== $request->locale) {
-            @$query['Locale'] = $request->locale;
+        if (!Utils::isUnset($request->locale)) {
+            $query['Locale'] = $request->locale;
         }
-
-        if (null !== $request->method) {
-            @$query['Method'] = $request->method;
+        if (!Utils::isUnset($request->method)) {
+            $query['Method'] = $request->method;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->phoneNumber) {
-            @$query['PhoneNumber'] = $request->phoneNumber;
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $query['PhoneNumber'] = $request->phoneNumber;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetChatappVerifyCode',
@@ -3399,18 +2917,13 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Obtains a verification code.
+     * @summary Obtains a verification code.
+     *  *
+     * @description You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param GetChatappVerifyCodeRequest $request GetChatappVerifyCodeRequest
      *
-     * @remarks
-     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
-     * @param request - GetChatappVerifyCodeRequest
-     *
-     * @returns GetChatappVerifyCodeResponse
-     *
-     * @param GetChatappVerifyCodeRequest $request
-     *
-     * @return GetChatappVerifyCodeResponse
+     * @return GetChatappVerifyCodeResponse GetChatappVerifyCodeResponse
      */
     public function getChatappVerifyCode($request)
     {
@@ -3420,47 +2933,36 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Queries the business settings of a phone number.
+     * @summary Queries the business settings of a phone number.
+     *  *
+     * @description You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param GetCommerceSettingRequest $request GetCommerceSettingRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
-     * @param request - GetCommerceSettingRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetCommerceSettingResponse
-     *
-     * @param GetCommerceSettingRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return GetCommerceSettingResponse
+     * @return GetCommerceSettingResponse GetCommerceSettingResponse
      */
     public function getCommerceSettingWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->custSpaceId) {
-            @$query['CustSpaceId'] = $request->custSpaceId;
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->phoneNumber) {
-            @$query['PhoneNumber'] = $request->phoneNumber;
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $query['PhoneNumber'] = $request->phoneNumber;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetCommerceSetting',
@@ -3478,18 +2980,13 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Queries the business settings of a phone number.
+     * @summary Queries the business settings of a phone number.
+     *  *
+     * @description You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param GetCommerceSettingRequest $request GetCommerceSettingRequest
      *
-     * @remarks
-     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
-     * @param request - GetCommerceSettingRequest
-     *
-     * @returns GetCommerceSettingResponse
-     *
-     * @param GetCommerceSettingRequest $request
-     *
-     * @return GetCommerceSettingResponse
+     * @return GetCommerceSettingResponse GetCommerceSettingResponse
      */
     public function getCommerceSetting($request)
     {
@@ -3499,49 +2996,38 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Configures welcoming messages, opening remarks, and commands.
-     *
-     * @remarks
-     * ### [](#qps-)QPS limit
+     * @summary Configures welcoming messages, opening remarks, and commands.
+     *  *
+     * @description ### [](#qps-)QPS limit
      * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      * This operation will directly obtain data from Facebook, which sets an upper limit on the total number of calls for operations. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param GetConversationalAutomationRequest $request GetConversationalAutomationRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetConversationalAutomationRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetConversationalAutomationResponse
-     *
-     * @param GetConversationalAutomationRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return GetConversationalAutomationResponse
+     * @return GetConversationalAutomationResponse GetConversationalAutomationResponse
      */
     public function getConversationalAutomationWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->custSpaceId) {
-            @$query['CustSpaceId'] = $request->custSpaceId;
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->phoneNumber) {
-            @$query['PhoneNumber'] = $request->phoneNumber;
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $query['PhoneNumber'] = $request->phoneNumber;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetConversationalAutomation',
@@ -3559,20 +3045,15 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Configures welcoming messages, opening remarks, and commands.
-     *
-     * @remarks
-     * ### [](#qps-)QPS limit
+     * @summary Configures welcoming messages, opening remarks, and commands.
+     *  *
+     * @description ### [](#qps-)QPS limit
      * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      * This operation will directly obtain data from Facebook, which sets an upper limit on the total number of calls for operations. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param GetConversationalAutomationRequest $request GetConversationalAutomationRequest
      *
-     * @param request - GetConversationalAutomationRequest
-     *
-     * @returns GetConversationalAutomationResponse
-     *
-     * @param GetConversationalAutomationRequest $request
-     *
-     * @return GetConversationalAutomationResponse
+     * @return GetConversationalAutomationResponse GetConversationalAutomationResponse
      */
     public function getConversationalAutomation($request)
     {
@@ -3582,35 +3063,36 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Queries the information about a Flow.
+     * @summary Queries the information about a Flow.
+     *  *
+     * @description You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param GetFlowRequest $request GetFlowRequest
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
-     * @param request - GetFlowRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetFlowResponse
-     *
-     * @param GetFlowRequest $request
-     * @param RuntimeOptions $runtime
-     *
-     * @return GetFlowResponse
+     * @return GetFlowResponse GetFlowResponse
      */
     public function getFlowWithOptions($request, $runtime)
     {
-        $request->validate();
-        $body = [];
-        if (null !== $request->custSpaceId) {
-            @$body['CustSpaceId'] = $request->custSpaceId;
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
         }
-
-        if (null !== $request->flowId) {
-            @$body['FlowId'] = $request->flowId;
+        if (!Utils::isUnset($request->flowId)) {
+            $query['FlowId'] = $request->flowId;
         }
-
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetFlow',
@@ -3628,18 +3110,13 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Queries the information about a Flow.
+     * @summary Queries the information about a Flow.
+     *  *
+     * @description You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param GetFlowRequest $request GetFlowRequest
      *
-     * @remarks
-     * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
-     * @param request - GetFlowRequest
-     *
-     * @returns GetFlowResponse
-     *
-     * @param GetFlowRequest $request
-     *
-     * @return GetFlowResponse
+     * @return GetFlowResponse GetFlowResponse
      */
     public function getFlow($request)
     {
@@ -3649,32 +3126,34 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Queries the JSON content of a Flow.
+     * @summary Queries the JSON content of a Flow.
+     *  *
+     * @param GetFlowJSONAssestRequest $request GetFlowJSONAssestRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetFlowJSONAssestRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetFlowJSONAssestResponse
-     *
-     * @param GetFlowJSONAssestRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return GetFlowJSONAssestResponse
+     * @return GetFlowJSONAssestResponse GetFlowJSONAssestResponse
      */
     public function getFlowJSONAssestWithOptions($request, $runtime)
     {
-        $request->validate();
-        $body = [];
-        if (null !== $request->custSpaceId) {
-            @$body['CustSpaceId'] = $request->custSpaceId;
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
         }
-
-        if (null !== $request->flowId) {
-            @$body['FlowId'] = $request->flowId;
+        if (!Utils::isUnset($request->flowId)) {
+            $query['FlowId'] = $request->flowId;
         }
-
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetFlowJSONAssest',
@@ -3692,15 +3171,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Queries the JSON content of a Flow.
+     * @summary Queries the JSON content of a Flow.
+     *  *
+     * @param GetFlowJSONAssestRequest $request GetFlowJSONAssestRequest
      *
-     * @param request - GetFlowJSONAssestRequest
-     *
-     * @returns GetFlowJSONAssestResponse
-     *
-     * @param GetFlowJSONAssestRequest $request
-     *
-     * @return GetFlowJSONAssestResponse
+     * @return GetFlowJSONAssestResponse GetFlowJSONAssestResponse
      */
     public function getFlowJSONAssest($request)
     {
@@ -3710,35 +3185,36 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Obtains the preview URL of a Flow.
+     * @summary Obtains the preview URL of a Flow.
+     *  *
+     * @description You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param GetFlowPreviewUrlRequest $request GetFlowPreviewUrlRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
-     * @param request - GetFlowPreviewUrlRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetFlowPreviewUrlResponse
-     *
-     * @param GetFlowPreviewUrlRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return GetFlowPreviewUrlResponse
+     * @return GetFlowPreviewUrlResponse GetFlowPreviewUrlResponse
      */
     public function getFlowPreviewUrlWithOptions($request, $runtime)
     {
-        $request->validate();
-        $body = [];
-        if (null !== $request->custSpaceId) {
-            @$body['CustSpaceId'] = $request->custSpaceId;
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
         }
-
-        if (null !== $request->flowId) {
-            @$body['FlowId'] = $request->flowId;
+        if (!Utils::isUnset($request->flowId)) {
+            $query['FlowId'] = $request->flowId;
         }
-
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetFlowPreviewUrl',
@@ -3756,18 +3232,13 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Obtains the preview URL of a Flow.
+     * @summary Obtains the preview URL of a Flow.
+     *  *
+     * @description You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param GetFlowPreviewUrlRequest $request GetFlowPreviewUrlRequest
      *
-     * @remarks
-     * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
-     * @param request - GetFlowPreviewUrlRequest
-     *
-     * @returns GetFlowPreviewUrlResponse
-     *
-     * @param GetFlowPreviewUrlRequest $request
-     *
-     * @return GetFlowPreviewUrlResponse
+     * @return GetFlowPreviewUrlResponse GetFlowPreviewUrlResponse
      */
     public function getFlowPreviewUrl($request)
     {
@@ -3777,43 +3248,42 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Obtain the verification code for the migration number.
+     * @summary Obtain the verification code for the migration number.
+     *  *
+     * @description The single user QPS limit for this interface is 10 times per second. Exceeding the limit may result in restricted API calls, which may affect your business. Please make reasonable calls.
+     *  *
+     * @param GetMigrationVerifyCodeRequest $request GetMigrationVerifyCodeRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * The single user QPS limit for this interface is 10 times per second. Exceeding the limit may result in restricted API calls, which may affect your business. Please make reasonable calls.
-     *
-     * @param request - GetMigrationVerifyCodeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetMigrationVerifyCodeResponse
-     *
-     * @param GetMigrationVerifyCodeRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return GetMigrationVerifyCodeResponse
+     * @return GetMigrationVerifyCodeResponse GetMigrationVerifyCodeResponse
      */
     public function getMigrationVerifyCodeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->custSpaceId) {
-            @$query['CustSpaceId'] = $request->custSpaceId;
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
         }
-
-        if (null !== $request->locale) {
-            @$query['Locale'] = $request->locale;
+        if (!Utils::isUnset($request->locale)) {
+            $query['Locale'] = $request->locale;
         }
-
-        if (null !== $request->method) {
-            @$query['Method'] = $request->method;
+        if (!Utils::isUnset($request->method)) {
+            $query['Method'] = $request->method;
         }
-
-        if (null !== $request->phoneNumber) {
-            @$query['PhoneNumber'] = $request->phoneNumber;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $query['PhoneNumber'] = $request->phoneNumber;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetMigrationVerifyCode',
@@ -3831,18 +3301,13 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Obtain the verification code for the migration number.
+     * @summary Obtain the verification code for the migration number.
+     *  *
+     * @description The single user QPS limit for this interface is 10 times per second. Exceeding the limit may result in restricted API calls, which may affect your business. Please make reasonable calls.
+     *  *
+     * @param GetMigrationVerifyCodeRequest $request GetMigrationVerifyCodeRequest
      *
-     * @remarks
-     * The single user QPS limit for this interface is 10 times per second. Exceeding the limit may result in restricted API calls, which may affect your business. Please make reasonable calls.
-     *
-     * @param request - GetMigrationVerifyCodeRequest
-     *
-     * @returns GetMigrationVerifyCodeResponse
-     *
-     * @param GetMigrationVerifyCodeRequest $request
-     *
-     * @return GetMigrationVerifyCodeResponse
+     * @return GetMigrationVerifyCodeResponse GetMigrationVerifyCodeResponse
      */
     public function getMigrationVerifyCode($request)
     {
@@ -3852,42 +3317,42 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Obtains permissions based on the authorization code obtained from embedded signup.
+     * @summary Obtains permissions based on the authorization code obtained from embedded signup.
+     *  *
+     * @param GetPermissionByCodeRequest $tmpReq  GetPermissionByCodeRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - GetPermissionByCodeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetPermissionByCodeResponse
-     *
-     * @param GetPermissionByCodeRequest $tmpReq
-     * @param RuntimeOptions             $runtime
-     *
-     * @return GetPermissionByCodeResponse
+     * @return GetPermissionByCodeResponse GetPermissionByCodeResponse
      */
     public function getPermissionByCodeWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new GetPermissionByCodeShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->permissions) {
-            $request->permissionsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->permissions, 'Permissions', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->permissions)) {
+            $request->permissionsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->permissions, 'Permissions', 'json');
         }
-
-        $body = [];
-        if (null !== $request->code) {
-            @$body['Code'] = $request->code;
+        $query = [];
+        if (!Utils::isUnset($request->code)) {
+            $query['Code'] = $request->code;
         }
-
-        if (null !== $request->custSpaceId) {
-            @$body['CustSpaceId'] = $request->custSpaceId;
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
         }
-
-        if (null !== $request->permissionsShrink) {
-            @$body['Permissions'] = $request->permissionsShrink;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
+        if (!Utils::isUnset($request->permissionsShrink)) {
+            $query['Permissions'] = $request->permissionsShrink;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetPermissionByCode',
@@ -3905,15 +3370,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Obtains permissions based on the authorization code obtained from embedded signup.
+     * @summary Obtains permissions based on the authorization code obtained from embedded signup.
+     *  *
+     * @param GetPermissionByCodeRequest $request GetPermissionByCodeRequest
      *
-     * @param request - GetPermissionByCodeRequest
-     *
-     * @returns GetPermissionByCodeResponse
-     *
-     * @param GetPermissionByCodeRequest $request
-     *
-     * @return GetPermissionByCodeResponse
+     * @return GetPermissionByCodeResponse GetPermissionByCodeResponse
      */
     public function getPermissionByCode($request)
     {
@@ -3923,32 +3384,34 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Queries the encryption public key of a phone number.
+     * @summary Queries the encryption public key of a phone number.
+     *  *
+     * @param GetPhoneEncryptionPublicKeyRequest $request GetPhoneEncryptionPublicKeyRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetPhoneEncryptionPublicKeyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetPhoneEncryptionPublicKeyResponse
-     *
-     * @param GetPhoneEncryptionPublicKeyRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return GetPhoneEncryptionPublicKeyResponse
+     * @return GetPhoneEncryptionPublicKeyResponse GetPhoneEncryptionPublicKeyResponse
      */
     public function getPhoneEncryptionPublicKeyWithOptions($request, $runtime)
     {
-        $request->validate();
-        $body = [];
-        if (null !== $request->custSpaceId) {
-            @$body['CustSpaceId'] = $request->custSpaceId;
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
         }
-
-        if (null !== $request->phoneNumber) {
-            @$body['PhoneNumber'] = $request->phoneNumber;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $query['PhoneNumber'] = $request->phoneNumber;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetPhoneEncryptionPublicKey',
@@ -3966,15 +3429,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Queries the encryption public key of a phone number.
+     * @summary Queries the encryption public key of a phone number.
+     *  *
+     * @param GetPhoneEncryptionPublicKeyRequest $request GetPhoneEncryptionPublicKeyRequest
      *
-     * @param request - GetPhoneEncryptionPublicKeyRequest
-     *
-     * @returns GetPhoneEncryptionPublicKeyResponse
-     *
-     * @param GetPhoneEncryptionPublicKeyRequest $request
-     *
-     * @return GetPhoneEncryptionPublicKeyResponse
+     * @return GetPhoneEncryptionPublicKeyResponse GetPhoneEncryptionPublicKeyResponse
      */
     public function getPhoneEncryptionPublicKey($request)
     {
@@ -3984,35 +3443,36 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Obtains the verification status of a phone number.
+     * @summary Obtains the verification status of a phone number.
+     *  *
+     * @description You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param GetPhoneNumberVerificationStatusRequest $request GetPhoneNumberVerificationStatusRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
-     * @param request - GetPhoneNumberVerificationStatusRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetPhoneNumberVerificationStatusResponse
-     *
-     * @param GetPhoneNumberVerificationStatusRequest $request
-     * @param RuntimeOptions                          $runtime
-     *
-     * @return GetPhoneNumberVerificationStatusResponse
+     * @return GetPhoneNumberVerificationStatusResponse GetPhoneNumberVerificationStatusResponse
      */
     public function getPhoneNumberVerificationStatusWithOptions($request, $runtime)
     {
-        $request->validate();
-        $body = [];
-        if (null !== $request->custSpaceId) {
-            @$body['CustSpaceId'] = $request->custSpaceId;
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
         }
-
-        if (null !== $request->phoneNumber) {
-            @$body['PhoneNumber'] = $request->phoneNumber;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $query['PhoneNumber'] = $request->phoneNumber;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetPhoneNumberVerificationStatus',
@@ -4030,18 +3490,13 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Obtains the verification status of a phone number.
+     * @summary Obtains the verification status of a phone number.
+     *  *
+     * @description You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param GetPhoneNumberVerificationStatusRequest $request GetPhoneNumberVerificationStatusRequest
      *
-     * @remarks
-     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
-     * @param request - GetPhoneNumberVerificationStatusRequest
-     *
-     * @returns GetPhoneNumberVerificationStatusResponse
-     *
-     * @param GetPhoneNumberVerificationStatusRequest $request
-     *
-     * @return GetPhoneNumberVerificationStatusResponse
+     * @return GetPhoneNumberVerificationStatusResponse GetPhoneNumberVerificationStatusResponse
      */
     public function getPhoneNumberVerificationStatus($request)
     {
@@ -4051,35 +3506,27 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Obtains the ID of a pre-registered phone number used for embedded signup without the need to re-obtain a verification code.
+     * @summary Obtains the ID of a pre-registered phone number used for embedded signup without the need to re-obtain a verification code.
+     *  *
+     * @description You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param GetPreValidatePhoneIdRequest $request GetPreValidatePhoneIdRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
-     * @param request - GetPreValidatePhoneIdRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetPreValidatePhoneIdResponse
-     *
-     * @param GetPreValidatePhoneIdRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return GetPreValidatePhoneIdResponse
+     * @return GetPreValidatePhoneIdResponse GetPreValidatePhoneIdResponse
      */
     public function getPreValidatePhoneIdWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->phoneNumber) {
-            @$body['PhoneNumber'] = $request->phoneNumber;
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $body['PhoneNumber'] = $request->phoneNumber;
         }
-
-        if (null !== $request->verifyCode) {
-            @$body['VerifyCode'] = $request->verifyCode;
+        if (!Utils::isUnset($request->verifyCode)) {
+            $body['VerifyCode'] = $request->verifyCode;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetPreValidatePhoneId',
@@ -4097,18 +3544,13 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Obtains the ID of a pre-registered phone number used for embedded signup without the need to re-obtain a verification code.
+     * @summary Obtains the ID of a pre-registered phone number used for embedded signup without the need to re-obtain a verification code.
+     *  *
+     * @description You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param GetPreValidatePhoneIdRequest $request GetPreValidatePhoneIdRequest
      *
-     * @remarks
-     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
-     * @param request - GetPreValidatePhoneIdRequest
-     *
-     * @returns GetPreValidatePhoneIdResponse
-     *
-     * @param GetPreValidatePhoneIdRequest $request
-     *
-     * @return GetPreValidatePhoneIdResponse
+     * @return GetPreValidatePhoneIdResponse GetPreValidatePhoneIdResponse
      */
     public function getPreValidatePhoneId($request)
     {
@@ -4118,47 +3560,36 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Queries the product catalogs that are associated with a WhatsApp Business account (WABA).
+     * @summary Queries the product catalogs that are associated with a WhatsApp Business account (WABA).
+     *  *
+     * @description You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param GetWhatsappConnectionCatalogRequest $request GetWhatsappConnectionCatalogRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
-     * @param request - GetWhatsappConnectionCatalogRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetWhatsappConnectionCatalogResponse
-     *
-     * @param GetWhatsappConnectionCatalogRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return GetWhatsappConnectionCatalogResponse
+     * @return GetWhatsappConnectionCatalogResponse GetWhatsappConnectionCatalogResponse
      */
     public function getWhatsappConnectionCatalogWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->custSpaceId) {
-            @$query['CustSpaceId'] = $request->custSpaceId;
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->wabaId) {
-            @$query['WabaId'] = $request->wabaId;
+        if (!Utils::isUnset($request->wabaId)) {
+            $query['WabaId'] = $request->wabaId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetWhatsappConnectionCatalog',
@@ -4176,18 +3607,13 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Queries the product catalogs that are associated with a WhatsApp Business account (WABA).
+     * @summary Queries the product catalogs that are associated with a WhatsApp Business account (WABA).
+     *  *
+     * @description You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param GetWhatsappConnectionCatalogRequest $request GetWhatsappConnectionCatalogRequest
      *
-     * @remarks
-     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
-     * @param request - GetWhatsappConnectionCatalogRequest
-     *
-     * @returns GetWhatsappConnectionCatalogResponse
-     *
-     * @param GetWhatsappConnectionCatalogRequest $request
-     *
-     * @return GetWhatsappConnectionCatalogResponse
+     * @return GetWhatsappConnectionCatalogResponse GetWhatsappConnectionCatalogResponse
      */
     public function getWhatsappConnectionCatalog($request)
     {
@@ -4197,65 +3623,50 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Queries the messaging health status of different types of nodes.
-     *
-     * @remarks
-     * ### [](#qps-)QPS limit
+     * @summary Queries the messaging health status of different types of nodes.
+     *  *
+     * @description ### [](#qps-)QPS limit
      * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      * This operation will directly obtain data from Facebook, which sets an upper limit on the total number of calls for operations. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param GetWhatsappHealthStatusRequest $request GetWhatsappHealthStatusRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetWhatsappHealthStatusRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetWhatsappHealthStatusResponse
-     *
-     * @param GetWhatsappHealthStatusRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return GetWhatsappHealthStatusResponse
+     * @return GetWhatsappHealthStatusResponse GetWhatsappHealthStatusResponse
      */
     public function getWhatsappHealthStatusWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->custSpaceId) {
-            @$query['CustSpaceId'] = $request->custSpaceId;
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
         }
-
-        if (null !== $request->language) {
-            @$query['Language'] = $request->language;
+        if (!Utils::isUnset($request->language)) {
+            $query['Language'] = $request->language;
         }
-
-        if (null !== $request->nodeType) {
-            @$query['NodeType'] = $request->nodeType;
+        if (!Utils::isUnset($request->nodeType)) {
+            $query['NodeType'] = $request->nodeType;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->phoneNumber) {
-            @$query['PhoneNumber'] = $request->phoneNumber;
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $query['PhoneNumber'] = $request->phoneNumber;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->templateCode) {
-            @$query['TemplateCode'] = $request->templateCode;
+        if (!Utils::isUnset($request->templateCode)) {
+            $query['TemplateCode'] = $request->templateCode;
         }
-
-        if (null !== $request->wabaId) {
-            @$query['WabaId'] = $request->wabaId;
+        if (!Utils::isUnset($request->wabaId)) {
+            $query['WabaId'] = $request->wabaId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetWhatsappHealthStatus',
@@ -4273,20 +3684,15 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Queries the messaging health status of different types of nodes.
-     *
-     * @remarks
-     * ### [](#qps-)QPS limit
+     * @summary Queries the messaging health status of different types of nodes.
+     *  *
+     * @description ### [](#qps-)QPS limit
      * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      * This operation will directly obtain data from Facebook, which sets an upper limit on the total number of calls for operations. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param GetWhatsappHealthStatusRequest $request GetWhatsappHealthStatusRequest
      *
-     * @param request - GetWhatsappHealthStatusRequest
-     *
-     * @returns GetWhatsappHealthStatusResponse
-     *
-     * @param GetWhatsappHealthStatusRequest $request
-     *
-     * @return GetWhatsappHealthStatusResponse
+     * @return GetWhatsappHealthStatusResponse GetWhatsappHealthStatusResponse
      */
     public function getWhatsappHealthStatus($request)
     {
@@ -4296,35 +3702,39 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Obtains the application ID under the ISV account.
+     * @summary Obtains the application ID under the ISV account.
+     *  *
+     * @description You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param IsvGetAppIdRequest $request IsvGetAppIdRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
-     * @param request - IsvGetAppIdRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns IsvGetAppIdResponse
-     *
-     * @param IsvGetAppIdRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return IsvGetAppIdResponse
+     * @return IsvGetAppIdResponse IsvGetAppIdResponse
      */
     public function isvGetAppIdWithOptions($request, $runtime)
     {
-        $request->validate();
-        $body = [];
-        if (null !== $request->permissions) {
-            @$body['Permissions'] = $request->permissions;
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->intlVersion)) {
+            $query['IntlVersion'] = $request->intlVersion;
         }
-
-        if (null !== $request->type) {
-            @$body['Type'] = $request->type;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
+        if (!Utils::isUnset($request->permissions)) {
+            $query['Permissions'] = $request->permissions;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'IsvGetAppId',
@@ -4342,18 +3752,13 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Obtains the application ID under the ISV account.
+     * @summary Obtains the application ID under the ISV account.
+     *  *
+     * @description You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param IsvGetAppIdRequest $request IsvGetAppIdRequest
      *
-     * @remarks
-     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
-     * @param request - IsvGetAppIdRequest
-     *
-     * @returns IsvGetAppIdResponse
-     *
-     * @param IsvGetAppIdRequest $request
-     *
-     * @return IsvGetAppIdResponse
+     * @return IsvGetAppIdResponse IsvGetAppIdResponse
      */
     public function isvGetAppId($request)
     {
@@ -4363,44 +3768,38 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * 根据flowCode查询已绑定列表.
+     * @summary Query Bound List Based on flowCode
+     *  *
+     * @description - You can call this interface to query the list of phone numbers or merchant account IDs bound to a process, or you can view the list in the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder) > **Settings** interface.
+     * - Before calling this interface, make sure that the process you created has already been bound to a phone number or merchant account ID.
+     * - If the process you created is not bound to a phone number or merchant account ID, you can manually bind a phone number or merchant account ID in the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder) > **Settings** interface, or bind it through the [FlowBindPhone](https://help.aliyun.com/document_detail/2937190.html) interface.
+     *  *
+     * @param ListBindingRelationsForFlowVersionRequest $request ListBindingRelationsForFlowVersionRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListBindingRelationsForFlowVersionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListBindingRelationsForFlowVersionResponse
-     *
-     * @param ListBindingRelationsForFlowVersionRequest $request
-     * @param RuntimeOptions                            $runtime
-     *
-     * @return ListBindingRelationsForFlowVersionResponse
+     * @return ListBindingRelationsForFlowVersionResponse ListBindingRelationsForFlowVersionResponse
      */
     public function listBindingRelationsForFlowVersionWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->channelType) {
-            @$query['ChannelType'] = $request->channelType;
+        if (!Utils::isUnset($request->channelType)) {
+            $query['ChannelType'] = $request->channelType;
         }
-
-        if (null !== $request->flowCode) {
-            @$query['FlowCode'] = $request->flowCode;
+        if (!Utils::isUnset($request->flowCode)) {
+            $query['FlowCode'] = $request->flowCode;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListBindingRelationsForFlowVersion',
@@ -4418,15 +3817,15 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * 根据flowCode查询已绑定列表.
+     * @summary Query Bound List Based on flowCode
+     *  *
+     * @description - You can call this interface to query the list of phone numbers or merchant account IDs bound to a process, or you can view the list in the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder) > **Settings** interface.
+     * - Before calling this interface, make sure that the process you created has already been bound to a phone number or merchant account ID.
+     * - If the process you created is not bound to a phone number or merchant account ID, you can manually bind a phone number or merchant account ID in the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder) > **Settings** interface, or bind it through the [FlowBindPhone](https://help.aliyun.com/document_detail/2937190.html) interface.
+     *  *
+     * @param ListBindingRelationsForFlowVersionRequest $request ListBindingRelationsForFlowVersionRequest
      *
-     * @param request - ListBindingRelationsForFlowVersionRequest
-     *
-     * @returns ListBindingRelationsForFlowVersionResponse
-     *
-     * @param ListBindingRelationsForFlowVersionRequest $request
-     *
-     * @return ListBindingRelationsForFlowVersionResponse
+     * @return ListBindingRelationsForFlowVersionResponse ListBindingRelationsForFlowVersionResponse
      */
     public function listBindingRelationsForFlowVersion($request)
     {
@@ -4436,74 +3835,57 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * List Flows.
+     * @summary List Flows
+     *  *
+     * @param ListChatFlowRequest $tmpReq  ListChatFlowRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - ListChatFlowRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListChatFlowResponse
-     *
-     * @param ListChatFlowRequest $tmpReq
-     * @param RuntimeOptions      $runtime
-     *
-     * @return ListChatFlowResponse
+     * @return ListChatFlowResponse ListChatFlowResponse
      */
     public function listChatFlowWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new ListChatFlowShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->bizExtend) {
-            $request->bizExtendShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->bizExtend, 'BizExtend', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->bizExtend)) {
+            $request->bizExtendShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->bizExtend, 'BizExtend', 'json');
         }
-
         $query = [];
-        if (null !== $request->bizCode) {
-            @$query['BizCode'] = $request->bizCode;
+        if (!Utils::isUnset($request->bizCode)) {
+            $query['BizCode'] = $request->bizCode;
         }
-
-        if (null !== $request->bizExtendShrink) {
-            @$query['BizExtend'] = $request->bizExtendShrink;
+        if (!Utils::isUnset($request->bizExtendShrink)) {
+            $query['BizExtend'] = $request->bizExtendShrink;
         }
-
-        if (null !== $request->flowTriggerType) {
-            @$query['FlowTriggerType'] = $request->flowTriggerType;
+        if (!Utils::isUnset($request->flowTriggerType)) {
+            $query['FlowTriggerType'] = $request->flowTriggerType;
         }
-
-        if (null !== $request->keyword) {
-            @$query['Keyword'] = $request->keyword;
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->pageNo) {
-            @$query['PageNo'] = $request->pageNo;
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->returnWithOnlineVersion) {
-            @$query['ReturnWithOnlineVersion'] = $request->returnWithOnlineVersion;
+        if (!Utils::isUnset($request->returnWithOnlineVersion)) {
+            $query['ReturnWithOnlineVersion'] = $request->returnWithOnlineVersion;
         }
-
-        if (null !== $request->status) {
-            @$query['Status'] = $request->status;
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListChatFlow',
@@ -4521,15 +3903,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * List Flows.
+     * @summary List Flows
+     *  *
+     * @param ListChatFlowRequest $request ListChatFlowRequest
      *
-     * @param request - ListChatFlowRequest
-     *
-     * @returns ListChatFlowResponse
-     *
-     * @param ListChatFlowRequest $request
-     *
-     * @return ListChatFlowResponse
+     * @return ListChatFlowResponse ListChatFlowResponse
      */
     public function listChatFlow($request)
     {
@@ -4539,56 +3917,43 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * ChatFlow Template List.
+     * @summary ChatFlow Template List
+     *  *
+     * @param ListChatFlowTemplateRequest $request ListChatFlowTemplateRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListChatFlowTemplateRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListChatFlowTemplateResponse
-     *
-     * @param ListChatFlowTemplateRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return ListChatFlowTemplateResponse
+     * @return ListChatFlowTemplateResponse ListChatFlowTemplateResponse
      */
     public function listChatFlowTemplateWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->bizCode) {
-            @$query['BizCode'] = $request->bizCode;
+        if (!Utils::isUnset($request->bizCode)) {
+            $query['BizCode'] = $request->bizCode;
         }
-
-        if (null !== $request->keyword) {
-            @$query['Keyword'] = $request->keyword;
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->pageNo) {
-            @$query['PageNo'] = $request->pageNo;
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->triggerType) {
-            @$query['TriggerType'] = $request->triggerType;
+        if (!Utils::isUnset($request->triggerType)) {
+            $query['TriggerType'] = $request->triggerType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListChatFlowTemplate',
@@ -4606,15 +3971,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * ChatFlow Template List.
+     * @summary ChatFlow Template List
+     *  *
+     * @param ListChatFlowTemplateRequest $request ListChatFlowTemplateRequest
      *
-     * @param request - ListChatFlowTemplateRequest
-     *
-     * @returns ListChatFlowTemplateResponse
-     *
-     * @param ListChatFlowTemplateRequest $request
-     *
-     * @return ListChatFlowTemplateResponse
+     * @return ListChatFlowTemplateResponse ListChatFlowTemplateResponse
      */
     public function listChatFlowTemplate($request)
     {
@@ -4624,66 +3985,51 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * ListChatGroup.
+     * @summary ListChatGroup
+     *  *
+     * @param ListChatGroupRequest $tmpReq  ListChatGroupRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - ListChatGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListChatGroupResponse
-     *
-     * @param ListChatGroupRequest $tmpReq
-     * @param RuntimeOptions       $runtime
-     *
-     * @return ListChatGroupResponse
+     * @return ListChatGroupResponse ListChatGroupResponse
      */
     public function listChatGroupWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new ListChatGroupShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->page) {
-            $request->pageShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->page, 'Page', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->page)) {
+            $request->pageShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->page, 'Page', 'json');
         }
-
         $query = [];
-        if (null !== $request->businessNumber) {
-            @$query['BusinessNumber'] = $request->businessNumber;
+        if (!Utils::isUnset($request->businessNumber)) {
+            $query['BusinessNumber'] = $request->businessNumber;
         }
-
-        if (null !== $request->channelType) {
-            @$query['ChannelType'] = $request->channelType;
+        if (!Utils::isUnset($request->channelType)) {
+            $query['ChannelType'] = $request->channelType;
         }
-
-        if (null !== $request->custSpaceId) {
-            @$query['CustSpaceId'] = $request->custSpaceId;
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
         }
-
-        if (null !== $request->groupStatus) {
-            @$query['GroupStatus'] = $request->groupStatus;
+        if (!Utils::isUnset($request->groupStatus)) {
+            $query['GroupStatus'] = $request->groupStatus;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->pageShrink) {
-            @$query['Page'] = $request->pageShrink;
+        if (!Utils::isUnset($request->pageShrink)) {
+            $query['Page'] = $request->pageShrink;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->subject) {
-            @$query['Subject'] = $request->subject;
+        if (!Utils::isUnset($request->subject)) {
+            $query['Subject'] = $request->subject;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListChatGroup',
@@ -4701,15 +4047,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * ListChatGroup.
+     * @summary ListChatGroup
+     *  *
+     * @param ListChatGroupRequest $request ListChatGroupRequest
      *
-     * @param request - ListChatGroupRequest
-     *
-     * @returns ListChatGroupResponse
-     *
-     * @param ListChatGroupRequest $request
-     *
-     * @return ListChatGroupResponse
+     * @return ListChatGroupResponse ListChatGroupResponse
      */
     public function listChatGroup($request)
     {
@@ -4719,62 +4061,48 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * ListChatGroupParticipants.
+     * @summary ListChatGroupParticipants
+     *  *
+     * @param ListChatGroupParticipantsRequest $tmpReq  ListChatGroupParticipantsRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - ListChatGroupParticipantsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListChatGroupParticipantsResponse
-     *
-     * @param ListChatGroupParticipantsRequest $tmpReq
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return ListChatGroupParticipantsResponse
+     * @return ListChatGroupParticipantsResponse ListChatGroupParticipantsResponse
      */
     public function listChatGroupParticipantsWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new ListChatGroupParticipantsShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->page) {
-            $request->pageShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->page, 'Page', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->page)) {
+            $request->pageShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->page, 'Page', 'json');
         }
-
         $query = [];
-        if (null !== $request->businessNumber) {
-            @$query['BusinessNumber'] = $request->businessNumber;
+        if (!Utils::isUnset($request->businessNumber)) {
+            $query['BusinessNumber'] = $request->businessNumber;
         }
-
-        if (null !== $request->channelType) {
-            @$query['ChannelType'] = $request->channelType;
+        if (!Utils::isUnset($request->channelType)) {
+            $query['ChannelType'] = $request->channelType;
         }
-
-        if (null !== $request->custSpaceId) {
-            @$query['CustSpaceId'] = $request->custSpaceId;
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->pageShrink) {
-            @$query['Page'] = $request->pageShrink;
+        if (!Utils::isUnset($request->pageShrink)) {
+            $query['Page'] = $request->pageShrink;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListChatGroupParticipants',
@@ -4792,15 +4120,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * ListChatGroupParticipants.
+     * @summary ListChatGroupParticipants
+     *  *
+     * @param ListChatGroupParticipantsRequest $request ListChatGroupParticipantsRequest
      *
-     * @param request - ListChatGroupParticipantsRequest
-     *
-     * @returns ListChatGroupParticipantsResponse
-     *
-     * @param ListChatGroupParticipantsRequest $request
-     *
-     * @return ListChatGroupParticipantsResponse
+     * @return ListChatGroupParticipantsResponse ListChatGroupParticipantsResponse
      */
     public function listChatGroupParticipants($request)
     {
@@ -4810,86 +4134,160 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Queries message templates.
+     * @summary 查询消息列表
+     *  *
+     * @param ListChatappMessageRequest $tmpReq  ListChatappMessageRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * ### QPS limit
+     * @return ListChatappMessageResponse ListChatappMessageResponse
+     */
+    public function listChatappMessageWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ListChatappMessageShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->page)) {
+            $request->pageShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->page, 'Page', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->businessNumber)) {
+            $query['BusinessNumber'] = $request->businessNumber;
+        }
+        if (!Utils::isUnset($request->channelType)) {
+            $query['ChannelType'] = $request->channelType;
+        }
+        if (!Utils::isUnset($request->clientAcceptStatus)) {
+            $query['ClientAcceptStatus'] = $request->clientAcceptStatus;
+        }
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->eventAction)) {
+            $query['EventAction'] = $request->eventAction;
+        }
+        if (!Utils::isUnset($request->groupMessageId)) {
+            $query['GroupMessageId'] = $request->groupMessageId;
+        }
+        if (!Utils::isUnset($request->messageStatus)) {
+            $query['MessageStatus'] = $request->messageStatus;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageShrink)) {
+            $query['Page'] = $request->pageShrink;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->templateCode)) {
+            $query['TemplateCode'] = $request->templateCode;
+        }
+        if (!Utils::isUnset($request->userNumber)) {
+            $query['UserNumber'] = $request->userNumber;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListChatappMessage',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListChatappMessageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询消息列表
+     *  *
+     * @param ListChatappMessageRequest $request ListChatappMessageRequest
+     *
+     * @return ListChatappMessageResponse ListChatappMessageResponse
+     */
+    public function listChatappMessage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listChatappMessageWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries message templates.
+     *  *
+     * @description ### QPS limit
      * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param ListChatappTemplateRequest $tmpReq  ListChatappTemplateRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - ListChatappTemplateRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListChatappTemplateResponse
-     *
-     * @param ListChatappTemplateRequest $tmpReq
-     * @param RuntimeOptions             $runtime
-     *
-     * @return ListChatappTemplateResponse
+     * @return ListChatappTemplateResponse ListChatappTemplateResponse
      */
     public function listChatappTemplateWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new ListChatappTemplateShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->page) {
-            $request->pageShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->page, 'Page', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->page)) {
+            $request->pageShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->page, 'Page', 'json');
         }
-
         $query = [];
-        if (null !== $request->auditStatus) {
-            @$query['AuditStatus'] = $request->auditStatus;
+        if (!Utils::isUnset($request->auditStatus)) {
+            $query['AuditStatus'] = $request->auditStatus;
         }
-
-        if (null !== $request->category) {
-            @$query['Category'] = $request->category;
+        if (!Utils::isUnset($request->category)) {
+            $query['Category'] = $request->category;
         }
-
-        if (null !== $request->code) {
-            @$query['Code'] = $request->code;
+        if (!Utils::isUnset($request->code)) {
+            $query['Code'] = $request->code;
         }
-
-        if (null !== $request->custSpaceId) {
-            @$query['CustSpaceId'] = $request->custSpaceId;
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
         }
-
-        if (null !== $request->custWabaId) {
-            @$query['CustWabaId'] = $request->custWabaId;
+        if (!Utils::isUnset($request->custWabaId)) {
+            $query['CustWabaId'] = $request->custWabaId;
         }
-
-        if (null !== $request->isvCode) {
-            @$query['IsvCode'] = $request->isvCode;
+        if (!Utils::isUnset($request->isvCode)) {
+            $query['IsvCode'] = $request->isvCode;
         }
-
-        if (null !== $request->language) {
-            @$query['Language'] = $request->language;
+        if (!Utils::isUnset($request->language)) {
+            $query['Language'] = $request->language;
         }
-
-        if (null !== $request->name) {
-            @$query['Name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->pageShrink) {
-            @$query['Page'] = $request->pageShrink;
+        if (!Utils::isUnset($request->pageShrink)) {
+            $query['Page'] = $request->pageShrink;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->templateType) {
-            @$query['TemplateType'] = $request->templateType;
+        if (!Utils::isUnset($request->templateType)) {
+            $query['TemplateType'] = $request->templateType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListChatappTemplate',
@@ -4907,19 +4305,14 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Queries message templates.
-     *
-     * @remarks
-     * ### QPS limit
+     * @summary Queries message templates.
+     *  *
+     * @description ### QPS limit
      * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param ListChatappTemplateRequest $request ListChatappTemplateRequest
      *
-     * @param request - ListChatappTemplateRequest
-     *
-     * @returns ListChatappTemplateResponse
-     *
-     * @param ListChatappTemplateRequest $request
-     *
-     * @return ListChatappTemplateResponse
+     * @return ListChatappTemplateResponse ListChatappTemplateResponse
      */
     public function listChatappTemplate($request)
     {
@@ -4929,45 +4322,44 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Queries a list of Flows.
+     * @summary Queries a list of Flows.
+     *  *
+     * @description You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param ListFlowRequest $tmpReq  ListFlowRequest
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
-     * @param tmpReq - ListFlowRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListFlowResponse
-     *
-     * @param ListFlowRequest $tmpReq
-     * @param RuntimeOptions  $runtime
-     *
-     * @return ListFlowResponse
+     * @return ListFlowResponse ListFlowResponse
      */
     public function listFlowWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new ListFlowShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->page) {
-            $request->pageShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->page, 'Page', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->page)) {
+            $request->pageShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->page, 'Page', 'json');
         }
-
-        $body = [];
-        if (null !== $request->custSpaceId) {
-            @$body['CustSpaceId'] = $request->custSpaceId;
+        $query = [];
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
         }
-
-        if (null !== $request->flowName) {
-            @$body['FlowName'] = $request->flowName;
+        if (!Utils::isUnset($request->flowName)) {
+            $query['FlowName'] = $request->flowName;
         }
-
-        if (null !== $request->pageShrink) {
-            @$body['Page'] = $request->pageShrink;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
+        if (!Utils::isUnset($request->pageShrink)) {
+            $query['Page'] = $request->pageShrink;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListFlow',
@@ -4985,18 +4377,13 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Queries a list of Flows.
+     * @summary Queries a list of Flows.
+     *  *
+     * @description You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param ListFlowRequest $request ListFlowRequest
      *
-     * @remarks
-     * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
-     * @param request - ListFlowRequest
-     *
-     * @returns ListFlowResponse
-     *
-     * @param ListFlowRequest $request
-     *
-     * @return ListFlowResponse
+     * @return ListFlowResponse ListFlowResponse
      */
     public function listFlow($request)
     {
@@ -5006,66 +4393,119 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * List Flow Versions.
+     * @summary ListFlowNodePrototypeV2
+     *  *
+     * @param ListFlowNodePrototypeV2Request $request ListFlowNodePrototypeV2Request
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - ListFlowVersionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
+     * @return ListFlowNodePrototypeV2Response ListFlowNodePrototypeV2Response
+     */
+    public function listFlowNodePrototypeV2WithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizCode)) {
+            $query['BizCode'] = $request->bizCode;
+        }
+        if (!Utils::isUnset($request->groupCode)) {
+            $query['GroupCode'] = $request->groupCode;
+        }
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListFlowNodePrototypeV2',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListFlowNodePrototypeV2Response::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary ListFlowNodePrototypeV2
+     *  *
+     * @param ListFlowNodePrototypeV2Request $request ListFlowNodePrototypeV2Request
      *
-     * @returns ListFlowVersionResponse
+     * @return ListFlowNodePrototypeV2Response ListFlowNodePrototypeV2Response
+     */
+    public function listFlowNodePrototypeV2($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listFlowNodePrototypeV2WithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary List Flow Versions
+     *  *
+     * @param ListFlowVersionRequest $tmpReq  ListFlowVersionRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param ListFlowVersionRequest $tmpReq
-     * @param RuntimeOptions         $runtime
-     *
-     * @return ListFlowVersionResponse
+     * @return ListFlowVersionResponse ListFlowVersionResponse
      */
     public function listFlowVersionWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new ListFlowVersionShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->bizExtend) {
-            $request->bizExtendShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->bizExtend, 'BizExtend', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->bizExtend)) {
+            $request->bizExtendShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->bizExtend, 'BizExtend', 'json');
         }
-
         $query = [];
-        if (null !== $request->bizCode) {
-            @$query['BizCode'] = $request->bizCode;
+        if (!Utils::isUnset($request->bizCode)) {
+            $query['BizCode'] = $request->bizCode;
         }
-
-        if (null !== $request->bizExtendShrink) {
-            @$query['BizExtend'] = $request->bizExtendShrink;
+        if (!Utils::isUnset($request->bizExtendShrink)) {
+            $query['BizExtend'] = $request->bizExtendShrink;
         }
-
-        if (null !== $request->flowCode) {
-            @$query['FlowCode'] = $request->flowCode;
+        if (!Utils::isUnset($request->flowCode)) {
+            $query['FlowCode'] = $request->flowCode;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->pageNo) {
-            @$query['PageNo'] = $request->pageNo;
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->status) {
-            @$query['Status'] = $request->status;
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListFlowVersion',
@@ -5083,15 +4523,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * List Flow Versions.
+     * @summary List Flow Versions
+     *  *
+     * @param ListFlowVersionRequest $request ListFlowVersionRequest
      *
-     * @param request - ListFlowVersionRequest
-     *
-     * @returns ListFlowVersionResponse
-     *
-     * @param ListFlowVersionRequest $request
-     *
-     * @return ListFlowVersionResponse
+     * @return ListFlowVersionResponse ListFlowVersionResponse
      */
     public function listFlowVersion($request)
     {
@@ -5101,44 +4537,34 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Queries the information about a list of quick-response (QR) codes that contain messages.
+     * @summary Queries the information about a list of quick-response (QR) codes that contain messages.
+     *  *
+     * @param ListPhoneMessageQrdlRequest $request ListPhoneMessageQrdlRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListPhoneMessageQrdlRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListPhoneMessageQrdlResponse
-     *
-     * @param ListPhoneMessageQrdlRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return ListPhoneMessageQrdlResponse
+     * @return ListPhoneMessageQrdlResponse ListPhoneMessageQrdlResponse
      */
     public function listPhoneMessageQrdlWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->custSpaceId) {
-            @$query['CustSpaceId'] = $request->custSpaceId;
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->phoneNumber) {
-            @$query['PhoneNumber'] = $request->phoneNumber;
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $query['PhoneNumber'] = $request->phoneNumber;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListPhoneMessageQrdl',
@@ -5156,15 +4582,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Queries the information about a list of quick-response (QR) codes that contain messages.
+     * @summary Queries the information about a list of quick-response (QR) codes that contain messages.
+     *  *
+     * @param ListPhoneMessageQrdlRequest $request ListPhoneMessageQrdlRequest
      *
-     * @param request - ListPhoneMessageQrdlRequest
-     *
-     * @returns ListPhoneMessageQrdlResponse
-     *
-     * @param ListPhoneMessageQrdlRequest $request
-     *
-     * @return ListPhoneMessageQrdlResponse
+     * @return ListPhoneMessageQrdlResponse ListPhoneMessageQrdlResponse
      */
     public function listPhoneMessageQrdl($request)
     {
@@ -5174,67 +4596,51 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Queries products in a product catalog.
+     * @summary Queries products in a product catalog.
+     *  *
+     * @description You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param ListProductRequest $request ListProductRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
-     * @param request - ListProductRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListProductResponse
-     *
-     * @param ListProductRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return ListProductResponse
+     * @return ListProductResponse ListProductResponse
      */
     public function listProductWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->after) {
-            @$query['After'] = $request->after;
+        if (!Utils::isUnset($request->after)) {
+            $query['After'] = $request->after;
         }
-
-        if (null !== $request->before) {
-            @$query['Before'] = $request->before;
+        if (!Utils::isUnset($request->before)) {
+            $query['Before'] = $request->before;
         }
-
-        if (null !== $request->catalogId) {
-            @$query['CatalogId'] = $request->catalogId;
+        if (!Utils::isUnset($request->catalogId)) {
+            $query['CatalogId'] = $request->catalogId;
         }
-
-        if (null !== $request->custSpaceId) {
-            @$query['CustSpaceId'] = $request->custSpaceId;
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
         }
-
-        if (null !== $request->fields) {
-            @$query['Fields'] = $request->fields;
+        if (!Utils::isUnset($request->fields)) {
+            $query['Fields'] = $request->fields;
         }
-
-        if (null !== $request->limit) {
-            @$query['Limit'] = $request->limit;
+        if (!Utils::isUnset($request->limit)) {
+            $query['Limit'] = $request->limit;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->wabaId) {
-            @$query['WabaId'] = $request->wabaId;
+        if (!Utils::isUnset($request->wabaId)) {
+            $query['WabaId'] = $request->wabaId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListProduct',
@@ -5252,18 +4658,13 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Queries products in a product catalog.
+     * @summary Queries products in a product catalog.
+     *  *
+     * @description You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param ListProductRequest $request ListProductRequest
      *
-     * @remarks
-     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
-     * @param request - ListProductRequest
-     *
-     * @returns ListProductResponse
-     *
-     * @param ListProductRequest $request
-     *
-     * @return ListProductResponse
+     * @return ListProductResponse ListProductResponse
      */
     public function listProduct($request)
     {
@@ -5273,63 +4674,48 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Queries the product catalogs on the Business Manager platform of Meta.
+     * @summary Queries the product catalogs on the Business Manager platform of Meta.
+     *  *
+     * @description You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param ListProductCatalogRequest $request ListProductCatalogRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
-     * @param request - ListProductCatalogRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListProductCatalogResponse
-     *
-     * @param ListProductCatalogRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return ListProductCatalogResponse
+     * @return ListProductCatalogResponse ListProductCatalogResponse
      */
     public function listProductCatalogWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->after) {
-            @$query['After'] = $request->after;
+        if (!Utils::isUnset($request->after)) {
+            $query['After'] = $request->after;
         }
-
-        if (null !== $request->before) {
-            @$query['Before'] = $request->before;
+        if (!Utils::isUnset($request->before)) {
+            $query['Before'] = $request->before;
         }
-
-        if (null !== $request->businessId) {
-            @$query['BusinessId'] = $request->businessId;
+        if (!Utils::isUnset($request->businessId)) {
+            $query['BusinessId'] = $request->businessId;
         }
-
-        if (null !== $request->custSpaceId) {
-            @$query['CustSpaceId'] = $request->custSpaceId;
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
         }
-
-        if (null !== $request->fields) {
-            @$query['Fields'] = $request->fields;
+        if (!Utils::isUnset($request->fields)) {
+            $query['Fields'] = $request->fields;
         }
-
-        if (null !== $request->limit) {
-            @$query['Limit'] = $request->limit;
+        if (!Utils::isUnset($request->limit)) {
+            $query['Limit'] = $request->limit;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListProductCatalog',
@@ -5347,18 +4733,13 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Queries the product catalogs on the Business Manager platform of Meta.
+     * @summary Queries the product catalogs on the Business Manager platform of Meta.
+     *  *
+     * @description You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param ListProductCatalogRequest $request ListProductCatalogRequest
      *
-     * @remarks
-     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
-     * @param request - ListProductCatalogRequest
-     *
-     * @returns ListProductCatalogResponse
-     *
-     * @param ListProductCatalogRequest $request
-     *
-     * @return ListProductCatalogResponse
+     * @return ListProductCatalogResponse ListProductCatalogResponse
      */
     public function listProductCatalog($request)
     {
@@ -5368,85 +4749,65 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * The code of the message template.
+     * @summary The code of the message template.
+     *  *
+     * @description The name of the message template.
+     *  *
+     * @param ModifyChatappTemplateRequest $tmpReq  ModifyChatappTemplateRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * The name of the message template.
-     *
-     * @param tmpReq - ModifyChatappTemplateRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyChatappTemplateResponse
-     *
-     * @param ModifyChatappTemplateRequest $tmpReq
-     * @param RuntimeOptions               $runtime
-     *
-     * @return ModifyChatappTemplateResponse
+     * @return ModifyChatappTemplateResponse ModifyChatappTemplateResponse
      */
     public function modifyChatappTemplateWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new ModifyChatappTemplateShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->components) {
-            $request->componentsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->components, 'Components', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->components)) {
+            $request->componentsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->components, 'Components', 'json');
         }
-
-        if (null !== $tmpReq->example) {
-            $request->exampleShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->example, 'Example', 'json');
+        if (!Utils::isUnset($tmpReq->example)) {
+            $request->exampleShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->example, 'Example', 'json');
         }
-
         $body = [];
-        if (null !== $request->category) {
-            @$body['Category'] = $request->category;
+        if (!Utils::isUnset($request->category)) {
+            $body['Category'] = $request->category;
         }
-
-        if (null !== $request->categoryChangePaused) {
-            @$body['CategoryChangePaused'] = $request->categoryChangePaused;
+        if (!Utils::isUnset($request->categoryChangePaused)) {
+            $body['CategoryChangePaused'] = $request->categoryChangePaused;
         }
-
-        if (null !== $request->componentsShrink) {
-            @$body['Components'] = $request->componentsShrink;
+        if (!Utils::isUnset($request->componentsShrink)) {
+            $body['Components'] = $request->componentsShrink;
         }
-
-        if (null !== $request->custSpaceId) {
-            @$body['CustSpaceId'] = $request->custSpaceId;
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $body['CustSpaceId'] = $request->custSpaceId;
         }
-
-        if (null !== $request->custWabaId) {
-            @$body['CustWabaId'] = $request->custWabaId;
+        if (!Utils::isUnset($request->custWabaId)) {
+            $body['CustWabaId'] = $request->custWabaId;
         }
-
-        if (null !== $request->exampleShrink) {
-            @$body['Example'] = $request->exampleShrink;
+        if (!Utils::isUnset($request->exampleShrink)) {
+            $body['Example'] = $request->exampleShrink;
         }
-
-        if (null !== $request->isvCode) {
-            @$body['IsvCode'] = $request->isvCode;
+        if (!Utils::isUnset($request->isvCode)) {
+            $body['IsvCode'] = $request->isvCode;
         }
-
-        if (null !== $request->language) {
-            @$body['Language'] = $request->language;
+        if (!Utils::isUnset($request->language)) {
+            $body['Language'] = $request->language;
         }
-
-        if (null !== $request->messageSendTtlSeconds) {
-            @$body['MessageSendTtlSeconds'] = $request->messageSendTtlSeconds;
+        if (!Utils::isUnset($request->messageSendTtlSeconds)) {
+            $body['MessageSendTtlSeconds'] = $request->messageSendTtlSeconds;
         }
-
-        if (null !== $request->templateCode) {
-            @$body['TemplateCode'] = $request->templateCode;
+        if (!Utils::isUnset($request->templateCode)) {
+            $body['TemplateCode'] = $request->templateCode;
         }
-
-        if (null !== $request->templateName) {
-            @$body['TemplateName'] = $request->templateName;
+        if (!Utils::isUnset($request->templateName)) {
+            $body['TemplateName'] = $request->templateName;
         }
-
-        if (null !== $request->templateType) {
-            @$body['TemplateType'] = $request->templateType;
+        if (!Utils::isUnset($request->templateType)) {
+            $body['TemplateType'] = $request->templateType;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ModifyChatappTemplate',
@@ -5464,18 +4825,13 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * The code of the message template.
+     * @summary The code of the message template.
+     *  *
+     * @description The name of the message template.
+     *  *
+     * @param ModifyChatappTemplateRequest $request ModifyChatappTemplateRequest
      *
-     * @remarks
-     * The name of the message template.
-     *
-     * @param request - ModifyChatappTemplateRequest
-     *
-     * @returns ModifyChatappTemplateResponse
-     *
-     * @param ModifyChatappTemplateRequest $request
-     *
-     * @return ModifyChatappTemplateResponse
+     * @return ModifyChatappTemplateResponse ModifyChatappTemplateResponse
      */
     public function modifyChatappTemplate($request)
     {
@@ -5485,60 +4841,46 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * 修改模板上的一些属性.
+     * @summary 修改模板上的一些属性
+     *  *
+     * @param ModifyChatappTemplatePropertiesRequest $request ModifyChatappTemplatePropertiesRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyChatappTemplatePropertiesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyChatappTemplatePropertiesResponse
-     *
-     * @param ModifyChatappTemplatePropertiesRequest $request
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return ModifyChatappTemplatePropertiesResponse
+     * @return ModifyChatappTemplatePropertiesResponse ModifyChatappTemplatePropertiesResponse
      */
     public function modifyChatappTemplatePropertiesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->allowSend) {
-            @$query['AllowSend'] = $request->allowSend;
+        if (!Utils::isUnset($request->allowSend)) {
+            $query['AllowSend'] = $request->allowSend;
         }
-
-        if (null !== $request->categoryChangePaused) {
-            @$query['CategoryChangePaused'] = $request->categoryChangePaused;
+        if (!Utils::isUnset($request->categoryChangePaused)) {
+            $query['CategoryChangePaused'] = $request->categoryChangePaused;
         }
-
-        if (null !== $request->custSpaceId) {
-            @$query['CustSpaceId'] = $request->custSpaceId;
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
         }
-
-        if (null !== $request->language) {
-            @$query['Language'] = $request->language;
+        if (!Utils::isUnset($request->language)) {
+            $query['Language'] = $request->language;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->templateCode) {
-            @$query['TemplateCode'] = $request->templateCode;
+        if (!Utils::isUnset($request->templateCode)) {
+            $query['TemplateCode'] = $request->templateCode;
         }
-
-        if (null !== $request->templateType) {
-            @$query['TemplateType'] = $request->templateType;
+        if (!Utils::isUnset($request->templateType)) {
+            $query['TemplateType'] = $request->templateType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyChatappTemplateProperties',
@@ -5556,15 +4898,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * 修改模板上的一些属性.
+     * @summary 修改模板上的一些属性
+     *  *
+     * @param ModifyChatappTemplatePropertiesRequest $request ModifyChatappTemplatePropertiesRequest
      *
-     * @param request - ModifyChatappTemplatePropertiesRequest
-     *
-     * @returns ModifyChatappTemplatePropertiesResponse
-     *
-     * @param ModifyChatappTemplatePropertiesRequest $request
-     *
-     * @return ModifyChatappTemplatePropertiesResponse
+     * @return ModifyChatappTemplatePropertiesResponse ModifyChatappTemplatePropertiesResponse
      */
     public function modifyChatappTemplateProperties($request)
     {
@@ -5574,49 +4912,47 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Modifies the basic information about a Flow.
+     * @summary Modifies the basic information about a Flow.
+     *  *
+     * @description You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param ModifyFlowRequest $tmpReq  ModifyFlowRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
-     * @param tmpReq - ModifyFlowRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyFlowResponse
-     *
-     * @param ModifyFlowRequest $tmpReq
-     * @param RuntimeOptions    $runtime
-     *
-     * @return ModifyFlowResponse
+     * @return ModifyFlowResponse ModifyFlowResponse
      */
     public function modifyFlowWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new ModifyFlowShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->categories) {
-            $request->categoriesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->categories, 'Categories', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->categories)) {
+            $request->categoriesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->categories, 'Categories', 'json');
         }
-
-        $body = [];
-        if (null !== $request->categoriesShrink) {
-            @$body['Categories'] = $request->categoriesShrink;
+        $query = [];
+        if (!Utils::isUnset($request->categoriesShrink)) {
+            $query['Categories'] = $request->categoriesShrink;
         }
-
-        if (null !== $request->custSpaceId) {
-            @$body['CustSpaceId'] = $request->custSpaceId;
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
         }
-
-        if (null !== $request->flowId) {
-            @$body['FlowId'] = $request->flowId;
+        if (!Utils::isUnset($request->flowId)) {
+            $query['FlowId'] = $request->flowId;
         }
-
-        if (null !== $request->flowName) {
-            @$body['FlowName'] = $request->flowName;
+        if (!Utils::isUnset($request->flowName)) {
+            $query['FlowName'] = $request->flowName;
         }
-
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyFlow',
@@ -5634,18 +4970,13 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Modifies the basic information about a Flow.
+     * @summary Modifies the basic information about a Flow.
+     *  *
+     * @description You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param ModifyFlowRequest $request ModifyFlowRequest
      *
-     * @remarks
-     * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
-     * @param request - ModifyFlowRequest
-     *
-     * @returns ModifyFlowResponse
-     *
-     * @param ModifyFlowRequest $request
-     *
-     * @return ModifyFlowResponse
+     * @return ModifyFlowResponse ModifyFlowResponse
      */
     public function modifyFlow($request)
     {
@@ -5655,81 +4986,62 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * The ID of the request.
+     * @summary The ID of the request.
+     *  *
+     * @description ModifyPhoneBusinessProfile
+     *  *
+     * @param ModifyPhoneBusinessProfileRequest $tmpReq  ModifyPhoneBusinessProfileRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * ModifyPhoneBusinessProfile
-     *
-     * @param tmpReq - ModifyPhoneBusinessProfileRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyPhoneBusinessProfileResponse
-     *
-     * @param ModifyPhoneBusinessProfileRequest $tmpReq
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return ModifyPhoneBusinessProfileResponse
+     * @return ModifyPhoneBusinessProfileResponse ModifyPhoneBusinessProfileResponse
      */
     public function modifyPhoneBusinessProfileWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new ModifyPhoneBusinessProfileShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->websites) {
-            $request->websitesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->websites, 'Websites', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->websites)) {
+            $request->websitesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->websites, 'Websites', 'json');
         }
-
         $query = [];
-        if (null !== $request->about) {
-            @$query['About'] = $request->about;
+        if (!Utils::isUnset($request->about)) {
+            $query['About'] = $request->about;
         }
-
-        if (null !== $request->address) {
-            @$query['Address'] = $request->address;
+        if (!Utils::isUnset($request->address)) {
+            $query['Address'] = $request->address;
         }
-
-        if (null !== $request->custSpaceId) {
-            @$query['CustSpaceId'] = $request->custSpaceId;
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
         }
-
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->email) {
-            @$query['Email'] = $request->email;
+        if (!Utils::isUnset($request->email)) {
+            $query['Email'] = $request->email;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->phoneNumber) {
-            @$query['PhoneNumber'] = $request->phoneNumber;
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $query['PhoneNumber'] = $request->phoneNumber;
         }
-
-        if (null !== $request->profilePictureUrl) {
-            @$query['ProfilePictureUrl'] = $request->profilePictureUrl;
+        if (!Utils::isUnset($request->profilePictureUrl)) {
+            $query['ProfilePictureUrl'] = $request->profilePictureUrl;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->vertical) {
-            @$query['Vertical'] = $request->vertical;
+        if (!Utils::isUnset($request->vertical)) {
+            $query['Vertical'] = $request->vertical;
         }
-
-        if (null !== $request->websitesShrink) {
-            @$query['Websites'] = $request->websitesShrink;
+        if (!Utils::isUnset($request->websitesShrink)) {
+            $query['Websites'] = $request->websitesShrink;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyPhoneBusinessProfile',
@@ -5747,18 +5059,13 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * The ID of the request.
+     * @summary The ID of the request.
+     *  *
+     * @description ModifyPhoneBusinessProfile
+     *  *
+     * @param ModifyPhoneBusinessProfileRequest $request ModifyPhoneBusinessProfileRequest
      *
-     * @remarks
-     * ModifyPhoneBusinessProfile
-     *
-     * @param request - ModifyPhoneBusinessProfileRequest
-     *
-     * @returns ModifyPhoneBusinessProfileResponse
-     *
-     * @param ModifyPhoneBusinessProfileRequest $request
-     *
-     * @return ModifyPhoneBusinessProfileResponse
+     * @return ModifyPhoneBusinessProfileResponse ModifyPhoneBusinessProfileResponse
      */
     public function modifyPhoneBusinessProfile($request)
     {
@@ -5768,62 +5075,48 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Offline Flow Version.
+     * @summary Offline Flow Version
+     *  *
+     * @param OfflineFlowVersionRequest $tmpReq  OfflineFlowVersionRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - OfflineFlowVersionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns OfflineFlowVersionResponse
-     *
-     * @param OfflineFlowVersionRequest $tmpReq
-     * @param RuntimeOptions            $runtime
-     *
-     * @return OfflineFlowVersionResponse
+     * @return OfflineFlowVersionResponse OfflineFlowVersionResponse
      */
     public function offlineFlowVersionWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new OfflineFlowVersionShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->bizExtend) {
-            $request->bizExtendShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->bizExtend, 'BizExtend', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->bizExtend)) {
+            $request->bizExtendShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->bizExtend, 'BizExtend', 'json');
         }
-
         $query = [];
-        if (null !== $request->bizCode) {
-            @$query['BizCode'] = $request->bizCode;
+        if (!Utils::isUnset($request->bizCode)) {
+            $query['BizCode'] = $request->bizCode;
         }
-
-        if (null !== $request->bizExtendShrink) {
-            @$query['BizExtend'] = $request->bizExtendShrink;
+        if (!Utils::isUnset($request->bizExtendShrink)) {
+            $query['BizExtend'] = $request->bizExtendShrink;
         }
-
-        if (null !== $request->flowCode) {
-            @$query['FlowCode'] = $request->flowCode;
+        if (!Utils::isUnset($request->flowCode)) {
+            $query['FlowCode'] = $request->flowCode;
         }
-
-        if (null !== $request->flowVersion) {
-            @$query['FlowVersion'] = $request->flowVersion;
+        if (!Utils::isUnset($request->flowVersion)) {
+            $query['FlowVersion'] = $request->flowVersion;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->remark) {
-            @$query['Remark'] = $request->remark;
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'OfflineFlowVersion',
@@ -5841,15 +5134,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Offline Flow Version.
+     * @summary Offline Flow Version
+     *  *
+     * @param OfflineFlowVersionRequest $request OfflineFlowVersionRequest
      *
-     * @param request - OfflineFlowVersionRequest
-     *
-     * @returns OfflineFlowVersionResponse
-     *
-     * @param OfflineFlowVersionRequest $request
-     *
-     * @return OfflineFlowVersionResponse
+     * @return OfflineFlowVersionResponse OfflineFlowVersionResponse
      */
     public function offlineFlowVersion($request)
     {
@@ -5859,62 +5148,48 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Online Flow Version.
+     * @summary Online Flow Version
+     *  *
+     * @param OnlineFlowVersionRequest $tmpReq  OnlineFlowVersionRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - OnlineFlowVersionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns OnlineFlowVersionResponse
-     *
-     * @param OnlineFlowVersionRequest $tmpReq
-     * @param RuntimeOptions           $runtime
-     *
-     * @return OnlineFlowVersionResponse
+     * @return OnlineFlowVersionResponse OnlineFlowVersionResponse
      */
     public function onlineFlowVersionWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new OnlineFlowVersionShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->bizExtend) {
-            $request->bizExtendShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->bizExtend, 'BizExtend', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->bizExtend)) {
+            $request->bizExtendShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->bizExtend, 'BizExtend', 'json');
         }
-
         $query = [];
-        if (null !== $request->bizCode) {
-            @$query['BizCode'] = $request->bizCode;
+        if (!Utils::isUnset($request->bizCode)) {
+            $query['BizCode'] = $request->bizCode;
         }
-
-        if (null !== $request->bizExtendShrink) {
-            @$query['BizExtend'] = $request->bizExtendShrink;
+        if (!Utils::isUnset($request->bizExtendShrink)) {
+            $query['BizExtend'] = $request->bizExtendShrink;
         }
-
-        if (null !== $request->flowCode) {
-            @$query['FlowCode'] = $request->flowCode;
+        if (!Utils::isUnset($request->flowCode)) {
+            $query['FlowCode'] = $request->flowCode;
         }
-
-        if (null !== $request->flowVersion) {
-            @$query['FlowVersion'] = $request->flowVersion;
+        if (!Utils::isUnset($request->flowVersion)) {
+            $query['FlowVersion'] = $request->flowVersion;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->remark) {
-            @$query['Remark'] = $request->remark;
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'OnlineFlowVersion',
@@ -5932,15 +5207,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Online Flow Version.
+     * @summary Online Flow Version
+     *  *
+     * @param OnlineFlowVersionRequest $request OnlineFlowVersionRequest
      *
-     * @param request - OnlineFlowVersionRequest
-     *
-     * @returns OnlineFlowVersionResponse
-     *
-     * @param OnlineFlowVersionRequest $request
-     *
-     * @return OnlineFlowVersionResponse
+     * @return OnlineFlowVersionResponse OnlineFlowVersionResponse
      */
     public function onlineFlowVersion($request)
     {
@@ -5950,35 +5221,36 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Publishes a Flow.
+     * @summary Publishes a Flow.
+     *  *
+     * @description You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param PublishFlowRequest $request PublishFlowRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
-     * @param request - PublishFlowRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns PublishFlowResponse
-     *
-     * @param PublishFlowRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return PublishFlowResponse
+     * @return PublishFlowResponse PublishFlowResponse
      */
     public function publishFlowWithOptions($request, $runtime)
     {
-        $request->validate();
-        $body = [];
-        if (null !== $request->custSpaceId) {
-            @$body['CustSpaceId'] = $request->custSpaceId;
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
         }
-
-        if (null !== $request->flowId) {
-            @$body['FlowId'] = $request->flowId;
+        if (!Utils::isUnset($request->flowId)) {
+            $query['FlowId'] = $request->flowId;
         }
-
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'PublishFlow',
@@ -5996,18 +5268,13 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Publishes a Flow.
+     * @summary Publishes a Flow.
+     *  *
+     * @description You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param PublishFlowRequest $request PublishFlowRequest
      *
-     * @remarks
-     * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
-     * @param request - PublishFlowRequest
-     *
-     * @returns PublishFlowResponse
-     *
-     * @param PublishFlowRequest $request
-     *
-     * @return PublishFlowResponse
+     * @return PublishFlowResponse PublishFlowResponse
      */
     public function publishFlow($request)
     {
@@ -6017,47 +5284,36 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Query the WhatsApp Business account you associate with ChatApp.
+     * @summary Query the WhatsApp Business account you associate with ChatApp.
+     *  *
+     * @description You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param QueryChatappBindWabaRequest $request QueryChatappBindWabaRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
-     * @param request - QueryChatappBindWabaRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns QueryChatappBindWabaResponse
-     *
-     * @param QueryChatappBindWabaRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return QueryChatappBindWabaResponse
+     * @return QueryChatappBindWabaResponse QueryChatappBindWabaResponse
      */
     public function queryChatappBindWabaWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->custSpaceId) {
-            @$query['CustSpaceId'] = $request->custSpaceId;
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
         }
-
-        if (null !== $request->isvCode) {
-            @$query['IsvCode'] = $request->isvCode;
+        if (!Utils::isUnset($request->isvCode)) {
+            $query['IsvCode'] = $request->isvCode;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryChatappBindWaba',
@@ -6075,18 +5331,13 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Query the WhatsApp Business account you associate with ChatApp.
+     * @summary Query the WhatsApp Business account you associate with ChatApp.
+     *  *
+     * @description You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param QueryChatappBindWabaRequest $request QueryChatappBindWabaRequest
      *
-     * @remarks
-     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
-     * @param request - QueryChatappBindWabaRequest
-     *
-     * @returns QueryChatappBindWabaResponse
-     *
-     * @param QueryChatappBindWabaRequest $request
-     *
-     * @return QueryChatappBindWabaResponse
+     * @return QueryChatappBindWabaResponse QueryChatappBindWabaResponse
      */
     public function queryChatappBindWaba($request)
     {
@@ -6096,51 +5347,39 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Queries phone numbers that receive messages and statuses of these numbers under a specified user.
+     * @summary Queries phone numbers that receive messages and statuses of these numbers under a specified user.
+     *  *
+     * @description You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param QueryChatappPhoneNumbersRequest $request QueryChatappPhoneNumbersRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
-     * @param request - QueryChatappPhoneNumbersRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns QueryChatappPhoneNumbersResponse
-     *
-     * @param QueryChatappPhoneNumbersRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return QueryChatappPhoneNumbersResponse
+     * @return QueryChatappPhoneNumbersResponse QueryChatappPhoneNumbersResponse
      */
     public function queryChatappPhoneNumbersWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->custSpaceId) {
-            @$query['CustSpaceId'] = $request->custSpaceId;
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
         }
-
-        if (null !== $request->isvCode) {
-            @$query['IsvCode'] = $request->isvCode;
+        if (!Utils::isUnset($request->isvCode)) {
+            $query['IsvCode'] = $request->isvCode;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->status) {
-            @$query['Status'] = $request->status;
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryChatappPhoneNumbers',
@@ -6158,18 +5397,13 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Queries phone numbers that receive messages and statuses of these numbers under a specified user.
+     * @summary Queries phone numbers that receive messages and statuses of these numbers under a specified user.
+     *  *
+     * @description You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param QueryChatappPhoneNumbersRequest $request QueryChatappPhoneNumbersRequest
      *
-     * @remarks
-     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
-     * @param request - QueryChatappPhoneNumbersRequest
-     *
-     * @returns QueryChatappPhoneNumbersResponse
-     *
-     * @param QueryChatappPhoneNumbersRequest $request
-     *
-     * @return QueryChatappPhoneNumbersResponse
+     * @return QueryChatappPhoneNumbersResponse QueryChatappPhoneNumbersResponse
      */
     public function queryChatappPhoneNumbers($request)
     {
@@ -6179,47 +5413,36 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Queries the business information of the account to which a specified phone number is bound.
+     * @summary Queries the business information of the account to which a specified phone number is bound.
+     *  *
+     * @description You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param QueryPhoneBusinessProfileRequest $request QueryPhoneBusinessProfileRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
-     * @param request - QueryPhoneBusinessProfileRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns QueryPhoneBusinessProfileResponse
-     *
-     * @param QueryPhoneBusinessProfileRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return QueryPhoneBusinessProfileResponse
+     * @return QueryPhoneBusinessProfileResponse QueryPhoneBusinessProfileResponse
      */
     public function queryPhoneBusinessProfileWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->custSpaceId) {
-            @$query['CustSpaceId'] = $request->custSpaceId;
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->phoneNumber) {
-            @$query['PhoneNumber'] = $request->phoneNumber;
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $query['PhoneNumber'] = $request->phoneNumber;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryPhoneBusinessProfile',
@@ -6237,18 +5460,13 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Queries the business information of the account to which a specified phone number is bound.
+     * @summary Queries the business information of the account to which a specified phone number is bound.
+     *  *
+     * @description You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param QueryPhoneBusinessProfileRequest $request QueryPhoneBusinessProfileRequest
      *
-     * @remarks
-     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
-     * @param request - QueryPhoneBusinessProfileRequest
-     *
-     * @returns QueryPhoneBusinessProfileResponse
-     *
-     * @param QueryPhoneBusinessProfileRequest $request
-     *
-     * @return QueryPhoneBusinessProfileResponse
+     * @return QueryPhoneBusinessProfileResponse QueryPhoneBusinessProfileResponse
      */
     public function queryPhoneBusinessProfile($request)
     {
@@ -6258,47 +5476,36 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Queries the business information about the WhatsApp Business account (WABA).
+     * @summary Queries the business information about the WhatsApp Business account (WABA).
+     *  *
+     * @description You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param QueryWabaBusinessInfoRequest $request QueryWabaBusinessInfoRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
-     * @param request - QueryWabaBusinessInfoRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns QueryWabaBusinessInfoResponse
-     *
-     * @param QueryWabaBusinessInfoRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return QueryWabaBusinessInfoResponse
+     * @return QueryWabaBusinessInfoResponse QueryWabaBusinessInfoResponse
      */
     public function queryWabaBusinessInfoWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->custSpaceId) {
-            @$query['CustSpaceId'] = $request->custSpaceId;
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->wabaId) {
-            @$query['WabaId'] = $request->wabaId;
+        if (!Utils::isUnset($request->wabaId)) {
+            $query['WabaId'] = $request->wabaId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryWabaBusinessInfo',
@@ -6316,18 +5523,13 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Queries the business information about the WhatsApp Business account (WABA).
+     * @summary Queries the business information about the WhatsApp Business account (WABA).
+     *  *
+     * @description You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param QueryWabaBusinessInfoRequest $request QueryWabaBusinessInfoRequest
      *
-     * @remarks
-     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
-     * @param request - QueryWabaBusinessInfoRequest
-     *
-     * @returns QueryWabaBusinessInfoResponse
-     *
-     * @param QueryWabaBusinessInfoRequest $request
-     *
-     * @return QueryWabaBusinessInfoResponse
+     * @return QueryWabaBusinessInfoResponse QueryWabaBusinessInfoResponse
      */
     public function queryWabaBusinessInfo($request)
     {
@@ -6337,54 +5539,42 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Retrieve Flow.
+     * @summary Retrieve Flow
+     *  *
+     * @param ReadChatFlowRequest $tmpReq  ReadChatFlowRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - ReadChatFlowRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ReadChatFlowResponse
-     *
-     * @param ReadChatFlowRequest $tmpReq
-     * @param RuntimeOptions      $runtime
-     *
-     * @return ReadChatFlowResponse
+     * @return ReadChatFlowResponse ReadChatFlowResponse
      */
     public function readChatFlowWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new ReadChatFlowShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->bizExtend) {
-            $request->bizExtendShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->bizExtend, 'BizExtend', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->bizExtend)) {
+            $request->bizExtendShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->bizExtend, 'BizExtend', 'json');
         }
-
         $query = [];
-        if (null !== $request->bizCode) {
-            @$query['BizCode'] = $request->bizCode;
+        if (!Utils::isUnset($request->bizCode)) {
+            $query['BizCode'] = $request->bizCode;
         }
-
-        if (null !== $request->bizExtendShrink) {
-            @$query['BizExtend'] = $request->bizExtendShrink;
+        if (!Utils::isUnset($request->bizExtendShrink)) {
+            $query['BizExtend'] = $request->bizExtendShrink;
         }
-
-        if (null !== $request->flowCode) {
-            @$query['FlowCode'] = $request->flowCode;
+        if (!Utils::isUnset($request->flowCode)) {
+            $query['FlowCode'] = $request->flowCode;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ReadChatFlow',
@@ -6402,15 +5592,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Retrieve Flow.
+     * @summary Retrieve Flow
+     *  *
+     * @param ReadChatFlowRequest $request ReadChatFlowRequest
      *
-     * @param request - ReadChatFlowRequest
-     *
-     * @returns ReadChatFlowResponse
-     *
-     * @param ReadChatFlowRequest $request
-     *
-     * @return ReadChatFlowResponse
+     * @return ReadChatFlowResponse ReadChatFlowResponse
      */
     public function readChatFlow($request)
     {
@@ -6420,40 +5606,31 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * View chatFlow log settings.
+     * @summary View chatFlow log settings
+     *  *
+     * @param ReadChatFlowLogSettingRequest $request ReadChatFlowLogSettingRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ReadChatFlowLogSettingRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ReadChatFlowLogSettingResponse
-     *
-     * @param ReadChatFlowLogSettingRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return ReadChatFlowLogSettingResponse
+     * @return ReadChatFlowLogSettingResponse ReadChatFlowLogSettingResponse
      */
     public function readChatFlowLogSettingWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->flowCode) {
-            @$query['FlowCode'] = $request->flowCode;
+        if (!Utils::isUnset($request->flowCode)) {
+            $query['FlowCode'] = $request->flowCode;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ReadChatFlowLogSetting',
@@ -6471,15 +5648,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * View chatFlow log settings.
+     * @summary View chatFlow log settings
+     *  *
+     * @param ReadChatFlowLogSettingRequest $request ReadChatFlowLogSettingRequest
      *
-     * @param request - ReadChatFlowLogSettingRequest
-     *
-     * @returns ReadChatFlowLogSettingResponse
-     *
-     * @param ReadChatFlowLogSettingRequest $request
-     *
-     * @return ReadChatFlowLogSettingResponse
+     * @return ReadChatFlowLogSettingResponse ReadChatFlowLogSettingResponse
      */
     public function readChatFlowLogSetting($request)
     {
@@ -6489,62 +5662,48 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Get Flow Version.
+     * @summary Get Flow Version
+     *  *
+     * @param ReadFlowVersionRequest $tmpReq  ReadFlowVersionRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - ReadFlowVersionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ReadFlowVersionResponse
-     *
-     * @param ReadFlowVersionRequest $tmpReq
-     * @param RuntimeOptions         $runtime
-     *
-     * @return ReadFlowVersionResponse
+     * @return ReadFlowVersionResponse ReadFlowVersionResponse
      */
     public function readFlowVersionWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new ReadFlowVersionShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->bizExtend) {
-            $request->bizExtendShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->bizExtend, 'BizExtend', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->bizExtend)) {
+            $request->bizExtendShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->bizExtend, 'BizExtend', 'json');
         }
-
         $query = [];
-        if (null !== $request->bizCode) {
-            @$query['BizCode'] = $request->bizCode;
+        if (!Utils::isUnset($request->bizCode)) {
+            $query['BizCode'] = $request->bizCode;
         }
-
-        if (null !== $request->bizExtendShrink) {
-            @$query['BizExtend'] = $request->bizExtendShrink;
+        if (!Utils::isUnset($request->bizExtendShrink)) {
+            $query['BizExtend'] = $request->bizExtendShrink;
         }
-
-        if (null !== $request->flowCode) {
-            @$query['FlowCode'] = $request->flowCode;
+        if (!Utils::isUnset($request->flowCode)) {
+            $query['FlowCode'] = $request->flowCode;
         }
-
-        if (null !== $request->flowVersion) {
-            @$query['FlowVersion'] = $request->flowVersion;
+        if (!Utils::isUnset($request->flowVersion)) {
+            $query['FlowVersion'] = $request->flowVersion;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->status) {
-            @$query['Status'] = $request->status;
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ReadFlowVersion',
@@ -6562,15 +5721,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Get Flow Version.
+     * @summary Get Flow Version
+     *  *
+     * @param ReadFlowVersionRequest $request ReadFlowVersionRequest
      *
-     * @param request - ReadFlowVersionRequest
-     *
-     * @returns ReadFlowVersionResponse
-     *
-     * @param ReadFlowVersionRequest $request
-     *
-     * @return ReadFlowVersionResponse
+     * @return ReadFlowVersionResponse ReadFlowVersionResponse
      */
     public function readFlowVersion($request)
     {
@@ -6580,102 +5735,78 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Sends a message to multiple phone numbers by using ChatAPP at a time.
-     *
-     * @remarks
-     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * @summary Sends a message to multiple phone numbers by using ChatAPP at a time.
+     *  *
+     * @description You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      * You can send messages to up to 1,000 phone numbers in a single request.
+     *  *
+     * @param SendChatappMassMessageRequest $tmpReq  SendChatappMassMessageRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - SendChatappMassMessageRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns SendChatappMassMessageResponse
-     *
-     * @param SendChatappMassMessageRequest $tmpReq
-     * @param RuntimeOptions                $runtime
-     *
-     * @return SendChatappMassMessageResponse
+     * @return SendChatappMassMessageResponse SendChatappMassMessageResponse
      */
     public function sendChatappMassMessageWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new SendChatappMassMessageShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->senderList) {
-            $request->senderListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->senderList, 'SenderList', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->senderList)) {
+            $request->senderListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->senderList, 'SenderList', 'json');
         }
-
         $body = [];
-        if (null !== $request->channelType) {
-            @$body['ChannelType'] = $request->channelType;
+        if (!Utils::isUnset($request->channelType)) {
+            $body['ChannelType'] = $request->channelType;
         }
-
-        if (null !== $request->custSpaceId) {
-            @$body['CustSpaceId'] = $request->custSpaceId;
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $body['CustSpaceId'] = $request->custSpaceId;
         }
-
-        if (null !== $request->custWabaId) {
-            @$body['CustWabaId'] = $request->custWabaId;
+        if (!Utils::isUnset($request->custWabaId)) {
+            $body['CustWabaId'] = $request->custWabaId;
         }
-
-        if (null !== $request->fallBackContent) {
-            @$body['FallBackContent'] = $request->fallBackContent;
+        if (!Utils::isUnset($request->fallBackContent)) {
+            $body['FallBackContent'] = $request->fallBackContent;
         }
-
-        if (null !== $request->fallBackDuration) {
-            @$body['FallBackDuration'] = $request->fallBackDuration;
+        if (!Utils::isUnset($request->fallBackDuration)) {
+            $body['FallBackDuration'] = $request->fallBackDuration;
         }
-
-        if (null !== $request->fallBackId) {
-            @$body['FallBackId'] = $request->fallBackId;
+        if (!Utils::isUnset($request->fallBackId)) {
+            $body['FallBackId'] = $request->fallBackId;
         }
-
-        if (null !== $request->fallBackRule) {
-            @$body['FallBackRule'] = $request->fallBackRule;
+        if (!Utils::isUnset($request->fallBackRule)) {
+            $body['FallBackRule'] = $request->fallBackRule;
         }
-
-        if (null !== $request->from) {
-            @$body['From'] = $request->from;
+        if (!Utils::isUnset($request->from)) {
+            $body['From'] = $request->from;
         }
-
-        if (null !== $request->isvCode) {
-            @$body['IsvCode'] = $request->isvCode;
+        if (!Utils::isUnset($request->isvCode)) {
+            $body['IsvCode'] = $request->isvCode;
         }
-
-        if (null !== $request->label) {
-            @$body['Label'] = $request->label;
+        if (!Utils::isUnset($request->label)) {
+            $body['Label'] = $request->label;
         }
-
-        if (null !== $request->language) {
-            @$body['Language'] = $request->language;
+        if (!Utils::isUnset($request->language)) {
+            $body['Language'] = $request->language;
         }
-
-        if (null !== $request->senderListShrink) {
-            @$body['SenderList'] = $request->senderListShrink;
+        if (!Utils::isUnset($request->senderListShrink)) {
+            $body['SenderList'] = $request->senderListShrink;
         }
-
-        if (null !== $request->tag) {
-            @$body['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $body['Tag'] = $request->tag;
         }
-
-        if (null !== $request->taskId) {
-            @$body['TaskId'] = $request->taskId;
+        if (!Utils::isUnset($request->taskId)) {
+            $body['TaskId'] = $request->taskId;
         }
-
-        if (null !== $request->templateCode) {
-            @$body['TemplateCode'] = $request->templateCode;
+        if (!Utils::isUnset($request->templateCode)) {
+            $body['TemplateCode'] = $request->templateCode;
         }
-
-        if (null !== $request->templateName) {
-            @$body['TemplateName'] = $request->templateName;
+        if (!Utils::isUnset($request->templateName)) {
+            $body['TemplateName'] = $request->templateName;
         }
-
-        if (null !== $request->ttl) {
-            @$body['Ttl'] = $request->ttl;
+        if (!Utils::isUnset($request->ttl)) {
+            $body['Ttl'] = $request->ttl;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'SendChatappMassMessage',
@@ -6693,19 +5824,14 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Sends a message to multiple phone numbers by using ChatAPP at a time.
-     *
-     * @remarks
-     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * @summary Sends a message to multiple phone numbers by using ChatAPP at a time.
+     *  *
+     * @description You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      * You can send messages to up to 1,000 phone numbers in a single request.
+     *  *
+     * @param SendChatappMassMessageRequest $request SendChatappMassMessageRequest
      *
-     * @param request - SendChatappMassMessageRequest
-     *
-     * @returns SendChatappMassMessageResponse
-     *
-     * @param SendChatappMassMessageRequest $request
-     *
-     * @return SendChatappMassMessageResponse
+     * @return SendChatappMassMessageResponse SendChatappMassMessageResponse
      */
     public function sendChatappMassMessage($request)
     {
@@ -6715,155 +5841,118 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Sends messages by using ChatAPP.
+     * @summary Sends messages by using ChatAPP.
+     *  *
+     * @description You can call this operation up to 200 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param SendChatappMessageRequest $tmpReq  SendChatappMessageRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can call this operation up to 200 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
-     * @param tmpReq - SendChatappMessageRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns SendChatappMessageResponse
-     *
-     * @param SendChatappMessageRequest $tmpReq
-     * @param RuntimeOptions            $runtime
-     *
-     * @return SendChatappMessageResponse
+     * @return SendChatappMessageResponse SendChatappMessageResponse
      */
     public function sendChatappMessageWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new SendChatappMessageShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->flowAction) {
-            $request->flowActionShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->flowAction, 'FlowAction', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->flowAction)) {
+            $request->flowActionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->flowAction, 'FlowAction', 'json');
         }
-
-        if (null !== $tmpReq->payload) {
-            $request->payloadShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->payload, 'Payload', 'json');
+        if (!Utils::isUnset($tmpReq->payload)) {
+            $request->payloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->payload, 'Payload', 'json');
         }
-
-        if (null !== $tmpReq->productAction) {
-            $request->productActionShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->productAction, 'ProductAction', 'json');
+        if (!Utils::isUnset($tmpReq->productAction)) {
+            $request->productActionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->productAction, 'ProductAction', 'json');
         }
-
-        if (null !== $tmpReq->templateParams) {
-            $request->templateParamsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->templateParams, 'TemplateParams', 'json');
+        if (!Utils::isUnset($tmpReq->templateParams)) {
+            $request->templateParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->templateParams, 'TemplateParams', 'json');
         }
-
         $query = [];
-        if (null !== $request->content) {
-            @$query['Content'] = $request->content;
+        if (!Utils::isUnset($request->content)) {
+            $query['Content'] = $request->content;
         }
-
-        if (null !== $request->payloadShrink) {
-            @$query['Payload'] = $request->payloadShrink;
+        if (!Utils::isUnset($request->payloadShrink)) {
+            $query['Payload'] = $request->payloadShrink;
         }
-
         $body = [];
-        if (null !== $request->channelType) {
-            @$body['ChannelType'] = $request->channelType;
+        if (!Utils::isUnset($request->channelType)) {
+            $body['ChannelType'] = $request->channelType;
         }
-
-        if (null !== $request->contextMessageId) {
-            @$body['ContextMessageId'] = $request->contextMessageId;
+        if (!Utils::isUnset($request->contextMessageId)) {
+            $body['ContextMessageId'] = $request->contextMessageId;
         }
-
-        if (null !== $request->custSpaceId) {
-            @$body['CustSpaceId'] = $request->custSpaceId;
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $body['CustSpaceId'] = $request->custSpaceId;
         }
-
-        if (null !== $request->custWabaId) {
-            @$body['CustWabaId'] = $request->custWabaId;
+        if (!Utils::isUnset($request->custWabaId)) {
+            $body['CustWabaId'] = $request->custWabaId;
         }
-
-        if (null !== $request->fallBackContent) {
-            @$body['FallBackContent'] = $request->fallBackContent;
+        if (!Utils::isUnset($request->fallBackContent)) {
+            $body['FallBackContent'] = $request->fallBackContent;
         }
-
-        if (null !== $request->fallBackDuration) {
-            @$body['FallBackDuration'] = $request->fallBackDuration;
+        if (!Utils::isUnset($request->fallBackDuration)) {
+            $body['FallBackDuration'] = $request->fallBackDuration;
         }
-
-        if (null !== $request->fallBackId) {
-            @$body['FallBackId'] = $request->fallBackId;
+        if (!Utils::isUnset($request->fallBackId)) {
+            $body['FallBackId'] = $request->fallBackId;
         }
-
-        if (null !== $request->fallBackRule) {
-            @$body['FallBackRule'] = $request->fallBackRule;
+        if (!Utils::isUnset($request->fallBackRule)) {
+            $body['FallBackRule'] = $request->fallBackRule;
         }
-
-        if (null !== $request->flowActionShrink) {
-            @$body['FlowAction'] = $request->flowActionShrink;
+        if (!Utils::isUnset($request->flowActionShrink)) {
+            $body['FlowAction'] = $request->flowActionShrink;
         }
-
-        if (null !== $request->from) {
-            @$body['From'] = $request->from;
+        if (!Utils::isUnset($request->from)) {
+            $body['From'] = $request->from;
         }
-
-        if (null !== $request->isvCode) {
-            @$body['IsvCode'] = $request->isvCode;
+        if (!Utils::isUnset($request->isvCode)) {
+            $body['IsvCode'] = $request->isvCode;
         }
-
-        if (null !== $request->label) {
-            @$body['Label'] = $request->label;
+        if (!Utils::isUnset($request->label)) {
+            $body['Label'] = $request->label;
         }
-
-        if (null !== $request->language) {
-            @$body['Language'] = $request->language;
+        if (!Utils::isUnset($request->language)) {
+            $body['Language'] = $request->language;
         }
-
-        if (null !== $request->messageType) {
-            @$body['MessageType'] = $request->messageType;
+        if (!Utils::isUnset($request->messageType)) {
+            $body['MessageType'] = $request->messageType;
         }
-
-        if (null !== $request->productActionShrink) {
-            @$body['ProductAction'] = $request->productActionShrink;
+        if (!Utils::isUnset($request->productActionShrink)) {
+            $body['ProductAction'] = $request->productActionShrink;
         }
-
-        if (null !== $request->recipientType) {
-            @$body['RecipientType'] = $request->recipientType;
+        if (!Utils::isUnset($request->recipientType)) {
+            $body['RecipientType'] = $request->recipientType;
         }
-
-        if (null !== $request->tag) {
-            @$body['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $body['Tag'] = $request->tag;
         }
-
-        if (null !== $request->taskId) {
-            @$body['TaskId'] = $request->taskId;
+        if (!Utils::isUnset($request->taskId)) {
+            $body['TaskId'] = $request->taskId;
         }
-
-        if (null !== $request->templateCode) {
-            @$body['TemplateCode'] = $request->templateCode;
+        if (!Utils::isUnset($request->templateCode)) {
+            $body['TemplateCode'] = $request->templateCode;
         }
-
-        if (null !== $request->templateName) {
-            @$body['TemplateName'] = $request->templateName;
+        if (!Utils::isUnset($request->templateName)) {
+            $body['TemplateName'] = $request->templateName;
         }
-
-        if (null !== $request->templateParamsShrink) {
-            @$body['TemplateParams'] = $request->templateParamsShrink;
+        if (!Utils::isUnset($request->templateParamsShrink)) {
+            $body['TemplateParams'] = $request->templateParamsShrink;
         }
-
-        if (null !== $request->to) {
-            @$body['To'] = $request->to;
+        if (!Utils::isUnset($request->to)) {
+            $body['To'] = $request->to;
         }
-
-        if (null !== $request->trackingData) {
-            @$body['TrackingData'] = $request->trackingData;
+        if (!Utils::isUnset($request->trackingData)) {
+            $body['TrackingData'] = $request->trackingData;
         }
-
-        if (null !== $request->ttl) {
-            @$body['Ttl'] = $request->ttl;
+        if (!Utils::isUnset($request->ttl)) {
+            $body['Ttl'] = $request->ttl;
         }
-
-        if (null !== $request->type) {
-            @$body['Type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $body['Type'] = $request->type;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'SendChatappMessage',
@@ -6881,18 +5970,13 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Sends messages by using ChatAPP.
+     * @summary Sends messages by using ChatAPP.
+     *  *
+     * @description You can call this operation up to 200 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param SendChatappMessageRequest $request SendChatappMessageRequest
      *
-     * @remarks
-     * You can call this operation up to 200 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
-     * @param request - SendChatappMessageRequest
-     *
-     * @returns SendChatappMessageResponse
-     *
-     * @param SendChatappMessageRequest $request
-     *
-     * @return SendChatappMessageResponse
+     * @return SendChatappMessageResponse SendChatappMessageResponse
      */
     public function sendChatappMessage($request)
     {
@@ -6902,56 +5986,52 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Submits the agreement information for independent software vendor (ISV) customers.
-     *
-     * @remarks
-     *   You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * @summary Submits the agreement information for independent software vendor (ISV) customers.
+     *  *
+     * @description *   You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      * *   After you call the [GetChatappUploadAuthorization](~~GetChatappUploadAuthorization~~) operation to obtain the authentication information for uploading the file to Object Storage Service (OSS), you can use the authentication information to upload the file to the OSS server. To upload the file, you can call the SDK provided by OSS. When you upload the file, set the value of the key to the value of `Dir + "/" + file name`, such as C200293990209/isvTerms.pdf. The value of Dir is obtained from the [GetChatappUploadAuthorization](~~GetChatappUploadAuthorization~~) operation. The value of IsvTerms is obtained from the PutObject operation.
+     *  *
+     * @param SubmitIsvCustomerTermsRequest $request SubmitIsvCustomerTermsRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - SubmitIsvCustomerTermsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns SubmitIsvCustomerTermsResponse
-     *
-     * @param SubmitIsvCustomerTermsRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return SubmitIsvCustomerTermsResponse
+     * @return SubmitIsvCustomerTermsResponse SubmitIsvCustomerTermsResponse
      */
     public function submitIsvCustomerTermsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->businessDesc) {
-            @$query['BusinessDesc'] = $request->businessDesc;
+        if (!Utils::isUnset($request->businessDesc)) {
+            $query['BusinessDesc'] = $request->businessDesc;
         }
-
-        if (null !== $request->contactMail) {
-            @$query['ContactMail'] = $request->contactMail;
+        if (!Utils::isUnset($request->contactMail)) {
+            $query['ContactMail'] = $request->contactMail;
         }
-
-        if (null !== $request->countryId) {
-            @$query['CountryId'] = $request->countryId;
+        if (!Utils::isUnset($request->countryId)) {
+            $query['CountryId'] = $request->countryId;
         }
-
-        if (null !== $request->custName) {
-            @$query['CustName'] = $request->custName;
+        if (!Utils::isUnset($request->custName)) {
+            $query['CustName'] = $request->custName;
         }
-
-        if (null !== $request->custSpaceId) {
-            @$query['CustSpaceId'] = $request->custSpaceId;
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
         }
-
-        if (null !== $request->isvTerms) {
-            @$query['IsvTerms'] = $request->isvTerms;
+        if (!Utils::isUnset($request->isvTerms)) {
+            $query['IsvTerms'] = $request->isvTerms;
         }
-
-        if (null !== $request->officeAddress) {
-            @$query['OfficeAddress'] = $request->officeAddress;
+        if (!Utils::isUnset($request->officeAddress)) {
+            $query['OfficeAddress'] = $request->officeAddress;
         }
-
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'SubmitIsvCustomerTerms',
@@ -6969,19 +6049,14 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Submits the agreement information for independent software vendor (ISV) customers.
-     *
-     * @remarks
-     *   You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * @summary Submits the agreement information for independent software vendor (ISV) customers.
+     *  *
+     * @description *   You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      * *   After you call the [GetChatappUploadAuthorization](~~GetChatappUploadAuthorization~~) operation to obtain the authentication information for uploading the file to Object Storage Service (OSS), you can use the authentication information to upload the file to the OSS server. To upload the file, you can call the SDK provided by OSS. When you upload the file, set the value of the key to the value of `Dir + "/" + file name`, such as C200293990209/isvTerms.pdf. The value of Dir is obtained from the [GetChatappUploadAuthorization](~~GetChatappUploadAuthorization~~) operation. The value of IsvTerms is obtained from the PutObject operation.
+     *  *
+     * @param SubmitIsvCustomerTermsRequest $request SubmitIsvCustomerTermsRequest
      *
-     * @param request - SubmitIsvCustomerTermsRequest
-     *
-     * @returns SubmitIsvCustomerTermsResponse
-     *
-     * @param SubmitIsvCustomerTermsRequest $request
-     *
-     * @return SubmitIsvCustomerTermsResponse
+     * @return SubmitIsvCustomerTermsResponse SubmitIsvCustomerTermsResponse
      */
     public function submitIsvCustomerTerms($request)
     {
@@ -6991,69 +6066,53 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Trigger an Online ChatFlow.
+     * @summary Trigger an Online ChatFlow
+     *  *
+     * @description After triggering an online flow, if your flow contains components that incur costs for cloud products, such as message sending or function calls, please ensure you fully understand the billing methods and prices of the related products before using this interface.
+     *  *
+     * @param TriggerChatFlowRequest $tmpReq  TriggerChatFlowRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * After triggering an online flow, if your flow contains components that incur costs for cloud products, such as message sending or function calls, please ensure you fully understand the billing methods and prices of the related products before using this interface.
-     *
-     * @param tmpReq - TriggerChatFlowRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns TriggerChatFlowResponse
-     *
-     * @param TriggerChatFlowRequest $tmpReq
-     * @param RuntimeOptions         $runtime
-     *
-     * @return TriggerChatFlowResponse
+     * @return TriggerChatFlowResponse TriggerChatFlowResponse
      */
     public function triggerChatFlowWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new TriggerChatFlowShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->data) {
-            $request->dataShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->data, 'Data', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->data)) {
+            $request->dataShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->data, 'Data', 'json');
         }
-
         $query = [];
-        if (null !== $request->claimTimeMillis) {
-            @$query['ClaimTimeMillis'] = $request->claimTimeMillis;
+        if (!Utils::isUnset($request->claimTimeMillis)) {
+            $query['ClaimTimeMillis'] = $request->claimTimeMillis;
         }
-
-        if (null !== $request->dataShrink) {
-            @$query['Data'] = $request->dataShrink;
+        if (!Utils::isUnset($request->dataShrink)) {
+            $query['Data'] = $request->dataShrink;
         }
-
-        if (null !== $request->discardTimeMillis) {
-            @$query['DiscardTimeMillis'] = $request->discardTimeMillis;
+        if (!Utils::isUnset($request->discardTimeMillis)) {
+            $query['DiscardTimeMillis'] = $request->discardTimeMillis;
         }
-
-        if (null !== $request->flowCode) {
-            @$query['FlowCode'] = $request->flowCode;
+        if (!Utils::isUnset($request->flowCode)) {
+            $query['FlowCode'] = $request->flowCode;
         }
-
-        if (null !== $request->outId) {
-            @$query['OutId'] = $request->outId;
+        if (!Utils::isUnset($request->outId)) {
+            $query['OutId'] = $request->outId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->uuid) {
-            @$query['Uuid'] = $request->uuid;
+        if (!Utils::isUnset($request->uuid)) {
+            $query['Uuid'] = $request->uuid;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'TriggerChatFlow',
@@ -7071,18 +6130,13 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Trigger an Online ChatFlow.
+     * @summary Trigger an Online ChatFlow
+     *  *
+     * @description After triggering an online flow, if your flow contains components that incur costs for cloud products, such as message sending or function calls, please ensure you fully understand the billing methods and prices of the related products before using this interface.
+     *  *
+     * @param TriggerChatFlowRequest $request TriggerChatFlowRequest
      *
-     * @remarks
-     * After triggering an online flow, if your flow contains components that incur costs for cloud products, such as message sending or function calls, please ensure you fully understand the billing methods and prices of the related products before using this interface.
-     *
-     * @param request - TriggerChatFlowRequest
-     *
-     * @returns TriggerChatFlowResponse
-     *
-     * @param TriggerChatFlowRequest $request
-     *
-     * @return TriggerChatFlowResponse
+     * @return TriggerChatFlowResponse TriggerChatFlowResponse
      */
     public function triggerChatFlow($request)
     {
@@ -7092,43 +6146,42 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Modifies the callback URL of an account.
+     * @summary Modifies the callback URL of an account.
+     *  *
+     * @description You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param UpdateAccountWebhookRequest $request UpdateAccountWebhookRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
-     * @param request - UpdateAccountWebhookRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateAccountWebhookResponse
-     *
-     * @param UpdateAccountWebhookRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return UpdateAccountWebhookResponse
+     * @return UpdateAccountWebhookResponse UpdateAccountWebhookResponse
      */
     public function updateAccountWebhookWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->custSpaceId) {
-            @$query['CustSpaceId'] = $request->custSpaceId;
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
         }
-
-        if (null !== $request->httpFlag) {
-            @$query['HttpFlag'] = $request->httpFlag;
+        if (!Utils::isUnset($request->httpFlag)) {
+            $query['HttpFlag'] = $request->httpFlag;
         }
-
-        if (null !== $request->queueFlag) {
-            @$query['QueueFlag'] = $request->queueFlag;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->statusCallbackUrl) {
-            @$query['StatusCallbackUrl'] = $request->statusCallbackUrl;
+        if (!Utils::isUnset($request->queueFlag)) {
+            $query['QueueFlag'] = $request->queueFlag;
         }
-
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->statusCallbackUrl)) {
+            $query['StatusCallbackUrl'] = $request->statusCallbackUrl;
+        }
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateAccountWebhook',
@@ -7146,18 +6199,13 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Modifies the callback URL of an account.
+     * @summary Modifies the callback URL of an account.
+     *  *
+     * @description You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param UpdateAccountWebhookRequest $request UpdateAccountWebhookRequest
      *
-     * @remarks
-     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
-     * @param request - UpdateAccountWebhookRequest
-     *
-     * @returns UpdateAccountWebhookResponse
-     *
-     * @param UpdateAccountWebhookRequest $request
-     *
-     * @return UpdateAccountWebhookResponse
+     * @return UpdateAccountWebhookResponse UpdateAccountWebhookResponse
      */
     public function updateAccountWebhook($request)
     {
@@ -7167,62 +6215,48 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Get Process.
+     * @summary Get Process
+     *  *
+     * @param UpdateChatFlowRequest $tmpReq  UpdateChatFlowRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - UpdateChatFlowRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateChatFlowResponse
-     *
-     * @param UpdateChatFlowRequest $tmpReq
-     * @param RuntimeOptions        $runtime
-     *
-     * @return UpdateChatFlowResponse
+     * @return UpdateChatFlowResponse UpdateChatFlowResponse
      */
     public function updateChatFlowWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new UpdateChatFlowShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->bizExtend) {
-            $request->bizExtendShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->bizExtend, 'BizExtend', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->bizExtend)) {
+            $request->bizExtendShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->bizExtend, 'BizExtend', 'json');
         }
-
         $query = [];
-        if (null !== $request->bizCode) {
-            @$query['BizCode'] = $request->bizCode;
+        if (!Utils::isUnset($request->bizCode)) {
+            $query['BizCode'] = $request->bizCode;
         }
-
-        if (null !== $request->bizExtendShrink) {
-            @$query['BizExtend'] = $request->bizExtendShrink;
+        if (!Utils::isUnset($request->bizExtendShrink)) {
+            $query['BizExtend'] = $request->bizExtendShrink;
         }
-
-        if (null !== $request->flowCode) {
-            @$query['FlowCode'] = $request->flowCode;
+        if (!Utils::isUnset($request->flowCode)) {
+            $query['FlowCode'] = $request->flowCode;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->remark) {
-            @$query['Remark'] = $request->remark;
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->title) {
-            @$query['Title'] = $request->title;
+        if (!Utils::isUnset($request->title)) {
+            $query['Title'] = $request->title;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateChatFlow',
@@ -7240,15 +6274,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Get Process.
+     * @summary Get Process
+     *  *
+     * @param UpdateChatFlowRequest $request UpdateChatFlowRequest
      *
-     * @param request - UpdateChatFlowRequest
-     *
-     * @returns UpdateChatFlowResponse
-     *
-     * @param UpdateChatFlowRequest $request
-     *
-     * @return UpdateChatFlowResponse
+     * @return UpdateChatFlowResponse UpdateChatFlowResponse
      */
     public function updateChatFlow($request)
     {
@@ -7258,48 +6288,37 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Modify chatFlow log settings.
+     * @summary Modify chatFlow log settings
+     *  *
+     * @param UpdateChatFlowLogSettingRequest $request UpdateChatFlowLogSettingRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateChatFlowLogSettingRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateChatFlowLogSettingResponse
-     *
-     * @param UpdateChatFlowLogSettingRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return UpdateChatFlowLogSettingResponse
+     * @return UpdateChatFlowLogSettingResponse UpdateChatFlowLogSettingResponse
      */
     public function updateChatFlowLogSettingWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->flowCode) {
-            @$query['FlowCode'] = $request->flowCode;
+        if (!Utils::isUnset($request->flowCode)) {
+            $query['FlowCode'] = $request->flowCode;
         }
-
-        if (null !== $request->id) {
-            @$query['Id'] = $request->id;
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->status) {
-            @$query['Status'] = $request->status;
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateChatFlowLogSetting',
@@ -7317,15 +6336,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Modify chatFlow log settings.
+     * @summary Modify chatFlow log settings
+     *  *
+     * @param UpdateChatFlowLogSettingRequest $request UpdateChatFlowLogSettingRequest
      *
-     * @param request - UpdateChatFlowLogSettingRequest
-     *
-     * @returns UpdateChatFlowLogSettingResponse
-     *
-     * @param UpdateChatFlowLogSettingRequest $request
-     *
-     * @return UpdateChatFlowLogSettingResponse
+     * @return UpdateChatFlowLogSettingResponse UpdateChatFlowLogSettingResponse
      */
     public function updateChatFlowLogSetting($request)
     {
@@ -7335,64 +6350,49 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * UpdateChatGroup.
+     * @summary UpdateChatGroup
+     *  *
+     * @param UpdateChatGroupRequest $request UpdateChatGroupRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateChatGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateChatGroupResponse
-     *
-     * @param UpdateChatGroupRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return UpdateChatGroupResponse
+     * @return UpdateChatGroupResponse UpdateChatGroupResponse
      */
     public function updateChatGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->businessNumber) {
-            @$query['BusinessNumber'] = $request->businessNumber;
+        if (!Utils::isUnset($request->businessNumber)) {
+            $query['BusinessNumber'] = $request->businessNumber;
         }
-
-        if (null !== $request->channelType) {
-            @$query['ChannelType'] = $request->channelType;
+        if (!Utils::isUnset($request->channelType)) {
+            $query['ChannelType'] = $request->channelType;
         }
-
-        if (null !== $request->custSpaceId) {
-            @$query['CustSpaceId'] = $request->custSpaceId;
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
         }
-
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->profilePictureFile) {
-            @$query['ProfilePictureFile'] = $request->profilePictureFile;
+        if (!Utils::isUnset($request->profilePictureFile)) {
+            $query['ProfilePictureFile'] = $request->profilePictureFile;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->subject) {
-            @$query['Subject'] = $request->subject;
+        if (!Utils::isUnset($request->subject)) {
+            $query['Subject'] = $request->subject;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateChatGroup',
@@ -7410,15 +6410,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * UpdateChatGroup.
+     * @summary UpdateChatGroup
+     *  *
+     * @param UpdateChatGroupRequest $request UpdateChatGroupRequest
      *
-     * @param request - UpdateChatGroupRequest
-     *
-     * @returns UpdateChatGroupResponse
-     *
-     * @param UpdateChatGroupRequest $request
-     *
-     * @return UpdateChatGroupResponse
+     * @return UpdateChatGroupResponse UpdateChatGroupResponse
      */
     public function updateChatGroup($request)
     {
@@ -7428,55 +6424,42 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Modifies the business settings of a phone number.
+     * @summary Modifies the business settings of a phone number.
+     *  *
+     * @description You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param UpdateCommerceSettingRequest $request UpdateCommerceSettingRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
-     * @param request - UpdateCommerceSettingRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateCommerceSettingResponse
-     *
-     * @param UpdateCommerceSettingRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return UpdateCommerceSettingResponse
+     * @return UpdateCommerceSettingResponse UpdateCommerceSettingResponse
      */
     public function updateCommerceSettingWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->cartEnable) {
-            @$query['CartEnable'] = $request->cartEnable;
+        if (!Utils::isUnset($request->cartEnable)) {
+            $query['CartEnable'] = $request->cartEnable;
         }
-
-        if (null !== $request->catalogVisible) {
-            @$query['CatalogVisible'] = $request->catalogVisible;
+        if (!Utils::isUnset($request->catalogVisible)) {
+            $query['CatalogVisible'] = $request->catalogVisible;
         }
-
-        if (null !== $request->custSpaceId) {
-            @$query['CustSpaceId'] = $request->custSpaceId;
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->phoneNumber) {
-            @$query['PhoneNumber'] = $request->phoneNumber;
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $query['PhoneNumber'] = $request->phoneNumber;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateCommerceSetting',
@@ -7494,18 +6477,13 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Modifies the business settings of a phone number.
+     * @summary Modifies the business settings of a phone number.
+     *  *
+     * @description You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param UpdateCommerceSettingRequest $request UpdateCommerceSettingRequest
      *
-     * @remarks
-     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
-     * @param request - UpdateCommerceSettingRequest
-     *
-     * @returns UpdateCommerceSettingResponse
-     *
-     * @param UpdateCommerceSettingRequest $request
-     *
-     * @return UpdateCommerceSettingResponse
+     * @return UpdateCommerceSettingResponse UpdateCommerceSettingResponse
      */
     public function updateCommerceSetting($request)
     {
@@ -7515,71 +6493,55 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Modifies welcoming messages, opening remarks, and commands for a phone number.
-     *
-     * @remarks
-     * ### [](#qps-)QPS limit
+     * @summary Modifies welcoming messages, opening remarks, and commands for a phone number.
+     *  *
+     * @description ### [](#qps-)QPS limit
      * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      * This operation will directly obtain data from Facebook, which sets an upper limit on the total number of calls for operations. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param UpdateConversationalAutomationRequest $tmpReq  UpdateConversationalAutomationRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - UpdateConversationalAutomationRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateConversationalAutomationResponse
-     *
-     * @param UpdateConversationalAutomationRequest $tmpReq
-     * @param RuntimeOptions                        $runtime
-     *
-     * @return UpdateConversationalAutomationResponse
+     * @return UpdateConversationalAutomationResponse UpdateConversationalAutomationResponse
      */
     public function updateConversationalAutomationWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new UpdateConversationalAutomationShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->commands) {
-            $request->commandsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->commands, 'Commands', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->commands)) {
+            $request->commandsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->commands, 'Commands', 'json');
         }
-
-        if (null !== $tmpReq->prompts) {
-            $request->promptsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->prompts, 'Prompts', 'json');
+        if (!Utils::isUnset($tmpReq->prompts)) {
+            $request->promptsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->prompts, 'Prompts', 'json');
         }
-
         $query = [];
-        if (null !== $request->commandsShrink) {
-            @$query['Commands'] = $request->commandsShrink;
+        if (!Utils::isUnset($request->commandsShrink)) {
+            $query['Commands'] = $request->commandsShrink;
         }
-
-        if (null !== $request->custSpaceId) {
-            @$query['CustSpaceId'] = $request->custSpaceId;
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
         }
-
-        if (null !== $request->enableWelcomeMessage) {
-            @$query['EnableWelcomeMessage'] = $request->enableWelcomeMessage;
+        if (!Utils::isUnset($request->enableWelcomeMessage)) {
+            $query['EnableWelcomeMessage'] = $request->enableWelcomeMessage;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->phoneNumber) {
-            @$query['PhoneNumber'] = $request->phoneNumber;
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $query['PhoneNumber'] = $request->phoneNumber;
         }
-
-        if (null !== $request->promptsShrink) {
-            @$query['Prompts'] = $request->promptsShrink;
+        if (!Utils::isUnset($request->promptsShrink)) {
+            $query['Prompts'] = $request->promptsShrink;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateConversationalAutomation',
@@ -7597,20 +6559,15 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Modifies welcoming messages, opening remarks, and commands for a phone number.
-     *
-     * @remarks
-     * ### [](#qps-)QPS limit
+     * @summary Modifies welcoming messages, opening remarks, and commands for a phone number.
+     *  *
+     * @description ### [](#qps-)QPS limit
      * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      * This operation will directly obtain data from Facebook, which sets an upper limit on the total number of calls for operations. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param UpdateConversationalAutomationRequest $request UpdateConversationalAutomationRequest
      *
-     * @param request - UpdateConversationalAutomationRequest
-     *
-     * @returns UpdateConversationalAutomationResponse
-     *
-     * @param UpdateConversationalAutomationRequest $request
-     *
-     * @return UpdateConversationalAutomationResponse
+     * @return UpdateConversationalAutomationResponse UpdateConversationalAutomationResponse
      */
     public function updateConversationalAutomation($request)
     {
@@ -7620,36 +6577,37 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Updates a Flow by using JSON content.
+     * @summary Updates a Flow by using JSON content.
+     *  *
+     * @param UpdateFlowJSONAssetRequest $request UpdateFlowJSONAssetRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateFlowJSONAssetRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateFlowJSONAssetResponse
-     *
-     * @param UpdateFlowJSONAssetRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return UpdateFlowJSONAssetResponse
+     * @return UpdateFlowJSONAssetResponse UpdateFlowJSONAssetResponse
      */
     public function updateFlowJSONAssetWithOptions($request, $runtime)
     {
-        $request->validate();
-        $body = [];
-        if (null !== $request->custSpaceId) {
-            @$body['CustSpaceId'] = $request->custSpaceId;
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
         }
-
-        if (null !== $request->filePath) {
-            @$body['FilePath'] = $request->filePath;
+        if (!Utils::isUnset($request->filePath)) {
+            $query['FilePath'] = $request->filePath;
         }
-
-        if (null !== $request->flowId) {
-            @$body['FlowId'] = $request->flowId;
+        if (!Utils::isUnset($request->flowId)) {
+            $query['FlowId'] = $request->flowId;
         }
-
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateFlowJSONAsset',
@@ -7667,15 +6625,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Updates a Flow by using JSON content.
+     * @summary Updates a Flow by using JSON content.
+     *  *
+     * @param UpdateFlowJSONAssetRequest $request UpdateFlowJSONAssetRequest
      *
-     * @param request - UpdateFlowJSONAssetRequest
-     *
-     * @returns UpdateFlowJSONAssetResponse
-     *
-     * @param UpdateFlowJSONAssetRequest $request
-     *
-     * @return UpdateFlowJSONAssetResponse
+     * @return UpdateFlowJSONAssetResponse UpdateFlowJSONAssetResponse
      */
     public function updateFlowJSONAsset($request)
     {
@@ -7685,66 +6639,51 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Update flow version, used for updating the flow DSL on the canvas.
+     * @summary Update flow version, used for updating the flow DSL on the canvas
+     *  *
+     * @param UpdateFlowVersionRequest $tmpReq  UpdateFlowVersionRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - UpdateFlowVersionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateFlowVersionResponse
-     *
-     * @param UpdateFlowVersionRequest $tmpReq
-     * @param RuntimeOptions           $runtime
-     *
-     * @return UpdateFlowVersionResponse
+     * @return UpdateFlowVersionResponse UpdateFlowVersionResponse
      */
     public function updateFlowVersionWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new UpdateFlowVersionShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->bizExtend) {
-            $request->bizExtendShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->bizExtend, 'BizExtend', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->bizExtend)) {
+            $request->bizExtendShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->bizExtend, 'BizExtend', 'json');
         }
-
         $query = [];
-        if (null !== $request->bizCode) {
-            @$query['BizCode'] = $request->bizCode;
+        if (!Utils::isUnset($request->bizCode)) {
+            $query['BizCode'] = $request->bizCode;
         }
-
-        if (null !== $request->bizExtendShrink) {
-            @$query['BizExtend'] = $request->bizExtendShrink;
+        if (!Utils::isUnset($request->bizExtendShrink)) {
+            $query['BizExtend'] = $request->bizExtendShrink;
         }
-
-        if (null !== $request->flowCode) {
-            @$query['FlowCode'] = $request->flowCode;
+        if (!Utils::isUnset($request->flowCode)) {
+            $query['FlowCode'] = $request->flowCode;
         }
-
-        if (null !== $request->flowVersion) {
-            @$query['FlowVersion'] = $request->flowVersion;
+        if (!Utils::isUnset($request->flowVersion)) {
+            $query['FlowVersion'] = $request->flowVersion;
         }
-
-        if (null !== $request->flowViewModel) {
-            @$query['FlowViewModel'] = $request->flowViewModel;
+        if (!Utils::isUnset($request->flowViewModel)) {
+            $query['FlowViewModel'] = $request->flowViewModel;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->remark) {
-            @$query['Remark'] = $request->remark;
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateFlowVersion',
@@ -7762,15 +6701,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Update flow version, used for updating the flow DSL on the canvas.
+     * @summary Update flow version, used for updating the flow DSL on the canvas
+     *  *
+     * @param UpdateFlowVersionRequest $request UpdateFlowVersionRequest
      *
-     * @param request - UpdateFlowVersionRequest
-     *
-     * @returns UpdateFlowVersionResponse
-     *
-     * @param UpdateFlowVersionRequest $request
-     *
-     * @return UpdateFlowVersionResponse
+     * @return UpdateFlowVersionResponse UpdateFlowVersionResponse
      */
     public function updateFlowVersion($request)
     {
@@ -7780,36 +6715,37 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Updates the encryption public key of a phone number.
+     * @summary Updates the encryption public key of a phone number.
+     *  *
+     * @param UpdatePhoneEncryptionPublicKeyRequest $request UpdatePhoneEncryptionPublicKeyRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdatePhoneEncryptionPublicKeyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdatePhoneEncryptionPublicKeyResponse
-     *
-     * @param UpdatePhoneEncryptionPublicKeyRequest $request
-     * @param RuntimeOptions                        $runtime
-     *
-     * @return UpdatePhoneEncryptionPublicKeyResponse
+     * @return UpdatePhoneEncryptionPublicKeyResponse UpdatePhoneEncryptionPublicKeyResponse
      */
     public function updatePhoneEncryptionPublicKeyWithOptions($request, $runtime)
     {
-        $request->validate();
-        $body = [];
-        if (null !== $request->custSpaceId) {
-            @$body['CustSpaceId'] = $request->custSpaceId;
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
         }
-
-        if (null !== $request->encryptionPublicKey) {
-            @$body['EncryptionPublicKey'] = $request->encryptionPublicKey;
+        if (!Utils::isUnset($request->encryptionPublicKey)) {
+            $query['EncryptionPublicKey'] = $request->encryptionPublicKey;
         }
-
-        if (null !== $request->phoneNumber) {
-            @$body['PhoneNumber'] = $request->phoneNumber;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $query['PhoneNumber'] = $request->phoneNumber;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdatePhoneEncryptionPublicKey',
@@ -7827,15 +6763,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Updates the encryption public key of a phone number.
+     * @summary Updates the encryption public key of a phone number.
+     *  *
+     * @param UpdatePhoneEncryptionPublicKeyRequest $request UpdatePhoneEncryptionPublicKeyRequest
      *
-     * @param request - UpdatePhoneEncryptionPublicKeyRequest
-     *
-     * @returns UpdatePhoneEncryptionPublicKeyResponse
-     *
-     * @param UpdatePhoneEncryptionPublicKeyRequest $request
-     *
-     * @return UpdatePhoneEncryptionPublicKeyResponse
+     * @return UpdatePhoneEncryptionPublicKeyResponse UpdatePhoneEncryptionPublicKeyResponse
      */
     public function updatePhoneEncryptionPublicKey($request)
     {
@@ -7845,44 +6777,43 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Modifies a quick-response (QR) code that contains a message.
+     * @summary Modifies a quick-response (QR) code that contains a message.
+     *  *
+     * @param UpdatePhoneMessageQrdlRequest $request UpdatePhoneMessageQrdlRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdatePhoneMessageQrdlRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdatePhoneMessageQrdlResponse
-     *
-     * @param UpdatePhoneMessageQrdlRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return UpdatePhoneMessageQrdlResponse
+     * @return UpdatePhoneMessageQrdlResponse UpdatePhoneMessageQrdlResponse
      */
     public function updatePhoneMessageQrdlWithOptions($request, $runtime)
     {
-        $request->validate();
-        $body = [];
-        if (null !== $request->custSpaceId) {
-            @$body['CustSpaceId'] = $request->custSpaceId;
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
         }
-
-        if (null !== $request->generateQrImage) {
-            @$body['GenerateQrImage'] = $request->generateQrImage;
+        if (!Utils::isUnset($request->generateQrImage)) {
+            $query['GenerateQrImage'] = $request->generateQrImage;
         }
-
-        if (null !== $request->phoneNumber) {
-            @$body['PhoneNumber'] = $request->phoneNumber;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->prefilledMessage) {
-            @$body['PrefilledMessage'] = $request->prefilledMessage;
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $query['PhoneNumber'] = $request->phoneNumber;
         }
-
-        if (null !== $request->qrdlCode) {
-            @$body['QrdlCode'] = $request->qrdlCode;
+        if (!Utils::isUnset($request->prefilledMessage)) {
+            $query['PrefilledMessage'] = $request->prefilledMessage;
         }
-
+        if (!Utils::isUnset($request->qrdlCode)) {
+            $query['QrdlCode'] = $request->qrdlCode;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdatePhoneMessageQrdl',
@@ -7900,15 +6831,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Modifies a quick-response (QR) code that contains a message.
+     * @summary Modifies a quick-response (QR) code that contains a message.
+     *  *
+     * @param UpdatePhoneMessageQrdlRequest $request UpdatePhoneMessageQrdlRequest
      *
-     * @param request - UpdatePhoneMessageQrdlRequest
-     *
-     * @returns UpdatePhoneMessageQrdlResponse
-     *
-     * @param UpdatePhoneMessageQrdlRequest $request
-     *
-     * @return UpdatePhoneMessageQrdlResponse
+     * @return UpdatePhoneMessageQrdlResponse UpdatePhoneMessageQrdlResponse
      */
     public function updatePhoneMessageQrdl($request)
     {
@@ -7918,53 +6845,50 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * The HTTP status code returned.
+     * @summary The HTTP status code returned.
      * \\*   A value of OK indicates that the call is successful.
      * \\*   Other values indicate that the call fails. For more information, see [Error codes]\\(~~196974~~).
+     *  *
+     * @description The error message returned.
+     *  *
+     * @param UpdatePhoneWebhookRequest $request UpdatePhoneWebhookRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * The error message returned.
-     *
-     * @param request - UpdatePhoneWebhookRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdatePhoneWebhookResponse
-     *
-     * @param UpdatePhoneWebhookRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return UpdatePhoneWebhookResponse
+     * @return UpdatePhoneWebhookResponse UpdatePhoneWebhookResponse
      */
     public function updatePhoneWebhookWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->custSpaceId) {
-            @$query['CustSpaceId'] = $request->custSpaceId;
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
         }
-
-        if (null !== $request->httpFlag) {
-            @$query['HttpFlag'] = $request->httpFlag;
+        if (!Utils::isUnset($request->httpFlag)) {
+            $query['HttpFlag'] = $request->httpFlag;
         }
-
-        if (null !== $request->phoneNumber) {
-            @$query['PhoneNumber'] = $request->phoneNumber;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->queueFlag) {
-            @$query['QueueFlag'] = $request->queueFlag;
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $query['PhoneNumber'] = $request->phoneNumber;
         }
-
-        if (null !== $request->statusCallbackUrl) {
-            @$query['StatusCallbackUrl'] = $request->statusCallbackUrl;
+        if (!Utils::isUnset($request->queueFlag)) {
+            $query['QueueFlag'] = $request->queueFlag;
         }
-
-        if (null !== $request->upCallbackUrl) {
-            @$query['UpCallbackUrl'] = $request->upCallbackUrl;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->statusCallbackUrl)) {
+            $query['StatusCallbackUrl'] = $request->statusCallbackUrl;
+        }
+        if (!Utils::isUnset($request->upCallbackUrl)) {
+            $query['UpCallbackUrl'] = $request->upCallbackUrl;
+        }
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdatePhoneWebhook',
@@ -7982,20 +6906,15 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * The HTTP status code returned.
+     * @summary The HTTP status code returned.
      * \\*   A value of OK indicates that the call is successful.
      * \\*   Other values indicate that the call fails. For more information, see [Error codes]\\(~~196974~~).
+     *  *
+     * @description The error message returned.
+     *  *
+     * @param UpdatePhoneWebhookRequest $request UpdatePhoneWebhookRequest
      *
-     * @remarks
-     * The error message returned.
-     *
-     * @param request - UpdatePhoneWebhookRequest
-     *
-     * @returns UpdatePhoneWebhookResponse
-     *
-     * @param UpdatePhoneWebhookRequest $request
-     *
-     * @return UpdatePhoneWebhookResponse
+     * @return UpdatePhoneWebhookResponse UpdatePhoneWebhookResponse
      */
     public function updatePhoneWebhook($request)
     {

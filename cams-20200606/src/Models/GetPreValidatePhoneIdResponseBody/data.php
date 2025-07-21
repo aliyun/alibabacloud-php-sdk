@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Cams\V20200606\Models\GetPreValidatePhoneIdResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description The phone number.
+     *
+     * @example 929833
+     *
      * @var string
      */
     public $phoneNumber;
 
     /**
+     * @description The ID of the phone number.
+     *
+     * @example 8613800000000
+     *
      * @var string
      */
     public $phoneNumberId;
@@ -22,18 +30,14 @@ class data extends Model
         'phoneNumberId' => 'PhoneNumberId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->phoneNumber) {
             $res['PhoneNumber'] = $this->phoneNumber;
         }
-
         if (null !== $this->phoneNumberId) {
             $res['PhoneNumberId'] = $this->phoneNumberId;
         }
@@ -41,18 +45,17 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PhoneNumber'])) {
             $model->phoneNumber = $map['PhoneNumber'];
         }
-
         if (isset($map['PhoneNumberId'])) {
             $model->phoneNumberId = $map['PhoneNumberId'];
         }

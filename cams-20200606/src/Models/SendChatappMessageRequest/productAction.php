@@ -4,17 +4,23 @@
 
 namespace AlibabaCloud\SDK\Cams\V20200606\Models\SendChatappMessageRequest;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cams\V20200606\Models\SendChatappMessageRequest\productAction\sections;
+use AlibabaCloud\Tea\Model;
 
 class productAction extends Model
 {
     /**
+     * @description The products. Up to 30 products and 10 categories can be added.
+     *
      * @var sections[]
      */
     public $sections;
 
     /**
+     * @description The retailer ID of the product.
+     *
+     * @example S238SK
+     *
      * @var string
      */
     public $thumbnailProductRetailerId;
@@ -23,28 +29,20 @@ class productAction extends Model
         'thumbnailProductRetailerId' => 'ThumbnailProductRetailerId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->sections)) {
-            Model::validateArray($this->sections);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->sections) {
-            if (\is_array($this->sections)) {
-                $res['Sections'] = [];
-                $n1 = 0;
-                foreach ($this->sections as $item1) {
-                    $res['Sections'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Sections'] = [];
+            if (null !== $this->sections && \is_array($this->sections)) {
+                $n = 0;
+                foreach ($this->sections as $item) {
+                    $res['Sections'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->thumbnailProductRetailerId) {
             $res['ThumbnailProductRetailerId'] = $this->thumbnailProductRetailerId;
         }
@@ -52,25 +50,23 @@ class productAction extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return productAction
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Sections'])) {
             if (!empty($map['Sections'])) {
                 $model->sections = [];
-                $n1 = 0;
-                foreach ($map['Sections'] as $item1) {
-                    $model->sections[$n1] = sections::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Sections'] as $item) {
+                    $model->sections[$n++] = null !== $item ? sections::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['ThumbnailProductRetailerId'])) {
             $model->thumbnailProductRetailerId = $map['ThumbnailProductRetailerId'];
         }

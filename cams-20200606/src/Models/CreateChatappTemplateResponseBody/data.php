@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Cams\V20200606\Models\CreateChatappTemplateResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description The code of the message template.
+     *
+     * @example SMS_232907****
+     *
      * @var string
      */
     public $templateCode;
 
     /**
+     * @description The name of the message template.
+     *
+     * @example hello_whatsapp
+     *
      * @var string
      */
     public $templateName;
@@ -22,18 +30,14 @@ class data extends Model
         'templateName' => 'TemplateName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->templateCode) {
             $res['TemplateCode'] = $this->templateCode;
         }
-
         if (null !== $this->templateName) {
             $res['TemplateName'] = $this->templateName;
         }
@@ -41,18 +45,17 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TemplateCode'])) {
             $model->templateCode = $map['TemplateCode'];
         }
-
         if (isset($map['TemplateName'])) {
             $model->templateName = $map['TemplateName'];
         }

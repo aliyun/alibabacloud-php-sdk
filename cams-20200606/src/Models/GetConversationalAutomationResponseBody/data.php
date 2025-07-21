@@ -4,27 +4,39 @@
 
 namespace AlibabaCloud\SDK\Cams\V20200606\Models\GetConversationalAutomationResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cams\V20200606\Models\GetConversationalAutomationResponseBody\data\commands;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description The commands.
+     *
      * @var commands[]
      */
     public $commands;
 
     /**
+     * @description Indicates whether the welcoming message is enabled.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enableWelcomeMessage;
 
     /**
+     * @description The phone number of the enterprise.
+     *
+     * @example 86138****
+     *
      * @var string
      */
     public $phoneNumber;
 
     /**
+     * @description The opening remarks.
+     *
      * @var string[]
      */
     public $prompts;
@@ -35,88 +47,59 @@ class data extends Model
         'prompts' => 'Prompts',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->commands)) {
-            Model::validateArray($this->commands);
-        }
-        if (\is_array($this->prompts)) {
-            Model::validateArray($this->prompts);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->commands) {
-            if (\is_array($this->commands)) {
-                $res['Commands'] = [];
-                $n1 = 0;
-                foreach ($this->commands as $item1) {
-                    $res['Commands'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Commands'] = [];
+            if (null !== $this->commands && \is_array($this->commands)) {
+                $n = 0;
+                foreach ($this->commands as $item) {
+                    $res['Commands'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->enableWelcomeMessage) {
             $res['EnableWelcomeMessage'] = $this->enableWelcomeMessage;
         }
-
         if (null !== $this->phoneNumber) {
             $res['PhoneNumber'] = $this->phoneNumber;
         }
-
         if (null !== $this->prompts) {
-            if (\is_array($this->prompts)) {
-                $res['Prompts'] = [];
-                $n1 = 0;
-                foreach ($this->prompts as $item1) {
-                    $res['Prompts'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['Prompts'] = $this->prompts;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Commands'])) {
             if (!empty($map['Commands'])) {
                 $model->commands = [];
-                $n1 = 0;
-                foreach ($map['Commands'] as $item1) {
-                    $model->commands[$n1] = commands::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Commands'] as $item) {
+                    $model->commands[$n++] = null !== $item ? commands::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['EnableWelcomeMessage'])) {
             $model->enableWelcomeMessage = $map['EnableWelcomeMessage'];
         }
-
         if (isset($map['PhoneNumber'])) {
             $model->phoneNumber = $map['PhoneNumber'];
         }
-
         if (isset($map['Prompts'])) {
             if (!empty($map['Prompts'])) {
-                $model->prompts = [];
-                $n1 = 0;
-                foreach ($map['Prompts'] as $item1) {
-                    $model->prompts[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->prompts = $map['Prompts'];
             }
         }
 

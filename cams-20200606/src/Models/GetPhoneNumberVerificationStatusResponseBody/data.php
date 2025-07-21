@@ -4,21 +4,33 @@
 
 namespace AlibabaCloud\SDK\Cams\V20200606\Models\GetPhoneNumberVerificationStatusResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description The verification status.
+     *
+     * @example VERIFIED
+     *
      * @var string
      */
     public $codeVerificationStatus;
 
     /**
+     * @description The ID of the number.
+     *
+     * @example 2224342624
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The phone number.
+     *
+     * @example 8613900001234
+     *
      * @var string
      */
     public $phoneNumber;
@@ -28,22 +40,17 @@ class data extends Model
         'phoneNumber' => 'PhoneNumber',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->codeVerificationStatus) {
             $res['CodeVerificationStatus'] = $this->codeVerificationStatus;
         }
-
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->phoneNumber) {
             $res['PhoneNumber'] = $this->phoneNumber;
         }
@@ -51,22 +58,20 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CodeVerificationStatus'])) {
             $model->codeVerificationStatus = $map['CodeVerificationStatus'];
         }
-
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['PhoneNumber'])) {
             $model->phoneNumber = $map['PhoneNumber'];
         }

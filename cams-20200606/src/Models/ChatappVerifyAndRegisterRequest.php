@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Cams\V20200606\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ChatappVerifyAndRegisterRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 29389299388383
+     *
      * @var string
      */
     public $custSpaceId;
@@ -19,6 +23,10 @@ class ChatappVerifyAndRegisterRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 86138000000
+     *
      * @var string
      */
     public $phoneNumber;
@@ -34,6 +42,10 @@ class ChatappVerifyAndRegisterRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 123466
+     *
      * @var string
      */
     public $verifyCode;
@@ -46,34 +58,26 @@ class ChatappVerifyAndRegisterRequest extends Model
         'verifyCode' => 'VerifyCode',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->custSpaceId) {
             $res['CustSpaceId'] = $this->custSpaceId;
         }
-
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-
         if (null !== $this->phoneNumber) {
             $res['PhoneNumber'] = $this->phoneNumber;
         }
-
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
-
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-
         if (null !== $this->verifyCode) {
             $res['VerifyCode'] = $this->verifyCode;
         }
@@ -81,34 +85,29 @@ class ChatappVerifyAndRegisterRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ChatappVerifyAndRegisterRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CustSpaceId'])) {
             $model->custSpaceId = $map['CustSpaceId'];
         }
-
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-
         if (isset($map['PhoneNumber'])) {
             $model->phoneNumber = $map['PhoneNumber'];
         }
-
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
-
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-
         if (isset($map['VerifyCode'])) {
             $model->verifyCode = $map['VerifyCode'];
         }

@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Cams\V20200606\Models\GetChatappTemplateDetailResponseBody\data\components\buttons;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class supportedApps extends Model
 {
     /**
+     * @description The app package name.
+     *
+     * @example com.test
+     *
      * @var string
      */
     public $packageName;
 
     /**
+     * @description The app signing key hash.
+     *
+     * @example 29kdkeik939
+     *
      * @var string
      */
     public $signatureHash;
@@ -22,18 +30,14 @@ class supportedApps extends Model
         'signatureHash' => 'SignatureHash',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->packageName) {
             $res['PackageName'] = $this->packageName;
         }
-
         if (null !== $this->signatureHash) {
             $res['SignatureHash'] = $this->signatureHash;
         }
@@ -41,18 +45,17 @@ class supportedApps extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return supportedApps
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PackageName'])) {
             $model->packageName = $map['PackageName'];
         }
-
         if (isset($map['SignatureHash'])) {
             $model->signatureHash = $map['SignatureHash'];
         }

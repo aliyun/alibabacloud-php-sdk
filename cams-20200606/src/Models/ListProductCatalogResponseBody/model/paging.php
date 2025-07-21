@@ -4,12 +4,14 @@
 
 namespace AlibabaCloud\SDK\Cams\V20200606\Models\ListProductCatalogResponseBody\model;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ListProductCatalogResponseBody\model\paging\cursors;
+use AlibabaCloud\Tea\Model;
 
 class paging extends Model
 {
     /**
+     * @description The cursors for pagination.
+     *
      * @var cursors
      */
     public $cursors;
@@ -17,29 +19,23 @@ class paging extends Model
         'cursors' => 'Cursors',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->cursors) {
-            $this->cursors->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->cursors) {
-            $res['Cursors'] = null !== $this->cursors ? $this->cursors->toArray($noStream) : $this->cursors;
+            $res['Cursors'] = null !== $this->cursors ? $this->cursors->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return paging
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

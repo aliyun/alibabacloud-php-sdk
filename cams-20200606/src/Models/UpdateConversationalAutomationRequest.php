@@ -4,22 +4,34 @@
 
 namespace AlibabaCloud\SDK\Cams\V20200606\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cams\V20200606\Models\UpdateConversationalAutomationRequest\commands;
+use AlibabaCloud\Tea\Model;
 
 class UpdateConversationalAutomationRequest extends Model
 {
     /**
+     * @description The commands.
+     *
      * @var commands[]
      */
     public $commands;
 
     /**
+     * @description The space ID of the RAM user within the independent software vendor (ISV) account or the instance ID of the customer of Alibaba Cloud.
+     *
+     * This parameter is required.
+     *
+     * @example 2993****
+     *
      * @var string
      */
     public $custSpaceId;
 
     /**
+     * @description Specifies whether to enable the welcoming message.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enableWelcomeMessage;
@@ -30,11 +42,19 @@ class UpdateConversationalAutomationRequest extends Model
     public $ownerId;
 
     /**
+     * @description The phone number of the enterprise.
+     *
+     * This parameter is required.
+     *
+     * @example 86130000***
+     *
      * @var string
      */
     public $phoneNumber;
 
     /**
+     * @description The opening remarks.
+     *
      * @var string[]
      */
     public $prompts;
@@ -59,62 +79,38 @@ class UpdateConversationalAutomationRequest extends Model
         'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->commands)) {
-            Model::validateArray($this->commands);
-        }
-        if (\is_array($this->prompts)) {
-            Model::validateArray($this->prompts);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->commands) {
-            if (\is_array($this->commands)) {
-                $res['Commands'] = [];
-                $n1 = 0;
-                foreach ($this->commands as $item1) {
-                    $res['Commands'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Commands'] = [];
+            if (null !== $this->commands && \is_array($this->commands)) {
+                $n = 0;
+                foreach ($this->commands as $item) {
+                    $res['Commands'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->custSpaceId) {
             $res['CustSpaceId'] = $this->custSpaceId;
         }
-
         if (null !== $this->enableWelcomeMessage) {
             $res['EnableWelcomeMessage'] = $this->enableWelcomeMessage;
         }
-
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-
         if (null !== $this->phoneNumber) {
             $res['PhoneNumber'] = $this->phoneNumber;
         }
-
         if (null !== $this->prompts) {
-            if (\is_array($this->prompts)) {
-                $res['Prompts'] = [];
-                $n1 = 0;
-                foreach ($this->prompts as $item1) {
-                    $res['Prompts'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['Prompts'] = $this->prompts;
         }
-
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
-
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
@@ -122,56 +118,43 @@ class UpdateConversationalAutomationRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateConversationalAutomationRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Commands'])) {
             if (!empty($map['Commands'])) {
                 $model->commands = [];
-                $n1 = 0;
-                foreach ($map['Commands'] as $item1) {
-                    $model->commands[$n1] = commands::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Commands'] as $item) {
+                    $model->commands[$n++] = null !== $item ? commands::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['CustSpaceId'])) {
             $model->custSpaceId = $map['CustSpaceId'];
         }
-
         if (isset($map['EnableWelcomeMessage'])) {
             $model->enableWelcomeMessage = $map['EnableWelcomeMessage'];
         }
-
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-
         if (isset($map['PhoneNumber'])) {
             $model->phoneNumber = $map['PhoneNumber'];
         }
-
         if (isset($map['Prompts'])) {
             if (!empty($map['Prompts'])) {
-                $model->prompts = [];
-                $n1 = 0;
-                foreach ($map['Prompts'] as $item1) {
-                    $model->prompts[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->prompts = $map['Prompts'];
             }
         }
-
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
-
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }

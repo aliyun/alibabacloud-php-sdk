@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Cams\V20200606\Models\UpdateFlowJSONAssetResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description The Flow ID.
+     *
+     * @example 84848847****
+     *
      * @var string
      */
     public $flowId;
@@ -16,12 +20,9 @@ class data extends Model
         'flowId' => 'FlowId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->flowId) {
@@ -31,11 +32,11 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

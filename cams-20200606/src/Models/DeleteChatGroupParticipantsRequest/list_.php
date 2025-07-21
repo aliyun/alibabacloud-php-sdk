@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Cams\V20200606\Models\DeleteChatGroupParticipantsRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class list_ extends Model
 {
     /**
+     * @example 86138***
+     *
      * @var string
      */
     public $participantNumber;
@@ -16,12 +18,9 @@ class list_ extends Model
         'participantNumber' => 'ParticipantNumber',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->participantNumber) {
@@ -31,11 +30,11 @@ class list_ extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return list_
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

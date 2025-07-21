@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Cams\V20200606\Models\GetFlowJSONAssestResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description The file path.
+     *
+     * @example https://url.com/json.json
+     *
      * @var string
      */
     public $filePath;
 
     /**
+     * @description The Flow ID.
+     *
+     * @example flow_id_arms
+     *
      * @var string
      */
     public $flowId;
@@ -22,18 +30,14 @@ class data extends Model
         'flowId' => 'FlowId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->filePath) {
             $res['FilePath'] = $this->filePath;
         }
-
         if (null !== $this->flowId) {
             $res['FlowId'] = $this->flowId;
         }
@@ -41,18 +45,17 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FilePath'])) {
             $model->filePath = $map['FilePath'];
         }
-
         if (isset($map['FlowId'])) {
             $model->flowId = $map['FlowId'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cams\V20200606\Models\ListFlowRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class page extends Model
 {
@@ -22,18 +22,14 @@ class page extends Model
         'size' => 'Size',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->index) {
             $res['Index'] = $this->index;
         }
-
         if (null !== $this->size) {
             $res['Size'] = $this->size;
         }
@@ -41,18 +37,17 @@ class page extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return page
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Index'])) {
             $model->index = $map['Index'];
         }
-
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
         }

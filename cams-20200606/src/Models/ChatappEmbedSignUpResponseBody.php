@@ -4,32 +4,53 @@
 
 namespace AlibabaCloud\SDK\Cams\V20200606\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ChatappEmbedSignUpResponseBody\wabas;
+use AlibabaCloud\Tea\Model;
 
 class ChatappEmbedSignUpResponseBody extends Model
 {
     /**
+     * @description The details about the access denial.
+     *
+     * @example None
+     *
      * @var string
      */
     public $accessDeniedDetail;
 
     /**
+     * @description The HTTP status code returned.
+     *
+     *   A value of OK indicates that the call is successful.
+     *   Other values indicate that the call fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+     *
+     * @example OK
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The error message returned.
+     *
+     * @example None
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 90E63D28-E31D-1EB2-8939-A9486641****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The list of the WhatsApp Business accounts.
+     *
      * @var wabas[]
      */
     public $wabas;
@@ -41,40 +62,29 @@ class ChatappEmbedSignUpResponseBody extends Model
         'wabas' => 'Wabas',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->wabas)) {
-            Model::validateArray($this->wabas);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->accessDeniedDetail) {
             $res['AccessDeniedDetail'] = $this->accessDeniedDetail;
         }
-
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->wabas) {
-            if (\is_array($this->wabas)) {
-                $res['Wabas'] = [];
-                $n1 = 0;
-                foreach ($this->wabas as $item1) {
-                    $res['Wabas'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Wabas'] = [];
+            if (null !== $this->wabas && \is_array($this->wabas)) {
+                $n = 0;
+                foreach ($this->wabas as $item) {
+                    $res['Wabas'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -82,37 +92,32 @@ class ChatappEmbedSignUpResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ChatappEmbedSignUpResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccessDeniedDetail'])) {
             $model->accessDeniedDetail = $map['AccessDeniedDetail'];
         }
-
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['Wabas'])) {
             if (!empty($map['Wabas'])) {
                 $model->wabas = [];
-                $n1 = 0;
-                foreach ($map['Wabas'] as $item1) {
-                    $model->wabas[$n1] = wabas::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Wabas'] as $item) {
+                    $model->wabas[$n++] = null !== $item ? wabas::fromMap($item) : $item;
                 }
             }
         }

@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\Cams\V20200606\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class QueryWabaBusinessInfoRequest extends Model
 {
     /**
+     * @description The space ID of the RAM user within the independent software vendor (ISV) account.
+     *
+     * This parameter is required.
+     *
+     * @example 293483938849493****
+     *
      * @var string
      */
     public $custSpaceId;
@@ -29,6 +35,12 @@ class QueryWabaBusinessInfoRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the WhatsApp Business Account (WABA).
+     *
+     * This parameter is required.
+     *
+     * @example 293848822333
+     *
      * @var string
      */
     public $wabaId;
@@ -40,30 +52,23 @@ class QueryWabaBusinessInfoRequest extends Model
         'wabaId' => 'WabaId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->custSpaceId) {
             $res['CustSpaceId'] = $this->custSpaceId;
         }
-
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
-
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-
         if (null !== $this->wabaId) {
             $res['WabaId'] = $this->wabaId;
         }
@@ -71,30 +76,26 @@ class QueryWabaBusinessInfoRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return QueryWabaBusinessInfoRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CustSpaceId'])) {
             $model->custSpaceId = $map['CustSpaceId'];
         }
-
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
-
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-
         if (isset($map['WabaId'])) {
             $model->wabaId = $map['WabaId'];
         }

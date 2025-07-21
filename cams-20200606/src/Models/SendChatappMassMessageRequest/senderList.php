@@ -4,33 +4,47 @@
 
 namespace AlibabaCloud\SDK\Cams\V20200606\Models\SendChatappMassMessageRequest;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cams\V20200606\Models\SendChatappMassMessageRequest\senderList\flowAction;
 use AlibabaCloud\SDK\Cams\V20200606\Models\SendChatappMassMessageRequest\senderList\productAction;
+use AlibabaCloud\Tea\Model;
 
 class senderList extends Model
 {
     /**
+     * @description The Flow action.
+     *
      * @var flowAction
      */
     public $flowAction;
 
     /**
+     * @description The payload of the button.
+     *
      * @var string[]
      */
     public $payload;
 
     /**
+     * @description The information about the product.
+     *
      * @var productAction
      */
     public $productAction;
 
     /**
+     * @description The parameters of the template.
+     *
      * @var string[]
      */
     public $templateParams;
 
     /**
+     * @description The mobile phone number of the message receiver.
+     *
+     * This parameter is required.
+     *
+     * @example 861388988****
+     *
      * @var string
      */
     public $to;
@@ -42,54 +56,23 @@ class senderList extends Model
         'to' => 'To',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->flowAction) {
-            $this->flowAction->validate();
-        }
-        if (\is_array($this->payload)) {
-            Model::validateArray($this->payload);
-        }
-        if (null !== $this->productAction) {
-            $this->productAction->validate();
-        }
-        if (\is_array($this->templateParams)) {
-            Model::validateArray($this->templateParams);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->flowAction) {
-            $res['FlowAction'] = null !== $this->flowAction ? $this->flowAction->toArray($noStream) : $this->flowAction;
+            $res['FlowAction'] = null !== $this->flowAction ? $this->flowAction->toMap() : null;
         }
-
         if (null !== $this->payload) {
-            if (\is_array($this->payload)) {
-                $res['Payload'] = [];
-                $n1 = 0;
-                foreach ($this->payload as $item1) {
-                    $res['Payload'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['Payload'] = $this->payload;
         }
-
         if (null !== $this->productAction) {
-            $res['ProductAction'] = null !== $this->productAction ? $this->productAction->toArray($noStream) : $this->productAction;
+            $res['ProductAction'] = null !== $this->productAction ? $this->productAction->toMap() : null;
         }
-
         if (null !== $this->templateParams) {
-            if (\is_array($this->templateParams)) {
-                $res['TemplateParams'] = [];
-                foreach ($this->templateParams as $key1 => $value1) {
-                    $res['TemplateParams'][$key1] = $value1;
-                }
-            }
+            $res['TemplateParams'] = $this->templateParams;
         }
-
         if (null !== $this->to) {
             $res['To'] = $this->to;
         }
@@ -97,42 +80,28 @@ class senderList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return senderList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FlowAction'])) {
             $model->flowAction = flowAction::fromMap($map['FlowAction']);
         }
-
         if (isset($map['Payload'])) {
             if (!empty($map['Payload'])) {
-                $model->payload = [];
-                $n1 = 0;
-                foreach ($map['Payload'] as $item1) {
-                    $model->payload[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->payload = $map['Payload'];
             }
         }
-
         if (isset($map['ProductAction'])) {
             $model->productAction = productAction::fromMap($map['ProductAction']);
         }
-
         if (isset($map['TemplateParams'])) {
-            if (!empty($map['TemplateParams'])) {
-                $model->templateParams = [];
-                foreach ($map['TemplateParams'] as $key1 => $value1) {
-                    $model->templateParams[$key1] = $value1;
-                }
-            }
+            $model->templateParams = $map['TemplateParams'];
         }
-
         if (isset($map['To'])) {
             $model->to = $map['To'];
         }
