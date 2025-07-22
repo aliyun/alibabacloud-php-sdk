@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Paidsw\V20220101\Models\UpdateInstanceRequest;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\BandwidthLimit;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\ForwardInfo;
+use AlibabaCloud\Tea\Model;
 
 class userVpc extends Model
 {
@@ -16,31 +16,59 @@ class userVpc extends Model
     public $bandwidthLimit;
 
     /**
+     * @description The default route. Valid values:
+     *
+     *   eth0: The default network interface is used to access the Internet through the public gateway.
+     *   eth1: The user\\"s Elastic Network Interface is used to access the Internet through the private gateway.
+     *
+     * @example eth0
+     *
      * @var string
      */
     public $defaultRoute;
 
     /**
+     * @description The extended CIDR blocks.
+     *
+     *   If you leave VSwitchId empty, this parameter is not required and the system automatically obtains all CIDR blocks in the VPC.
+     *   If VSwitchId is not empty, this parameter is required. Specify all CIDR blocks in the VPC.
+     *
+     * @example ["192.168.0.1/24", "192.168.1.1/24"]
+     *
      * @var string[]
      */
     public $extendedCIDRs;
 
     /**
+     * @description The forward configuration of the instance.
+     *
      * @var ForwardInfo[]
      */
     public $forwardInfos;
 
     /**
+     * @description The security group ID.
+     *
+     * @example sg-xxxxxx
+     *
      * @var string
      */
     public $securityGroupId;
 
     /**
+     * @description The vSwitch ID.
+     *
+     * @example vsw-xxxxx
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @description The VPC ID.
+     *
+     * @example vpc-xxxxx
+     *
      * @var string
      */
     public $vpcId;
@@ -54,59 +82,35 @@ class userVpc extends Model
         'vpcId' => 'VpcId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->bandwidthLimit) {
-            $this->bandwidthLimit->validate();
-        }
-        if (\is_array($this->extendedCIDRs)) {
-            Model::validateArray($this->extendedCIDRs);
-        }
-        if (\is_array($this->forwardInfos)) {
-            Model::validateArray($this->forwardInfos);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->bandwidthLimit) {
-            $res['BandwidthLimit'] = null !== $this->bandwidthLimit ? $this->bandwidthLimit->toArray($noStream) : $this->bandwidthLimit;
+            $res['BandwidthLimit'] = null !== $this->bandwidthLimit ? $this->bandwidthLimit->toMap() : null;
         }
-
         if (null !== $this->defaultRoute) {
             $res['DefaultRoute'] = $this->defaultRoute;
         }
-
         if (null !== $this->extendedCIDRs) {
-            if (\is_array($this->extendedCIDRs)) {
-                $res['ExtendedCIDRs'] = [];
-                $n1 = 0;
-                foreach ($this->extendedCIDRs as $item1) {
-                    $res['ExtendedCIDRs'][$n1++] = $item1;
-                }
-            }
+            $res['ExtendedCIDRs'] = $this->extendedCIDRs;
         }
-
         if (null !== $this->forwardInfos) {
-            if (\is_array($this->forwardInfos)) {
-                $res['ForwardInfos'] = [];
-                $n1 = 0;
-                foreach ($this->forwardInfos as $item1) {
-                    $res['ForwardInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['ForwardInfos'] = [];
+            if (null !== $this->forwardInfos && \is_array($this->forwardInfos)) {
+                $n = 0;
+                foreach ($this->forwardInfos as $item) {
+                    $res['ForwardInfos'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
         }
-
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
-
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
@@ -114,50 +118,40 @@ class userVpc extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return userVpc
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BandwidthLimit'])) {
             $model->bandwidthLimit = BandwidthLimit::fromMap($map['BandwidthLimit']);
         }
-
         if (isset($map['DefaultRoute'])) {
             $model->defaultRoute = $map['DefaultRoute'];
         }
-
         if (isset($map['ExtendedCIDRs'])) {
             if (!empty($map['ExtendedCIDRs'])) {
-                $model->extendedCIDRs = [];
-                $n1 = 0;
-                foreach ($map['ExtendedCIDRs'] as $item1) {
-                    $model->extendedCIDRs[$n1++] = $item1;
-                }
+                $model->extendedCIDRs = $map['ExtendedCIDRs'];
             }
         }
-
         if (isset($map['ForwardInfos'])) {
             if (!empty($map['ForwardInfos'])) {
                 $model->forwardInfos = [];
-                $n1 = 0;
-                foreach ($map['ForwardInfos'] as $item1) {
-                    $model->forwardInfos[$n1++] = ForwardInfo::fromMap($item1);
+                $n = 0;
+                foreach ($map['ForwardInfos'] as $item) {
+                    $model->forwardInfos[$n++] = null !== $item ? ForwardInfo::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];
         }
-
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
         }
-
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }

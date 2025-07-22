@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Paidsw\V20220101\Models\ForwardInfoResponse;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\ForwardInfoResponse\connectInfo\internet;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\ForwardInfoResponse\connectInfo\intranet;
+use AlibabaCloud\Tea\Model;
 
 class connectInfo extends Model
 {
@@ -21,11 +21,15 @@ class connectInfo extends Model
     public $intranet;
 
     /**
+     * @example DNAT and privateZone are both ready.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example Ready
+     *
      * @var string
      */
     public $phase;
@@ -36,32 +40,20 @@ class connectInfo extends Model
         'phase' => 'Phase',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->internet) {
-            $this->internet->validate();
-        }
-        if (null !== $this->intranet) {
-            $this->intranet->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->internet) {
-            $res['Internet'] = null !== $this->internet ? $this->internet->toArray($noStream) : $this->internet;
+            $res['Internet'] = null !== $this->internet ? $this->internet->toMap() : null;
         }
-
         if (null !== $this->intranet) {
-            $res['Intranet'] = null !== $this->intranet ? $this->intranet->toArray($noStream) : $this->intranet;
+            $res['Intranet'] = null !== $this->intranet ? $this->intranet->toMap() : null;
         }
-
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
-
         if (null !== $this->phase) {
             $res['Phase'] = $this->phase;
         }
@@ -69,26 +61,23 @@ class connectInfo extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return connectInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Internet'])) {
             $model->internet = internet::fromMap($map['Internet']);
         }
-
         if (isset($map['Intranet'])) {
             $model->intranet = intranet::fromMap($map['Intranet']);
         }
-
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
-
         if (isset($map['Phase'])) {
             $model->phase = $map['Phase'];
         }

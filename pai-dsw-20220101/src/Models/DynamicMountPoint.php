@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Paidsw\V20220101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DynamicMountPoint extends Model
 {
@@ -14,6 +14,8 @@ class DynamicMountPoint extends Model
     public $options;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $rootPath;
@@ -22,18 +24,14 @@ class DynamicMountPoint extends Model
         'rootPath' => 'RootPath',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->options) {
             $res['Options'] = $this->options;
         }
-
         if (null !== $this->rootPath) {
             $res['RootPath'] = $this->rootPath;
         }
@@ -41,18 +39,17 @@ class DynamicMountPoint extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DynamicMountPoint
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Options'])) {
             $model->options = $map['Options'];
         }
-
         if (isset($map['RootPath'])) {
             $model->rootPath = $map['RootPath'];
         }

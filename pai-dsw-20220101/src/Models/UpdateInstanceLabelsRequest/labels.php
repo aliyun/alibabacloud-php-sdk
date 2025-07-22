@@ -4,16 +4,28 @@
 
 namespace AlibabaCloud\SDK\Paidsw\V20220101\Models\UpdateInstanceLabelsRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class labels extends Model
 {
     /**
+     * @description The key of the custom tag.
+     *
+     * This parameter is required.
+     *
+     * @example customLabelKey
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The value of the custom tag.
+     *
+     * This parameter is required.
+     *
+     * @example labelValue
+     *
      * @var string
      */
     public $value;
@@ -22,18 +34,14 @@ class labels extends Model
         'value' => 'Value',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
-
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -41,18 +49,17 @@ class labels extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return labels
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
-
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

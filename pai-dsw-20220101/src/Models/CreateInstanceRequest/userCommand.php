@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Paidsw\V20220101\Models\CreateInstanceRequest;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\CreateInstanceRequest\userCommand\onStart;
+use AlibabaCloud\Tea\Model;
 
 class userCommand extends Model
 {
@@ -17,29 +17,23 @@ class userCommand extends Model
         'onStart' => 'OnStart',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->onStart) {
-            $this->onStart->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->onStart) {
-            $res['OnStart'] = null !== $this->onStart ? $this->onStart->toArray($noStream) : $this->onStart;
+            $res['OnStart'] = null !== $this->onStart ? $this->onStart->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return userCommand
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

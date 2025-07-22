@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Paidsw\V20220101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class BandwidthLimit extends Model
 {
@@ -34,84 +34,49 @@ class BandwidthLimit extends Model
         'ingressWhitelists' => 'IngressWhitelists',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->egressWhitelists)) {
-            Model::validateArray($this->egressWhitelists);
-        }
-        if (\is_array($this->ingressWhitelists)) {
-            Model::validateArray($this->ingressWhitelists);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->egressRate) {
             $res['EgressRate'] = $this->egressRate;
         }
-
         if (null !== $this->egressWhitelists) {
-            if (\is_array($this->egressWhitelists)) {
-                $res['EgressWhitelists'] = [];
-                $n1 = 0;
-                foreach ($this->egressWhitelists as $item1) {
-                    $res['EgressWhitelists'][$n1++] = $item1;
-                }
-            }
+            $res['EgressWhitelists'] = $this->egressWhitelists;
         }
-
         if (null !== $this->ingressRate) {
             $res['IngressRate'] = $this->ingressRate;
         }
-
         if (null !== $this->ingressWhitelists) {
-            if (\is_array($this->ingressWhitelists)) {
-                $res['IngressWhitelists'] = [];
-                $n1 = 0;
-                foreach ($this->ingressWhitelists as $item1) {
-                    $res['IngressWhitelists'][$n1++] = $item1;
-                }
-            }
+            $res['IngressWhitelists'] = $this->ingressWhitelists;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return BandwidthLimit
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EgressRate'])) {
             $model->egressRate = $map['EgressRate'];
         }
-
         if (isset($map['EgressWhitelists'])) {
             if (!empty($map['EgressWhitelists'])) {
-                $model->egressWhitelists = [];
-                $n1 = 0;
-                foreach ($map['EgressWhitelists'] as $item1) {
-                    $model->egressWhitelists[$n1++] = $item1;
-                }
+                $model->egressWhitelists = $map['EgressWhitelists'];
             }
         }
-
         if (isset($map['IngressRate'])) {
             $model->ingressRate = $map['IngressRate'];
         }
-
         if (isset($map['IngressWhitelists'])) {
             if (!empty($map['IngressWhitelists'])) {
-                $model->ingressWhitelists = [];
-                $n1 = 0;
-                foreach ($map['IngressWhitelists'] as $item1) {
-                    $model->ingressWhitelists[$n1++] = $item1;
-                }
+                $model->ingressWhitelists = $map['IngressWhitelists'];
             }
         }
 

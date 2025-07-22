@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Paidsw\V20220101\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\CreateInstanceSnapshotRequest\labels;
+use AlibabaCloud\Tea\Model;
 
 class CreateInstanceSnapshotRequest extends Model
 {
@@ -15,11 +15,17 @@ class CreateInstanceSnapshotRequest extends Model
     public $excludePaths;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example registry.cn-shanghai.aliyuncs.com/pai_product/tensorflow:py36_cpu_tf1.12_ubuntu
+     *
      * @var string
      */
     public $imageUrl;
 
     /**
+     * @example {\\"foo\\": \\"bar\\"}
+     *
      * @var labels[]
      */
     public $labels;
@@ -30,11 +36,17 @@ class CreateInstanceSnapshotRequest extends Model
     public $overwrite;
 
     /**
+     * @example training_data_env
+     *
      * @var string
      */
     public $snapshotDescription;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example training_data_env
+     *
      * @var string
      */
     public $snapshotName;
@@ -47,52 +59,32 @@ class CreateInstanceSnapshotRequest extends Model
         'snapshotName' => 'SnapshotName',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->excludePaths)) {
-            Model::validateArray($this->excludePaths);
-        }
-        if (\is_array($this->labels)) {
-            Model::validateArray($this->labels);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->excludePaths) {
-            if (\is_array($this->excludePaths)) {
-                $res['ExcludePaths'] = [];
-                $n1 = 0;
-                foreach ($this->excludePaths as $item1) {
-                    $res['ExcludePaths'][$n1++] = $item1;
-                }
-            }
+            $res['ExcludePaths'] = $this->excludePaths;
         }
-
         if (null !== $this->imageUrl) {
             $res['ImageUrl'] = $this->imageUrl;
         }
-
         if (null !== $this->labels) {
-            if (\is_array($this->labels)) {
-                $res['Labels'] = [];
-                $n1 = 0;
-                foreach ($this->labels as $item1) {
-                    $res['Labels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Labels'] = [];
+            if (null !== $this->labels && \is_array($this->labels)) {
+                $n = 0;
+                foreach ($this->labels as $item) {
+                    $res['Labels'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->overwrite) {
             $res['Overwrite'] = $this->overwrite;
         }
-
         if (null !== $this->snapshotDescription) {
             $res['SnapshotDescription'] = $this->snapshotDescription;
         }
-
         if (null !== $this->snapshotName) {
             $res['SnapshotName'] = $this->snapshotName;
         }
@@ -100,46 +92,37 @@ class CreateInstanceSnapshotRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateInstanceSnapshotRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExcludePaths'])) {
             if (!empty($map['ExcludePaths'])) {
-                $model->excludePaths = [];
-                $n1 = 0;
-                foreach ($map['ExcludePaths'] as $item1) {
-                    $model->excludePaths[$n1++] = $item1;
-                }
+                $model->excludePaths = $map['ExcludePaths'];
             }
         }
-
         if (isset($map['ImageUrl'])) {
             $model->imageUrl = $map['ImageUrl'];
         }
-
         if (isset($map['Labels'])) {
             if (!empty($map['Labels'])) {
                 $model->labels = [];
-                $n1 = 0;
-                foreach ($map['Labels'] as $item1) {
-                    $model->labels[$n1++] = labels::fromMap($item1);
+                $n = 0;
+                foreach ($map['Labels'] as $item) {
+                    $model->labels[$n++] = null !== $item ? labels::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['Overwrite'])) {
             $model->overwrite = $map['Overwrite'];
         }
-
         if (isset($map['SnapshotDescription'])) {
             $model->snapshotDescription = $map['SnapshotDescription'];
         }
-
         if (isset($map['SnapshotName'])) {
             $model->snapshotName = $map['SnapshotName'];
         }

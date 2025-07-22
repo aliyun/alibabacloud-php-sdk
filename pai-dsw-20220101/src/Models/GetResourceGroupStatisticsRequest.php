@@ -4,26 +4,42 @@
 
 namespace AlibabaCloud\SDK\Paidsw\V20220101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetResourceGroupStatisticsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 2020-11-08T15:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example rg-123456789
+     *
      * @var string
      */
     public $resourceId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 2020-11-08T15:00:00Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 27218,34956
+     *
      * @var string
      */
     public $workspaceIds;
@@ -34,26 +50,20 @@ class GetResourceGroupStatisticsRequest extends Model
         'workspaceIds' => 'WorkspaceIds',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
-
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
         }
-
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
-
         if (null !== $this->workspaceIds) {
             $res['WorkspaceIds'] = $this->workspaceIds;
         }
@@ -61,26 +71,23 @@ class GetResourceGroupStatisticsRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetResourceGroupStatisticsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
-
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
         }
-
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
-
         if (isset($map['WorkspaceIds'])) {
             $model->workspaceIds = $map['WorkspaceIds'];
         }

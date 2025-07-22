@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Paidsw\V20220101\Models\GetInstanceMetricsResponseBody\podMetrics;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class metrics extends Model
 {
     /**
+     * @description The timestamp corresponding to the metric.
+     *
+     * @example 1670890560
+     *
      * @var int
      */
     public $time;
 
     /**
+     * @description The metric value.
+     *
+     * @example 25.901031
+     *
      * @var float
      */
     public $value;
@@ -22,18 +30,14 @@ class metrics extends Model
         'value' => 'Value',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->time) {
             $res['Time'] = $this->time;
         }
-
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -41,18 +45,17 @@ class metrics extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return metrics
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Time'])) {
             $model->time = $map['Time'];
         }
-
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }
