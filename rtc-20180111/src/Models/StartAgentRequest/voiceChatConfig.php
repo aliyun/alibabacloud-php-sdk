@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models\StartAgentRequest;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartAgentRequest\voiceChatConfig\ASRConfig;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartAgentRequest\voiceChatConfig\LLMConfig;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartAgentRequest\voiceChatConfig\TTSConfig;
+use AlibabaCloud\Tea\Model;
 
 class voiceChatConfig extends Model
 {
@@ -17,6 +17,8 @@ class voiceChatConfig extends Model
     public $ASRConfig;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $chatMode;
@@ -27,6 +29,8 @@ class voiceChatConfig extends Model
     public $greeting;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $interruptMode;
@@ -49,78 +53,56 @@ class voiceChatConfig extends Model
         'TTSConfig' => 'TTSConfig',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->ASRConfig) {
-            $this->ASRConfig->validate();
-        }
-        if (null !== $this->LLMConfig) {
-            $this->LLMConfig->validate();
-        }
-        if (null !== $this->TTSConfig) {
-            $this->TTSConfig->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->ASRConfig) {
-            $res['ASRConfig'] = null !== $this->ASRConfig ? $this->ASRConfig->toArray($noStream) : $this->ASRConfig;
+            $res['ASRConfig'] = null !== $this->ASRConfig ? $this->ASRConfig->toMap() : null;
         }
-
         if (null !== $this->chatMode) {
             $res['ChatMode'] = $this->chatMode;
         }
-
         if (null !== $this->greeting) {
             $res['Greeting'] = $this->greeting;
         }
-
         if (null !== $this->interruptMode) {
             $res['InterruptMode'] = $this->interruptMode;
         }
-
         if (null !== $this->LLMConfig) {
-            $res['LLMConfig'] = null !== $this->LLMConfig ? $this->LLMConfig->toArray($noStream) : $this->LLMConfig;
+            $res['LLMConfig'] = null !== $this->LLMConfig ? $this->LLMConfig->toMap() : null;
         }
-
         if (null !== $this->TTSConfig) {
-            $res['TTSConfig'] = null !== $this->TTSConfig ? $this->TTSConfig->toArray($noStream) : $this->TTSConfig;
+            $res['TTSConfig'] = null !== $this->TTSConfig ? $this->TTSConfig->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return voiceChatConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ASRConfig'])) {
             $model->ASRConfig = ASRConfig::fromMap($map['ASRConfig']);
         }
-
         if (isset($map['ChatMode'])) {
             $model->chatMode = $map['ChatMode'];
         }
-
         if (isset($map['Greeting'])) {
             $model->greeting = $map['Greeting'];
         }
-
         if (isset($map['InterruptMode'])) {
             $model->interruptMode = $map['InterruptMode'];
         }
-
         if (isset($map['LLMConfig'])) {
             $model->LLMConfig = LLMConfig::fromMap($map['LLMConfig']);
         }
-
         if (isset($map['TTSConfig'])) {
             $model->TTSConfig = TTSConfig::fromMap($map['TTSConfig']);
         }

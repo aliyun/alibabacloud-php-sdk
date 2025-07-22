@@ -4,16 +4,22 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyAppStreamingOutTemplateShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example wv7N****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $streamingOutTemplateShrink;
@@ -22,18 +28,14 @@ class ModifyAppStreamingOutTemplateShrinkRequest extends Model
         'streamingOutTemplateShrink' => 'StreamingOutTemplate',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
-
         if (null !== $this->streamingOutTemplateShrink) {
             $res['StreamingOutTemplate'] = $this->streamingOutTemplateShrink;
         }
@@ -41,18 +43,17 @@ class ModifyAppStreamingOutTemplateShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyAppStreamingOutTemplateShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
-
         if (isset($map['StreamingOutTemplate'])) {
             $model->streamingOutTemplateShrink = $map['StreamingOutTemplate'];
         }

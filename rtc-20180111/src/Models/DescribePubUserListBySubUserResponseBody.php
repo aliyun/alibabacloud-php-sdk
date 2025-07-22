@@ -4,13 +4,15 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribePubUserListBySubUserResponseBody\pubUserDetailList;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribePubUserListBySubUserResponseBody\subUserDetail;
+use AlibabaCloud\Tea\Model;
 
 class DescribePubUserListBySubUserResponseBody extends Model
 {
     /**
+     * @example IN
+     *
      * @var string
      */
     public $callStatus;
@@ -21,6 +23,8 @@ class DescribePubUserListBySubUserResponseBody extends Model
     public $pubUserDetailList;
 
     /**
+     * @example 231470C1-ACFB-4C9F-844F-4CFE1E3804C5
+     *
      * @var string
      */
     public $requestId;
@@ -36,73 +40,56 @@ class DescribePubUserListBySubUserResponseBody extends Model
         'subUserDetail' => 'SubUserDetail',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->pubUserDetailList)) {
-            Model::validateArray($this->pubUserDetailList);
-        }
-        if (null !== $this->subUserDetail) {
-            $this->subUserDetail->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->callStatus) {
             $res['CallStatus'] = $this->callStatus;
         }
-
         if (null !== $this->pubUserDetailList) {
-            if (\is_array($this->pubUserDetailList)) {
-                $res['PubUserDetailList'] = [];
-                $n1 = 0;
-                foreach ($this->pubUserDetailList as $item1) {
-                    $res['PubUserDetailList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['PubUserDetailList'] = [];
+            if (null !== $this->pubUserDetailList && \is_array($this->pubUserDetailList)) {
+                $n = 0;
+                foreach ($this->pubUserDetailList as $item) {
+                    $res['PubUserDetailList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->subUserDetail) {
-            $res['SubUserDetail'] = null !== $this->subUserDetail ? $this->subUserDetail->toArray($noStream) : $this->subUserDetail;
+            $res['SubUserDetail'] = null !== $this->subUserDetail ? $this->subUserDetail->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribePubUserListBySubUserResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CallStatus'])) {
             $model->callStatus = $map['CallStatus'];
         }
-
         if (isset($map['PubUserDetailList'])) {
             if (!empty($map['PubUserDetailList'])) {
                 $model->pubUserDetailList = [];
-                $n1 = 0;
-                foreach ($map['PubUserDetailList'] as $item1) {
-                    $model->pubUserDetailList[$n1] = pubUserDetailList::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['PubUserDetailList'] as $item) {
+                    $model->pubUserDetailList[$n++] = null !== $item ? pubUserDetailList::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['SubUserDetail'])) {
             $model->subUserDetail = subUserDetail::fromMap($map['SubUserDetail']);
         }

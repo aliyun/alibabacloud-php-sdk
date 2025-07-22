@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models\StartMPUTaskRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class enhancedParam extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $enablePortraitSegmentation;
@@ -16,12 +18,9 @@ class enhancedParam extends Model
         'enablePortraitSegmentation' => 'EnablePortraitSegmentation',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->enablePortraitSegmentation) {
@@ -31,11 +30,11 @@ class enhancedParam extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return enhancedParam
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

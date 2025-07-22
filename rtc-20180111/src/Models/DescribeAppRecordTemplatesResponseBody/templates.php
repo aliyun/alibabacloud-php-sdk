@@ -4,26 +4,34 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppRecordTemplatesResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class templates extends Model
 {
     /**
+     * @example 2020-09-04T06:22:15Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 180
+     *
      * @var int
      */
     public $delayStopTime;
 
     /**
+     * @example record/{AppId}/{ChannelId_TaskId}/{EscapedStartTime}_{EscapedEndTime}
+     *
      * @var string
      */
     public $filePrefix;
 
     /**
+     * @example 1800
+     *
      * @var int
      */
     public $fileSplitInterval;
@@ -39,16 +47,22 @@ class templates extends Model
     public $layoutIds;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $mediaEncode;
 
     /**
+     * @example 测试
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example wv7N****
+     *
      * @var string
      */
     public $templateId;
@@ -64,66 +78,35 @@ class templates extends Model
         'templateId' => 'TemplateId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->formats)) {
-            Model::validateArray($this->formats);
-        }
-        if (\is_array($this->layoutIds)) {
-            Model::validateArray($this->layoutIds);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-
         if (null !== $this->delayStopTime) {
             $res['DelayStopTime'] = $this->delayStopTime;
         }
-
         if (null !== $this->filePrefix) {
             $res['FilePrefix'] = $this->filePrefix;
         }
-
         if (null !== $this->fileSplitInterval) {
             $res['FileSplitInterval'] = $this->fileSplitInterval;
         }
-
         if (null !== $this->formats) {
-            if (\is_array($this->formats)) {
-                $res['Formats'] = [];
-                $n1 = 0;
-                foreach ($this->formats as $item1) {
-                    $res['Formats'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['Formats'] = $this->formats;
         }
-
         if (null !== $this->layoutIds) {
-            if (\is_array($this->layoutIds)) {
-                $res['LayoutIds'] = [];
-                $n1 = 0;
-                foreach ($this->layoutIds as $item1) {
-                    $res['LayoutIds'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['LayoutIds'] = $this->layoutIds;
         }
-
         if (null !== $this->mediaEncode) {
             $res['MediaEncode'] = $this->mediaEncode;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
@@ -131,60 +114,42 @@ class templates extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return templates
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
-
         if (isset($map['DelayStopTime'])) {
             $model->delayStopTime = $map['DelayStopTime'];
         }
-
         if (isset($map['FilePrefix'])) {
             $model->filePrefix = $map['FilePrefix'];
         }
-
         if (isset($map['FileSplitInterval'])) {
             $model->fileSplitInterval = $map['FileSplitInterval'];
         }
-
         if (isset($map['Formats'])) {
             if (!empty($map['Formats'])) {
-                $model->formats = [];
-                $n1 = 0;
-                foreach ($map['Formats'] as $item1) {
-                    $model->formats[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->formats = $map['Formats'];
             }
         }
-
         if (isset($map['LayoutIds'])) {
             if (!empty($map['LayoutIds'])) {
-                $model->layoutIds = [];
-                $n1 = 0;
-                foreach ($map['LayoutIds'] as $item1) {
-                    $model->layoutIds[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->layoutIds = $map['LayoutIds'];
             }
         }
-
         if (isset($map['MediaEncode'])) {
             $model->mediaEncode = $map['MediaEncode'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }

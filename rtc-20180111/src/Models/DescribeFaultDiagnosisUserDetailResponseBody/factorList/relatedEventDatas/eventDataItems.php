@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeFaultDiagnosisUserDetailResponseBody\factorList\relatedEventDatas;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeFaultDiagnosisUserDetailResponseBody\factorList\relatedEventDatas\eventDataItems\eventList;
+use AlibabaCloud\Tea\Model;
 
 class eventDataItems extends Model
 {
@@ -15,6 +15,8 @@ class eventDataItems extends Model
     public $eventList;
 
     /**
+     * @example 1614936817
+     *
      * @var int
      */
     public $ts;
@@ -23,28 +25,20 @@ class eventDataItems extends Model
         'ts' => 'Ts',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->eventList)) {
-            Model::validateArray($this->eventList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->eventList) {
-            if (\is_array($this->eventList)) {
-                $res['EventList'] = [];
-                $n1 = 0;
-                foreach ($this->eventList as $item1) {
-                    $res['EventList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['EventList'] = [];
+            if (null !== $this->eventList && \is_array($this->eventList)) {
+                $n = 0;
+                foreach ($this->eventList as $item) {
+                    $res['EventList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->ts) {
             $res['Ts'] = $this->ts;
         }
@@ -52,25 +46,23 @@ class eventDataItems extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return eventDataItems
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EventList'])) {
             if (!empty($map['EventList'])) {
                 $model->eventList = [];
-                $n1 = 0;
-                foreach ($map['EventList'] as $item1) {
-                    $model->eventList[$n1] = eventList::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['EventList'] as $item) {
+                    $model->eventList[$n++] = null !== $item ? eventList::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['Ts'])) {
             $model->ts = $map['Ts'];
         }

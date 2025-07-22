@@ -4,22 +4,30 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteAppRecordTemplateRequest\template;
+use AlibabaCloud\Tea\Model;
 
 class DeleteAppRecordTemplateRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example ac7N****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @example 53200b81-b761-4c10-842a-a0726d97xxxx
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @var template
      */
     public $template;
@@ -29,48 +37,38 @@ class DeleteAppRecordTemplateRequest extends Model
         'template' => 'Template',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->template) {
-            $this->template->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
-
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
-
         if (null !== $this->template) {
-            $res['Template'] = null !== $this->template ? $this->template->toArray($noStream) : $this->template;
+            $res['Template'] = null !== $this->template ? $this->template->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteAppRecordTemplateRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
-
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
-
         if (isset($map['Template'])) {
             $model->template = template::fromMap($map['Template']);
         }

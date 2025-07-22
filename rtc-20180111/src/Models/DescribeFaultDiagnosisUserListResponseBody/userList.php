@@ -4,27 +4,35 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeFaultDiagnosisUserListResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeFaultDiagnosisUserListResponseBody\userList\faultList;
+use AlibabaCloud\Tea\Model;
 
 class userList extends Model
 {
     /**
+     * @example 1614936817
+     *
      * @var int
      */
     public $channelCreatedTs;
 
     /**
+     * @example 904
+     *
      * @var string
      */
     public $channelId;
 
     /**
+     * @example 1614936817
+     *
      * @var int
      */
     public $createdTs;
 
     /**
+     * @example 1614936817
+     *
      * @var int
      */
     public $destroyedTs;
@@ -35,6 +43,8 @@ class userList extends Model
     public $faultList;
 
     /**
+     * @example 123456
+     *
      * @var string
      */
     public $userId;
@@ -47,44 +57,32 @@ class userList extends Model
         'userId' => 'UserId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->faultList)) {
-            Model::validateArray($this->faultList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->channelCreatedTs) {
             $res['ChannelCreatedTs'] = $this->channelCreatedTs;
         }
-
         if (null !== $this->channelId) {
             $res['ChannelId'] = $this->channelId;
         }
-
         if (null !== $this->createdTs) {
             $res['CreatedTs'] = $this->createdTs;
         }
-
         if (null !== $this->destroyedTs) {
             $res['DestroyedTs'] = $this->destroyedTs;
         }
-
         if (null !== $this->faultList) {
-            if (\is_array($this->faultList)) {
-                $res['FaultList'] = [];
-                $n1 = 0;
-                foreach ($this->faultList as $item1) {
-                    $res['FaultList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['FaultList'] = [];
+            if (null !== $this->faultList && \is_array($this->faultList)) {
+                $n = 0;
+                foreach ($this->faultList as $item) {
+                    $res['FaultList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
@@ -92,41 +90,35 @@ class userList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return userList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ChannelCreatedTs'])) {
             $model->channelCreatedTs = $map['ChannelCreatedTs'];
         }
-
         if (isset($map['ChannelId'])) {
             $model->channelId = $map['ChannelId'];
         }
-
         if (isset($map['CreatedTs'])) {
             $model->createdTs = $map['CreatedTs'];
         }
-
         if (isset($map['DestroyedTs'])) {
             $model->destroyedTs = $map['DestroyedTs'];
         }
-
         if (isset($map['FaultList'])) {
             if (!empty($map['FaultList'])) {
                 $model->faultList = [];
-                $n1 = 0;
-                foreach ($map['FaultList'] as $item1) {
-                    $model->faultList[$n1] = faultList::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['FaultList'] as $item) {
+                    $model->faultList[$n++] = null !== $item ? faultList::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }

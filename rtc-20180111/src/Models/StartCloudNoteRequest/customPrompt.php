@@ -4,12 +4,14 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudNoteRequest;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudNoteRequest\customPrompt\customPromptContents;
+use AlibabaCloud\Tea\Model;
 
 class customPrompt extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var customPromptContents[]
      */
     public $customPromptContents;
@@ -23,28 +25,20 @@ class customPrompt extends Model
         'enabled' => 'Enabled',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->customPromptContents)) {
-            Model::validateArray($this->customPromptContents);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->customPromptContents) {
-            if (\is_array($this->customPromptContents)) {
-                $res['CustomPromptContents'] = [];
-                $n1 = 0;
-                foreach ($this->customPromptContents as $item1) {
-                    $res['CustomPromptContents'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['CustomPromptContents'] = [];
+            if (null !== $this->customPromptContents && \is_array($this->customPromptContents)) {
+                $n = 0;
+                foreach ($this->customPromptContents as $item) {
+                    $res['CustomPromptContents'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->enabled) {
             $res['Enabled'] = $this->enabled;
         }
@@ -52,25 +46,23 @@ class customPrompt extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return customPrompt
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CustomPromptContents'])) {
             if (!empty($map['CustomPromptContents'])) {
                 $model->customPromptContents = [];
-                $n1 = 0;
-                foreach ($map['CustomPromptContents'] as $item1) {
-                    $model->customPromptContents[$n1] = customPromptContents::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['CustomPromptContents'] as $item) {
+                    $model->customPromptContents[$n++] = null !== $item ? customPromptContents::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['Enabled'])) {
             $model->enabled = $map['Enabled'];
         }

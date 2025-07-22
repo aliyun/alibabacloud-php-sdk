@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models\StartAgentRequest\voiceChatConfig;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ASRConfig extends Model
 {
@@ -14,21 +14,29 @@ class ASRConfig extends Model
     public $languageHints;
 
     /**
+     * @example 800
+     *
      * @var int
      */
     public $maxSentenceSilence;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $semanticPunctuationEnabled;
 
     /**
+     * @example zh
+     *
      * @var string
      */
     public $sourceLanguage;
 
     /**
+     * @example vocab-xxx-24ee19fa8cfb4d52902170a0xxxxxxxx
+     *
      * @var string
      */
     public $vocabularyId;
@@ -40,40 +48,23 @@ class ASRConfig extends Model
         'vocabularyId' => 'VocabularyId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->languageHints)) {
-            Model::validateArray($this->languageHints);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->languageHints) {
-            if (\is_array($this->languageHints)) {
-                $res['LanguageHints'] = [];
-                $n1 = 0;
-                foreach ($this->languageHints as $item1) {
-                    $res['LanguageHints'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['LanguageHints'] = $this->languageHints;
         }
-
         if (null !== $this->maxSentenceSilence) {
             $res['MaxSentenceSilence'] = $this->maxSentenceSilence;
         }
-
         if (null !== $this->semanticPunctuationEnabled) {
             $res['SemanticPunctuationEnabled'] = $this->semanticPunctuationEnabled;
         }
-
         if (null !== $this->sourceLanguage) {
             $res['SourceLanguage'] = $this->sourceLanguage;
         }
-
         if (null !== $this->vocabularyId) {
             $res['VocabularyId'] = $this->vocabularyId;
         }
@@ -81,37 +72,28 @@ class ASRConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ASRConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LanguageHints'])) {
             if (!empty($map['LanguageHints'])) {
-                $model->languageHints = [];
-                $n1 = 0;
-                foreach ($map['LanguageHints'] as $item1) {
-                    $model->languageHints[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->languageHints = $map['LanguageHints'];
             }
         }
-
         if (isset($map['MaxSentenceSilence'])) {
             $model->maxSentenceSilence = $map['MaxSentenceSilence'];
         }
-
         if (isset($map['SemanticPunctuationEnabled'])) {
             $model->semanticPunctuationEnabled = $map['SemanticPunctuationEnabled'];
         }
-
         if (isset($map['SourceLanguage'])) {
             $model->sourceLanguage = $map['SourceLanguage'];
         }
-
         if (isset($map['VocabularyId'])) {
             $model->vocabularyId = $map['VocabularyId'];
         }

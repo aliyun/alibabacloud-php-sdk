@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeChannelTopPubUserListResponseBody\topPubUserDetailList;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class onlinePeriods extends Model
 {
     /**
+     * @example 1615893327
+     *
      * @var int
      */
     public $joinTs;
 
     /**
+     * @example 1615893442
+     *
      * @var int
      */
     public $leaveTs;
@@ -22,18 +26,14 @@ class onlinePeriods extends Model
         'leaveTs' => 'LeaveTs',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->joinTs) {
             $res['JoinTs'] = $this->joinTs;
         }
-
         if (null !== $this->leaveTs) {
             $res['LeaveTs'] = $this->leaveTs;
         }
@@ -41,18 +41,17 @@ class onlinePeriods extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return onlinePeriods
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['JoinTs'])) {
             $model->joinTs = $map['JoinTs'];
         }
-
         if (isset($map['LeaveTs'])) {
             $model->leaveTs = $map['LeaveTs'];
         }

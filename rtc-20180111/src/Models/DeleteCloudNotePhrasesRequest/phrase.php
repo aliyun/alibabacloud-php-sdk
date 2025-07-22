@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteCloudNotePhrasesRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class phrase extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 1qasw23ezcsrfsawq
+     *
      * @var string
      */
     public $id;
@@ -16,12 +20,9 @@ class phrase extends Model
         'id' => 'Id',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->id) {
@@ -31,11 +32,11 @@ class phrase extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return phrase
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

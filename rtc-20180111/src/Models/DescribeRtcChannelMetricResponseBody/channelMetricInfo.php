@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeRtcChannelMetricResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeRtcChannelMetricResponseBody\channelMetricInfo\channelMetric;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeRtcChannelMetricResponseBody\channelMetricInfo\duration;
+use AlibabaCloud\Tea\Model;
 
 class channelMetricInfo extends Model
 {
@@ -24,43 +24,32 @@ class channelMetricInfo extends Model
         'duration' => 'Duration',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->channelMetric) {
-            $this->channelMetric->validate();
-        }
-        if (null !== $this->duration) {
-            $this->duration->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->channelMetric) {
-            $res['ChannelMetric'] = null !== $this->channelMetric ? $this->channelMetric->toArray($noStream) : $this->channelMetric;
+            $res['ChannelMetric'] = null !== $this->channelMetric ? $this->channelMetric->toMap() : null;
         }
-
         if (null !== $this->duration) {
-            $res['Duration'] = null !== $this->duration ? $this->duration->toArray($noStream) : $this->duration;
+            $res['Duration'] = null !== $this->duration ? $this->duration->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return channelMetricInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ChannelMetric'])) {
             $model->channelMetric = channelMetric::fromMap($map['ChannelMetric']);
         }
-
         if (isset($map['Duration'])) {
             $model->duration = duration::fromMap($map['Duration']);
         }

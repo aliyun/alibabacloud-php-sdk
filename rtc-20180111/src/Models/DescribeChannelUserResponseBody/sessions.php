@@ -4,21 +4,27 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeChannelUserResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class sessions extends Model
 {
     /**
+     * @example 1557909133
+     *
      * @var int
      */
     public $joined;
 
     /**
+     * @example xa744sxx8rtobgj****
+     *
      * @var string
      */
     public $sessionId;
 
     /**
+     * @example 1811****
+     *
      * @var string
      */
     public $userId;
@@ -28,22 +34,17 @@ class sessions extends Model
         'userId' => 'UserId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->joined) {
             $res['Joined'] = $this->joined;
         }
-
         if (null !== $this->sessionId) {
             $res['SessionId'] = $this->sessionId;
         }
-
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
@@ -51,22 +52,20 @@ class sessions extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return sessions
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Joined'])) {
             $model->joined = $map['Joined'];
         }
-
         if (isset($map['SessionId'])) {
             $model->sessionId = $map['SessionId'];
         }
-
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }

@@ -4,21 +4,27 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeRtcPeakChannelCntDataResponseBody\peakChannelCntDataPerInterval;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class peakChannelCntModule extends Model
 {
     /**
+     * @example 10
+     *
      * @var int
      */
     public $activeChannelPeak;
 
     /**
+     * @example 2018-01-29T00:01:00Z
+     *
      * @var string
      */
     public $activeChannelPeakTime;
 
     /**
+     * @example 2018-01-29T00:00:00Z
+     *
      * @var string
      */
     public $timeStamp;
@@ -28,22 +34,17 @@ class peakChannelCntModule extends Model
         'timeStamp' => 'TimeStamp',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->activeChannelPeak) {
             $res['ActiveChannelPeak'] = $this->activeChannelPeak;
         }
-
         if (null !== $this->activeChannelPeakTime) {
             $res['ActiveChannelPeakTime'] = $this->activeChannelPeakTime;
         }
-
         if (null !== $this->timeStamp) {
             $res['TimeStamp'] = $this->timeStamp;
         }
@@ -51,22 +52,20 @@ class peakChannelCntModule extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return peakChannelCntModule
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ActiveChannelPeak'])) {
             $model->activeChannelPeak = $map['ActiveChannelPeak'];
         }
-
         if (isset($map['ActiveChannelPeakTime'])) {
             $model->activeChannelPeakTime = $map['ActiveChannelPeakTime'];
         }
-
         if (isset($map['TimeStamp'])) {
             $model->timeStamp = $map['TimeStamp'];
         }

@@ -4,21 +4,27 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateCloudRecordShrinkRequest\clockWidgets;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class boxColor extends Model
 {
     /**
+     * @example 255
+     *
      * @var int
      */
     public $b;
 
     /**
+     * @example 255
+     *
      * @var int
      */
     public $g;
 
     /**
+     * @example 255
+     *
      * @var int
      */
     public $r;
@@ -28,22 +34,17 @@ class boxColor extends Model
         'r' => 'R',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->b) {
             $res['B'] = $this->b;
         }
-
         if (null !== $this->g) {
             $res['G'] = $this->g;
         }
-
         if (null !== $this->r) {
             $res['R'] = $this->r;
         }
@@ -51,22 +52,20 @@ class boxColor extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return boxColor
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['B'])) {
             $model->b = $map['B'];
         }
-
         if (isset($map['G'])) {
             $model->g = $map['G'];
         }
-
         if (isset($map['R'])) {
             $model->r = $map['R'];
         }

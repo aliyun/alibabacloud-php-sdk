@@ -4,22 +4,34 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateAgentRequest\voiceChatConfig;
+use AlibabaCloud\Tea\Model;
 
 class UpdateAgentRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 4eah****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example yourChannelId
+     *
      * @var string
      */
     public $channelId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example yourTaskId
+     *
      * @var string
      */
     public $taskId;
@@ -35,56 +47,44 @@ class UpdateAgentRequest extends Model
         'voiceChatConfig' => 'VoiceChatConfig',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->voiceChatConfig) {
-            $this->voiceChatConfig->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
-
         if (null !== $this->channelId) {
             $res['ChannelId'] = $this->channelId;
         }
-
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
-
         if (null !== $this->voiceChatConfig) {
-            $res['VoiceChatConfig'] = null !== $this->voiceChatConfig ? $this->voiceChatConfig->toArray($noStream) : $this->voiceChatConfig;
+            $res['VoiceChatConfig'] = null !== $this->voiceChatConfig ? $this->voiceChatConfig->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateAgentRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
-
         if (isset($map['ChannelId'])) {
             $model->channelId = $map['ChannelId'];
         }
-
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
-
         if (isset($map['VoiceChatConfig'])) {
             $model->voiceChatConfig = voiceChatConfig::fromMap($map['VoiceChatConfig']);
         }

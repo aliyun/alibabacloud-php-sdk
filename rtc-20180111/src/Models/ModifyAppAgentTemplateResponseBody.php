@@ -4,16 +4,22 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyAppAgentTemplateResponseBody extends Model
 {
     /**
+     * @example 1223131213231313213
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description Id of the request
+     *
+     * @example 231470C1-ACFB-4C9F-844F-4CFE1E3804C5
+     *
      * @var string
      */
     public $requestId;
@@ -22,18 +28,14 @@ class ModifyAppAgentTemplateResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -41,18 +43,17 @@ class ModifyAppAgentTemplateResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyAppAgentTemplateResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

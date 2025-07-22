@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateAgentRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class voiceChatConfig extends Model
 {
     /**
+     * @example 2
+     *
      * @var int
      */
     public $chatMode;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $interruptMode;
@@ -22,18 +26,14 @@ class voiceChatConfig extends Model
         'interruptMode' => 'InterruptMode',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->chatMode) {
             $res['ChatMode'] = $this->chatMode;
         }
-
         if (null !== $this->interruptMode) {
             $res['InterruptMode'] = $this->interruptMode;
         }
@@ -41,18 +41,17 @@ class voiceChatConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return voiceChatConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ChatMode'])) {
             $model->chatMode = $map['ChatMode'];
         }
-
         if (isset($map['InterruptMode'])) {
             $model->interruptMode = $map['InterruptMode'];
         }

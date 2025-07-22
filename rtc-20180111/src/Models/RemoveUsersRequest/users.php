@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models\RemoveUsersRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class users extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 1811****
+     *
      * @var string
      */
     public $userId;
@@ -16,12 +20,9 @@ class users extends Model
         'userId' => 'UserId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->userId) {
@@ -31,11 +32,11 @@ class users extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return users
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

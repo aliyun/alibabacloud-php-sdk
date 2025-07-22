@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateEventSubscribeResponseBody extends Model
 {
     /**
+     * @example 760bad53276431c499e30dc36f6b26be
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example ad53276431c****
+     *
      * @var string
      */
     public $subscribeId;
@@ -22,18 +26,14 @@ class CreateEventSubscribeResponseBody extends Model
         'subscribeId' => 'SubscribeId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->subscribeId) {
             $res['SubscribeId'] = $this->subscribeId;
         }
@@ -41,18 +41,17 @@ class CreateEventSubscribeResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateEventSubscribeResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['SubscribeId'])) {
             $model->subscribeId = $map['SubscribeId'];
         }

@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyAppAgentFunctionStatusRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example ac7N****
+     *
      * @var string
      */
     public $appId;
@@ -16,12 +20,9 @@ class ModifyAppAgentFunctionStatusRequest extends Model
         'appId' => 'AppId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appId) {
@@ -31,11 +32,11 @@ class ModifyAppAgentFunctionStatusRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyAppAgentFunctionStatusRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

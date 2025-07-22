@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models\StartAgentRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class rtcConfig extends Model
 {
@@ -14,6 +14,10 @@ class rtcConfig extends Model
     public $targetUserIds;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 423341
+     *
      * @var string
      */
     public $userId;
@@ -22,28 +26,14 @@ class rtcConfig extends Model
         'userId' => 'UserId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->targetUserIds)) {
-            Model::validateArray($this->targetUserIds);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->targetUserIds) {
-            if (\is_array($this->targetUserIds)) {
-                $res['TargetUserIds'] = [];
-                $n1 = 0;
-                foreach ($this->targetUserIds as $item1) {
-                    $res['TargetUserIds'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['TargetUserIds'] = $this->targetUserIds;
         }
-
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
@@ -51,25 +41,19 @@ class rtcConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return rtcConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TargetUserIds'])) {
             if (!empty($map['TargetUserIds'])) {
-                $model->targetUserIds = [];
-                $n1 = 0;
-                foreach ($map['TargetUserIds'] as $item1) {
-                    $model->targetUserIds[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->targetUserIds = $map['TargetUserIds'];
             }
         }
-
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }

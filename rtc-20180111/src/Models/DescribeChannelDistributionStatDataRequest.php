@@ -4,31 +4,51 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeChannelDistributionStatDataRequest extends Model
 {
     /**
+     * @description APP ID。
+     *
+     * This parameter is required.
+     *
+     * @example testappid
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example testid
+     *
      * @var string
      */
     public $channelId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 1614936817
+     *
      * @var int
      */
     public $createdTs;
 
     /**
+     * @example 1614936817
+     *
      * @var int
      */
     public $destroyedTs;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example OS
+     *
      * @var string
      */
     public $statDim;
@@ -40,30 +60,23 @@ class DescribeChannelDistributionStatDataRequest extends Model
         'statDim' => 'StatDim',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
-
         if (null !== $this->channelId) {
             $res['ChannelId'] = $this->channelId;
         }
-
         if (null !== $this->createdTs) {
             $res['CreatedTs'] = $this->createdTs;
         }
-
         if (null !== $this->destroyedTs) {
             $res['DestroyedTs'] = $this->destroyedTs;
         }
-
         if (null !== $this->statDim) {
             $res['StatDim'] = $this->statDim;
         }
@@ -71,30 +84,26 @@ class DescribeChannelDistributionStatDataRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeChannelDistributionStatDataRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
-
         if (isset($map['ChannelId'])) {
             $model->channelId = $map['ChannelId'];
         }
-
         if (isset($map['CreatedTs'])) {
             $model->createdTs = $map['CreatedTs'];
         }
-
         if (isset($map['DestroyedTs'])) {
             $model->destroyedTs = $map['DestroyedTs'];
         }
-
         if (isset($map['StatDim'])) {
             $model->statDim = $map['StatDim'];
         }

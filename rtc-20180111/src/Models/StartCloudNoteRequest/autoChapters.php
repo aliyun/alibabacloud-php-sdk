@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudNoteRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class autoChapters extends Model
 {
@@ -16,12 +16,9 @@ class autoChapters extends Model
         'enabled' => 'Enabled',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->enabled) {
@@ -31,11 +28,11 @@ class autoChapters extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return autoChapters
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

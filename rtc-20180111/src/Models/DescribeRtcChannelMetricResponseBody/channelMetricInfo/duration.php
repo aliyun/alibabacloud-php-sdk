@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeRtcChannelMetricResponseBody\channelMetricInfo;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeRtcChannelMetricResponseBody\channelMetricInfo\duration\pubDuration;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeRtcChannelMetricResponseBody\channelMetricInfo\duration\subDuration;
+use AlibabaCloud\Tea\Model;
 
 class duration extends Model
 {
@@ -24,43 +24,32 @@ class duration extends Model
         'subDuration' => 'SubDuration',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->pubDuration) {
-            $this->pubDuration->validate();
-        }
-        if (null !== $this->subDuration) {
-            $this->subDuration->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->pubDuration) {
-            $res['PubDuration'] = null !== $this->pubDuration ? $this->pubDuration->toArray($noStream) : $this->pubDuration;
+            $res['PubDuration'] = null !== $this->pubDuration ? $this->pubDuration->toMap() : null;
         }
-
         if (null !== $this->subDuration) {
-            $res['SubDuration'] = null !== $this->subDuration ? $this->subDuration->toArray($noStream) : $this->subDuration;
+            $res['SubDuration'] = null !== $this->subDuration ? $this->subDuration->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return duration
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PubDuration'])) {
             $model->pubDuration = pubDuration::fromMap($map['PubDuration']);
         }
-
         if (isset($map['SubDuration'])) {
             $model->subDuration = subDuration::fromMap($map['SubDuration']);
         }

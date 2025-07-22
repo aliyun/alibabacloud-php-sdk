@@ -4,17 +4,23 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteCloudNotePhrasesRequest\phrase;
+use AlibabaCloud\Tea\Model;
 
 class DeleteCloudNotePhrasesRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example ac7N****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var phrase
      */
     public $phrase;
@@ -23,40 +29,32 @@ class DeleteCloudNotePhrasesRequest extends Model
         'phrase' => 'Phrase',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->phrase) {
-            $this->phrase->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
-
         if (null !== $this->phrase) {
-            $res['Phrase'] = null !== $this->phrase ? $this->phrase->toArray($noStream) : $this->phrase;
+            $res['Phrase'] = null !== $this->phrase ? $this->phrase->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteCloudNotePhrasesRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
-
         if (isset($map['Phrase'])) {
             $model->phrase = phrase::fromMap($map['Phrase']);
         }

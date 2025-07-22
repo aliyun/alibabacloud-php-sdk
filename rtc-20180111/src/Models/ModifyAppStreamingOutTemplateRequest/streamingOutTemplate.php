@@ -4,26 +4,40 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyAppStreamingOutTemplateRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class streamingOutTemplate extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $layoutIds;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $mediaEncode;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 模版
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example ac7N****
+     *
      * @var string
      */
     public $templateId;
@@ -34,36 +48,20 @@ class streamingOutTemplate extends Model
         'templateId' => 'TemplateId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->layoutIds)) {
-            Model::validateArray($this->layoutIds);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->layoutIds) {
-            if (\is_array($this->layoutIds)) {
-                $res['LayoutIds'] = [];
-                $n1 = 0;
-                foreach ($this->layoutIds as $item1) {
-                    $res['LayoutIds'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['LayoutIds'] = $this->layoutIds;
         }
-
         if (null !== $this->mediaEncode) {
             $res['MediaEncode'] = $this->mediaEncode;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
@@ -71,33 +69,25 @@ class streamingOutTemplate extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return streamingOutTemplate
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LayoutIds'])) {
             if (!empty($map['LayoutIds'])) {
-                $model->layoutIds = [];
-                $n1 = 0;
-                foreach ($map['LayoutIds'] as $item1) {
-                    $model->layoutIds[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->layoutIds = $map['LayoutIds'];
             }
         }
-
         if (isset($map['MediaEncode'])) {
             $model->mediaEncode = $map['MediaEncode'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }

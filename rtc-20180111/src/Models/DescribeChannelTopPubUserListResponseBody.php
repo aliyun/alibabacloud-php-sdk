@@ -4,12 +4,14 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeChannelTopPubUserListResponseBody\topPubUserDetailList;
+use AlibabaCloud\Tea\Model;
 
 class DescribeChannelTopPubUserListResponseBody extends Model
 {
     /**
+     * @example 231470C1-ACFB-4C9F-844F-4CFE1E3804C5
+     *
      * @var string
      */
     public $requestId;
@@ -23,28 +25,20 @@ class DescribeChannelTopPubUserListResponseBody extends Model
         'topPubUserDetailList' => 'TopPubUserDetailList',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->topPubUserDetailList)) {
-            Model::validateArray($this->topPubUserDetailList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->topPubUserDetailList) {
-            if (\is_array($this->topPubUserDetailList)) {
-                $res['TopPubUserDetailList'] = [];
-                $n1 = 0;
-                foreach ($this->topPubUserDetailList as $item1) {
-                    $res['TopPubUserDetailList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['TopPubUserDetailList'] = [];
+            if (null !== $this->topPubUserDetailList && \is_array($this->topPubUserDetailList)) {
+                $n = 0;
+                foreach ($this->topPubUserDetailList as $item) {
+                    $res['TopPubUserDetailList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -52,25 +46,23 @@ class DescribeChannelTopPubUserListResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeChannelTopPubUserListResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['TopPubUserDetailList'])) {
             if (!empty($map['TopPubUserDetailList'])) {
                 $model->topPubUserDetailList = [];
-                $n1 = 0;
-                foreach ($map['TopPubUserDetailList'] as $item1) {
-                    $model->topPubUserDetailList[$n1] = topPubUserDetailList::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['TopPubUserDetailList'] as $item) {
+                    $model->topPubUserDetailList[$n++] = null !== $item ? topPubUserDetailList::fromMap($item) : $item;
                 }
             }
         }

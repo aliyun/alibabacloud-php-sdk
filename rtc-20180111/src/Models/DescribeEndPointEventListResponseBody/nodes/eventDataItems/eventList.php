@@ -4,26 +4,34 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeEndPointEventListResponseBody\nodes\eventDataItems;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class eventList extends Model
 {
     /**
+     * @example 开始发布
+     *
      * @var string
      */
     public $eventName;
 
     /**
+     * @example USER
+     *
      * @var string
      */
     public $eventType;
 
     /**
+     * @example 1614936817
+     *
      * @var int
      */
     public $ts;
 
     /**
+     * @example 1614936817123
+     *
      * @var string
      */
     public $tsInMs;
@@ -34,26 +42,20 @@ class eventList extends Model
         'tsInMs' => 'TsInMs',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->eventName) {
             $res['EventName'] = $this->eventName;
         }
-
         if (null !== $this->eventType) {
             $res['EventType'] = $this->eventType;
         }
-
         if (null !== $this->ts) {
             $res['Ts'] = $this->ts;
         }
-
         if (null !== $this->tsInMs) {
             $res['TsInMs'] = $this->tsInMs;
         }
@@ -61,26 +63,23 @@ class eventList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return eventList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EventName'])) {
             $model->eventName = $map['EventName'];
         }
-
         if (isset($map['EventType'])) {
             $model->eventType = $map['EventType'];
         }
-
         if (isset($map['Ts'])) {
             $model->ts = $map['Ts'];
         }
-
         if (isset($map['TsInMs'])) {
             $model->tsInMs = $map['TsInMs'];
         }

@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeQoeMetricDataResponseBody\audioData;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class nodes extends Model
 {
     /**
+     * @example 1548670256
+     *
      * @var string
      */
     public $x;
 
     /**
+     * @example 123
+     *
      * @var string
      */
     public $y;
@@ -22,18 +26,14 @@ class nodes extends Model
         'y' => 'Y',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->x) {
             $res['X'] = $this->x;
         }
-
         if (null !== $this->y) {
             $res['Y'] = $this->y;
         }
@@ -41,18 +41,17 @@ class nodes extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return nodes
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['X'])) {
             $model->x = $map['X'];
         }
-
         if (isset($map['Y'])) {
             $model->y = $map['Y'];
         }

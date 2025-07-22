@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models\StartCategoryCallbackRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class callback extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example RecordEvent
+     *
      * @var string
      */
     public $category;
@@ -16,12 +20,9 @@ class callback extends Model
         'category' => 'Category',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->category) {
@@ -31,11 +32,11 @@ class callback extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return callable
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

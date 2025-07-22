@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudNoteRequest\realtimeSubtitle;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class translation extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $translateLevel;
@@ -16,12 +18,9 @@ class translation extends Model
         'translateLevel' => 'TranslateLevel',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->translateLevel) {
@@ -31,11 +30,11 @@ class translation extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return translation
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

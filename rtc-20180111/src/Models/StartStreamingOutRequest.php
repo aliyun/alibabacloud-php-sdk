@@ -4,7 +4,6 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartStreamingOutRequest\backgrounds;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartStreamingOutRequest\bgColor;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartStreamingOutRequest\clockWidgets;
@@ -13,10 +12,22 @@ use AlibabaCloud\SDK\Rtc\V20180111\Models\StartStreamingOutRequest\layoutSpecifi
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartStreamingOutRequest\panes;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartStreamingOutRequest\regionColor;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartStreamingOutRequest\texts;
+use AlibabaCloud\Tea\Model;
 
 class StartStreamingOutRequest extends Model
 {
     /**
+     * @example disable
+     *
+     * @var string
+     */
+    public $annotation;
+
+    /**
+     * @description This parameter is required.
+     *
+     * @example eo85****
+     *
      * @var string
      */
     public $appId;
@@ -32,6 +43,10 @@ class StartStreamingOutRequest extends Model
     public $bgColor;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example testid
+     *
      * @var string
      */
     public $channelId;
@@ -42,6 +57,8 @@ class StartStreamingOutRequest extends Model
     public $clockWidgets;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $cropMode;
@@ -77,11 +94,18 @@ class StartStreamingOutRequest extends Model
     public $showDefaultBackgroundOnMute;
 
     /**
+     * @var string[]
+     */
+    public $specMixedUserList;
+
+    /**
      * @var bool
      */
     public $startWithoutChannel;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $startWithoutChannelWaitTime;
@@ -92,11 +116,17 @@ class StartStreamingOutRequest extends Model
     public $subHighResolutionStream;
 
     /**
+     * @example 123
+     *
      * @var string
      */
     public $taskId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 567
+     *
      * @var string
      */
     public $templateId;
@@ -107,10 +137,15 @@ class StartStreamingOutRequest extends Model
     public $texts;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example rtmp://example.com/live/stream
+     *
      * @var string
      */
     public $url;
     protected $_name = [
+        'annotation' => 'Annotation',
         'appId' => 'AppId',
         'backgrounds' => 'Backgrounds',
         'bgColor' => 'BgColor',
@@ -123,6 +158,7 @@ class StartStreamingOutRequest extends Model
         'regionColor' => 'RegionColor',
         'reservePaneForNoCameraUser' => 'ReservePaneForNoCameraUser',
         'showDefaultBackgroundOnMute' => 'ShowDefaultBackgroundOnMute',
+        'specMixedUserList' => 'SpecMixedUserList',
         'startWithoutChannel' => 'StartWithoutChannel',
         'startWithoutChannelWaitTime' => 'StartWithoutChannelWaitTime',
         'subHighResolutionStream' => 'SubHighResolutionStream',
@@ -132,145 +168,101 @@ class StartStreamingOutRequest extends Model
         'url' => 'Url',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->backgrounds)) {
-            Model::validateArray($this->backgrounds);
-        }
-        if (null !== $this->bgColor) {
-            $this->bgColor->validate();
-        }
-        if (\is_array($this->clockWidgets)) {
-            Model::validateArray($this->clockWidgets);
-        }
-        if (\is_array($this->images)) {
-            Model::validateArray($this->images);
-        }
-        if (null !== $this->layoutSpecifiedUsers) {
-            $this->layoutSpecifiedUsers->validate();
-        }
-        if (\is_array($this->panes)) {
-            Model::validateArray($this->panes);
-        }
-        if (null !== $this->regionColor) {
-            $this->regionColor->validate();
-        }
-        if (\is_array($this->texts)) {
-            Model::validateArray($this->texts);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
+        if (null !== $this->annotation) {
+            $res['Annotation'] = $this->annotation;
+        }
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
-
         if (null !== $this->backgrounds) {
-            if (\is_array($this->backgrounds)) {
-                $res['Backgrounds'] = [];
-                $n1 = 0;
-                foreach ($this->backgrounds as $item1) {
-                    $res['Backgrounds'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Backgrounds'] = [];
+            if (null !== $this->backgrounds && \is_array($this->backgrounds)) {
+                $n = 0;
+                foreach ($this->backgrounds as $item) {
+                    $res['Backgrounds'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->bgColor) {
-            $res['BgColor'] = null !== $this->bgColor ? $this->bgColor->toArray($noStream) : $this->bgColor;
+            $res['BgColor'] = null !== $this->bgColor ? $this->bgColor->toMap() : null;
         }
-
         if (null !== $this->channelId) {
             $res['ChannelId'] = $this->channelId;
         }
-
         if (null !== $this->clockWidgets) {
-            if (\is_array($this->clockWidgets)) {
-                $res['ClockWidgets'] = [];
-                $n1 = 0;
-                foreach ($this->clockWidgets as $item1) {
-                    $res['ClockWidgets'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['ClockWidgets'] = [];
+            if (null !== $this->clockWidgets && \is_array($this->clockWidgets)) {
+                $n = 0;
+                foreach ($this->clockWidgets as $item) {
+                    $res['ClockWidgets'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->cropMode) {
             $res['CropMode'] = $this->cropMode;
         }
-
         if (null !== $this->images) {
-            if (\is_array($this->images)) {
-                $res['Images'] = [];
-                $n1 = 0;
-                foreach ($this->images as $item1) {
-                    $res['Images'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Images'] = [];
+            if (null !== $this->images && \is_array($this->images)) {
+                $n = 0;
+                foreach ($this->images as $item) {
+                    $res['Images'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->layoutSpecifiedUsers) {
-            $res['LayoutSpecifiedUsers'] = null !== $this->layoutSpecifiedUsers ? $this->layoutSpecifiedUsers->toArray($noStream) : $this->layoutSpecifiedUsers;
+            $res['LayoutSpecifiedUsers'] = null !== $this->layoutSpecifiedUsers ? $this->layoutSpecifiedUsers->toMap() : null;
         }
-
         if (null !== $this->panes) {
-            if (\is_array($this->panes)) {
-                $res['Panes'] = [];
-                $n1 = 0;
-                foreach ($this->panes as $item1) {
-                    $res['Panes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Panes'] = [];
+            if (null !== $this->panes && \is_array($this->panes)) {
+                $n = 0;
+                foreach ($this->panes as $item) {
+                    $res['Panes'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->regionColor) {
-            $res['RegionColor'] = null !== $this->regionColor ? $this->regionColor->toArray($noStream) : $this->regionColor;
+            $res['RegionColor'] = null !== $this->regionColor ? $this->regionColor->toMap() : null;
         }
-
         if (null !== $this->reservePaneForNoCameraUser) {
             $res['ReservePaneForNoCameraUser'] = $this->reservePaneForNoCameraUser;
         }
-
         if (null !== $this->showDefaultBackgroundOnMute) {
             $res['ShowDefaultBackgroundOnMute'] = $this->showDefaultBackgroundOnMute;
         }
-
+        if (null !== $this->specMixedUserList) {
+            $res['SpecMixedUserList'] = $this->specMixedUserList;
+        }
         if (null !== $this->startWithoutChannel) {
             $res['StartWithoutChannel'] = $this->startWithoutChannel;
         }
-
         if (null !== $this->startWithoutChannelWaitTime) {
             $res['StartWithoutChannelWaitTime'] = $this->startWithoutChannelWaitTime;
         }
-
         if (null !== $this->subHighResolutionStream) {
             $res['SubHighResolutionStream'] = $this->subHighResolutionStream;
         }
-
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
-
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
-
         if (null !== $this->texts) {
-            if (\is_array($this->texts)) {
-                $res['Texts'] = [];
-                $n1 = 0;
-                foreach ($this->texts as $item1) {
-                    $res['Texts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Texts'] = [];
+            if (null !== $this->texts && \is_array($this->texts)) {
+                $n = 0;
+                foreach ($this->texts as $item) {
+                    $res['Texts'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
@@ -278,121 +270,106 @@ class StartStreamingOutRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return StartStreamingOutRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Annotation'])) {
+            $model->annotation = $map['Annotation'];
+        }
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
-
         if (isset($map['Backgrounds'])) {
             if (!empty($map['Backgrounds'])) {
                 $model->backgrounds = [];
-                $n1 = 0;
-                foreach ($map['Backgrounds'] as $item1) {
-                    $model->backgrounds[$n1] = backgrounds::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Backgrounds'] as $item) {
+                    $model->backgrounds[$n++] = null !== $item ? backgrounds::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['BgColor'])) {
             $model->bgColor = bgColor::fromMap($map['BgColor']);
         }
-
         if (isset($map['ChannelId'])) {
             $model->channelId = $map['ChannelId'];
         }
-
         if (isset($map['ClockWidgets'])) {
             if (!empty($map['ClockWidgets'])) {
                 $model->clockWidgets = [];
-                $n1 = 0;
-                foreach ($map['ClockWidgets'] as $item1) {
-                    $model->clockWidgets[$n1] = clockWidgets::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['ClockWidgets'] as $item) {
+                    $model->clockWidgets[$n++] = null !== $item ? clockWidgets::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['CropMode'])) {
             $model->cropMode = $map['CropMode'];
         }
-
         if (isset($map['Images'])) {
             if (!empty($map['Images'])) {
                 $model->images = [];
-                $n1 = 0;
-                foreach ($map['Images'] as $item1) {
-                    $model->images[$n1] = images::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Images'] as $item) {
+                    $model->images[$n++] = null !== $item ? images::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['LayoutSpecifiedUsers'])) {
             $model->layoutSpecifiedUsers = layoutSpecifiedUsers::fromMap($map['LayoutSpecifiedUsers']);
         }
-
         if (isset($map['Panes'])) {
             if (!empty($map['Panes'])) {
                 $model->panes = [];
-                $n1 = 0;
-                foreach ($map['Panes'] as $item1) {
-                    $model->panes[$n1] = panes::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Panes'] as $item) {
+                    $model->panes[$n++] = null !== $item ? panes::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['RegionColor'])) {
             $model->regionColor = regionColor::fromMap($map['RegionColor']);
         }
-
         if (isset($map['ReservePaneForNoCameraUser'])) {
             $model->reservePaneForNoCameraUser = $map['ReservePaneForNoCameraUser'];
         }
-
         if (isset($map['ShowDefaultBackgroundOnMute'])) {
             $model->showDefaultBackgroundOnMute = $map['ShowDefaultBackgroundOnMute'];
         }
-
+        if (isset($map['SpecMixedUserList'])) {
+            if (!empty($map['SpecMixedUserList'])) {
+                $model->specMixedUserList = $map['SpecMixedUserList'];
+            }
+        }
         if (isset($map['StartWithoutChannel'])) {
             $model->startWithoutChannel = $map['StartWithoutChannel'];
         }
-
         if (isset($map['StartWithoutChannelWaitTime'])) {
             $model->startWithoutChannelWaitTime = $map['StartWithoutChannelWaitTime'];
         }
-
         if (isset($map['SubHighResolutionStream'])) {
             $model->subHighResolutionStream = $map['SubHighResolutionStream'];
         }
-
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
-
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }
-
         if (isset($map['Texts'])) {
             if (!empty($map['Texts'])) {
                 $model->texts = [];
-                $n1 = 0;
-                foreach ($map['Texts'] as $item1) {
-                    $model->texts[$n1] = texts::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Texts'] as $item) {
+                    $model->texts[$n++] = null !== $item ? texts::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }

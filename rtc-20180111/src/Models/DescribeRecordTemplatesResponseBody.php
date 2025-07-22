@@ -4,12 +4,14 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeRecordTemplatesResponseBody\templates;
+use AlibabaCloud\Tea\Model;
 
 class DescribeRecordTemplatesResponseBody extends Model
 {
     /**
+     * @example C292B80E-5175-4BA4-8CC292B80E-5175-4BA4-8C1E-2ABEC4D7C2FE1E-2ABEC4D7****
+     *
      * @var string
      */
     public $requestId;
@@ -20,11 +22,15 @@ class DescribeRecordTemplatesResponseBody extends Model
     public $templates;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalNum;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalPage;
@@ -35,36 +41,26 @@ class DescribeRecordTemplatesResponseBody extends Model
         'totalPage' => 'TotalPage',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->templates)) {
-            Model::validateArray($this->templates);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->templates) {
-            if (\is_array($this->templates)) {
-                $res['Templates'] = [];
-                $n1 = 0;
-                foreach ($this->templates as $item1) {
-                    $res['Templates'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Templates'] = [];
+            if (null !== $this->templates && \is_array($this->templates)) {
+                $n = 0;
+                foreach ($this->templates as $item) {
+                    $res['Templates'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->totalNum) {
             $res['TotalNum'] = $this->totalNum;
         }
-
         if (null !== $this->totalPage) {
             $res['TotalPage'] = $this->totalPage;
         }
@@ -72,33 +68,29 @@ class DescribeRecordTemplatesResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeRecordTemplatesResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['Templates'])) {
             if (!empty($map['Templates'])) {
                 $model->templates = [];
-                $n1 = 0;
-                foreach ($map['Templates'] as $item1) {
-                    $model->templates[$n1] = templates::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Templates'] as $item) {
+                    $model->templates[$n++] = null !== $item ? templates::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['TotalNum'])) {
             $model->totalNum = $map['TotalNum'];
         }
-
         if (isset($map['TotalPage'])) {
             $model->totalPage = $map['TotalPage'];
         }

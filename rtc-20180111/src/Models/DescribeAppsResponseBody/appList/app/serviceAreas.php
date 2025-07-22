@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppsResponseBody\appList\app;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class serviceAreas extends Model
 {
@@ -16,47 +16,29 @@ class serviceAreas extends Model
         'serviceArea' => 'ServiceArea',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->serviceArea)) {
-            Model::validateArray($this->serviceArea);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->serviceArea) {
-            if (\is_array($this->serviceArea)) {
-                $res['ServiceArea'] = [];
-                $n1 = 0;
-                foreach ($this->serviceArea as $item1) {
-                    $res['ServiceArea'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['ServiceArea'] = $this->serviceArea;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return serviceAreas
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ServiceArea'])) {
             if (!empty($map['ServiceArea'])) {
-                $model->serviceArea = [];
-                $n1 = 0;
-                foreach ($map['ServiceArea'] as $item1) {
-                    $model->serviceArea[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->serviceArea = $map['ServiceArea'];
             }
         }
 

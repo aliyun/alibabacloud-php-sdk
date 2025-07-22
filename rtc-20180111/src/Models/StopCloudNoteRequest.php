@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class StopCloudNoteRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example qwsz1234
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example test
+     *
      * @var string
      */
     public $channelId;
@@ -24,6 +32,10 @@ class StopCloudNoteRequest extends Model
     public $clientToken;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example rtc
+     *
      * @var string
      */
     public $taskId;
@@ -34,26 +46,20 @@ class StopCloudNoteRequest extends Model
         'taskId' => 'TaskId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
-
         if (null !== $this->channelId) {
             $res['ChannelId'] = $this->channelId;
         }
-
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
-
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -61,26 +67,23 @@ class StopCloudNoteRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return StopCloudNoteRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
-
         if (isset($map['ChannelId'])) {
             $model->channelId = $map['ChannelId'];
         }
-
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
-
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

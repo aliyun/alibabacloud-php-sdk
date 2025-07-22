@@ -4,26 +4,38 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyAppAgentTemplateRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class llmConfig extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example ak-1213123123132123131
+     *
      * @var string
      */
     public $apiKey;
 
     /**
+     * @example 8
+     *
      * @var int
      */
     public $historyDepth;
 
     /**
+     * @example 1024
+     *
      * @var int
      */
     public $maxToken;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example llm
+     *
      * @var string
      */
     public $name;
@@ -34,21 +46,29 @@ class llmConfig extends Model
     public $prompt;
 
     /**
+     * @example 0.7
+     *
      * @var float
      */
     public $temperature;
 
     /**
+     * @example 0.8
+     *
      * @var float
      */
     public $topP;
 
     /**
+     * @example https://llm.example.aliyuns.com
+     *
      * @var string
      */
     public $url;
 
     /**
+     * @example thirdparty
+     *
      * @var string
      */
     public $vendor;
@@ -64,46 +84,35 @@ class llmConfig extends Model
         'vendor' => 'Vendor',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->apiKey) {
             $res['ApiKey'] = $this->apiKey;
         }
-
         if (null !== $this->historyDepth) {
             $res['HistoryDepth'] = $this->historyDepth;
         }
-
         if (null !== $this->maxToken) {
             $res['MaxToken'] = $this->maxToken;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->prompt) {
             $res['Prompt'] = $this->prompt;
         }
-
         if (null !== $this->temperature) {
             $res['Temperature'] = $this->temperature;
         }
-
         if (null !== $this->topP) {
             $res['TopP'] = $this->topP;
         }
-
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
-
         if (null !== $this->vendor) {
             $res['Vendor'] = $this->vendor;
         }
@@ -111,46 +120,38 @@ class llmConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return llmConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApiKey'])) {
             $model->apiKey = $map['ApiKey'];
         }
-
         if (isset($map['HistoryDepth'])) {
             $model->historyDepth = $map['HistoryDepth'];
         }
-
         if (isset($map['MaxToken'])) {
             $model->maxToken = $map['MaxToken'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['Prompt'])) {
             $model->prompt = $map['Prompt'];
         }
-
         if (isset($map['Temperature'])) {
             $model->temperature = $map['Temperature'];
         }
-
         if (isset($map['TopP'])) {
             $model->topP = $map['TopP'];
         }
-
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }
-
         if (isset($map['Vendor'])) {
             $model->vendor = $map['Vendor'];
         }

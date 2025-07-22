@@ -4,12 +4,16 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppStreamingOutTemplatesRequest\condition;
+use AlibabaCloud\Tea\Model;
 
 class DescribeAppStreamingOutTemplatesRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example ioeh****
+     *
      * @var string
      */
     public $appId;
@@ -20,11 +24,15 @@ class DescribeAppStreamingOutTemplatesRequest extends Model
     public $condition;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
@@ -35,29 +43,20 @@ class DescribeAppStreamingOutTemplatesRequest extends Model
         'pageSize' => 'PageSize',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->condition) {
-            $this->condition->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
-
         if (null !== $this->condition) {
-            $res['Condition'] = null !== $this->condition ? $this->condition->toArray($noStream) : $this->condition;
+            $res['Condition'] = null !== $this->condition ? $this->condition->toMap() : null;
         }
-
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
-
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -65,26 +64,23 @@ class DescribeAppStreamingOutTemplatesRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeAppStreamingOutTemplatesRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
-
         if (isset($map['Condition'])) {
             $model->condition = condition::fromMap($map['Condition']);
         }
-
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }
-
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }

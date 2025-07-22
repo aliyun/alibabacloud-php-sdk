@@ -4,12 +4,14 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeQualityOverallDataResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeQualityOverallDataResponseBody\qualityOverallData\nodes;
+use AlibabaCloud\Tea\Model;
 
 class qualityOverallData extends Model
 {
     /**
+     * @example 0.9376
+     *
      * @var string
      */
     public $average;
@@ -20,6 +22,8 @@ class qualityOverallData extends Model
     public $nodes;
 
     /**
+     * @example JOIN_CHANNEL_SUC_RATE
+     *
      * @var string
      */
     public $type;
@@ -29,32 +33,23 @@ class qualityOverallData extends Model
         'type' => 'Type',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->nodes)) {
-            Model::validateArray($this->nodes);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->average) {
             $res['Average'] = $this->average;
         }
-
         if (null !== $this->nodes) {
-            if (\is_array($this->nodes)) {
-                $res['Nodes'] = [];
-                $n1 = 0;
-                foreach ($this->nodes as $item1) {
-                    $res['Nodes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Nodes'] = [];
+            if (null !== $this->nodes && \is_array($this->nodes)) {
+                $n = 0;
+                foreach ($this->nodes as $item) {
+                    $res['Nodes'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -62,29 +57,26 @@ class qualityOverallData extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return qualityOverallData
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Average'])) {
             $model->average = $map['Average'];
         }
-
         if (isset($map['Nodes'])) {
             if (!empty($map['Nodes'])) {
                 $model->nodes = [];
-                $n1 = 0;
-                foreach ($map['Nodes'] as $item1) {
-                    $model->nodes[$n1] = nodes::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Nodes'] as $item) {
+                    $model->nodes[$n++] = null !== $item ? nodes::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeChannelParticipantsResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class userList extends Model
 {
@@ -16,47 +16,29 @@ class userList extends Model
         'user' => 'User',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->user)) {
-            Model::validateArray($this->user);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->user) {
-            if (\is_array($this->user)) {
-                $res['User'] = [];
-                $n1 = 0;
-                foreach ($this->user as $item1) {
-                    $res['User'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['User'] = $this->user;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return userList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['User'])) {
             if (!empty($map['User'])) {
-                $model->user = [];
-                $n1 = 0;
-                foreach ($map['User'] as $item1) {
-                    $model->user[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->user = $map['User'];
             }
         }
 

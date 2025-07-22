@@ -4,12 +4,16 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudNoteShrinkRequest\storageConfig;
+use AlibabaCloud\Tea\Model;
 
 class StartCloudNoteShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 2ws***z3
+     *
      * @var string
      */
     public $appId;
@@ -20,6 +24,10 @@ class StartCloudNoteShrinkRequest extends Model
     public $autoChaptersShrink;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example test
+     *
      * @var string
      */
     public $channelId;
@@ -50,11 +58,15 @@ class StartCloudNoteShrinkRequest extends Model
     public $serviceInspectionShrink;
 
     /**
+     * @example cn
+     *
      * @var string
      */
     public $sourceLanguage;
 
     /**
+     * @description This parameter is required.
+     *
      * @var storageConfig
      */
     public $storageConfig;
@@ -65,6 +77,10 @@ class StartCloudNoteShrinkRequest extends Model
     public $summarizationShrink;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example rtc
+     *
      * @var string
      */
     public $taskId;
@@ -95,79 +111,50 @@ class StartCloudNoteShrinkRequest extends Model
         'transcriptionShrink' => 'Transcription',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->languageHints)) {
-            Model::validateArray($this->languageHints);
-        }
-        if (null !== $this->storageConfig) {
-            $this->storageConfig->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
-
         if (null !== $this->autoChaptersShrink) {
             $res['AutoChapters'] = $this->autoChaptersShrink;
         }
-
         if (null !== $this->channelId) {
             $res['ChannelId'] = $this->channelId;
         }
-
         if (null !== $this->customPromptShrink) {
             $res['CustomPrompt'] = $this->customPromptShrink;
         }
-
         if (null !== $this->languageHints) {
-            if (\is_array($this->languageHints)) {
-                $res['LanguageHints'] = [];
-                $n1 = 0;
-                foreach ($this->languageHints as $item1) {
-                    $res['LanguageHints'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['LanguageHints'] = $this->languageHints;
         }
-
         if (null !== $this->meetingAssistanceShrink) {
             $res['MeetingAssistance'] = $this->meetingAssistanceShrink;
         }
-
         if (null !== $this->realtimeSubtitleShrink) {
             $res['RealtimeSubtitle'] = $this->realtimeSubtitleShrink;
         }
-
         if (null !== $this->serviceInspectionShrink) {
             $res['ServiceInspection'] = $this->serviceInspectionShrink;
         }
-
         if (null !== $this->sourceLanguage) {
             $res['SourceLanguage'] = $this->sourceLanguage;
         }
-
         if (null !== $this->storageConfig) {
-            $res['StorageConfig'] = null !== $this->storageConfig ? $this->storageConfig->toArray($noStream) : $this->storageConfig;
+            $res['StorageConfig'] = null !== $this->storageConfig ? $this->storageConfig->toMap() : null;
         }
-
         if (null !== $this->summarizationShrink) {
             $res['Summarization'] = $this->summarizationShrink;
         }
-
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
-
         if (null !== $this->textPolishShrink) {
             $res['TextPolish'] = $this->textPolishShrink;
         }
-
         if (null !== $this->transcriptionShrink) {
             $res['Transcription'] = $this->transcriptionShrink;
         }
@@ -175,73 +162,55 @@ class StartCloudNoteShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return StartCloudNoteShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
-
         if (isset($map['AutoChapters'])) {
             $model->autoChaptersShrink = $map['AutoChapters'];
         }
-
         if (isset($map['ChannelId'])) {
             $model->channelId = $map['ChannelId'];
         }
-
         if (isset($map['CustomPrompt'])) {
             $model->customPromptShrink = $map['CustomPrompt'];
         }
-
         if (isset($map['LanguageHints'])) {
             if (!empty($map['LanguageHints'])) {
-                $model->languageHints = [];
-                $n1 = 0;
-                foreach ($map['LanguageHints'] as $item1) {
-                    $model->languageHints[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->languageHints = $map['LanguageHints'];
             }
         }
-
         if (isset($map['MeetingAssistance'])) {
             $model->meetingAssistanceShrink = $map['MeetingAssistance'];
         }
-
         if (isset($map['RealtimeSubtitle'])) {
             $model->realtimeSubtitleShrink = $map['RealtimeSubtitle'];
         }
-
         if (isset($map['ServiceInspection'])) {
             $model->serviceInspectionShrink = $map['ServiceInspection'];
         }
-
         if (isset($map['SourceLanguage'])) {
             $model->sourceLanguage = $map['SourceLanguage'];
         }
-
         if (isset($map['StorageConfig'])) {
             $model->storageConfig = storageConfig::fromMap($map['StorageConfig']);
         }
-
         if (isset($map['Summarization'])) {
             $model->summarizationShrink = $map['Summarization'];
         }
-
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
-
         if (isset($map['TextPolish'])) {
             $model->textPolishShrink = $map['TextPolish'];
         }
-
         if (isset($map['Transcription'])) {
             $model->transcriptionShrink = $map['Transcription'];
         }

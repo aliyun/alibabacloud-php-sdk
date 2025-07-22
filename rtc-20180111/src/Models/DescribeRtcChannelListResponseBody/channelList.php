@@ -4,37 +4,29 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeRtcChannelListResponseBody;
 
-use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeRtcChannelListResponseBody\channelList\channelList;
+use AlibabaCloud\Tea\Model;
 
 class channelList extends Model
 {
     /**
-     * @var channelList[]
+     * @var channelList\channelList[]
      */
     public $channelList;
     protected $_name = [
         'channelList' => 'ChannelList',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->channelList)) {
-            Model::validateArray($this->channelList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->channelList) {
-            if (\is_array($this->channelList)) {
-                $res['ChannelList'] = [];
-                $n1 = 0;
-                foreach ($this->channelList as $item1) {
-                    $res['ChannelList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['ChannelList'] = [];
+            if (null !== $this->channelList && \is_array($this->channelList)) {
+                $n = 0;
+                foreach ($this->channelList as $item) {
+                    $res['ChannelList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -42,21 +34,20 @@ class channelList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return channelList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ChannelList'])) {
             if (!empty($map['ChannelList'])) {
                 $model->channelList = [];
-                $n1 = 0;
-                foreach ($map['ChannelList'] as $item1) {
-                    $model->channelList[$n1] = self::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['ChannelList'] as $item) {
+                    $model->channelList[$n++] = null !== $item ? channelList\channelList::fromMap($item) : $item;
                 }
             }
         }

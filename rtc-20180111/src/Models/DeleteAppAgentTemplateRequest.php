@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteAppAgentTemplateRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example ac7N****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 1213123142124124124214
+     *
      * @var string
      */
     public $id;
@@ -22,18 +30,14 @@ class DeleteAppAgentTemplateRequest extends Model
         'id' => 'Id',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
-
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
@@ -41,18 +45,17 @@ class DeleteAppAgentTemplateRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteAppAgentTemplateRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
-
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }

@@ -4,16 +4,22 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyAppRecordStatusRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example ac7N****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @example 53200b81-b761-4c10-842a-a0726xxxx
+     *
      * @var string
      */
     public $clientToken;
@@ -22,18 +28,14 @@ class ModifyAppRecordStatusRequest extends Model
         'clientToken' => 'ClientToken',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
-
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
@@ -41,18 +43,17 @@ class ModifyAppRecordStatusRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyAppRecordStatusRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
-
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }

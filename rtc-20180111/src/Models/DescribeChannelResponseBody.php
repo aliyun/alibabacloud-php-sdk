@@ -4,12 +4,14 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeChannelResponseBody\channel;
+use AlibabaCloud\Tea\Model;
 
 class DescribeChannelResponseBody extends Model
 {
     /**
+     * @description channel
+     *
      * @var channel
      */
     public $channel;
@@ -20,6 +22,8 @@ class DescribeChannelResponseBody extends Model
     public $channelExist;
 
     /**
+     * @example 16A96B9A-F203-4EC5-8E43-CB92E68F4CF8
+     *
      * @var string
      */
     public $requestId;
@@ -29,25 +33,17 @@ class DescribeChannelResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->channel) {
-            $this->channel->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->channel) {
-            $res['Channel'] = null !== $this->channel ? $this->channel->toArray($noStream) : $this->channel;
+            $res['Channel'] = null !== $this->channel ? $this->channel->toMap() : null;
         }
-
         if (null !== $this->channelExist) {
             $res['ChannelExist'] = $this->channelExist;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -55,22 +51,20 @@ class DescribeChannelResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeChannelResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Channel'])) {
             $model->channel = channel::fromMap($map['Channel']);
         }
-
         if (isset($map['ChannelExist'])) {
             $model->channelExist = $map['ChannelExist'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

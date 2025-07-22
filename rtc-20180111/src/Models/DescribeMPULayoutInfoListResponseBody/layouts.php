@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeMPULayoutInfoListResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeMPULayoutInfoListResponseBody\layouts\layout;
+use AlibabaCloud\Tea\Model;
 
 class layouts extends Model
 {
@@ -17,24 +17,17 @@ class layouts extends Model
         'layout' => 'Layout',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->layout)) {
-            Model::validateArray($this->layout);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->layout) {
-            if (\is_array($this->layout)) {
-                $res['Layout'] = [];
-                $n1 = 0;
-                foreach ($this->layout as $item1) {
-                    $res['Layout'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Layout'] = [];
+            if (null !== $this->layout && \is_array($this->layout)) {
+                $n = 0;
+                foreach ($this->layout as $item) {
+                    $res['Layout'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -42,21 +35,20 @@ class layouts extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return layouts
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Layout'])) {
             if (!empty($map['Layout'])) {
                 $model->layout = [];
-                $n1 = 0;
-                foreach ($map['Layout'] as $item1) {
-                    $model->layout[$n1] = layout::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Layout'] as $item) {
+                    $model->layout[$n++] = null !== $item ? layout::fromMap($item) : $item;
                 }
             }
         }

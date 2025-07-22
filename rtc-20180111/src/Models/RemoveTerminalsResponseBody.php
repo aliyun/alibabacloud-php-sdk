@@ -4,12 +4,14 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\RemoveTerminalsResponseBody\terminals;
+use AlibabaCloud\Tea\Model;
 
 class RemoveTerminalsResponseBody extends Model
 {
     /**
+     * @example 16A96B9A-F203-4EC5-8E43-CB92E68F4CD8
+     *
      * @var string
      */
     public $requestId;
@@ -23,40 +25,32 @@ class RemoveTerminalsResponseBody extends Model
         'terminals' => 'Terminals',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->terminals) {
-            $this->terminals->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->terminals) {
-            $res['Terminals'] = null !== $this->terminals ? $this->terminals->toArray($noStream) : $this->terminals;
+            $res['Terminals'] = null !== $this->terminals ? $this->terminals->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return RemoveTerminalsResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['Terminals'])) {
             $model->terminals = terminals::fromMap($map['Terminals']);
         }

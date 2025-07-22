@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppAgentTemplatesResponseBody\templates\asrConfig;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class wordWeights extends Model
 {
     /**
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $weight;
@@ -28,22 +32,17 @@ class wordWeights extends Model
         'word' => 'Word',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
-
         if (null !== $this->weight) {
             $res['Weight'] = $this->weight;
         }
-
         if (null !== $this->word) {
             $res['Word'] = $this->word;
         }
@@ -51,22 +50,20 @@ class wordWeights extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return wordWeights
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
-
         if (isset($map['Weight'])) {
             $model->weight = $map['Weight'];
         }
-
         if (isset($map['Word'])) {
             $model->word = $map['Word'];
         }

@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateAppAgentTemplateShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example ac7N****
+     *
      * @var string
      */
     public $appId;
@@ -19,6 +23,8 @@ class CreateAppAgentTemplateShrinkRequest extends Model
     public $asrConfigShrink;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $chatMode;
@@ -29,6 +35,8 @@ class CreateAppAgentTemplateShrinkRequest extends Model
     public $greeting;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $interruptMode;
@@ -39,6 +47,10 @@ class CreateAppAgentTemplateShrinkRequest extends Model
     public $llmConfigShrink;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 智能体模版
+     *
      * @var string
      */
     public $name;
@@ -49,6 +61,8 @@ class CreateAppAgentTemplateShrinkRequest extends Model
     public $ttsConfigShrink;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $type;
@@ -64,46 +78,35 @@ class CreateAppAgentTemplateShrinkRequest extends Model
         'type' => 'Type',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
-
         if (null !== $this->asrConfigShrink) {
             $res['AsrConfig'] = $this->asrConfigShrink;
         }
-
         if (null !== $this->chatMode) {
             $res['ChatMode'] = $this->chatMode;
         }
-
         if (null !== $this->greeting) {
             $res['Greeting'] = $this->greeting;
         }
-
         if (null !== $this->interruptMode) {
             $res['InterruptMode'] = $this->interruptMode;
         }
-
         if (null !== $this->llmConfigShrink) {
             $res['LlmConfig'] = $this->llmConfigShrink;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->ttsConfigShrink) {
             $res['TtsConfig'] = $this->ttsConfigShrink;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -111,46 +114,38 @@ class CreateAppAgentTemplateShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateAppAgentTemplateShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
-
         if (isset($map['AsrConfig'])) {
             $model->asrConfigShrink = $map['AsrConfig'];
         }
-
         if (isset($map['ChatMode'])) {
             $model->chatMode = $map['ChatMode'];
         }
-
         if (isset($map['Greeting'])) {
             $model->greeting = $map['Greeting'];
         }
-
         if (isset($map['InterruptMode'])) {
             $model->interruptMode = $map['InterruptMode'];
         }
-
         if (isset($map['LlmConfig'])) {
             $model->llmConfigShrink = $map['LlmConfig'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['TtsConfig'])) {
             $model->ttsConfigShrink = $map['TtsConfig'];
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

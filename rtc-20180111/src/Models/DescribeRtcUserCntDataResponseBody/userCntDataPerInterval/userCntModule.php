@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeRtcUserCntDataResponseBody\userCntDataPerInterval;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class userCntModule extends Model
 {
     /**
+     * @example 10
+     *
      * @var int
      */
     public $activeUserCnt;
 
     /**
+     * @example 2018-01-29T00:00:00Z
+     *
      * @var string
      */
     public $timeStamp;
@@ -22,18 +26,14 @@ class userCntModule extends Model
         'timeStamp' => 'TimeStamp',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->activeUserCnt) {
             $res['ActiveUserCnt'] = $this->activeUserCnt;
         }
-
         if (null !== $this->timeStamp) {
             $res['TimeStamp'] = $this->timeStamp;
         }
@@ -41,18 +41,17 @@ class userCntModule extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return userCntModule
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ActiveUserCnt'])) {
             $model->activeUserCnt = $map['ActiveUserCnt'];
         }
-
         if (isset($map['TimeStamp'])) {
             $model->timeStamp = $map['TimeStamp'];
         }

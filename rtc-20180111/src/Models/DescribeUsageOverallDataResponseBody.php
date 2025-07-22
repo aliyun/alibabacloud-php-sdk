@@ -4,12 +4,14 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeUsageOverallDataResponseBody\usageOverallData;
+use AlibabaCloud\Tea\Model;
 
 class DescribeUsageOverallDataResponseBody extends Model
 {
     /**
+     * @example 231470C1-ACFB-4C9F-844F-4CFE1E3804C5
+     *
      * @var string
      */
     public $requestId;
@@ -23,28 +25,20 @@ class DescribeUsageOverallDataResponseBody extends Model
         'usageOverallData' => 'UsageOverallData',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->usageOverallData)) {
-            Model::validateArray($this->usageOverallData);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->usageOverallData) {
-            if (\is_array($this->usageOverallData)) {
-                $res['UsageOverallData'] = [];
-                $n1 = 0;
-                foreach ($this->usageOverallData as $item1) {
-                    $res['UsageOverallData'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['UsageOverallData'] = [];
+            if (null !== $this->usageOverallData && \is_array($this->usageOverallData)) {
+                $n = 0;
+                foreach ($this->usageOverallData as $item) {
+                    $res['UsageOverallData'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -52,25 +46,23 @@ class DescribeUsageOverallDataResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeUsageOverallDataResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['UsageOverallData'])) {
             if (!empty($map['UsageOverallData'])) {
                 $model->usageOverallData = [];
-                $n1 = 0;
-                foreach ($map['UsageOverallData'] as $item1) {
-                    $model->usageOverallData[$n1] = usageOverallData::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['UsageOverallData'] as $item) {
+                    $model->usageOverallData[$n++] = null !== $item ? usageOverallData::fromMap($item) : $item;
                 }
             }
         }

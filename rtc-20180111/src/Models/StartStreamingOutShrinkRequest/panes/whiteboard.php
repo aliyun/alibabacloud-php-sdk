@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models\StartStreamingOutShrinkRequest\panes;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class whiteboard extends Model
 {
     /**
+     * @example default
+     *
      * @var string
      */
     public $whiteboardId;
@@ -16,12 +18,9 @@ class whiteboard extends Model
         'whiteboardId' => 'WhiteboardId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->whiteboardId) {
@@ -31,11 +30,11 @@ class whiteboard extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return whiteboard
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

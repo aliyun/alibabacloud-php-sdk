@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeRtcChannelListResponseBody\channelList\channelList;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class callArea extends Model
 {
@@ -16,47 +16,29 @@ class callArea extends Model
         'callArea' => 'CallArea',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->callArea)) {
-            Model::validateArray($this->callArea);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->callArea) {
-            if (\is_array($this->callArea)) {
-                $res['CallArea'] = [];
-                $n1 = 0;
-                foreach ($this->callArea as $item1) {
-                    $res['CallArea'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['CallArea'] = $this->callArea;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return callArea
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CallArea'])) {
             if (!empty($map['CallArea'])) {
-                $model->callArea = [];
-                $n1 = 0;
-                foreach ($map['CallArea'] as $item1) {
-                    $model->callArea[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->callArea = $map['CallArea'];
             }
         }
 

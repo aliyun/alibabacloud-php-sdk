@@ -4,26 +4,44 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeFaultDiagnosisOverallDataRequest extends Model
 {
     /**
+     * @description APP ID
+     *
+     * This parameter is required.
+     *
+     * @example 4eah****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 1615910399
+     *
      * @var int
      */
     public $endTs;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 1615824000
+     *
      * @var int
      */
     public $startTs;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example JOIN_SLOW_USER
+     *
      * @var string
      */
     public $statDim;
@@ -34,26 +52,20 @@ class DescribeFaultDiagnosisOverallDataRequest extends Model
         'statDim' => 'StatDim',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
-
         if (null !== $this->endTs) {
             $res['EndTs'] = $this->endTs;
         }
-
         if (null !== $this->startTs) {
             $res['StartTs'] = $this->startTs;
         }
-
         if (null !== $this->statDim) {
             $res['StatDim'] = $this->statDim;
         }
@@ -61,26 +73,23 @@ class DescribeFaultDiagnosisOverallDataRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeFaultDiagnosisOverallDataRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
-
         if (isset($map['EndTs'])) {
             $model->endTs = $map['EndTs'];
         }
-
         if (isset($map['StartTs'])) {
             $model->startTs = $map['StartTs'];
         }
-
         if (isset($map['StatDim'])) {
             $model->statDim = $map['StatDim'];
         }
