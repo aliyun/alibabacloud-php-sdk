@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20230930\Models\GetFundAccountAvailableAmountResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class originalCashAmountList extends Model
 {
     /**
+     * @example 10
+     *
      * @var string
      */
     public $amount;
 
     /**
+     * @example USD
+     *
      * @var string
      */
     public $currency;
@@ -22,18 +26,14 @@ class originalCashAmountList extends Model
         'currency' => 'Currency',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->amount) {
             $res['Amount'] = $this->amount;
         }
-
         if (null !== $this->currency) {
             $res['Currency'] = $this->currency;
         }
@@ -41,18 +41,17 @@ class originalCashAmountList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return originalCashAmountList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Amount'])) {
             $model->amount = $map['Amount'];
         }
-
         if (isset($map['Currency'])) {
             $model->currency = $map['Currency'];
         }

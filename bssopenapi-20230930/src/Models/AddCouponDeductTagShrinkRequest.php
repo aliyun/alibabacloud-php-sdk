@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20230930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class AddCouponDeductTagShrinkRequest extends Model
 {
@@ -34,26 +34,20 @@ class AddCouponDeductTagShrinkRequest extends Model
         'tagsShrink' => 'Tags',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->couponId) {
             $res['CouponId'] = $this->couponId;
         }
-
         if (null !== $this->ecIdAccountIdsShrink) {
             $res['EcIdAccountIds'] = $this->ecIdAccountIdsShrink;
         }
-
         if (null !== $this->nbid) {
             $res['Nbid'] = $this->nbid;
         }
-
         if (null !== $this->tagsShrink) {
             $res['Tags'] = $this->tagsShrink;
         }
@@ -61,26 +55,23 @@ class AddCouponDeductTagShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return AddCouponDeductTagShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CouponId'])) {
             $model->couponId = $map['CouponId'];
         }
-
         if (isset($map['EcIdAccountIds'])) {
             $model->ecIdAccountIdsShrink = $map['EcIdAccountIds'];
         }
-
         if (isset($map['Nbid'])) {
             $model->nbid = $map['Nbid'];
         }
-
         if (isset($map['Tags'])) {
             $model->tagsShrink = $map['Tags'];
         }

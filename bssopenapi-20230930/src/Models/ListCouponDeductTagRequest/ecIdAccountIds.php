@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20230930\Models\ListCouponDeductTagRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ecIdAccountIds extends Model
 {
@@ -14,6 +14,8 @@ class ecIdAccountIds extends Model
     public $accountIds;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $ecId;
@@ -22,27 +24,14 @@ class ecIdAccountIds extends Model
         'ecId' => 'EcId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->accountIds)) {
-            Model::validateArray($this->accountIds);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->accountIds) {
-            if (\is_array($this->accountIds)) {
-                $res['AccountIds'] = [];
-                $n1 = 0;
-                foreach ($this->accountIds as $item1) {
-                    $res['AccountIds'][$n1++] = $item1;
-                }
-            }
+            $res['AccountIds'] = $this->accountIds;
         }
-
         if (null !== $this->ecId) {
             $res['EcId'] = $this->ecId;
         }
@@ -50,24 +39,19 @@ class ecIdAccountIds extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ecIdAccountIds
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccountIds'])) {
             if (!empty($map['AccountIds'])) {
-                $model->accountIds = [];
-                $n1 = 0;
-                foreach ($map['AccountIds'] as $item1) {
-                    $model->accountIds[$n1++] = $item1;
-                }
+                $model->accountIds = $map['AccountIds'];
             }
         }
-
         if (isset($map['EcId'])) {
             $model->ecId = $map['EcId'];
         }

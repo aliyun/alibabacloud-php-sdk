@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20230930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetFundAccountCanAllocateCreditAmountRequest extends Model
 {
     /**
+     * @example 1233231
+     *
      * @var int
      */
     public $fundAccountId;
@@ -16,12 +18,9 @@ class GetFundAccountCanAllocateCreditAmountRequest extends Model
         'fundAccountId' => 'FundAccountId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->fundAccountId) {
@@ -31,11 +30,11 @@ class GetFundAccountCanAllocateCreditAmountRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetFundAccountCanAllocateCreditAmountRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

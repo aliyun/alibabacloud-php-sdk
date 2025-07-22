@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20230930\Models\DescribeUserSpnSummaryInfoResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class regionList extends Model
 {
@@ -22,18 +22,14 @@ class regionList extends Model
         'regionName' => 'RegionName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->regionCode) {
             $res['RegionCode'] = $this->regionCode;
         }
-
         if (null !== $this->regionName) {
             $res['RegionName'] = $this->regionName;
         }
@@ -41,18 +37,17 @@ class regionList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return regionList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RegionCode'])) {
             $model->regionCode = $map['RegionCode'];
         }
-
         if (isset($map['RegionName'])) {
             $model->regionName = $map['RegionName'];
         }

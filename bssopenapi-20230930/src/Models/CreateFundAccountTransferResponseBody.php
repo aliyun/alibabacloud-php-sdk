@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20230930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateFundAccountTransferResponseBody extends Model
 {
     /**
+     * @example {}
+     *
      * @var mixed
      */
     public $metadata;
 
     /**
+     * @example 1BB79-5B23-3EA-BB4F-352F93E
+     *
      * @var string
      */
     public $requestId;
@@ -22,18 +26,14 @@ class CreateFundAccountTransferResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->metadata) {
             $res['Metadata'] = $this->metadata;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -41,18 +41,17 @@ class CreateFundAccountTransferResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateFundAccountTransferResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Metadata'])) {
             $model->metadata = $map['Metadata'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

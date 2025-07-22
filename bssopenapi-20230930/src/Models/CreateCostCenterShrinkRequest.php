@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20230930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateCostCenterShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $costCenterEntityListShrink;
 
     /**
+     * @example 2084210001
+     *
      * @var string
      */
     public $nbid;
@@ -22,18 +26,14 @@ class CreateCostCenterShrinkRequest extends Model
         'nbid' => 'Nbid',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->costCenterEntityListShrink) {
             $res['CostCenterEntityList'] = $this->costCenterEntityListShrink;
         }
-
         if (null !== $this->nbid) {
             $res['Nbid'] = $this->nbid;
         }
@@ -41,18 +41,17 @@ class CreateCostCenterShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateCostCenterShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CostCenterEntityList'])) {
             $model->costCenterEntityListShrink = $map['CostCenterEntityList'];
         }
-
         if (isset($map['Nbid'])) {
             $model->nbid = $map['Nbid'];
         }

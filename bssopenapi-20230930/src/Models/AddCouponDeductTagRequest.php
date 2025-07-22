@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20230930\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\AddCouponDeductTagRequest\ecIdAccountIds;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\AddCouponDeductTagRequest\tags;
+use AlibabaCloud\Tea\Model;
 
 class AddCouponDeductTagRequest extends Model
 {
@@ -36,44 +36,32 @@ class AddCouponDeductTagRequest extends Model
         'tags' => 'Tags',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->ecIdAccountIds)) {
-            Model::validateArray($this->ecIdAccountIds);
-        }
-        if (\is_array($this->tags)) {
-            Model::validateArray($this->tags);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->couponId) {
             $res['CouponId'] = $this->couponId;
         }
-
         if (null !== $this->ecIdAccountIds) {
-            if (\is_array($this->ecIdAccountIds)) {
-                $res['EcIdAccountIds'] = [];
-                $n1 = 0;
-                foreach ($this->ecIdAccountIds as $item1) {
-                    $res['EcIdAccountIds'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['EcIdAccountIds'] = [];
+            if (null !== $this->ecIdAccountIds && \is_array($this->ecIdAccountIds)) {
+                $n = 0;
+                foreach ($this->ecIdAccountIds as $item) {
+                    $res['EcIdAccountIds'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->nbid) {
             $res['Nbid'] = $this->nbid;
         }
-
         if (null !== $this->tags) {
-            if (\is_array($this->tags)) {
-                $res['Tags'] = [];
-                $n1 = 0;
-                foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -81,38 +69,35 @@ class AddCouponDeductTagRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return AddCouponDeductTagRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CouponId'])) {
             $model->couponId = $map['CouponId'];
         }
-
         if (isset($map['EcIdAccountIds'])) {
             if (!empty($map['EcIdAccountIds'])) {
                 $model->ecIdAccountIds = [];
-                $n1 = 0;
-                foreach ($map['EcIdAccountIds'] as $item1) {
-                    $model->ecIdAccountIds[$n1++] = ecIdAccountIds::fromMap($item1);
+                $n = 0;
+                foreach ($map['EcIdAccountIds'] as $item) {
+                    $model->ecIdAccountIds[$n++] = null !== $item ? ecIdAccountIds::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['Nbid'])) {
             $model->nbid = $map['Nbid'];
         }
-
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1 = 0;
-                foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                $n = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
                 }
             }
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20230930\Models\GetSavingPlanShareAccountsResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class shareTimeList extends Model
 {
@@ -22,18 +22,14 @@ class shareTimeList extends Model
         'shareStartTime' => 'ShareStartTime',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->shareEndTime) {
             $res['ShareEndTime'] = $this->shareEndTime;
         }
-
         if (null !== $this->shareStartTime) {
             $res['ShareStartTime'] = $this->shareStartTime;
         }
@@ -41,18 +37,17 @@ class shareTimeList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return shareTimeList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ShareEndTime'])) {
             $model->shareEndTime = $map['ShareEndTime'];
         }
-
         if (isset($map['ShareStartTime'])) {
             $model->shareStartTime = $map['ShareStartTime'];
         }

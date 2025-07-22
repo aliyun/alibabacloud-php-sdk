@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20230930\Models\DescribeCouponResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class shareUidList extends Model
 {
     /**
+     * @example 1902671110151254
+     *
      * @var string
      */
     public $uid;
@@ -22,18 +24,14 @@ class shareUidList extends Model
         'userNick' => 'UserNick',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->uid) {
             $res['Uid'] = $this->uid;
         }
-
         if (null !== $this->userNick) {
             $res['UserNick'] = $this->userNick;
         }
@@ -41,18 +39,17 @@ class shareUidList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return shareUidList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Uid'])) {
             $model->uid = $map['Uid'];
         }
-
         if (isset($map['UserNick'])) {
             $model->userNick = $map['UserNick'];
         }

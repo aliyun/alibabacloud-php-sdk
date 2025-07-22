@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20230930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetSavingPlanUserDeductRuleShrinkRequest extends Model
 {
@@ -40,30 +40,23 @@ class GetSavingPlanUserDeductRuleShrinkRequest extends Model
         'spnInstanceCode' => 'SpnInstanceCode',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
-
         if (null !== $this->ecIdAccountIdsShrink) {
             $res['EcIdAccountIds'] = $this->ecIdAccountIdsShrink;
         }
-
         if (null !== $this->nbid) {
             $res['Nbid'] = $this->nbid;
         }
-
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-
         if (null !== $this->spnInstanceCode) {
             $res['SpnInstanceCode'] = $this->spnInstanceCode;
         }
@@ -71,30 +64,26 @@ class GetSavingPlanUserDeductRuleShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetSavingPlanUserDeductRuleShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
-
         if (isset($map['EcIdAccountIds'])) {
             $model->ecIdAccountIdsShrink = $map['EcIdAccountIds'];
         }
-
         if (isset($map['Nbid'])) {
             $model->nbid = $map['Nbid'];
         }
-
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-
         if (isset($map['SpnInstanceCode'])) {
             $model->spnInstanceCode = $map['SpnInstanceCode'];
         }

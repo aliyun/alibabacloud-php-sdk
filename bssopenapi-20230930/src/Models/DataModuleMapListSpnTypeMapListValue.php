@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20230930\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\DataModuleMapListSpnTypeMapListValue\filterModules;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\DataModuleMapListSpnTypeMapListValue\showModules;
+use AlibabaCloud\Tea\Model;
 
 class DataModuleMapListSpnTypeMapListValue extends Model
 {
@@ -24,36 +24,26 @@ class DataModuleMapListSpnTypeMapListValue extends Model
         'showModules' => 'ShowModules',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->filterModules)) {
-            Model::validateArray($this->filterModules);
-        }
-        if (\is_array($this->showModules)) {
-            Model::validateArray($this->showModules);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->filterModules) {
-            if (\is_array($this->filterModules)) {
-                $res['FilterModules'] = [];
-                $n1 = 0;
-                foreach ($this->filterModules as $item1) {
-                    $res['FilterModules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['FilterModules'] = [];
+            if (null !== $this->filterModules && \is_array($this->filterModules)) {
+                $n = 0;
+                foreach ($this->filterModules as $item) {
+                    $res['FilterModules'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->showModules) {
-            if (\is_array($this->showModules)) {
-                $res['ShowModules'] = [];
-                $n1 = 0;
-                foreach ($this->showModules as $item1) {
-                    $res['ShowModules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['ShowModules'] = [];
+            if (null !== $this->showModules && \is_array($this->showModules)) {
+                $n = 0;
+                foreach ($this->showModules as $item) {
+                    $res['ShowModules'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -61,30 +51,29 @@ class DataModuleMapListSpnTypeMapListValue extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DataModuleMapListSpnTypeMapListValue
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FilterModules'])) {
             if (!empty($map['FilterModules'])) {
                 $model->filterModules = [];
-                $n1 = 0;
-                foreach ($map['FilterModules'] as $item1) {
-                    $model->filterModules[$n1++] = filterModules::fromMap($item1);
+                $n = 0;
+                foreach ($map['FilterModules'] as $item) {
+                    $model->filterModules[$n++] = null !== $item ? filterModules::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['ShowModules'])) {
             if (!empty($map['ShowModules'])) {
                 $model->showModules = [];
-                $n1 = 0;
-                foreach ($map['ShowModules'] as $item1) {
-                    $model->showModules[$n1++] = showModules::fromMap($item1);
+                $n = 0;
+                foreach ($map['ShowModules'] as $item) {
+                    $model->showModules[$n++] = null !== $item ? showModules::fromMap($item) : $item;
                 }
             }
         }

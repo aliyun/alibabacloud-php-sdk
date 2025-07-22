@@ -4,21 +4,31 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20230930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteCostCenterRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 485938
+     *
      * @var int
      */
     public $costCenterId;
 
     /**
+     * @example 2684201000001
+     *
      * @var string
      */
     public $nbid;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 1314839403940987
+     *
      * @var int
      */
     public $ownerAccountId;
@@ -28,22 +38,17 @@ class DeleteCostCenterRequest extends Model
         'ownerAccountId' => 'OwnerAccountId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->costCenterId) {
             $res['CostCenterId'] = $this->costCenterId;
         }
-
         if (null !== $this->nbid) {
             $res['Nbid'] = $this->nbid;
         }
-
         if (null !== $this->ownerAccountId) {
             $res['OwnerAccountId'] = $this->ownerAccountId;
         }
@@ -51,22 +56,20 @@ class DeleteCostCenterRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteCostCenterRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CostCenterId'])) {
             $model->costCenterId = $map['CostCenterId'];
         }
-
         if (isset($map['Nbid'])) {
             $model->nbid = $map['Nbid'];
         }
-
         if (isset($map['OwnerAccountId'])) {
             $model->ownerAccountId = $map['OwnerAccountId'];
         }

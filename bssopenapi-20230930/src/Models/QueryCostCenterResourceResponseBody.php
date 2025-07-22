@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20230930\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\QueryCostCenterResourceResponseBody\costCenterResourceDtoList;
+use AlibabaCloud\Tea\Model;
 
 class QueryCostCenterResourceResponseBody extends Model
 {
@@ -15,26 +15,38 @@ class QueryCostCenterResourceResponseBody extends Model
     public $costCenterResourceDtoList;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example {}
+     *
      * @var mixed
      */
     public $metadata;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example eyJwYWdlTnVtIjoyLCJwYWdlU2l6ZSI6MTB9
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example 79EE7556-0CFD-44EB-9CD6-B3B526E3A85F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 2000
+     *
      * @var int
      */
     public $totalCount;
@@ -47,43 +59,32 @@ class QueryCostCenterResourceResponseBody extends Model
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->costCenterResourceDtoList)) {
-            Model::validateArray($this->costCenterResourceDtoList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->costCenterResourceDtoList) {
-            if (\is_array($this->costCenterResourceDtoList)) {
-                $res['CostCenterResourceDtoList'] = [];
-                $n1 = 0;
-                foreach ($this->costCenterResourceDtoList as $item1) {
-                    $res['CostCenterResourceDtoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['CostCenterResourceDtoList'] = [];
+            if (null !== $this->costCenterResourceDtoList && \is_array($this->costCenterResourceDtoList)) {
+                $n = 0;
+                foreach ($this->costCenterResourceDtoList as $item) {
+                    $res['CostCenterResourceDtoList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
-
         if (null !== $this->metadata) {
             $res['Metadata'] = $this->metadata;
         }
-
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -91,40 +92,35 @@ class QueryCostCenterResourceResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return QueryCostCenterResourceResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CostCenterResourceDtoList'])) {
             if (!empty($map['CostCenterResourceDtoList'])) {
                 $model->costCenterResourceDtoList = [];
-                $n1 = 0;
-                foreach ($map['CostCenterResourceDtoList'] as $item1) {
-                    $model->costCenterResourceDtoList[$n1++] = costCenterResourceDtoList::fromMap($item1);
+                $n = 0;
+                foreach ($map['CostCenterResourceDtoList'] as $item) {
+                    $model->costCenterResourceDtoList[$n++] = null !== $item ? costCenterResourceDtoList::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
-
         if (isset($map['Metadata'])) {
             $model->metadata = $map['Metadata'];
         }
-
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

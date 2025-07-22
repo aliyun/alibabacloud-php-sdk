@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20230930\Models\GetSavingPlanDeductableCommodityResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class filterModules extends Model
 {
@@ -28,22 +28,17 @@ class filterModules extends Model
         'moduleName' => 'ModuleName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->moduleCode) {
             $res['ModuleCode'] = $this->moduleCode;
         }
-
         if (null !== $this->moduleId) {
             $res['ModuleId'] = $this->moduleId;
         }
-
         if (null !== $this->moduleName) {
             $res['ModuleName'] = $this->moduleName;
         }
@@ -51,22 +46,20 @@ class filterModules extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return filterModules
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ModuleCode'])) {
             $model->moduleCode = $map['ModuleCode'];
         }
-
         if (isset($map['ModuleId'])) {
             $model->moduleId = $map['ModuleId'];
         }
-
         if (isset($map['ModuleName'])) {
             $model->moduleName = $map['ModuleName'];
         }

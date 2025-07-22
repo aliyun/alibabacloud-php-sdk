@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20230930\Models\CreateCostCenterResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class costCenterDtoList extends Model
 {
     /**
+     * @example 485938
+     *
      * @var int
      */
     public $costCenterId;
@@ -19,11 +21,15 @@ class costCenterDtoList extends Model
     public $costCenterName;
 
     /**
+     * @example 1314839403940987
+     *
      * @var int
      */
     public $ownerAccountId;
 
     /**
+     * @example -1
+     *
      * @var int
      */
     public $parentCostCenterId;
@@ -34,26 +40,20 @@ class costCenterDtoList extends Model
         'parentCostCenterId' => 'ParentCostCenterId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->costCenterId) {
             $res['CostCenterId'] = $this->costCenterId;
         }
-
         if (null !== $this->costCenterName) {
             $res['CostCenterName'] = $this->costCenterName;
         }
-
         if (null !== $this->ownerAccountId) {
             $res['OwnerAccountId'] = $this->ownerAccountId;
         }
-
         if (null !== $this->parentCostCenterId) {
             $res['ParentCostCenterId'] = $this->parentCostCenterId;
         }
@@ -61,26 +61,23 @@ class costCenterDtoList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return costCenterDtoList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CostCenterId'])) {
             $model->costCenterId = $map['CostCenterId'];
         }
-
         if (isset($map['CostCenterName'])) {
             $model->costCenterName = $map['CostCenterName'];
         }
-
         if (isset($map['OwnerAccountId'])) {
             $model->ownerAccountId = $map['OwnerAccountId'];
         }
-
         if (isset($map['ParentCostCenterId'])) {
             $model->parentCostCenterId = $map['ParentCostCenterId'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20230930\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\DeleteCouponDeductTagRequest\ecIdAccountIds;
+use AlibabaCloud\Tea\Model;
 
 class DeleteCouponDeductTagRequest extends Model
 {
@@ -35,84 +35,59 @@ class DeleteCouponDeductTagRequest extends Model
         'tagKeys' => 'TagKeys',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->ecIdAccountIds)) {
-            Model::validateArray($this->ecIdAccountIds);
-        }
-        if (\is_array($this->tagKeys)) {
-            Model::validateArray($this->tagKeys);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->couponId) {
             $res['CouponId'] = $this->couponId;
         }
-
         if (null !== $this->ecIdAccountIds) {
-            if (\is_array($this->ecIdAccountIds)) {
-                $res['EcIdAccountIds'] = [];
-                $n1 = 0;
-                foreach ($this->ecIdAccountIds as $item1) {
-                    $res['EcIdAccountIds'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['EcIdAccountIds'] = [];
+            if (null !== $this->ecIdAccountIds && \is_array($this->ecIdAccountIds)) {
+                $n = 0;
+                foreach ($this->ecIdAccountIds as $item) {
+                    $res['EcIdAccountIds'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->nbid) {
             $res['Nbid'] = $this->nbid;
         }
-
         if (null !== $this->tagKeys) {
-            if (\is_array($this->tagKeys)) {
-                $res['TagKeys'] = [];
-                $n1 = 0;
-                foreach ($this->tagKeys as $item1) {
-                    $res['TagKeys'][$n1++] = $item1;
-                }
-            }
+            $res['TagKeys'] = $this->tagKeys;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteCouponDeductTagRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CouponId'])) {
             $model->couponId = $map['CouponId'];
         }
-
         if (isset($map['EcIdAccountIds'])) {
             if (!empty($map['EcIdAccountIds'])) {
                 $model->ecIdAccountIds = [];
-                $n1 = 0;
-                foreach ($map['EcIdAccountIds'] as $item1) {
-                    $model->ecIdAccountIds[$n1++] = ecIdAccountIds::fromMap($item1);
+                $n = 0;
+                foreach ($map['EcIdAccountIds'] as $item) {
+                    $model->ecIdAccountIds[$n++] = null !== $item ? ecIdAccountIds::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['Nbid'])) {
             $model->nbid = $map['Nbid'];
         }
-
         if (isset($map['TagKeys'])) {
             if (!empty($map['TagKeys'])) {
-                $model->tagKeys = [];
-                $n1 = 0;
-                foreach ($map['TagKeys'] as $item1) {
-                    $model->tagKeys[$n1++] = $item1;
-                }
+                $model->tagKeys = $map['TagKeys'];
             }
         }
 

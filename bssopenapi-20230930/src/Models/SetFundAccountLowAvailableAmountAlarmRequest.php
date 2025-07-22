@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20230930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class SetFundAccountLowAvailableAmountAlarmRequest extends Model
 {
     /**
+     * @example 12321213
+     *
      * @var int
      */
     public $fundAccountId;
 
     /**
+     * @example 100
+     *
      * @var string
      */
     public $thresholdAmount;
@@ -22,18 +26,14 @@ class SetFundAccountLowAvailableAmountAlarmRequest extends Model
         'thresholdAmount' => 'ThresholdAmount',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->fundAccountId) {
             $res['FundAccountId'] = $this->fundAccountId;
         }
-
         if (null !== $this->thresholdAmount) {
             $res['ThresholdAmount'] = $this->thresholdAmount;
         }
@@ -41,18 +41,17 @@ class SetFundAccountLowAvailableAmountAlarmRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return SetFundAccountLowAvailableAmountAlarmRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FundAccountId'])) {
             $model->fundAccountId = $map['FundAccountId'];
         }
-
         if (isset($map['ThresholdAmount'])) {
             $model->thresholdAmount = $map['ThresholdAmount'];
         }

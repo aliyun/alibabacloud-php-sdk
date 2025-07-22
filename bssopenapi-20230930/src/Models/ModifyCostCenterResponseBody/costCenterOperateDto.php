@@ -4,21 +4,27 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20230930\Models\ModifyCostCenterResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class costCenterOperateDto extends Model
 {
     /**
+     * @example 485938
+     *
      * @var int
      */
     public $costCenterId;
 
     /**
+     * @example True
+     *
      * @var bool
      */
     public $isSuccess;
 
     /**
+     * @example 1314839403940987
+     *
      * @var int
      */
     public $ownerAccountId;
@@ -28,22 +34,17 @@ class costCenterOperateDto extends Model
         'ownerAccountId' => 'OwnerAccountId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->costCenterId) {
             $res['CostCenterId'] = $this->costCenterId;
         }
-
         if (null !== $this->isSuccess) {
             $res['IsSuccess'] = $this->isSuccess;
         }
-
         if (null !== $this->ownerAccountId) {
             $res['OwnerAccountId'] = $this->ownerAccountId;
         }
@@ -51,22 +52,20 @@ class costCenterOperateDto extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return costCenterOperateDto
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CostCenterId'])) {
             $model->costCenterId = $map['CostCenterId'];
         }
-
         if (isset($map['IsSuccess'])) {
             $model->isSuccess = $map['IsSuccess'];
         }
-
         if (isset($map['OwnerAccountId'])) {
             $model->ownerAccountId = $map['OwnerAccountId'];
         }
