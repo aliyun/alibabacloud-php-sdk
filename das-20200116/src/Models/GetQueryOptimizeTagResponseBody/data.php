@@ -4,21 +4,33 @@
 
 namespace AlibabaCloud\SDK\DAS\V20200116\Models\GetQueryOptimizeTagResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description The remarks.
+     *
+     * @example Slow SQL queries of offline synchronization. No optimization is required.
+     *
      * @var string
      */
     public $comments;
 
     /**
+     * @description The SQL template ID.
+     *
+     * @example 651b56fe9418d48edb8fdf0980ec****
+     *
      * @var string
      */
     public $sqlId;
 
     /**
+     * @description The SQL tags. Multiple tags are separated by commas (,).
+     *
+     * @example DAS_IN_PLAN,DAS_NOT_IMPORTANT
+     *
      * @var string
      */
     public $tags;
@@ -28,22 +40,17 @@ class data extends Model
         'tags' => 'Tags',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->comments) {
             $res['Comments'] = $this->comments;
         }
-
         if (null !== $this->sqlId) {
             $res['SqlId'] = $this->sqlId;
         }
-
         if (null !== $this->tags) {
             $res['Tags'] = $this->tags;
         }
@@ -51,22 +58,20 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Comments'])) {
             $model->comments = $map['Comments'];
         }
-
         if (isset($map['SqlId'])) {
             $model->sqlId = $map['SqlId'];
         }
-
         if (isset($map['Tags'])) {
             $model->tags = $map['Tags'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\DAS\V20200116\Models\GetAutonomousNotifyEventsInRangeResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class list_ extends Model
 {
@@ -16,47 +16,29 @@ class list_ extends Model
         't' => 'T',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->t)) {
-            Model::validateArray($this->t);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->t) {
-            if (\is_array($this->t)) {
-                $res['T'] = [];
-                $n1 = 0;
-                foreach ($this->t as $item1) {
-                    $res['T'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['T'] = $this->t;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return list_
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['T'])) {
             if (!empty($map['T'])) {
-                $model->t = [];
-                $n1 = 0;
-                foreach ($map['T'] as $item1) {
-                    $model->t[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->t = $map['T'];
             }
         }
 

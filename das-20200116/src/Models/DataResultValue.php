@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\DAS\V20200116\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DataResultValue extends Model
 {
@@ -28,22 +28,17 @@ class DataResultValue extends Model
         'count' => 'count',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->sqlId) {
             $res['sqlId'] = $this->sqlId;
         }
-
         if (null !== $this->instanceId) {
             $res['instanceId'] = $this->instanceId;
         }
-
         if (null !== $this->count) {
             $res['count'] = $this->count;
         }
@@ -51,22 +46,20 @@ class DataResultValue extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DataResultValue
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['sqlId'])) {
             $model->sqlId = $map['sqlId'];
         }
-
         if (isset($map['instanceId'])) {
             $model->instanceId = $map['instanceId'];
         }
-
         if (isset($map['count'])) {
             $model->count = $map['count'];
         }

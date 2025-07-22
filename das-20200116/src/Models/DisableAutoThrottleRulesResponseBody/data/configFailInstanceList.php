@@ -4,21 +4,37 @@
 
 namespace AlibabaCloud\SDK\DAS\V20200116\Models\DisableAutoThrottleRulesResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class configFailInstanceList extends Model
 {
     /**
+     * @description Indicates whether the automatic SQL throttling feature is disabled. Valid values:
+     *
+     * **true**
+     *
+     * **false**
+     *
+     * @example false
+     *
      * @var bool
      */
     public $configSuccess;
 
     /**
+     * @description The error message returned.
+     *
+     * @example cannot found instance by rm-2ze9xrhze0709****
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The database instance ID.
+     *
+     * @example rm-2ze9xrhze0709****
+     *
      * @var string
      */
     public $instanceId;
@@ -28,22 +44,17 @@ class configFailInstanceList extends Model
         'instanceId' => 'InstanceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->configSuccess) {
             $res['ConfigSuccess'] = $this->configSuccess;
         }
-
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
-
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -51,22 +62,20 @@ class configFailInstanceList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return configFailInstanceList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConfigSuccess'])) {
             $model->configSuccess = $map['ConfigSuccess'];
         }
-
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
-
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

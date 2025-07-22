@@ -4,16 +4,22 @@
 
 namespace AlibabaCloud\SDK\DAS\V20200116\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateLatestDeadLockAnalysisRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example pc-bp1u5mas9exx7****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example pi-bp16v3824rt73****
+     *
      * @var string
      */
     public $nodeId;
@@ -22,18 +28,14 @@ class CreateLatestDeadLockAnalysisRequest extends Model
         'nodeId' => 'NodeId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
         }
@@ -41,18 +43,17 @@ class CreateLatestDeadLockAnalysisRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateLatestDeadLockAnalysisRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
         }

@@ -4,7 +4,8 @@
 
 namespace AlibabaCloud\SDK\DAS\V20200116;
 
-use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\DAS\V20200116\Models\AddHDMInstanceRequest;
 use AlibabaCloud\SDK\DAS\V20200116\Models\AddHDMInstanceResponse;
 use AlibabaCloud\SDK\DAS\V20200116\Models\CreateCacheAnalysisJobRequest;
@@ -209,10 +210,11 @@ use AlibabaCloud\SDK\DAS\V20200116\Models\UpdateAutoSqlOptimizeStatusRequest;
 use AlibabaCloud\SDK\DAS\V20200116\Models\UpdateAutoSqlOptimizeStatusResponse;
 use AlibabaCloud\SDK\DAS\V20200116\Models\UpdateAutoThrottleRulesAsyncRequest;
 use AlibabaCloud\SDK\DAS\V20200116\Models\UpdateAutoThrottleRulesAsyncResponse;
+use AlibabaCloud\Tea\Utils\Utils;
+use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
-use Darabonba\OpenApi\Utils;
 
 class DAS extends OpenApiClient
 {
@@ -240,93 +242,73 @@ class DAS extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (null !== $endpoint) {
+        if (!Utils::empty_($endpoint)) {
             return $endpoint;
         }
-
-        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
+        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
             return @$endpointMap[$regionId];
         }
 
-        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * Adds a database instance to Database Autonomy Service (DAS).
-     *
-     * @remarks
-     * Before you call this operation, take note of the following items:
+     * @summary Adds a database instance to Database Autonomy Service (DAS).
+     *  *
+     * @description Before you call this operation, take note of the following items:
      * *   If you use an Alibaba Cloud SDK or a DAS SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call DAS, you must set the region to cn-shanghai.
+     *  *
+     * @param AddHDMInstanceRequest $request AddHDMInstanceRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - AddHDMInstanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns AddHDMInstanceResponse
-     *
-     * @param AddHDMInstanceRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return AddHDMInstanceResponse
+     * @return AddHDMInstanceResponse AddHDMInstanceResponse
      */
     public function addHDMInstanceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->engine) {
-            @$query['Engine'] = $request->engine;
+        if (!Utils::isUnset($request->engine)) {
+            $query['Engine'] = $request->engine;
         }
-
-        if (null !== $request->flushAccount) {
-            @$query['FlushAccount'] = $request->flushAccount;
+        if (!Utils::isUnset($request->flushAccount)) {
+            $query['FlushAccount'] = $request->flushAccount;
         }
-
-        if (null !== $request->instanceAlias) {
-            @$query['InstanceAlias'] = $request->instanceAlias;
+        if (!Utils::isUnset($request->instanceAlias)) {
+            $query['InstanceAlias'] = $request->instanceAlias;
         }
-
-        if (null !== $request->instanceArea) {
-            @$query['InstanceArea'] = $request->instanceArea;
+        if (!Utils::isUnset($request->instanceArea)) {
+            $query['InstanceArea'] = $request->instanceArea;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->ip) {
-            @$query['Ip'] = $request->ip;
+        if (!Utils::isUnset($request->ip)) {
+            $query['Ip'] = $request->ip;
         }
-
-        if (null !== $request->networkType) {
-            @$query['NetworkType'] = $request->networkType;
+        if (!Utils::isUnset($request->networkType)) {
+            $query['NetworkType'] = $request->networkType;
         }
-
-        if (null !== $request->password) {
-            @$query['Password'] = $request->password;
+        if (!Utils::isUnset($request->password)) {
+            $query['Password'] = $request->password;
         }
-
-        if (null !== $request->port) {
-            @$query['Port'] = $request->port;
+        if (!Utils::isUnset($request->port)) {
+            $query['Port'] = $request->port;
         }
-
-        if (null !== $request->region) {
-            @$query['Region'] = $request->region;
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
         }
-
-        if (null !== $request->username) {
-            @$query['Username'] = $request->username;
+        if (!Utils::isUnset($request->username)) {
+            $query['Username'] = $request->username;
         }
-
-        if (null !== $request->vpcId) {
-            @$query['VpcId'] = $request->vpcId;
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
         }
-
-        if (null !== $request->context) {
-            @$query['__context'] = $request->context;
+        if (!Utils::isUnset($request->context)) {
+            $query['__context'] = $request->context;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'AddHDMInstance',
@@ -344,20 +326,15 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Adds a database instance to Database Autonomy Service (DAS).
-     *
-     * @remarks
-     * Before you call this operation, take note of the following items:
+     * @summary Adds a database instance to Database Autonomy Service (DAS).
+     *  *
+     * @description Before you call this operation, take note of the following items:
      * *   If you use an Alibaba Cloud SDK or a DAS SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call DAS, you must set the region to cn-shanghai.
+     *  *
+     * @param AddHDMInstanceRequest $request AddHDMInstanceRequest
      *
-     * @param request - AddHDMInstanceRequest
-     *
-     * @returns AddHDMInstanceResponse
-     *
-     * @param AddHDMInstanceRequest $request
-     *
-     * @return AddHDMInstanceResponse
+     * @return AddHDMInstanceResponse AddHDMInstanceResponse
      */
     public function addHDMInstance($request)
     {
@@ -367,48 +344,38 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Creates a cache analysis task.
-     *
-     * @remarks
-     * Before you call this operation, take note of the following items:
+     * @summary Creates a cache analysis task.
+     *  *
+     * @description Before you call this operation, take note of the following items:
      * *   If you use an Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call the API operations of DAS, you must set the region ID to cn-shanghai.
      * *   You can call this operation to analyze the data structures of ApsaraDB for Redis and the following self-developed data structures of Tair: TairString, TairHash, TairGIS, TairBloom, TairDoc, TairCpc, and TairZset. Other self-developed Tair data structures are not supported.
      * *   If the specifications of the database instance that you want to analyze are changed, the backup file generated before the specification change cannot be analyzed.
      * *   Tair ESSD/SSD-based instances are not supported.
+     *  *
+     * @param CreateCacheAnalysisJobRequest $request CreateCacheAnalysisJobRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateCacheAnalysisJobRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateCacheAnalysisJobResponse
-     *
-     * @param CreateCacheAnalysisJobRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return CreateCacheAnalysisJobResponse
+     * @return CreateCacheAnalysisJobResponse CreateCacheAnalysisJobResponse
      */
     public function createCacheAnalysisJobWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->backupSetId) {
-            @$query['BackupSetId'] = $request->backupSetId;
+        if (!Utils::isUnset($request->backupSetId)) {
+            $query['BackupSetId'] = $request->backupSetId;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->nodeId) {
-            @$query['NodeId'] = $request->nodeId;
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
         }
-
-        if (null !== $request->separators) {
-            @$query['Separators'] = $request->separators;
+        if (!Utils::isUnset($request->separators)) {
+            $query['Separators'] = $request->separators;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateCacheAnalysisJob',
@@ -426,23 +393,18 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Creates a cache analysis task.
-     *
-     * @remarks
-     * Before you call this operation, take note of the following items:
+     * @summary Creates a cache analysis task.
+     *  *
+     * @description Before you call this operation, take note of the following items:
      * *   If you use an Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call the API operations of DAS, you must set the region ID to cn-shanghai.
      * *   You can call this operation to analyze the data structures of ApsaraDB for Redis and the following self-developed data structures of Tair: TairString, TairHash, TairGIS, TairBloom, TairDoc, TairCpc, and TairZset. Other self-developed Tair data structures are not supported.
      * *   If the specifications of the database instance that you want to analyze are changed, the backup file generated before the specification change cannot be analyzed.
      * *   Tair ESSD/SSD-based instances are not supported.
+     *  *
+     * @param CreateCacheAnalysisJobRequest $request CreateCacheAnalysisJobRequest
      *
-     * @param request - CreateCacheAnalysisJobRequest
-     *
-     * @returns CreateCacheAnalysisJobResponse
-     *
-     * @param CreateCacheAnalysisJobRequest $request
-     *
-     * @return CreateCacheAnalysisJobResponse
+     * @return CreateCacheAnalysisJobResponse CreateCacheAnalysisJobResponse
      */
     public function createCacheAnalysisJob($request)
     {
@@ -452,139 +414,106 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Creates stress testing tasks.
-     *
-     * @remarks
-     * Database Autonomy Service (DAS) provides the intelligent stress testing feature. This feature helps you check whether your instance needs to be scaled up to effectively handle traffic spikes. For more information, see [Intelligent stress testing](https://help.aliyun.com/document_detail/155068.html). Before you call this API operation, make sure that your database instances meet the following requirements:
+     * @summary Creates stress testing tasks.
+     *  *
+     * @description Database Autonomy Service (DAS) provides the intelligent stress testing feature. This feature helps you check whether your instance needs to be scaled up to effectively handle traffic spikes. For more information, see [Intelligent stress testing](https://help.aliyun.com/document_detail/155068.html). Before you call this API operation, make sure that your database instances meet the following requirements:
      * *   The source database instance is an ApsaraDB RDS for MySQL High-availability Edition or Enterprise Edition instance, or a PolarDB for MySQL Cluster Edition cluster.
      * *   The destination database instance is an ApsaraDB RDS for MySQL instance or a PolarDB for MySQL cluster.
      * *   The source and destination database instances are connected to DAS. For information about how to connect database instances to DAS, see [Connect an Alibaba Cloud database instance to DAS](https://help.aliyun.com/document_detail/65405.html).
      * *   DAS Enterprise Edition is enabled for the source and destination database instances. For more information, see [Overview](https://help.aliyun.com/document_detail/190912.html).
+     *  *
+     * @param CreateCloudBenchTasksRequest $request CreateCloudBenchTasksRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateCloudBenchTasksRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateCloudBenchTasksResponse
-     *
-     * @param CreateCloudBenchTasksRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return CreateCloudBenchTasksResponse
+     * @return CreateCloudBenchTasksResponse CreateCloudBenchTasksResponse
      */
     public function createCloudBenchTasksWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->amount) {
-            @$query['Amount'] = $request->amount;
+        if (!Utils::isUnset($request->amount)) {
+            $query['Amount'] = $request->amount;
         }
-
-        if (null !== $request->backupId) {
-            @$query['BackupId'] = $request->backupId;
+        if (!Utils::isUnset($request->backupId)) {
+            $query['BackupId'] = $request->backupId;
         }
-
-        if (null !== $request->backupTime) {
-            @$query['BackupTime'] = $request->backupTime;
+        if (!Utils::isUnset($request->backupTime)) {
+            $query['BackupTime'] = $request->backupTime;
         }
-
-        if (null !== $request->clientType) {
-            @$query['ClientType'] = $request->clientType;
+        if (!Utils::isUnset($request->clientType)) {
+            $query['ClientType'] = $request->clientType;
         }
-
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->dstConnectionString) {
-            @$query['DstConnectionString'] = $request->dstConnectionString;
+        if (!Utils::isUnset($request->dstConnectionString)) {
+            $query['DstConnectionString'] = $request->dstConnectionString;
         }
-
-        if (null !== $request->dstInstanceId) {
-            @$query['DstInstanceId'] = $request->dstInstanceId;
+        if (!Utils::isUnset($request->dstInstanceId)) {
+            $query['DstInstanceId'] = $request->dstInstanceId;
         }
-
-        if (null !== $request->dstPort) {
-            @$query['DstPort'] = $request->dstPort;
+        if (!Utils::isUnset($request->dstPort)) {
+            $query['DstPort'] = $request->dstPort;
         }
-
-        if (null !== $request->dstSuperAccount) {
-            @$query['DstSuperAccount'] = $request->dstSuperAccount;
+        if (!Utils::isUnset($request->dstSuperAccount)) {
+            $query['DstSuperAccount'] = $request->dstSuperAccount;
         }
-
-        if (null !== $request->dstSuperPassword) {
-            @$query['DstSuperPassword'] = $request->dstSuperPassword;
+        if (!Utils::isUnset($request->dstSuperPassword)) {
+            $query['DstSuperPassword'] = $request->dstSuperPassword;
         }
-
-        if (null !== $request->dstType) {
-            @$query['DstType'] = $request->dstType;
+        if (!Utils::isUnset($request->dstType)) {
+            $query['DstType'] = $request->dstType;
         }
-
-        if (null !== $request->dtsJobClass) {
-            @$query['DtsJobClass'] = $request->dtsJobClass;
+        if (!Utils::isUnset($request->dtsJobClass)) {
+            $query['DtsJobClass'] = $request->dtsJobClass;
         }
-
-        if (null !== $request->dtsJobId) {
-            @$query['DtsJobId'] = $request->dtsJobId;
+        if (!Utils::isUnset($request->dtsJobId)) {
+            $query['DtsJobId'] = $request->dtsJobId;
         }
-
-        if (null !== $request->endState) {
-            @$query['EndState'] = $request->endState;
+        if (!Utils::isUnset($request->endState)) {
+            $query['EndState'] = $request->endState;
         }
-
-        if (null !== $request->gatewayVpcId) {
-            @$query['GatewayVpcId'] = $request->gatewayVpcId;
+        if (!Utils::isUnset($request->gatewayVpcId)) {
+            $query['GatewayVpcId'] = $request->gatewayVpcId;
         }
-
-        if (null !== $request->gatewayVpcIp) {
-            @$query['GatewayVpcIp'] = $request->gatewayVpcIp;
+        if (!Utils::isUnset($request->gatewayVpcIp)) {
+            $query['GatewayVpcIp'] = $request->gatewayVpcIp;
         }
-
-        if (null !== $request->rate) {
-            @$query['Rate'] = $request->rate;
+        if (!Utils::isUnset($request->rate)) {
+            $query['Rate'] = $request->rate;
         }
-
-        if (null !== $request->requestDuration) {
-            @$query['RequestDuration'] = $request->requestDuration;
+        if (!Utils::isUnset($request->requestDuration)) {
+            $query['RequestDuration'] = $request->requestDuration;
         }
-
-        if (null !== $request->requestEndTime) {
-            @$query['RequestEndTime'] = $request->requestEndTime;
+        if (!Utils::isUnset($request->requestEndTime)) {
+            $query['RequestEndTime'] = $request->requestEndTime;
         }
-
-        if (null !== $request->requestStartTime) {
-            @$query['RequestStartTime'] = $request->requestStartTime;
+        if (!Utils::isUnset($request->requestStartTime)) {
+            $query['RequestStartTime'] = $request->requestStartTime;
         }
-
-        if (null !== $request->smartPressureTime) {
-            @$query['SmartPressureTime'] = $request->smartPressureTime;
+        if (!Utils::isUnset($request->smartPressureTime)) {
+            $query['SmartPressureTime'] = $request->smartPressureTime;
         }
-
-        if (null !== $request->srcInstanceId) {
-            @$query['SrcInstanceId'] = $request->srcInstanceId;
+        if (!Utils::isUnset($request->srcInstanceId)) {
+            $query['SrcInstanceId'] = $request->srcInstanceId;
         }
-
-        if (null !== $request->srcPublicIp) {
-            @$query['SrcPublicIp'] = $request->srcPublicIp;
+        if (!Utils::isUnset($request->srcPublicIp)) {
+            $query['SrcPublicIp'] = $request->srcPublicIp;
         }
-
-        if (null !== $request->srcSuperAccount) {
-            @$query['SrcSuperAccount'] = $request->srcSuperAccount;
+        if (!Utils::isUnset($request->srcSuperAccount)) {
+            $query['SrcSuperAccount'] = $request->srcSuperAccount;
         }
-
-        if (null !== $request->srcSuperPassword) {
-            @$query['SrcSuperPassword'] = $request->srcSuperPassword;
+        if (!Utils::isUnset($request->srcSuperPassword)) {
+            $query['SrcSuperPassword'] = $request->srcSuperPassword;
         }
-
-        if (null !== $request->taskType) {
-            @$query['TaskType'] = $request->taskType;
+        if (!Utils::isUnset($request->taskType)) {
+            $query['TaskType'] = $request->taskType;
         }
-
-        if (null !== $request->workDir) {
-            @$query['WorkDir'] = $request->workDir;
+        if (!Utils::isUnset($request->workDir)) {
+            $query['WorkDir'] = $request->workDir;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateCloudBenchTasks',
@@ -602,22 +531,17 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Creates stress testing tasks.
-     *
-     * @remarks
-     * Database Autonomy Service (DAS) provides the intelligent stress testing feature. This feature helps you check whether your instance needs to be scaled up to effectively handle traffic spikes. For more information, see [Intelligent stress testing](https://help.aliyun.com/document_detail/155068.html). Before you call this API operation, make sure that your database instances meet the following requirements:
+     * @summary Creates stress testing tasks.
+     *  *
+     * @description Database Autonomy Service (DAS) provides the intelligent stress testing feature. This feature helps you check whether your instance needs to be scaled up to effectively handle traffic spikes. For more information, see [Intelligent stress testing](https://help.aliyun.com/document_detail/155068.html). Before you call this API operation, make sure that your database instances meet the following requirements:
      * *   The source database instance is an ApsaraDB RDS for MySQL High-availability Edition or Enterprise Edition instance, or a PolarDB for MySQL Cluster Edition cluster.
      * *   The destination database instance is an ApsaraDB RDS for MySQL instance or a PolarDB for MySQL cluster.
      * *   The source and destination database instances are connected to DAS. For information about how to connect database instances to DAS, see [Connect an Alibaba Cloud database instance to DAS](https://help.aliyun.com/document_detail/65405.html).
      * *   DAS Enterprise Edition is enabled for the source and destination database instances. For more information, see [Overview](https://help.aliyun.com/document_detail/190912.html).
+     *  *
+     * @param CreateCloudBenchTasksRequest $request CreateCloudBenchTasksRequest
      *
-     * @param request - CreateCloudBenchTasksRequest
-     *
-     * @returns CreateCloudBenchTasksResponse
-     *
-     * @param CreateCloudBenchTasksRequest $request
-     *
-     * @return CreateCloudBenchTasksResponse
+     * @return CreateCloudBenchTasksResponse CreateCloudBenchTasksResponse
      */
     public function createCloudBenchTasks($request)
     {
@@ -627,10 +551,9 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Creates a diagnostic report.
-     *
-     * @remarks
-     * Before you call this operation, take note of the following items:
+     * @summary Creates a diagnostic report.
+     *  *
+     * @description Before you call this operation, take note of the following items:
      * *   If you use an Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than 4.3.3. We recommend that you use the latest version.
      * *   The version of Database Autonomy Service (DAS) SDK must be 1.0.3 or later.
      * *   If you use an SDK to call DAS, you must set the region to cn-shanghai.
@@ -638,35 +561,27 @@ class DAS extends OpenApiClient
      *     *   RDS MySQL
      *     *   PolarDB for MySQL
      *     *   Redis
+     *  *
+     * @param CreateDiagnosticReportRequest $request CreateDiagnosticReportRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateDiagnosticReportRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateDiagnosticReportResponse
-     *
-     * @param CreateDiagnosticReportRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return CreateDiagnosticReportResponse
+     * @return CreateDiagnosticReportResponse CreateDiagnosticReportResponse
      */
     public function createDiagnosticReportWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateDiagnosticReport',
@@ -684,10 +599,9 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Creates a diagnostic report.
-     *
-     * @remarks
-     * Before you call this operation, take note of the following items:
+     * @summary Creates a diagnostic report.
+     *  *
+     * @description Before you call this operation, take note of the following items:
      * *   If you use an Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than 4.3.3. We recommend that you use the latest version.
      * *   The version of Database Autonomy Service (DAS) SDK must be 1.0.3 or later.
      * *   If you use an SDK to call DAS, you must set the region to cn-shanghai.
@@ -695,14 +609,10 @@ class DAS extends OpenApiClient
      *     *   RDS MySQL
      *     *   PolarDB for MySQL
      *     *   Redis
+     *  *
+     * @param CreateDiagnosticReportRequest $request CreateDiagnosticReportRequest
      *
-     * @param request - CreateDiagnosticReportRequest
-     *
-     * @returns CreateDiagnosticReportResponse
-     *
-     * @param CreateDiagnosticReportRequest $request
-     *
-     * @return CreateDiagnosticReportResponse
+     * @return CreateDiagnosticReportResponse CreateDiagnosticReportResponse
      */
     public function createDiagnosticReport($request)
     {
@@ -712,57 +622,44 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Creates a task that terminates sessions.
-     *
-     * @remarks
-     *   This operation is applicable only to ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters.
+     * @summary Creates a task that terminates sessions.
+     *  *
+     * @description *   This operation is applicable only to ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters.
      * *   If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     *  *
+     * @param CreateKillInstanceSessionTaskRequest $request CreateKillInstanceSessionTaskRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateKillInstanceSessionTaskRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateKillInstanceSessionTaskResponse
-     *
-     * @param CreateKillInstanceSessionTaskRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return CreateKillInstanceSessionTaskResponse
+     * @return CreateKillInstanceSessionTaskResponse CreateKillInstanceSessionTaskResponse
      */
     public function createKillInstanceSessionTaskWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->dbUser) {
-            @$query['DbUser'] = $request->dbUser;
+        if (!Utils::isUnset($request->dbUser)) {
+            $query['DbUser'] = $request->dbUser;
         }
-
-        if (null !== $request->dbUserPassword) {
-            @$query['DbUserPassword'] = $request->dbUserPassword;
+        if (!Utils::isUnset($request->dbUserPassword)) {
+            $query['DbUserPassword'] = $request->dbUserPassword;
         }
-
-        if (null !== $request->ignoredUsers) {
-            @$query['IgnoredUsers'] = $request->ignoredUsers;
+        if (!Utils::isUnset($request->ignoredUsers)) {
+            $query['IgnoredUsers'] = $request->ignoredUsers;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->killAllSessions) {
-            @$query['KillAllSessions'] = $request->killAllSessions;
+        if (!Utils::isUnset($request->killAllSessions)) {
+            $query['KillAllSessions'] = $request->killAllSessions;
         }
-
-        if (null !== $request->nodeId) {
-            @$query['NodeId'] = $request->nodeId;
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
         }
-
-        if (null !== $request->sessionIds) {
-            @$query['SessionIds'] = $request->sessionIds;
+        if (!Utils::isUnset($request->sessionIds)) {
+            $query['SessionIds'] = $request->sessionIds;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateKillInstanceSessionTask',
@@ -780,20 +677,15 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Creates a task that terminates sessions.
-     *
-     * @remarks
-     *   This operation is applicable only to ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters.
+     * @summary Creates a task that terminates sessions.
+     *  *
+     * @description *   This operation is applicable only to ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters.
      * *   If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     *  *
+     * @param CreateKillInstanceSessionTaskRequest $request CreateKillInstanceSessionTaskRequest
      *
-     * @param request - CreateKillInstanceSessionTaskRequest
-     *
-     * @returns CreateKillInstanceSessionTaskResponse
-     *
-     * @param CreateKillInstanceSessionTaskRequest $request
-     *
-     * @return CreateKillInstanceSessionTaskResponse
+     * @return CreateKillInstanceSessionTaskResponse CreateKillInstanceSessionTaskResponse
      */
     public function createKillInstanceSessionTask($request)
     {
@@ -803,44 +695,34 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * 创建结束会话的任务
+     * @summary 创建结束会话的任务
+     *  *
+     * @param CreateKillInstanceSessionTaskWithMaintainUserRequest $request CreateKillInstanceSessionTaskWithMaintainUserRequest
+     * @param RuntimeOptions                                       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateKillInstanceSessionTaskWithMaintainUserRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateKillInstanceSessionTaskWithMaintainUserResponse
-     *
-     * @param CreateKillInstanceSessionTaskWithMaintainUserRequest $request
-     * @param RuntimeOptions                                       $runtime
-     *
-     * @return CreateKillInstanceSessionTaskWithMaintainUserResponse
+     * @return CreateKillInstanceSessionTaskWithMaintainUserResponse CreateKillInstanceSessionTaskWithMaintainUserResponse
      */
     public function createKillInstanceSessionTaskWithMaintainUserWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->ignoredUsers) {
-            @$query['IgnoredUsers'] = $request->ignoredUsers;
+        if (!Utils::isUnset($request->ignoredUsers)) {
+            $query['IgnoredUsers'] = $request->ignoredUsers;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->killAllSessions) {
-            @$query['KillAllSessions'] = $request->killAllSessions;
+        if (!Utils::isUnset($request->killAllSessions)) {
+            $query['KillAllSessions'] = $request->killAllSessions;
         }
-
-        if (null !== $request->nodeId) {
-            @$query['NodeId'] = $request->nodeId;
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
         }
-
-        if (null !== $request->sessionIds) {
-            @$query['SessionIds'] = $request->sessionIds;
+        if (!Utils::isUnset($request->sessionIds)) {
+            $query['SessionIds'] = $request->sessionIds;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateKillInstanceSessionTaskWithMaintainUser',
@@ -858,15 +740,11 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * 创建结束会话的任务
+     * @summary 创建结束会话的任务
+     *  *
+     * @param CreateKillInstanceSessionTaskWithMaintainUserRequest $request CreateKillInstanceSessionTaskWithMaintainUserRequest
      *
-     * @param request - CreateKillInstanceSessionTaskWithMaintainUserRequest
-     *
-     * @returns CreateKillInstanceSessionTaskWithMaintainUserResponse
-     *
-     * @param CreateKillInstanceSessionTaskWithMaintainUserRequest $request
-     *
-     * @return CreateKillInstanceSessionTaskWithMaintainUserResponse
+     * @return CreateKillInstanceSessionTaskWithMaintainUserResponse CreateKillInstanceSessionTaskWithMaintainUserResponse
      */
     public function createKillInstanceSessionTaskWithMaintainUser($request)
     {
@@ -876,32 +754,25 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * 创建最近死锁分析任务
+     * @summary 创建最近死锁分析任务
+     *  *
+     * @param CreateLatestDeadLockAnalysisRequest $request CreateLatestDeadLockAnalysisRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateLatestDeadLockAnalysisRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateLatestDeadLockAnalysisResponse
-     *
-     * @param CreateLatestDeadLockAnalysisRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return CreateLatestDeadLockAnalysisResponse
+     * @return CreateLatestDeadLockAnalysisResponse CreateLatestDeadLockAnalysisResponse
      */
     public function createLatestDeadLockAnalysisWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->instanceId) {
-            @$body['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->nodeId) {
-            @$body['NodeId'] = $request->nodeId;
+        if (!Utils::isUnset($request->nodeId)) {
+            $body['NodeId'] = $request->nodeId;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateLatestDeadLockAnalysis',
@@ -919,15 +790,11 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * 创建最近死锁分析任务
+     * @summary 创建最近死锁分析任务
+     *  *
+     * @param CreateLatestDeadLockAnalysisRequest $request CreateLatestDeadLockAnalysisRequest
      *
-     * @param request - CreateLatestDeadLockAnalysisRequest
-     *
-     * @returns CreateLatestDeadLockAnalysisResponse
-     *
-     * @param CreateLatestDeadLockAnalysisRequest $request
-     *
-     * @return CreateLatestDeadLockAnalysisResponse
+     * @return CreateLatestDeadLockAnalysisResponse CreateLatestDeadLockAnalysisResponse
      */
     public function createLatestDeadLockAnalysis($request)
     {
@@ -937,56 +804,44 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Adds a tag to a SQL template.
-     *
-     * @remarks
-     *   If you use Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
+     * @summary Adds a tag to a SQL template.
+     *  *
+     * @description *   If you use Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
      * *   This operation supports the following database engines:
      *     *   ApsaraDB RDS for MySQL
      *     *   PolarDB for MySQL
      *     *   ApsaraDB RDS for PostgreSQL
+     *  *
+     * @param CreateQueryOptimizeTagRequest $request CreateQueryOptimizeTagRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateQueryOptimizeTagRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateQueryOptimizeTagResponse
-     *
-     * @param CreateQueryOptimizeTagRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return CreateQueryOptimizeTagResponse
+     * @return CreateQueryOptimizeTagResponse CreateQueryOptimizeTagResponse
      */
     public function createQueryOptimizeTagWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->comments) {
-            @$query['Comments'] = $request->comments;
+        if (!Utils::isUnset($request->comments)) {
+            $query['Comments'] = $request->comments;
         }
-
-        if (null !== $request->engine) {
-            @$query['Engine'] = $request->engine;
+        if (!Utils::isUnset($request->engine)) {
+            $query['Engine'] = $request->engine;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->sqlIds) {
-            @$query['SqlIds'] = $request->sqlIds;
+        if (!Utils::isUnset($request->sqlIds)) {
+            $query['SqlIds'] = $request->sqlIds;
         }
-
-        if (null !== $request->status) {
-            @$query['Status'] = $request->status;
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
         }
-
-        if (null !== $request->tags) {
-            @$query['Tags'] = $request->tags;
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateQueryOptimizeTag',
@@ -1004,23 +859,18 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Adds a tag to a SQL template.
-     *
-     * @remarks
-     *   If you use Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
+     * @summary Adds a tag to a SQL template.
+     *  *
+     * @description *   If you use Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
      * *   This operation supports the following database engines:
      *     *   ApsaraDB RDS for MySQL
      *     *   PolarDB for MySQL
      *     *   ApsaraDB RDS for PostgreSQL
+     *  *
+     * @param CreateQueryOptimizeTagRequest $request CreateQueryOptimizeTagRequest
      *
-     * @param request - CreateQueryOptimizeTagRequest
-     *
-     * @returns CreateQueryOptimizeTagResponse
-     *
-     * @param CreateQueryOptimizeTagRequest $request
-     *
-     * @return CreateQueryOptimizeTagResponse
+     * @return CreateQueryOptimizeTagResponse CreateQueryOptimizeTagResponse
      */
     public function createQueryOptimizeTag($request)
     {
@@ -1030,10 +880,9 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Initiates an SQL statement diagnostics request.
-     *
-     * @remarks
-     * Before you call this operation, take note of the following items:
+     * @summary Initiates an SQL statement diagnostics request.
+     *  *
+     * @description Before you call this operation, take note of the following items:
      * *   If you use an SDK to call Database Autonomy Service (DAS), you must set the region to cn-shanghai.
      * *   This operation supports the following database engines:
      *     *   ApsaraDB RDS for MySQL
@@ -1043,39 +892,30 @@ class DAS extends OpenApiClient
      *     *   PolarDB for PostgreSQL (compatible with Oracle)
      *     *   ApsaraDB for MongoDB
      * >  The minor engine version of ApsaraDB RDS for PostgreSQL instances must be 20221230 or later. For more information about how to check and update the minor engine version of an ApsaraDB RDS for PostgreSQL instance, see [Update the minor engine version of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/146895.html).
+     *  *
+     * @param CreateRequestDiagnosisRequest $request CreateRequestDiagnosisRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateRequestDiagnosisRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateRequestDiagnosisResponse
-     *
-     * @param CreateRequestDiagnosisRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return CreateRequestDiagnosisResponse
+     * @return CreateRequestDiagnosisResponse CreateRequestDiagnosisResponse
      */
     public function createRequestDiagnosisWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->database) {
-            @$query['Database'] = $request->database;
+        if (!Utils::isUnset($request->database)) {
+            $query['Database'] = $request->database;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->nodeId) {
-            @$query['NodeId'] = $request->nodeId;
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
         }
-
-        if (null !== $request->sql) {
-            @$query['Sql'] = $request->sql;
+        if (!Utils::isUnset($request->sql)) {
+            $query['Sql'] = $request->sql;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateRequestDiagnosis',
@@ -1093,10 +933,9 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Initiates an SQL statement diagnostics request.
-     *
-     * @remarks
-     * Before you call this operation, take note of the following items:
+     * @summary Initiates an SQL statement diagnostics request.
+     *  *
+     * @description Before you call this operation, take note of the following items:
      * *   If you use an SDK to call Database Autonomy Service (DAS), you must set the region to cn-shanghai.
      * *   This operation supports the following database engines:
      *     *   ApsaraDB RDS for MySQL
@@ -1106,14 +945,10 @@ class DAS extends OpenApiClient
      *     *   PolarDB for PostgreSQL (compatible with Oracle)
      *     *   ApsaraDB for MongoDB
      * >  The minor engine version of ApsaraDB RDS for PostgreSQL instances must be 20221230 or later. For more information about how to check and update the minor engine version of an ApsaraDB RDS for PostgreSQL instance, see [Update the minor engine version of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/146895.html).
+     *  *
+     * @param CreateRequestDiagnosisRequest $request CreateRequestDiagnosisRequest
      *
-     * @param request - CreateRequestDiagnosisRequest
-     *
-     * @returns CreateRequestDiagnosisResponse
-     *
-     * @param CreateRequestDiagnosisRequest $request
-     *
-     * @return CreateRequestDiagnosisResponse
+     * @return CreateRequestDiagnosisResponse CreateRequestDiagnosisResponse
      */
     public function createRequestDiagnosis($request)
     {
@@ -1123,64 +958,50 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Creates an offline task for Database Autonomy Service (DAS) Enterprise Edition.
-     *
-     * @remarks
-     * Before you call this operation, take note of the following items:
+     * @summary Creates an offline task for Database Autonomy Service (DAS) Enterprise Edition.
+     *  *
+     * @description Before you call this operation, take note of the following items:
      * *   If you use an Alibaba Cloud SDK or DAS SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
      * *   You can create an offline task only for database instances for which DAS Enterprise Edition V2 or V3 is enabled. For more information about the databases and regions that are supported by various versions of DAS Enterprise Edition, see [Editions and supported features](https://help.aliyun.com/document_detail/156204.html).
+     *  *
+     * @param CreateSqlLogTaskRequest $request CreateSqlLogTaskRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateSqlLogTaskRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateSqlLogTaskResponse
-     *
-     * @param CreateSqlLogTaskRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return CreateSqlLogTaskResponse
+     * @return CreateSqlLogTaskResponse CreateSqlLogTaskResponse
      */
     public function createSqlLogTaskWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->filters) {
-            @$query['Filters'] = $request->filters;
+        if (!Utils::isUnset($request->filters)) {
+            $query['Filters'] = $request->filters;
         }
-
-        if (null !== $request->role) {
-            @$query['Role'] = $request->role;
+        if (!Utils::isUnset($request->role)) {
+            $query['Role'] = $request->role;
         }
-
         $body = [];
-        if (null !== $request->endTime) {
-            @$body['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->instanceId) {
-            @$body['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->name) {
-            @$body['Name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
         }
-
-        if (null !== $request->nodeId) {
-            @$body['NodeId'] = $request->nodeId;
+        if (!Utils::isUnset($request->nodeId)) {
+            $body['NodeId'] = $request->nodeId;
         }
-
-        if (null !== $request->startTime) {
-            @$body['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
         }
-
-        if (null !== $request->type) {
-            @$body['Type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $body['Type'] = $request->type;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateSqlLogTask',
@@ -1198,21 +1019,16 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Creates an offline task for Database Autonomy Service (DAS) Enterprise Edition.
-     *
-     * @remarks
-     * Before you call this operation, take note of the following items:
+     * @summary Creates an offline task for Database Autonomy Service (DAS) Enterprise Edition.
+     *  *
+     * @description Before you call this operation, take note of the following items:
      * *   If you use an Alibaba Cloud SDK or DAS SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
      * *   You can create an offline task only for database instances for which DAS Enterprise Edition V2 or V3 is enabled. For more information about the databases and regions that are supported by various versions of DAS Enterprise Edition, see [Editions and supported features](https://help.aliyun.com/document_detail/156204.html).
+     *  *
+     * @param CreateSqlLogTaskRequest $request CreateSqlLogTaskRequest
      *
-     * @param request - CreateSqlLogTaskRequest
-     *
-     * @returns CreateSqlLogTaskResponse
-     *
-     * @param CreateSqlLogTaskRequest $request
-     *
-     * @return CreateSqlLogTaskResponse
+     * @return CreateSqlLogTaskResponse CreateSqlLogTaskResponse
      */
     public function createSqlLogTask($request)
     {
@@ -1222,46 +1038,36 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Creates a storage analysis task to query the usage details of one or more databases and tables.
-     *
-     * @remarks
-     *   This operation is applicable only to ApsaraDB RDS for MySQL instances, PolarDB for MySQL clusters, and ApsaraDB for MongoDB instances.
+     * @summary Creates a storage analysis task to query the usage details of one or more databases and tables.
+     *  *
+     * @description *   This operation is applicable only to ApsaraDB RDS for MySQL instances, PolarDB for MySQL clusters, and ApsaraDB for MongoDB instances.
      * *   For ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters, this operation works the same as the storage analysis feature of the previous version. Tasks generated by this operation cannot be viewed on the Storage Analysis page of the new version in the Database Autonomy Service (DAS) console. If you want to view the tasks and results, call the related API operation to obtain data and save data to your computer.
      * *   If you use an Alibaba Cloud SDK or DAS SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     *  *
+     * @param CreateStorageAnalysisTaskRequest $request CreateStorageAnalysisTaskRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateStorageAnalysisTaskRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateStorageAnalysisTaskResponse
-     *
-     * @param CreateStorageAnalysisTaskRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return CreateStorageAnalysisTaskResponse
+     * @return CreateStorageAnalysisTaskResponse CreateStorageAnalysisTaskResponse
      */
     public function createStorageAnalysisTaskWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->dbName) {
-            @$query['DbName'] = $request->dbName;
+        if (!Utils::isUnset($request->dbName)) {
+            $query['DbName'] = $request->dbName;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->nodeId) {
-            @$query['NodeId'] = $request->nodeId;
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
         }
-
-        if (null !== $request->tableName) {
-            @$query['TableName'] = $request->tableName;
+        if (!Utils::isUnset($request->tableName)) {
+            $query['TableName'] = $request->tableName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateStorageAnalysisTask',
@@ -1279,21 +1085,16 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Creates a storage analysis task to query the usage details of one or more databases and tables.
-     *
-     * @remarks
-     *   This operation is applicable only to ApsaraDB RDS for MySQL instances, PolarDB for MySQL clusters, and ApsaraDB for MongoDB instances.
+     * @summary Creates a storage analysis task to query the usage details of one or more databases and tables.
+     *  *
+     * @description *   This operation is applicable only to ApsaraDB RDS for MySQL instances, PolarDB for MySQL clusters, and ApsaraDB for MongoDB instances.
      * *   For ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters, this operation works the same as the storage analysis feature of the previous version. Tasks generated by this operation cannot be viewed on the Storage Analysis page of the new version in the Database Autonomy Service (DAS) console. If you want to view the tasks and results, call the related API operation to obtain data and save data to your computer.
      * *   If you use an Alibaba Cloud SDK or DAS SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     *  *
+     * @param CreateStorageAnalysisTaskRequest $request CreateStorageAnalysisTaskRequest
      *
-     * @param request - CreateStorageAnalysisTaskRequest
-     *
-     * @returns CreateStorageAnalysisTaskResponse
-     *
-     * @param CreateStorageAnalysisTaskRequest $request
-     *
-     * @return CreateStorageAnalysisTaskResponse
+     * @return CreateStorageAnalysisTaskResponse CreateStorageAnalysisTaskResponse
      */
     public function createStorageAnalysisTask($request)
     {
@@ -1303,31 +1104,24 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Deletes a stress testing task.
+     * @summary Deletes a stress testing task.
+     *  *
+     * @description Database Autonomy Service (DAS) provides the intelligent stress testing feature. This feature helps you check whether your instance needs to be scaled up to handle traffic spikes in an effective manner. For more information, see [Intelligent stress testing](https://help.aliyun.com/document_detail/155068.html).
+     *  *
+     * @param DeleteCloudBenchTaskRequest $request DeleteCloudBenchTaskRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * Database Autonomy Service (DAS) provides the intelligent stress testing feature. This feature helps you check whether your instance needs to be scaled up to handle traffic spikes in an effective manner. For more information, see [Intelligent stress testing](https://help.aliyun.com/document_detail/155068.html).
-     *
-     * @param request - DeleteCloudBenchTaskRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteCloudBenchTaskResponse
-     *
-     * @param DeleteCloudBenchTaskRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DeleteCloudBenchTaskResponse
+     * @return DeleteCloudBenchTaskResponse DeleteCloudBenchTaskResponse
      */
     public function deleteCloudBenchTaskWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->taskId) {
-            @$query['TaskId'] = $request->taskId;
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteCloudBenchTask',
@@ -1345,18 +1139,13 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Deletes a stress testing task.
+     * @summary Deletes a stress testing task.
+     *  *
+     * @description Database Autonomy Service (DAS) provides the intelligent stress testing feature. This feature helps you check whether your instance needs to be scaled up to handle traffic spikes in an effective manner. For more information, see [Intelligent stress testing](https://help.aliyun.com/document_detail/155068.html).
+     *  *
+     * @param DeleteCloudBenchTaskRequest $request DeleteCloudBenchTaskRequest
      *
-     * @remarks
-     * Database Autonomy Service (DAS) provides the intelligent stress testing feature. This feature helps you check whether your instance needs to be scaled up to handle traffic spikes in an effective manner. For more information, see [Intelligent stress testing](https://help.aliyun.com/document_detail/155068.html).
-     *
-     * @param request - DeleteCloudBenchTaskRequest
-     *
-     * @returns DeleteCloudBenchTaskResponse
-     *
-     * @param DeleteCloudBenchTaskRequest $request
-     *
-     * @return DeleteCloudBenchTaskResponse
+     * @return DeleteCloudBenchTaskResponse DeleteCloudBenchTaskResponse
      */
     public function deleteCloudBenchTask($request)
     {
@@ -1366,33 +1155,26 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Deletes the metadata of a stopped DBGateway.
-     *
-     * @remarks
-     *   This operation is used to delete the metadata of a DBGateway that is released in a stress testing task created by calling the [CreateCloudBenchTasks](https://help.aliyun.com/document_detail/230665.html) operation.
+     * @summary Deletes the metadata of a stopped DBGateway.
+     *  *
+     * @description *   This operation is used to delete the metadata of a DBGateway that is released in a stress testing task created by calling the [CreateCloudBenchTasks](https://help.aliyun.com/document_detail/230665.html) operation.
      * *   If you use an SDK to call API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
      * >  If the heartbeat is lost between a DBGateway and the access point for more than 20 seconds, the DBGateway is considered stopped.
+     *  *
+     * @param DeleteStopGatewayRequest $request DeleteStopGatewayRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteStopGatewayRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteStopGatewayResponse
-     *
-     * @param DeleteStopGatewayRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return DeleteStopGatewayResponse
+     * @return DeleteStopGatewayResponse DeleteStopGatewayResponse
      */
     public function deleteStopGatewayWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->gatewayId) {
-            @$query['GatewayId'] = $request->gatewayId;
+        if (!Utils::isUnset($request->gatewayId)) {
+            $query['GatewayId'] = $request->gatewayId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteStopGateway',
@@ -1410,20 +1192,15 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Deletes the metadata of a stopped DBGateway.
-     *
-     * @remarks
-     *   This operation is used to delete the metadata of a DBGateway that is released in a stress testing task created by calling the [CreateCloudBenchTasks](https://help.aliyun.com/document_detail/230665.html) operation.
+     * @summary Deletes the metadata of a stopped DBGateway.
+     *  *
+     * @description *   This operation is used to delete the metadata of a DBGateway that is released in a stress testing task created by calling the [CreateCloudBenchTasks](https://help.aliyun.com/document_detail/230665.html) operation.
      * *   If you use an SDK to call API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
      * >  If the heartbeat is lost between a DBGateway and the access point for more than 20 seconds, the DBGateway is considered stopped.
+     *  *
+     * @param DeleteStopGatewayRequest $request DeleteStopGatewayRequest
      *
-     * @param request - DeleteStopGatewayRequest
-     *
-     * @returns DeleteStopGatewayResponse
-     *
-     * @param DeleteStopGatewayRequest $request
-     *
-     * @return DeleteStopGatewayResponse
+     * @return DeleteStopGatewayResponse DeleteStopGatewayResponse
      */
     public function deleteStopGateway($request)
     {
@@ -1433,33 +1210,26 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the configurations of the auto scaling feature for an instance.
-     *
-     * @remarks
-     * Before you call this operation, take note of the following items:
+     * @summary Queries the configurations of the auto scaling feature for an instance.
+     *  *
+     * @description Before you call this operation, take note of the following items:
      * *   If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     *  *
+     * @param DescribeAutoScalingConfigRequest $request DescribeAutoScalingConfigRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeAutoScalingConfigRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeAutoScalingConfigResponse
-     *
-     * @param DescribeAutoScalingConfigRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DescribeAutoScalingConfigResponse
+     * @return DescribeAutoScalingConfigResponse DescribeAutoScalingConfigResponse
      */
     public function describeAutoScalingConfigWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeAutoScalingConfig',
@@ -1477,20 +1247,15 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the configurations of the auto scaling feature for an instance.
-     *
-     * @remarks
-     * Before you call this operation, take note of the following items:
+     * @summary Queries the configurations of the auto scaling feature for an instance.
+     *  *
+     * @description Before you call this operation, take note of the following items:
      * *   If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     *  *
+     * @param DescribeAutoScalingConfigRequest $request DescribeAutoScalingConfigRequest
      *
-     * @param request - DescribeAutoScalingConfigRequest
-     *
-     * @returns DescribeAutoScalingConfigResponse
-     *
-     * @param DescribeAutoScalingConfigRequest $request
-     *
-     * @return DescribeAutoScalingConfigResponse
+     * @return DescribeAutoScalingConfigResponse DescribeAutoScalingConfigResponse
      */
     public function describeAutoScalingConfig($request)
     {
@@ -1500,29 +1265,23 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the auto scaling history of an instance.
-     *
-     * @remarks
-     *   You can call this operation to query the history information about the automatic performance scaling only of ApsaraDB RDS for MySQL High-availability Edition instances.
+     * @summary Queries the auto scaling history of an instance.
+     *  *
+     * @description *   You can call this operation to query the history information about the automatic performance scaling only of ApsaraDB RDS for MySQL High-availability Edition instances.
      * *   If you use an Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     *  *
+     * @param DescribeAutoScalingHistoryRequest $request DescribeAutoScalingHistoryRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeAutoScalingHistoryRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeAutoScalingHistoryResponse
-     *
-     * @param DescribeAutoScalingHistoryRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return DescribeAutoScalingHistoryResponse
+     * @return DescribeAutoScalingHistoryResponse DescribeAutoScalingHistoryResponse
      */
     public function describeAutoScalingHistoryWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeAutoScalingHistory',
@@ -1540,20 +1299,15 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the auto scaling history of an instance.
-     *
-     * @remarks
-     *   You can call this operation to query the history information about the automatic performance scaling only of ApsaraDB RDS for MySQL High-availability Edition instances.
+     * @summary Queries the auto scaling history of an instance.
+     *  *
+     * @description *   You can call this operation to query the history information about the automatic performance scaling only of ApsaraDB RDS for MySQL High-availability Edition instances.
      * *   If you use an Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     *  *
+     * @param DescribeAutoScalingHistoryRequest $request DescribeAutoScalingHistoryRequest
      *
-     * @param request - DescribeAutoScalingHistoryRequest
-     *
-     * @returns DescribeAutoScalingHistoryResponse
-     *
-     * @param DescribeAutoScalingHistoryRequest $request
-     *
-     * @return DescribeAutoScalingHistoryResponse
+     * @return DescribeAutoScalingHistoryResponse DescribeAutoScalingHistoryResponse
      */
     public function describeAutoScalingHistory($request)
     {
@@ -1563,39 +1317,31 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the details of a cache analysis task.
-     *
-     * @remarks
-     * Before you call this operation, take note of the following items:
+     * @summary Queries the details of a cache analysis task.
+     *  *
+     * @description Before you call this operation, take note of the following items:
      * *   If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call the API operations of DAS, you must set the region ID to cn-shanghai.
      * *   This operation is applicable only to ApsaraDB for Redis.
      * >  You can call this operation to query the top 500 keys in a cache analysis task.
+     *  *
+     * @param DescribeCacheAnalysisJobRequest $request DescribeCacheAnalysisJobRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeCacheAnalysisJobRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeCacheAnalysisJobResponse
-     *
-     * @param DescribeCacheAnalysisJobRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return DescribeCacheAnalysisJobResponse
+     * @return DescribeCacheAnalysisJobResponse DescribeCacheAnalysisJobResponse
      */
     public function describeCacheAnalysisJobWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->jobId) {
-            @$query['JobId'] = $request->jobId;
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeCacheAnalysisJob',
@@ -1613,22 +1359,17 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the details of a cache analysis task.
-     *
-     * @remarks
-     * Before you call this operation, take note of the following items:
+     * @summary Queries the details of a cache analysis task.
+     *  *
+     * @description Before you call this operation, take note of the following items:
      * *   If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call the API operations of DAS, you must set the region ID to cn-shanghai.
      * *   This operation is applicable only to ApsaraDB for Redis.
      * >  You can call this operation to query the top 500 keys in a cache analysis task.
+     *  *
+     * @param DescribeCacheAnalysisJobRequest $request DescribeCacheAnalysisJobRequest
      *
-     * @param request - DescribeCacheAnalysisJobRequest
-     *
-     * @returns DescribeCacheAnalysisJobResponse
-     *
-     * @param DescribeCacheAnalysisJobRequest $request
-     *
-     * @return DescribeCacheAnalysisJobResponse
+     * @return DescribeCacheAnalysisJobResponse DescribeCacheAnalysisJobResponse
      */
     public function describeCacheAnalysisJob($request)
     {
@@ -1638,50 +1379,39 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries a list of cache analysis tasks.
-     *
-     * @remarks
-     * Before you call this operation, take note of the following items:
+     * @summary Queries a list of cache analysis tasks.
+     *  *
+     * @description Before you call this operation, take note of the following items:
      * *   If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
      * *   This operation is applicable only to ApsaraDB for Redis.
+     *  *
+     * @param DescribeCacheAnalysisJobsRequest $request DescribeCacheAnalysisJobsRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeCacheAnalysisJobsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeCacheAnalysisJobsResponse
-     *
-     * @param DescribeCacheAnalysisJobsRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DescribeCacheAnalysisJobsResponse
+     * @return DescribeCacheAnalysisJobsResponse DescribeCacheAnalysisJobsResponse
      */
     public function describeCacheAnalysisJobsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->pageNo) {
-            @$query['PageNo'] = $request->pageNo;
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeCacheAnalysisJobs',
@@ -1699,21 +1429,16 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries a list of cache analysis tasks.
-     *
-     * @remarks
-     * Before you call this operation, take note of the following items:
+     * @summary Queries a list of cache analysis tasks.
+     *  *
+     * @description Before you call this operation, take note of the following items:
      * *   If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
      * *   This operation is applicable only to ApsaraDB for Redis.
+     *  *
+     * @param DescribeCacheAnalysisJobsRequest $request DescribeCacheAnalysisJobsRequest
      *
-     * @param request - DescribeCacheAnalysisJobsRequest
-     *
-     * @returns DescribeCacheAnalysisJobsResponse
-     *
-     * @param DescribeCacheAnalysisJobsRequest $request
-     *
-     * @return DescribeCacheAnalysisJobsResponse
+     * @return DescribeCacheAnalysisJobsResponse DescribeCacheAnalysisJobsResponse
      */
     public function describeCacheAnalysisJobs($request)
     {
@@ -1723,51 +1448,39 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries stress testing tasks.
+     * @summary Queries stress testing tasks.
+     *  *
+     * @description Database Autonomy Service (DAS) provides the intelligent stress testing feature. This feature helps you check whether your instance needs to be scaled up to effectively handle traffic spikes. For more information, see [Intelligent stress testing](https://help.aliyun.com/document_detail/155068.html).
+     *  *
+     * @param DescribeCloudBenchTasksRequest $request DescribeCloudBenchTasksRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * Database Autonomy Service (DAS) provides the intelligent stress testing feature. This feature helps you check whether your instance needs to be scaled up to effectively handle traffic spikes. For more information, see [Intelligent stress testing](https://help.aliyun.com/document_detail/155068.html).
-     *
-     * @param request - DescribeCloudBenchTasksRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeCloudBenchTasksResponse
-     *
-     * @param DescribeCloudBenchTasksRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DescribeCloudBenchTasksResponse
+     * @return DescribeCloudBenchTasksResponse DescribeCloudBenchTasksResponse
      */
     public function describeCloudBenchTasksWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->pageNo) {
-            @$query['PageNo'] = $request->pageNo;
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
-        if (null !== $request->status) {
-            @$query['Status'] = $request->status;
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
         }
-
-        if (null !== $request->taskType) {
-            @$query['TaskType'] = $request->taskType;
+        if (!Utils::isUnset($request->taskType)) {
+            $query['TaskType'] = $request->taskType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeCloudBenchTasks',
@@ -1785,18 +1498,13 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries stress testing tasks.
+     * @summary Queries stress testing tasks.
+     *  *
+     * @description Database Autonomy Service (DAS) provides the intelligent stress testing feature. This feature helps you check whether your instance needs to be scaled up to effectively handle traffic spikes. For more information, see [Intelligent stress testing](https://help.aliyun.com/document_detail/155068.html).
+     *  *
+     * @param DescribeCloudBenchTasksRequest $request DescribeCloudBenchTasksRequest
      *
-     * @remarks
-     * Database Autonomy Service (DAS) provides the intelligent stress testing feature. This feature helps you check whether your instance needs to be scaled up to effectively handle traffic spikes. For more information, see [Intelligent stress testing](https://help.aliyun.com/document_detail/155068.html).
-     *
-     * @param request - DescribeCloudBenchTasksRequest
-     *
-     * @returns DescribeCloudBenchTasksResponse
-     *
-     * @param DescribeCloudBenchTasksRequest $request
-     *
-     * @return DescribeCloudBenchTasksResponse
+     * @return DescribeCloudBenchTasksResponse DescribeCloudBenchTasksResponse
      */
     public function describeCloudBenchTasks($request)
     {
@@ -1806,31 +1514,24 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries a stress testing task.
+     * @summary Queries a stress testing task.
+     *  *
+     * @description Database Autonomy Service (DAS) provides the intelligent stress testing feature. This feature helps you check whether you need to scale up your database instance to handle workloads during peak hours. For more information, see [Intelligent stress testing](https://help.aliyun.com/document_detail/155068.html).
+     *  *
+     * @param DescribeCloudbenchTaskRequest $request DescribeCloudbenchTaskRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * Database Autonomy Service (DAS) provides the intelligent stress testing feature. This feature helps you check whether you need to scale up your database instance to handle workloads during peak hours. For more information, see [Intelligent stress testing](https://help.aliyun.com/document_detail/155068.html).
-     *
-     * @param request - DescribeCloudbenchTaskRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeCloudbenchTaskResponse
-     *
-     * @param DescribeCloudbenchTaskRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return DescribeCloudbenchTaskResponse
+     * @return DescribeCloudbenchTaskResponse DescribeCloudbenchTaskResponse
      */
     public function describeCloudbenchTaskWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->taskId) {
-            @$query['TaskId'] = $request->taskId;
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeCloudbenchTask',
@@ -1848,18 +1549,13 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries a stress testing task.
+     * @summary Queries a stress testing task.
+     *  *
+     * @description Database Autonomy Service (DAS) provides the intelligent stress testing feature. This feature helps you check whether you need to scale up your database instance to handle workloads during peak hours. For more information, see [Intelligent stress testing](https://help.aliyun.com/document_detail/155068.html).
+     *  *
+     * @param DescribeCloudbenchTaskRequest $request DescribeCloudbenchTaskRequest
      *
-     * @remarks
-     * Database Autonomy Service (DAS) provides the intelligent stress testing feature. This feature helps you check whether you need to scale up your database instance to handle workloads during peak hours. For more information, see [Intelligent stress testing](https://help.aliyun.com/document_detail/155068.html).
-     *
-     * @param request - DescribeCloudbenchTaskRequest
-     *
-     * @returns DescribeCloudbenchTaskResponse
-     *
-     * @param DescribeCloudbenchTaskRequest $request
-     *
-     * @return DescribeCloudbenchTaskResponse
+     * @return DescribeCloudbenchTaskResponse DescribeCloudbenchTaskResponse
      */
     public function describeCloudbenchTask($request)
     {
@@ -1869,31 +1565,24 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the configurations of a stress testing task.
+     * @summary Queries the configurations of a stress testing task.
+     *  *
+     * @description Database Autonomy Service (DAS) provides the intelligent stress testing feature. This feature helps you check whether your instance needs to be scaled up to effectively handle traffic spikes. For more information, see [Intelligent stress testing](https://help.aliyun.com/document_detail/155068.html).
+     *  *
+     * @param DescribeCloudbenchTaskConfigRequest $request DescribeCloudbenchTaskConfigRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * Database Autonomy Service (DAS) provides the intelligent stress testing feature. This feature helps you check whether your instance needs to be scaled up to effectively handle traffic spikes. For more information, see [Intelligent stress testing](https://help.aliyun.com/document_detail/155068.html).
-     *
-     * @param request - DescribeCloudbenchTaskConfigRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeCloudbenchTaskConfigResponse
-     *
-     * @param DescribeCloudbenchTaskConfigRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return DescribeCloudbenchTaskConfigResponse
+     * @return DescribeCloudbenchTaskConfigResponse DescribeCloudbenchTaskConfigResponse
      */
     public function describeCloudbenchTaskConfigWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->taskId) {
-            @$query['TaskId'] = $request->taskId;
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeCloudbenchTaskConfig',
@@ -1911,18 +1600,13 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the configurations of a stress testing task.
+     * @summary Queries the configurations of a stress testing task.
+     *  *
+     * @description Database Autonomy Service (DAS) provides the intelligent stress testing feature. This feature helps you check whether your instance needs to be scaled up to effectively handle traffic spikes. For more information, see [Intelligent stress testing](https://help.aliyun.com/document_detail/155068.html).
+     *  *
+     * @param DescribeCloudbenchTaskConfigRequest $request DescribeCloudbenchTaskConfigRequest
      *
-     * @remarks
-     * Database Autonomy Service (DAS) provides the intelligent stress testing feature. This feature helps you check whether your instance needs to be scaled up to effectively handle traffic spikes. For more information, see [Intelligent stress testing](https://help.aliyun.com/document_detail/155068.html).
-     *
-     * @param request - DescribeCloudbenchTaskConfigRequest
-     *
-     * @returns DescribeCloudbenchTaskConfigResponse
-     *
-     * @param DescribeCloudbenchTaskConfigRequest $request
-     *
-     * @return DescribeCloudbenchTaskConfigResponse
+     * @return DescribeCloudbenchTaskConfigResponse DescribeCloudbenchTaskConfigResponse
      */
     public function describeCloudbenchTaskConfig($request)
     {
@@ -1932,53 +1616,42 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries diagnostics reports.
-     *
-     * @remarks
-     * Before you call this operation, take note of the following items:
+     * @summary Queries diagnostics reports.
+     *  *
+     * @description Before you call this operation, take note of the following items:
      * *   If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
      * *   This operation is applicable to the following database engines:
      *     *   ApsaraDB RDS for MySQL
      *     *   PolarDB for MySQL
      *     *   ApsaraDB for Redis
+     *  *
+     * @param DescribeDiagnosticReportListRequest $request DescribeDiagnosticReportListRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDiagnosticReportListRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDiagnosticReportListResponse
-     *
-     * @param DescribeDiagnosticReportListRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return DescribeDiagnosticReportListResponse
+     * @return DescribeDiagnosticReportListResponse DescribeDiagnosticReportListResponse
      */
     public function describeDiagnosticReportListWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->pageNo) {
-            @$query['PageNo'] = $request->pageNo;
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDiagnosticReportList',
@@ -1996,24 +1669,19 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries diagnostics reports.
-     *
-     * @remarks
-     * Before you call this operation, take note of the following items:
+     * @summary Queries diagnostics reports.
+     *  *
+     * @description Before you call this operation, take note of the following items:
      * *   If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
      * *   This operation is applicable to the following database engines:
      *     *   ApsaraDB RDS for MySQL
      *     *   PolarDB for MySQL
      *     *   ApsaraDB for Redis
+     *  *
+     * @param DescribeDiagnosticReportListRequest $request DescribeDiagnosticReportListRequest
      *
-     * @param request - DescribeDiagnosticReportListRequest
-     *
-     * @returns DescribeDiagnosticReportListResponse
-     *
-     * @param DescribeDiagnosticReportListRequest $request
-     *
-     * @return DescribeDiagnosticReportListResponse
+     * @return DescribeDiagnosticReportListResponse DescribeDiagnosticReportListResponse
      */
     public function describeDiagnosticReportList($request)
     {
@@ -2023,45 +1691,36 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the hot keys and the large keys in the memory in real time.
-     *
-     * @remarks
-     * This operation sorts list, hash, set, and zset keys based on the number of elements contained in these keys. The top three keys that contain the most elements are considered large keys. If the number of queries per second (QPS) of a key is greater than 3,000, the key is considered a hot key.
+     * @summary Queries the hot keys and the large keys in the memory in real time.
+     *  *
+     * @description This operation sorts list, hash, set, and zset keys based on the number of elements contained in these keys. The top three keys that contain the most elements are considered large keys. If the number of queries per second (QPS) of a key is greater than 3,000, the key is considered a hot key.
      * *   If you use an Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than 4.3.3. We recommend that you use the latest version.
      * *   The version of Database Autonomy Service (DAS) SDK must be 1.0.2 or later.
      * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
      * *   This operation is available only for ApsaraDB for Redis instances that meet the following requirements:
      *     *   The instance is a Community Edition instance that uses a major version of 5.0 or later or a performance-enhanced instance of the Enhanced Edition (Tair).
      *     *   The ApsaraDB for Redis instance is updated to the latest minor version.
+     *  *
+     * @param DescribeHotBigKeysRequest $request DescribeHotBigKeysRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeHotBigKeysRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeHotBigKeysResponse
-     *
-     * @param DescribeHotBigKeysRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DescribeHotBigKeysResponse
+     * @return DescribeHotBigKeysResponse DescribeHotBigKeysResponse
      */
     public function describeHotBigKeysWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->consoleContext) {
-            @$query['ConsoleContext'] = $request->consoleContext;
+        if (!Utils::isUnset($request->consoleContext)) {
+            $query['ConsoleContext'] = $request->consoleContext;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->nodeId) {
-            @$query['NodeId'] = $request->nodeId;
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeHotBigKeys',
@@ -2079,24 +1738,19 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the hot keys and the large keys in the memory in real time.
-     *
-     * @remarks
-     * This operation sorts list, hash, set, and zset keys based on the number of elements contained in these keys. The top three keys that contain the most elements are considered large keys. If the number of queries per second (QPS) of a key is greater than 3,000, the key is considered a hot key.
+     * @summary Queries the hot keys and the large keys in the memory in real time.
+     *  *
+     * @description This operation sorts list, hash, set, and zset keys based on the number of elements contained in these keys. The top three keys that contain the most elements are considered large keys. If the number of queries per second (QPS) of a key is greater than 3,000, the key is considered a hot key.
      * *   If you use an Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than 4.3.3. We recommend that you use the latest version.
      * *   The version of Database Autonomy Service (DAS) SDK must be 1.0.2 or later.
      * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
      * *   This operation is available only for ApsaraDB for Redis instances that meet the following requirements:
      *     *   The instance is a Community Edition instance that uses a major version of 5.0 or later or a performance-enhanced instance of the Enhanced Edition (Tair).
      *     *   The ApsaraDB for Redis instance is updated to the latest minor version.
+     *  *
+     * @param DescribeHotBigKeysRequest $request DescribeHotBigKeysRequest
      *
-     * @param request - DescribeHotBigKeysRequest
-     *
-     * @returns DescribeHotBigKeysResponse
-     *
-     * @param DescribeHotBigKeysRequest $request
-     *
-     * @return DescribeHotBigKeysResponse
+     * @return DescribeHotBigKeysResponse DescribeHotBigKeysResponse
      */
     public function describeHotBigKeys($request)
     {
@@ -2106,41 +1760,33 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the hot keys of an ApsaraDB for Redis instance.
-     *
-     * @remarks
-     * Before you call this operation, take note of the following items:
+     * @summary Queries the hot keys of an ApsaraDB for Redis instance.
+     *  *
+     * @description Before you call this operation, take note of the following items:
      * *   If you use an Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than V4.3.3. We recommend that you use the latest version.
      * *   The version of your Database Autonomy Service (DAS) SDK must be V1.0.2 or later.
      * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
      * *   This operation is applicable only to ApsaraDB for Redis instances that meet the following requirements:
      *     *   The ApsaraDB for Redis instance is a Community Edition instance that uses a major version of 4.0 or later or a performance-enhanced instance of the Enhanced Edition (Tair).
      *     *   The ApsaraDB for Redis instance is updated to the latest minor version.
+     *  *
+     * @param DescribeHotKeysRequest $request DescribeHotKeysRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeHotKeysRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeHotKeysResponse
-     *
-     * @param DescribeHotKeysRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return DescribeHotKeysResponse
+     * @return DescribeHotKeysResponse DescribeHotKeysResponse
      */
     public function describeHotKeysWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->nodeId) {
-            @$query['NodeId'] = $request->nodeId;
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeHotKeys',
@@ -2158,24 +1804,19 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the hot keys of an ApsaraDB for Redis instance.
-     *
-     * @remarks
-     * Before you call this operation, take note of the following items:
+     * @summary Queries the hot keys of an ApsaraDB for Redis instance.
+     *  *
+     * @description Before you call this operation, take note of the following items:
      * *   If you use an Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than V4.3.3. We recommend that you use the latest version.
      * *   The version of your Database Autonomy Service (DAS) SDK must be V1.0.2 or later.
      * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
      * *   This operation is applicable only to ApsaraDB for Redis instances that meet the following requirements:
      *     *   The ApsaraDB for Redis instance is a Community Edition instance that uses a major version of 4.0 or later or a performance-enhanced instance of the Enhanced Edition (Tair).
      *     *   The ApsaraDB for Redis instance is updated to the latest minor version.
+     *  *
+     * @param DescribeHotKeysRequest $request DescribeHotKeysRequest
      *
-     * @param request - DescribeHotKeysRequest
-     *
-     * @returns DescribeHotKeysResponse
-     *
-     * @param DescribeHotKeysRequest $request
-     *
-     * @return DescribeHotKeysResponse
+     * @return DescribeHotKeysResponse DescribeHotKeysResponse
      */
     public function describeHotKeys($request)
     {
@@ -2185,34 +1826,27 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries whether Database Autonomy Service (DAS) Enterprise Edition V1 or V2 is enabled for a database instance.
-     *
-     * @remarks
-     *   For more information about the database instances that support DAS Enterprise Edition, see [Overview of DAS Enterprise Edition](https://help.aliyun.com/document_detail/190912.html).
+     * @summary Queries whether Database Autonomy Service (DAS) Enterprise Edition V1 or V2 is enabled for a database instance.
+     *  *
+     * @description *   For more information about the database instances that support DAS Enterprise Edition, see [Overview of DAS Enterprise Edition](https://help.aliyun.com/document_detail/190912.html).
      * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
      * *   This operation is applicable only to DAS Enterprise Edition V1 and V2.
      * >  We recommend that you call the [DescribeSqlLogConfig](https://help.aliyun.com/document_detail/2778837.html) operation to query the DAS Enterprise Edition configurations of a database instance.
+     *  *
+     * @param DescribeInstanceDasProRequest $request DescribeInstanceDasProRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeInstanceDasProRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeInstanceDasProResponse
-     *
-     * @param DescribeInstanceDasProRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return DescribeInstanceDasProResponse
+     * @return DescribeInstanceDasProResponse DescribeInstanceDasProResponse
      */
     public function describeInstanceDasProWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeInstanceDasPro',
@@ -2230,21 +1864,16 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries whether Database Autonomy Service (DAS) Enterprise Edition V1 or V2 is enabled for a database instance.
-     *
-     * @remarks
-     *   For more information about the database instances that support DAS Enterprise Edition, see [Overview of DAS Enterprise Edition](https://help.aliyun.com/document_detail/190912.html).
+     * @summary Queries whether Database Autonomy Service (DAS) Enterprise Edition V1 or V2 is enabled for a database instance.
+     *  *
+     * @description *   For more information about the database instances that support DAS Enterprise Edition, see [Overview of DAS Enterprise Edition](https://help.aliyun.com/document_detail/190912.html).
      * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
      * *   This operation is applicable only to DAS Enterprise Edition V1 and V2.
      * >  We recommend that you call the [DescribeSqlLogConfig](https://help.aliyun.com/document_detail/2778837.html) operation to query the DAS Enterprise Edition configurations of a database instance.
+     *  *
+     * @param DescribeInstanceDasProRequest $request DescribeInstanceDasProRequest
      *
-     * @param request - DescribeInstanceDasProRequest
-     *
-     * @returns DescribeInstanceDasProResponse
-     *
-     * @param DescribeInstanceDasProRequest $request
-     *
-     * @return DescribeInstanceDasProResponse
+     * @return DescribeInstanceDasProResponse DescribeInstanceDasProResponse
      */
     public function describeInstanceDasPro($request)
     {
@@ -2254,44 +1883,34 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * 获取执行计划.
+     * @summary 获取执行计划
+     *  *
+     * @param DescribeQueryExplainRequest $request DescribeQueryExplainRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeQueryExplainRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeQueryExplainResponse
-     *
-     * @param DescribeQueryExplainRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DescribeQueryExplainResponse
+     * @return DescribeQueryExplainResponse DescribeQueryExplainResponse
      */
     public function describeQueryExplainWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->dbName) {
-            @$body['DbName'] = $request->dbName;
+        if (!Utils::isUnset($request->dbName)) {
+            $body['DbName'] = $request->dbName;
         }
-
-        if (null !== $request->instanceId) {
-            @$body['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->nodeId) {
-            @$body['NodeId'] = $request->nodeId;
+        if (!Utils::isUnset($request->nodeId)) {
+            $body['NodeId'] = $request->nodeId;
         }
-
-        if (null !== $request->schema) {
-            @$body['Schema'] = $request->schema;
+        if (!Utils::isUnset($request->schema)) {
+            $body['Schema'] = $request->schema;
         }
-
-        if (null !== $request->sql) {
-            @$body['Sql'] = $request->sql;
+        if (!Utils::isUnset($request->sql)) {
+            $body['Sql'] = $request->sql;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DescribeQueryExplain',
@@ -2309,15 +1928,11 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * 获取执行计划.
+     * @summary 获取执行计划
+     *  *
+     * @param DescribeQueryExplainRequest $request DescribeQueryExplainRequest
      *
-     * @param request - DescribeQueryExplainRequest
-     *
-     * @returns DescribeQueryExplainResponse
-     *
-     * @param DescribeQueryExplainRequest $request
-     *
-     * @return DescribeQueryExplainResponse
+     * @return DescribeQueryExplainResponse DescribeQueryExplainResponse
      */
     public function describeQueryExplain($request)
     {
@@ -2327,44 +1942,34 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * DescribeSlowLogHistogramAsync.
+     * @summary DescribeSlowLogHistogramAsync
+     *  *
+     * @param DescribeSlowLogHistogramAsyncRequest $request DescribeSlowLogHistogramAsyncRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeSlowLogHistogramAsyncRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeSlowLogHistogramAsyncResponse
-     *
-     * @param DescribeSlowLogHistogramAsyncRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return DescribeSlowLogHistogramAsyncResponse
+     * @return DescribeSlowLogHistogramAsyncResponse DescribeSlowLogHistogramAsyncResponse
      */
     public function describeSlowLogHistogramAsyncWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->endTime) {
-            @$body['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->filters) {
-            @$body['Filters'] = $request->filters;
+        if (!Utils::isUnset($request->filters)) {
+            $body['Filters'] = $request->filters;
         }
-
-        if (null !== $request->instanceId) {
-            @$body['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->nodeId) {
-            @$body['NodeId'] = $request->nodeId;
+        if (!Utils::isUnset($request->nodeId)) {
+            $body['NodeId'] = $request->nodeId;
         }
-
-        if (null !== $request->startTime) {
-            @$body['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DescribeSlowLogHistogramAsync',
@@ -2382,15 +1987,11 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * DescribeSlowLogHistogramAsync.
+     * @summary DescribeSlowLogHistogramAsync
+     *  *
+     * @param DescribeSlowLogHistogramAsyncRequest $request DescribeSlowLogHistogramAsyncRequest
      *
-     * @param request - DescribeSlowLogHistogramAsyncRequest
-     *
-     * @returns DescribeSlowLogHistogramAsyncResponse
-     *
-     * @param DescribeSlowLogHistogramAsyncRequest $request
-     *
-     * @return DescribeSlowLogHistogramAsyncResponse
+     * @return DescribeSlowLogHistogramAsyncResponse DescribeSlowLogHistogramAsyncResponse
      */
     public function describeSlowLogHistogramAsync($request)
     {
@@ -2400,62 +2001,48 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * 查看慢日志明细接口.
+     * @summary 查看慢日志明细接口
+     *  *
+     * @param DescribeSlowLogRecordsRequest $request DescribeSlowLogRecordsRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeSlowLogRecordsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeSlowLogRecordsResponse
-     *
-     * @param DescribeSlowLogRecordsRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return DescribeSlowLogRecordsResponse
+     * @return DescribeSlowLogRecordsResponse DescribeSlowLogRecordsResponse
      */
     public function describeSlowLogRecordsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->asc) {
-            @$query['Asc'] = $request->asc;
+        if (!Utils::isUnset($request->asc)) {
+            $query['Asc'] = $request->asc;
         }
-
-        if (null !== $request->orderBy) {
-            @$query['OrderBy'] = $request->orderBy;
+        if (!Utils::isUnset($request->orderBy)) {
+            $query['OrderBy'] = $request->orderBy;
         }
-
         $body = [];
-        if (null !== $request->endTime) {
-            @$body['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->filters) {
-            @$body['Filters'] = $request->filters;
+        if (!Utils::isUnset($request->filters)) {
+            $body['Filters'] = $request->filters;
         }
-
-        if (null !== $request->instanceId) {
-            @$body['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->nodeId) {
-            @$body['NodeId'] = $request->nodeId;
+        if (!Utils::isUnset($request->nodeId)) {
+            $body['NodeId'] = $request->nodeId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$body['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$body['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->startTime) {
-            @$body['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DescribeSlowLogRecords',
@@ -2473,15 +2060,11 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * 查看慢日志明细接口.
+     * @summary 查看慢日志明细接口
+     *  *
+     * @param DescribeSlowLogRecordsRequest $request DescribeSlowLogRecordsRequest
      *
-     * @param request - DescribeSlowLogRecordsRequest
-     *
-     * @returns DescribeSlowLogRecordsResponse
-     *
-     * @param DescribeSlowLogRecordsRequest $request
-     *
-     * @return DescribeSlowLogRecordsResponse
+     * @return DescribeSlowLogRecordsResponse DescribeSlowLogRecordsResponse
      */
     public function describeSlowLogRecords($request)
     {
@@ -2491,68 +2074,52 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * 慢日志统计信息.
+     * @summary 慢日志统计信息
+     *  *
+     * @param DescribeSlowLogStatisticRequest $request DescribeSlowLogStatisticRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeSlowLogStatisticRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeSlowLogStatisticResponse
-     *
-     * @param DescribeSlowLogStatisticRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return DescribeSlowLogStatisticResponse
+     * @return DescribeSlowLogStatisticResponse DescribeSlowLogStatisticResponse
      */
     public function describeSlowLogStatisticWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->asc) {
-            @$body['Asc'] = $request->asc;
+        if (!Utils::isUnset($request->asc)) {
+            $body['Asc'] = $request->asc;
         }
-
-        if (null !== $request->endTime) {
-            @$body['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->filters) {
-            @$body['Filters'] = $request->filters;
+        if (!Utils::isUnset($request->filters)) {
+            $body['Filters'] = $request->filters;
         }
-
-        if (null !== $request->instanceId) {
-            @$body['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->nodeId) {
-            @$body['NodeId'] = $request->nodeId;
+        if (!Utils::isUnset($request->nodeId)) {
+            $body['NodeId'] = $request->nodeId;
         }
-
-        if (null !== $request->orderBy) {
-            @$body['OrderBy'] = $request->orderBy;
+        if (!Utils::isUnset($request->orderBy)) {
+            $body['OrderBy'] = $request->orderBy;
         }
-
-        if (null !== $request->pageNumber) {
-            @$body['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$body['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->startTime) {
-            @$body['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
         }
-
-        if (null !== $request->templateId) {
-            @$body['TemplateId'] = $request->templateId;
+        if (!Utils::isUnset($request->templateId)) {
+            $body['TemplateId'] = $request->templateId;
         }
-
-        if (null !== $request->type) {
-            @$body['Type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $body['Type'] = $request->type;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DescribeSlowLogStatistic',
@@ -2570,15 +2137,11 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * 慢日志统计信息.
+     * @summary 慢日志统计信息
+     *  *
+     * @param DescribeSlowLogStatisticRequest $request DescribeSlowLogStatisticRequest
      *
-     * @param request - DescribeSlowLogStatisticRequest
-     *
-     * @returns DescribeSlowLogStatisticResponse
-     *
-     * @param DescribeSlowLogStatisticRequest $request
-     *
-     * @return DescribeSlowLogStatisticResponse
+     * @return DescribeSlowLogStatisticResponse DescribeSlowLogStatisticResponse
      */
     public function describeSlowLogStatistic($request)
     {
@@ -2588,33 +2151,26 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the configurations of Database Autonomy Service (DAS) Enterprise Edition that is enabled for a database instance.
-     *
-     * @remarks
-     * Before you call this operation, take note of the following items:
+     * @summary Queries the configurations of Database Autonomy Service (DAS) Enterprise Edition that is enabled for a database instance.
+     *  *
+     * @description Before you call this operation, take note of the following items:
      * *   If you use an Alibaba Cloud SDK or a DAS SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     *  *
+     * @param DescribeSqlLogConfigRequest $request DescribeSqlLogConfigRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeSqlLogConfigRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeSqlLogConfigResponse
-     *
-     * @param DescribeSqlLogConfigRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DescribeSqlLogConfigResponse
+     * @return DescribeSqlLogConfigResponse DescribeSqlLogConfigResponse
      */
     public function describeSqlLogConfigWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->instanceId) {
-            @$body['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DescribeSqlLogConfig',
@@ -2632,20 +2188,15 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the configurations of Database Autonomy Service (DAS) Enterprise Edition that is enabled for a database instance.
-     *
-     * @remarks
-     * Before you call this operation, take note of the following items:
+     * @summary Queries the configurations of Database Autonomy Service (DAS) Enterprise Edition that is enabled for a database instance.
+     *  *
+     * @description Before you call this operation, take note of the following items:
      * *   If you use an Alibaba Cloud SDK or a DAS SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     *  *
+     * @param DescribeSqlLogConfigRequest $request DescribeSqlLogConfigRequest
      *
-     * @param request - DescribeSqlLogConfigRequest
-     *
-     * @returns DescribeSqlLogConfigResponse
-     *
-     * @param DescribeSqlLogConfigRequest $request
-     *
-     * @return DescribeSqlLogConfigResponse
+     * @return DescribeSqlLogConfigResponse DescribeSqlLogConfigResponse
      */
     public function describeSqlLogConfig($request)
     {
@@ -2655,63 +2206,49 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the log details of a database instance for which Database Autonomy Service (DAS) Enterprise Edition is enabled.
-     *
-     * @remarks
-     * Before you call this operation, take note of the following items:
+     * @summary Queries the log details of a database instance for which Database Autonomy Service (DAS) Enterprise Edition is enabled.
+     *  *
+     * @description Before you call this operation, take note of the following items:
      * *   If you use an Alibaba Cloud SDK or DAS SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     *  *
+     * @param DescribeSqlLogRecordsRequest $request DescribeSqlLogRecordsRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeSqlLogRecordsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeSqlLogRecordsResponse
-     *
-     * @param DescribeSqlLogRecordsRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DescribeSqlLogRecordsResponse
+     * @return DescribeSqlLogRecordsResponse DescribeSqlLogRecordsResponse
      */
     public function describeSqlLogRecordsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->filters) {
-            @$query['Filters'] = $request->filters;
+        if (!Utils::isUnset($request->filters)) {
+            $query['Filters'] = $request->filters;
         }
-
-        if (null !== $request->role) {
-            @$query['Role'] = $request->role;
+        if (!Utils::isUnset($request->role)) {
+            $query['Role'] = $request->role;
         }
-
         $body = [];
-        if (null !== $request->endTime) {
-            @$body['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->instanceId) {
-            @$body['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->nodeId) {
-            @$body['NodeId'] = $request->nodeId;
+        if (!Utils::isUnset($request->nodeId)) {
+            $body['NodeId'] = $request->nodeId;
         }
-
-        if (null !== $request->pageNo) {
-            @$body['PageNo'] = $request->pageNo;
+        if (!Utils::isUnset($request->pageNo)) {
+            $body['PageNo'] = $request->pageNo;
         }
-
-        if (null !== $request->pageSize) {
-            @$body['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->startTime) {
-            @$body['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DescribeSqlLogRecords',
@@ -2729,20 +2266,15 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the log details of a database instance for which Database Autonomy Service (DAS) Enterprise Edition is enabled.
-     *
-     * @remarks
-     * Before you call this operation, take note of the following items:
+     * @summary Queries the log details of a database instance for which Database Autonomy Service (DAS) Enterprise Edition is enabled.
+     *  *
+     * @description Before you call this operation, take note of the following items:
      * *   If you use an Alibaba Cloud SDK or DAS SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     *  *
+     * @param DescribeSqlLogRecordsRequest $request DescribeSqlLogRecordsRequest
      *
-     * @param request - DescribeSqlLogRecordsRequest
-     *
-     * @returns DescribeSqlLogRecordsResponse
-     *
-     * @param DescribeSqlLogRecordsRequest $request
-     *
-     * @return DescribeSqlLogRecordsResponse
+     * @return DescribeSqlLogRecordsResponse DescribeSqlLogRecordsResponse
      */
     public function describeSqlLogRecords($request)
     {
@@ -2752,33 +2284,26 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the statistics of Database Autonomy Service (DAS) Enterprise Edition.
-     *
-     * @remarks
-     * Before you call this operation, take note of the following items:
+     * @summary Queries the statistics of Database Autonomy Service (DAS) Enterprise Edition.
+     *  *
+     * @description Before you call this operation, take note of the following items:
      * *   If you use an Alibaba Cloud SDK or a DAS SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     *  *
+     * @param DescribeSqlLogStatisticRequest $request DescribeSqlLogStatisticRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeSqlLogStatisticRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeSqlLogStatisticResponse
-     *
-     * @param DescribeSqlLogStatisticRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DescribeSqlLogStatisticResponse
+     * @return DescribeSqlLogStatisticResponse DescribeSqlLogStatisticResponse
      */
     public function describeSqlLogStatisticWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->instanceId) {
-            @$body['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DescribeSqlLogStatistic',
@@ -2796,20 +2321,15 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the statistics of Database Autonomy Service (DAS) Enterprise Edition.
-     *
-     * @remarks
-     * Before you call this operation, take note of the following items:
+     * @summary Queries the statistics of Database Autonomy Service (DAS) Enterprise Edition.
+     *  *
+     * @description Before you call this operation, take note of the following items:
      * *   If you use an Alibaba Cloud SDK or a DAS SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     *  *
+     * @param DescribeSqlLogStatisticRequest $request DescribeSqlLogStatisticRequest
      *
-     * @param request - DescribeSqlLogStatisticRequest
-     *
-     * @returns DescribeSqlLogStatisticResponse
-     *
-     * @param DescribeSqlLogStatisticRequest $request
-     *
-     * @return DescribeSqlLogStatisticResponse
+     * @return DescribeSqlLogStatisticResponse DescribeSqlLogStatisticResponse
      */
     public function describeSqlLogStatistic($request)
     {
@@ -2819,45 +2339,35 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the details of an offline task in Database Autonomy Service (DAS) Enterprise Edition.
-     *
-     * @remarks
-     * Before you call this operation, take note of the following items:
+     * @summary Queries the details of an offline task in Database Autonomy Service (DAS) Enterprise Edition.
+     *  *
+     * @description Before you call this operation, take note of the following items:
      * *   If you use an Alibaba Cloud SDK or a DAS SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call the API operations of DAS, you must set the region ID to cn-shanghai.
+     *  *
+     * @param DescribeSqlLogTaskRequest $request DescribeSqlLogTaskRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeSqlLogTaskRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeSqlLogTaskResponse
-     *
-     * @param DescribeSqlLogTaskRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DescribeSqlLogTaskResponse
+     * @return DescribeSqlLogTaskResponse DescribeSqlLogTaskResponse
      */
     public function describeSqlLogTaskWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->instanceId) {
-            @$body['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->pageNo) {
-            @$body['PageNo'] = $request->pageNo;
+        if (!Utils::isUnset($request->pageNo)) {
+            $body['PageNo'] = $request->pageNo;
         }
-
-        if (null !== $request->pageSize) {
-            @$body['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->taskId) {
-            @$body['TaskId'] = $request->taskId;
+        if (!Utils::isUnset($request->taskId)) {
+            $body['TaskId'] = $request->taskId;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DescribeSqlLogTask',
@@ -2875,20 +2385,15 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the details of an offline task in Database Autonomy Service (DAS) Enterprise Edition.
-     *
-     * @remarks
-     * Before you call this operation, take note of the following items:
+     * @summary Queries the details of an offline task in Database Autonomy Service (DAS) Enterprise Edition.
+     *  *
+     * @description Before you call this operation, take note of the following items:
      * *   If you use an Alibaba Cloud SDK or a DAS SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call the API operations of DAS, you must set the region ID to cn-shanghai.
+     *  *
+     * @param DescribeSqlLogTaskRequest $request DescribeSqlLogTaskRequest
      *
-     * @param request - DescribeSqlLogTaskRequest
-     *
-     * @returns DescribeSqlLogTaskResponse
-     *
-     * @param DescribeSqlLogTaskRequest $request
-     *
-     * @return DescribeSqlLogTaskResponse
+     * @return DescribeSqlLogTaskResponse DescribeSqlLogTaskResponse
      */
     public function describeSqlLogTask($request)
     {
@@ -2898,57 +2403,44 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the audit log tasks of a database instance.
-     *
-     * @remarks
-     * Before you call this operation, take note of the following items:
+     * @summary Queries the audit log tasks of a database instance.
+     *  *
+     * @description Before you call this operation, take note of the following items:
      * *   If you use an Alibaba Cloud SDK or a DAS SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     *  *
+     * @param DescribeSqlLogTasksRequest $request DescribeSqlLogTasksRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeSqlLogTasksRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeSqlLogTasksResponse
-     *
-     * @param DescribeSqlLogTasksRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DescribeSqlLogTasksResponse
+     * @return DescribeSqlLogTasksResponse DescribeSqlLogTasksResponse
      */
     public function describeSqlLogTasksWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->endTime) {
-            @$body['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->filters) {
-            @$body['Filters'] = $request->filters;
+        if (!Utils::isUnset($request->filters)) {
+            $body['Filters'] = $request->filters;
         }
-
-        if (null !== $request->instanceId) {
-            @$body['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->nodeId) {
-            @$body['NodeId'] = $request->nodeId;
+        if (!Utils::isUnset($request->nodeId)) {
+            $body['NodeId'] = $request->nodeId;
         }
-
-        if (null !== $request->pageNo) {
-            @$body['PageNo'] = $request->pageNo;
+        if (!Utils::isUnset($request->pageNo)) {
+            $body['PageNo'] = $request->pageNo;
         }
-
-        if (null !== $request->pageSize) {
-            @$body['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->startTime) {
-            @$body['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DescribeSqlLogTasks',
@@ -2966,20 +2458,15 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the audit log tasks of a database instance.
-     *
-     * @remarks
-     * Before you call this operation, take note of the following items:
+     * @summary Queries the audit log tasks of a database instance.
+     *  *
+     * @description Before you call this operation, take note of the following items:
      * *   If you use an Alibaba Cloud SDK or a DAS SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     *  *
+     * @param DescribeSqlLogTasksRequest $request DescribeSqlLogTasksRequest
      *
-     * @param request - DescribeSqlLogTasksRequest
-     *
-     * @returns DescribeSqlLogTasksResponse
-     *
-     * @param DescribeSqlLogTasksRequest $request
-     *
-     * @return DescribeSqlLogTasksResponse
+     * @return DescribeSqlLogTasksResponse DescribeSqlLogTasksResponse
      */
     public function describeSqlLogTasks($request)
     {
@@ -2989,53 +2476,42 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the top 100 large keys over a period of time.
-     *
-     * @remarks
-     * The list, hash, set, and zset keys are sorted based on the number of elements in these keys. The top three keys that have the most elements are considered large keys.
+     * @summary Queries the top 100 large keys over a period of time.
+     *  *
+     * @description The list, hash, set, and zset keys are sorted based on the number of elements in these keys. The top three keys that have the most elements are considered large keys.
      * *   If you use an Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than 4.3.3. We recommend that you use the latest version.
      * *   The version of Database Autonomy Service (DAS) SDK must be 1.0.2 or later.
      * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
      * *   This operation is available only for an ApsaraDB for Redis instance of one of the following versions:
      *     *   The instance is ApsaraDB for Redis Community Edition instances that use a major version of 5.0 or later or a performance-enhanced instance of the ApsaraDB for Redis Enhanced Edition (Tair).
      *     *   The ApsaraDB for Redis instance is updated to the latest minor version.
+     *  *
+     * @param DescribeTopBigKeysRequest $request DescribeTopBigKeysRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeTopBigKeysRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeTopBigKeysResponse
-     *
-     * @param DescribeTopBigKeysRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DescribeTopBigKeysResponse
+     * @return DescribeTopBigKeysResponse DescribeTopBigKeysResponse
      */
     public function describeTopBigKeysWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->consoleContext) {
-            @$query['ConsoleContext'] = $request->consoleContext;
+        if (!Utils::isUnset($request->consoleContext)) {
+            $query['ConsoleContext'] = $request->consoleContext;
         }
-
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->nodeId) {
-            @$query['NodeId'] = $request->nodeId;
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeTopBigKeys',
@@ -3053,24 +2529,19 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the top 100 large keys over a period of time.
-     *
-     * @remarks
-     * The list, hash, set, and zset keys are sorted based on the number of elements in these keys. The top three keys that have the most elements are considered large keys.
+     * @summary Queries the top 100 large keys over a period of time.
+     *  *
+     * @description The list, hash, set, and zset keys are sorted based on the number of elements in these keys. The top three keys that have the most elements are considered large keys.
      * *   If you use an Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than 4.3.3. We recommend that you use the latest version.
      * *   The version of Database Autonomy Service (DAS) SDK must be 1.0.2 or later.
      * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
      * *   This operation is available only for an ApsaraDB for Redis instance of one of the following versions:
      *     *   The instance is ApsaraDB for Redis Community Edition instances that use a major version of 5.0 or later or a performance-enhanced instance of the ApsaraDB for Redis Enhanced Edition (Tair).
      *     *   The ApsaraDB for Redis instance is updated to the latest minor version.
+     *  *
+     * @param DescribeTopBigKeysRequest $request DescribeTopBigKeysRequest
      *
-     * @param request - DescribeTopBigKeysRequest
-     *
-     * @returns DescribeTopBigKeysResponse
-     *
-     * @param DescribeTopBigKeysRequest $request
-     *
-     * @return DescribeTopBigKeysResponse
+     * @return DescribeTopBigKeysResponse DescribeTopBigKeysResponse
      */
     public function describeTopBigKeys($request)
     {
@@ -3080,53 +2551,42 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the top 100 hotkeys over a period of time.
-     *
-     * @remarks
-     * If the number of queries per second (QPS) of a key is greater than 3,000, the key is considered a hot key.
+     * @summary Queries the top 100 hotkeys over a period of time.
+     *  *
+     * @description If the number of queries per second (QPS) of a key is greater than 3,000, the key is considered a hot key.
      * *   If you use an Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than 4.3.3. We recommend that you use the latest version.
      * *   The version of Database Autonomy Service (DAS) SDK must be 1.0.2 or later.
      * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
      * *   This operation is available only for an ApsaraDB for Redis instance of one of the following versions:
      *     *   The instance is a Community Edition instance that uses a major version of 4.0 or later or a performance-enhanced instance of the Enhanced Edition (Tair).
      *     *   The ApsaraDB for Redis instance is updated to the latest minor version.
+     *  *
+     * @param DescribeTopHotKeysRequest $request DescribeTopHotKeysRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeTopHotKeysRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeTopHotKeysResponse
-     *
-     * @param DescribeTopHotKeysRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DescribeTopHotKeysResponse
+     * @return DescribeTopHotKeysResponse DescribeTopHotKeysResponse
      */
     public function describeTopHotKeysWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->consoleContext) {
-            @$query['ConsoleContext'] = $request->consoleContext;
+        if (!Utils::isUnset($request->consoleContext)) {
+            $query['ConsoleContext'] = $request->consoleContext;
         }
-
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->nodeId) {
-            @$query['NodeId'] = $request->nodeId;
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeTopHotKeys',
@@ -3144,24 +2604,19 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the top 100 hotkeys over a period of time.
-     *
-     * @remarks
-     * If the number of queries per second (QPS) of a key is greater than 3,000, the key is considered a hot key.
+     * @summary Queries the top 100 hotkeys over a period of time.
+     *  *
+     * @description If the number of queries per second (QPS) of a key is greater than 3,000, the key is considered a hot key.
      * *   If you use an Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than 4.3.3. We recommend that you use the latest version.
      * *   The version of Database Autonomy Service (DAS) SDK must be 1.0.2 or later.
      * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
      * *   This operation is available only for an ApsaraDB for Redis instance of one of the following versions:
      *     *   The instance is a Community Edition instance that uses a major version of 4.0 or later or a performance-enhanced instance of the Enhanced Edition (Tair).
      *     *   The ApsaraDB for Redis instance is updated to the latest minor version.
+     *  *
+     * @param DescribeTopHotKeysRequest $request DescribeTopHotKeysRequest
      *
-     * @param request - DescribeTopHotKeysRequest
-     *
-     * @returns DescribeTopHotKeysResponse
-     *
-     * @param DescribeTopHotKeysRequest $request
-     *
-     * @return DescribeTopHotKeysResponse
+     * @return DescribeTopHotKeysResponse DescribeTopHotKeysResponse
      */
     public function describeTopHotKeys($request)
     {
@@ -3171,37 +2626,29 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Disables all throttling rules that are in effect.
-     *
-     * @remarks
-     * This operation supports the following database engines:
+     * @summary Disables all throttling rules that are in effect.
+     *  *
+     * @description This operation supports the following database engines:
      * *   ApsaraDB RDS for MySQL
      * *   PolarDB for MySQL
+     *  *
+     * @param DisableAllSqlConcurrencyControlRulesRequest $request DisableAllSqlConcurrencyControlRulesRequest
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DisableAllSqlConcurrencyControlRulesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DisableAllSqlConcurrencyControlRulesResponse
-     *
-     * @param DisableAllSqlConcurrencyControlRulesRequest $request
-     * @param RuntimeOptions                              $runtime
-     *
-     * @return DisableAllSqlConcurrencyControlRulesResponse
+     * @return DisableAllSqlConcurrencyControlRulesResponse DisableAllSqlConcurrencyControlRulesResponse
      */
     public function disableAllSqlConcurrencyControlRulesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->consoleContext) {
-            @$query['ConsoleContext'] = $request->consoleContext;
+        if (!Utils::isUnset($request->consoleContext)) {
+            $query['ConsoleContext'] = $request->consoleContext;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DisableAllSqlConcurrencyControlRules',
@@ -3219,20 +2666,15 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Disables all throttling rules that are in effect.
-     *
-     * @remarks
-     * This operation supports the following database engines:
+     * @summary Disables all throttling rules that are in effect.
+     *  *
+     * @description This operation supports the following database engines:
      * *   ApsaraDB RDS for MySQL
      * *   PolarDB for MySQL
+     *  *
+     * @param DisableAllSqlConcurrencyControlRulesRequest $request DisableAllSqlConcurrencyControlRulesRequest
      *
-     * @param request - DisableAllSqlConcurrencyControlRulesRequest
-     *
-     * @returns DisableAllSqlConcurrencyControlRulesResponse
-     *
-     * @param DisableAllSqlConcurrencyControlRulesRequest $request
-     *
-     * @return DisableAllSqlConcurrencyControlRulesResponse
+     * @return DisableAllSqlConcurrencyControlRulesResponse DisableAllSqlConcurrencyControlRulesResponse
      */
     public function disableAllSqlConcurrencyControlRules($request)
     {
@@ -3242,35 +2684,27 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Disables the automatic tablespace fragment recycling feature for database instances at a time.
+     * @summary Disables the automatic tablespace fragment recycling feature for database instances at a time.
+     *  *
+     * @description If you use an SDK to call API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
+     *  *
+     * @param DisableAutoResourceOptimizeRulesRequest $request DisableAutoResourceOptimizeRulesRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * If you use an SDK to call API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
-     *
-     * @param request - DisableAutoResourceOptimizeRulesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DisableAutoResourceOptimizeRulesResponse
-     *
-     * @param DisableAutoResourceOptimizeRulesRequest $request
-     * @param RuntimeOptions                          $runtime
-     *
-     * @return DisableAutoResourceOptimizeRulesResponse
+     * @return DisableAutoResourceOptimizeRulesResponse DisableAutoResourceOptimizeRulesResponse
      */
     public function disableAutoResourceOptimizeRulesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->consoleContext) {
-            @$query['ConsoleContext'] = $request->consoleContext;
+        if (!Utils::isUnset($request->consoleContext)) {
+            $query['ConsoleContext'] = $request->consoleContext;
         }
-
-        if (null !== $request->instanceIds) {
-            @$query['InstanceIds'] = $request->instanceIds;
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DisableAutoResourceOptimizeRules',
@@ -3288,18 +2722,13 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Disables the automatic tablespace fragment recycling feature for database instances at a time.
+     * @summary Disables the automatic tablespace fragment recycling feature for database instances at a time.
+     *  *
+     * @description If you use an SDK to call API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
+     *  *
+     * @param DisableAutoResourceOptimizeRulesRequest $request DisableAutoResourceOptimizeRulesRequest
      *
-     * @remarks
-     * If you use an SDK to call API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
-     *
-     * @param request - DisableAutoResourceOptimizeRulesRequest
-     *
-     * @returns DisableAutoResourceOptimizeRulesResponse
-     *
-     * @param DisableAutoResourceOptimizeRulesRequest $request
-     *
-     * @return DisableAutoResourceOptimizeRulesResponse
+     * @return DisableAutoResourceOptimizeRulesResponse DisableAutoResourceOptimizeRulesResponse
      */
     public function disableAutoResourceOptimizeRules($request)
     {
@@ -3309,35 +2738,27 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Disables the automatic SQL throttling feature for multiple database instances at a time.
+     * @summary Disables the automatic SQL throttling feature for multiple database instances at a time.
+     *  *
+     * @description If you use an SDK to call operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
+     *  *
+     * @param DisableAutoThrottleRulesRequest $request DisableAutoThrottleRulesRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * If you use an SDK to call operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
-     *
-     * @param request - DisableAutoThrottleRulesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DisableAutoThrottleRulesResponse
-     *
-     * @param DisableAutoThrottleRulesRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return DisableAutoThrottleRulesResponse
+     * @return DisableAutoThrottleRulesResponse DisableAutoThrottleRulesResponse
      */
     public function disableAutoThrottleRulesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->consoleContext) {
-            @$query['ConsoleContext'] = $request->consoleContext;
+        if (!Utils::isUnset($request->consoleContext)) {
+            $query['ConsoleContext'] = $request->consoleContext;
         }
-
-        if (null !== $request->instanceIds) {
-            @$query['InstanceIds'] = $request->instanceIds;
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DisableAutoThrottleRules',
@@ -3355,18 +2776,13 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Disables the automatic SQL throttling feature for multiple database instances at a time.
+     * @summary Disables the automatic SQL throttling feature for multiple database instances at a time.
+     *  *
+     * @description If you use an SDK to call operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
+     *  *
+     * @param DisableAutoThrottleRulesRequest $request DisableAutoThrottleRulesRequest
      *
-     * @remarks
-     * If you use an SDK to call operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
-     *
-     * @param request - DisableAutoThrottleRulesRequest
-     *
-     * @returns DisableAutoThrottleRulesResponse
-     *
-     * @param DisableAutoThrottleRulesRequest $request
-     *
-     * @return DisableAutoThrottleRulesResponse
+     * @return DisableAutoThrottleRulesResponse DisableAutoThrottleRulesResponse
      */
     public function disableAutoThrottleRules($request)
     {
@@ -3376,38 +2792,30 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Deactivates Database Autonomy Service (DAS) Professional Edition.
-     *
-     * @remarks
-     *   For more information about the database instances that support DAS Enterprise Edition, see [Overview](https://help.aliyun.com/document_detail/190912.html).
+     * @summary Deactivates Database Autonomy Service (DAS) Professional Edition.
+     *  *
+     * @description *   For more information about the database instances that support DAS Enterprise Edition, see [Overview](https://help.aliyun.com/document_detail/190912.html).
      * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
      * *   This operation is applicable only to DAS Enterprise Edition V1.
      * >  We recommend that you call the [ModifySqlLogConfig](https://help.aliyun.com/document_detail/2778835.html) operation to enable or disable DAS Enterprise Edition for a database instance. For more information about the databases and regions supported by each version of DAS Enterprise Edition, see [Editions and supported features](https://help.aliyun.com/document_detail/156204.html).
+     *  *
+     * @param DisableDasProRequest $request DisableDasProRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DisableDasProRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DisableDasProResponse
-     *
-     * @param DisableDasProRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return DisableDasProResponse
+     * @return DisableDasProResponse DisableDasProResponse
      */
     public function disableDasProWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->userId) {
-            @$query['UserId'] = $request->userId;
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DisableDasPro',
@@ -3425,21 +2833,16 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Deactivates Database Autonomy Service (DAS) Professional Edition.
-     *
-     * @remarks
-     *   For more information about the database instances that support DAS Enterprise Edition, see [Overview](https://help.aliyun.com/document_detail/190912.html).
+     * @summary Deactivates Database Autonomy Service (DAS) Professional Edition.
+     *  *
+     * @description *   For more information about the database instances that support DAS Enterprise Edition, see [Overview](https://help.aliyun.com/document_detail/190912.html).
      * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
      * *   This operation is applicable only to DAS Enterprise Edition V1.
      * >  We recommend that you call the [ModifySqlLogConfig](https://help.aliyun.com/document_detail/2778835.html) operation to enable or disable DAS Enterprise Edition for a database instance. For more information about the databases and regions supported by each version of DAS Enterprise Edition, see [Editions and supported features](https://help.aliyun.com/document_detail/156204.html).
+     *  *
+     * @param DisableDasProRequest $request DisableDasProRequest
      *
-     * @param request - DisableDasProRequest
-     *
-     * @returns DisableDasProResponse
-     *
-     * @param DisableDasProRequest $request
-     *
-     * @return DisableDasProResponse
+     * @return DisableDasProResponse DisableDasProResponse
      */
     public function disableDasPro($request)
     {
@@ -3449,42 +2852,33 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Disables the auto scaling feature for a database instance.
-     *
-     * @remarks
-     * Before you call this operation, take note of the following items:
+     * @summary Disables the auto scaling feature for a database instance.
+     *  *
+     * @description Before you call this operation, take note of the following items:
      * *   If you use Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
      * *   This operation is applicable only to ApsaraDB for Redis instances.
+     *  *
+     * @param DisableInstanceDasConfigRequest $request DisableInstanceDasConfigRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DisableInstanceDasConfigRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DisableInstanceDasConfigResponse
-     *
-     * @param DisableInstanceDasConfigRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return DisableInstanceDasConfigResponse
+     * @return DisableInstanceDasConfigResponse DisableInstanceDasConfigResponse
      */
     public function disableInstanceDasConfigWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->engine) {
-            @$query['Engine'] = $request->engine;
+        if (!Utils::isUnset($request->engine)) {
+            $query['Engine'] = $request->engine;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->scaleType) {
-            @$query['ScaleType'] = $request->scaleType;
+        if (!Utils::isUnset($request->scaleType)) {
+            $query['ScaleType'] = $request->scaleType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DisableInstanceDasConfig',
@@ -3502,21 +2896,16 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Disables the auto scaling feature for a database instance.
-     *
-     * @remarks
-     * Before you call this operation, take note of the following items:
+     * @summary Disables the auto scaling feature for a database instance.
+     *  *
+     * @description Before you call this operation, take note of the following items:
      * *   If you use Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
      * *   This operation is applicable only to ApsaraDB for Redis instances.
+     *  *
+     * @param DisableInstanceDasConfigRequest $request DisableInstanceDasConfigRequest
      *
-     * @param request - DisableInstanceDasConfigRequest
-     *
-     * @returns DisableInstanceDasConfigResponse
-     *
-     * @param DisableInstanceDasConfigRequest $request
-     *
-     * @return DisableInstanceDasConfigResponse
+     * @return DisableInstanceDasConfigResponse DisableInstanceDasConfigResponse
      */
     public function disableInstanceDasConfig($request)
     {
@@ -3526,41 +2915,32 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Disables a throttling rule.
-     *
-     * @remarks
-     * This operation is applicable to the following database engines:
+     * @summary Disables a throttling rule.
+     *  *
+     * @description This operation is applicable to the following database engines:
      * *   ApsaraDB RDS for MySQL
      * *   PolarDB for MySQL
+     *  *
+     * @param DisableSqlConcurrencyControlRequest $request DisableSqlConcurrencyControlRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DisableSqlConcurrencyControlRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DisableSqlConcurrencyControlResponse
-     *
-     * @param DisableSqlConcurrencyControlRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return DisableSqlConcurrencyControlResponse
+     * @return DisableSqlConcurrencyControlResponse DisableSqlConcurrencyControlResponse
      */
     public function disableSqlConcurrencyControlWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->consoleContext) {
-            @$query['ConsoleContext'] = $request->consoleContext;
+        if (!Utils::isUnset($request->consoleContext)) {
+            $query['ConsoleContext'] = $request->consoleContext;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->itemId) {
-            @$query['ItemId'] = $request->itemId;
+        if (!Utils::isUnset($request->itemId)) {
+            $query['ItemId'] = $request->itemId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DisableSqlConcurrencyControl',
@@ -3578,20 +2958,15 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Disables a throttling rule.
-     *
-     * @remarks
-     * This operation is applicable to the following database engines:
+     * @summary Disables a throttling rule.
+     *  *
+     * @description This operation is applicable to the following database engines:
      * *   ApsaraDB RDS for MySQL
      * *   PolarDB for MySQL
+     *  *
+     * @param DisableSqlConcurrencyControlRequest $request DisableSqlConcurrencyControlRequest
      *
-     * @param request - DisableSqlConcurrencyControlRequest
-     *
-     * @returns DisableSqlConcurrencyControlResponse
-     *
-     * @param DisableSqlConcurrencyControlRequest $request
-     *
-     * @return DisableSqlConcurrencyControlResponse
+     * @return DisableSqlConcurrencyControlResponse DisableSqlConcurrencyControlResponse
      */
     public function disableSqlConcurrencyControl($request)
     {
@@ -3601,41 +2976,32 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Activates Database Autonomy Service (DAS) Professional Edition.
-     *
-     * @remarks
-     *   If you use an SDK to call the API operations of DAS, you must set the region ID to cn-shanghai.
+     * @summary Activates Database Autonomy Service (DAS) Professional Edition.
+     *  *
+     * @description *   If you use an SDK to call the API operations of DAS, you must set the region ID to cn-shanghai.
      * *   This operation is applicable only to DAS Enterprise Edition V1.
      * >  We recommend that you call the [ModifySqlLogConfig](https://help.aliyun.com/document_detail/2778835.html) operation to activate or deactivate DAS Enterprise Edition for a database instance. For more information about the databases and regions supported by each version of DAS Enterprise Edition, see [DAS editions and supported features](https://help.aliyun.com/document_detail/156204.html).
+     *  *
+     * @param EnableDasProRequest $request EnableDasProRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - EnableDasProRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns EnableDasProResponse
-     *
-     * @param EnableDasProRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return EnableDasProResponse
+     * @return EnableDasProResponse EnableDasProResponse
      */
     public function enableDasProWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->sqlRetention) {
-            @$query['SqlRetention'] = $request->sqlRetention;
+        if (!Utils::isUnset($request->sqlRetention)) {
+            $query['SqlRetention'] = $request->sqlRetention;
         }
-
-        if (null !== $request->userId) {
-            @$query['UserId'] = $request->userId;
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'EnableDasPro',
@@ -3653,20 +3019,15 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Activates Database Autonomy Service (DAS) Professional Edition.
-     *
-     * @remarks
-     *   If you use an SDK to call the API operations of DAS, you must set the region ID to cn-shanghai.
+     * @summary Activates Database Autonomy Service (DAS) Professional Edition.
+     *  *
+     * @description *   If you use an SDK to call the API operations of DAS, you must set the region ID to cn-shanghai.
      * *   This operation is applicable only to DAS Enterprise Edition V1.
      * >  We recommend that you call the [ModifySqlLogConfig](https://help.aliyun.com/document_detail/2778835.html) operation to activate or deactivate DAS Enterprise Edition for a database instance. For more information about the databases and regions supported by each version of DAS Enterprise Edition, see [DAS editions and supported features](https://help.aliyun.com/document_detail/156204.html).
+     *  *
+     * @param EnableDasProRequest $request EnableDasProRequest
      *
-     * @param request - EnableDasProRequest
-     *
-     * @returns EnableDasProResponse
-     *
-     * @param EnableDasProRequest $request
-     *
-     * @return EnableDasProResponse
+     * @return EnableDasProResponse EnableDasProResponse
      */
     public function enableDasPro($request)
     {
@@ -3676,53 +3037,41 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Enables SQL throttling to control the numbers of database access requests and concurrent SQL statements.
-     *
-     * @remarks
-     * This operation supports the following database engines:
+     * @summary Enables SQL throttling to control the numbers of database access requests and concurrent SQL statements.
+     *  *
+     * @description This operation supports the following database engines:
      * *   ApsaraDB RDS for MySQL
      * *   PolarDB for MySQL
+     *  *
+     * @param EnableSqlConcurrencyControlRequest $request EnableSqlConcurrencyControlRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - EnableSqlConcurrencyControlRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns EnableSqlConcurrencyControlResponse
-     *
-     * @param EnableSqlConcurrencyControlRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return EnableSqlConcurrencyControlResponse
+     * @return EnableSqlConcurrencyControlResponse EnableSqlConcurrencyControlResponse
      */
     public function enableSqlConcurrencyControlWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->concurrencyControlTime) {
-            @$query['ConcurrencyControlTime'] = $request->concurrencyControlTime;
+        if (!Utils::isUnset($request->concurrencyControlTime)) {
+            $query['ConcurrencyControlTime'] = $request->concurrencyControlTime;
         }
-
-        if (null !== $request->consoleContext) {
-            @$query['ConsoleContext'] = $request->consoleContext;
+        if (!Utils::isUnset($request->consoleContext)) {
+            $query['ConsoleContext'] = $request->consoleContext;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->maxConcurrency) {
-            @$query['MaxConcurrency'] = $request->maxConcurrency;
+        if (!Utils::isUnset($request->maxConcurrency)) {
+            $query['MaxConcurrency'] = $request->maxConcurrency;
         }
-
-        if (null !== $request->sqlKeywords) {
-            @$query['SqlKeywords'] = $request->sqlKeywords;
+        if (!Utils::isUnset($request->sqlKeywords)) {
+            $query['SqlKeywords'] = $request->sqlKeywords;
         }
-
-        if (null !== $request->sqlType) {
-            @$query['SqlType'] = $request->sqlType;
+        if (!Utils::isUnset($request->sqlType)) {
+            $query['SqlType'] = $request->sqlType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'EnableSqlConcurrencyControl',
@@ -3740,20 +3089,15 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Enables SQL throttling to control the numbers of database access requests and concurrent SQL statements.
-     *
-     * @remarks
-     * This operation supports the following database engines:
+     * @summary Enables SQL throttling to control the numbers of database access requests and concurrent SQL statements.
+     *  *
+     * @description This operation supports the following database engines:
      * *   ApsaraDB RDS for MySQL
      * *   PolarDB for MySQL
+     *  *
+     * @param EnableSqlConcurrencyControlRequest $request EnableSqlConcurrencyControlRequest
      *
-     * @param request - EnableSqlConcurrencyControlRequest
-     *
-     * @returns EnableSqlConcurrencyControlResponse
-     *
-     * @param EnableSqlConcurrencyControlRequest $request
-     *
-     * @return EnableSqlConcurrencyControlResponse
+     * @return EnableSqlConcurrencyControlResponse EnableSqlConcurrencyControlResponse
      */
     public function enableSqlConcurrencyControl($request)
     {
@@ -3763,50 +3107,39 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Asynchronously queries the IDs of SQL statements that generate a MySQL error code in the SQL Explorer results of a database instance.
-     *
-     * @remarks
-     * >  GetAsyncErrorRequestListByCode is an asynchronous operation. After a request is sent, the complete results are not returned immediately. If the value of the **isFinish** parameter is **false** in the response, wait for 1 second and then send a request again. If the value of the **isFinish** parameter is **true**, the complete results are returned.
+     * @summary Asynchronously queries the IDs of SQL statements that generate a MySQL error code in the SQL Explorer results of a database instance.
+     *  *
+     * @description >  GetAsyncErrorRequestListByCode is an asynchronous operation. After a request is sent, the complete results are not returned immediately. If the value of the **isFinish** parameter is **false** in the response, wait for 1 second and then send a request again. If the value of the **isFinish** parameter is **true**, the complete results are returned.
      * *   This API operation supports only ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters for which Database Autonomy Service (DAS) Enterprise Edition is enabled. For more information, see [Enable and manage DAS Economy Edition and DAS Enterprise Edition](https://help.aliyun.com/document_detail/163298.html).
      * *   If you use an SDK to call the API operations of DAS, you must set the region ID to cn-shanghai.
      * *   When you call this operation, the value of the SqlId parameter changes due to the optimization of the SQL template algorithm starting from September 1, 2024. For more information, see [[Notice\\] Optimization of the SQL template algorithm](~~2845725~~).
+     *  *
+     * @param GetAsyncErrorRequestListByCodeRequest $request GetAsyncErrorRequestListByCodeRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetAsyncErrorRequestListByCodeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetAsyncErrorRequestListByCodeResponse
-     *
-     * @param GetAsyncErrorRequestListByCodeRequest $request
-     * @param RuntimeOptions                        $runtime
-     *
-     * @return GetAsyncErrorRequestListByCodeResponse
+     * @return GetAsyncErrorRequestListByCodeResponse GetAsyncErrorRequestListByCodeResponse
      */
     public function getAsyncErrorRequestListByCodeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->end) {
-            @$query['End'] = $request->end;
+        if (!Utils::isUnset($request->end)) {
+            $query['End'] = $request->end;
         }
-
-        if (null !== $request->errorCode) {
-            @$query['ErrorCode'] = $request->errorCode;
+        if (!Utils::isUnset($request->errorCode)) {
+            $query['ErrorCode'] = $request->errorCode;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->nodeId) {
-            @$query['NodeId'] = $request->nodeId;
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
         }
-
-        if (null !== $request->start) {
-            @$query['Start'] = $request->start;
+        if (!Utils::isUnset($request->start)) {
+            $query['Start'] = $request->start;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetAsyncErrorRequestListByCode',
@@ -3824,21 +3157,16 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Asynchronously queries the IDs of SQL statements that generate a MySQL error code in the SQL Explorer results of a database instance.
-     *
-     * @remarks
-     * >  GetAsyncErrorRequestListByCode is an asynchronous operation. After a request is sent, the complete results are not returned immediately. If the value of the **isFinish** parameter is **false** in the response, wait for 1 second and then send a request again. If the value of the **isFinish** parameter is **true**, the complete results are returned.
+     * @summary Asynchronously queries the IDs of SQL statements that generate a MySQL error code in the SQL Explorer results of a database instance.
+     *  *
+     * @description >  GetAsyncErrorRequestListByCode is an asynchronous operation. After a request is sent, the complete results are not returned immediately. If the value of the **isFinish** parameter is **false** in the response, wait for 1 second and then send a request again. If the value of the **isFinish** parameter is **true**, the complete results are returned.
      * *   This API operation supports only ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters for which Database Autonomy Service (DAS) Enterprise Edition is enabled. For more information, see [Enable and manage DAS Economy Edition and DAS Enterprise Edition](https://help.aliyun.com/document_detail/163298.html).
      * *   If you use an SDK to call the API operations of DAS, you must set the region ID to cn-shanghai.
      * *   When you call this operation, the value of the SqlId parameter changes due to the optimization of the SQL template algorithm starting from September 1, 2024. For more information, see [[Notice\\] Optimization of the SQL template algorithm](~~2845725~~).
+     *  *
+     * @param GetAsyncErrorRequestListByCodeRequest $request GetAsyncErrorRequestListByCodeRequest
      *
-     * @param request - GetAsyncErrorRequestListByCodeRequest
-     *
-     * @returns GetAsyncErrorRequestListByCodeResponse
-     *
-     * @param GetAsyncErrorRequestListByCodeRequest $request
-     *
-     * @return GetAsyncErrorRequestListByCodeResponse
+     * @return GetAsyncErrorRequestListByCodeResponse GetAsyncErrorRequestListByCodeResponse
      */
     public function getAsyncErrorRequestListByCode($request)
     {
@@ -3848,49 +3176,38 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Asynchronously queries the MySQL error codes in SQL Explorer data and the number of SQL queries corresponding to each error code.
-     *
-     * @remarks
-     * >  GetAsyncErrorRequestStatByCode is an asynchronous operation After a request is sent, the complete results are not returned immediately. If the value of **isFinish** is **false** in the response, wait for 1 second and then send a request again. If the value of **isFinish** is **true**, the complete results are returned.
+     * @summary Asynchronously queries the MySQL error codes in SQL Explorer data and the number of SQL queries corresponding to each error code.
+     *  *
+     * @description >  GetAsyncErrorRequestStatByCode is an asynchronous operation After a request is sent, the complete results are not returned immediately. If the value of **isFinish** is **false** in the response, wait for 1 second and then send a request again. If the value of **isFinish** is **true**, the complete results are returned.
      * *   This API operation supports only ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters for which Database Autonomy Service (DAS) Enterprise Edition is enabled. For more information, see [Purchase DAS Enterprise Edition](https://help.aliyun.com/document_detail/163298.html).
      * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
+     *  *
+     * @param GetAsyncErrorRequestStatByCodeRequest $request GetAsyncErrorRequestStatByCodeRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetAsyncErrorRequestStatByCodeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetAsyncErrorRequestStatByCodeResponse
-     *
-     * @param GetAsyncErrorRequestStatByCodeRequest $request
-     * @param RuntimeOptions                        $runtime
-     *
-     * @return GetAsyncErrorRequestStatByCodeResponse
+     * @return GetAsyncErrorRequestStatByCodeResponse GetAsyncErrorRequestStatByCodeResponse
      */
     public function getAsyncErrorRequestStatByCodeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->dbName) {
-            @$query['DbName'] = $request->dbName;
+        if (!Utils::isUnset($request->dbName)) {
+            $query['DbName'] = $request->dbName;
         }
-
-        if (null !== $request->end) {
-            @$query['End'] = $request->end;
+        if (!Utils::isUnset($request->end)) {
+            $query['End'] = $request->end;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->nodeId) {
-            @$query['NodeId'] = $request->nodeId;
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
         }
-
-        if (null !== $request->start) {
-            @$query['Start'] = $request->start;
+        if (!Utils::isUnset($request->start)) {
+            $query['Start'] = $request->start;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetAsyncErrorRequestStatByCode',
@@ -3908,20 +3225,15 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Asynchronously queries the MySQL error codes in SQL Explorer data and the number of SQL queries corresponding to each error code.
-     *
-     * @remarks
-     * >  GetAsyncErrorRequestStatByCode is an asynchronous operation After a request is sent, the complete results are not returned immediately. If the value of **isFinish** is **false** in the response, wait for 1 second and then send a request again. If the value of **isFinish** is **true**, the complete results are returned.
+     * @summary Asynchronously queries the MySQL error codes in SQL Explorer data and the number of SQL queries corresponding to each error code.
+     *  *
+     * @description >  GetAsyncErrorRequestStatByCode is an asynchronous operation After a request is sent, the complete results are not returned immediately. If the value of **isFinish** is **false** in the response, wait for 1 second and then send a request again. If the value of **isFinish** is **true**, the complete results are returned.
      * *   This API operation supports only ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters for which Database Autonomy Service (DAS) Enterprise Edition is enabled. For more information, see [Purchase DAS Enterprise Edition](https://help.aliyun.com/document_detail/163298.html).
      * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
+     *  *
+     * @param GetAsyncErrorRequestStatByCodeRequest $request GetAsyncErrorRequestStatByCodeRequest
      *
-     * @param request - GetAsyncErrorRequestStatByCodeRequest
-     *
-     * @returns GetAsyncErrorRequestStatByCodeResponse
-     *
-     * @param GetAsyncErrorRequestStatByCodeRequest $request
-     *
-     * @return GetAsyncErrorRequestStatByCodeResponse
+     * @return GetAsyncErrorRequestStatByCodeResponse GetAsyncErrorRequestStatByCodeResponse
      */
     public function getAsyncErrorRequestStatByCode($request)
     {
@@ -3931,53 +3243,41 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Asynchronously obtains the number of failed executions of SQL templates based on SQL Explorer data.
-     *
-     * @remarks
-     * >  GetAsyncErrorRequestStatResult is an asynchronous operation. After a request is sent, the complete results are not returned immediately. If the value of **isFinish** is **false** in the response, wait for 1 second and then send a request again. If the value of **isFinish** is **true**, the complete results are returned.
+     * @summary Asynchronously obtains the number of failed executions of SQL templates based on SQL Explorer data.
+     *  *
+     * @description >  GetAsyncErrorRequestStatResult is an asynchronous operation. After a request is sent, the complete results are not returned immediately. If the value of **isFinish** is **false** in the response, wait for 1 second and then send a request again. If the value of **isFinish** is **true**, the complete results are returned.
      * *   This API operation supports only ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters for which Database Autonomy Service (DAS) Enterprise Edition is enabled. For more information, see [Purchase DAS Enterprise Edition](https://help.aliyun.com/document_detail/163298.html).
      * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
+     *  *
+     * @param GetAsyncErrorRequestStatResultRequest $request GetAsyncErrorRequestStatResultRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetAsyncErrorRequestStatResultRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetAsyncErrorRequestStatResultResponse
-     *
-     * @param GetAsyncErrorRequestStatResultRequest $request
-     * @param RuntimeOptions                        $runtime
-     *
-     * @return GetAsyncErrorRequestStatResultResponse
+     * @return GetAsyncErrorRequestStatResultResponse GetAsyncErrorRequestStatResultResponse
      */
     public function getAsyncErrorRequestStatResultWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->dbName) {
-            @$query['DbName'] = $request->dbName;
+        if (!Utils::isUnset($request->dbName)) {
+            $query['DbName'] = $request->dbName;
         }
-
-        if (null !== $request->end) {
-            @$query['End'] = $request->end;
+        if (!Utils::isUnset($request->end)) {
+            $query['End'] = $request->end;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->nodeId) {
-            @$query['NodeId'] = $request->nodeId;
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
         }
-
-        if (null !== $request->sqlIdList) {
-            @$query['SqlIdList'] = $request->sqlIdList;
+        if (!Utils::isUnset($request->sqlIdList)) {
+            $query['SqlIdList'] = $request->sqlIdList;
         }
-
-        if (null !== $request->start) {
-            @$query['Start'] = $request->start;
+        if (!Utils::isUnset($request->start)) {
+            $query['Start'] = $request->start;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetAsyncErrorRequestStatResult',
@@ -3995,20 +3295,15 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Asynchronously obtains the number of failed executions of SQL templates based on SQL Explorer data.
-     *
-     * @remarks
-     * >  GetAsyncErrorRequestStatResult is an asynchronous operation. After a request is sent, the complete results are not returned immediately. If the value of **isFinish** is **false** in the response, wait for 1 second and then send a request again. If the value of **isFinish** is **true**, the complete results are returned.
+     * @summary Asynchronously obtains the number of failed executions of SQL templates based on SQL Explorer data.
+     *  *
+     * @description >  GetAsyncErrorRequestStatResult is an asynchronous operation. After a request is sent, the complete results are not returned immediately. If the value of **isFinish** is **false** in the response, wait for 1 second and then send a request again. If the value of **isFinish** is **true**, the complete results are returned.
      * *   This API operation supports only ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters for which Database Autonomy Service (DAS) Enterprise Edition is enabled. For more information, see [Purchase DAS Enterprise Edition](https://help.aliyun.com/document_detail/163298.html).
      * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
+     *  *
+     * @param GetAsyncErrorRequestStatResultRequest $request GetAsyncErrorRequestStatResultRequest
      *
-     * @param request - GetAsyncErrorRequestStatResultRequest
-     *
-     * @returns GetAsyncErrorRequestStatResultResponse
-     *
-     * @param GetAsyncErrorRequestStatResultRequest $request
-     *
-     * @return GetAsyncErrorRequestStatResultResponse
+     * @return GetAsyncErrorRequestStatResultResponse GetAsyncErrorRequestStatResultResponse
      */
     public function getAsyncErrorRequestStatResult($request)
     {
@@ -4018,45 +3313,35 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the usage of auto-increment table IDs.
-     *
-     * @remarks
-     *   This operation is applicable only to ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters.
+     * @summary Queries the usage of auto-increment table IDs.
+     *  *
+     * @description *   This operation is applicable only to ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters.
      * *   If you use an Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call DAS, you must set the region to cn-shanghai.
+     *  *
+     * @param GetAutoIncrementUsageStatisticRequest $request GetAutoIncrementUsageStatisticRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetAutoIncrementUsageStatisticRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetAutoIncrementUsageStatisticResponse
-     *
-     * @param GetAutoIncrementUsageStatisticRequest $request
-     * @param RuntimeOptions                        $runtime
-     *
-     * @return GetAutoIncrementUsageStatisticResponse
+     * @return GetAutoIncrementUsageStatisticResponse GetAutoIncrementUsageStatisticResponse
      */
     public function getAutoIncrementUsageStatisticWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->dbNames) {
-            @$query['DbNames'] = $request->dbNames;
+        if (!Utils::isUnset($request->dbNames)) {
+            $query['DbNames'] = $request->dbNames;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->ratioFilter) {
-            @$query['RatioFilter'] = $request->ratioFilter;
+        if (!Utils::isUnset($request->ratioFilter)) {
+            $query['RatioFilter'] = $request->ratioFilter;
         }
-
-        if (null !== $request->realTime) {
-            @$query['RealTime'] = $request->realTime;
+        if (!Utils::isUnset($request->realTime)) {
+            $query['RealTime'] = $request->realTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetAutoIncrementUsageStatistic',
@@ -4074,20 +3359,15 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the usage of auto-increment table IDs.
-     *
-     * @remarks
-     *   This operation is applicable only to ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters.
+     * @summary Queries the usage of auto-increment table IDs.
+     *  *
+     * @description *   This operation is applicable only to ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters.
      * *   If you use an Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call DAS, you must set the region to cn-shanghai.
+     *  *
+     * @param GetAutoIncrementUsageStatisticRequest $request GetAutoIncrementUsageStatisticRequest
      *
-     * @param request - GetAutoIncrementUsageStatisticRequest
-     *
-     * @returns GetAutoIncrementUsageStatisticResponse
-     *
-     * @param GetAutoIncrementUsageStatisticRequest $request
-     *
-     * @return GetAutoIncrementUsageStatisticResponse
+     * @return GetAutoIncrementUsageStatisticResponse GetAutoIncrementUsageStatisticResponse
      */
     public function getAutoIncrementUsageStatistic($request)
     {
@@ -4097,38 +3377,30 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the automatic fragment recycling rules of database instances.
-     *
-     * @remarks
-     * Before you call this operation, take note of the following items:
+     * @summary Queries the automatic fragment recycling rules of database instances.
+     *  *
+     * @description Before you call this operation, take note of the following items:
      * *   If you use an SDK to call API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
      * *   The database instance is an ApsaraDB RDS for MySQL instance of High-availability Edition.
      * *   The database instance has four or more cores, and **innodb_file_per_table** is set to **ON**.
+     *  *
+     * @param GetAutoResourceOptimizeRulesRequest $request GetAutoResourceOptimizeRulesRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetAutoResourceOptimizeRulesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetAutoResourceOptimizeRulesResponse
-     *
-     * @param GetAutoResourceOptimizeRulesRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return GetAutoResourceOptimizeRulesResponse
+     * @return GetAutoResourceOptimizeRulesResponse GetAutoResourceOptimizeRulesResponse
      */
     public function getAutoResourceOptimizeRulesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->consoleContext) {
-            @$query['ConsoleContext'] = $request->consoleContext;
+        if (!Utils::isUnset($request->consoleContext)) {
+            $query['ConsoleContext'] = $request->consoleContext;
         }
-
-        if (null !== $request->instanceIds) {
-            @$query['InstanceIds'] = $request->instanceIds;
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetAutoResourceOptimizeRules',
@@ -4146,21 +3418,16 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the automatic fragment recycling rules of database instances.
-     *
-     * @remarks
-     * Before you call this operation, take note of the following items:
+     * @summary Queries the automatic fragment recycling rules of database instances.
+     *  *
+     * @description Before you call this operation, take note of the following items:
      * *   If you use an SDK to call API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
      * *   The database instance is an ApsaraDB RDS for MySQL instance of High-availability Edition.
      * *   The database instance has four or more cores, and **innodb_file_per_table** is set to **ON**.
+     *  *
+     * @param GetAutoResourceOptimizeRulesRequest $request GetAutoResourceOptimizeRulesRequest
      *
-     * @param request - GetAutoResourceOptimizeRulesRequest
-     *
-     * @returns GetAutoResourceOptimizeRulesResponse
-     *
-     * @param GetAutoResourceOptimizeRulesRequest $request
-     *
-     * @return GetAutoResourceOptimizeRulesResponse
+     * @return GetAutoResourceOptimizeRulesResponse GetAutoResourceOptimizeRulesResponse
      */
     public function getAutoResourceOptimizeRules($request)
     {
@@ -4170,39 +3437,31 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the automatic SQL throttling rules of a database instance.
-     *
-     * @remarks
-     * Before you call this operation, take note of the following items:
+     * @summary Queries the automatic SQL throttling rules of a database instance.
+     *  *
+     * @description Before you call this operation, take note of the following items:
      * *   If you use an SDK to call API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
      * *   The database instance that you want to manage must be of one of the following types:
      *     *   ApsaraDB RDS for MySQL High-availability Edition or Enterprise Edition that runs MySQL 5.6, MySQL 5.7, or MySQL 8.0
      *     *   PolarDB for MySQL Cluster Edition that runs MySQL 5.6, MySQL 5.7, or MySQL 8.0
+     *  *
+     * @param GetAutoThrottleRulesRequest $request GetAutoThrottleRulesRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetAutoThrottleRulesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetAutoThrottleRulesResponse
-     *
-     * @param GetAutoThrottleRulesRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return GetAutoThrottleRulesResponse
+     * @return GetAutoThrottleRulesResponse GetAutoThrottleRulesResponse
      */
     public function getAutoThrottleRulesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->consoleContext) {
-            @$query['ConsoleContext'] = $request->consoleContext;
+        if (!Utils::isUnset($request->consoleContext)) {
+            $query['ConsoleContext'] = $request->consoleContext;
         }
-
-        if (null !== $request->instanceIds) {
-            @$query['InstanceIds'] = $request->instanceIds;
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetAutoThrottleRules',
@@ -4220,22 +3479,17 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the automatic SQL throttling rules of a database instance.
-     *
-     * @remarks
-     * Before you call this operation, take note of the following items:
+     * @summary Queries the automatic SQL throttling rules of a database instance.
+     *  *
+     * @description Before you call this operation, take note of the following items:
      * *   If you use an SDK to call API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
      * *   The database instance that you want to manage must be of one of the following types:
      *     *   ApsaraDB RDS for MySQL High-availability Edition or Enterprise Edition that runs MySQL 5.6, MySQL 5.7, or MySQL 8.0
      *     *   PolarDB for MySQL Cluster Edition that runs MySQL 5.6, MySQL 5.7, or MySQL 8.0
+     *  *
+     * @param GetAutoThrottleRulesRequest $request GetAutoThrottleRulesRequest
      *
-     * @param request - GetAutoThrottleRulesRequest
-     *
-     * @returns GetAutoThrottleRulesResponse
-     *
-     * @param GetAutoThrottleRulesRequest $request
-     *
-     * @return GetAutoThrottleRulesResponse
+     * @return GetAutoThrottleRulesResponse GetAutoThrottleRulesResponse
      */
     public function getAutoThrottleRules($request)
     {
@@ -4245,43 +3499,34 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the details of notification events of a database instance.
-     *
-     * @remarks
-     * Before you call this operation, take note of the following items:
+     * @summary Queries the details of notification events of a database instance.
+     *  *
+     * @description Before you call this operation, take note of the following items:
      * *   If you use Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
      * *   After your instance is connected to DAS, notification events such as snapshot capture are triggered if DAS detects changes to database monitoring metrics during anomaly detection.
      * >  You can query the details of notification events only if the autonomy center is enabled. For more information, see [Autonomy center](https://help.aliyun.com/document_detail/152139.html).
+     *  *
+     * @param GetAutonomousNotifyEventContentRequest $request GetAutonomousNotifyEventContentRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetAutonomousNotifyEventContentRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetAutonomousNotifyEventContentResponse
-     *
-     * @param GetAutonomousNotifyEventContentRequest $request
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return GetAutonomousNotifyEventContentResponse
+     * @return GetAutonomousNotifyEventContentResponse GetAutonomousNotifyEventContentResponse
      */
     public function getAutonomousNotifyEventContentWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->spanId) {
-            @$query['SpanId'] = $request->spanId;
+        if (!Utils::isUnset($request->spanId)) {
+            $query['SpanId'] = $request->spanId;
         }
-
-        if (null !== $request->context) {
-            @$query['__context'] = $request->context;
+        if (!Utils::isUnset($request->context)) {
+            $query['__context'] = $request->context;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetAutonomousNotifyEventContent',
@@ -4299,22 +3544,17 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the details of notification events of a database instance.
-     *
-     * @remarks
-     * Before you call this operation, take note of the following items:
+     * @summary Queries the details of notification events of a database instance.
+     *  *
+     * @description Before you call this operation, take note of the following items:
      * *   If you use Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
      * *   After your instance is connected to DAS, notification events such as snapshot capture are triggered if DAS detects changes to database monitoring metrics during anomaly detection.
      * >  You can query the details of notification events only if the autonomy center is enabled. For more information, see [Autonomy center](https://help.aliyun.com/document_detail/152139.html).
+     *  *
+     * @param GetAutonomousNotifyEventContentRequest $request GetAutonomousNotifyEventContentRequest
      *
-     * @param request - GetAutonomousNotifyEventContentRequest
-     *
-     * @returns GetAutonomousNotifyEventContentResponse
-     *
-     * @param GetAutonomousNotifyEventContentRequest $request
-     *
-     * @return GetAutonomousNotifyEventContentResponse
+     * @return GetAutonomousNotifyEventContentResponse GetAutonomousNotifyEventContentResponse
      */
     public function getAutonomousNotifyEventContent($request)
     {
@@ -4324,71 +3564,55 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the notification events of one or more urgency levels within a period.
-     *
-     * @remarks
-     * Before you call this operation, take note of the following items:
+     * @summary Queries the notification events of one or more urgency levels within a period.
+     *  *
+     * @description Before you call this operation, take note of the following items:
      * *   If you use Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
      * *   After your instance is connected to DAS, notification events such as snapshot capture are triggered if DAS detects changes to database monitoring metrics during anomaly detection.
      * >  You can query the details of notification events only if the autonomy center is enabled. For more information, see [Autonomy center](https://help.aliyun.com/document_detail/152139.html).
+     *  *
+     * @param GetAutonomousNotifyEventsInRangeRequest $request GetAutonomousNotifyEventsInRangeRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetAutonomousNotifyEventsInRangeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetAutonomousNotifyEventsInRangeResponse
-     *
-     * @param GetAutonomousNotifyEventsInRangeRequest $request
-     * @param RuntimeOptions                          $runtime
-     *
-     * @return GetAutonomousNotifyEventsInRangeResponse
+     * @return GetAutonomousNotifyEventsInRangeResponse GetAutonomousNotifyEventsInRangeResponse
      */
     public function getAutonomousNotifyEventsInRangeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->eventContext) {
-            @$query['EventContext'] = $request->eventContext;
+        if (!Utils::isUnset($request->eventContext)) {
+            $query['EventContext'] = $request->eventContext;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->level) {
-            @$query['Level'] = $request->level;
+        if (!Utils::isUnset($request->level)) {
+            $query['Level'] = $request->level;
         }
-
-        if (null !== $request->minLevel) {
-            @$query['MinLevel'] = $request->minLevel;
+        if (!Utils::isUnset($request->minLevel)) {
+            $query['MinLevel'] = $request->minLevel;
         }
-
-        if (null !== $request->nodeId) {
-            @$query['NodeId'] = $request->nodeId;
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
         }
-
-        if (null !== $request->pageOffset) {
-            @$query['PageOffset'] = $request->pageOffset;
+        if (!Utils::isUnset($request->pageOffset)) {
+            $query['PageOffset'] = $request->pageOffset;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
-        if (null !== $request->context) {
-            @$query['__context'] = $request->context;
+        if (!Utils::isUnset($request->context)) {
+            $query['__context'] = $request->context;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetAutonomousNotifyEventsInRange',
@@ -4406,22 +3630,17 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the notification events of one or more urgency levels within a period.
-     *
-     * @remarks
-     * Before you call this operation, take note of the following items:
+     * @summary Queries the notification events of one or more urgency levels within a period.
+     *  *
+     * @description Before you call this operation, take note of the following items:
      * *   If you use Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
      * *   After your instance is connected to DAS, notification events such as snapshot capture are triggered if DAS detects changes to database monitoring metrics during anomaly detection.
      * >  You can query the details of notification events only if the autonomy center is enabled. For more information, see [Autonomy center](https://help.aliyun.com/document_detail/152139.html).
+     *  *
+     * @param GetAutonomousNotifyEventsInRangeRequest $request GetAutonomousNotifyEventsInRangeRequest
      *
-     * @param request - GetAutonomousNotifyEventsInRangeRequest
-     *
-     * @returns GetAutonomousNotifyEventsInRangeResponse
-     *
-     * @param GetAutonomousNotifyEventsInRangeRequest $request
-     *
-     * @return GetAutonomousNotifyEventsInRangeResponse
+     * @return GetAutonomousNotifyEventsInRangeResponse GetAutonomousNotifyEventsInRangeResponse
      */
     public function getAutonomousNotifyEventsInRange($request)
     {
@@ -4431,57 +3650,44 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the blocking data of an ApsaraDB RDS for SQL Server instance.
-     *
-     * @remarks
-     *   This operation is applicable only to ApsaraDB RDS for SQL Server instances.
+     * @summary Queries the blocking data of an ApsaraDB RDS for SQL Server instance.
+     *  *
+     * @description *   This operation is applicable only to ApsaraDB RDS for SQL Server instances.
      * *   If you use an Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call the API operations of DAS, you must set the region ID to cn-shanghai.
+     *  *
+     * @param GetBlockingDetailListRequest $request GetBlockingDetailListRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetBlockingDetailListRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetBlockingDetailListResponse
-     *
-     * @param GetBlockingDetailListRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return GetBlockingDetailListResponse
+     * @return GetBlockingDetailListResponse GetBlockingDetailListResponse
      */
     public function getBlockingDetailListWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->dbNameList) {
-            @$query['DbNameList'] = $request->dbNameList;
+        if (!Utils::isUnset($request->dbNameList)) {
+            $query['DbNameList'] = $request->dbNameList;
         }
-
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->pageNo) {
-            @$query['PageNo'] = $request->pageNo;
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->queryHash) {
-            @$query['QueryHash'] = $request->queryHash;
+        if (!Utils::isUnset($request->queryHash)) {
+            $query['QueryHash'] = $request->queryHash;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetBlockingDetailList',
@@ -4499,20 +3705,15 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the blocking data of an ApsaraDB RDS for SQL Server instance.
-     *
-     * @remarks
-     *   This operation is applicable only to ApsaraDB RDS for SQL Server instances.
+     * @summary Queries the blocking data of an ApsaraDB RDS for SQL Server instance.
+     *  *
+     * @description *   This operation is applicable only to ApsaraDB RDS for SQL Server instances.
      * *   If you use an Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call the API operations of DAS, you must set the region ID to cn-shanghai.
+     *  *
+     * @param GetBlockingDetailListRequest $request GetBlockingDetailListRequest
      *
-     * @param request - GetBlockingDetailListRequest
-     *
-     * @returns GetBlockingDetailListResponse
-     *
-     * @param GetBlockingDetailListRequest $request
-     *
-     * @return GetBlockingDetailListResponse
+     * @return GetBlockingDetailListResponse GetBlockingDetailListResponse
      */
     public function getBlockingDetailList($request)
     {
@@ -4522,38 +3723,30 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the diagnosis of network connectivity when a user accesses a specific database instance by specifying an IP address.
-     *
-     * @remarks
-     * Before you call this operation, take note of the following items:
+     * @summary Queries the diagnosis of network connectivity when a user accesses a specific database instance by specifying an IP address.
+     *  *
+     * @description Before you call this operation, take note of the following items:
      * *   If you use an Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
      * *   The database instance that you want to manage is connected to DAS.
+     *  *
+     * @param GetDBInstanceConnectivityDiagnosisRequest $request GetDBInstanceConnectivityDiagnosisRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetDBInstanceConnectivityDiagnosisRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetDBInstanceConnectivityDiagnosisResponse
-     *
-     * @param GetDBInstanceConnectivityDiagnosisRequest $request
-     * @param RuntimeOptions                            $runtime
-     *
-     * @return GetDBInstanceConnectivityDiagnosisResponse
+     * @return GetDBInstanceConnectivityDiagnosisResponse GetDBInstanceConnectivityDiagnosisResponse
      */
     public function getDBInstanceConnectivityDiagnosisWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->srcIp) {
-            @$query['SrcIp'] = $request->srcIp;
+        if (!Utils::isUnset($request->srcIp)) {
+            $query['SrcIp'] = $request->srcIp;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetDBInstanceConnectivityDiagnosis',
@@ -4571,21 +3764,16 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the diagnosis of network connectivity when a user accesses a specific database instance by specifying an IP address.
-     *
-     * @remarks
-     * Before you call this operation, take note of the following items:
+     * @summary Queries the diagnosis of network connectivity when a user accesses a specific database instance by specifying an IP address.
+     *  *
+     * @description Before you call this operation, take note of the following items:
      * *   If you use an Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
      * *   The database instance that you want to manage is connected to DAS.
+     *  *
+     * @param GetDBInstanceConnectivityDiagnosisRequest $request GetDBInstanceConnectivityDiagnosisRequest
      *
-     * @param request - GetDBInstanceConnectivityDiagnosisRequest
-     *
-     * @returns GetDBInstanceConnectivityDiagnosisResponse
-     *
-     * @param GetDBInstanceConnectivityDiagnosisRequest $request
-     *
-     * @return GetDBInstanceConnectivityDiagnosisResponse
+     * @return GetDBInstanceConnectivityDiagnosisResponse GetDBInstanceConnectivityDiagnosisResponse
      */
     public function getDBInstanceConnectivityDiagnosis($request)
     {
@@ -4595,39 +3783,31 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the storage usage of a database instance for which Database Autonomy Service (DAS) Enterprise Edition V1 or V2 is enabled.
-     *
-     * @remarks
-     *   For information about the database instances that support this operation, see [Overview of DAS Enterprise Edition](https://help.aliyun.com/document_detail/190912.html).
+     * @summary Queries the storage usage of a database instance for which Database Autonomy Service (DAS) Enterprise Edition V1 or V2 is enabled.
+     *  *
+     * @description *   For information about the database instances that support this operation, see [Overview of DAS Enterprise Edition](https://help.aliyun.com/document_detail/190912.html).
      * *   If you use an Alibaba Cloud SDK or DAS SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
      * *   This operation is applicable only to DAS Enterprise Edition V1 and V2.
      * >  We recommend that you call the [DescribeSqlLogStatistic](https://help.aliyun.com/document_detail/2778836.html) operation to query the data statistics of a database instance for which DAS Enterprise Edition is enabled.
+     *  *
+     * @param GetDasProServiceUsageRequest $request GetDasProServiceUsageRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetDasProServiceUsageRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetDasProServiceUsageResponse
-     *
-     * @param GetDasProServiceUsageRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return GetDasProServiceUsageResponse
+     * @return GetDasProServiceUsageResponse GetDasProServiceUsageResponse
      */
     public function getDasProServiceUsageWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->userId) {
-            @$query['UserId'] = $request->userId;
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetDasProServiceUsage',
@@ -4645,22 +3825,17 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the storage usage of a database instance for which Database Autonomy Service (DAS) Enterprise Edition V1 or V2 is enabled.
-     *
-     * @remarks
-     *   For information about the database instances that support this operation, see [Overview of DAS Enterprise Edition](https://help.aliyun.com/document_detail/190912.html).
+     * @summary Queries the storage usage of a database instance for which Database Autonomy Service (DAS) Enterprise Edition V1 or V2 is enabled.
+     *  *
+     * @description *   For information about the database instances that support this operation, see [Overview of DAS Enterprise Edition](https://help.aliyun.com/document_detail/190912.html).
      * *   If you use an Alibaba Cloud SDK or DAS SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
      * *   This operation is applicable only to DAS Enterprise Edition V1 and V2.
      * >  We recommend that you call the [DescribeSqlLogStatistic](https://help.aliyun.com/document_detail/2778836.html) operation to query the data statistics of a database instance for which DAS Enterprise Edition is enabled.
+     *  *
+     * @param GetDasProServiceUsageRequest $request GetDasProServiceUsageRequest
      *
-     * @param request - GetDasProServiceUsageRequest
-     *
-     * @returns GetDasProServiceUsageResponse
-     *
-     * @param GetDasProServiceUsageRequest $request
-     *
-     * @return GetDasProServiceUsageResponse
+     * @return GetDasProServiceUsageResponse GetDasProServiceUsageResponse
      */
     public function getDasProServiceUsage($request)
     {
@@ -4670,143 +3845,109 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the hot data of audit logs.
-     *
-     * @remarks
-     * Before you call this operation, take note of the following items:
+     * @summary Queries the hot data of audit logs.
+     *  *
+     * @description Before you call this operation, take note of the following items:
      * *   If you use an Alibaba Cloud SDK or DAS SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
      * *   This operation is applicable to PolarDB for MySQL, ApsaraDB RDS for MySQL, ApsaraDB RDS for PostgreSQL, and ApsaraDB RDS for SQL Server.
      * >  The beginning of the time range to query can be up to seven days earlier than the current time. The interval between the start time and the end time cannot exceed one day. This operation can return a maximum of 10,000 entries.
+     *  *
+     * @param GetDasSQLLogHotDataRequest $request GetDasSQLLogHotDataRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetDasSQLLogHotDataRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetDasSQLLogHotDataResponse
-     *
-     * @param GetDasSQLLogHotDataRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return GetDasSQLLogHotDataResponse
+     * @return GetDasSQLLogHotDataResponse GetDasSQLLogHotDataResponse
      */
     public function getDasSQLLogHotDataWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->accountName) {
-            @$body['AccountName'] = $request->accountName;
+        if (!Utils::isUnset($request->accountName)) {
+            $body['AccountName'] = $request->accountName;
         }
-
-        if (null !== $request->childDBInstanceIDs) {
-            @$body['ChildDBInstanceIDs'] = $request->childDBInstanceIDs;
+        if (!Utils::isUnset($request->childDBInstanceIDs)) {
+            $body['ChildDBInstanceIDs'] = $request->childDBInstanceIDs;
         }
-
-        if (null !== $request->DBName) {
-            @$body['DBName'] = $request->DBName;
+        if (!Utils::isUnset($request->DBName)) {
+            $body['DBName'] = $request->DBName;
         }
-
-        if (null !== $request->end) {
-            @$body['End'] = $request->end;
+        if (!Utils::isUnset($request->end)) {
+            $body['End'] = $request->end;
         }
-
-        if (null !== $request->fail) {
-            @$body['Fail'] = $request->fail;
+        if (!Utils::isUnset($request->fail)) {
+            $body['Fail'] = $request->fail;
         }
-
-        if (null !== $request->hostAddress) {
-            @$body['HostAddress'] = $request->hostAddress;
+        if (!Utils::isUnset($request->hostAddress)) {
+            $body['HostAddress'] = $request->hostAddress;
         }
-
-        if (null !== $request->instanceId) {
-            @$body['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->logicalOperator) {
-            @$body['LogicalOperator'] = $request->logicalOperator;
+        if (!Utils::isUnset($request->logicalOperator)) {
+            $body['LogicalOperator'] = $request->logicalOperator;
         }
-
-        if (null !== $request->maxLatancy) {
-            @$body['MaxLatancy'] = $request->maxLatancy;
+        if (!Utils::isUnset($request->maxLatancy)) {
+            $body['MaxLatancy'] = $request->maxLatancy;
         }
-
-        if (null !== $request->maxRecordsPerPage) {
-            @$body['MaxRecordsPerPage'] = $request->maxRecordsPerPage;
+        if (!Utils::isUnset($request->maxRecordsPerPage)) {
+            $body['MaxRecordsPerPage'] = $request->maxRecordsPerPage;
         }
-
-        if (null !== $request->maxRows) {
-            @$body['MaxRows'] = $request->maxRows;
+        if (!Utils::isUnset($request->maxRows)) {
+            $body['MaxRows'] = $request->maxRows;
         }
-
-        if (null !== $request->maxScanRows) {
-            @$body['MaxScanRows'] = $request->maxScanRows;
+        if (!Utils::isUnset($request->maxScanRows)) {
+            $body['MaxScanRows'] = $request->maxScanRows;
         }
-
-        if (null !== $request->maxSpillCnt) {
-            @$body['MaxSpillCnt'] = $request->maxSpillCnt;
+        if (!Utils::isUnset($request->maxSpillCnt)) {
+            $body['MaxSpillCnt'] = $request->maxSpillCnt;
         }
-
-        if (null !== $request->minLatancy) {
-            @$body['MinLatancy'] = $request->minLatancy;
+        if (!Utils::isUnset($request->minLatancy)) {
+            $body['MinLatancy'] = $request->minLatancy;
         }
-
-        if (null !== $request->minRows) {
-            @$body['MinRows'] = $request->minRows;
+        if (!Utils::isUnset($request->minRows)) {
+            $body['MinRows'] = $request->minRows;
         }
-
-        if (null !== $request->minScanRows) {
-            @$body['MinScanRows'] = $request->minScanRows;
+        if (!Utils::isUnset($request->minScanRows)) {
+            $body['MinScanRows'] = $request->minScanRows;
         }
-
-        if (null !== $request->minSpillCnt) {
-            @$body['MinSpillCnt'] = $request->minSpillCnt;
+        if (!Utils::isUnset($request->minSpillCnt)) {
+            $body['MinSpillCnt'] = $request->minSpillCnt;
         }
-
-        if (null !== $request->pageNumbers) {
-            @$body['PageNumbers'] = $request->pageNumbers;
+        if (!Utils::isUnset($request->pageNumbers)) {
+            $body['PageNumbers'] = $request->pageNumbers;
         }
-
-        if (null !== $request->queryKeyword) {
-            @$body['QueryKeyword'] = $request->queryKeyword;
+        if (!Utils::isUnset($request->queryKeyword)) {
+            $body['QueryKeyword'] = $request->queryKeyword;
         }
-
-        if (null !== $request->role) {
-            @$body['Role'] = $request->role;
+        if (!Utils::isUnset($request->role)) {
+            $body['Role'] = $request->role;
         }
-
-        if (null !== $request->sortKey) {
-            @$body['SortKey'] = $request->sortKey;
+        if (!Utils::isUnset($request->sortKey)) {
+            $body['SortKey'] = $request->sortKey;
         }
-
-        if (null !== $request->sortMethod) {
-            @$body['SortMethod'] = $request->sortMethod;
+        if (!Utils::isUnset($request->sortMethod)) {
+            $body['SortMethod'] = $request->sortMethod;
         }
-
-        if (null !== $request->sqlType) {
-            @$body['SqlType'] = $request->sqlType;
+        if (!Utils::isUnset($request->sqlType)) {
+            $body['SqlType'] = $request->sqlType;
         }
-
-        if (null !== $request->start) {
-            @$body['Start'] = $request->start;
+        if (!Utils::isUnset($request->start)) {
+            $body['Start'] = $request->start;
         }
-
-        if (null !== $request->state) {
-            @$body['State'] = $request->state;
+        if (!Utils::isUnset($request->state)) {
+            $body['State'] = $request->state;
         }
-
-        if (null !== $request->threadID) {
-            @$body['ThreadID'] = $request->threadID;
+        if (!Utils::isUnset($request->threadID)) {
+            $body['ThreadID'] = $request->threadID;
         }
-
-        if (null !== $request->traceId) {
-            @$body['TraceId'] = $request->traceId;
+        if (!Utils::isUnset($request->traceId)) {
+            $body['TraceId'] = $request->traceId;
         }
-
-        if (null !== $request->transactionId) {
-            @$body['TransactionId'] = $request->transactionId;
+        if (!Utils::isUnset($request->transactionId)) {
+            $body['TransactionId'] = $request->transactionId;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetDasSQLLogHotData',
@@ -4824,22 +3965,17 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the hot data of audit logs.
-     *
-     * @remarks
-     * Before you call this operation, take note of the following items:
+     * @summary Queries the hot data of audit logs.
+     *  *
+     * @description Before you call this operation, take note of the following items:
      * *   If you use an Alibaba Cloud SDK or DAS SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
      * *   This operation is applicable to PolarDB for MySQL, ApsaraDB RDS for MySQL, ApsaraDB RDS for PostgreSQL, and ApsaraDB RDS for SQL Server.
      * >  The beginning of the time range to query can be up to seven days earlier than the current time. The interval between the start time and the end time cannot exceed one day. This operation can return a maximum of 10,000 entries.
+     *  *
+     * @param GetDasSQLLogHotDataRequest $request GetDasSQLLogHotDataRequest
      *
-     * @param request - GetDasSQLLogHotDataRequest
-     *
-     * @returns GetDasSQLLogHotDataResponse
-     *
-     * @param GetDasSQLLogHotDataRequest $request
-     *
-     * @return GetDasSQLLogHotDataResponse
+     * @return GetDasSQLLogHotDataResponse GetDasSQLLogHotDataResponse
      */
     public function getDasSQLLogHotData($request)
     {
@@ -4849,40 +3985,31 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * 查询单个死锁详情.
+     * @summary 查询单个死锁详情
+     *  *
+     * @param GetDeadLockDetailRequest $request GetDeadLockDetailRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetDeadLockDetailRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetDeadLockDetailResponse
-     *
-     * @param GetDeadLockDetailRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return GetDeadLockDetailResponse
+     * @return GetDeadLockDetailResponse GetDeadLockDetailResponse
      */
     public function getDeadLockDetailWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->nodeId) {
-            @$query['NodeId'] = $request->nodeId;
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
         }
-
-        if (null !== $request->source) {
-            @$query['Source'] = $request->source;
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
         }
-
-        if (null !== $request->textId) {
-            @$query['TextId'] = $request->textId;
+        if (!Utils::isUnset($request->textId)) {
+            $query['TextId'] = $request->textId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetDeadLockDetail',
@@ -4900,15 +4027,11 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * 查询单个死锁详情.
+     * @summary 查询单个死锁详情
+     *  *
+     * @param GetDeadLockDetailRequest $request GetDeadLockDetailRequest
      *
-     * @param request - GetDeadLockDetailRequest
-     *
-     * @returns GetDeadLockDetailResponse
-     *
-     * @param GetDeadLockDetailRequest $request
-     *
-     * @return GetDeadLockDetailResponse
+     * @return GetDeadLockDetailResponse GetDeadLockDetailResponse
      */
     public function getDeadLockDetail($request)
     {
@@ -4918,53 +4041,41 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the deadlock details of an ApsaraDB RDS for SQL Server instance.
-     *
-     * @remarks
-     *   This operation is applicable only to ApsaraDB RDS for SQL Server instances.
+     * @summary Queries the deadlock details of an ApsaraDB RDS for SQL Server instance.
+     *  *
+     * @description *   This operation is applicable only to ApsaraDB RDS for SQL Server instances.
      * *   If you use an Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call the API operations of DAS, you must set the region ID to cn-shanghai.
+     *  *
+     * @param GetDeadLockDetailListRequest $request GetDeadLockDetailListRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetDeadLockDetailListRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetDeadLockDetailListResponse
-     *
-     * @param GetDeadLockDetailListRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return GetDeadLockDetailListResponse
+     * @return GetDeadLockDetailListResponse GetDeadLockDetailListResponse
      */
     public function getDeadLockDetailListWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->dbNameList) {
-            @$query['DbNameList'] = $request->dbNameList;
+        if (!Utils::isUnset($request->dbNameList)) {
+            $query['DbNameList'] = $request->dbNameList;
         }
-
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->pageNo) {
-            @$query['PageNo'] = $request->pageNo;
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetDeadLockDetailList',
@@ -4982,20 +4093,15 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the deadlock details of an ApsaraDB RDS for SQL Server instance.
-     *
-     * @remarks
-     *   This operation is applicable only to ApsaraDB RDS for SQL Server instances.
+     * @summary Queries the deadlock details of an ApsaraDB RDS for SQL Server instance.
+     *  *
+     * @description *   This operation is applicable only to ApsaraDB RDS for SQL Server instances.
      * *   If you use an Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call the API operations of DAS, you must set the region ID to cn-shanghai.
+     *  *
+     * @param GetDeadLockDetailListRequest $request GetDeadLockDetailListRequest
      *
-     * @param request - GetDeadLockDetailListRequest
-     *
-     * @returns GetDeadLockDetailListResponse
-     *
-     * @param GetDeadLockDetailListRequest $request
-     *
-     * @return GetDeadLockDetailListResponse
+     * @return GetDeadLockDetailListResponse GetDeadLockDetailListResponse
      */
     public function getDeadLockDetailList($request)
     {
@@ -5005,52 +4111,40 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * 获取历史死锁记录.
+     * @summary 获取历史死锁记录
+     *  *
+     * @param GetDeadLockHistoryRequest $request GetDeadLockHistoryRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetDeadLockHistoryRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetDeadLockHistoryResponse
-     *
-     * @param GetDeadLockHistoryRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return GetDeadLockHistoryResponse
+     * @return GetDeadLockHistoryResponse GetDeadLockHistoryResponse
      */
     public function getDeadLockHistoryWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->nodeId) {
-            @$query['NodeId'] = $request->nodeId;
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
         }
-
-        if (null !== $request->pageNo) {
-            @$query['PageNo'] = $request->pageNo;
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->source) {
-            @$query['Source'] = $request->source;
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetDeadLockHistory',
@@ -5068,15 +4162,11 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * 获取历史死锁记录.
+     * @summary 获取历史死锁记录
+     *  *
+     * @param GetDeadLockHistoryRequest $request GetDeadLockHistoryRequest
      *
-     * @param request - GetDeadLockHistoryRequest
-     *
-     * @returns GetDeadLockHistoryResponse
-     *
-     * @param GetDeadLockHistoryRequest $request
-     *
-     * @return GetDeadLockHistoryResponse
+     * @return GetDeadLockHistoryResponse GetDeadLockHistoryResponse
      */
     public function getDeadLockHistory($request)
     {
@@ -5086,44 +4176,34 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * 查询时间范围内基于错误日志分析的死锁数量.
+     * @summary 查询时间范围内基于错误日志分析的死锁数量
+     *  *
+     * @param GetDeadlockHistogramRequest $request GetDeadlockHistogramRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetDeadlockHistogramRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetDeadlockHistogramResponse
-     *
-     * @param GetDeadlockHistogramRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return GetDeadlockHistogramResponse
+     * @return GetDeadlockHistogramResponse GetDeadlockHistogramResponse
      */
     public function getDeadlockHistogramWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->endTime) {
-            @$body['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->instanceId) {
-            @$body['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->nodeId) {
-            @$body['NodeId'] = $request->nodeId;
+        if (!Utils::isUnset($request->nodeId)) {
+            $body['NodeId'] = $request->nodeId;
         }
-
-        if (null !== $request->startTime) {
-            @$body['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
         }
-
-        if (null !== $request->status) {
-            @$body['Status'] = $request->status;
+        if (!Utils::isUnset($request->status)) {
+            $body['Status'] = $request->status;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetDeadlockHistogram',
@@ -5141,15 +4221,11 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * 查询时间范围内基于错误日志分析的死锁数量.
+     * @summary 查询时间范围内基于错误日志分析的死锁数量
+     *  *
+     * @param GetDeadlockHistogramRequest $request GetDeadlockHistogramRequest
      *
-     * @param request - GetDeadlockHistogramRequest
-     *
-     * @returns GetDeadlockHistogramResponse
-     *
-     * @param GetDeadlockHistogramRequest $request
-     *
-     * @return GetDeadlockHistogramResponse
+     * @return GetDeadlockHistogramResponse GetDeadlockHistogramResponse
      */
     public function getDeadlockHistogram($request)
     {
@@ -5159,54 +4235,41 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * @param request - GetEndpointSwitchTaskRequest
-     * @param runtime - runtime options for this request RuntimeOptions
+     * @param GetEndpointSwitchTaskRequest $request GetEndpointSwitchTaskRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @returns GetEndpointSwitchTaskResponse
-     *
-     * @param GetEndpointSwitchTaskRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return GetEndpointSwitchTaskResponse
+     * @return GetEndpointSwitchTaskResponse GetEndpointSwitchTaskResponse
      */
     public function getEndpointSwitchTaskWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->taskId) {
-            @$query['TaskId'] = $request->taskId;
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
         }
-
-        if (null !== $request->uid) {
-            @$query['Uid'] = $request->uid;
+        if (!Utils::isUnset($request->uid)) {
+            $query['Uid'] = $request->uid;
         }
-
-        if (null !== $request->userId) {
-            @$query['UserId'] = $request->userId;
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
         }
-
-        if (null !== $request->context) {
-            @$query['__context'] = $request->context;
+        if (!Utils::isUnset($request->context)) {
+            $query['__context'] = $request->context;
         }
-
-        if (null !== $request->accessKey) {
-            @$query['accessKey'] = $request->accessKey;
+        if (!Utils::isUnset($request->accessKey)) {
+            $query['accessKey'] = $request->accessKey;
         }
-
-        if (null !== $request->signature) {
-            @$query['signature'] = $request->signature;
+        if (!Utils::isUnset($request->signature)) {
+            $query['signature'] = $request->signature;
         }
-
-        if (null !== $request->skipAuth) {
-            @$query['skipAuth'] = $request->skipAuth;
+        if (!Utils::isUnset($request->skipAuth)) {
+            $query['skipAuth'] = $request->skipAuth;
         }
-
-        if (null !== $request->timestamp) {
-            @$query['timestamp'] = $request->timestamp;
+        if (!Utils::isUnset($request->timestamp)) {
+            $query['timestamp'] = $request->timestamp;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetEndpointSwitchTask',
@@ -5224,13 +4287,9 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * @param request - GetEndpointSwitchTaskRequest
+     * @param GetEndpointSwitchTaskRequest $request GetEndpointSwitchTaskRequest
      *
-     * @returns GetEndpointSwitchTaskResponse
-     *
-     * @param GetEndpointSwitchTaskRequest $request
-     *
-     * @return GetEndpointSwitchTaskResponse
+     * @return GetEndpointSwitchTaskResponse GetEndpointSwitchTaskResponse
      */
     public function getEndpointSwitchTask($request)
     {
@@ -5240,53 +4299,41 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Asynchronously queries information about failed SQL queries in SQL Explorer data. You can query up to 20 failed SQL queries within the specific time range.
-     *
-     * @remarks
-     * >  GetErrorRequestSample is an asynchronous operation. After a request is sent, the complete results are not returned immediately. If the value of **isFinish** is **false** in the response, wait for 1 second and then send a request again. If the value of **isFinish** is **true**, the complete results are returned.
+     * @summary Asynchronously queries information about failed SQL queries in SQL Explorer data. You can query up to 20 failed SQL queries within the specific time range.
+     *  *
+     * @description >  GetErrorRequestSample is an asynchronous operation. After a request is sent, the complete results are not returned immediately. If the value of **isFinish** is **false** in the response, wait for 1 second and then send a request again. If the value of **isFinish** is **true**, the complete results are returned.
      * *   This API operation supports only ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters for which Database Autonomy Service (DAS) Enterprise Edition is enabled. For more information, see [Purchase DAS Enterprise Edition](https://help.aliyun.com/document_detail/163298.html).
      * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
+     *  *
+     * @param GetErrorRequestSampleRequest $request GetErrorRequestSampleRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetErrorRequestSampleRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetErrorRequestSampleResponse
-     *
-     * @param GetErrorRequestSampleRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return GetErrorRequestSampleResponse
+     * @return GetErrorRequestSampleResponse GetErrorRequestSampleResponse
      */
     public function getErrorRequestSampleWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->dbName) {
-            @$query['DbName'] = $request->dbName;
+        if (!Utils::isUnset($request->dbName)) {
+            $query['DbName'] = $request->dbName;
         }
-
-        if (null !== $request->end) {
-            @$query['End'] = $request->end;
+        if (!Utils::isUnset($request->end)) {
+            $query['End'] = $request->end;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->nodeId) {
-            @$query['NodeId'] = $request->nodeId;
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
         }
-
-        if (null !== $request->sqlId) {
-            @$query['SqlId'] = $request->sqlId;
+        if (!Utils::isUnset($request->sqlId)) {
+            $query['SqlId'] = $request->sqlId;
         }
-
-        if (null !== $request->start) {
-            @$query['Start'] = $request->start;
+        if (!Utils::isUnset($request->start)) {
+            $query['Start'] = $request->start;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetErrorRequestSample',
@@ -5304,20 +4351,15 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Asynchronously queries information about failed SQL queries in SQL Explorer data. You can query up to 20 failed SQL queries within the specific time range.
-     *
-     * @remarks
-     * >  GetErrorRequestSample is an asynchronous operation. After a request is sent, the complete results are not returned immediately. If the value of **isFinish** is **false** in the response, wait for 1 second and then send a request again. If the value of **isFinish** is **true**, the complete results are returned.
+     * @summary Asynchronously queries information about failed SQL queries in SQL Explorer data. You can query up to 20 failed SQL queries within the specific time range.
+     *  *
+     * @description >  GetErrorRequestSample is an asynchronous operation. After a request is sent, the complete results are not returned immediately. If the value of **isFinish** is **false** in the response, wait for 1 second and then send a request again. If the value of **isFinish** is **true**, the complete results are returned.
      * *   This API operation supports only ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters for which Database Autonomy Service (DAS) Enterprise Edition is enabled. For more information, see [Purchase DAS Enterprise Edition](https://help.aliyun.com/document_detail/163298.html).
      * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
+     *  *
+     * @param GetErrorRequestSampleRequest $request GetErrorRequestSampleRequest
      *
-     * @param request - GetErrorRequestSampleRequest
-     *
-     * @returns GetErrorRequestSampleResponse
-     *
-     * @param GetErrorRequestSampleRequest $request
-     *
-     * @return GetErrorRequestSampleResponse
+     * @return GetErrorRequestSampleResponse GetErrorRequestSampleResponse
      */
     public function getErrorRequestSample($request)
     {
@@ -5327,34 +4369,27 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the event subscription settings of a database instance.
-     *
-     * @remarks
-     * Before you call this operation, take note of the following items:
+     * @summary Queries the event subscription settings of a database instance.
+     *  *
+     * @description Before you call this operation, take note of the following items:
      * *   If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
      * *   The database instance that you want to manage is connected to DAS.
+     *  *
+     * @param GetEventSubscriptionRequest $request GetEventSubscriptionRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetEventSubscriptionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetEventSubscriptionResponse
-     *
-     * @param GetEventSubscriptionRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return GetEventSubscriptionResponse
+     * @return GetEventSubscriptionResponse GetEventSubscriptionResponse
      */
     public function getEventSubscriptionWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetEventSubscription',
@@ -5372,21 +4407,16 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the event subscription settings of a database instance.
-     *
-     * @remarks
-     * Before you call this operation, take note of the following items:
+     * @summary Queries the event subscription settings of a database instance.
+     *  *
+     * @description Before you call this operation, take note of the following items:
      * *   If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
      * *   The database instance that you want to manage is connected to DAS.
+     *  *
+     * @param GetEventSubscriptionRequest $request GetEventSubscriptionRequest
      *
-     * @param request - GetEventSubscriptionRequest
-     *
-     * @returns GetEventSubscriptionResponse
-     *
-     * @param GetEventSubscriptionRequest $request
-     *
-     * @return GetEventSubscriptionResponse
+     * @return GetEventSubscriptionResponse GetEventSubscriptionResponse
      */
     public function getEventSubscription($request)
     {
@@ -5396,73 +4426,56 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Collects the full request statistics in the SQL Explorer results of a database instance by access source.
-     *
-     * @remarks
-     * The SQL Explorer feature allows you to check the health status of SQL statements and troubleshoot performance issues. For more information, see [SQL Explorer](https://help.aliyun.com/document_detail/204096.html).
+     * @summary Collects the full request statistics in the SQL Explorer results of a database instance by access source.
+     *  *
+     * @description The SQL Explorer feature allows you to check the health status of SQL statements and troubleshoot performance issues. For more information, see [SQL Explorer](https://help.aliyun.com/document_detail/204096.html).
      * *   For more information about database instances that support this feature, see [Overview](https://help.aliyun.com/document_detail/190912.html).
      * *   If you use an SDK to call API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
+     *  *
+     * @param GetFullRequestOriginStatByInstanceIdRequest $request GetFullRequestOriginStatByInstanceIdRequest
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetFullRequestOriginStatByInstanceIdRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetFullRequestOriginStatByInstanceIdResponse
-     *
-     * @param GetFullRequestOriginStatByInstanceIdRequest $request
-     * @param RuntimeOptions                              $runtime
-     *
-     * @return GetFullRequestOriginStatByInstanceIdResponse
+     * @return GetFullRequestOriginStatByInstanceIdResponse GetFullRequestOriginStatByInstanceIdResponse
      */
     public function getFullRequestOriginStatByInstanceIdWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->asc) {
-            @$query['Asc'] = $request->asc;
+        if (!Utils::isUnset($request->asc)) {
+            $query['Asc'] = $request->asc;
         }
-
-        if (null !== $request->end) {
-            @$query['End'] = $request->end;
+        if (!Utils::isUnset($request->end)) {
+            $query['End'] = $request->end;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->nodeId) {
-            @$query['NodeId'] = $request->nodeId;
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
         }
-
-        if (null !== $request->orderBy) {
-            @$query['OrderBy'] = $request->orderBy;
+        if (!Utils::isUnset($request->orderBy)) {
+            $query['OrderBy'] = $request->orderBy;
         }
-
-        if (null !== $request->pageNo) {
-            @$query['PageNo'] = $request->pageNo;
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->role) {
-            @$query['Role'] = $request->role;
+        if (!Utils::isUnset($request->role)) {
+            $query['Role'] = $request->role;
         }
-
-        if (null !== $request->sqlType) {
-            @$query['SqlType'] = $request->sqlType;
+        if (!Utils::isUnset($request->sqlType)) {
+            $query['SqlType'] = $request->sqlType;
         }
-
-        if (null !== $request->start) {
-            @$query['Start'] = $request->start;
+        if (!Utils::isUnset($request->start)) {
+            $query['Start'] = $request->start;
         }
-
-        if (null !== $request->userId) {
-            @$query['UserId'] = $request->userId;
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetFullRequestOriginStatByInstanceId',
@@ -5480,20 +4493,15 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Collects the full request statistics in the SQL Explorer results of a database instance by access source.
-     *
-     * @remarks
-     * The SQL Explorer feature allows you to check the health status of SQL statements and troubleshoot performance issues. For more information, see [SQL Explorer](https://help.aliyun.com/document_detail/204096.html).
+     * @summary Collects the full request statistics in the SQL Explorer results of a database instance by access source.
+     *  *
+     * @description The SQL Explorer feature allows you to check the health status of SQL statements and troubleshoot performance issues. For more information, see [SQL Explorer](https://help.aliyun.com/document_detail/204096.html).
      * *   For more information about database instances that support this feature, see [Overview](https://help.aliyun.com/document_detail/190912.html).
      * *   If you use an SDK to call API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
+     *  *
+     * @param GetFullRequestOriginStatByInstanceIdRequest $request GetFullRequestOriginStatByInstanceIdRequest
      *
-     * @param request - GetFullRequestOriginStatByInstanceIdRequest
-     *
-     * @returns GetFullRequestOriginStatByInstanceIdResponse
-     *
-     * @param GetFullRequestOriginStatByInstanceIdRequest $request
-     *
-     * @return GetFullRequestOriginStatByInstanceIdResponse
+     * @return GetFullRequestOriginStatByInstanceIdResponse GetFullRequestOriginStatByInstanceIdResponse
      */
     public function getFullRequestOriginStatByInstanceId($request)
     {
@@ -5503,55 +4511,43 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries sample SQL statements in the SQL Explorer data of a database instance by SQL ID. You can query up to 20 sample SQL statements.
-     *
-     * @remarks
-     * The SQL Explorer feature allows you to check the health status of SQL statements and troubleshoot performance issues. For more information, see [SQL Explorer](https://help.aliyun.com/document_detail/204096.html).
+     * @summary Queries sample SQL statements in the SQL Explorer data of a database instance by SQL ID. You can query up to 20 sample SQL statements.
+     *  *
+     * @description The SQL Explorer feature allows you to check the health status of SQL statements and troubleshoot performance issues. For more information, see [SQL Explorer](https://help.aliyun.com/document_detail/204096.html).
      * *   For more information about the database engines that support SQL Explorer, see [SQL Explorer](https://help.aliyun.com/document_detail/204096.html).
      * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
+     *  *
+     * @param GetFullRequestSampleByInstanceIdRequest $request GetFullRequestSampleByInstanceIdRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetFullRequestSampleByInstanceIdRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetFullRequestSampleByInstanceIdResponse
-     *
-     * @param GetFullRequestSampleByInstanceIdRequest $request
-     * @param RuntimeOptions                          $runtime
-     *
-     * @return GetFullRequestSampleByInstanceIdResponse
+     * @return GetFullRequestSampleByInstanceIdResponse GetFullRequestSampleByInstanceIdResponse
      */
     public function getFullRequestSampleByInstanceIdWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->role) {
-            @$query['Role'] = $request->role;
+        if (!Utils::isUnset($request->role)) {
+            $query['Role'] = $request->role;
         }
-
         $body = [];
-        if (null !== $request->end) {
-            @$body['End'] = $request->end;
+        if (!Utils::isUnset($request->end)) {
+            $body['End'] = $request->end;
         }
-
-        if (null !== $request->instanceId) {
-            @$body['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->sqlId) {
-            @$body['SqlId'] = $request->sqlId;
+        if (!Utils::isUnset($request->sqlId)) {
+            $body['SqlId'] = $request->sqlId;
         }
-
-        if (null !== $request->start) {
-            @$body['Start'] = $request->start;
+        if (!Utils::isUnset($request->start)) {
+            $body['Start'] = $request->start;
         }
-
-        if (null !== $request->userId) {
-            @$body['UserId'] = $request->userId;
+        if (!Utils::isUnset($request->userId)) {
+            $body['UserId'] = $request->userId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetFullRequestSampleByInstanceId',
@@ -5569,20 +4565,15 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries sample SQL statements in the SQL Explorer data of a database instance by SQL ID. You can query up to 20 sample SQL statements.
-     *
-     * @remarks
-     * The SQL Explorer feature allows you to check the health status of SQL statements and troubleshoot performance issues. For more information, see [SQL Explorer](https://help.aliyun.com/document_detail/204096.html).
+     * @summary Queries sample SQL statements in the SQL Explorer data of a database instance by SQL ID. You can query up to 20 sample SQL statements.
+     *  *
+     * @description The SQL Explorer feature allows you to check the health status of SQL statements and troubleshoot performance issues. For more information, see [SQL Explorer](https://help.aliyun.com/document_detail/204096.html).
      * *   For more information about the database engines that support SQL Explorer, see [SQL Explorer](https://help.aliyun.com/document_detail/204096.html).
      * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
+     *  *
+     * @param GetFullRequestSampleByInstanceIdRequest $request GetFullRequestSampleByInstanceIdRequest
      *
-     * @param request - GetFullRequestSampleByInstanceIdRequest
-     *
-     * @returns GetFullRequestSampleByInstanceIdResponse
-     *
-     * @param GetFullRequestSampleByInstanceIdRequest $request
-     *
-     * @return GetFullRequestSampleByInstanceIdResponse
+     * @return GetFullRequestSampleByInstanceIdResponse GetFullRequestSampleByInstanceIdResponse
      */
     public function getFullRequestSampleByInstanceId($request)
     {
@@ -5592,91 +4583,70 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Asynchronously collects the full request statistics in the SQL Explorer results of a database instance by SQL ID.
-     *
-     * @remarks
-     * >  GetFullRequestStatResultByInstanceId is an asynchronous operation. After a request is sent, the complete results are not returned immediately. If the value of the isFinish parameter is **false** in the response, wait for 1 second and then send a request again. If the value of the isFinish parameter is **true**, the complete results are returned.
+     * @summary Asynchronously collects the full request statistics in the SQL Explorer results of a database instance by SQL ID.
+     *  *
+     * @description >  GetFullRequestStatResultByInstanceId is an asynchronous operation. After a request is sent, the complete results are not returned immediately. If the value of the isFinish parameter is **false** in the response, wait for 1 second and then send a request again. If the value of the isFinish parameter is **true**, the complete results are returned.
      * The SQL Explorer feature allows you to check the health status of SQL statements and troubleshoot performance issues. For more information, see [SQL Explorer](https://help.aliyun.com/document_detail/204096.html).
      * *   For more information about database instances that support this feature, see [Overview of DAS Enterprise Edition](https://help.aliyun.com/document_detail/190912.html).
      * *   If you use an SDK to call the API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
      * *   When you call this operation, the value of the SqlId parameter changes due to the optimization of the SQL template algorithm starting from September 1, 2024. For more information, see [[Notice\\] Optimization of the SQL template algorithm](~~2845725~~).
+     *  *
+     * @param GetFullRequestStatResultByInstanceIdRequest $request GetFullRequestStatResultByInstanceIdRequest
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetFullRequestStatResultByInstanceIdRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetFullRequestStatResultByInstanceIdResponse
-     *
-     * @param GetFullRequestStatResultByInstanceIdRequest $request
-     * @param RuntimeOptions                              $runtime
-     *
-     * @return GetFullRequestStatResultByInstanceIdResponse
+     * @return GetFullRequestStatResultByInstanceIdResponse GetFullRequestStatResultByInstanceIdResponse
      */
     public function getFullRequestStatResultByInstanceIdWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->asc) {
-            @$query['Asc'] = $request->asc;
+        if (!Utils::isUnset($request->asc)) {
+            $query['Asc'] = $request->asc;
         }
-
-        if (null !== $request->dbName) {
-            @$query['DbName'] = $request->dbName;
+        if (!Utils::isUnset($request->dbName)) {
+            $query['DbName'] = $request->dbName;
         }
-
-        if (null !== $request->end) {
-            @$query['End'] = $request->end;
+        if (!Utils::isUnset($request->end)) {
+            $query['End'] = $request->end;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->keyword) {
-            @$query['Keyword'] = $request->keyword;
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
         }
-
-        if (null !== $request->nodeId) {
-            @$query['NodeId'] = $request->nodeId;
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
         }
-
-        if (null !== $request->orderBy) {
-            @$query['OrderBy'] = $request->orderBy;
+        if (!Utils::isUnset($request->orderBy)) {
+            $query['OrderBy'] = $request->orderBy;
         }
-
-        if (null !== $request->originHost) {
-            @$query['OriginHost'] = $request->originHost;
+        if (!Utils::isUnset($request->originHost)) {
+            $query['OriginHost'] = $request->originHost;
         }
-
-        if (null !== $request->pageNo) {
-            @$query['PageNo'] = $request->pageNo;
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->role) {
-            @$query['Role'] = $request->role;
+        if (!Utils::isUnset($request->role)) {
+            $query['Role'] = $request->role;
         }
-
-        if (null !== $request->sqlId) {
-            @$query['SqlId'] = $request->sqlId;
+        if (!Utils::isUnset($request->sqlId)) {
+            $query['SqlId'] = $request->sqlId;
         }
-
-        if (null !== $request->sqlType) {
-            @$query['SqlType'] = $request->sqlType;
+        if (!Utils::isUnset($request->sqlType)) {
+            $query['SqlType'] = $request->sqlType;
         }
-
-        if (null !== $request->start) {
-            @$query['Start'] = $request->start;
+        if (!Utils::isUnset($request->start)) {
+            $query['Start'] = $request->start;
         }
-
-        if (null !== $request->userId) {
-            @$query['UserId'] = $request->userId;
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetFullRequestStatResultByInstanceId',
@@ -5694,22 +4664,17 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Asynchronously collects the full request statistics in the SQL Explorer results of a database instance by SQL ID.
-     *
-     * @remarks
-     * >  GetFullRequestStatResultByInstanceId is an asynchronous operation. After a request is sent, the complete results are not returned immediately. If the value of the isFinish parameter is **false** in the response, wait for 1 second and then send a request again. If the value of the isFinish parameter is **true**, the complete results are returned.
+     * @summary Asynchronously collects the full request statistics in the SQL Explorer results of a database instance by SQL ID.
+     *  *
+     * @description >  GetFullRequestStatResultByInstanceId is an asynchronous operation. After a request is sent, the complete results are not returned immediately. If the value of the isFinish parameter is **false** in the response, wait for 1 second and then send a request again. If the value of the isFinish parameter is **true**, the complete results are returned.
      * The SQL Explorer feature allows you to check the health status of SQL statements and troubleshoot performance issues. For more information, see [SQL Explorer](https://help.aliyun.com/document_detail/204096.html).
      * *   For more information about database instances that support this feature, see [Overview of DAS Enterprise Edition](https://help.aliyun.com/document_detail/190912.html).
      * *   If you use an SDK to call the API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
      * *   When you call this operation, the value of the SqlId parameter changes due to the optimization of the SQL template algorithm starting from September 1, 2024. For more information, see [[Notice\\] Optimization of the SQL template algorithm](~~2845725~~).
+     *  *
+     * @param GetFullRequestStatResultByInstanceIdRequest $request GetFullRequestStatResultByInstanceIdRequest
      *
-     * @param request - GetFullRequestStatResultByInstanceIdRequest
-     *
-     * @returns GetFullRequestStatResultByInstanceIdResponse
-     *
-     * @param GetFullRequestStatResultByInstanceIdRequest $request
-     *
-     * @return GetFullRequestStatResultByInstanceIdResponse
+     * @return GetFullRequestStatResultByInstanceIdResponse GetFullRequestStatResultByInstanceIdResponse
      */
     public function getFullRequestStatResultByInstanceId($request)
     {
@@ -5719,54 +4684,41 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * @param request - GetHDMAliyunResourceSyncResultRequest
-     * @param runtime - runtime options for this request RuntimeOptions
+     * @param GetHDMAliyunResourceSyncResultRequest $request GetHDMAliyunResourceSyncResultRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @returns GetHDMAliyunResourceSyncResultResponse
-     *
-     * @param GetHDMAliyunResourceSyncResultRequest $request
-     * @param RuntimeOptions                        $runtime
-     *
-     * @return GetHDMAliyunResourceSyncResultResponse
+     * @return GetHDMAliyunResourceSyncResultResponse GetHDMAliyunResourceSyncResultResponse
      */
     public function getHDMAliyunResourceSyncResultWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->taskId) {
-            @$query['TaskId'] = $request->taskId;
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
         }
-
-        if (null !== $request->uid) {
-            @$query['Uid'] = $request->uid;
+        if (!Utils::isUnset($request->uid)) {
+            $query['Uid'] = $request->uid;
         }
-
-        if (null !== $request->userId) {
-            @$query['UserId'] = $request->userId;
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
         }
-
-        if (null !== $request->context) {
-            @$query['__context'] = $request->context;
+        if (!Utils::isUnset($request->context)) {
+            $query['__context'] = $request->context;
         }
-
-        if (null !== $request->accessKey) {
-            @$query['accessKey'] = $request->accessKey;
+        if (!Utils::isUnset($request->accessKey)) {
+            $query['accessKey'] = $request->accessKey;
         }
-
-        if (null !== $request->signature) {
-            @$query['signature'] = $request->signature;
+        if (!Utils::isUnset($request->signature)) {
+            $query['signature'] = $request->signature;
         }
-
-        if (null !== $request->skipAuth) {
-            @$query['skipAuth'] = $request->skipAuth;
+        if (!Utils::isUnset($request->skipAuth)) {
+            $query['skipAuth'] = $request->skipAuth;
         }
-
-        if (null !== $request->timestamp) {
-            @$query['timestamp'] = $request->timestamp;
+        if (!Utils::isUnset($request->timestamp)) {
+            $query['timestamp'] = $request->timestamp;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetHDMAliyunResourceSyncResult',
@@ -5784,13 +4736,9 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * @param request - GetHDMAliyunResourceSyncResultRequest
+     * @param GetHDMAliyunResourceSyncResultRequest $request GetHDMAliyunResourceSyncResultRequest
      *
-     * @returns GetHDMAliyunResourceSyncResultResponse
-     *
-     * @param GetHDMAliyunResourceSyncResultRequest $request
-     *
-     * @return GetHDMAliyunResourceSyncResultResponse
+     * @return GetHDMAliyunResourceSyncResultResponse GetHDMAliyunResourceSyncResultResponse
      */
     public function getHDMAliyunResourceSyncResult($request)
     {
@@ -5800,50 +4748,38 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * @param request - GetHDMLastAliyunResourceSyncResultRequest
-     * @param runtime - runtime options for this request RuntimeOptions
+     * @param GetHDMLastAliyunResourceSyncResultRequest $request GetHDMLastAliyunResourceSyncResultRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @returns GetHDMLastAliyunResourceSyncResultResponse
-     *
-     * @param GetHDMLastAliyunResourceSyncResultRequest $request
-     * @param RuntimeOptions                            $runtime
-     *
-     * @return GetHDMLastAliyunResourceSyncResultResponse
+     * @return GetHDMLastAliyunResourceSyncResultResponse GetHDMLastAliyunResourceSyncResultResponse
      */
     public function getHDMLastAliyunResourceSyncResultWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->uid) {
-            @$query['Uid'] = $request->uid;
+        if (!Utils::isUnset($request->uid)) {
+            $query['Uid'] = $request->uid;
         }
-
-        if (null !== $request->userId) {
-            @$query['UserId'] = $request->userId;
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
         }
-
-        if (null !== $request->context) {
-            @$query['__context'] = $request->context;
+        if (!Utils::isUnset($request->context)) {
+            $query['__context'] = $request->context;
         }
-
-        if (null !== $request->accessKey) {
-            @$query['accessKey'] = $request->accessKey;
+        if (!Utils::isUnset($request->accessKey)) {
+            $query['accessKey'] = $request->accessKey;
         }
-
-        if (null !== $request->signature) {
-            @$query['signature'] = $request->signature;
+        if (!Utils::isUnset($request->signature)) {
+            $query['signature'] = $request->signature;
         }
-
-        if (null !== $request->skipAuth) {
-            @$query['skipAuth'] = $request->skipAuth;
+        if (!Utils::isUnset($request->skipAuth)) {
+            $query['skipAuth'] = $request->skipAuth;
         }
-
-        if (null !== $request->timestamp) {
-            @$query['timestamp'] = $request->timestamp;
+        if (!Utils::isUnset($request->timestamp)) {
+            $query['timestamp'] = $request->timestamp;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetHDMLastAliyunResourceSyncResult',
@@ -5861,13 +4797,9 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * @param request - GetHDMLastAliyunResourceSyncResultRequest
+     * @param GetHDMLastAliyunResourceSyncResultRequest $request GetHDMLastAliyunResourceSyncResultRequest
      *
-     * @returns GetHDMLastAliyunResourceSyncResultResponse
-     *
-     * @param GetHDMLastAliyunResourceSyncResultRequest $request
-     *
-     * @return GetHDMLastAliyunResourceSyncResultResponse
+     * @return GetHDMLastAliyunResourceSyncResultResponse GetHDMLastAliyunResourceSyncResultResponse
      */
     public function getHDMLastAliyunResourceSyncResult($request)
     {
@@ -5877,64 +4809,50 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the result of an inspection that is performed on a database instance by using the inspection and scoring feature.
-     *
-     * @remarks
-     * Database Autonomy Service (DAS) provides the inspection and scoring feature. This feature allows you to inspect and score the health status of your instance on a regular basis. This helps you obtain information about the status of your databases. For more information, see [Inspection and scoring](https://help.aliyun.com/document_detail/205659.html).
+     * @summary Queries the result of an inspection that is performed on a database instance by using the inspection and scoring feature.
+     *  *
+     * @description Database Autonomy Service (DAS) provides the inspection and scoring feature. This feature allows you to inspect and score the health status of your instance on a regular basis. This helps you obtain information about the status of your databases. For more information, see [Inspection and scoring](https://help.aliyun.com/document_detail/205659.html).
      * Before you call this operation, take note of the following items:
      * *   This operation is applicable only to ApsaraDB RDS for MySQL databases, self-managed MySQL databases hosted on Elastic Compute Service (ECS) instances, self-managed MySQL databases in data centers, ApsaraDB for Redis databases, and PolarDB for MySQL databases.
      * *   If you use an Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than V4.3.3. We recommend that you use the latest version.
      * *   The version of DAS SDK must be V1.0.3 or later.
      * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     *  *
+     * @param GetInstanceInspectionsRequest $request GetInstanceInspectionsRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetInstanceInspectionsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetInstanceInspectionsResponse
-     *
-     * @param GetInstanceInspectionsRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return GetInstanceInspectionsResponse
+     * @return GetInstanceInspectionsResponse GetInstanceInspectionsResponse
      */
     public function getInstanceInspectionsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->engine) {
-            @$query['Engine'] = $request->engine;
+        if (!Utils::isUnset($request->engine)) {
+            $query['Engine'] = $request->engine;
         }
-
-        if (null !== $request->instanceArea) {
-            @$query['InstanceArea'] = $request->instanceArea;
+        if (!Utils::isUnset($request->instanceArea)) {
+            $query['InstanceArea'] = $request->instanceArea;
         }
-
-        if (null !== $request->pageNo) {
-            @$query['PageNo'] = $request->pageNo;
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->searchMap) {
-            @$query['SearchMap'] = $request->searchMap;
+        if (!Utils::isUnset($request->searchMap)) {
+            $query['SearchMap'] = $request->searchMap;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetInstanceInspections',
@@ -5952,23 +4870,18 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the result of an inspection that is performed on a database instance by using the inspection and scoring feature.
-     *
-     * @remarks
-     * Database Autonomy Service (DAS) provides the inspection and scoring feature. This feature allows you to inspect and score the health status of your instance on a regular basis. This helps you obtain information about the status of your databases. For more information, see [Inspection and scoring](https://help.aliyun.com/document_detail/205659.html).
+     * @summary Queries the result of an inspection that is performed on a database instance by using the inspection and scoring feature.
+     *  *
+     * @description Database Autonomy Service (DAS) provides the inspection and scoring feature. This feature allows you to inspect and score the health status of your instance on a regular basis. This helps you obtain information about the status of your databases. For more information, see [Inspection and scoring](https://help.aliyun.com/document_detail/205659.html).
      * Before you call this operation, take note of the following items:
      * *   This operation is applicable only to ApsaraDB RDS for MySQL databases, self-managed MySQL databases hosted on Elastic Compute Service (ECS) instances, self-managed MySQL databases in data centers, ApsaraDB for Redis databases, and PolarDB for MySQL databases.
      * *   If you use an Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than V4.3.3. We recommend that you use the latest version.
      * *   The version of DAS SDK must be V1.0.3 or later.
      * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     *  *
+     * @param GetInstanceInspectionsRequest $request GetInstanceInspectionsRequest
      *
-     * @param request - GetInstanceInspectionsRequest
-     *
-     * @returns GetInstanceInspectionsResponse
-     *
-     * @param GetInstanceInspectionsRequest $request
-     *
-     * @return GetInstanceInspectionsResponse
+     * @return GetInstanceInspectionsResponse GetInstanceInspectionsResponse
      */
     public function getInstanceInspections($request)
     {
@@ -5978,89 +4891,68 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the details of all missing indexes of an instance.
-     *
-     * @remarks
-     *   This operation is applicable only to ApsaraDB RDS for SQL Server instances.
+     * @summary Queries the details of all missing indexes of an instance.
+     *  *
+     * @description *   This operation is applicable only to ApsaraDB RDS for SQL Server instances.
      * *   If you use an Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call the API operations of DAS, you must set the region ID to cn-shanghai.
+     *  *
+     * @param GetInstanceMissingIndexListRequest $request GetInstanceMissingIndexListRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetInstanceMissingIndexListRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetInstanceMissingIndexListResponse
-     *
-     * @param GetInstanceMissingIndexListRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return GetInstanceMissingIndexListResponse
+     * @return GetInstanceMissingIndexListResponse GetInstanceMissingIndexListResponse
      */
     public function getInstanceMissingIndexListWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->avgTotalUserCost) {
-            @$query['AvgTotalUserCost'] = $request->avgTotalUserCost;
+        if (!Utils::isUnset($request->avgTotalUserCost)) {
+            $query['AvgTotalUserCost'] = $request->avgTotalUserCost;
         }
-
-        if (null !== $request->avgUserImpact) {
-            @$query['AvgUserImpact'] = $request->avgUserImpact;
+        if (!Utils::isUnset($request->avgUserImpact)) {
+            $query['AvgUserImpact'] = $request->avgUserImpact;
         }
-
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->indexCount) {
-            @$query['IndexCount'] = $request->indexCount;
+        if (!Utils::isUnset($request->indexCount)) {
+            $query['IndexCount'] = $request->indexCount;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->objectName) {
-            @$query['ObjectName'] = $request->objectName;
+        if (!Utils::isUnset($request->objectName)) {
+            $query['ObjectName'] = $request->objectName;
         }
-
-        if (null !== $request->pageNo) {
-            @$query['PageNo'] = $request->pageNo;
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->reservedPages) {
-            @$query['ReservedPages'] = $request->reservedPages;
+        if (!Utils::isUnset($request->reservedPages)) {
+            $query['ReservedPages'] = $request->reservedPages;
         }
-
-        if (null !== $request->reservedSize) {
-            @$query['ReservedSize'] = $request->reservedSize;
+        if (!Utils::isUnset($request->reservedSize)) {
+            $query['ReservedSize'] = $request->reservedSize;
         }
-
-        if (null !== $request->rowCount) {
-            @$query['RowCount'] = $request->rowCount;
+        if (!Utils::isUnset($request->rowCount)) {
+            $query['RowCount'] = $request->rowCount;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
-        if (null !== $request->uniqueCompiles) {
-            @$query['UniqueCompiles'] = $request->uniqueCompiles;
+        if (!Utils::isUnset($request->uniqueCompiles)) {
+            $query['UniqueCompiles'] = $request->uniqueCompiles;
         }
-
-        if (null !== $request->userScans) {
-            @$query['UserScans'] = $request->userScans;
+        if (!Utils::isUnset($request->userScans)) {
+            $query['UserScans'] = $request->userScans;
         }
-
-        if (null !== $request->userSeeks) {
-            @$query['UserSeeks'] = $request->userSeeks;
+        if (!Utils::isUnset($request->userSeeks)) {
+            $query['UserSeeks'] = $request->userSeeks;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetInstanceMissingIndexList',
@@ -6078,20 +4970,15 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the details of all missing indexes of an instance.
-     *
-     * @remarks
-     *   This operation is applicable only to ApsaraDB RDS for SQL Server instances.
+     * @summary Queries the details of all missing indexes of an instance.
+     *  *
+     * @description *   This operation is applicable only to ApsaraDB RDS for SQL Server instances.
      * *   If you use an Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call the API operations of DAS, you must set the region ID to cn-shanghai.
+     *  *
+     * @param GetInstanceMissingIndexListRequest $request GetInstanceMissingIndexListRequest
      *
-     * @param request - GetInstanceMissingIndexListRequest
-     *
-     * @returns GetInstanceMissingIndexListResponse
-     *
-     * @param GetInstanceMissingIndexListRequest $request
-     *
-     * @return GetInstanceMissingIndexListResponse
+     * @return GetInstanceMissingIndexListResponse GetInstanceMissingIndexListResponse
      */
     public function getInstanceMissingIndexList($request)
     {
@@ -6101,58 +4988,45 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries statistics on automatic SQL optimization events within a period of time, such as the total number of optimization events and the maximum improvement.
-     *
-     * @remarks
-     * Before you call this operation, take note of the following items:
+     * @summary Queries statistics on automatic SQL optimization events within a period of time, such as the total number of optimization events and the maximum improvement.
+     *  *
+     * @description Before you call this operation, take note of the following items:
      * *   If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this API operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
      * *   The database engine is ApsaraDB RDS for MySQL or PolarDB for MySQL.
+     *  *
+     * @param GetInstanceSqlOptimizeStatisticRequest $request GetInstanceSqlOptimizeStatisticRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetInstanceSqlOptimizeStatisticRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetInstanceSqlOptimizeStatisticResponse
-     *
-     * @param GetInstanceSqlOptimizeStatisticRequest $request
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return GetInstanceSqlOptimizeStatisticResponse
+     * @return GetInstanceSqlOptimizeStatisticResponse GetInstanceSqlOptimizeStatisticResponse
      */
     public function getInstanceSqlOptimizeStatisticWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->filterEnable) {
-            @$query['FilterEnable'] = $request->filterEnable;
+        if (!Utils::isUnset($request->filterEnable)) {
+            $query['FilterEnable'] = $request->filterEnable;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->nodeId) {
-            @$query['NodeId'] = $request->nodeId;
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
-        if (null !== $request->threshold) {
-            @$query['Threshold'] = $request->threshold;
+        if (!Utils::isUnset($request->threshold)) {
+            $query['Threshold'] = $request->threshold;
         }
-
-        if (null !== $request->useMerging) {
-            @$query['UseMerging'] = $request->useMerging;
+        if (!Utils::isUnset($request->useMerging)) {
+            $query['UseMerging'] = $request->useMerging;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetInstanceSqlOptimizeStatistic',
@@ -6170,21 +5044,16 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries statistics on automatic SQL optimization events within a period of time, such as the total number of optimization events and the maximum improvement.
-     *
-     * @remarks
-     * Before you call this operation, take note of the following items:
+     * @summary Queries statistics on automatic SQL optimization events within a period of time, such as the total number of optimization events and the maximum improvement.
+     *  *
+     * @description Before you call this operation, take note of the following items:
      * *   If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this API operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
      * *   The database engine is ApsaraDB RDS for MySQL or PolarDB for MySQL.
+     *  *
+     * @param GetInstanceSqlOptimizeStatisticRequest $request GetInstanceSqlOptimizeStatisticRequest
      *
-     * @param request - GetInstanceSqlOptimizeStatisticRequest
-     *
-     * @returns GetInstanceSqlOptimizeStatisticResponse
-     *
-     * @param GetInstanceSqlOptimizeStatisticRequest $request
-     *
-     * @return GetInstanceSqlOptimizeStatisticResponse
+     * @return GetInstanceSqlOptimizeStatisticResponse GetInstanceSqlOptimizeStatisticResponse
      */
     public function getInstanceSqlOptimizeStatistic($request)
     {
@@ -6194,41 +5063,32 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the results of a task that terminates sessions.
-     *
-     * @remarks
-     *   This operation is applicable only to ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters.
+     * @summary Queries the results of a task that terminates sessions.
+     *  *
+     * @description *   This operation is applicable only to ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters.
      * *   If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     *  *
+     * @param GetKillInstanceSessionTaskResultRequest $request GetKillInstanceSessionTaskResultRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetKillInstanceSessionTaskResultRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetKillInstanceSessionTaskResultResponse
-     *
-     * @param GetKillInstanceSessionTaskResultRequest $request
-     * @param RuntimeOptions                          $runtime
-     *
-     * @return GetKillInstanceSessionTaskResultResponse
+     * @return GetKillInstanceSessionTaskResultResponse GetKillInstanceSessionTaskResultResponse
      */
     public function getKillInstanceSessionTaskResultWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->nodeId) {
-            @$query['NodeId'] = $request->nodeId;
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
         }
-
-        if (null !== $request->taskId) {
-            @$query['TaskId'] = $request->taskId;
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetKillInstanceSessionTaskResult',
@@ -6246,20 +5106,15 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the results of a task that terminates sessions.
-     *
-     * @remarks
-     *   This operation is applicable only to ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters.
+     * @summary Queries the results of a task that terminates sessions.
+     *  *
+     * @description *   This operation is applicable only to ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters.
      * *   If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     *  *
+     * @param GetKillInstanceSessionTaskResultRequest $request GetKillInstanceSessionTaskResultRequest
      *
-     * @param request - GetKillInstanceSessionTaskResultRequest
-     *
-     * @returns GetKillInstanceSessionTaskResultResponse
-     *
-     * @param GetKillInstanceSessionTaskResultRequest $request
-     *
-     * @return GetKillInstanceSessionTaskResultResponse
+     * @return GetKillInstanceSessionTaskResultResponse GetKillInstanceSessionTaskResultResponse
      */
     public function getKillInstanceSessionTaskResult($request)
     {
@@ -6269,45 +5124,35 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the current sessions of an ApsaraDB for MongoDB (MongoDB) instance.
-     *
-     * @remarks
-     *   This operation is applicable only to MongoDB instances.
+     * @summary Queries the current sessions of an ApsaraDB for MongoDB (MongoDB) instance.
+     *  *
+     * @description *   This operation is applicable only to MongoDB instances.
      * *   If you use an Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call API operations of DAS, you must set the region to cn-shanghai.
+     *  *
+     * @param GetMongoDBCurrentOpRequest $request GetMongoDBCurrentOpRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetMongoDBCurrentOpRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetMongoDBCurrentOpResponse
-     *
-     * @param GetMongoDBCurrentOpRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return GetMongoDBCurrentOpResponse
+     * @return GetMongoDBCurrentOpResponse GetMongoDBCurrentOpResponse
      */
     public function getMongoDBCurrentOpWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->filterDoc) {
-            @$query['FilterDoc'] = $request->filterDoc;
+        if (!Utils::isUnset($request->filterDoc)) {
+            $query['FilterDoc'] = $request->filterDoc;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->nodeId) {
-            @$query['NodeId'] = $request->nodeId;
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
         }
-
-        if (null !== $request->role) {
-            @$query['Role'] = $request->role;
+        if (!Utils::isUnset($request->role)) {
+            $query['Role'] = $request->role;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetMongoDBCurrentOp',
@@ -6325,20 +5170,15 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the current sessions of an ApsaraDB for MongoDB (MongoDB) instance.
-     *
-     * @remarks
-     *   This operation is applicable only to MongoDB instances.
+     * @summary Queries the current sessions of an ApsaraDB for MongoDB (MongoDB) instance.
+     *  *
+     * @description *   This operation is applicable only to MongoDB instances.
      * *   If you use an Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call API operations of DAS, you must set the region to cn-shanghai.
+     *  *
+     * @param GetMongoDBCurrentOpRequest $request GetMongoDBCurrentOpRequest
      *
-     * @param request - GetMongoDBCurrentOpRequest
-     *
-     * @returns GetMongoDBCurrentOpResponse
-     *
-     * @param GetMongoDBCurrentOpRequest $request
-     *
-     * @return GetMongoDBCurrentOpResponse
+     * @return GetMongoDBCurrentOpResponse GetMongoDBCurrentOpResponse
      */
     public function getMongoDBCurrentOp($request)
     {
@@ -6348,42 +5188,33 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Asynchronously queries the sessions of an instance and collects statistics on the sessions based on dimensions.
-     *
-     * @remarks
-     * >  GetMySQLAllSessionAsync is an asynchronous operation. After a request is sent, the system does not return complete results but returns a request ID. You need to use the request ID to initiate requests until the value of the **isFinish** field in the returned results is **true**, the complete results are returned. This indicates that to obtain complete data, you must call this operation at least twice.
+     * @summary Asynchronously queries the sessions of an instance and collects statistics on the sessions based on dimensions.
+     *  *
+     * @description >  GetMySQLAllSessionAsync is an asynchronous operation. After a request is sent, the system does not return complete results but returns a request ID. You need to use the request ID to initiate requests until the value of the **isFinish** field in the returned results is **true**, the complete results are returned. This indicates that to obtain complete data, you must call this operation at least twice.
      * *   This operation is applicable only to ApsaraDB RDS for MySQL instances, PolarDB for MySQL clusters, and PolarDB-X 2.0 instances.
      * *   If you use an Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     *  *
+     * @param GetMySQLAllSessionAsyncRequest $request GetMySQLAllSessionAsyncRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetMySQLAllSessionAsyncRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetMySQLAllSessionAsyncResponse
-     *
-     * @param GetMySQLAllSessionAsyncRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return GetMySQLAllSessionAsyncResponse
+     * @return GetMySQLAllSessionAsyncResponse GetMySQLAllSessionAsyncResponse
      */
     public function getMySQLAllSessionAsyncWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->nodeId) {
-            @$query['NodeId'] = $request->nodeId;
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
         }
-
-        if (null !== $request->resultId) {
-            @$query['ResultId'] = $request->resultId;
+        if (!Utils::isUnset($request->resultId)) {
+            $query['ResultId'] = $request->resultId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetMySQLAllSessionAsync',
@@ -6401,21 +5232,16 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Asynchronously queries the sessions of an instance and collects statistics on the sessions based on dimensions.
-     *
-     * @remarks
-     * >  GetMySQLAllSessionAsync is an asynchronous operation. After a request is sent, the system does not return complete results but returns a request ID. You need to use the request ID to initiate requests until the value of the **isFinish** field in the returned results is **true**, the complete results are returned. This indicates that to obtain complete data, you must call this operation at least twice.
+     * @summary Asynchronously queries the sessions of an instance and collects statistics on the sessions based on dimensions.
+     *  *
+     * @description >  GetMySQLAllSessionAsync is an asynchronous operation. After a request is sent, the system does not return complete results but returns a request ID. You need to use the request ID to initiate requests until the value of the **isFinish** field in the returned results is **true**, the complete results are returned. This indicates that to obtain complete data, you must call this operation at least twice.
      * *   This operation is applicable only to ApsaraDB RDS for MySQL instances, PolarDB for MySQL clusters, and PolarDB-X 2.0 instances.
      * *   If you use an Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     *  *
+     * @param GetMySQLAllSessionAsyncRequest $request GetMySQLAllSessionAsyncRequest
      *
-     * @param request - GetMySQLAllSessionAsyncRequest
-     *
-     * @returns GetMySQLAllSessionAsyncResponse
-     *
-     * @param GetMySQLAllSessionAsyncRequest $request
-     *
-     * @return GetMySQLAllSessionAsyncResponse
+     * @return GetMySQLAllSessionAsyncResponse GetMySQLAllSessionAsyncResponse
      */
     public function getMySQLAllSessionAsync($request)
     {
@@ -6425,43 +5251,33 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries access frequency statistics and hot data on partitions of a PolarDB-X 2.0 instance.
+     * @summary Queries access frequency statistics and hot data on partitions of a PolarDB-X 2.0 instance.
+     *  *
+     * @description We recommend that you do not call this operation. The data is returned in a special format and is complex to parse. You can use the [heatmap](https://help.aliyun.com/document_detail/470302.html) feature of Database Autonomy Service (DAS) to query the data.
+     *  *
+     * @param GetPartitionsHeatmapRequest $request GetPartitionsHeatmapRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * We recommend that you do not call this operation. The data is returned in a special format and is complex to parse. You can use the [heatmap](https://help.aliyun.com/document_detail/470302.html) feature of Database Autonomy Service (DAS) to query the data.
-     *
-     * @param request - GetPartitionsHeatmapRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetPartitionsHeatmapResponse
-     *
-     * @param GetPartitionsHeatmapRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return GetPartitionsHeatmapResponse
+     * @return GetPartitionsHeatmapResponse GetPartitionsHeatmapResponse
      */
     public function getPartitionsHeatmapWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->consoleContext) {
-            @$query['ConsoleContext'] = $request->consoleContext;
+        if (!Utils::isUnset($request->consoleContext)) {
+            $query['ConsoleContext'] = $request->consoleContext;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->timeRange) {
-            @$query['TimeRange'] = $request->timeRange;
+        if (!Utils::isUnset($request->timeRange)) {
+            $query['TimeRange'] = $request->timeRange;
         }
-
-        if (null !== $request->type) {
-            @$query['Type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetPartitionsHeatmap',
@@ -6479,18 +5295,13 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries access frequency statistics and hot data on partitions of a PolarDB-X 2.0 instance.
+     * @summary Queries access frequency statistics and hot data on partitions of a PolarDB-X 2.0 instance.
+     *  *
+     * @description We recommend that you do not call this operation. The data is returned in a special format and is complex to parse. You can use the [heatmap](https://help.aliyun.com/document_detail/470302.html) feature of Database Autonomy Service (DAS) to query the data.
+     *  *
+     * @param GetPartitionsHeatmapRequest $request GetPartitionsHeatmapRequest
      *
-     * @remarks
-     * We recommend that you do not call this operation. The data is returned in a special format and is complex to parse. You can use the [heatmap](https://help.aliyun.com/document_detail/470302.html) feature of Database Autonomy Service (DAS) to query the data.
-     *
-     * @param request - GetPartitionsHeatmapRequest
-     *
-     * @returns GetPartitionsHeatmapResponse
-     *
-     * @param GetPartitionsHeatmapRequest $request
-     *
-     * @return GetPartitionsHeatmapResponse
+     * @return GetPartitionsHeatmapResponse GetPartitionsHeatmapResponse
      */
     public function getPartitionsHeatmap($request)
     {
@@ -6500,51 +5311,40 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the trend of a metric for the new version of the performance insight feature of a database instance.
-     *
-     * @remarks
-     * Before you call this operation, take note of the following items:
+     * @summary Queries the trend of a metric for the new version of the performance insight feature of a database instance.
+     *  *
+     * @description Before you call this operation, take note of the following items:
      * *   If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
      * *   An ApsaraDB RDS for MySQL instance or a PolarDB for MySQL cluster is connected to DAS.
      * *   The new version of the performance insight feature is enabled for the database instance. For more information, see [Performance insight (new version)](https://help.aliyun.com/document_detail/469117.html).
+     *  *
+     * @param GetPfsMetricTrendsRequest $request GetPfsMetricTrendsRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetPfsMetricTrendsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetPfsMetricTrendsResponse
-     *
-     * @param GetPfsMetricTrendsRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return GetPfsMetricTrendsResponse
+     * @return GetPfsMetricTrendsResponse GetPfsMetricTrendsResponse
      */
     public function getPfsMetricTrendsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->endTime) {
-            @$body['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->instanceId) {
-            @$body['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->metric) {
-            @$body['Metric'] = $request->metric;
+        if (!Utils::isUnset($request->metric)) {
+            $body['Metric'] = $request->metric;
         }
-
-        if (null !== $request->nodeId) {
-            @$body['NodeId'] = $request->nodeId;
+        if (!Utils::isUnset($request->nodeId)) {
+            $body['NodeId'] = $request->nodeId;
         }
-
-        if (null !== $request->startTime) {
-            @$body['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetPfsMetricTrends',
@@ -6562,22 +5362,17 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the trend of a metric for the new version of the performance insight feature of a database instance.
-     *
-     * @remarks
-     * Before you call this operation, take note of the following items:
+     * @summary Queries the trend of a metric for the new version of the performance insight feature of a database instance.
+     *  *
+     * @description Before you call this operation, take note of the following items:
      * *   If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
      * *   An ApsaraDB RDS for MySQL instance or a PolarDB for MySQL cluster is connected to DAS.
      * *   The new version of the performance insight feature is enabled for the database instance. For more information, see [Performance insight (new version)](https://help.aliyun.com/document_detail/469117.html).
+     *  *
+     * @param GetPfsMetricTrendsRequest $request GetPfsMetricTrendsRequest
      *
-     * @param request - GetPfsMetricTrendsRequest
-     *
-     * @returns GetPfsMetricTrendsResponse
-     *
-     * @param GetPfsMetricTrendsRequest $request
-     *
-     * @return GetPfsMetricTrendsResponse
+     * @return GetPfsMetricTrendsResponse GetPfsMetricTrendsResponse
      */
     public function getPfsMetricTrends($request)
     {
@@ -6587,51 +5382,40 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the SQL sample data for the new version of the performance insight feature of a database instance.
-     *
-     * @remarks
-     * Before you call this operation, take note of the following items:
+     * @summary Queries the SQL sample data for the new version of the performance insight feature of a database instance.
+     *  *
+     * @description Before you call this operation, take note of the following items:
      * *   If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this API operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
      * *   An ApsaraDB RDS for MySQL instance or a PolarDB for MySQL cluster is connected to DAS.
      * *   The new version of the performance insight feature is enabled for the database instance. For more information, see [Performance insight (new version)](https://help.aliyun.com/document_detail/469117.html).
+     *  *
+     * @param GetPfsSqlSampleRequest $request GetPfsSqlSampleRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetPfsSqlSampleRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetPfsSqlSampleResponse
-     *
-     * @param GetPfsSqlSampleRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return GetPfsSqlSampleResponse
+     * @return GetPfsSqlSampleResponse GetPfsSqlSampleResponse
      */
     public function getPfsSqlSampleWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->endTime) {
-            @$body['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->instanceId) {
-            @$body['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->nodeId) {
-            @$body['NodeId'] = $request->nodeId;
+        if (!Utils::isUnset($request->nodeId)) {
+            $body['NodeId'] = $request->nodeId;
         }
-
-        if (null !== $request->sqlId) {
-            @$body['SqlId'] = $request->sqlId;
+        if (!Utils::isUnset($request->sqlId)) {
+            $body['SqlId'] = $request->sqlId;
         }
-
-        if (null !== $request->startTime) {
-            @$body['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetPfsSqlSample',
@@ -6649,22 +5433,17 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the SQL sample data for the new version of the performance insight feature of a database instance.
-     *
-     * @remarks
-     * Before you call this operation, take note of the following items:
+     * @summary Queries the SQL sample data for the new version of the performance insight feature of a database instance.
+     *  *
+     * @description Before you call this operation, take note of the following items:
      * *   If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this API operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
      * *   An ApsaraDB RDS for MySQL instance or a PolarDB for MySQL cluster is connected to DAS.
      * *   The new version of the performance insight feature is enabled for the database instance. For more information, see [Performance insight (new version)](https://help.aliyun.com/document_detail/469117.html).
+     *  *
+     * @param GetPfsSqlSampleRequest $request GetPfsSqlSampleRequest
      *
-     * @param request - GetPfsSqlSampleRequest
-     *
-     * @returns GetPfsSqlSampleResponse
-     *
-     * @param GetPfsSqlSampleRequest $request
-     *
-     * @return GetPfsSqlSampleResponse
+     * @return GetPfsSqlSampleResponse GetPfsSqlSampleResponse
      */
     public function getPfsSqlSample($request)
     {
@@ -6674,71 +5453,55 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the full request data generated by the new version of the performance insight feature of a database instance based on the SQL ID.
-     *
-     * @remarks
-     * Before you call this operation, take note of the following items:
+     * @summary Queries the full request data generated by the new version of the performance insight feature of a database instance based on the SQL ID.
+     *  *
+     * @description Before you call this operation, take note of the following items:
      * *   If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this API operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
      * *   An ApsaraDB RDS for MySQL instance or a PolarDB for MySQL cluster is connected to DAS.
      * *   The new version of the performance insight feature is enabled for the database instance. For more information, see [Performance insight (new version)](https://help.aliyun.com/document_detail/469117.html).
+     *  *
+     * @param GetPfsSqlSummariesRequest $request GetPfsSqlSummariesRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetPfsSqlSummariesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetPfsSqlSummariesResponse
-     *
-     * @param GetPfsSqlSummariesRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return GetPfsSqlSummariesResponse
+     * @return GetPfsSqlSummariesResponse GetPfsSqlSummariesResponse
      */
     public function getPfsSqlSummariesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->asc) {
-            @$body['Asc'] = $request->asc;
+        if (!Utils::isUnset($request->asc)) {
+            $body['Asc'] = $request->asc;
         }
-
-        if (null !== $request->endTime) {
-            @$body['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->instanceId) {
-            @$body['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->keywords) {
-            @$body['Keywords'] = $request->keywords;
+        if (!Utils::isUnset($request->keywords)) {
+            $body['Keywords'] = $request->keywords;
         }
-
-        if (null !== $request->nodeId) {
-            @$body['NodeId'] = $request->nodeId;
+        if (!Utils::isUnset($request->nodeId)) {
+            $body['NodeId'] = $request->nodeId;
         }
-
-        if (null !== $request->orderBy) {
-            @$body['OrderBy'] = $request->orderBy;
+        if (!Utils::isUnset($request->orderBy)) {
+            $body['OrderBy'] = $request->orderBy;
         }
-
-        if (null !== $request->pageNo) {
-            @$body['PageNo'] = $request->pageNo;
+        if (!Utils::isUnset($request->pageNo)) {
+            $body['PageNo'] = $request->pageNo;
         }
-
-        if (null !== $request->pageSize) {
-            @$body['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->sqlId) {
-            @$body['SqlId'] = $request->sqlId;
+        if (!Utils::isUnset($request->sqlId)) {
+            $body['SqlId'] = $request->sqlId;
         }
-
-        if (null !== $request->startTime) {
-            @$body['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetPfsSqlSummaries',
@@ -6756,22 +5519,17 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the full request data generated by the new version of the performance insight feature of a database instance based on the SQL ID.
-     *
-     * @remarks
-     * Before you call this operation, take note of the following items:
+     * @summary Queries the full request data generated by the new version of the performance insight feature of a database instance based on the SQL ID.
+     *  *
+     * @description Before you call this operation, take note of the following items:
      * *   If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this API operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
      * *   An ApsaraDB RDS for MySQL instance or a PolarDB for MySQL cluster is connected to DAS.
      * *   The new version of the performance insight feature is enabled for the database instance. For more information, see [Performance insight (new version)](https://help.aliyun.com/document_detail/469117.html).
+     *  *
+     * @param GetPfsSqlSummariesRequest $request GetPfsSqlSummariesRequest
      *
-     * @param request - GetPfsSqlSummariesRequest
-     *
-     * @returns GetPfsSqlSummariesResponse
-     *
-     * @param GetPfsSqlSummariesRequest $request
-     *
-     * @return GetPfsSqlSummariesResponse
+     * @return GetPfsSqlSummariesResponse GetPfsSqlSummariesResponse
      */
     public function getPfsSqlSummaries($request)
     {
@@ -6781,33 +5539,27 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries information about SQL templates based on query governance data.
-     *
-     * @remarks
-     *   If you use an Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than V2.1.8. We recommend that you use the latest version.
+     * @summary Queries information about SQL templates based on query governance data.
+     *  *
+     * @description *   If you use an Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than V2.1.8. We recommend that you use the latest version.
      * *   The version of your Database Autonomy Service (DAS) SDK must be V2.1.8 or later.
      * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
      * *   This operation supports the following database engines:
      *     *   ApsaraDB RDS for MySQL
      *     *   PolarDB for MySQL
      *     *   ApsaraDB RDS for PostgreSQL
+     *  *
+     * @param GetQueryOptimizeDataStatsRequest $request GetQueryOptimizeDataStatsRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetQueryOptimizeDataStatsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetQueryOptimizeDataStatsResponse
-     *
-     * @param GetQueryOptimizeDataStatsRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return GetQueryOptimizeDataStatsResponse
+     * @return GetQueryOptimizeDataStatsResponse GetQueryOptimizeDataStatsResponse
      */
     public function getQueryOptimizeDataStatsWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetQueryOptimizeDataStats',
@@ -6825,24 +5577,19 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries information about SQL templates based on query governance data.
-     *
-     * @remarks
-     *   If you use an Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than V2.1.8. We recommend that you use the latest version.
+     * @summary Queries information about SQL templates based on query governance data.
+     *  *
+     * @description *   If you use an Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than V2.1.8. We recommend that you use the latest version.
      * *   The version of your Database Autonomy Service (DAS) SDK must be V2.1.8 or later.
      * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
      * *   This operation supports the following database engines:
      *     *   ApsaraDB RDS for MySQL
      *     *   PolarDB for MySQL
      *     *   ApsaraDB RDS for PostgreSQL
+     *  *
+     * @param GetQueryOptimizeDataStatsRequest $request GetQueryOptimizeDataStatsRequest
      *
-     * @param request - GetQueryOptimizeDataStatsRequest
-     *
-     * @returns GetQueryOptimizeDataStatsResponse
-     *
-     * @param GetQueryOptimizeDataStatsRequest $request
-     *
-     * @return GetQueryOptimizeDataStatsResponse
+     * @return GetQueryOptimizeDataStatsResponse GetQueryOptimizeDataStatsResponse
      */
     public function getQueryOptimizeDataStats($request)
     {
@@ -6852,33 +5599,27 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries information about the best-performing and worst-performing instances based on query governance data.
-     *
-     * @remarks
-     *   If you use an Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than V2.1.8. We recommend that you use the latest version.
+     * @summary Queries information about the best-performing and worst-performing instances based on query governance data.
+     *  *
+     * @description *   If you use an Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than V2.1.8. We recommend that you use the latest version.
      * *   The version of your Database Autonomy Service (DAS) SDK must be V2.1.8 or later.
      * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
      * *   This operation supports the following database engines:
      *     *   ApsaraDB RDS for MySQL
      *     *   PolarDB for MySQL
      *     *   ApsaraDB RDS for PostgreSQL
+     *  *
+     * @param GetQueryOptimizeDataTopRequest $request GetQueryOptimizeDataTopRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetQueryOptimizeDataTopRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetQueryOptimizeDataTopResponse
-     *
-     * @param GetQueryOptimizeDataTopRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return GetQueryOptimizeDataTopResponse
+     * @return GetQueryOptimizeDataTopResponse GetQueryOptimizeDataTopResponse
      */
     public function getQueryOptimizeDataTopWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetQueryOptimizeDataTop',
@@ -6896,24 +5637,19 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries information about the best-performing and worst-performing instances based on query governance data.
-     *
-     * @remarks
-     *   If you use an Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than V2.1.8. We recommend that you use the latest version.
+     * @summary Queries information about the best-performing and worst-performing instances based on query governance data.
+     *  *
+     * @description *   If you use an Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than V2.1.8. We recommend that you use the latest version.
      * *   The version of your Database Autonomy Service (DAS) SDK must be V2.1.8 or later.
      * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
      * *   This operation supports the following database engines:
      *     *   ApsaraDB RDS for MySQL
      *     *   PolarDB for MySQL
      *     *   ApsaraDB RDS for PostgreSQL
+     *  *
+     * @param GetQueryOptimizeDataTopRequest $request GetQueryOptimizeDataTopRequest
      *
-     * @param request - GetQueryOptimizeDataTopRequest
-     *
-     * @returns GetQueryOptimizeDataTopResponse
-     *
-     * @param GetQueryOptimizeDataTopRequest $request
-     *
-     * @return GetQueryOptimizeDataTopResponse
+     * @return GetQueryOptimizeDataTopResponse GetQueryOptimizeDataTopResponse
      */
     public function getQueryOptimizeDataTop($request)
     {
@@ -6923,33 +5659,27 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries query governance trend data.
-     *
-     * @remarks
-     *   If you use Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than V2.1.8. We recommend that you use the latest version.
+     * @summary Queries query governance trend data.
+     *  *
+     * @description *   If you use Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than V2.1.8. We recommend that you use the latest version.
      * *   The version of your Database Autonomy Service (DAS) SDK must be V2.1.8 or later.
      * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
      * *   This operation supports the following database engines:
      *     *   ApsaraDB RDS for MySQL
      *     *   PolarDB for MySQL
      *     *   ApsaraDB RDS for PostgreSQL
+     *  *
+     * @param GetQueryOptimizeDataTrendRequest $request GetQueryOptimizeDataTrendRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetQueryOptimizeDataTrendRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetQueryOptimizeDataTrendResponse
-     *
-     * @param GetQueryOptimizeDataTrendRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return GetQueryOptimizeDataTrendResponse
+     * @return GetQueryOptimizeDataTrendResponse GetQueryOptimizeDataTrendResponse
      */
     public function getQueryOptimizeDataTrendWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetQueryOptimizeDataTrend',
@@ -6967,24 +5697,19 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries query governance trend data.
-     *
-     * @remarks
-     *   If you use Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than V2.1.8. We recommend that you use the latest version.
+     * @summary Queries query governance trend data.
+     *  *
+     * @description *   If you use Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than V2.1.8. We recommend that you use the latest version.
      * *   The version of your Database Autonomy Service (DAS) SDK must be V2.1.8 or later.
      * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
      * *   This operation supports the following database engines:
      *     *   ApsaraDB RDS for MySQL
      *     *   PolarDB for MySQL
      *     *   ApsaraDB RDS for PostgreSQL
+     *  *
+     * @param GetQueryOptimizeDataTrendRequest $request GetQueryOptimizeDataTrendRequest
      *
-     * @param request - GetQueryOptimizeDataTrendRequest
-     *
-     * @returns GetQueryOptimizeDataTrendResponse
-     *
-     * @param GetQueryOptimizeDataTrendRequest $request
-     *
-     * @return GetQueryOptimizeDataTrendResponse
+     * @return GetQueryOptimizeDataTrendResponse GetQueryOptimizeDataTrendResponse
      */
     public function getQueryOptimizeDataTrend($request)
     {
@@ -6994,49 +5719,39 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the failed SQL statements under a SQL template.
-     *
-     * @remarks
-     *   If you use Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than V2.1.8. We recommend that you use the latest version.
+     * @summary Queries the failed SQL statements under a SQL template.
+     *  *
+     * @description *   If you use Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than V2.1.8. We recommend that you use the latest version.
      * *   The version of your Database Autonomy Service (DAS) SDK must be V2.1.8 or later.
      * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
      * *   This operation supports the following database engines:
      *     *   ApsaraDB RDS for MySQL
      *     *   PolarDB for MySQL
      *     *   ApsaraDB RDS for PostgreSQL
+     *  *
+     * @param GetQueryOptimizeExecErrorSampleRequest $request GetQueryOptimizeExecErrorSampleRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetQueryOptimizeExecErrorSampleRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetQueryOptimizeExecErrorSampleResponse
-     *
-     * @param GetQueryOptimizeExecErrorSampleRequest $request
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return GetQueryOptimizeExecErrorSampleResponse
+     * @return GetQueryOptimizeExecErrorSampleResponse GetQueryOptimizeExecErrorSampleResponse
      */
     public function getQueryOptimizeExecErrorSampleWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->engine) {
-            @$query['Engine'] = $request->engine;
+        if (!Utils::isUnset($request->engine)) {
+            $query['Engine'] = $request->engine;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->sqlId) {
-            @$query['SqlId'] = $request->sqlId;
+        if (!Utils::isUnset($request->sqlId)) {
+            $query['SqlId'] = $request->sqlId;
         }
-
-        if (null !== $request->time) {
-            @$query['Time'] = $request->time;
+        if (!Utils::isUnset($request->time)) {
+            $query['Time'] = $request->time;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetQueryOptimizeExecErrorSample',
@@ -7054,24 +5769,19 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the failed SQL statements under a SQL template.
-     *
-     * @remarks
-     *   If you use Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than V2.1.8. We recommend that you use the latest version.
+     * @summary Queries the failed SQL statements under a SQL template.
+     *  *
+     * @description *   If you use Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than V2.1.8. We recommend that you use the latest version.
      * *   The version of your Database Autonomy Service (DAS) SDK must be V2.1.8 or later.
      * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
      * *   This operation supports the following database engines:
      *     *   ApsaraDB RDS for MySQL
      *     *   PolarDB for MySQL
      *     *   ApsaraDB RDS for PostgreSQL
+     *  *
+     * @param GetQueryOptimizeExecErrorSampleRequest $request GetQueryOptimizeExecErrorSampleRequest
      *
-     * @param request - GetQueryOptimizeExecErrorSampleRequest
-     *
-     * @returns GetQueryOptimizeExecErrorSampleResponse
-     *
-     * @param GetQueryOptimizeExecErrorSampleRequest $request
-     *
-     * @return GetQueryOptimizeExecErrorSampleResponse
+     * @return GetQueryOptimizeExecErrorSampleResponse GetQueryOptimizeExecErrorSampleResponse
      */
     public function getQueryOptimizeExecErrorSample($request)
     {
@@ -7081,32 +5791,26 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries SQL templates that failed to be executed.
-     *
-     * @remarks
-     *   If you use Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
+     * @summary Queries SQL templates that failed to be executed.
+     *  *
+     * @description *   If you use Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
      * *   This operation supports the following database engines:
      *     *   ApsaraDB RDS for MySQL
      *     *   PolarDB for MySQL
      *     *   ApsaraDB RDS for PostgreSQL
+     *  *
+     * @param GetQueryOptimizeExecErrorStatsRequest $request GetQueryOptimizeExecErrorStatsRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetQueryOptimizeExecErrorStatsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetQueryOptimizeExecErrorStatsResponse
-     *
-     * @param GetQueryOptimizeExecErrorStatsRequest $request
-     * @param RuntimeOptions                        $runtime
-     *
-     * @return GetQueryOptimizeExecErrorStatsResponse
+     * @return GetQueryOptimizeExecErrorStatsResponse GetQueryOptimizeExecErrorStatsResponse
      */
     public function getQueryOptimizeExecErrorStatsWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetQueryOptimizeExecErrorStats',
@@ -7124,23 +5828,18 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries SQL templates that failed to be executed.
-     *
-     * @remarks
-     *   If you use Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
+     * @summary Queries SQL templates that failed to be executed.
+     *  *
+     * @description *   If you use Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
      * *   This operation supports the following database engines:
      *     *   ApsaraDB RDS for MySQL
      *     *   PolarDB for MySQL
      *     *   ApsaraDB RDS for PostgreSQL
+     *  *
+     * @param GetQueryOptimizeExecErrorStatsRequest $request GetQueryOptimizeExecErrorStatsRequest
      *
-     * @param request - GetQueryOptimizeExecErrorStatsRequest
-     *
-     * @returns GetQueryOptimizeExecErrorStatsResponse
-     *
-     * @param GetQueryOptimizeExecErrorStatsRequest $request
-     *
-     * @return GetQueryOptimizeExecErrorStatsResponse
+     * @return GetQueryOptimizeExecErrorStatsResponse GetQueryOptimizeExecErrorStatsResponse
      */
     public function getQueryOptimizeExecErrorStats($request)
     {
@@ -7150,33 +5849,27 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the tags added by the query governance feature to specified database instances.
-     *
-     * @remarks
-     *   If you use Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than V2.1.8. We recommend that you use the latest version.
+     * @summary Queries the tags added by the query governance feature to specified database instances.
+     *  *
+     * @description *   If you use Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than V2.1.8. We recommend that you use the latest version.
      * *   The version of your Database Autonomy Service (DAS) SDK must be V2.1.8 or later.
      * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
      * *   This operation supports the following database engines:
      *     *   ApsaraDB RDS for MySQL
      *     *   PolarDB for MySQL
      *     *   ApsaraDB RDS for PostgreSQL
+     *  *
+     * @param GetQueryOptimizeRuleListRequest $request GetQueryOptimizeRuleListRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetQueryOptimizeRuleListRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetQueryOptimizeRuleListResponse
-     *
-     * @param GetQueryOptimizeRuleListRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return GetQueryOptimizeRuleListResponse
+     * @return GetQueryOptimizeRuleListResponse GetQueryOptimizeRuleListResponse
      */
     public function getQueryOptimizeRuleListWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetQueryOptimizeRuleList',
@@ -7194,24 +5887,19 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the tags added by the query governance feature to specified database instances.
-     *
-     * @remarks
-     *   If you use Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than V2.1.8. We recommend that you use the latest version.
+     * @summary Queries the tags added by the query governance feature to specified database instances.
+     *  *
+     * @description *   If you use Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than V2.1.8. We recommend that you use the latest version.
      * *   The version of your Database Autonomy Service (DAS) SDK must be V2.1.8 or later.
      * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
      * *   This operation supports the following database engines:
      *     *   ApsaraDB RDS for MySQL
      *     *   PolarDB for MySQL
      *     *   ApsaraDB RDS for PostgreSQL
+     *  *
+     * @param GetQueryOptimizeRuleListRequest $request GetQueryOptimizeRuleListRequest
      *
-     * @param request - GetQueryOptimizeRuleListRequest
-     *
-     * @returns GetQueryOptimizeRuleListResponse
-     *
-     * @param GetQueryOptimizeRuleListRequest $request
-     *
-     * @return GetQueryOptimizeRuleListResponse
+     * @return GetQueryOptimizeRuleListResponse GetQueryOptimizeRuleListResponse
      */
     public function getQueryOptimizeRuleList($request)
     {
@@ -7221,96 +5909,74 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries a share URL provided by the query governance feature.
-     *
-     * @remarks
-     *   If you use Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
+     * @summary Queries a share URL provided by the query governance feature.
+     *  *
+     * @description *   If you use Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
      * *   This operation supports the following database engines:
      *     *   ApsaraDB RDS for MySQL
      *     *   PolarDB for MySQL
      *     *   ApsaraDB RDS for PostgreSQL
+     *  *
+     * @param GetQueryOptimizeShareUrlRequest $request GetQueryOptimizeShareUrlRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetQueryOptimizeShareUrlRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetQueryOptimizeShareUrlResponse
-     *
-     * @param GetQueryOptimizeShareUrlRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return GetQueryOptimizeShareUrlResponse
+     * @return GetQueryOptimizeShareUrlResponse GetQueryOptimizeShareUrlResponse
      */
     public function getQueryOptimizeShareUrlWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->asc) {
-            @$query['Asc'] = $request->asc;
+        if (!Utils::isUnset($request->asc)) {
+            $query['Asc'] = $request->asc;
         }
-
-        if (null !== $request->dbNames) {
-            @$query['DbNames'] = $request->dbNames;
+        if (!Utils::isUnset($request->dbNames)) {
+            $query['DbNames'] = $request->dbNames;
         }
-
-        if (null !== $request->engine) {
-            @$query['Engine'] = $request->engine;
+        if (!Utils::isUnset($request->engine)) {
+            $query['Engine'] = $request->engine;
         }
-
-        if (null !== $request->instanceIds) {
-            @$query['InstanceIds'] = $request->instanceIds;
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
         }
-
-        if (null !== $request->keywords) {
-            @$query['Keywords'] = $request->keywords;
+        if (!Utils::isUnset($request->keywords)) {
+            $query['Keywords'] = $request->keywords;
         }
-
-        if (null !== $request->logicalOperator) {
-            @$query['LogicalOperator'] = $request->logicalOperator;
+        if (!Utils::isUnset($request->logicalOperator)) {
+            $query['LogicalOperator'] = $request->logicalOperator;
         }
-
-        if (null !== $request->onlyOptimizedSql) {
-            @$query['OnlyOptimizedSql'] = $request->onlyOptimizedSql;
+        if (!Utils::isUnset($request->onlyOptimizedSql)) {
+            $query['OnlyOptimizedSql'] = $request->onlyOptimizedSql;
         }
-
-        if (null !== $request->orderBy) {
-            @$query['OrderBy'] = $request->orderBy;
+        if (!Utils::isUnset($request->orderBy)) {
+            $query['OrderBy'] = $request->orderBy;
         }
-
-        if (null !== $request->pageNo) {
-            @$query['PageNo'] = $request->pageNo;
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->region) {
-            @$query['Region'] = $request->region;
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
         }
-
-        if (null !== $request->rules) {
-            @$query['Rules'] = $request->rules;
+        if (!Utils::isUnset($request->rules)) {
+            $query['Rules'] = $request->rules;
         }
-
-        if (null !== $request->sqlIds) {
-            @$query['SqlIds'] = $request->sqlIds;
+        if (!Utils::isUnset($request->sqlIds)) {
+            $query['SqlIds'] = $request->sqlIds;
         }
-
-        if (null !== $request->tagNames) {
-            @$query['TagNames'] = $request->tagNames;
+        if (!Utils::isUnset($request->tagNames)) {
+            $query['TagNames'] = $request->tagNames;
         }
-
-        if (null !== $request->time) {
-            @$query['Time'] = $request->time;
+        if (!Utils::isUnset($request->time)) {
+            $query['Time'] = $request->time;
         }
-
-        if (null !== $request->user) {
-            @$query['User'] = $request->user;
+        if (!Utils::isUnset($request->user)) {
+            $query['User'] = $request->user;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetQueryOptimizeShareUrl',
@@ -7328,23 +5994,18 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries a share URL provided by the query governance feature.
-     *
-     * @remarks
-     *   If you use Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
+     * @summary Queries a share URL provided by the query governance feature.
+     *  *
+     * @description *   If you use Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
      * *   This operation supports the following database engines:
      *     *   ApsaraDB RDS for MySQL
      *     *   PolarDB for MySQL
      *     *   ApsaraDB RDS for PostgreSQL
+     *  *
+     * @param GetQueryOptimizeShareUrlRequest $request GetQueryOptimizeShareUrlRequest
      *
-     * @param request - GetQueryOptimizeShareUrlRequest
-     *
-     * @returns GetQueryOptimizeShareUrlResponse
-     *
-     * @param GetQueryOptimizeShareUrlRequest $request
-     *
-     * @return GetQueryOptimizeShareUrlResponse
+     * @return GetQueryOptimizeShareUrlResponse GetQueryOptimizeShareUrlResponse
      */
     public function getQueryOptimizeShareUrl($request)
     {
@@ -7354,48 +6015,38 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries suggestions provided by query governance for optimizing an SQL template.
-     *
-     * @remarks
-     *   If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
+     * @summary Queries suggestions provided by query governance for optimizing an SQL template.
+     *  *
+     * @description *   If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
      * *   This operation supports the following database engines:
      *     *   ApsaraDB RDS for MySQL
      *     *   PolarDB for MySQL
      *     *   ApsaraDB RDS for PostgreSQL
+     *  *
+     * @param GetQueryOptimizeSolutionRequest $request GetQueryOptimizeSolutionRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetQueryOptimizeSolutionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetQueryOptimizeSolutionResponse
-     *
-     * @param GetQueryOptimizeSolutionRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return GetQueryOptimizeSolutionResponse
+     * @return GetQueryOptimizeSolutionResponse GetQueryOptimizeSolutionResponse
      */
     public function getQueryOptimizeSolutionWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->engine) {
-            @$query['Engine'] = $request->engine;
+        if (!Utils::isUnset($request->engine)) {
+            $query['Engine'] = $request->engine;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->ruleIds) {
-            @$query['RuleIds'] = $request->ruleIds;
+        if (!Utils::isUnset($request->ruleIds)) {
+            $query['RuleIds'] = $request->ruleIds;
         }
-
-        if (null !== $request->sqlId) {
-            @$query['SqlId'] = $request->sqlId;
+        if (!Utils::isUnset($request->sqlId)) {
+            $query['SqlId'] = $request->sqlId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetQueryOptimizeSolution',
@@ -7413,23 +6064,18 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries suggestions provided by query governance for optimizing an SQL template.
-     *
-     * @remarks
-     *   If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
+     * @summary Queries suggestions provided by query governance for optimizing an SQL template.
+     *  *
+     * @description *   If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
      * *   This operation supports the following database engines:
      *     *   ApsaraDB RDS for MySQL
      *     *   PolarDB for MySQL
      *     *   ApsaraDB RDS for PostgreSQL
+     *  *
+     * @param GetQueryOptimizeSolutionRequest $request GetQueryOptimizeSolutionRequest
      *
-     * @param request - GetQueryOptimizeSolutionRequest
-     *
-     * @returns GetQueryOptimizeSolutionResponse
-     *
-     * @param GetQueryOptimizeSolutionRequest $request
-     *
-     * @return GetQueryOptimizeSolutionResponse
+     * @return GetQueryOptimizeSolutionResponse GetQueryOptimizeSolutionResponse
      */
     public function getQueryOptimizeSolution($request)
     {
@@ -7439,44 +6085,35 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the tags of a SQL statement.
-     *
-     * @remarks
-     *   If you use Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
+     * @summary Queries the tags of a SQL statement.
+     *  *
+     * @description *   If you use Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
      * *   This operation supports the following database engines:
      *     *   ApsaraDB RDS for MySQL
      *     *   PolarDB for MySQL
      *     *   ApsaraDB RDS for PostgreSQL
+     *  *
+     * @param GetQueryOptimizeTagRequest $request GetQueryOptimizeTagRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetQueryOptimizeTagRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetQueryOptimizeTagResponse
-     *
-     * @param GetQueryOptimizeTagRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return GetQueryOptimizeTagResponse
+     * @return GetQueryOptimizeTagResponse GetQueryOptimizeTagResponse
      */
     public function getQueryOptimizeTagWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->engine) {
-            @$query['Engine'] = $request->engine;
+        if (!Utils::isUnset($request->engine)) {
+            $query['Engine'] = $request->engine;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->sqlId) {
-            @$query['SqlId'] = $request->sqlId;
+        if (!Utils::isUnset($request->sqlId)) {
+            $query['SqlId'] = $request->sqlId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetQueryOptimizeTag',
@@ -7494,23 +6131,18 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the tags of a SQL statement.
-     *
-     * @remarks
-     *   If you use Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
+     * @summary Queries the tags of a SQL statement.
+     *  *
+     * @description *   If you use Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
      * *   This operation supports the following database engines:
      *     *   ApsaraDB RDS for MySQL
      *     *   PolarDB for MySQL
      *     *   ApsaraDB RDS for PostgreSQL
+     *  *
+     * @param GetQueryOptimizeTagRequest $request GetQueryOptimizeTagRequest
      *
-     * @param request - GetQueryOptimizeTagRequest
-     *
-     * @returns GetQueryOptimizeTagResponse
-     *
-     * @param GetQueryOptimizeTagRequest $request
-     *
-     * @return GetQueryOptimizeTagResponse
+     * @return GetQueryOptimizeTagResponse GetQueryOptimizeTagResponse
      */
     public function getQueryOptimizeTag($request)
     {
@@ -7520,37 +6152,29 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the current session on an ApsaraDB for Redis instance.
-     *
-     * @remarks
-     *   This operation is applicable only to ApsaraDB for Redis instances.
+     * @summary Queries the current session on an ApsaraDB for Redis instance.
+     *  *
+     * @description *   This operation is applicable only to ApsaraDB for Redis instances.
      * *   If you use an SDK to call operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
      * >  This operation cannot be used to query sessions generated in direct connection mode on ApsaraDB for Redis cluster instances.
+     *  *
+     * @param GetRedisAllSessionRequest $request GetRedisAllSessionRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetRedisAllSessionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetRedisAllSessionResponse
-     *
-     * @param GetRedisAllSessionRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return GetRedisAllSessionResponse
+     * @return GetRedisAllSessionResponse GetRedisAllSessionResponse
      */
     public function getRedisAllSessionWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->consoleContext) {
-            @$query['ConsoleContext'] = $request->consoleContext;
+        if (!Utils::isUnset($request->consoleContext)) {
+            $query['ConsoleContext'] = $request->consoleContext;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetRedisAllSession',
@@ -7568,20 +6192,15 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the current session on an ApsaraDB for Redis instance.
-     *
-     * @remarks
-     *   This operation is applicable only to ApsaraDB for Redis instances.
+     * @summary Queries the current session on an ApsaraDB for Redis instance.
+     *  *
+     * @description *   This operation is applicable only to ApsaraDB for Redis instances.
      * *   If you use an SDK to call operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
      * >  This operation cannot be used to query sessions generated in direct connection mode on ApsaraDB for Redis cluster instances.
+     *  *
+     * @param GetRedisAllSessionRequest $request GetRedisAllSessionRequest
      *
-     * @param request - GetRedisAllSessionRequest
-     *
-     * @returns GetRedisAllSessionResponse
-     *
-     * @param GetRedisAllSessionRequest $request
-     *
-     * @return GetRedisAllSessionResponse
+     * @return GetRedisAllSessionResponse GetRedisAllSessionResponse
      */
     public function getRedisAllSession($request)
     {
@@ -7591,10 +6210,9 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries SQL diagnostics records by pages.
-     *
-     * @remarks
-     * Before you call this operation, take note of the following items:
+     * @summary Queries SQL diagnostics records by pages.
+     *  *
+     * @description Before you call this operation, take note of the following items:
      * *   If you use an SDK to call API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
      * *   This operation supports the following database engines:
      *     *   ApsaraDB RDS for MySQL
@@ -7604,47 +6222,36 @@ class DAS extends OpenApiClient
      *     *   PolarDB for PostgreSQL (Compatible with Oracle)
      *     *   ApsaraDB for MongoDB
      * >  The minor engine version of the Apsara RDS for PostgreSQL instance must be 20220130 or later. For more information about how to check and update the minor engine version of an ApsaraDB RDS for PostgreSQL instance, see [Update the minor engine version of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/146895.html).
+     *  *
+     * @param GetRequestDiagnosisPageRequest $request GetRequestDiagnosisPageRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetRequestDiagnosisPageRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetRequestDiagnosisPageResponse
-     *
-     * @param GetRequestDiagnosisPageRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return GetRequestDiagnosisPageResponse
+     * @return GetRequestDiagnosisPageResponse GetRequestDiagnosisPageResponse
      */
     public function getRequestDiagnosisPageWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->nodeId) {
-            @$query['NodeId'] = $request->nodeId;
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
         }
-
-        if (null !== $request->pageNo) {
-            @$query['PageNo'] = $request->pageNo;
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetRequestDiagnosisPage',
@@ -7662,10 +6269,9 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries SQL diagnostics records by pages.
-     *
-     * @remarks
-     * Before you call this operation, take note of the following items:
+     * @summary Queries SQL diagnostics records by pages.
+     *  *
+     * @description Before you call this operation, take note of the following items:
      * *   If you use an SDK to call API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
      * *   This operation supports the following database engines:
      *     *   ApsaraDB RDS for MySQL
@@ -7675,14 +6281,10 @@ class DAS extends OpenApiClient
      *     *   PolarDB for PostgreSQL (Compatible with Oracle)
      *     *   ApsaraDB for MongoDB
      * >  The minor engine version of the Apsara RDS for PostgreSQL instance must be 20220130 or later. For more information about how to check and update the minor engine version of an ApsaraDB RDS for PostgreSQL instance, see [Update the minor engine version of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/146895.html).
+     *  *
+     * @param GetRequestDiagnosisPageRequest $request GetRequestDiagnosisPageRequest
      *
-     * @param request - GetRequestDiagnosisPageRequest
-     *
-     * @returns GetRequestDiagnosisPageResponse
-     *
-     * @param GetRequestDiagnosisPageRequest $request
-     *
-     * @return GetRequestDiagnosisPageResponse
+     * @return GetRequestDiagnosisPageResponse GetRequestDiagnosisPageResponse
      */
     public function getRequestDiagnosisPage($request)
     {
@@ -7692,10 +6294,9 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the results of an SQL diagnostics task.
-     *
-     * @remarks
-     * Before you call this operation, take note of the following items:
+     * @summary Queries the results of an SQL diagnostics task.
+     *  *
+     * @description Before you call this operation, take note of the following items:
      * *   If you use an SDK to call the API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
      * *   You cannot call this operation to query the diagnostic result of the automatic SQL optimization feature.
      * *   This operation is applicable to the following database engines:
@@ -7706,43 +6307,33 @@ class DAS extends OpenApiClient
      *     *   PolarDB for PostgreSQL (Compatible with Oracle)
      *     *   ApsaraDB for MongoDB
      * >  If your instance is an ApsaraDB RDS for PostgreSQL instance, make sure that the minor engine version of your instance is 20220130 or later. For more information about how to check and update the minor engine version of an ApsaraDB RDS for PostgreSQL instance, see [Update the minor engine version of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/146895.html).
+     *  *
+     * @param GetRequestDiagnosisResultRequest $request GetRequestDiagnosisResultRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetRequestDiagnosisResultRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetRequestDiagnosisResultResponse
-     *
-     * @param GetRequestDiagnosisResultRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return GetRequestDiagnosisResultResponse
+     * @return GetRequestDiagnosisResultResponse GetRequestDiagnosisResultResponse
      */
     public function getRequestDiagnosisResultWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->messageId) {
-            @$query['MessageId'] = $request->messageId;
+        if (!Utils::isUnset($request->messageId)) {
+            $query['MessageId'] = $request->messageId;
         }
-
-        if (null !== $request->nodeId) {
-            @$query['NodeId'] = $request->nodeId;
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
         }
-
-        if (null !== $request->source) {
-            @$query['Source'] = $request->source;
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
         }
-
-        if (null !== $request->sqlId) {
-            @$query['SqlId'] = $request->sqlId;
+        if (!Utils::isUnset($request->sqlId)) {
+            $query['SqlId'] = $request->sqlId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetRequestDiagnosisResult',
@@ -7760,10 +6351,9 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the results of an SQL diagnostics task.
-     *
-     * @remarks
-     * Before you call this operation, take note of the following items:
+     * @summary Queries the results of an SQL diagnostics task.
+     *  *
+     * @description Before you call this operation, take note of the following items:
      * *   If you use an SDK to call the API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
      * *   You cannot call this operation to query the diagnostic result of the automatic SQL optimization feature.
      * *   This operation is applicable to the following database engines:
@@ -7774,14 +6364,10 @@ class DAS extends OpenApiClient
      *     *   PolarDB for PostgreSQL (Compatible with Oracle)
      *     *   ApsaraDB for MongoDB
      * >  If your instance is an ApsaraDB RDS for PostgreSQL instance, make sure that the minor engine version of your instance is 20220130 or later. For more information about how to check and update the minor engine version of an ApsaraDB RDS for PostgreSQL instance, see [Update the minor engine version of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/146895.html).
+     *  *
+     * @param GetRequestDiagnosisResultRequest $request GetRequestDiagnosisResultRequest
      *
-     * @param request - GetRequestDiagnosisResultRequest
-     *
-     * @returns GetRequestDiagnosisResultResponse
-     *
-     * @param GetRequestDiagnosisResultRequest $request
-     *
-     * @return GetRequestDiagnosisResultResponse
+     * @return GetRequestDiagnosisResultResponse GetRequestDiagnosisResultResponse
      */
     public function getRequestDiagnosisResult($request)
     {
@@ -7791,45 +6377,35 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the throttling rules that are in effect.
-     *
-     * @remarks
-     * This operation supports the following database engines:
+     * @summary Queries the throttling rules that are in effect.
+     *  *
+     * @description This operation supports the following database engines:
      * *   ApsaraDB RDS for MySQL
      * *   PolarDB for MySQL
+     *  *
+     * @param GetRunningSqlConcurrencyControlRulesRequest $request GetRunningSqlConcurrencyControlRulesRequest
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetRunningSqlConcurrencyControlRulesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetRunningSqlConcurrencyControlRulesResponse
-     *
-     * @param GetRunningSqlConcurrencyControlRulesRequest $request
-     * @param RuntimeOptions                              $runtime
-     *
-     * @return GetRunningSqlConcurrencyControlRulesResponse
+     * @return GetRunningSqlConcurrencyControlRulesResponse GetRunningSqlConcurrencyControlRulesResponse
      */
     public function getRunningSqlConcurrencyControlRulesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->consoleContext) {
-            @$query['ConsoleContext'] = $request->consoleContext;
+        if (!Utils::isUnset($request->consoleContext)) {
+            $query['ConsoleContext'] = $request->consoleContext;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->pageNo) {
-            @$query['PageNo'] = $request->pageNo;
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetRunningSqlConcurrencyControlRules',
@@ -7847,20 +6423,15 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the throttling rules that are in effect.
-     *
-     * @remarks
-     * This operation supports the following database engines:
+     * @summary Queries the throttling rules that are in effect.
+     *  *
+     * @description This operation supports the following database engines:
      * *   ApsaraDB RDS for MySQL
      * *   PolarDB for MySQL
+     *  *
+     * @param GetRunningSqlConcurrencyControlRulesRequest $request GetRunningSqlConcurrencyControlRulesRequest
      *
-     * @param request - GetRunningSqlConcurrencyControlRulesRequest
-     *
-     * @returns GetRunningSqlConcurrencyControlRulesResponse
-     *
-     * @param GetRunningSqlConcurrencyControlRulesRequest $request
-     *
-     * @return GetRunningSqlConcurrencyControlRulesResponse
+     * @return GetRunningSqlConcurrencyControlRulesResponse GetRunningSqlConcurrencyControlRulesResponse
      */
     public function getRunningSqlConcurrencyControlRules($request)
     {
@@ -7870,41 +6441,32 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Generates a throttling keyword string based on an SQL statement.
-     *
-     * @remarks
-     * This operation supports the following database engines:
+     * @summary Generates a throttling keyword string based on an SQL statement.
+     *  *
+     * @description This operation supports the following database engines:
      * *   ApsaraDB RDS for MySQL
      * *   PolarDB for MySQL
+     *  *
+     * @param GetSqlConcurrencyControlKeywordsFromSqlTextRequest $request GetSqlConcurrencyControlKeywordsFromSqlTextRequest
+     * @param RuntimeOptions                                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetSqlConcurrencyControlKeywordsFromSqlTextRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetSqlConcurrencyControlKeywordsFromSqlTextResponse
-     *
-     * @param GetSqlConcurrencyControlKeywordsFromSqlTextRequest $request
-     * @param RuntimeOptions                                     $runtime
-     *
-     * @return GetSqlConcurrencyControlKeywordsFromSqlTextResponse
+     * @return GetSqlConcurrencyControlKeywordsFromSqlTextResponse GetSqlConcurrencyControlKeywordsFromSqlTextResponse
      */
     public function getSqlConcurrencyControlKeywordsFromSqlTextWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->consoleContext) {
-            @$query['ConsoleContext'] = $request->consoleContext;
+        if (!Utils::isUnset($request->consoleContext)) {
+            $query['ConsoleContext'] = $request->consoleContext;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->sqlText) {
-            @$query['SqlText'] = $request->sqlText;
+        if (!Utils::isUnset($request->sqlText)) {
+            $query['SqlText'] = $request->sqlText;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetSqlConcurrencyControlKeywordsFromSqlText',
@@ -7922,20 +6484,15 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Generates a throttling keyword string based on an SQL statement.
-     *
-     * @remarks
-     * This operation supports the following database engines:
+     * @summary Generates a throttling keyword string based on an SQL statement.
+     *  *
+     * @description This operation supports the following database engines:
      * *   ApsaraDB RDS for MySQL
      * *   PolarDB for MySQL
+     *  *
+     * @param GetSqlConcurrencyControlKeywordsFromSqlTextRequest $request GetSqlConcurrencyControlKeywordsFromSqlTextRequest
      *
-     * @param request - GetSqlConcurrencyControlKeywordsFromSqlTextRequest
-     *
-     * @returns GetSqlConcurrencyControlKeywordsFromSqlTextResponse
-     *
-     * @param GetSqlConcurrencyControlKeywordsFromSqlTextRequest $request
-     *
-     * @return GetSqlConcurrencyControlKeywordsFromSqlTextResponse
+     * @return GetSqlConcurrencyControlKeywordsFromSqlTextResponse GetSqlConcurrencyControlKeywordsFromSqlTextResponse
      */
     public function getSqlConcurrencyControlKeywordsFromSqlText($request)
     {
@@ -7945,45 +6502,35 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the throttling rules that are being executed or have been triggered.
-     *
-     * @remarks
-     * This operation supports the following database engines:
+     * @summary Queries the throttling rules that are being executed or have been triggered.
+     *  *
+     * @description This operation supports the following database engines:
      * *   ApsaraDB RDS for MySQL
      * *   PolarDB for MySQL
+     *  *
+     * @param GetSqlConcurrencyControlRulesHistoryRequest $request GetSqlConcurrencyControlRulesHistoryRequest
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetSqlConcurrencyControlRulesHistoryRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetSqlConcurrencyControlRulesHistoryResponse
-     *
-     * @param GetSqlConcurrencyControlRulesHistoryRequest $request
-     * @param RuntimeOptions                              $runtime
-     *
-     * @return GetSqlConcurrencyControlRulesHistoryResponse
+     * @return GetSqlConcurrencyControlRulesHistoryResponse GetSqlConcurrencyControlRulesHistoryResponse
      */
     public function getSqlConcurrencyControlRulesHistoryWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->consoleContext) {
-            @$query['ConsoleContext'] = $request->consoleContext;
+        if (!Utils::isUnset($request->consoleContext)) {
+            $query['ConsoleContext'] = $request->consoleContext;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->pageNo) {
-            @$query['PageNo'] = $request->pageNo;
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetSqlConcurrencyControlRulesHistory',
@@ -8001,20 +6548,15 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the throttling rules that are being executed or have been triggered.
-     *
-     * @remarks
-     * This operation supports the following database engines:
+     * @summary Queries the throttling rules that are being executed or have been triggered.
+     *  *
+     * @description This operation supports the following database engines:
      * *   ApsaraDB RDS for MySQL
      * *   PolarDB for MySQL
+     *  *
+     * @param GetSqlConcurrencyControlRulesHistoryRequest $request GetSqlConcurrencyControlRulesHistoryRequest
      *
-     * @param request - GetSqlConcurrencyControlRulesHistoryRequest
-     *
-     * @returns GetSqlConcurrencyControlRulesHistoryResponse
-     *
-     * @param GetSqlConcurrencyControlRulesHistoryRequest $request
-     *
-     * @return GetSqlConcurrencyControlRulesHistoryResponse
+     * @return GetSqlConcurrencyControlRulesHistoryResponse GetSqlConcurrencyControlRulesHistoryResponse
      */
     public function getSqlConcurrencyControlRulesHistory($request)
     {
@@ -8024,56 +6566,44 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries optimization suggestions that are generated by the SQL diagnostics feature of Database Autonomy Service (DAS).
-     *
-     * @remarks
-     * The SQL diagnostics feature provides optimization suggestions for instances based on diagnostics results. You can use the optimization suggestions to optimize instance indexes. For more information, see [Automatic SQL optimization](https://help.aliyun.com/document_detail/167895.html).
+     * @summary Queries optimization suggestions that are generated by the SQL diagnostics feature of Database Autonomy Service (DAS).
+     *  *
+     * @description The SQL diagnostics feature provides optimization suggestions for instances based on diagnostics results. You can use the optimization suggestions to optimize instance indexes. For more information, see [Automatic SQL optimization](https://help.aliyun.com/document_detail/167895.html).
      * >  You can call this operation to query only the optimization suggestions that are automatically generated by the SQL diagnostics feature.
      * Before you call this operation, take note of the following items:
      * *   This operation is applicable to ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters.
      * *   If you use an Alibaba Cloud SDK or DAS SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     *  *
+     * @param GetSqlOptimizeAdviceRequest $request GetSqlOptimizeAdviceRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetSqlOptimizeAdviceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetSqlOptimizeAdviceResponse
-     *
-     * @param GetSqlOptimizeAdviceRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return GetSqlOptimizeAdviceResponse
+     * @return GetSqlOptimizeAdviceResponse GetSqlOptimizeAdviceResponse
      */
     public function getSqlOptimizeAdviceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->consoleContext) {
-            @$query['ConsoleContext'] = $request->consoleContext;
+        if (!Utils::isUnset($request->consoleContext)) {
+            $query['ConsoleContext'] = $request->consoleContext;
         }
-
-        if (null !== $request->endDt) {
-            @$query['EndDt'] = $request->endDt;
+        if (!Utils::isUnset($request->endDt)) {
+            $query['EndDt'] = $request->endDt;
         }
-
-        if (null !== $request->engine) {
-            @$query['Engine'] = $request->engine;
+        if (!Utils::isUnset($request->engine)) {
+            $query['Engine'] = $request->engine;
         }
-
-        if (null !== $request->instanceIds) {
-            @$query['InstanceIds'] = $request->instanceIds;
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
         }
-
-        if (null !== $request->region) {
-            @$query['Region'] = $request->region;
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
         }
-
-        if (null !== $request->startDt) {
-            @$query['StartDt'] = $request->startDt;
+        if (!Utils::isUnset($request->startDt)) {
+            $query['StartDt'] = $request->startDt;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetSqlOptimizeAdvice',
@@ -8091,23 +6621,18 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries optimization suggestions that are generated by the SQL diagnostics feature of Database Autonomy Service (DAS).
-     *
-     * @remarks
-     * The SQL diagnostics feature provides optimization suggestions for instances based on diagnostics results. You can use the optimization suggestions to optimize instance indexes. For more information, see [Automatic SQL optimization](https://help.aliyun.com/document_detail/167895.html).
+     * @summary Queries optimization suggestions that are generated by the SQL diagnostics feature of Database Autonomy Service (DAS).
+     *  *
+     * @description The SQL diagnostics feature provides optimization suggestions for instances based on diagnostics results. You can use the optimization suggestions to optimize instance indexes. For more information, see [Automatic SQL optimization](https://help.aliyun.com/document_detail/167895.html).
      * >  You can call this operation to query only the optimization suggestions that are automatically generated by the SQL diagnostics feature.
      * Before you call this operation, take note of the following items:
      * *   This operation is applicable to ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters.
      * *   If you use an Alibaba Cloud SDK or DAS SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     *  *
+     * @param GetSqlOptimizeAdviceRequest $request GetSqlOptimizeAdviceRequest
      *
-     * @param request - GetSqlOptimizeAdviceRequest
-     *
-     * @returns GetSqlOptimizeAdviceResponse
-     *
-     * @param GetSqlOptimizeAdviceRequest $request
-     *
-     * @return GetSqlOptimizeAdviceResponse
+     * @return GetSqlOptimizeAdviceResponse GetSqlOptimizeAdviceResponse
      */
     public function getSqlOptimizeAdvice($request)
     {
@@ -8117,43 +6642,34 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the status and results of a storage analysis task.
-     *
-     * @remarks
-     * >  The physical file size indicates the actual size of an obtained file. Only specific deployment modes of database instances support the display of physical file sizes. The statistics on tables are obtained from `information_schema.tables`. Statistics in MySQL are not updated in real time. Therefore, the statistics may be different from the physical file sizes. If you want to obtain the latest data, you can execute the `ANALYZE TABLE` statement on the relevant tables during off-peak hours.
+     * @summary Queries the status and results of a storage analysis task.
+     *  *
+     * @description >  The physical file size indicates the actual size of an obtained file. Only specific deployment modes of database instances support the display of physical file sizes. The statistics on tables are obtained from `information_schema.tables`. Statistics in MySQL are not updated in real time. Therefore, the statistics may be different from the physical file sizes. If you want to obtain the latest data, you can execute the `ANALYZE TABLE` statement on the relevant tables during off-peak hours.
      * *   This operation is applicable only to ApsaraDB RDS for MySQL instances, PolarDB for MySQL clusters, and ApsaraDB for MongoDB instances.
      * *   For ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters, this operation works the same as the storage analysis feature of the previous version. Tasks generated by this operation cannot be viewed on the Storage Analysis page of the new version in the Database Autonomy Service (DAS) console. If you want to view the tasks and results, call the related API operation to obtain data and save data to your computer.
      * *   If you use an Alibaba Cloud SDK or DAS SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     *  *
+     * @param GetStorageAnalysisResultRequest $request GetStorageAnalysisResultRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetStorageAnalysisResultRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetStorageAnalysisResultResponse
-     *
-     * @param GetStorageAnalysisResultRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return GetStorageAnalysisResultResponse
+     * @return GetStorageAnalysisResultResponse GetStorageAnalysisResultResponse
      */
     public function getStorageAnalysisResultWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->nodeId) {
-            @$query['NodeId'] = $request->nodeId;
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
         }
-
-        if (null !== $request->taskId) {
-            @$query['TaskId'] = $request->taskId;
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetStorageAnalysisResult',
@@ -8171,22 +6687,17 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the status and results of a storage analysis task.
-     *
-     * @remarks
-     * >  The physical file size indicates the actual size of an obtained file. Only specific deployment modes of database instances support the display of physical file sizes. The statistics on tables are obtained from `information_schema.tables`. Statistics in MySQL are not updated in real time. Therefore, the statistics may be different from the physical file sizes. If you want to obtain the latest data, you can execute the `ANALYZE TABLE` statement on the relevant tables during off-peak hours.
+     * @summary Queries the status and results of a storage analysis task.
+     *  *
+     * @description >  The physical file size indicates the actual size of an obtained file. Only specific deployment modes of database instances support the display of physical file sizes. The statistics on tables are obtained from `information_schema.tables`. Statistics in MySQL are not updated in real time. Therefore, the statistics may be different from the physical file sizes. If you want to obtain the latest data, you can execute the `ANALYZE TABLE` statement on the relevant tables during off-peak hours.
      * *   This operation is applicable only to ApsaraDB RDS for MySQL instances, PolarDB for MySQL clusters, and ApsaraDB for MongoDB instances.
      * *   For ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters, this operation works the same as the storage analysis feature of the previous version. Tasks generated by this operation cannot be viewed on the Storage Analysis page of the new version in the Database Autonomy Service (DAS) console. If you want to view the tasks and results, call the related API operation to obtain data and save data to your computer.
      * *   If you use an Alibaba Cloud SDK or DAS SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     *  *
+     * @param GetStorageAnalysisResultRequest $request GetStorageAnalysisResultRequest
      *
-     * @param request - GetStorageAnalysisResultRequest
-     *
-     * @returns GetStorageAnalysisResultResponse
-     *
-     * @param GetStorageAnalysisResultRequest $request
-     *
-     * @return GetStorageAnalysisResultResponse
+     * @return GetStorageAnalysisResultResponse GetStorageAnalysisResultResponse
      */
     public function getStorageAnalysisResult($request)
     {
@@ -8196,38 +6707,30 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Terminates all sessions on an instance.
-     *
-     * @remarks
-     *   This operation is applicable only to ApsaraDB for Redis.
+     * @summary Terminates all sessions on an instance.
+     *  *
+     * @description *   This operation is applicable only to ApsaraDB for Redis.
      * *   If you use Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than V4.3.3. We recommend that you use the latest version.
      * *   The version of your Database Autonomy Service (DAS) SDK must be V1.0.2 or later.
      * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     *  *
+     * @param KillInstanceAllSessionRequest $request KillInstanceAllSessionRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - KillInstanceAllSessionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns KillInstanceAllSessionResponse
-     *
-     * @param KillInstanceAllSessionRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return KillInstanceAllSessionResponse
+     * @return KillInstanceAllSessionResponse KillInstanceAllSessionResponse
      */
     public function killInstanceAllSessionWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->consoleContext) {
-            @$query['ConsoleContext'] = $request->consoleContext;
+        if (!Utils::isUnset($request->consoleContext)) {
+            $query['ConsoleContext'] = $request->consoleContext;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'KillInstanceAllSession',
@@ -8245,21 +6748,16 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Terminates all sessions on an instance.
-     *
-     * @remarks
-     *   This operation is applicable only to ApsaraDB for Redis.
+     * @summary Terminates all sessions on an instance.
+     *  *
+     * @description *   This operation is applicable only to ApsaraDB for Redis.
      * *   If you use Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than V4.3.3. We recommend that you use the latest version.
      * *   The version of your Database Autonomy Service (DAS) SDK must be V1.0.2 or later.
      * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     *  *
+     * @param KillInstanceAllSessionRequest $request KillInstanceAllSessionRequest
      *
-     * @param request - KillInstanceAllSessionRequest
-     *
-     * @returns KillInstanceAllSessionResponse
-     *
-     * @param KillInstanceAllSessionRequest $request
-     *
-     * @return KillInstanceAllSessionResponse
+     * @return KillInstanceAllSessionResponse KillInstanceAllSessionResponse
      */
     public function killInstanceAllSession($request)
     {
@@ -8269,10 +6767,9 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Modifies the auto scaling configurations of an instance.
-     *
-     * @remarks
-     * You can call this operation to modify the following auto scaling configurations of an instance: **auto scaling for specifications**, **automatic storage expansion**, **automatic bandwidth adjustment**, and **auto scaling for resources**.
+     * @summary Modifies the auto scaling configurations of an instance.
+     *  *
+     * @description You can call this operation to modify the following auto scaling configurations of an instance: **auto scaling for specifications**, **automatic storage expansion**, **automatic bandwidth adjustment**, and **auto scaling for resources**.
      * *   You can modify the configurations of the **auto scaling feature for specifications** for the following types of database instances:
      *     *   PolarDB for MySQL Cluster Edition instances. For more information about the feature and the billing rules, see [Automatic performance scaling](https://help.aliyun.com/document_detail/169686.html).
      *     *   ApsaraDB RDS for MySQL High-availability Edition instances that use standard SSDs or enhanced SSDs (ESSDs). For more information about the feature and the billing rules, see [Automatic performance scaling](https://help.aliyun.com/document_detail/169686.html).
@@ -8284,47 +6781,36 @@ class DAS extends OpenApiClient
      *     *   General-purpose ApsaraDB RDS for MySQL Enterprise Edition instances. For more information about the feature and the billing rules, see [Automatic performance scaling](https://help.aliyun.com/document_detail/169686.html).
      * *   If you use an Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     *  *
+     * @param ModifyAutoScalingConfigRequest $request ModifyAutoScalingConfigRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyAutoScalingConfigRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyAutoScalingConfigResponse
-     *
-     * @param ModifyAutoScalingConfigRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return ModifyAutoScalingConfigResponse
+     * @return ModifyAutoScalingConfigResponse ModifyAutoScalingConfigResponse
      */
     public function modifyAutoScalingConfigWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->bandwidth) {
-            @$query['Bandwidth'] = $request->bandwidth;
+        if (!Utils::isUnset($request->bandwidth)) {
+            $query['Bandwidth'] = $request->bandwidth;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->resource) {
-            @$query['Resource'] = $request->resource;
+        if (!Utils::isUnset($request->resource)) {
+            $query['Resource'] = $request->resource;
         }
-
-        if (null !== $request->shard) {
-            @$query['Shard'] = $request->shard;
+        if (!Utils::isUnset($request->shard)) {
+            $query['Shard'] = $request->shard;
         }
-
-        if (null !== $request->spec) {
-            @$query['Spec'] = $request->spec;
+        if (!Utils::isUnset($request->spec)) {
+            $query['Spec'] = $request->spec;
         }
-
-        if (null !== $request->storage) {
-            @$query['Storage'] = $request->storage;
+        if (!Utils::isUnset($request->storage)) {
+            $query['Storage'] = $request->storage;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyAutoScalingConfig',
@@ -8342,10 +6828,9 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Modifies the auto scaling configurations of an instance.
-     *
-     * @remarks
-     * You can call this operation to modify the following auto scaling configurations of an instance: **auto scaling for specifications**, **automatic storage expansion**, **automatic bandwidth adjustment**, and **auto scaling for resources**.
+     * @summary Modifies the auto scaling configurations of an instance.
+     *  *
+     * @description You can call this operation to modify the following auto scaling configurations of an instance: **auto scaling for specifications**, **automatic storage expansion**, **automatic bandwidth adjustment**, and **auto scaling for resources**.
      * *   You can modify the configurations of the **auto scaling feature for specifications** for the following types of database instances:
      *     *   PolarDB for MySQL Cluster Edition instances. For more information about the feature and the billing rules, see [Automatic performance scaling](https://help.aliyun.com/document_detail/169686.html).
      *     *   ApsaraDB RDS for MySQL High-availability Edition instances that use standard SSDs or enhanced SSDs (ESSDs). For more information about the feature and the billing rules, see [Automatic performance scaling](https://help.aliyun.com/document_detail/169686.html).
@@ -8357,14 +6842,10 @@ class DAS extends OpenApiClient
      *     *   General-purpose ApsaraDB RDS for MySQL Enterprise Edition instances. For more information about the feature and the billing rules, see [Automatic performance scaling](https://help.aliyun.com/document_detail/169686.html).
      * *   If you use an Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     *  *
+     * @param ModifyAutoScalingConfigRequest $request ModifyAutoScalingConfigRequest
      *
-     * @param request - ModifyAutoScalingConfigRequest
-     *
-     * @returns ModifyAutoScalingConfigResponse
-     *
-     * @param ModifyAutoScalingConfigRequest $request
-     *
-     * @return ModifyAutoScalingConfigResponse
+     * @return ModifyAutoScalingConfigResponse ModifyAutoScalingConfigResponse
      */
     public function modifyAutoScalingConfig($request)
     {
@@ -8374,60 +6855,47 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Enables or configures Database Autonomy Service (DAS) Enterprise Edition for a database instance.
-     *
-     * @remarks
-     * Before you call this operation, take note of the following items:
+     * @summary Enables or configures Database Autonomy Service (DAS) Enterprise Edition for a database instance.
+     *  *
+     * @description Before you call this operation, take note of the following items:
      * *   If you use an Alibaba Cloud SDK or a DAS SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
      * *   By default, the latest version of DAS Enterprise Edition that supports the database instance is enabled. For information about the databases and regions that are supported by different versions of DAS Enterprise Edition, see [Editions and supported features](https://help.aliyun.com/document_detail/156204.html).
+     *  *
+     * @param ModifySqlLogConfigRequest $request ModifySqlLogConfigRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifySqlLogConfigRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifySqlLogConfigResponse
-     *
-     * @param ModifySqlLogConfigRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return ModifySqlLogConfigResponse
+     * @return ModifySqlLogConfigResponse ModifySqlLogConfigResponse
      */
     public function modifySqlLogConfigWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->enableAudit) {
-            @$query['EnableAudit'] = $request->enableAudit;
+        if (!Utils::isUnset($request->enableAudit)) {
+            $query['EnableAudit'] = $request->enableAudit;
         }
-
-        if (null !== $request->filters) {
-            @$query['Filters'] = $request->filters;
+        if (!Utils::isUnset($request->filters)) {
+            $query['Filters'] = $request->filters;
         }
-
         $body = [];
-        if (null !== $request->enable) {
-            @$body['Enable'] = $request->enable;
+        if (!Utils::isUnset($request->enable)) {
+            $body['Enable'] = $request->enable;
         }
-
-        if (null !== $request->hotRetention) {
-            @$body['HotRetention'] = $request->hotRetention;
+        if (!Utils::isUnset($request->hotRetention)) {
+            $body['HotRetention'] = $request->hotRetention;
         }
-
-        if (null !== $request->instanceId) {
-            @$body['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->requestEnable) {
-            @$body['RequestEnable'] = $request->requestEnable;
+        if (!Utils::isUnset($request->requestEnable)) {
+            $body['RequestEnable'] = $request->requestEnable;
         }
-
-        if (null !== $request->retention) {
-            @$body['Retention'] = $request->retention;
+        if (!Utils::isUnset($request->retention)) {
+            $body['Retention'] = $request->retention;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ModifySqlLogConfig',
@@ -8445,21 +6913,16 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Enables or configures Database Autonomy Service (DAS) Enterprise Edition for a database instance.
-     *
-     * @remarks
-     * Before you call this operation, take note of the following items:
+     * @summary Enables or configures Database Autonomy Service (DAS) Enterprise Edition for a database instance.
+     *  *
+     * @description Before you call this operation, take note of the following items:
      * *   If you use an Alibaba Cloud SDK or a DAS SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
      * *   By default, the latest version of DAS Enterprise Edition that supports the database instance is enabled. For information about the databases and regions that are supported by different versions of DAS Enterprise Edition, see [Editions and supported features](https://help.aliyun.com/document_detail/156204.html).
+     *  *
+     * @param ModifySqlLogConfigRequest $request ModifySqlLogConfigRequest
      *
-     * @param request - ModifySqlLogConfigRequest
-     *
-     * @returns ModifySqlLogConfigResponse
-     *
-     * @param ModifySqlLogConfigRequest $request
-     *
-     * @return ModifySqlLogConfigResponse
+     * @return ModifySqlLogConfigResponse ModifySqlLogConfigResponse
      */
     public function modifySqlLogConfig($request)
     {
@@ -8469,31 +6932,24 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Runs a stress testing task.
+     * @summary Runs a stress testing task.
+     *  *
+     * @description Database Autonomy Service (DAS) provides the intelligent stress testing feature. This feature helps you check whether your instance needs to be scaled up to effectively handle traffic spikes. For more information, see [Intelligent stress testing](https://help.aliyun.com/document_detail/155068.html).
+     *  *
+     * @param RunCloudBenchTaskRequest $request RunCloudBenchTaskRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * Database Autonomy Service (DAS) provides the intelligent stress testing feature. This feature helps you check whether your instance needs to be scaled up to effectively handle traffic spikes. For more information, see [Intelligent stress testing](https://help.aliyun.com/document_detail/155068.html).
-     *
-     * @param request - RunCloudBenchTaskRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns RunCloudBenchTaskResponse
-     *
-     * @param RunCloudBenchTaskRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return RunCloudBenchTaskResponse
+     * @return RunCloudBenchTaskResponse RunCloudBenchTaskResponse
      */
     public function runCloudBenchTaskWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->taskId) {
-            @$query['TaskId'] = $request->taskId;
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'RunCloudBenchTask',
@@ -8511,18 +6967,13 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Runs a stress testing task.
+     * @summary Runs a stress testing task.
+     *  *
+     * @description Database Autonomy Service (DAS) provides the intelligent stress testing feature. This feature helps you check whether your instance needs to be scaled up to effectively handle traffic spikes. For more information, see [Intelligent stress testing](https://help.aliyun.com/document_detail/155068.html).
+     *  *
+     * @param RunCloudBenchTaskRequest $request RunCloudBenchTaskRequest
      *
-     * @remarks
-     * Database Autonomy Service (DAS) provides the intelligent stress testing feature. This feature helps you check whether your instance needs to be scaled up to effectively handle traffic spikes. For more information, see [Intelligent stress testing](https://help.aliyun.com/document_detail/155068.html).
-     *
-     * @param request - RunCloudBenchTaskRequest
-     *
-     * @returns RunCloudBenchTaskResponse
-     *
-     * @param RunCloudBenchTaskRequest $request
-     *
-     * @return RunCloudBenchTaskResponse
+     * @return RunCloudBenchTaskResponse RunCloudBenchTaskResponse
      */
     public function runCloudBenchTask($request)
     {
@@ -8532,74 +6983,57 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Configures the event subscription settings for a database instance.
-     *
-     * @remarks
-     * Before you call this operation, take note of the following items:
+     * @summary Configures the event subscription settings for a database instance.
+     *  *
+     * @description Before you call this operation, take note of the following items:
      * *   If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call the API operations of DAS, you must set the region ID to cn-shanghai.
      * *   Make sure that the database instance that you want to manage is connected to DAS.
+     *  *
+     * @param SetEventSubscriptionRequest $request SetEventSubscriptionRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - SetEventSubscriptionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns SetEventSubscriptionResponse
-     *
-     * @param SetEventSubscriptionRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return SetEventSubscriptionResponse
+     * @return SetEventSubscriptionResponse SetEventSubscriptionResponse
      */
     public function setEventSubscriptionWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->active) {
-            @$query['Active'] = $request->active;
+        if (!Utils::isUnset($request->active)) {
+            $query['Active'] = $request->active;
         }
-
-        if (null !== $request->channelType) {
-            @$query['ChannelType'] = $request->channelType;
+        if (!Utils::isUnset($request->channelType)) {
+            $query['ChannelType'] = $request->channelType;
         }
-
-        if (null !== $request->contactGroupName) {
-            @$query['ContactGroupName'] = $request->contactGroupName;
+        if (!Utils::isUnset($request->contactGroupName)) {
+            $query['ContactGroupName'] = $request->contactGroupName;
         }
-
-        if (null !== $request->contactName) {
-            @$query['ContactName'] = $request->contactName;
+        if (!Utils::isUnset($request->contactName)) {
+            $query['ContactName'] = $request->contactName;
         }
-
-        if (null !== $request->dispatchRule) {
-            @$query['DispatchRule'] = $request->dispatchRule;
+        if (!Utils::isUnset($request->dispatchRule)) {
+            $query['DispatchRule'] = $request->dispatchRule;
         }
-
-        if (null !== $request->eventContext) {
-            @$query['EventContext'] = $request->eventContext;
+        if (!Utils::isUnset($request->eventContext)) {
+            $query['EventContext'] = $request->eventContext;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->level) {
-            @$query['Level'] = $request->level;
+        if (!Utils::isUnset($request->level)) {
+            $query['Level'] = $request->level;
         }
-
-        if (null !== $request->minInterval) {
-            @$query['MinInterval'] = $request->minInterval;
+        if (!Utils::isUnset($request->minInterval)) {
+            $query['MinInterval'] = $request->minInterval;
         }
-
-        if (null !== $request->severity) {
-            @$query['Severity'] = $request->severity;
+        if (!Utils::isUnset($request->severity)) {
+            $query['Severity'] = $request->severity;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'SetEventSubscription',
@@ -8617,21 +7051,16 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Configures the event subscription settings for a database instance.
-     *
-     * @remarks
-     * Before you call this operation, take note of the following items:
+     * @summary Configures the event subscription settings for a database instance.
+     *  *
+     * @description Before you call this operation, take note of the following items:
      * *   If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
      * *   If you use an SDK to call the API operations of DAS, you must set the region ID to cn-shanghai.
      * *   Make sure that the database instance that you want to manage is connected to DAS.
+     *  *
+     * @param SetEventSubscriptionRequest $request SetEventSubscriptionRequest
      *
-     * @param request - SetEventSubscriptionRequest
-     *
-     * @returns SetEventSubscriptionResponse
-     *
-     * @param SetEventSubscriptionRequest $request
-     *
-     * @return SetEventSubscriptionResponse
+     * @return SetEventSubscriptionResponse SetEventSubscriptionResponse
      */
     public function setEventSubscription($request)
     {
@@ -8641,52 +7070,41 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Asynchronously configures parameters related to the automatic fragment recycling feature for multiple database instances at a time.
-     *
-     * @remarks
-     * >  Asynchronous calls do not immediately return the complete results. To obtain the complete results, you must use the value of **ResultId** returned in the response to re-initiate the call until the value of **isFinish** is **true**.**** In this case, you must call this operation at least twice.
+     * @summary Asynchronously configures parameters related to the automatic fragment recycling feature for multiple database instances at a time.
+     *  *
+     * @description >  Asynchronous calls do not immediately return the complete results. To obtain the complete results, you must use the value of **ResultId** returned in the response to re-initiate the call until the value of **isFinish** is **true**.**** In this case, you must call this operation at least twice.
      * Before you call this operation, take note of the following items:
      * *   If you use an SDK to call the API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
      * *   The database instances must be an ApsaraDB RDS for MySQL High-availability Edition instance.
      * *   DAS Enterprise Edition must be enabled for the database instance. You can call the call [DescribeInstanceDasPro](https://help.aliyun.com/document_detail/413866.html) operation to query whether DAS Enterprise Edition is enabled.
      * *   The database instance has four or more CPU cores, and **innodb_file_per_table** is set to **ON**.
+     *  *
+     * @param UpdateAutoResourceOptimizeRulesAsyncRequest $request UpdateAutoResourceOptimizeRulesAsyncRequest
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateAutoResourceOptimizeRulesAsyncRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateAutoResourceOptimizeRulesAsyncResponse
-     *
-     * @param UpdateAutoResourceOptimizeRulesAsyncRequest $request
-     * @param RuntimeOptions                              $runtime
-     *
-     * @return UpdateAutoResourceOptimizeRulesAsyncResponse
+     * @return UpdateAutoResourceOptimizeRulesAsyncResponse UpdateAutoResourceOptimizeRulesAsyncResponse
      */
     public function updateAutoResourceOptimizeRulesAsyncWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->consoleContext) {
-            @$query['ConsoleContext'] = $request->consoleContext;
+        if (!Utils::isUnset($request->consoleContext)) {
+            $query['ConsoleContext'] = $request->consoleContext;
         }
-
-        if (null !== $request->instanceIds) {
-            @$query['InstanceIds'] = $request->instanceIds;
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
         }
-
-        if (null !== $request->resultId) {
-            @$query['ResultId'] = $request->resultId;
+        if (!Utils::isUnset($request->resultId)) {
+            $query['ResultId'] = $request->resultId;
         }
-
-        if (null !== $request->tableFragmentationRatio) {
-            @$query['TableFragmentationRatio'] = $request->tableFragmentationRatio;
+        if (!Utils::isUnset($request->tableFragmentationRatio)) {
+            $query['TableFragmentationRatio'] = $request->tableFragmentationRatio;
         }
-
-        if (null !== $request->tableSpaceSize) {
-            @$query['TableSpaceSize'] = $request->tableSpaceSize;
+        if (!Utils::isUnset($request->tableSpaceSize)) {
+            $query['TableSpaceSize'] = $request->tableSpaceSize;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateAutoResourceOptimizeRulesAsync',
@@ -8704,23 +7122,18 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Asynchronously configures parameters related to the automatic fragment recycling feature for multiple database instances at a time.
-     *
-     * @remarks
-     * >  Asynchronous calls do not immediately return the complete results. To obtain the complete results, you must use the value of **ResultId** returned in the response to re-initiate the call until the value of **isFinish** is **true**.**** In this case, you must call this operation at least twice.
+     * @summary Asynchronously configures parameters related to the automatic fragment recycling feature for multiple database instances at a time.
+     *  *
+     * @description >  Asynchronous calls do not immediately return the complete results. To obtain the complete results, you must use the value of **ResultId** returned in the response to re-initiate the call until the value of **isFinish** is **true**.**** In this case, you must call this operation at least twice.
      * Before you call this operation, take note of the following items:
      * *   If you use an SDK to call the API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
      * *   The database instances must be an ApsaraDB RDS for MySQL High-availability Edition instance.
      * *   DAS Enterprise Edition must be enabled for the database instance. You can call the call [DescribeInstanceDasPro](https://help.aliyun.com/document_detail/413866.html) operation to query whether DAS Enterprise Edition is enabled.
      * *   The database instance has four or more CPU cores, and **innodb_file_per_table** is set to **ON**.
+     *  *
+     * @param UpdateAutoResourceOptimizeRulesAsyncRequest $request UpdateAutoResourceOptimizeRulesAsyncRequest
      *
-     * @param request - UpdateAutoResourceOptimizeRulesAsyncRequest
-     *
-     * @returns UpdateAutoResourceOptimizeRulesAsyncResponse
-     *
-     * @param UpdateAutoResourceOptimizeRulesAsyncRequest $request
-     *
-     * @return UpdateAutoResourceOptimizeRulesAsyncResponse
+     * @return UpdateAutoResourceOptimizeRulesAsyncResponse UpdateAutoResourceOptimizeRulesAsyncResponse
      */
     public function updateAutoResourceOptimizeRulesAsync($request)
     {
@@ -8730,41 +7143,33 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Enables, modifies, or disables the automatic SQL optimization feature for multiple database instances at a time.
-     *
-     * @remarks
-     * Before you call this operation, take note of the following items:
+     * @summary Enables, modifies, or disables the automatic SQL optimization feature for multiple database instances at a time.
+     *  *
+     * @description Before you call this operation, take note of the following items:
      * *   If you use an SDK to call API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
      * *   DAS Enterprise Edition must be enabled for the database instance that you want to manage. To enable DAS Enterprise Edition for a database instance, you can call the [EnableDasPro](https://help.aliyun.com/document_detail/411645.html) operation.
      * *   The autonomy service must be enabled for the database instance. For more information, see [Autonomy center](https://help.aliyun.com/document_detail/152139.html).
      * *   This operation supports the following database engines:
      *     *   ApsaraDB RDS for MySQL High-availability Edition or Enterprise Edition
      *     *   PolarDB for MySQL Cluster Edition
+     *  *
+     * @param UpdateAutoSqlOptimizeStatusRequest $request UpdateAutoSqlOptimizeStatusRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateAutoSqlOptimizeStatusRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateAutoSqlOptimizeStatusResponse
-     *
-     * @param UpdateAutoSqlOptimizeStatusRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return UpdateAutoSqlOptimizeStatusResponse
+     * @return UpdateAutoSqlOptimizeStatusResponse UpdateAutoSqlOptimizeStatusResponse
      */
     public function updateAutoSqlOptimizeStatusWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instances) {
-            @$query['Instances'] = $request->instances;
+        if (!Utils::isUnset($request->instances)) {
+            $query['Instances'] = $request->instances;
         }
-
-        if (null !== $request->status) {
-            @$query['Status'] = $request->status;
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateAutoSqlOptimizeStatus',
@@ -8782,24 +7187,19 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Enables, modifies, or disables the automatic SQL optimization feature for multiple database instances at a time.
-     *
-     * @remarks
-     * Before you call this operation, take note of the following items:
+     * @summary Enables, modifies, or disables the automatic SQL optimization feature for multiple database instances at a time.
+     *  *
+     * @description Before you call this operation, take note of the following items:
      * *   If you use an SDK to call API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
      * *   DAS Enterprise Edition must be enabled for the database instance that you want to manage. To enable DAS Enterprise Edition for a database instance, you can call the [EnableDasPro](https://help.aliyun.com/document_detail/411645.html) operation.
      * *   The autonomy service must be enabled for the database instance. For more information, see [Autonomy center](https://help.aliyun.com/document_detail/152139.html).
      * *   This operation supports the following database engines:
      *     *   ApsaraDB RDS for MySQL High-availability Edition or Enterprise Edition
      *     *   PolarDB for MySQL Cluster Edition
+     *  *
+     * @param UpdateAutoSqlOptimizeStatusRequest $request UpdateAutoSqlOptimizeStatusRequest
      *
-     * @param request - UpdateAutoSqlOptimizeStatusRequest
-     *
-     * @returns UpdateAutoSqlOptimizeStatusResponse
-     *
-     * @param UpdateAutoSqlOptimizeStatusRequest $request
-     *
-     * @return UpdateAutoSqlOptimizeStatusResponse
+     * @return UpdateAutoSqlOptimizeStatusResponse UpdateAutoSqlOptimizeStatusResponse
      */
     public function updateAutoSqlOptimizeStatus($request)
     {
@@ -8809,77 +7209,60 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Asynchronously configures parameters related to the automatic SQL throttling feature for multiple database instances at a time.
-     *
-     * @remarks
-     * >  Asynchronous calls do not immediately return the complete results. To obtain the complete results, you must use the value of **ResultId** returned in the response to re-initiate the call until the value of **isFinish** is **true**.**** In this case, you must call this operation at least twice.
+     * @summary Asynchronously configures parameters related to the automatic SQL throttling feature for multiple database instances at a time.
+     *  *
+     * @description >  Asynchronous calls do not immediately return the complete results. To obtain the complete results, you must use the value of **ResultId** returned in the response to re-initiate the call until the value of **isFinish** is **true**.**** In this case, you must call this operation at least twice.
      * Before you call this operation, take note of the following items:
      * *   If you use an SDK to call API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
      * *   The autonomy service must be enabled for the database instance that you want to manage. For more information, see [Autonomy center](https://help.aliyun.com/document_detail/152139.html).
      * *   The database instance that you want to manage must be of one of the following types:
      *     *   ApsaraDB RDS for MySQL High-availability Edition or Enterprise Edition that runs MySQL 5.6, MySQL 5.7, or MySQL 8.0
      *     *   PolarDB for MySQL Cluster Edition that runs MySQL 5.6, MySQL 5.7, or MySQL 8.0
+     *  *
+     * @param UpdateAutoThrottleRulesAsyncRequest $request UpdateAutoThrottleRulesAsyncRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateAutoThrottleRulesAsyncRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateAutoThrottleRulesAsyncResponse
-     *
-     * @param UpdateAutoThrottleRulesAsyncRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return UpdateAutoThrottleRulesAsyncResponse
+     * @return UpdateAutoThrottleRulesAsyncResponse UpdateAutoThrottleRulesAsyncResponse
      */
     public function updateAutoThrottleRulesAsyncWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->abnormalDuration) {
-            @$query['AbnormalDuration'] = $request->abnormalDuration;
+        if (!Utils::isUnset($request->abnormalDuration)) {
+            $query['AbnormalDuration'] = $request->abnormalDuration;
         }
-
-        if (null !== $request->activeSessions) {
-            @$query['ActiveSessions'] = $request->activeSessions;
+        if (!Utils::isUnset($request->activeSessions)) {
+            $query['ActiveSessions'] = $request->activeSessions;
         }
-
-        if (null !== $request->allowThrottleEndTime) {
-            @$query['AllowThrottleEndTime'] = $request->allowThrottleEndTime;
+        if (!Utils::isUnset($request->allowThrottleEndTime)) {
+            $query['AllowThrottleEndTime'] = $request->allowThrottleEndTime;
         }
-
-        if (null !== $request->allowThrottleStartTime) {
-            @$query['AllowThrottleStartTime'] = $request->allowThrottleStartTime;
+        if (!Utils::isUnset($request->allowThrottleStartTime)) {
+            $query['AllowThrottleStartTime'] = $request->allowThrottleStartTime;
         }
-
-        if (null !== $request->autoKillSession) {
-            @$query['AutoKillSession'] = $request->autoKillSession;
+        if (!Utils::isUnset($request->autoKillSession)) {
+            $query['AutoKillSession'] = $request->autoKillSession;
         }
-
-        if (null !== $request->consoleContext) {
-            @$query['ConsoleContext'] = $request->consoleContext;
+        if (!Utils::isUnset($request->consoleContext)) {
+            $query['ConsoleContext'] = $request->consoleContext;
         }
-
-        if (null !== $request->cpuSessionRelation) {
-            @$query['CpuSessionRelation'] = $request->cpuSessionRelation;
+        if (!Utils::isUnset($request->cpuSessionRelation)) {
+            $query['CpuSessionRelation'] = $request->cpuSessionRelation;
         }
-
-        if (null !== $request->cpuUsage) {
-            @$query['CpuUsage'] = $request->cpuUsage;
+        if (!Utils::isUnset($request->cpuUsage)) {
+            $query['CpuUsage'] = $request->cpuUsage;
         }
-
-        if (null !== $request->instanceIds) {
-            @$query['InstanceIds'] = $request->instanceIds;
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
         }
-
-        if (null !== $request->maxThrottleTime) {
-            @$query['MaxThrottleTime'] = $request->maxThrottleTime;
+        if (!Utils::isUnset($request->maxThrottleTime)) {
+            $query['MaxThrottleTime'] = $request->maxThrottleTime;
         }
-
-        if (null !== $request->resultId) {
-            @$query['ResultId'] = $request->resultId;
+        if (!Utils::isUnset($request->resultId)) {
+            $query['ResultId'] = $request->resultId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateAutoThrottleRulesAsync',
@@ -8897,24 +7280,19 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Asynchronously configures parameters related to the automatic SQL throttling feature for multiple database instances at a time.
-     *
-     * @remarks
-     * >  Asynchronous calls do not immediately return the complete results. To obtain the complete results, you must use the value of **ResultId** returned in the response to re-initiate the call until the value of **isFinish** is **true**.**** In this case, you must call this operation at least twice.
+     * @summary Asynchronously configures parameters related to the automatic SQL throttling feature for multiple database instances at a time.
+     *  *
+     * @description >  Asynchronous calls do not immediately return the complete results. To obtain the complete results, you must use the value of **ResultId** returned in the response to re-initiate the call until the value of **isFinish** is **true**.**** In this case, you must call this operation at least twice.
      * Before you call this operation, take note of the following items:
      * *   If you use an SDK to call API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
      * *   The autonomy service must be enabled for the database instance that you want to manage. For more information, see [Autonomy center](https://help.aliyun.com/document_detail/152139.html).
      * *   The database instance that you want to manage must be of one of the following types:
      *     *   ApsaraDB RDS for MySQL High-availability Edition or Enterprise Edition that runs MySQL 5.6, MySQL 5.7, or MySQL 8.0
      *     *   PolarDB for MySQL Cluster Edition that runs MySQL 5.6, MySQL 5.7, or MySQL 8.0
+     *  *
+     * @param UpdateAutoThrottleRulesAsyncRequest $request UpdateAutoThrottleRulesAsyncRequest
      *
-     * @param request - UpdateAutoThrottleRulesAsyncRequest
-     *
-     * @returns UpdateAutoThrottleRulesAsyncResponse
-     *
-     * @param UpdateAutoThrottleRulesAsyncRequest $request
-     *
-     * @return UpdateAutoThrottleRulesAsyncResponse
+     * @return UpdateAutoThrottleRulesAsyncResponse UpdateAutoThrottleRulesAsyncResponse
      */
     public function updateAutoThrottleRulesAsync($request)
     {

@@ -4,16 +4,28 @@
 
 namespace AlibabaCloud\SDK\DAS\V20200116\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DisableAllSqlConcurrencyControlRulesRequest extends Model
 {
     /**
+     * @description The reserved parameter.
+     *
+     * @example None
+     *
      * @var string
      */
     public $consoleContext;
 
     /**
+     * @description The instance ID.
+     *
+     * >  You must specify this parameter only if your database instance is an ApsaraDB RDS for MySQL instance or a PolarDB for MySQL cluster.
+     *
+     * This parameter is required.
+     *
+     * @example rm-2ze1jdv45i7l6****
+     *
      * @var string
      */
     public $instanceId;
@@ -22,18 +34,14 @@ class DisableAllSqlConcurrencyControlRulesRequest extends Model
         'instanceId' => 'InstanceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->consoleContext) {
             $res['ConsoleContext'] = $this->consoleContext;
         }
-
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -41,18 +49,17 @@ class DisableAllSqlConcurrencyControlRulesRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DisableAllSqlConcurrencyControlRulesRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConsoleContext'])) {
             $model->consoleContext = $map['ConsoleContext'];
         }
-
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

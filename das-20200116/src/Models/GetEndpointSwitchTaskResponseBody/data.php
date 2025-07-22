@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\DAS\V20200116\Models\GetEndpointSwitchTaskResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -52,38 +52,29 @@ class data extends Model
         'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->accountId) {
             $res['AccountId'] = $this->accountId;
         }
-
         if (null !== $this->dbLinkId) {
             $res['DbLinkId'] = $this->dbLinkId;
         }
-
         if (null !== $this->errMsg) {
             $res['ErrMsg'] = $this->errMsg;
         }
-
         if (null !== $this->oriUuid) {
             $res['OriUuid'] = $this->oriUuid;
         }
-
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
-
         if (null !== $this->uuid) {
             $res['Uuid'] = $this->uuid;
         }
@@ -91,38 +82,32 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccountId'])) {
             $model->accountId = $map['AccountId'];
         }
-
         if (isset($map['DbLinkId'])) {
             $model->dbLinkId = $map['DbLinkId'];
         }
-
         if (isset($map['ErrMsg'])) {
             $model->errMsg = $map['ErrMsg'];
         }
-
         if (isset($map['OriUuid'])) {
             $model->oriUuid = $map['OriUuid'];
         }
-
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
-
         if (isset($map['Uuid'])) {
             $model->uuid = $map['Uuid'];
         }

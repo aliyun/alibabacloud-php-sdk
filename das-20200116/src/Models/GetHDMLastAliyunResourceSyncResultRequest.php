@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\DAS\V20200116\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetHDMLastAliyunResourceSyncResultRequest extends Model
 {
@@ -52,38 +52,29 @@ class GetHDMLastAliyunResourceSyncResultRequest extends Model
         'timestamp' => 'timestamp',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->uid) {
             $res['Uid'] = $this->uid;
         }
-
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
-
         if (null !== $this->context) {
             $res['__context'] = $this->context;
         }
-
         if (null !== $this->accessKey) {
             $res['accessKey'] = $this->accessKey;
         }
-
         if (null !== $this->signature) {
             $res['signature'] = $this->signature;
         }
-
         if (null !== $this->skipAuth) {
             $res['skipAuth'] = $this->skipAuth;
         }
-
         if (null !== $this->timestamp) {
             $res['timestamp'] = $this->timestamp;
         }
@@ -91,38 +82,32 @@ class GetHDMLastAliyunResourceSyncResultRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetHDMLastAliyunResourceSyncResultRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Uid'])) {
             $model->uid = $map['Uid'];
         }
-
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }
-
         if (isset($map['__context'])) {
             $model->context = $map['__context'];
         }
-
         if (isset($map['accessKey'])) {
             $model->accessKey = $map['accessKey'];
         }
-
         if (isset($map['signature'])) {
             $model->signature = $map['signature'];
         }
-
         if (isset($map['skipAuth'])) {
             $model->skipAuth = $map['skipAuth'];
         }
-
         if (isset($map['timestamp'])) {
             $model->timestamp = $map['timestamp'];
         }

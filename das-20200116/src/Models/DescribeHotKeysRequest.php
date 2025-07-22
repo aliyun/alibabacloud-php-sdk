@@ -4,16 +4,26 @@
 
 namespace AlibabaCloud\SDK\DAS\V20200116\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeHotKeysRequest extends Model
 {
     /**
+     * @description The ID of the ApsaraDB for Redis instance.
+     *
+     * This parameter is required.
+     *
+     * @example r-bp18ff4a195d****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the data shard on the ApsaraDB for Redis instance.
+     *
+     * @example r-x****-db-0
+     *
      * @var string
      */
     public $nodeId;
@@ -22,18 +32,14 @@ class DescribeHotKeysRequest extends Model
         'nodeId' => 'NodeId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
         }
@@ -41,18 +47,17 @@ class DescribeHotKeysRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeHotKeysRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
         }

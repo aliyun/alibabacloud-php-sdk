@@ -4,16 +4,27 @@
 
 namespace AlibabaCloud\SDK\DAS\V20200116\Models\GetQueryOptimizeDataStatsResponseBody\data\list_;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ruleList extends Model
 {
     /**
+     * @description The rule name.
+     *
+     * @example DAS_NOT_IMPORTANT
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The type of the rule. Valid values:
+     *
+     * **Predefined**
+     * **UserDefined**
+     *
+     * @example Predefined
+     *
      * @var string
      */
     public $type;
@@ -22,18 +33,14 @@ class ruleList extends Model
         'type' => 'Type',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -41,18 +48,17 @@ class ruleList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ruleList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

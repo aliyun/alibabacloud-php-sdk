@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\DAS\V20200116\Models\GetHDMAliyunResourceSyncResultResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\DAS\V20200116\Models\GetHDMAliyunResourceSyncResultResponseBody\data\subResults;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -35,29 +35,20 @@ class data extends Model
         'syncStatus' => 'SyncStatus',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->subResults) {
-            $this->subResults->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->errorMsg) {
             $res['ErrorMsg'] = $this->errorMsg;
         }
-
         if (null !== $this->results) {
             $res['Results'] = $this->results;
         }
-
         if (null !== $this->subResults) {
-            $res['SubResults'] = null !== $this->subResults ? $this->subResults->toArray($noStream) : $this->subResults;
+            $res['SubResults'] = null !== $this->subResults ? $this->subResults->toMap() : null;
         }
-
         if (null !== $this->syncStatus) {
             $res['SyncStatus'] = $this->syncStatus;
         }
@@ -65,26 +56,23 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ErrorMsg'])) {
             $model->errorMsg = $map['ErrorMsg'];
         }
-
         if (isset($map['Results'])) {
             $model->results = $map['Results'];
         }
-
         if (isset($map['SubResults'])) {
             $model->subResults = subResults::fromMap($map['SubResults']);
         }
-
         if (isset($map['SyncStatus'])) {
             $model->syncStatus = $map['SyncStatus'];
         }

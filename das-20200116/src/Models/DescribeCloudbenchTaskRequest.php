@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\DAS\V20200116\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeCloudbenchTaskRequest extends Model
 {
     /**
+     * @description The ID of the stress testing task. You can call the [DescribeCloudBenchTasks](https://help.aliyun.com/document_detail/230670.html) operation to query the ID.
+     *
+     * This parameter is required.
+     *
+     * @example e5cec704-0518-430f-8263-76f4dcds****
+     *
      * @var string
      */
     public $taskId;
@@ -16,12 +22,9 @@ class DescribeCloudbenchTaskRequest extends Model
         'taskId' => 'TaskId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->taskId) {
@@ -31,11 +34,11 @@ class DescribeCloudbenchTaskRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeCloudbenchTaskRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

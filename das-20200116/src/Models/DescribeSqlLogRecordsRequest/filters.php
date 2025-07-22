@@ -4,16 +4,26 @@
 
 namespace AlibabaCloud\SDK\DAS\V20200116\Models\DescribeSqlLogRecordsRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class filters extends Model
 {
     /**
+     * @description The filter parameter.
+     *
+     * >  For more information about the supported filter parameters and their valid values, see the **Supported parameters and values for Key** section of this topic.
+     *
+     * @example keyWords
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The value of the filter parameter.
+     *
+     * @example select
+     *
      * @var string
      */
     public $value;
@@ -22,18 +32,14 @@ class filters extends Model
         'value' => 'Value',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
-
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -41,18 +47,17 @@ class filters extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return filters
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
-
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

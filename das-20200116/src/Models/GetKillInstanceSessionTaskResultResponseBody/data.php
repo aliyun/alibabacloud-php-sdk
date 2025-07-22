@@ -4,57 +4,102 @@
 
 namespace AlibabaCloud\SDK\DAS\V20200116\Models\GetKillInstanceSessionTaskResultResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\DAS\V20200116\Models\GetKillInstanceSessionTaskResultResponseBody\data\result;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description The number of ignored sessions, including sessions of the accounts that are specified by IgnoredUsers, sessions of internal O\\&M accounts of Alibaba Cloud, and **Binlog Dump** sessions.
+     *
+     * @example 9
+     *
      * @var int
      */
     public $ignoredUserSessionCount;
 
     /**
+     * @description The instance ID.
+     *
+     * @example rm-2ze1jdv45i7l6****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The number of sessions that failed to be terminated.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $killFailCount;
 
     /**
+     * @description The number of sessions that were terminated.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $killSuccessCount;
 
     /**
+     * @description The node ID.
+     *
+     * >  This parameter is returned only if the instance is a PolarDB for MySQL cluster.
+     *
+     * @example pi-bp1h12rv501cv****
+     *
      * @var string
      */
     public $nodeId;
 
     /**
+     * @description The details of the task that terminated sessions.
+     *
      * @var result[]
      */
     public $result;
 
     /**
+     * @description The session IDs.
+     *
+     * >  If all sessions are terminated, the IDs of all sessions on the instance or node are returned.
+     *
      * @var int[]
      */
     public $sessions;
 
     /**
+     * @description The task ID.
+     *
+     * @example f77d535b45405bd462b21caa3ee8****
+     *
      * @var string
      */
     public $taskId;
 
     /**
+     * @description The state of the task that terminates sessions.
+     *
+     *   **RUNNING**: The task is in progress.
+     *   **SUCCESS**: The task is successful.
+     *   **FAILURE**: The task failed.
+     *   **ERROR**: Other errors occur.
+     *
+     * @example SUCCESS
+     *
      * @var string
      */
     public $taskState;
 
     /**
+     * @description The ID of the Alibaba Cloud account.
+     *
+     * @example 164882191396****
+     *
      * @var string
      */
     public $userId;
@@ -71,70 +116,44 @@ class data extends Model
         'userId' => 'UserId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->result)) {
-            Model::validateArray($this->result);
-        }
-        if (\is_array($this->sessions)) {
-            Model::validateArray($this->sessions);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->ignoredUserSessionCount) {
             $res['IgnoredUserSessionCount'] = $this->ignoredUserSessionCount;
         }
-
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->killFailCount) {
             $res['KillFailCount'] = $this->killFailCount;
         }
-
         if (null !== $this->killSuccessCount) {
             $res['KillSuccessCount'] = $this->killSuccessCount;
         }
-
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
         }
-
         if (null !== $this->result) {
-            if (\is_array($this->result)) {
-                $res['Result'] = [];
-                $n1 = 0;
-                foreach ($this->result as $item1) {
-                    $res['Result'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Result'] = [];
+            if (null !== $this->result && \is_array($this->result)) {
+                $n = 0;
+                foreach ($this->result as $item) {
+                    $res['Result'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->sessions) {
-            if (\is_array($this->sessions)) {
-                $res['Sessions'] = [];
-                $n1 = 0;
-                foreach ($this->sessions as $item1) {
-                    $res['Sessions'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['Sessions'] = $this->sessions;
         }
-
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
-
         if (null !== $this->taskState) {
             $res['TaskState'] = $this->taskState;
         }
-
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
@@ -142,64 +161,49 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IgnoredUserSessionCount'])) {
             $model->ignoredUserSessionCount = $map['IgnoredUserSessionCount'];
         }
-
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['KillFailCount'])) {
             $model->killFailCount = $map['KillFailCount'];
         }
-
         if (isset($map['KillSuccessCount'])) {
             $model->killSuccessCount = $map['KillSuccessCount'];
         }
-
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
         }
-
         if (isset($map['Result'])) {
             if (!empty($map['Result'])) {
                 $model->result = [];
-                $n1 = 0;
-                foreach ($map['Result'] as $item1) {
-                    $model->result[$n1] = result::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Result'] as $item) {
+                    $model->result[$n++] = null !== $item ? result::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['Sessions'])) {
             if (!empty($map['Sessions'])) {
-                $model->sessions = [];
-                $n1 = 0;
-                foreach ($map['Sessions'] as $item1) {
-                    $model->sessions[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->sessions = $map['Sessions'];
             }
         }
-
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
-
         if (isset($map['TaskState'])) {
             $model->taskState = $map['TaskState'];
         }
-
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }

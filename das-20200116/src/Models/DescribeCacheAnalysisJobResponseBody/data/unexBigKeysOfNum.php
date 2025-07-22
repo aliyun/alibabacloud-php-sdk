@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\DAS\V20200116\Models\DescribeCacheAnalysisJobResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\DAS\V20200116\Models\DescribeCacheAnalysisJobResponseBody\data\unexBigKeysOfNum\keyInfo;
+use AlibabaCloud\Tea\Model;
 
 class unexBigKeysOfNum extends Model
 {
@@ -17,24 +17,17 @@ class unexBigKeysOfNum extends Model
         'keyInfo' => 'KeyInfo',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->keyInfo)) {
-            Model::validateArray($this->keyInfo);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->keyInfo) {
-            if (\is_array($this->keyInfo)) {
-                $res['KeyInfo'] = [];
-                $n1 = 0;
-                foreach ($this->keyInfo as $item1) {
-                    $res['KeyInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['KeyInfo'] = [];
+            if (null !== $this->keyInfo && \is_array($this->keyInfo)) {
+                $n = 0;
+                foreach ($this->keyInfo as $item) {
+                    $res['KeyInfo'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -42,21 +35,20 @@ class unexBigKeysOfNum extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return unexBigKeysOfNum
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['KeyInfo'])) {
             if (!empty($map['KeyInfo'])) {
                 $model->keyInfo = [];
-                $n1 = 0;
-                foreach ($map['KeyInfo'] as $item1) {
-                    $model->keyInfo[$n1] = keyInfo::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['KeyInfo'] as $item) {
+                    $model->keyInfo[$n++] = null !== $item ? keyInfo::fromMap($item) : $item;
                 }
             }
         }

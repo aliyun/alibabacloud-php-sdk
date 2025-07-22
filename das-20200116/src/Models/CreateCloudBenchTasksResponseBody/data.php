@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\DAS\V20200116\Models\CreateCloudBenchTasksResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -16,47 +16,29 @@ class data extends Model
         'taskIds' => 'taskIds',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->taskIds)) {
-            Model::validateArray($this->taskIds);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->taskIds) {
-            if (\is_array($this->taskIds)) {
-                $res['taskIds'] = [];
-                $n1 = 0;
-                foreach ($this->taskIds as $item1) {
-                    $res['taskIds'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['taskIds'] = $this->taskIds;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['taskIds'])) {
             if (!empty($map['taskIds'])) {
-                $model->taskIds = [];
-                $n1 = 0;
-                foreach ($map['taskIds'] as $item1) {
-                    $model->taskIds[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->taskIds = $map['taskIds'];
             }
         }
 

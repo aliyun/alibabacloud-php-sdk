@@ -4,16 +4,28 @@
 
 namespace AlibabaCloud\SDK\DAS\V20200116\Models\UpdateAutoResourceOptimizeRulesAsyncResponseBody\data\configResponse;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class configSuccessInstanceList extends Model
 {
     /**
+     * @description Indicates whether the parameters are configured. Valid values:
+     *
+     * **true**
+     *
+     * **false**
+     *
+     * @example true
+     *
      * @var bool
      */
     public $configSuccess;
 
     /**
+     * @description The database instance ID.
+     *
+     * @example rm-2ze8g2am97624****
+     *
      * @var string
      */
     public $instanceId;
@@ -22,18 +34,14 @@ class configSuccessInstanceList extends Model
         'instanceId' => 'InstanceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->configSuccess) {
             $res['ConfigSuccess'] = $this->configSuccess;
         }
-
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -41,18 +49,17 @@ class configSuccessInstanceList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return configSuccessInstanceList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConfigSuccess'])) {
             $model->configSuccess = $map['ConfigSuccess'];
         }
-
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

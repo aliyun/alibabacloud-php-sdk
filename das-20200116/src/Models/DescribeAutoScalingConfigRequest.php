@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\DAS\V20200116\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeAutoScalingConfigRequest extends Model
 {
     /**
+     * @description The instance ID.
+     *
+     * This parameter is required.
+     *
+     * @example pc-2ze1prap1k46r****
+     *
      * @var string
      */
     public $instanceId;
@@ -16,12 +22,9 @@ class DescribeAutoScalingConfigRequest extends Model
         'instanceId' => 'InstanceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceId) {
@@ -31,11 +34,11 @@ class DescribeAutoScalingConfigRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeAutoScalingConfigRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

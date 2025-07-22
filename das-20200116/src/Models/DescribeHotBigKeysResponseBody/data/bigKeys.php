@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\DAS\V20200116\Models\DescribeHotBigKeysResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\DAS\V20200116\Models\DescribeHotBigKeysResponseBody\data\bigKeys\bigKey;
+use AlibabaCloud\Tea\Model;
 
 class bigKeys extends Model
 {
@@ -17,24 +17,17 @@ class bigKeys extends Model
         'bigKey' => 'BigKey',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->bigKey)) {
-            Model::validateArray($this->bigKey);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->bigKey) {
-            if (\is_array($this->bigKey)) {
-                $res['BigKey'] = [];
-                $n1 = 0;
-                foreach ($this->bigKey as $item1) {
-                    $res['BigKey'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['BigKey'] = [];
+            if (null !== $this->bigKey && \is_array($this->bigKey)) {
+                $n = 0;
+                foreach ($this->bigKey as $item) {
+                    $res['BigKey'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -42,21 +35,20 @@ class bigKeys extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return bigKeys
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BigKey'])) {
             if (!empty($map['BigKey'])) {
                 $model->bigKey = [];
-                $n1 = 0;
-                foreach ($map['BigKey'] as $item1) {
-                    $model->bigKey[$n1] = bigKey::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['BigKey'] as $item) {
+                    $model->bigKey[$n++] = null !== $item ? bigKey::fromMap($item) : $item;
                 }
             }
         }

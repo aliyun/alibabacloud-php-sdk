@@ -4,26 +4,46 @@
 
 namespace AlibabaCloud\SDK\DAS\V20200116\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetMongoDBCurrentOpRequest extends Model
 {
     /**
+     * @description The `db.currentOp()` command that is used to filter sessions. For more information, see [db.currentOp()](https://docs.mongodb.com/manual/reference/method/db.currentOp/) of MongoDB Documentation.
+     *
+     * @example { "active" : true }
+     *
      * @var string
      */
     public $filterDoc;
 
     /**
+     * @description The instance ID.
+     *
+     * This parameter is required.
+     *
+     * @example dds-uf608087********
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The node ID.
+     *
+     * >  If you do not specify a node ID, the sessions of the primary node are queried by default.
+     *
+     * @example 23302531
+     *
      * @var string
      */
     public $nodeId;
 
     /**
+     * @description A reserved parameter. You do not need to specify the parameter.
+     *
+     * @example None
+     *
      * @var string
      */
     public $role;
@@ -34,26 +54,20 @@ class GetMongoDBCurrentOpRequest extends Model
         'role' => 'Role',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->filterDoc) {
             $res['FilterDoc'] = $this->filterDoc;
         }
-
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
         }
-
         if (null !== $this->role) {
             $res['Role'] = $this->role;
         }
@@ -61,26 +75,23 @@ class GetMongoDBCurrentOpRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetMongoDBCurrentOpRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FilterDoc'])) {
             $model->filterDoc = $map['FilterDoc'];
         }
-
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
         }
-
         if (isset($map['Role'])) {
             $model->role = $map['Role'];
         }
