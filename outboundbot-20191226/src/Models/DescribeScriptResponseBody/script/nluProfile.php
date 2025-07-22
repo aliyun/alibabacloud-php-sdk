@@ -22,10 +22,16 @@ class nluProfile extends Model
      * @var string
      */
     public $fcRegion;
+
+    /**
+     * @var bool
+     */
+    public $supportBeebotPrompts;
     protected $_name = [
         'fcFunction' => 'FcFunction',
         'fcHttpTriggerUrl' => 'FcHttpTriggerUrl',
         'fcRegion' => 'FcRegion',
+        'supportBeebotPrompts' => 'SupportBeebotPrompts',
     ];
 
     public function validate() {}
@@ -41,6 +47,9 @@ class nluProfile extends Model
         }
         if (null !== $this->fcRegion) {
             $res['FcRegion'] = $this->fcRegion;
+        }
+        if (null !== $this->supportBeebotPrompts) {
+            $res['SupportBeebotPrompts'] = $this->supportBeebotPrompts;
         }
 
         return $res;
@@ -62,6 +71,9 @@ class nluProfile extends Model
         }
         if (isset($map['FcRegion'])) {
             $model->fcRegion = $map['FcRegion'];
+        }
+        if (isset($map['SupportBeebotPrompts'])) {
+            $model->supportBeebotPrompts = $map['SupportBeebotPrompts'];
         }
 
         return $model;

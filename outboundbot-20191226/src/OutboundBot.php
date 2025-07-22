@@ -8,6 +8,9 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ApplyNumberDistrictInfoParsingResultRequest;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ApplyNumberDistrictInfoParsingResultResponse;
+use AlibabaCloud\SDK\OutboundBot\V20191226\Models\AssignJobsAsyncRequest;
+use AlibabaCloud\SDK\OutboundBot\V20191226\Models\AssignJobsAsyncResponse;
+use AlibabaCloud\SDK\OutboundBot\V20191226\Models\AssignJobsAsyncShrinkRequest;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\AssignJobsRequest;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\AssignJobsResponse;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\CancelJobsRequest;
@@ -159,6 +162,8 @@ use AlibabaCloud\SDK\OutboundBot\V20191226\Models\GetAnnotationMissionTagInfoLis
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\GetAnnotationMissionTagInfoListResponse;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\GetAsrServerInfoRequest;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\GetAsrServerInfoResponse;
+use AlibabaCloud\SDK\OutboundBot\V20191226\Models\GetAssignJobsAsyncResultRequest;
+use AlibabaCloud\SDK\OutboundBot\V20191226\Models\GetAssignJobsAsyncResultResponse;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\GetBaseStrategyPeriodRequest;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\GetBaseStrategyPeriodResponse;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\GetConcurrentConversationQuotaResponse;
@@ -497,6 +502,73 @@ class OutboundBot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->assignJobsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 异步创建外呼任务
+     *  *
+     * @param AssignJobsAsyncRequest $tmpReq  AssignJobsAsyncRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return AssignJobsAsyncResponse AssignJobsAsyncResponse
+     */
+    public function assignJobsAsyncWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new AssignJobsAsyncShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->callingNumber)) {
+            $request->callingNumberShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->callingNumber, 'CallingNumber', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->jobsJson)) {
+            $request->jobsJsonShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->jobsJson, 'JobsJson', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->callingNumberShrink)) {
+            $body['CallingNumber'] = $request->callingNumberShrink;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->jobGroupId)) {
+            $body['JobGroupId'] = $request->jobGroupId;
+        }
+        if (!Utils::isUnset($request->jobsJsonShrink)) {
+            $body['JobsJson'] = $request->jobsJsonShrink;
+        }
+        if (!Utils::isUnset($request->strategyJson)) {
+            $body['StrategyJson'] = $request->strategyJson;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'AssignJobsAsync',
+            'version' => '2019-12-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AssignJobsAsyncResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 异步创建外呼任务
+     *  *
+     * @param AssignJobsAsyncRequest $request AssignJobsAsyncRequest
+     *
+     * @return AssignJobsAsyncResponse AssignJobsAsyncResponse
+     */
+    public function assignJobsAsync($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->assignJobsAsyncWithOptions($request, $runtime);
     }
 
     /**
@@ -4374,6 +4446,53 @@ class OutboundBot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getAsrServerInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取异步外呼任务上传结果
+     *  *
+     * @param GetAssignJobsAsyncResultRequest $request GetAssignJobsAsyncResultRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetAssignJobsAsyncResultResponse GetAssignJobsAsyncResultResponse
+     */
+    public function getAssignJobsAsyncResultWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->asyncTaskId)) {
+            $query['AsyncTaskId'] = $request->asyncTaskId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAssignJobsAsyncResult',
+            'version' => '2019-12-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAssignJobsAsyncResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取异步外呼任务上传结果
+     *  *
+     * @param GetAssignJobsAsyncResultRequest $request GetAssignJobsAsyncResultRequest
+     *
+     * @return GetAssignJobsAsyncResultResponse GetAssignJobsAsyncResultResponse
+     */
+    public function getAssignJobsAsyncResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAssignJobsAsyncResultWithOptions($request, $runtime);
     }
 
     /**
