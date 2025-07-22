@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180208\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class QueryAuctionDetailRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 123456
+     *
      * @var string
      */
     public $auctionId;
@@ -16,12 +20,9 @@ class QueryAuctionDetailRequest extends Model
         'auctionId' => 'AuctionId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->auctionId) {
@@ -31,11 +32,11 @@ class QueryAuctionDetailRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return QueryAuctionDetailRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

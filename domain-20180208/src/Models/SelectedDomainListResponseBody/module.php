@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180208\Models\SelectedDomainListResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class module extends Model
 {
     /**
+     * @example http://selected-domain.oss-cn-zhangjiakou.aliyuncs.com/aliyun_selected_domain_20231109.gz?Expires=1699524493&OSSAccessKeyId=LTAI5tPMAybR4gfSEjdfAk1F&Signature=2Tpo7Eaf%2BqIop8SuMtI91m%2FAFpY%3D
+     *
      * @var string
      */
     public $downloadUrl;
@@ -16,12 +18,9 @@ class module extends Model
         'downloadUrl' => 'DownloadUrl',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->downloadUrl) {
@@ -31,11 +30,11 @@ class module extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return module
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

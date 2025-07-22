@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180208\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class QueryExchangeRateResponseBody extends Model
 {
     /**
+     * @example 7.12
+     *
      * @var float
      */
     public $exchangeRate;
 
     /**
+     * @example D200000-C0B9-4CD3-B92A-9B44A000000
+     *
      * @var string
      */
     public $requestId;
@@ -22,18 +26,14 @@ class QueryExchangeRateResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->exchangeRate) {
             $res['ExchangeRate'] = $this->exchangeRate;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -41,18 +41,17 @@ class QueryExchangeRateResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return QueryExchangeRateResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExchangeRate'])) {
             $model->exchangeRate = $map['ExchangeRate'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

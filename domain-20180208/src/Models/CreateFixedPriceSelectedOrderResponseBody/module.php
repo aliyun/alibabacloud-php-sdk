@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180208\Models\CreateFixedPriceSelectedOrderResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class module extends Model
 {
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domain;
@@ -19,11 +21,15 @@ class module extends Model
     public $domainBlockTrade;
 
     /**
+     * @example 31199295f2074ce895645d386cb22c36
+     *
      * @var string
      */
     public $orderNo;
 
     /**
+     * @example 20.00
+     *
      * @var int
      */
     public $price;
@@ -34,36 +40,20 @@ class module extends Model
         'price' => 'Price',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->domainBlockTrade)) {
-            Model::validateArray($this->domainBlockTrade);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
-
         if (null !== $this->domainBlockTrade) {
-            if (\is_array($this->domainBlockTrade)) {
-                $res['DomainBlockTrade'] = [];
-                $n1 = 0;
-                foreach ($this->domainBlockTrade as $item1) {
-                    $res['DomainBlockTrade'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['DomainBlockTrade'] = $this->domainBlockTrade;
         }
-
         if (null !== $this->orderNo) {
             $res['OrderNo'] = $this->orderNo;
         }
-
         if (null !== $this->price) {
             $res['Price'] = $this->price;
         }
@@ -71,33 +61,25 @@ class module extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return module
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
-
         if (isset($map['DomainBlockTrade'])) {
             if (!empty($map['DomainBlockTrade'])) {
-                $model->domainBlockTrade = [];
-                $n1 = 0;
-                foreach ($map['DomainBlockTrade'] as $item1) {
-                    $model->domainBlockTrade[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->domainBlockTrade = $map['DomainBlockTrade'];
             }
         }
-
         if (isset($map['OrderNo'])) {
             $model->orderNo = $map['OrderNo'];
         }
-
         if (isset($map['Price'])) {
             $model->price = $map['Price'];
         }

@@ -4,16 +4,22 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180208\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class FinishDemandRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example SE20183A0Q7C5556
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example some message
+     *
      * @var string
      */
     public $message;
@@ -22,18 +28,14 @@ class FinishDemandRequest extends Model
         'message' => 'Message',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->bizId) {
             $res['BizId'] = $this->bizId;
         }
-
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
@@ -41,18 +43,17 @@ class FinishDemandRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return FinishDemandRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BizId'])) {
             $model->bizId = $map['BizId'];
         }
-
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }

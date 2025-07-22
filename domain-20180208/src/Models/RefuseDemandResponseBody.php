@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180208\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class RefuseDemandResponseBody extends Model
 {
     /**
+     * @example 497F7522-82B0-4BD4-84FE-AE8749E4C2F9
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +18,9 @@ class RefuseDemandResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +30,11 @@ class RefuseDemandResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return RefuseDemandResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

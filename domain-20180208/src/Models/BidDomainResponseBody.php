@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180208\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class BidDomainResponseBody extends Model
 {
     /**
+     * @example 12345678
+     *
      * @var string
      */
     public $auctionId;
 
     /**
+     * @example CC615585-9D93-4179-BD16-09337E32A3A7
+     *
      * @var string
      */
     public $requestId;
@@ -22,18 +26,14 @@ class BidDomainResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->auctionId) {
             $res['AuctionId'] = $this->auctionId;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -41,18 +41,17 @@ class BidDomainResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return BidDomainResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AuctionId'])) {
             $model->auctionId = $map['AuctionId'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

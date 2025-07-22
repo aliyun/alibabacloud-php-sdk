@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180208\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class BatchIntrudeDomainsShrinkRequest extends Model
 {
@@ -16,12 +16,9 @@ class BatchIntrudeDomainsShrinkRequest extends Model
         'domainNamesShrink' => 'DomainNames',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->domainNamesShrink) {
@@ -31,11 +28,11 @@ class BatchIntrudeDomainsShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return BatchIntrudeDomainsShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,21 +4,27 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180208\Models\ChangeAuctionRequest\auctionList;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class bidRecords extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @var float
      */
     public $price;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $userId;
@@ -28,22 +34,17 @@ class bidRecords extends Model
         'userId' => 'UserId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-
         if (null !== $this->price) {
             $res['Price'] = $this->price;
         }
-
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
@@ -51,22 +52,20 @@ class bidRecords extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return bidRecords
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
-
         if (isset($map['Price'])) {
             $model->price = $map['Price'];
         }
-
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }

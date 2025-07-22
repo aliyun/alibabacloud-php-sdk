@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180208\Models\CreateFixedPriceDemandOrderResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class module extends Model
 {
@@ -28,22 +28,17 @@ class module extends Model
         'price' => 'Price',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
-
         if (null !== $this->orderNo) {
             $res['OrderNo'] = $this->orderNo;
         }
-
         if (null !== $this->price) {
             $res['Price'] = $this->price;
         }
@@ -51,22 +46,20 @@ class module extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return module
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
-
         if (isset($map['OrderNo'])) {
             $model->orderNo = $map['OrderNo'];
         }
-
         if (isset($map['Price'])) {
             $model->price = $map['Price'];
         }
