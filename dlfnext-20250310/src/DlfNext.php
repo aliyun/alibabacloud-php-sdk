@@ -58,6 +58,8 @@ use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListRolesRequest;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListRolesResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListRoleUsersRequest;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListRoleUsersResponse;
+use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListTableDetailsRequest;
+use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListTableDetailsResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListTablesRequest;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListTablesResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListUserRolesRequest;
@@ -1763,6 +1765,66 @@ class DlfNext extends OpenApiClient
         $headers = [];
 
         return $this->listRolesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 查看表详情列表
+     *  *
+     * @param string                  $catalogId
+     * @param string                  $database
+     * @param ListTableDetailsRequest $request   ListTableDetailsRequest
+     * @param string[]                $headers   map
+     * @param RuntimeOptions          $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return ListTableDetailsResponse ListTableDetailsResponse
+     */
+    public function listTableDetailsWithOptions($catalogId, $database, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['maxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->pageToken)) {
+            $query['pageToken'] = $request->pageToken;
+        }
+        if (!Utils::isUnset($request->tableNamePattern)) {
+            $query['tableNamePattern'] = $request->tableNamePattern;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListTableDetails',
+            'version' => '2025-03-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dlf/v1/' . OpenApiUtilClient::getEncodeParam($catalogId) . '/databases/' . OpenApiUtilClient::getEncodeParam($database) . '/table-details',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListTableDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查看表详情列表
+     *  *
+     * @param string                  $catalogId
+     * @param string                  $database
+     * @param ListTableDetailsRequest $request   ListTableDetailsRequest
+     *
+     * @return ListTableDetailsResponse ListTableDetailsResponse
+     */
+    public function listTableDetails($catalogId, $database, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listTableDetailsWithOptions($catalogId, $database, $request, $headers, $runtime);
     }
 
     /**
