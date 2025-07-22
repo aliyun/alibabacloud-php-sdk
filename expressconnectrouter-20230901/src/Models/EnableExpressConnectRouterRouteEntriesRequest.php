@@ -4,62 +4,92 @@
 
 namespace AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class EnableExpressConnectRouterRouteEntriesRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+     *
+     * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+     *
+     * @example FF9nMec/RZ6H9oqFn1pvyir/SLRlxCCyHJonbGzqL01hiM6Jb3wJowdHvjCfog7ww1b9rSHMRFJnrUBfVba68TJg==
+     *
      * @var string
      */
     public $clientToken;
+
     /**
+     * @description The destination CIDR block of the route entry in the route table of the ECR.
+     *
+     * This parameter is required.
+     *
+     * @example 10.153.32.16/28
+     *
      * @var string
      */
     public $destinationCidrBlock;
+
     /**
+     * @description Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+     *
+     *   **true**: performs only a dry run.
+     *   **false** (default): performs a dry run and performs the actual request.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $dryRun;
+
     /**
+     * @description The ECR ID.
+     *
+     * This parameter is required.
+     *
+     * @example ecr-mezk2idmsd0vx2****
+     *
      * @var string
      */
     public $ecrId;
+
     /**
+     * @description The ID of the next-hop instance.
+     *
+     * This parameter is required.
+     *
+     * @example tr-hp3u4u5f03tfuljis****
+     *
      * @var string
      */
     public $nexthopInstanceId;
     protected $_name = [
-        'clientToken'          => 'ClientToken',
+        'clientToken' => 'ClientToken',
         'destinationCidrBlock' => 'DestinationCidrBlock',
-        'dryRun'               => 'DryRun',
-        'ecrId'                => 'EcrId',
-        'nexthopInstanceId'    => 'NexthopInstanceId',
+        'dryRun' => 'DryRun',
+        'ecrId' => 'EcrId',
+        'nexthopInstanceId' => 'NexthopInstanceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
-
         if (null !== $this->destinationCidrBlock) {
             $res['DestinationCidrBlock'] = $this->destinationCidrBlock;
         }
-
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
         }
-
         if (null !== $this->ecrId) {
             $res['EcrId'] = $this->ecrId;
         }
-
         if (null !== $this->nexthopInstanceId) {
             $res['NexthopInstanceId'] = $this->nexthopInstanceId;
         }
@@ -67,30 +97,26 @@ class EnableExpressConnectRouterRouteEntriesRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return EnableExpressConnectRouterRouteEntriesRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
-
         if (isset($map['DestinationCidrBlock'])) {
             $model->destinationCidrBlock = $map['DestinationCidrBlock'];
         }
-
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
         }
-
         if (isset($map['EcrId'])) {
             $model->ecrId = $map['EcrId'];
         }
-
         if (isset($map['NexthopInstanceId'])) {
             $model->nexthopInstanceId = $map['NexthopInstanceId'];
         }

@@ -4,135 +4,183 @@
 
 namespace AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\DescribeExpressConnectRouterChildInstanceResponseBody\childInstanceList;
+use AlibabaCloud\Tea\Model;
 
 class DescribeExpressConnectRouterChildInstanceResponseBody extends Model
 {
     /**
+     * @description The details about the access denial.
+     *
+     * @example Authentication is failed for ****
+     *
      * @var string
      */
     public $accessDeniedDetail;
+
     /**
+     * @description The VBRs.
+     *
      * @var childInstanceList[]
      */
     public $childInstanceList;
+
     /**
+     * @description The response code. The status code 200 indicates that the request was successful. Other status codes indicate that the request failed. For more information, see Error codes.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
+
     /**
+     * @description The dynamic error code.
+     *
+     * @example IllegalParamFormat.EcrId
+     *
      * @var string
      */
     public $dynamicCode;
+
     /**
+     * @description The dynamic part in the error message. This parameter is used to replace the `%s` variable in **ErrMessage**.
+     *
+     * >  For example, if the value of **ErrMessage** is **The Value of Input Parameter %s is not valid** and the value of **DynamicMessage** is **DtsJobId**, the request parameter **DtsJobId** is invalid.
+     *
+     * @example The param format of EcrId **** is illegal.
+     *
      * @var string
      */
     public $dynamicMessage;
+
     /**
+     * @description The HTTP status code.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
+
     /**
+     * @description The total number of entries returned. Valid values: 1 to 2147483647. Default value: 20.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $maxResults;
+
     /**
+     * @description The returned message.
+     *
+     * @example OK
+     *
      * @var string
      */
     public $message;
+
     /**
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results. Valid values:
+     *
+     *   If **NextToken** is empty, no next page exists.
+     *   If a value of **NextToken** is returned, the value indicates the token that is used for the next query.
+     *
+     * @example AAAAAYws9fJ0Ur4MGm/5OkDoW/Zn0J0/sCjivzwX9oBcwFnWaaas/kSG+J/WzLOxJHS4****
+     *
      * @var string
      */
     public $nextToken;
+
     /**
+     * @description The request ID.
+     *
+     * @example 05130E79-588D-5C40-A718-C4863A59****
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example True
+     *
      * @var bool
      */
     public $success;
+
     /**
+     * @description The total number of associated resources.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'accessDeniedDetail' => 'AccessDeniedDetail',
-        'childInstanceList'  => 'ChildInstanceList',
-        'code'               => 'Code',
-        'dynamicCode'        => 'DynamicCode',
-        'dynamicMessage'     => 'DynamicMessage',
-        'httpStatusCode'     => 'HttpStatusCode',
-        'maxResults'         => 'MaxResults',
-        'message'            => 'Message',
-        'nextToken'          => 'NextToken',
-        'requestId'          => 'RequestId',
-        'success'            => 'Success',
-        'totalCount'         => 'TotalCount',
+        'childInstanceList' => 'ChildInstanceList',
+        'code' => 'Code',
+        'dynamicCode' => 'DynamicCode',
+        'dynamicMessage' => 'DynamicMessage',
+        'httpStatusCode' => 'HttpStatusCode',
+        'maxResults' => 'MaxResults',
+        'message' => 'Message',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->childInstanceList)) {
-            Model::validateArray($this->childInstanceList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->accessDeniedDetail) {
             $res['AccessDeniedDetail'] = $this->accessDeniedDetail;
         }
-
         if (null !== $this->childInstanceList) {
-            if (\is_array($this->childInstanceList)) {
-                $res['ChildInstanceList'] = [];
-                $n1                       = 0;
-                foreach ($this->childInstanceList as $item1) {
-                    $res['ChildInstanceList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['ChildInstanceList'] = [];
+            if (null !== $this->childInstanceList && \is_array($this->childInstanceList)) {
+                $n = 0;
+                foreach ($this->childInstanceList as $item) {
+                    $res['ChildInstanceList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-
         if (null !== $this->dynamicCode) {
             $res['DynamicCode'] = $this->dynamicCode;
         }
-
         if (null !== $this->dynamicMessage) {
             $res['DynamicMessage'] = $this->dynamicMessage;
         }
-
         if (null !== $this->httpStatusCode) {
             $res['HttpStatusCode'] = $this->httpStatusCode;
         }
-
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
-
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
-
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
-
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -140,64 +188,53 @@ class DescribeExpressConnectRouterChildInstanceResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeExpressConnectRouterChildInstanceResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccessDeniedDetail'])) {
             $model->accessDeniedDetail = $map['AccessDeniedDetail'];
         }
-
         if (isset($map['ChildInstanceList'])) {
             if (!empty($map['ChildInstanceList'])) {
                 $model->childInstanceList = [];
-                $n1                       = 0;
-                foreach ($map['ChildInstanceList'] as $item1) {
-                    $model->childInstanceList[$n1++] = childInstanceList::fromMap($item1);
+                $n = 0;
+                foreach ($map['ChildInstanceList'] as $item) {
+                    $model->childInstanceList[$n++] = null !== $item ? childInstanceList::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-
         if (isset($map['DynamicCode'])) {
             $model->dynamicCode = $map['DynamicCode'];
         }
-
         if (isset($map['DynamicMessage'])) {
             $model->dynamicMessage = $map['DynamicMessage'];
         }
-
         if (isset($map['HttpStatusCode'])) {
             $model->httpStatusCode = $map['HttpStatusCode'];
         }
-
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
-
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
-
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }
-
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

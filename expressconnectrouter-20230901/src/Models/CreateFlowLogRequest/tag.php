@@ -2,30 +2,18 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\DescribeFlowLogsResponseBody\flowLogs;
+namespace AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\CreateFlowLogRequest;
 
 use AlibabaCloud\Tea\Model;
 
-class tags extends Model
+class tag extends Model
 {
     /**
-     * @description The key of tag N of the instance. The tag key cannot be an empty string.
-     *
-     * > It can be up to 64 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
-     *
-     * @example TagKey
-     *
      * @var string
      */
     public $key;
 
     /**
-     * @description The tag value.
-     *
-     * > It can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`. The tag value can be an empty string.
-     *
-     * @example TagValue
-     *
      * @var string
      */
     public $value;
@@ -52,7 +40,7 @@ class tags extends Model
     /**
      * @param array $map
      *
-     * @return tags
+     * @return tag
      */
     public static function fromMap($map = [])
     {

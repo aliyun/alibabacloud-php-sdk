@@ -4,7 +4,8 @@
 
 namespace AlibabaCloud\SDK\ExpressConnectRouter\V20230901;
 
-use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\ActivateFlowLogRequest;
 use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\ActivateFlowLogResponse;
 use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\AttachExpressConnectRouterChildInstanceRequest;
@@ -77,10 +78,11 @@ use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\UntagResourcesResponse;
+use AlibabaCloud\Tea\Utils\Utils;
+use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
-use Darabonba\OpenApi\Utils;
 
 class ExpressConnectRouter extends OpenApiClient
 {
@@ -105,79 +107,64 @@ class ExpressConnectRouter extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (null !== $endpoint) {
+        if (!Utils::empty_($endpoint)) {
             return $endpoint;
         }
-
-        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
+        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
             return @$endpointMap[$regionId];
         }
 
-        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * Enables log delivery.
+     * @summary Enables log delivery for flow logs.
+     *  *
+     * @param ActivateFlowLogRequest $request ActivateFlowLogRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ActivateFlowLogRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ActivateFlowLogResponse
-     *
-     * @param ActivateFlowLogRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return ActivateFlowLogResponse
+     * @return ActivateFlowLogResponse ActivateFlowLogResponse
      */
     public function activateFlowLogWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->clientToken) {
-            @$body['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->dryRun) {
-            @$body['DryRun'] = $request->dryRun;
+        if (!Utils::isUnset($request->dryRun)) {
+            $body['DryRun'] = $request->dryRun;
         }
-
-        if (null !== $request->ecrId) {
-            @$body['EcrId'] = $request->ecrId;
+        if (!Utils::isUnset($request->ecrId)) {
+            $body['EcrId'] = $request->ecrId;
         }
-
-        if (null !== $request->flowLogId) {
-            @$body['FlowLogId'] = $request->flowLogId;
+        if (!Utils::isUnset($request->flowLogId)) {
+            $body['FlowLogId'] = $request->flowLogId;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ActivateFlowLog',
-            'version'     => '2023-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ActivateFlowLog',
+            'version' => '2023-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ActivateFlowLogResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ActivateFlowLogResponse::fromMap($this->execute($params, $req, $runtime));
+        return ActivateFlowLogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Enables log delivery.
+     * @summary Enables log delivery for flow logs.
+     *  *
+     * @param ActivateFlowLogRequest $request ActivateFlowLogRequest
      *
-     * @param request - ActivateFlowLogRequest
-     * @returns ActivateFlowLogResponse
-     *
-     * @param ActivateFlowLogRequest $request
-     *
-     * @return ActivateFlowLogResponse
+     * @return ActivateFlowLogResponse ActivateFlowLogResponse
      */
     public function activateFlowLog($request)
     {
@@ -187,89 +174,69 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Associates a virtual border router (VBR) with an Express Connect router (ECR).
+     * @summary Associates a virtual border router (VBR) with an Express Connect router (ECR).
+     *  *
+     * @description Before you call the **AttachExpressConnectRouterChildInstance** operation to associate a VBR with an ECR, make sure that the ECR is in the **Active** state.
+     *  *
+     * @param AttachExpressConnectRouterChildInstanceRequest $request AttachExpressConnectRouterChildInstanceRequest
+     * @param RuntimeOptions                                 $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * Before you call the **AttachExpressConnectRouterChildInstance** operation to associate a VBR with an ECR, make sure that the ECR is in the **Active** state.
-     *
-     * @param request - AttachExpressConnectRouterChildInstanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns AttachExpressConnectRouterChildInstanceResponse
-     *
-     * @param AttachExpressConnectRouterChildInstanceRequest $request
-     * @param RuntimeOptions                                 $runtime
-     *
-     * @return AttachExpressConnectRouterChildInstanceResponse
+     * @return AttachExpressConnectRouterChildInstanceResponse AttachExpressConnectRouterChildInstanceResponse
      */
     public function attachExpressConnectRouterChildInstanceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->childInstanceId) {
-            @$body['ChildInstanceId'] = $request->childInstanceId;
+        if (!Utils::isUnset($request->childInstanceId)) {
+            $body['ChildInstanceId'] = $request->childInstanceId;
         }
-
-        if (null !== $request->childInstanceOwnerId) {
-            @$body['ChildInstanceOwnerId'] = $request->childInstanceOwnerId;
+        if (!Utils::isUnset($request->childInstanceOwnerId)) {
+            $body['ChildInstanceOwnerId'] = $request->childInstanceOwnerId;
         }
-
-        if (null !== $request->childInstanceRegionId) {
-            @$body['ChildInstanceRegionId'] = $request->childInstanceRegionId;
+        if (!Utils::isUnset($request->childInstanceRegionId)) {
+            $body['ChildInstanceRegionId'] = $request->childInstanceRegionId;
         }
-
-        if (null !== $request->childInstanceType) {
-            @$body['ChildInstanceType'] = $request->childInstanceType;
+        if (!Utils::isUnset($request->childInstanceType)) {
+            $body['ChildInstanceType'] = $request->childInstanceType;
         }
-
-        if (null !== $request->clientToken) {
-            @$body['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->description) {
-            @$body['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
         }
-
-        if (null !== $request->dryRun) {
-            @$body['DryRun'] = $request->dryRun;
+        if (!Utils::isUnset($request->dryRun)) {
+            $body['DryRun'] = $request->dryRun;
         }
-
-        if (null !== $request->ecrId) {
-            @$body['EcrId'] = $request->ecrId;
+        if (!Utils::isUnset($request->ecrId)) {
+            $body['EcrId'] = $request->ecrId;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AttachExpressConnectRouterChildInstance',
-            'version'     => '2023-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AttachExpressConnectRouterChildInstance',
+            'version' => '2023-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AttachExpressConnectRouterChildInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AttachExpressConnectRouterChildInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return AttachExpressConnectRouterChildInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Associates a virtual border router (VBR) with an Express Connect router (ECR).
+     * @summary Associates a virtual border router (VBR) with an Express Connect router (ECR).
+     *  *
+     * @description Before you call the **AttachExpressConnectRouterChildInstance** operation to associate a VBR with an ECR, make sure that the ECR is in the **Active** state.
+     *  *
+     * @param AttachExpressConnectRouterChildInstanceRequest $request AttachExpressConnectRouterChildInstanceRequest
      *
-     * @remarks
-     * Before you call the **AttachExpressConnectRouterChildInstance** operation to associate a VBR with an ECR, make sure that the ECR is in the **Active** state.
-     *
-     * @param request - AttachExpressConnectRouterChildInstanceRequest
-     * @returns AttachExpressConnectRouterChildInstanceResponse
-     *
-     * @param AttachExpressConnectRouterChildInstanceRequest $request
-     *
-     * @return AttachExpressConnectRouterChildInstanceResponse
+     * @return AttachExpressConnectRouterChildInstanceResponse AttachExpressConnectRouterChildInstanceResponse
      */
     public function attachExpressConnectRouterChildInstance($request)
     {
@@ -279,67 +246,53 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Checks the Cloud Data Transfer (CDT) service required to add a region to an Express Connect router (ECR).
+     * @summary Checks the Cloud Data Transfer (CDT) service required to add a region to an Express Connect router (ECR).
+     *  *
+     * @param CheckAddRegionToExpressConnectRouterRequest $request CheckAddRegionToExpressConnectRouterRequest
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CheckAddRegionToExpressConnectRouterRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CheckAddRegionToExpressConnectRouterResponse
-     *
-     * @param CheckAddRegionToExpressConnectRouterRequest $request
-     * @param RuntimeOptions                              $runtime
-     *
-     * @return CheckAddRegionToExpressConnectRouterResponse
+     * @return CheckAddRegionToExpressConnectRouterResponse CheckAddRegionToExpressConnectRouterResponse
      */
     public function checkAddRegionToExpressConnectRouterWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->clientToken) {
-            @$body['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->dryRun) {
-            @$body['DryRun'] = $request->dryRun;
+        if (!Utils::isUnset($request->dryRun)) {
+            $body['DryRun'] = $request->dryRun;
         }
-
-        if (null !== $request->ecrId) {
-            @$body['EcrId'] = $request->ecrId;
+        if (!Utils::isUnset($request->ecrId)) {
+            $body['EcrId'] = $request->ecrId;
         }
-
-        if (null !== $request->freshRegionId) {
-            @$body['FreshRegionId'] = $request->freshRegionId;
+        if (!Utils::isUnset($request->freshRegionId)) {
+            $body['FreshRegionId'] = $request->freshRegionId;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CheckAddRegionToExpressConnectRouter',
-            'version'     => '2023-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CheckAddRegionToExpressConnectRouter',
+            'version' => '2023-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CheckAddRegionToExpressConnectRouterResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CheckAddRegionToExpressConnectRouterResponse::fromMap($this->execute($params, $req, $runtime));
+        return CheckAddRegionToExpressConnectRouterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Checks the Cloud Data Transfer (CDT) service required to add a region to an Express Connect router (ECR).
+     * @summary Checks the Cloud Data Transfer (CDT) service required to add a region to an Express Connect router (ECR).
+     *  *
+     * @param CheckAddRegionToExpressConnectRouterRequest $request CheckAddRegionToExpressConnectRouterRequest
      *
-     * @param request - CheckAddRegionToExpressConnectRouterRequest
-     * @returns CheckAddRegionToExpressConnectRouterResponse
-     *
-     * @param CheckAddRegionToExpressConnectRouterRequest $request
-     *
-     * @return CheckAddRegionToExpressConnectRouterResponse
+     * @return CheckAddRegionToExpressConnectRouterResponse CheckAddRegionToExpressConnectRouterResponse
      */
     public function checkAddRegionToExpressConnectRouter($request)
     {
@@ -349,85 +302,66 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Creates an Express Connect Router (ECR).
+     * @summary Creates an Express Connect Router (ECR).
+     *  *
+     * @description After you create an ECR, it enters the **Active** state.
+     *  *
+     * @param CreateExpressConnectRouterRequest $request CreateExpressConnectRouterRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * After you create an ECR, it enters the **Active** state.
-     *
-     * @param request - CreateExpressConnectRouterRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateExpressConnectRouterResponse
-     *
-     * @param CreateExpressConnectRouterRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return CreateExpressConnectRouterResponse
+     * @return CreateExpressConnectRouterResponse CreateExpressConnectRouterResponse
      */
     public function createExpressConnectRouterWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->alibabaSideAsn) {
-            @$body['AlibabaSideAsn'] = $request->alibabaSideAsn;
+        if (!Utils::isUnset($request->alibabaSideAsn)) {
+            $body['AlibabaSideAsn'] = $request->alibabaSideAsn;
         }
-
-        if (null !== $request->clientToken) {
-            @$body['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->description) {
-            @$body['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
         }
-
-        if (null !== $request->dryRun) {
-            @$body['DryRun'] = $request->dryRun;
+        if (!Utils::isUnset($request->dryRun)) {
+            $body['DryRun'] = $request->dryRun;
         }
-
-        if (null !== $request->name) {
-            @$body['Name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$body['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $body['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->tag) {
-            @$body['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $body['Tag'] = $request->tag;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateExpressConnectRouter',
-            'version'     => '2023-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateExpressConnectRouter',
+            'version' => '2023-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateExpressConnectRouterResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateExpressConnectRouterResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateExpressConnectRouterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Creates an Express Connect Router (ECR).
+     * @summary Creates an Express Connect Router (ECR).
+     *  *
+     * @description After you create an ECR, it enters the **Active** state.
+     *  *
+     * @param CreateExpressConnectRouterRequest $request CreateExpressConnectRouterRequest
      *
-     * @remarks
-     * After you create an ECR, it enters the **Active** state.
-     *
-     * @param request - CreateExpressConnectRouterRequest
-     * @returns CreateExpressConnectRouterResponse
-     *
-     * @param CreateExpressConnectRouterRequest $request
-     *
-     * @return CreateExpressConnectRouterResponse
+     * @return CreateExpressConnectRouterResponse CreateExpressConnectRouterResponse
      */
     public function createExpressConnectRouter($request)
     {
@@ -437,103 +371,80 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Associates a virtual private cloud (VPC) or a transit router (TR) with an Express Connect router (ECR).
+     * @summary Associates a virtual private cloud (VPC) or a transit router (TR) with an Express Connect router (ECR).
+     *  *
+     * @param CreateExpressConnectRouterAssociationRequest $request CreateExpressConnectRouterAssociationRequest
+     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateExpressConnectRouterAssociationRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateExpressConnectRouterAssociationResponse
-     *
-     * @param CreateExpressConnectRouterAssociationRequest $request
-     * @param RuntimeOptions                               $runtime
-     *
-     * @return CreateExpressConnectRouterAssociationResponse
+     * @return CreateExpressConnectRouterAssociationResponse CreateExpressConnectRouterAssociationResponse
      */
     public function createExpressConnectRouterAssociationWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->allowedPrefixes) {
-            @$body['AllowedPrefixes'] = $request->allowedPrefixes;
+        if (!Utils::isUnset($request->allowedPrefixes)) {
+            $body['AllowedPrefixes'] = $request->allowedPrefixes;
         }
-
-        if (null !== $request->allowedPrefixesMode) {
-            @$body['AllowedPrefixesMode'] = $request->allowedPrefixesMode;
+        if (!Utils::isUnset($request->allowedPrefixesMode)) {
+            $body['AllowedPrefixesMode'] = $request->allowedPrefixesMode;
         }
-
-        if (null !== $request->associationRegionId) {
-            @$body['AssociationRegionId'] = $request->associationRegionId;
+        if (!Utils::isUnset($request->associationRegionId)) {
+            $body['AssociationRegionId'] = $request->associationRegionId;
         }
-
-        if (null !== $request->cenId) {
-            @$body['CenId'] = $request->cenId;
+        if (!Utils::isUnset($request->cenId)) {
+            $body['CenId'] = $request->cenId;
         }
-
-        if (null !== $request->clientToken) {
-            @$body['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->createAttachment) {
-            @$body['CreateAttachment'] = $request->createAttachment;
+        if (!Utils::isUnset($request->createAttachment)) {
+            $body['CreateAttachment'] = $request->createAttachment;
         }
-
-        if (null !== $request->description) {
-            @$body['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
         }
-
-        if (null !== $request->dryRun) {
-            @$body['DryRun'] = $request->dryRun;
+        if (!Utils::isUnset($request->dryRun)) {
+            $body['DryRun'] = $request->dryRun;
         }
-
-        if (null !== $request->ecrId) {
-            @$body['EcrId'] = $request->ecrId;
+        if (!Utils::isUnset($request->ecrId)) {
+            $body['EcrId'] = $request->ecrId;
         }
-
-        if (null !== $request->transitRouterId) {
-            @$body['TransitRouterId'] = $request->transitRouterId;
+        if (!Utils::isUnset($request->transitRouterId)) {
+            $body['TransitRouterId'] = $request->transitRouterId;
         }
-
-        if (null !== $request->transitRouterOwnerId) {
-            @$body['TransitRouterOwnerId'] = $request->transitRouterOwnerId;
+        if (!Utils::isUnset($request->transitRouterOwnerId)) {
+            $body['TransitRouterOwnerId'] = $request->transitRouterOwnerId;
         }
-
-        if (null !== $request->vpcId) {
-            @$body['VpcId'] = $request->vpcId;
+        if (!Utils::isUnset($request->vpcId)) {
+            $body['VpcId'] = $request->vpcId;
         }
-
-        if (null !== $request->vpcOwnerId) {
-            @$body['VpcOwnerId'] = $request->vpcOwnerId;
+        if (!Utils::isUnset($request->vpcOwnerId)) {
+            $body['VpcOwnerId'] = $request->vpcOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateExpressConnectRouterAssociation',
-            'version'     => '2023-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateExpressConnectRouterAssociation',
+            'version' => '2023-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateExpressConnectRouterAssociationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateExpressConnectRouterAssociationResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateExpressConnectRouterAssociationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Associates a virtual private cloud (VPC) or a transit router (TR) with an Express Connect router (ECR).
+     * @summary Associates a virtual private cloud (VPC) or a transit router (TR) with an Express Connect router (ECR).
+     *  *
+     * @param CreateExpressConnectRouterAssociationRequest $request CreateExpressConnectRouterAssociationRequest
      *
-     * @param request - CreateExpressConnectRouterAssociationRequest
-     * @returns CreateExpressConnectRouterAssociationResponse
-     *
-     * @param CreateExpressConnectRouterAssociationRequest $request
-     *
-     * @return CreateExpressConnectRouterAssociationResponse
+     * @return CreateExpressConnectRouterAssociationResponse CreateExpressConnectRouterAssociationResponse
      */
     public function createExpressConnectRouterAssociation($request)
     {
@@ -543,97 +454,82 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * 创建流日志.
+     * @summary Creates a flow log and enables log delivery.
+     *  *
+     * @param CreateFlowLogRequest $request CreateFlowLogRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateFlowLogRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateFlowLogResponse
-     *
-     * @param CreateFlowLogRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return CreateFlowLogResponse
+     * @return CreateFlowLogResponse CreateFlowLogResponse
      */
     public function createFlowLogWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->instanceType) {
-            @$query['InstanceType'] = $request->instanceType;
+        if (!Utils::isUnset($request->instanceType)) {
+            $query['InstanceType'] = $request->instanceType;
         }
-
-        if (null !== $request->interval) {
-            @$query['Interval'] = $request->interval;
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
         }
-
-        if (null !== $request->logStoreName) {
-            @$query['LogStoreName'] = $request->logStoreName;
+        if (!Utils::isUnset($request->logStoreName)) {
+            $query['LogStoreName'] = $request->logStoreName;
         }
-
-        if (null !== $request->projectName) {
-            @$query['ProjectName'] = $request->projectName;
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
         }
-
-        if (null !== $request->samplingRate) {
-            @$query['SamplingRate'] = $request->samplingRate;
+        if (!Utils::isUnset($request->samplingRate)) {
+            $query['SamplingRate'] = $request->samplingRate;
         }
-
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         $body = [];
-        if (null !== $request->clientToken) {
-            @$body['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->dryRun) {
-            @$body['DryRun'] = $request->dryRun;
+        if (!Utils::isUnset($request->dryRun)) {
+            $body['DryRun'] = $request->dryRun;
         }
-
-        if (null !== $request->ecrId) {
-            @$body['EcrId'] = $request->ecrId;
+        if (!Utils::isUnset($request->ecrId)) {
+            $body['EcrId'] = $request->ecrId;
         }
-
-        if (null !== $request->flowLogName) {
-            @$body['FlowLogName'] = $request->flowLogName;
+        if (!Utils::isUnset($request->flowLogName)) {
+            $body['FlowLogName'] = $request->flowLogName;
         }
-
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $body['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateFlowLog',
-            'version'     => '2023-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateFlowLog',
+            'version' => '2023-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateFlowLogResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateFlowLogResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateFlowLogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 创建流日志.
+     * @summary Creates a flow log and enables log delivery.
+     *  *
+     * @param CreateFlowLogRequest $request CreateFlowLogRequest
      *
-     * @param request - CreateFlowLogRequest
-     * @returns CreateFlowLogResponse
-     *
-     * @param CreateFlowLogRequest $request
-     *
-     * @return CreateFlowLogResponse
+     * @return CreateFlowLogResponse CreateFlowLogResponse
      */
     public function createFlowLog($request)
     {
@@ -643,67 +539,53 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * 停止流日志.
+     * @summary Disables log delivery.
+     *  *
+     * @param DeactivateFlowLogRequest $request DeactivateFlowLogRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeactivateFlowLogRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeactivateFlowLogResponse
-     *
-     * @param DeactivateFlowLogRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return DeactivateFlowLogResponse
+     * @return DeactivateFlowLogResponse DeactivateFlowLogResponse
      */
     public function deactivateFlowLogWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->clientToken) {
-            @$body['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->dryRun) {
-            @$body['DryRun'] = $request->dryRun;
+        if (!Utils::isUnset($request->dryRun)) {
+            $body['DryRun'] = $request->dryRun;
         }
-
-        if (null !== $request->ecrId) {
-            @$body['EcrId'] = $request->ecrId;
+        if (!Utils::isUnset($request->ecrId)) {
+            $body['EcrId'] = $request->ecrId;
         }
-
-        if (null !== $request->flowLogId) {
-            @$body['FlowLogId'] = $request->flowLogId;
+        if (!Utils::isUnset($request->flowLogId)) {
+            $body['FlowLogId'] = $request->flowLogId;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeactivateFlowLog',
-            'version'     => '2023-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeactivateFlowLog',
+            'version' => '2023-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeactivateFlowLogResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeactivateFlowLogResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeactivateFlowLogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 停止流日志.
+     * @summary Disables log delivery.
+     *  *
+     * @param DeactivateFlowLogRequest $request DeactivateFlowLogRequest
      *
-     * @param request - DeactivateFlowLogRequest
-     * @returns DeactivateFlowLogResponse
-     *
-     * @param DeactivateFlowLogRequest $request
-     *
-     * @return DeactivateFlowLogResponse
+     * @return DeactivateFlowLogResponse DeactivateFlowLogResponse
      */
     public function deactivateFlowLog($request)
     {
@@ -713,73 +595,58 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Deletes an Express Connect router (ECR).
-     *
-     * @remarks
-     * Take note of the following items:
+     * @summary Deletes an Express Connect router (ECR).
+     *  *
+     * @description Take note of the following items:
      * *   Before you call this operation, make sure that all resources are disassociated from the ECR.
      * *   You can delete only ECRs that are in the **Active** state.
+     *  *
+     * @param DeleteExpressConnectRouterRequest $request DeleteExpressConnectRouterRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteExpressConnectRouterRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteExpressConnectRouterResponse
-     *
-     * @param DeleteExpressConnectRouterRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return DeleteExpressConnectRouterResponse
+     * @return DeleteExpressConnectRouterResponse DeleteExpressConnectRouterResponse
      */
     public function deleteExpressConnectRouterWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->clientToken) {
-            @$body['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->dryRun) {
-            @$body['DryRun'] = $request->dryRun;
+        if (!Utils::isUnset($request->dryRun)) {
+            $body['DryRun'] = $request->dryRun;
         }
-
-        if (null !== $request->ecrId) {
-            @$body['EcrId'] = $request->ecrId;
+        if (!Utils::isUnset($request->ecrId)) {
+            $body['EcrId'] = $request->ecrId;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteExpressConnectRouter',
-            'version'     => '2023-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteExpressConnectRouter',
+            'version' => '2023-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteExpressConnectRouterResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteExpressConnectRouterResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteExpressConnectRouterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Deletes an Express Connect router (ECR).
-     *
-     * @remarks
-     * Take note of the following items:
+     * @summary Deletes an Express Connect router (ECR).
+     *  *
+     * @description Take note of the following items:
      * *   Before you call this operation, make sure that all resources are disassociated from the ECR.
      * *   You can delete only ECRs that are in the **Active** state.
+     *  *
+     * @param DeleteExpressConnectRouterRequest $request DeleteExpressConnectRouterRequest
      *
-     * @param request - DeleteExpressConnectRouterRequest
-     * @returns DeleteExpressConnectRouterResponse
-     *
-     * @param DeleteExpressConnectRouterRequest $request
-     *
-     * @return DeleteExpressConnectRouterResponse
+     * @return DeleteExpressConnectRouterResponse DeleteExpressConnectRouterResponse
      */
     public function deleteExpressConnectRouter($request)
     {
@@ -789,71 +656,56 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Disassociates an Express Connect router (ECR) from a virtual private cloud (VPC) or a transit router (TR).
+     * @summary Disassociates an Express Connect router (ECR) from a virtual private cloud (VPC) or a transit router (TR).
+     *  *
+     * @param DeleteExpressConnectRouterAssociationRequest $request DeleteExpressConnectRouterAssociationRequest
+     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteExpressConnectRouterAssociationRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteExpressConnectRouterAssociationResponse
-     *
-     * @param DeleteExpressConnectRouterAssociationRequest $request
-     * @param RuntimeOptions                               $runtime
-     *
-     * @return DeleteExpressConnectRouterAssociationResponse
+     * @return DeleteExpressConnectRouterAssociationResponse DeleteExpressConnectRouterAssociationResponse
      */
     public function deleteExpressConnectRouterAssociationWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->associationId) {
-            @$body['AssociationId'] = $request->associationId;
+        if (!Utils::isUnset($request->associationId)) {
+            $body['AssociationId'] = $request->associationId;
         }
-
-        if (null !== $request->clientToken) {
-            @$body['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->deleteAttachment) {
-            @$body['DeleteAttachment'] = $request->deleteAttachment;
+        if (!Utils::isUnset($request->deleteAttachment)) {
+            $body['DeleteAttachment'] = $request->deleteAttachment;
         }
-
-        if (null !== $request->dryRun) {
-            @$body['DryRun'] = $request->dryRun;
+        if (!Utils::isUnset($request->dryRun)) {
+            $body['DryRun'] = $request->dryRun;
         }
-
-        if (null !== $request->ecrId) {
-            @$body['EcrId'] = $request->ecrId;
+        if (!Utils::isUnset($request->ecrId)) {
+            $body['EcrId'] = $request->ecrId;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteExpressConnectRouterAssociation',
-            'version'     => '2023-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteExpressConnectRouterAssociation',
+            'version' => '2023-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteExpressConnectRouterAssociationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteExpressConnectRouterAssociationResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteExpressConnectRouterAssociationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Disassociates an Express Connect router (ECR) from a virtual private cloud (VPC) or a transit router (TR).
+     * @summary Disassociates an Express Connect router (ECR) from a virtual private cloud (VPC) or a transit router (TR).
+     *  *
+     * @param DeleteExpressConnectRouterAssociationRequest $request DeleteExpressConnectRouterAssociationRequest
      *
-     * @param request - DeleteExpressConnectRouterAssociationRequest
-     * @returns DeleteExpressConnectRouterAssociationResponse
-     *
-     * @param DeleteExpressConnectRouterAssociationRequest $request
-     *
-     * @return DeleteExpressConnectRouterAssociationResponse
+     * @return DeleteExpressConnectRouterAssociationResponse DeleteExpressConnectRouterAssociationResponse
      */
     public function deleteExpressConnectRouterAssociation($request)
     {
@@ -863,69 +715,55 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * 删除流日志.
+     * @summary Deletes a flow log.
+     *  *
+     * @param DeleteFlowlogRequest $request DeleteFlowlogRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteFlowlogRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteFlowlogResponse
-     *
-     * @param DeleteFlowlogRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return DeleteFlowlogResponse
+     * @return DeleteFlowlogResponse DeleteFlowlogResponse
      */
     public function deleteFlowlogWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->flowLogId) {
-            @$query['FlowLogId'] = $request->flowLogId;
+        if (!Utils::isUnset($request->flowLogId)) {
+            $query['FlowLogId'] = $request->flowLogId;
         }
-
         $body = [];
-        if (null !== $request->clientToken) {
-            @$body['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->dryRun) {
-            @$body['DryRun'] = $request->dryRun;
+        if (!Utils::isUnset($request->dryRun)) {
+            $body['DryRun'] = $request->dryRun;
         }
-
-        if (null !== $request->ecrId) {
-            @$body['EcrId'] = $request->ecrId;
+        if (!Utils::isUnset($request->ecrId)) {
+            $body['EcrId'] = $request->ecrId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteFlowlog',
-            'version'     => '2023-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteFlowlog',
+            'version' => '2023-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteFlowlogResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteFlowlogResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteFlowlogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 删除流日志.
+     * @summary Deletes a flow log.
+     *  *
+     * @param DeleteFlowlogRequest $request DeleteFlowlogRequest
      *
-     * @param request - DeleteFlowlogRequest
-     * @returns DeleteFlowlogResponse
-     *
-     * @param DeleteFlowlogRequest $request
-     *
-     * @return DeleteFlowlogResponse
+     * @return DeleteFlowlogResponse DeleteFlowlogResponse
      */
     public function deleteFlowlog($request)
     {
@@ -935,71 +773,56 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Queries the route entries that are disabled on an Express Connect router (ECR).
+     * @summary Queries the route entries that are disabled on an Express Connect router (ECR).
+     *  *
+     * @param DescribeDisabledExpressConnectRouterRouteEntriesRequest $request DescribeDisabledExpressConnectRouterRouteEntriesRequest
+     * @param RuntimeOptions                                          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDisabledExpressConnectRouterRouteEntriesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeDisabledExpressConnectRouterRouteEntriesResponse
-     *
-     * @param DescribeDisabledExpressConnectRouterRouteEntriesRequest $request
-     * @param RuntimeOptions                                          $runtime
-     *
-     * @return DescribeDisabledExpressConnectRouterRouteEntriesResponse
+     * @return DescribeDisabledExpressConnectRouterRouteEntriesResponse DescribeDisabledExpressConnectRouterRouteEntriesResponse
      */
     public function describeDisabledExpressConnectRouterRouteEntriesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->clientToken) {
-            @$body['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->dryRun) {
-            @$body['DryRun'] = $request->dryRun;
+        if (!Utils::isUnset($request->dryRun)) {
+            $body['DryRun'] = $request->dryRun;
         }
-
-        if (null !== $request->ecrId) {
-            @$body['EcrId'] = $request->ecrId;
+        if (!Utils::isUnset($request->ecrId)) {
+            $body['EcrId'] = $request->ecrId;
         }
-
-        if (null !== $request->maxResults) {
-            @$body['MaxResults'] = $request->maxResults;
+        if (!Utils::isUnset($request->maxResults)) {
+            $body['MaxResults'] = $request->maxResults;
         }
-
-        if (null !== $request->nextToken) {
-            @$body['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $body['NextToken'] = $request->nextToken;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDisabledExpressConnectRouterRouteEntries',
-            'version'     => '2023-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDisabledExpressConnectRouterRouteEntries',
+            'version' => '2023-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDisabledExpressConnectRouterRouteEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDisabledExpressConnectRouterRouteEntriesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDisabledExpressConnectRouterRouteEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries the route entries that are disabled on an Express Connect router (ECR).
+     * @summary Queries the route entries that are disabled on an Express Connect router (ECR).
+     *  *
+     * @param DescribeDisabledExpressConnectRouterRouteEntriesRequest $request DescribeDisabledExpressConnectRouterRouteEntriesRequest
      *
-     * @param request - DescribeDisabledExpressConnectRouterRouteEntriesRequest
-     * @returns DescribeDisabledExpressConnectRouterRouteEntriesResponse
-     *
-     * @param DescribeDisabledExpressConnectRouterRouteEntriesRequest $request
-     *
-     * @return DescribeDisabledExpressConnectRouterRouteEntriesResponse
+     * @return DescribeDisabledExpressConnectRouterRouteEntriesResponse DescribeDisabledExpressConnectRouterRouteEntriesResponse
      */
     public function describeDisabledExpressConnectRouterRouteEntries($request)
     {
@@ -1009,83 +832,65 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Queries a list of Express Connect routers (ECRs).
+     * @summary Queries a list of Express Connect routers (ECRs).
+     *  *
+     * @param DescribeExpressConnectRouterRequest $request DescribeExpressConnectRouterRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeExpressConnectRouterRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeExpressConnectRouterResponse
-     *
-     * @param DescribeExpressConnectRouterRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return DescribeExpressConnectRouterResponse
+     * @return DescribeExpressConnectRouterResponse DescribeExpressConnectRouterResponse
      */
     public function describeExpressConnectRouterWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->clientToken) {
-            @$body['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->dryRun) {
-            @$body['DryRun'] = $request->dryRun;
+        if (!Utils::isUnset($request->dryRun)) {
+            $body['DryRun'] = $request->dryRun;
         }
-
-        if (null !== $request->ecrId) {
-            @$body['EcrId'] = $request->ecrId;
+        if (!Utils::isUnset($request->ecrId)) {
+            $body['EcrId'] = $request->ecrId;
         }
-
-        if (null !== $request->maxResults) {
-            @$body['MaxResults'] = $request->maxResults;
+        if (!Utils::isUnset($request->maxResults)) {
+            $body['MaxResults'] = $request->maxResults;
         }
-
-        if (null !== $request->name) {
-            @$body['Name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
         }
-
-        if (null !== $request->nextToken) {
-            @$body['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $body['NextToken'] = $request->nextToken;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$body['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $body['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->tag) {
-            @$body['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $body['Tag'] = $request->tag;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeExpressConnectRouter',
-            'version'     => '2023-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeExpressConnectRouter',
+            'version' => '2023-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeExpressConnectRouterResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeExpressConnectRouterResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeExpressConnectRouterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries a list of Express Connect routers (ECRs).
+     * @summary Queries a list of Express Connect routers (ECRs).
+     *  *
+     * @param DescribeExpressConnectRouterRequest $request DescribeExpressConnectRouterRequest
      *
-     * @param request - DescribeExpressConnectRouterRequest
-     * @returns DescribeExpressConnectRouterResponse
-     *
-     * @param DescribeExpressConnectRouterRequest $request
-     *
-     * @return DescribeExpressConnectRouterResponse
+     * @return DescribeExpressConnectRouterResponse DescribeExpressConnectRouterResponse
      */
     public function describeExpressConnectRouter($request)
     {
@@ -1095,75 +900,59 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Queries the historical route prefixes of an Express Connect router (ECR).
+     * @summary Queries the historical route prefixes of an Express Connect router (ECR).
+     *  *
+     * @param DescribeExpressConnectRouterAllowedPrefixHistoryRequest $request DescribeExpressConnectRouterAllowedPrefixHistoryRequest
+     * @param RuntimeOptions                                          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeExpressConnectRouterAllowedPrefixHistoryRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeExpressConnectRouterAllowedPrefixHistoryResponse
-     *
-     * @param DescribeExpressConnectRouterAllowedPrefixHistoryRequest $request
-     * @param RuntimeOptions                                          $runtime
-     *
-     * @return DescribeExpressConnectRouterAllowedPrefixHistoryResponse
+     * @return DescribeExpressConnectRouterAllowedPrefixHistoryResponse DescribeExpressConnectRouterAllowedPrefixHistoryResponse
      */
     public function describeExpressConnectRouterAllowedPrefixHistoryWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->associationId) {
-            @$body['AssociationId'] = $request->associationId;
+        if (!Utils::isUnset($request->associationId)) {
+            $body['AssociationId'] = $request->associationId;
         }
-
-        if (null !== $request->clientToken) {
-            @$body['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->dryRun) {
-            @$body['DryRun'] = $request->dryRun;
+        if (!Utils::isUnset($request->dryRun)) {
+            $body['DryRun'] = $request->dryRun;
         }
-
-        if (null !== $request->ecrId) {
-            @$body['EcrId'] = $request->ecrId;
+        if (!Utils::isUnset($request->ecrId)) {
+            $body['EcrId'] = $request->ecrId;
         }
-
-        if (null !== $request->instanceId) {
-            @$body['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->instanceType) {
-            @$body['InstanceType'] = $request->instanceType;
+        if (!Utils::isUnset($request->instanceType)) {
+            $body['InstanceType'] = $request->instanceType;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeExpressConnectRouterAllowedPrefixHistory',
-            'version'     => '2023-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeExpressConnectRouterAllowedPrefixHistory',
+            'version' => '2023-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeExpressConnectRouterAllowedPrefixHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeExpressConnectRouterAllowedPrefixHistoryResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeExpressConnectRouterAllowedPrefixHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries the historical route prefixes of an Express Connect router (ECR).
+     * @summary Queries the historical route prefixes of an Express Connect router (ECR).
+     *  *
+     * @param DescribeExpressConnectRouterAllowedPrefixHistoryRequest $request DescribeExpressConnectRouterAllowedPrefixHistoryRequest
      *
-     * @param request - DescribeExpressConnectRouterAllowedPrefixHistoryRequest
-     * @returns DescribeExpressConnectRouterAllowedPrefixHistoryResponse
-     *
-     * @param DescribeExpressConnectRouterAllowedPrefixHistoryRequest $request
-     *
-     * @return DescribeExpressConnectRouterAllowedPrefixHistoryResponse
+     * @return DescribeExpressConnectRouterAllowedPrefixHistoryResponse DescribeExpressConnectRouterAllowedPrefixHistoryResponse
      */
     public function describeExpressConnectRouterAllowedPrefixHistory($request)
     {
@@ -1173,95 +962,74 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Queries the virtual private clouds (VPCs) and transit routers (TRs) associated with an Express Connect router (ECR).
+     * @summary Queries the virtual private clouds (VPCs) and transit routers (TRs) associated with an Express Connect router (ECR).
+     *  *
+     * @param DescribeExpressConnectRouterAssociationRequest $request DescribeExpressConnectRouterAssociationRequest
+     * @param RuntimeOptions                                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeExpressConnectRouterAssociationRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeExpressConnectRouterAssociationResponse
-     *
-     * @param DescribeExpressConnectRouterAssociationRequest $request
-     * @param RuntimeOptions                                 $runtime
-     *
-     * @return DescribeExpressConnectRouterAssociationResponse
+     * @return DescribeExpressConnectRouterAssociationResponse DescribeExpressConnectRouterAssociationResponse
      */
     public function describeExpressConnectRouterAssociationWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->associationId) {
-            @$body['AssociationId'] = $request->associationId;
+        if (!Utils::isUnset($request->associationId)) {
+            $body['AssociationId'] = $request->associationId;
         }
-
-        if (null !== $request->associationNodeType) {
-            @$body['AssociationNodeType'] = $request->associationNodeType;
+        if (!Utils::isUnset($request->associationNodeType)) {
+            $body['AssociationNodeType'] = $request->associationNodeType;
         }
-
-        if (null !== $request->associationRegionId) {
-            @$body['AssociationRegionId'] = $request->associationRegionId;
+        if (!Utils::isUnset($request->associationRegionId)) {
+            $body['AssociationRegionId'] = $request->associationRegionId;
         }
-
-        if (null !== $request->cenId) {
-            @$body['CenId'] = $request->cenId;
+        if (!Utils::isUnset($request->cenId)) {
+            $body['CenId'] = $request->cenId;
         }
-
-        if (null !== $request->clientToken) {
-            @$body['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->dryRun) {
-            @$body['DryRun'] = $request->dryRun;
+        if (!Utils::isUnset($request->dryRun)) {
+            $body['DryRun'] = $request->dryRun;
         }
-
-        if (null !== $request->ecrId) {
-            @$body['EcrId'] = $request->ecrId;
+        if (!Utils::isUnset($request->ecrId)) {
+            $body['EcrId'] = $request->ecrId;
         }
-
-        if (null !== $request->maxResults) {
-            @$body['MaxResults'] = $request->maxResults;
+        if (!Utils::isUnset($request->maxResults)) {
+            $body['MaxResults'] = $request->maxResults;
         }
-
-        if (null !== $request->nextToken) {
-            @$body['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $body['NextToken'] = $request->nextToken;
         }
-
-        if (null !== $request->transitRouterId) {
-            @$body['TransitRouterId'] = $request->transitRouterId;
+        if (!Utils::isUnset($request->transitRouterId)) {
+            $body['TransitRouterId'] = $request->transitRouterId;
         }
-
-        if (null !== $request->vpcId) {
-            @$body['VpcId'] = $request->vpcId;
+        if (!Utils::isUnset($request->vpcId)) {
+            $body['VpcId'] = $request->vpcId;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeExpressConnectRouterAssociation',
-            'version'     => '2023-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeExpressConnectRouterAssociation',
+            'version' => '2023-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeExpressConnectRouterAssociationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeExpressConnectRouterAssociationResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeExpressConnectRouterAssociationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries the virtual private clouds (VPCs) and transit routers (TRs) associated with an Express Connect router (ECR).
+     * @summary Queries the virtual private clouds (VPCs) and transit routers (TRs) associated with an Express Connect router (ECR).
+     *  *
+     * @param DescribeExpressConnectRouterAssociationRequest $request DescribeExpressConnectRouterAssociationRequest
      *
-     * @param request - DescribeExpressConnectRouterAssociationRequest
-     * @returns DescribeExpressConnectRouterAssociationResponse
-     *
-     * @param DescribeExpressConnectRouterAssociationRequest $request
-     *
-     * @return DescribeExpressConnectRouterAssociationResponse
+     * @return DescribeExpressConnectRouterAssociationResponse DescribeExpressConnectRouterAssociationResponse
      */
     public function describeExpressConnectRouterAssociation($request)
     {
@@ -1271,87 +1039,68 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Queries the virtual border routers (VBRs) that are associated with an Express Connect router (ECR).
+     * @summary Queries the virtual border routers (VBRs) that are associated with an Express Connect router (ECR).
+     *  *
+     * @param DescribeExpressConnectRouterChildInstanceRequest $request DescribeExpressConnectRouterChildInstanceRequest
+     * @param RuntimeOptions                                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeExpressConnectRouterChildInstanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeExpressConnectRouterChildInstanceResponse
-     *
-     * @param DescribeExpressConnectRouterChildInstanceRequest $request
-     * @param RuntimeOptions                                   $runtime
-     *
-     * @return DescribeExpressConnectRouterChildInstanceResponse
+     * @return DescribeExpressConnectRouterChildInstanceResponse DescribeExpressConnectRouterChildInstanceResponse
      */
     public function describeExpressConnectRouterChildInstanceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->associationId) {
-            @$body['AssociationId'] = $request->associationId;
+        if (!Utils::isUnset($request->associationId)) {
+            $body['AssociationId'] = $request->associationId;
         }
-
-        if (null !== $request->childInstanceId) {
-            @$body['ChildInstanceId'] = $request->childInstanceId;
+        if (!Utils::isUnset($request->childInstanceId)) {
+            $body['ChildInstanceId'] = $request->childInstanceId;
         }
-
-        if (null !== $request->childInstanceRegionId) {
-            @$body['ChildInstanceRegionId'] = $request->childInstanceRegionId;
+        if (!Utils::isUnset($request->childInstanceRegionId)) {
+            $body['ChildInstanceRegionId'] = $request->childInstanceRegionId;
         }
-
-        if (null !== $request->childInstanceType) {
-            @$body['ChildInstanceType'] = $request->childInstanceType;
+        if (!Utils::isUnset($request->childInstanceType)) {
+            $body['ChildInstanceType'] = $request->childInstanceType;
         }
-
-        if (null !== $request->clientToken) {
-            @$body['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->dryRun) {
-            @$body['DryRun'] = $request->dryRun;
+        if (!Utils::isUnset($request->dryRun)) {
+            $body['DryRun'] = $request->dryRun;
         }
-
-        if (null !== $request->ecrId) {
-            @$body['EcrId'] = $request->ecrId;
+        if (!Utils::isUnset($request->ecrId)) {
+            $body['EcrId'] = $request->ecrId;
         }
-
-        if (null !== $request->maxResults) {
-            @$body['MaxResults'] = $request->maxResults;
+        if (!Utils::isUnset($request->maxResults)) {
+            $body['MaxResults'] = $request->maxResults;
         }
-
-        if (null !== $request->nextToken) {
-            @$body['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $body['NextToken'] = $request->nextToken;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeExpressConnectRouterChildInstance',
-            'version'     => '2023-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeExpressConnectRouterChildInstance',
+            'version' => '2023-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeExpressConnectRouterChildInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeExpressConnectRouterChildInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeExpressConnectRouterChildInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries the virtual border routers (VBRs) that are associated with an Express Connect router (ECR).
+     * @summary Queries the virtual border routers (VBRs) that are associated with an Express Connect router (ECR).
+     *  *
+     * @param DescribeExpressConnectRouterChildInstanceRequest $request DescribeExpressConnectRouterChildInstanceRequest
      *
-     * @param request - DescribeExpressConnectRouterChildInstanceRequest
-     * @returns DescribeExpressConnectRouterChildInstanceResponse
-     *
-     * @param DescribeExpressConnectRouterChildInstanceRequest $request
-     *
-     * @return DescribeExpressConnectRouterChildInstanceResponse
+     * @return DescribeExpressConnectRouterChildInstanceResponse DescribeExpressConnectRouterChildInstanceResponse
      */
     public function describeExpressConnectRouterChildInstance($request)
     {
@@ -1361,63 +1110,50 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Queries the cross-region forwarding modes of an Express Connect router (ECR).
+     * @summary Queries the cross-region forwarding modes of an Express Connect router (ECR).
+     *  *
+     * @param DescribeExpressConnectRouterInterRegionTransitModeRequest $request DescribeExpressConnectRouterInterRegionTransitModeRequest
+     * @param RuntimeOptions                                            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeExpressConnectRouterInterRegionTransitModeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeExpressConnectRouterInterRegionTransitModeResponse
-     *
-     * @param DescribeExpressConnectRouterInterRegionTransitModeRequest $request
-     * @param RuntimeOptions                                            $runtime
-     *
-     * @return DescribeExpressConnectRouterInterRegionTransitModeResponse
+     * @return DescribeExpressConnectRouterInterRegionTransitModeResponse DescribeExpressConnectRouterInterRegionTransitModeResponse
      */
     public function describeExpressConnectRouterInterRegionTransitModeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->clientToken) {
-            @$body['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->dryRun) {
-            @$body['DryRun'] = $request->dryRun;
+        if (!Utils::isUnset($request->dryRun)) {
+            $body['DryRun'] = $request->dryRun;
         }
-
-        if (null !== $request->ecrId) {
-            @$body['EcrId'] = $request->ecrId;
+        if (!Utils::isUnset($request->ecrId)) {
+            $body['EcrId'] = $request->ecrId;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeExpressConnectRouterInterRegionTransitMode',
-            'version'     => '2023-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeExpressConnectRouterInterRegionTransitMode',
+            'version' => '2023-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeExpressConnectRouterInterRegionTransitModeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeExpressConnectRouterInterRegionTransitModeResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeExpressConnectRouterInterRegionTransitModeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries the cross-region forwarding modes of an Express Connect router (ECR).
+     * @summary Queries the cross-region forwarding modes of an Express Connect router (ECR).
+     *  *
+     * @param DescribeExpressConnectRouterInterRegionTransitModeRequest $request DescribeExpressConnectRouterInterRegionTransitModeRequest
      *
-     * @param request - DescribeExpressConnectRouterInterRegionTransitModeRequest
-     * @returns DescribeExpressConnectRouterInterRegionTransitModeResponse
-     *
-     * @param DescribeExpressConnectRouterInterRegionTransitModeRequest $request
-     *
-     * @return DescribeExpressConnectRouterInterRegionTransitModeResponse
+     * @return DescribeExpressConnectRouterInterRegionTransitModeResponse DescribeExpressConnectRouterInterRegionTransitModeResponse
      */
     public function describeExpressConnectRouterInterRegionTransitMode($request)
     {
@@ -1427,63 +1163,50 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Queries a list of regions in which resources related to an Express Connect router (ECR) are deployed.
+     * @summary Queries a list of regions in which resources related to an Express Connect router (ECR) are deployed.
+     *  *
+     * @param DescribeExpressConnectRouterRegionRequest $request DescribeExpressConnectRouterRegionRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeExpressConnectRouterRegionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeExpressConnectRouterRegionResponse
-     *
-     * @param DescribeExpressConnectRouterRegionRequest $request
-     * @param RuntimeOptions                            $runtime
-     *
-     * @return DescribeExpressConnectRouterRegionResponse
+     * @return DescribeExpressConnectRouterRegionResponse DescribeExpressConnectRouterRegionResponse
      */
     public function describeExpressConnectRouterRegionWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->clientToken) {
-            @$body['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->dryRun) {
-            @$body['DryRun'] = $request->dryRun;
+        if (!Utils::isUnset($request->dryRun)) {
+            $body['DryRun'] = $request->dryRun;
         }
-
-        if (null !== $request->ecrId) {
-            @$body['EcrId'] = $request->ecrId;
+        if (!Utils::isUnset($request->ecrId)) {
+            $body['EcrId'] = $request->ecrId;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeExpressConnectRouterRegion',
-            'version'     => '2023-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeExpressConnectRouterRegion',
+            'version' => '2023-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeExpressConnectRouterRegionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeExpressConnectRouterRegionResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeExpressConnectRouterRegionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries a list of regions in which resources related to an Express Connect router (ECR) are deployed.
+     * @summary Queries a list of regions in which resources related to an Express Connect router (ECR) are deployed.
+     *  *
+     * @param DescribeExpressConnectRouterRegionRequest $request DescribeExpressConnectRouterRegionRequest
      *
-     * @param request - DescribeExpressConnectRouterRegionRequest
-     * @returns DescribeExpressConnectRouterRegionResponse
-     *
-     * @param DescribeExpressConnectRouterRegionRequest $request
-     *
-     * @return DescribeExpressConnectRouterRegionResponse
+     * @return DescribeExpressConnectRouterRegionResponse DescribeExpressConnectRouterRegionResponse
      */
     public function describeExpressConnectRouterRegion($request)
     {
@@ -1493,91 +1216,71 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Queries the route entries of an Express Connect router (ECR).
+     * @summary Queries the route entries of an Express Connect router (ECR).
+     *  *
+     * @param DescribeExpressConnectRouterRouteEntriesRequest $request DescribeExpressConnectRouterRouteEntriesRequest
+     * @param RuntimeOptions                                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeExpressConnectRouterRouteEntriesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeExpressConnectRouterRouteEntriesResponse
-     *
-     * @param DescribeExpressConnectRouterRouteEntriesRequest $request
-     * @param RuntimeOptions                                  $runtime
-     *
-     * @return DescribeExpressConnectRouterRouteEntriesResponse
+     * @return DescribeExpressConnectRouterRouteEntriesResponse DescribeExpressConnectRouterRouteEntriesResponse
      */
     public function describeExpressConnectRouterRouteEntriesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->asPath) {
-            @$body['AsPath'] = $request->asPath;
+        if (!Utils::isUnset($request->asPath)) {
+            $body['AsPath'] = $request->asPath;
         }
-
-        if (null !== $request->clientToken) {
-            @$body['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->community) {
-            @$body['Community'] = $request->community;
+        if (!Utils::isUnset($request->community)) {
+            $body['Community'] = $request->community;
         }
-
-        if (null !== $request->destinationCidrBlock) {
-            @$body['DestinationCidrBlock'] = $request->destinationCidrBlock;
+        if (!Utils::isUnset($request->destinationCidrBlock)) {
+            $body['DestinationCidrBlock'] = $request->destinationCidrBlock;
         }
-
-        if (null !== $request->dryRun) {
-            @$body['DryRun'] = $request->dryRun;
+        if (!Utils::isUnset($request->dryRun)) {
+            $body['DryRun'] = $request->dryRun;
         }
-
-        if (null !== $request->ecrId) {
-            @$body['EcrId'] = $request->ecrId;
+        if (!Utils::isUnset($request->ecrId)) {
+            $body['EcrId'] = $request->ecrId;
         }
-
-        if (null !== $request->maxResults) {
-            @$body['MaxResults'] = $request->maxResults;
+        if (!Utils::isUnset($request->maxResults)) {
+            $body['MaxResults'] = $request->maxResults;
         }
-
-        if (null !== $request->nextToken) {
-            @$body['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $body['NextToken'] = $request->nextToken;
         }
-
-        if (null !== $request->nexthopInstanceId) {
-            @$body['NexthopInstanceId'] = $request->nexthopInstanceId;
+        if (!Utils::isUnset($request->nexthopInstanceId)) {
+            $body['NexthopInstanceId'] = $request->nexthopInstanceId;
         }
-
-        if (null !== $request->queryRegionId) {
-            @$body['QueryRegionId'] = $request->queryRegionId;
+        if (!Utils::isUnset($request->queryRegionId)) {
+            $body['QueryRegionId'] = $request->queryRegionId;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeExpressConnectRouterRouteEntries',
-            'version'     => '2023-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeExpressConnectRouterRouteEntries',
+            'version' => '2023-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeExpressConnectRouterRouteEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeExpressConnectRouterRouteEntriesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeExpressConnectRouterRouteEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries the route entries of an Express Connect router (ECR).
+     * @summary Queries the route entries of an Express Connect router (ECR).
+     *  *
+     * @param DescribeExpressConnectRouterRouteEntriesRequest $request DescribeExpressConnectRouterRouteEntriesRequest
      *
-     * @param request - DescribeExpressConnectRouterRouteEntriesRequest
-     * @returns DescribeExpressConnectRouterRouteEntriesResponse
-     *
-     * @param DescribeExpressConnectRouterRouteEntriesRequest $request
-     *
-     * @return DescribeExpressConnectRouterRouteEntriesResponse
+     * @return DescribeExpressConnectRouterRouteEntriesResponse DescribeExpressConnectRouterRouteEntriesResponse
      */
     public function describeExpressConnectRouterRouteEntries($request)
     {
@@ -1587,93 +1290,79 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * 查询流日志.
+     * @summary Queries flow logs.
+     *  *
+     * @param DescribeFlowLogsRequest $request DescribeFlowLogsRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeFlowLogsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeFlowLogsResponse
-     *
-     * @param DescribeFlowLogsRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return DescribeFlowLogsResponse
+     * @return DescribeFlowLogsResponse DescribeFlowLogsResponse
      */
     public function describeFlowLogsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->flowLogId) {
-            @$query['FlowLogId'] = $request->flowLogId;
+        if (!Utils::isUnset($request->flowLogId)) {
+            $query['FlowLogId'] = $request->flowLogId;
         }
-
-        if (null !== $request->flowLogName) {
-            @$query['FlowLogName'] = $request->flowLogName;
+        if (!Utils::isUnset($request->flowLogName)) {
+            $query['FlowLogName'] = $request->flowLogName;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->logStoreName) {
-            @$query['LogStoreName'] = $request->logStoreName;
+        if (!Utils::isUnset($request->logStoreName)) {
+            $query['LogStoreName'] = $request->logStoreName;
         }
-
-        if (null !== $request->maxResults) {
-            @$query['MaxResults'] = $request->maxResults;
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
         }
-
-        if (null !== $request->nextToken) {
-            @$query['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
         }
-
-        if (null !== $request->projectName) {
-            @$query['ProjectName'] = $request->projectName;
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
         }
-
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         $body = [];
-        if (null !== $request->clientToken) {
-            @$body['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->dryRun) {
-            @$body['DryRun'] = $request->dryRun;
+        if (!Utils::isUnset($request->dryRun)) {
+            $body['DryRun'] = $request->dryRun;
         }
-
-        if (null !== $request->ecrId) {
-            @$body['EcrId'] = $request->ecrId;
+        if (!Utils::isUnset($request->ecrId)) {
+            $body['EcrId'] = $request->ecrId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeFlowLogs',
-            'version'     => '2023-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeFlowLogs',
+            'version' => '2023-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeFlowLogsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeFlowLogsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeFlowLogsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 查询流日志.
+     * @summary Queries flow logs.
+     *  *
+     * @param DescribeFlowLogsRequest $request DescribeFlowLogsRequest
      *
-     * @param request - DescribeFlowLogsRequest
-     * @returns DescribeFlowLogsResponse
-     *
-     * @param DescribeFlowLogsRequest $request
-     *
-     * @return DescribeFlowLogsResponse
+     * @return DescribeFlowLogsResponse DescribeFlowLogsResponse
      */
     public function describeFlowLogs($request)
     {
@@ -1683,99 +1372,77 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Queries the network instances whose permissions are granted to an Express Connect router (ECR).
+     * @summary Queries the network instances whose permissions are granted to an Express Connect router (ECR).
+     *  *
+     * @param DescribeInstanceGrantedToExpressConnectRouterRequest $request DescribeInstanceGrantedToExpressConnectRouterRequest
+     * @param RuntimeOptions                                       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeInstanceGrantedToExpressConnectRouterRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeInstanceGrantedToExpressConnectRouterResponse
-     *
-     * @param DescribeInstanceGrantedToExpressConnectRouterRequest $request
-     * @param RuntimeOptions                                       $runtime
-     *
-     * @return DescribeInstanceGrantedToExpressConnectRouterResponse
+     * @return DescribeInstanceGrantedToExpressConnectRouterResponse DescribeInstanceGrantedToExpressConnectRouterResponse
      */
     public function describeInstanceGrantedToExpressConnectRouterWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->callerType) {
-            @$body['CallerType'] = $request->callerType;
+        if (!Utils::isUnset($request->callerType)) {
+            $body['CallerType'] = $request->callerType;
         }
-
-        if (null !== $request->clientToken) {
-            @$body['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->dryRun) {
-            @$body['DryRun'] = $request->dryRun;
+        if (!Utils::isUnset($request->dryRun)) {
+            $body['DryRun'] = $request->dryRun;
         }
-
-        if (null !== $request->ecrId) {
-            @$body['EcrId'] = $request->ecrId;
+        if (!Utils::isUnset($request->ecrId)) {
+            $body['EcrId'] = $request->ecrId;
         }
-
-        if (null !== $request->instanceId) {
-            @$body['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->instanceOwnerId) {
-            @$body['InstanceOwnerId'] = $request->instanceOwnerId;
+        if (!Utils::isUnset($request->instanceOwnerId)) {
+            $body['InstanceOwnerId'] = $request->instanceOwnerId;
         }
-
-        if (null !== $request->instanceRegionId) {
-            @$body['InstanceRegionId'] = $request->instanceRegionId;
+        if (!Utils::isUnset($request->instanceRegionId)) {
+            $body['InstanceRegionId'] = $request->instanceRegionId;
         }
-
-        if (null !== $request->instanceType) {
-            @$body['InstanceType'] = $request->instanceType;
+        if (!Utils::isUnset($request->instanceType)) {
+            $body['InstanceType'] = $request->instanceType;
         }
-
-        if (null !== $request->maxResults) {
-            @$body['MaxResults'] = $request->maxResults;
+        if (!Utils::isUnset($request->maxResults)) {
+            $body['MaxResults'] = $request->maxResults;
         }
-
-        if (null !== $request->nextToken) {
-            @$body['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $body['NextToken'] = $request->nextToken;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$body['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $body['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->tagModels) {
-            @$body['TagModels'] = $request->tagModels;
+        if (!Utils::isUnset($request->tagModels)) {
+            $body['TagModels'] = $request->tagModels;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeInstanceGrantedToExpressConnectRouter',
-            'version'     => '2023-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeInstanceGrantedToExpressConnectRouter',
+            'version' => '2023-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeInstanceGrantedToExpressConnectRouterResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeInstanceGrantedToExpressConnectRouterResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeInstanceGrantedToExpressConnectRouterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries the network instances whose permissions are granted to an Express Connect router (ECR).
+     * @summary Queries the network instances whose permissions are granted to an Express Connect router (ECR).
+     *  *
+     * @param DescribeInstanceGrantedToExpressConnectRouterRequest $request DescribeInstanceGrantedToExpressConnectRouterRequest
      *
-     * @param request - DescribeInstanceGrantedToExpressConnectRouterRequest
-     * @returns DescribeInstanceGrantedToExpressConnectRouterResponse
-     *
-     * @param DescribeInstanceGrantedToExpressConnectRouterRequest $request
-     *
-     * @return DescribeInstanceGrantedToExpressConnectRouterResponse
+     * @return DescribeInstanceGrantedToExpressConnectRouterResponse DescribeInstanceGrantedToExpressConnectRouterResponse
      */
     public function describeInstanceGrantedToExpressConnectRouter($request)
     {
@@ -1785,77 +1452,60 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Disassociates a virtual border router (VBR) from an Express Connect router (ECR).
+     * @summary Disassociates a virtual border router (VBR) from an Express Connect router (ECR).
+     *  *
+     * @description Before you call the **DetachExpressConnectRouterChildInstance** operation to uninstall a VBR from an ECR, make sure that the ECR is in the **Active** state.
+     *  *
+     * @param DetachExpressConnectRouterChildInstanceRequest $request DetachExpressConnectRouterChildInstanceRequest
+     * @param RuntimeOptions                                 $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * Before you call the **DetachExpressConnectRouterChildInstance** operation to uninstall a VBR from an ECR, make sure that the ECR is in the **Active** state.
-     *
-     * @param request - DetachExpressConnectRouterChildInstanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DetachExpressConnectRouterChildInstanceResponse
-     *
-     * @param DetachExpressConnectRouterChildInstanceRequest $request
-     * @param RuntimeOptions                                 $runtime
-     *
-     * @return DetachExpressConnectRouterChildInstanceResponse
+     * @return DetachExpressConnectRouterChildInstanceResponse DetachExpressConnectRouterChildInstanceResponse
      */
     public function detachExpressConnectRouterChildInstanceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->childInstanceId) {
-            @$body['ChildInstanceId'] = $request->childInstanceId;
+        if (!Utils::isUnset($request->childInstanceId)) {
+            $body['ChildInstanceId'] = $request->childInstanceId;
         }
-
-        if (null !== $request->childInstanceType) {
-            @$body['ChildInstanceType'] = $request->childInstanceType;
+        if (!Utils::isUnset($request->childInstanceType)) {
+            $body['ChildInstanceType'] = $request->childInstanceType;
         }
-
-        if (null !== $request->clientToken) {
-            @$body['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->dryRun) {
-            @$body['DryRun'] = $request->dryRun;
+        if (!Utils::isUnset($request->dryRun)) {
+            $body['DryRun'] = $request->dryRun;
         }
-
-        if (null !== $request->ecrId) {
-            @$body['EcrId'] = $request->ecrId;
+        if (!Utils::isUnset($request->ecrId)) {
+            $body['EcrId'] = $request->ecrId;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DetachExpressConnectRouterChildInstance',
-            'version'     => '2023-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DetachExpressConnectRouterChildInstance',
+            'version' => '2023-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DetachExpressConnectRouterChildInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DetachExpressConnectRouterChildInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DetachExpressConnectRouterChildInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Disassociates a virtual border router (VBR) from an Express Connect router (ECR).
+     * @summary Disassociates a virtual border router (VBR) from an Express Connect router (ECR).
+     *  *
+     * @description Before you call the **DetachExpressConnectRouterChildInstance** operation to uninstall a VBR from an ECR, make sure that the ECR is in the **Active** state.
+     *  *
+     * @param DetachExpressConnectRouterChildInstanceRequest $request DetachExpressConnectRouterChildInstanceRequest
      *
-     * @remarks
-     * Before you call the **DetachExpressConnectRouterChildInstance** operation to uninstall a VBR from an ECR, make sure that the ECR is in the **Active** state.
-     *
-     * @param request - DetachExpressConnectRouterChildInstanceRequest
-     * @returns DetachExpressConnectRouterChildInstanceResponse
-     *
-     * @param DetachExpressConnectRouterChildInstanceRequest $request
-     *
-     * @return DetachExpressConnectRouterChildInstanceResponse
+     * @return DetachExpressConnectRouterChildInstanceResponse DetachExpressConnectRouterChildInstanceResponse
      */
     public function detachExpressConnectRouterChildInstance($request)
     {
@@ -1865,71 +1515,56 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Disables route entries of an Express Connect router (ECR).
+     * @summary Disables route entries of an Express Connect router (ECR).
+     *  *
+     * @param DisableExpressConnectRouterRouteEntriesRequest $request DisableExpressConnectRouterRouteEntriesRequest
+     * @param RuntimeOptions                                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DisableExpressConnectRouterRouteEntriesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DisableExpressConnectRouterRouteEntriesResponse
-     *
-     * @param DisableExpressConnectRouterRouteEntriesRequest $request
-     * @param RuntimeOptions                                 $runtime
-     *
-     * @return DisableExpressConnectRouterRouteEntriesResponse
+     * @return DisableExpressConnectRouterRouteEntriesResponse DisableExpressConnectRouterRouteEntriesResponse
      */
     public function disableExpressConnectRouterRouteEntriesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->clientToken) {
-            @$body['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->destinationCidrBlock) {
-            @$body['DestinationCidrBlock'] = $request->destinationCidrBlock;
+        if (!Utils::isUnset($request->destinationCidrBlock)) {
+            $body['DestinationCidrBlock'] = $request->destinationCidrBlock;
         }
-
-        if (null !== $request->dryRun) {
-            @$body['DryRun'] = $request->dryRun;
+        if (!Utils::isUnset($request->dryRun)) {
+            $body['DryRun'] = $request->dryRun;
         }
-
-        if (null !== $request->ecrId) {
-            @$body['EcrId'] = $request->ecrId;
+        if (!Utils::isUnset($request->ecrId)) {
+            $body['EcrId'] = $request->ecrId;
         }
-
-        if (null !== $request->nexthopInstanceId) {
-            @$body['NexthopInstanceId'] = $request->nexthopInstanceId;
+        if (!Utils::isUnset($request->nexthopInstanceId)) {
+            $body['NexthopInstanceId'] = $request->nexthopInstanceId;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DisableExpressConnectRouterRouteEntries',
-            'version'     => '2023-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DisableExpressConnectRouterRouteEntries',
+            'version' => '2023-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DisableExpressConnectRouterRouteEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DisableExpressConnectRouterRouteEntriesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DisableExpressConnectRouterRouteEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Disables route entries of an Express Connect router (ECR).
+     * @summary Disables route entries of an Express Connect router (ECR).
+     *  *
+     * @param DisableExpressConnectRouterRouteEntriesRequest $request DisableExpressConnectRouterRouteEntriesRequest
      *
-     * @param request - DisableExpressConnectRouterRouteEntriesRequest
-     * @returns DisableExpressConnectRouterRouteEntriesResponse
-     *
-     * @param DisableExpressConnectRouterRouteEntriesRequest $request
-     *
-     * @return DisableExpressConnectRouterRouteEntriesResponse
+     * @return DisableExpressConnectRouterRouteEntriesResponse DisableExpressConnectRouterRouteEntriesResponse
      */
     public function disableExpressConnectRouterRouteEntries($request)
     {
@@ -1939,71 +1574,56 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Enables route entries of an Express Connect router (ECR).
+     * @summary Enables route entries of an Express Connect router (ECR).
+     *  *
+     * @param EnableExpressConnectRouterRouteEntriesRequest $request EnableExpressConnectRouterRouteEntriesRequest
+     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - EnableExpressConnectRouterRouteEntriesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns EnableExpressConnectRouterRouteEntriesResponse
-     *
-     * @param EnableExpressConnectRouterRouteEntriesRequest $request
-     * @param RuntimeOptions                                $runtime
-     *
-     * @return EnableExpressConnectRouterRouteEntriesResponse
+     * @return EnableExpressConnectRouterRouteEntriesResponse EnableExpressConnectRouterRouteEntriesResponse
      */
     public function enableExpressConnectRouterRouteEntriesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->clientToken) {
-            @$body['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->destinationCidrBlock) {
-            @$body['DestinationCidrBlock'] = $request->destinationCidrBlock;
+        if (!Utils::isUnset($request->destinationCidrBlock)) {
+            $body['DestinationCidrBlock'] = $request->destinationCidrBlock;
         }
-
-        if (null !== $request->dryRun) {
-            @$body['DryRun'] = $request->dryRun;
+        if (!Utils::isUnset($request->dryRun)) {
+            $body['DryRun'] = $request->dryRun;
         }
-
-        if (null !== $request->ecrId) {
-            @$body['EcrId'] = $request->ecrId;
+        if (!Utils::isUnset($request->ecrId)) {
+            $body['EcrId'] = $request->ecrId;
         }
-
-        if (null !== $request->nexthopInstanceId) {
-            @$body['NexthopInstanceId'] = $request->nexthopInstanceId;
+        if (!Utils::isUnset($request->nexthopInstanceId)) {
+            $body['NexthopInstanceId'] = $request->nexthopInstanceId;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'EnableExpressConnectRouterRouteEntries',
-            'version'     => '2023-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EnableExpressConnectRouterRouteEntries',
+            'version' => '2023-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return EnableExpressConnectRouterRouteEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return EnableExpressConnectRouterRouteEntriesResponse::fromMap($this->execute($params, $req, $runtime));
+        return EnableExpressConnectRouterRouteEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Enables route entries of an Express Connect router (ECR).
+     * @summary Enables route entries of an Express Connect router (ECR).
+     *  *
+     * @param EnableExpressConnectRouterRouteEntriesRequest $request EnableExpressConnectRouterRouteEntriesRequest
      *
-     * @param request - EnableExpressConnectRouterRouteEntriesRequest
-     * @returns EnableExpressConnectRouterRouteEntriesResponse
-     *
-     * @param EnableExpressConnectRouterRouteEntriesRequest $request
-     *
-     * @return EnableExpressConnectRouterRouteEntriesResponse
+     * @return EnableExpressConnectRouterRouteEntriesResponse EnableExpressConnectRouterRouteEntriesResponse
      */
     public function enableExpressConnectRouterRouteEntries($request)
     {
@@ -2013,71 +1633,56 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Deletes an Express Connect router (ECR) and disassociates the virtual private cloud (VPC), transit router (TR), and virtual border router (VBR) associated with the ECR.
-     *
-     * @remarks
-     *   If you forcefully delete an ECR, all the resources associated with the ECR are disassociated at a time. Make sure that the disassociation does not affect the stability of your business.
+     * @summary Deletes an Express Connect router (ECR) and disassociates the virtual private cloud (VPC), transit router (TR), and virtual border router (VBR) associated with the ECR.
+     *  *
+     * @description *   If you forcefully delete an ECR, all the resources associated with the ECR are disassociated at a time. Make sure that the disassociation does not affect the stability of your business.
      * *   You can delete only ECRs that are in the **Active** state.
+     *  *
+     * @param ForceDeleteExpressConnectRouterRequest $request ForceDeleteExpressConnectRouterRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ForceDeleteExpressConnectRouterRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ForceDeleteExpressConnectRouterResponse
-     *
-     * @param ForceDeleteExpressConnectRouterRequest $request
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return ForceDeleteExpressConnectRouterResponse
+     * @return ForceDeleteExpressConnectRouterResponse ForceDeleteExpressConnectRouterResponse
      */
     public function forceDeleteExpressConnectRouterWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->clientToken) {
-            @$body['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->dryRun) {
-            @$body['DryRun'] = $request->dryRun;
+        if (!Utils::isUnset($request->dryRun)) {
+            $body['DryRun'] = $request->dryRun;
         }
-
-        if (null !== $request->ecrId) {
-            @$body['EcrId'] = $request->ecrId;
+        if (!Utils::isUnset($request->ecrId)) {
+            $body['EcrId'] = $request->ecrId;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ForceDeleteExpressConnectRouter',
-            'version'     => '2023-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ForceDeleteExpressConnectRouter',
+            'version' => '2023-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ForceDeleteExpressConnectRouterResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ForceDeleteExpressConnectRouterResponse::fromMap($this->execute($params, $req, $runtime));
+        return ForceDeleteExpressConnectRouterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Deletes an Express Connect router (ECR) and disassociates the virtual private cloud (VPC), transit router (TR), and virtual border router (VBR) associated with the ECR.
-     *
-     * @remarks
-     *   If you forcefully delete an ECR, all the resources associated with the ECR are disassociated at a time. Make sure that the disassociation does not affect the stability of your business.
+     * @summary Deletes an Express Connect router (ECR) and disassociates the virtual private cloud (VPC), transit router (TR), and virtual border router (VBR) associated with the ECR.
+     *  *
+     * @description *   If you forcefully delete an ECR, all the resources associated with the ECR are disassociated at a time. Make sure that the disassociation does not affect the stability of your business.
      * *   You can delete only ECRs that are in the **Active** state.
+     *  *
+     * @param ForceDeleteExpressConnectRouterRequest $request ForceDeleteExpressConnectRouterRequest
      *
-     * @param request - ForceDeleteExpressConnectRouterRequest
-     * @returns ForceDeleteExpressConnectRouterResponse
-     *
-     * @param ForceDeleteExpressConnectRouterRequest $request
-     *
-     * @return ForceDeleteExpressConnectRouterResponse
+     * @return ForceDeleteExpressConnectRouterResponse ForceDeleteExpressConnectRouterResponse
      */
     public function forceDeleteExpressConnectRouter($request)
     {
@@ -2087,85 +1692,66 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Grants permissions on a virtual private cloud (VPC) or a virtual border router (VBR) to an Express Connect router (ECR) of another account.
+     * @summary Grants permissions on a virtual private cloud (VPC) or a virtual border router (VBR) to an Express Connect router (ECR) of another account.
+     *  *
+     * @description When you associate a network instance of another account with an ECR, you must grant permissions on the network instance to the ECR.
+     *  *
+     * @param GrantInstanceToExpressConnectRouterRequest $request GrantInstanceToExpressConnectRouterRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * When you associate a network instance of another account with an ECR, you must grant permissions on the network instance to the ECR.
-     *
-     * @param request - GrantInstanceToExpressConnectRouterRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns GrantInstanceToExpressConnectRouterResponse
-     *
-     * @param GrantInstanceToExpressConnectRouterRequest $request
-     * @param RuntimeOptions                             $runtime
-     *
-     * @return GrantInstanceToExpressConnectRouterResponse
+     * @return GrantInstanceToExpressConnectRouterResponse GrantInstanceToExpressConnectRouterResponse
      */
     public function grantInstanceToExpressConnectRouterWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->clientToken) {
-            @$body['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->dryRun) {
-            @$body['DryRun'] = $request->dryRun;
+        if (!Utils::isUnset($request->dryRun)) {
+            $body['DryRun'] = $request->dryRun;
         }
-
-        if (null !== $request->ecrId) {
-            @$body['EcrId'] = $request->ecrId;
+        if (!Utils::isUnset($request->ecrId)) {
+            $body['EcrId'] = $request->ecrId;
         }
-
-        if (null !== $request->ecrOwnerAliUid) {
-            @$body['EcrOwnerAliUid'] = $request->ecrOwnerAliUid;
+        if (!Utils::isUnset($request->ecrOwnerAliUid)) {
+            $body['EcrOwnerAliUid'] = $request->ecrOwnerAliUid;
         }
-
-        if (null !== $request->instanceId) {
-            @$body['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->instanceRegionId) {
-            @$body['InstanceRegionId'] = $request->instanceRegionId;
+        if (!Utils::isUnset($request->instanceRegionId)) {
+            $body['InstanceRegionId'] = $request->instanceRegionId;
         }
-
-        if (null !== $request->instanceType) {
-            @$body['InstanceType'] = $request->instanceType;
+        if (!Utils::isUnset($request->instanceType)) {
+            $body['InstanceType'] = $request->instanceType;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GrantInstanceToExpressConnectRouter',
-            'version'     => '2023-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GrantInstanceToExpressConnectRouter',
+            'version' => '2023-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GrantInstanceToExpressConnectRouterResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GrantInstanceToExpressConnectRouterResponse::fromMap($this->execute($params, $req, $runtime));
+        return GrantInstanceToExpressConnectRouterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Grants permissions on a virtual private cloud (VPC) or a virtual border router (VBR) to an Express Connect router (ECR) of another account.
+     * @summary Grants permissions on a virtual private cloud (VPC) or a virtual border router (VBR) to an Express Connect router (ECR) of another account.
+     *  *
+     * @description When you associate a network instance of another account with an ECR, you must grant permissions on the network instance to the ECR.
+     *  *
+     * @param GrantInstanceToExpressConnectRouterRequest $request GrantInstanceToExpressConnectRouterRequest
      *
-     * @remarks
-     * When you associate a network instance of another account with an ECR, you must grant permissions on the network instance to the ECR.
-     *
-     * @param request - GrantInstanceToExpressConnectRouterRequest
-     * @returns GrantInstanceToExpressConnectRouterResponse
-     *
-     * @param GrantInstanceToExpressConnectRouterRequest $request
-     *
-     * @return GrantInstanceToExpressConnectRouterResponse
+     * @return GrantInstanceToExpressConnectRouterResponse GrantInstanceToExpressConnectRouterResponse
      */
     public function grantInstanceToExpressConnectRouter($request)
     {
@@ -2175,59 +1761,47 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Queries a list of regions in which the Express Connect router (ECR) feature is activated.
+     * @summary Queries a list of regions in which the Express Connect router (ECR) feature is activated.
+     *  *
+     * @param ListExpressConnectRouterSupportedRegionRequest $request ListExpressConnectRouterSupportedRegionRequest
+     * @param RuntimeOptions                                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListExpressConnectRouterSupportedRegionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ListExpressConnectRouterSupportedRegionResponse
-     *
-     * @param ListExpressConnectRouterSupportedRegionRequest $request
-     * @param RuntimeOptions                                 $runtime
-     *
-     * @return ListExpressConnectRouterSupportedRegionResponse
+     * @return ListExpressConnectRouterSupportedRegionResponse ListExpressConnectRouterSupportedRegionResponse
      */
     public function listExpressConnectRouterSupportedRegionWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->clientToken) {
-            @$body['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->nodeType) {
-            @$body['NodeType'] = $request->nodeType;
+        if (!Utils::isUnset($request->nodeType)) {
+            $body['NodeType'] = $request->nodeType;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListExpressConnectRouterSupportedRegion',
-            'version'     => '2023-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListExpressConnectRouterSupportedRegion',
+            'version' => '2023-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListExpressConnectRouterSupportedRegionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListExpressConnectRouterSupportedRegionResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListExpressConnectRouterSupportedRegionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries a list of regions in which the Express Connect router (ECR) feature is activated.
+     * @summary Queries a list of regions in which the Express Connect router (ECR) feature is activated.
+     *  *
+     * @param ListExpressConnectRouterSupportedRegionRequest $request ListExpressConnectRouterSupportedRegionRequest
      *
-     * @param request - ListExpressConnectRouterSupportedRegionRequest
-     * @returns ListExpressConnectRouterSupportedRegionResponse
-     *
-     * @param ListExpressConnectRouterSupportedRegionRequest $request
-     *
-     * @return ListExpressConnectRouterSupportedRegionResponse
+     * @return ListExpressConnectRouterSupportedRegionResponse ListExpressConnectRouterSupportedRegionResponse
      */
     public function listExpressConnectRouterSupportedRegion($request)
     {
@@ -2237,71 +1811,56 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Queries a list of tags that are added to an Express Connect router (ECR).
+     * @summary Queries a list of tags that are added to an Express Connect router (ECR).
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListTagResourcesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ListTagResourcesResponse
-     *
-     * @param ListTagResourcesRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->maxResults) {
-            @$body['MaxResults'] = $request->maxResults;
+        if (!Utils::isUnset($request->maxResults)) {
+            $body['MaxResults'] = $request->maxResults;
         }
-
-        if (null !== $request->nextToken) {
-            @$body['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $body['NextToken'] = $request->nextToken;
         }
-
-        if (null !== $request->resourceId) {
-            @$body['ResourceId'] = $request->resourceId;
+        if (!Utils::isUnset($request->resourceId)) {
+            $body['ResourceId'] = $request->resourceId;
         }
-
-        if (null !== $request->resourceType) {
-            @$body['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $body['ResourceType'] = $request->resourceType;
         }
-
-        if (null !== $request->tag) {
-            @$body['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $body['Tag'] = $request->tag;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListTagResources',
-            'version'     => '2023-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTagResources',
+            'version' => '2023-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries a list of tags that are added to an Express Connect router (ECR).
+     * @summary Queries a list of tags that are added to an Express Connect router (ECR).
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
-     * @param request - ListTagResourcesRequest
-     * @returns ListTagResourcesResponse
-     *
-     * @param ListTagResourcesRequest $request
-     *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -2311,77 +1870,60 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Modifies the properties such as the name of an Express Connect router (ECR).
+     * @summary Modifies the properties such as the name of an Express Connect router (ECR).
+     *  *
+     * @description You can modify only properties of ECRs in the **Active** state.
+     *  *
+     * @param ModifyExpressConnectRouterRequest $request ModifyExpressConnectRouterRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can modify only properties of ECRs in the **Active** state.
-     *
-     * @param request - ModifyExpressConnectRouterRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ModifyExpressConnectRouterResponse
-     *
-     * @param ModifyExpressConnectRouterRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return ModifyExpressConnectRouterResponse
+     * @return ModifyExpressConnectRouterResponse ModifyExpressConnectRouterResponse
      */
     public function modifyExpressConnectRouterWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->clientToken) {
-            @$body['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->description) {
-            @$body['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
         }
-
-        if (null !== $request->dryRun) {
-            @$body['DryRun'] = $request->dryRun;
+        if (!Utils::isUnset($request->dryRun)) {
+            $body['DryRun'] = $request->dryRun;
         }
-
-        if (null !== $request->ecrId) {
-            @$body['EcrId'] = $request->ecrId;
+        if (!Utils::isUnset($request->ecrId)) {
+            $body['EcrId'] = $request->ecrId;
         }
-
-        if (null !== $request->name) {
-            @$body['Name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ModifyExpressConnectRouter',
-            'version'     => '2023-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyExpressConnectRouter',
+            'version' => '2023-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyExpressConnectRouterResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyExpressConnectRouterResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyExpressConnectRouterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Modifies the properties such as the name of an Express Connect router (ECR).
+     * @summary Modifies the properties such as the name of an Express Connect router (ECR).
+     *  *
+     * @description You can modify only properties of ECRs in the **Active** state.
+     *  *
+     * @param ModifyExpressConnectRouterRequest $request ModifyExpressConnectRouterRequest
      *
-     * @remarks
-     * You can modify only properties of ECRs in the **Active** state.
-     *
-     * @param request - ModifyExpressConnectRouterRequest
-     * @returns ModifyExpressConnectRouterResponse
-     *
-     * @param ModifyExpressConnectRouterRequest $request
-     *
-     * @return ModifyExpressConnectRouterResponse
+     * @return ModifyExpressConnectRouterResponse ModifyExpressConnectRouterResponse
      */
     public function modifyExpressConnectRouter($request)
     {
@@ -2391,79 +1933,62 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Modifies the route prefixes of a virtual private cloud (VPC) or a transit router (TR) that is associated with an Express Connect router (ECR).
+     * @summary Modifies the route prefixes of a virtual private cloud (VPC) or a transit router (TR) that is associated with an Express Connect router (ECR).
+     *  *
+     * @param ModifyExpressConnectRouterAssociationAllowedPrefixRequest $request ModifyExpressConnectRouterAssociationAllowedPrefixRequest
+     * @param RuntimeOptions                                            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyExpressConnectRouterAssociationAllowedPrefixRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ModifyExpressConnectRouterAssociationAllowedPrefixResponse
-     *
-     * @param ModifyExpressConnectRouterAssociationAllowedPrefixRequest $request
-     * @param RuntimeOptions                                            $runtime
-     *
-     * @return ModifyExpressConnectRouterAssociationAllowedPrefixResponse
+     * @return ModifyExpressConnectRouterAssociationAllowedPrefixResponse ModifyExpressConnectRouterAssociationAllowedPrefixResponse
      */
     public function modifyExpressConnectRouterAssociationAllowedPrefixWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->allowedPrefixes) {
-            @$body['AllowedPrefixes'] = $request->allowedPrefixes;
+        if (!Utils::isUnset($request->allowedPrefixes)) {
+            $body['AllowedPrefixes'] = $request->allowedPrefixes;
         }
-
-        if (null !== $request->allowedPrefixesMode) {
-            @$body['AllowedPrefixesMode'] = $request->allowedPrefixesMode;
+        if (!Utils::isUnset($request->allowedPrefixesMode)) {
+            $body['AllowedPrefixesMode'] = $request->allowedPrefixesMode;
         }
-
-        if (null !== $request->associationId) {
-            @$body['AssociationId'] = $request->associationId;
+        if (!Utils::isUnset($request->associationId)) {
+            $body['AssociationId'] = $request->associationId;
         }
-
-        if (null !== $request->clientToken) {
-            @$body['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->dryRun) {
-            @$body['DryRun'] = $request->dryRun;
+        if (!Utils::isUnset($request->dryRun)) {
+            $body['DryRun'] = $request->dryRun;
         }
-
-        if (null !== $request->ecrId) {
-            @$body['EcrId'] = $request->ecrId;
+        if (!Utils::isUnset($request->ecrId)) {
+            $body['EcrId'] = $request->ecrId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$body['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $body['OwnerAccount'] = $request->ownerAccount;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ModifyExpressConnectRouterAssociationAllowedPrefix',
-            'version'     => '2023-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyExpressConnectRouterAssociationAllowedPrefix',
+            'version' => '2023-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyExpressConnectRouterAssociationAllowedPrefixResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyExpressConnectRouterAssociationAllowedPrefixResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyExpressConnectRouterAssociationAllowedPrefixResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Modifies the route prefixes of a virtual private cloud (VPC) or a transit router (TR) that is associated with an Express Connect router (ECR).
+     * @summary Modifies the route prefixes of a virtual private cloud (VPC) or a transit router (TR) that is associated with an Express Connect router (ECR).
+     *  *
+     * @param ModifyExpressConnectRouterAssociationAllowedPrefixRequest $request ModifyExpressConnectRouterAssociationAllowedPrefixRequest
      *
-     * @param request - ModifyExpressConnectRouterAssociationAllowedPrefixRequest
-     * @returns ModifyExpressConnectRouterAssociationAllowedPrefixResponse
-     *
-     * @param ModifyExpressConnectRouterAssociationAllowedPrefixRequest $request
-     *
-     * @return ModifyExpressConnectRouterAssociationAllowedPrefixResponse
+     * @return ModifyExpressConnectRouterAssociationAllowedPrefixResponse ModifyExpressConnectRouterAssociationAllowedPrefixResponse
      */
     public function modifyExpressConnectRouterAssociationAllowedPrefix($request)
     {
@@ -2473,67 +1998,53 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Modifies the cross-region forwarding mode of an Express Connect router (ECR).
+     * @summary Modifies the cross-region forwarding mode of an Express Connect router (ECR).
+     *  *
+     * @param ModifyExpressConnectRouterInterRegionTransitModeRequest $request ModifyExpressConnectRouterInterRegionTransitModeRequest
+     * @param RuntimeOptions                                          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyExpressConnectRouterInterRegionTransitModeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ModifyExpressConnectRouterInterRegionTransitModeResponse
-     *
-     * @param ModifyExpressConnectRouterInterRegionTransitModeRequest $request
-     * @param RuntimeOptions                                          $runtime
-     *
-     * @return ModifyExpressConnectRouterInterRegionTransitModeResponse
+     * @return ModifyExpressConnectRouterInterRegionTransitModeResponse ModifyExpressConnectRouterInterRegionTransitModeResponse
      */
     public function modifyExpressConnectRouterInterRegionTransitModeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->clientToken) {
-            @$body['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->dryRun) {
-            @$body['DryRun'] = $request->dryRun;
+        if (!Utils::isUnset($request->dryRun)) {
+            $body['DryRun'] = $request->dryRun;
         }
-
-        if (null !== $request->ecrId) {
-            @$body['EcrId'] = $request->ecrId;
+        if (!Utils::isUnset($request->ecrId)) {
+            $body['EcrId'] = $request->ecrId;
         }
-
-        if (null !== $request->transitModeList) {
-            @$body['TransitModeList'] = $request->transitModeList;
+        if (!Utils::isUnset($request->transitModeList)) {
+            $body['TransitModeList'] = $request->transitModeList;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ModifyExpressConnectRouterInterRegionTransitMode',
-            'version'     => '2023-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyExpressConnectRouterInterRegionTransitMode',
+            'version' => '2023-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyExpressConnectRouterInterRegionTransitModeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyExpressConnectRouterInterRegionTransitModeResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyExpressConnectRouterInterRegionTransitModeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Modifies the cross-region forwarding mode of an Express Connect router (ECR).
+     * @summary Modifies the cross-region forwarding mode of an Express Connect router (ECR).
+     *  *
+     * @param ModifyExpressConnectRouterInterRegionTransitModeRequest $request ModifyExpressConnectRouterInterRegionTransitModeRequest
      *
-     * @param request - ModifyExpressConnectRouterInterRegionTransitModeRequest
-     * @returns ModifyExpressConnectRouterInterRegionTransitModeResponse
-     *
-     * @param ModifyExpressConnectRouterInterRegionTransitModeRequest $request
-     *
-     * @return ModifyExpressConnectRouterInterRegionTransitModeResponse
+     * @return ModifyExpressConnectRouterInterRegionTransitModeResponse ModifyExpressConnectRouterInterRegionTransitModeResponse
      */
     public function modifyExpressConnectRouterInterRegionTransitMode($request)
     {
@@ -2543,85 +2054,67 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * 修改流日志.
+     * @summary Modifies the name, description, sampling rate, and sampling interval.
+     *  *
+     * @param ModifyFlowLogAttributeRequest $request ModifyFlowLogAttributeRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyFlowLogAttributeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ModifyFlowLogAttributeResponse
-     *
-     * @param ModifyFlowLogAttributeRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return ModifyFlowLogAttributeResponse
+     * @return ModifyFlowLogAttributeResponse ModifyFlowLogAttributeResponse
      */
     public function modifyFlowLogAttributeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->flowLogId) {
-            @$query['FlowLogId'] = $request->flowLogId;
+        if (!Utils::isUnset($request->flowLogId)) {
+            $query['FlowLogId'] = $request->flowLogId;
         }
-
-        if (null !== $request->interval) {
-            @$query['Interval'] = $request->interval;
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
         }
-
-        if (null !== $request->samplingRate) {
-            @$query['SamplingRate'] = $request->samplingRate;
+        if (!Utils::isUnset($request->samplingRate)) {
+            $query['SamplingRate'] = $request->samplingRate;
         }
-
         $body = [];
-        if (null !== $request->clientToken) {
-            @$body['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->dryRun) {
-            @$body['DryRun'] = $request->dryRun;
+        if (!Utils::isUnset($request->dryRun)) {
+            $body['DryRun'] = $request->dryRun;
         }
-
-        if (null !== $request->ecrId) {
-            @$body['EcrId'] = $request->ecrId;
+        if (!Utils::isUnset($request->ecrId)) {
+            $body['EcrId'] = $request->ecrId;
         }
-
-        if (null !== $request->flowLogName) {
-            @$body['FlowLogName'] = $request->flowLogName;
+        if (!Utils::isUnset($request->flowLogName)) {
+            $body['FlowLogName'] = $request->flowLogName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ModifyFlowLogAttribute',
-            'version'     => '2023-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyFlowLogAttribute',
+            'version' => '2023-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyFlowLogAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyFlowLogAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyFlowLogAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 修改流日志.
+     * @summary Modifies the name, description, sampling rate, and sampling interval.
+     *  *
+     * @param ModifyFlowLogAttributeRequest $request ModifyFlowLogAttributeRequest
      *
-     * @param request - ModifyFlowLogAttributeRequest
-     * @returns ModifyFlowLogAttributeResponse
-     *
-     * @param ModifyFlowLogAttributeRequest $request
-     *
-     * @return ModifyFlowLogAttributeResponse
+     * @return ModifyFlowLogAttributeResponse ModifyFlowLogAttributeResponse
      */
     public function modifyFlowLogAttribute($request)
     {
@@ -2631,71 +2124,56 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Modifies the resource group to which an Express Connect router (ECR) belongs.
+     * @summary Modifies the resource group to which an Express Connect router (ECR) belongs.
+     *  *
+     * @param MoveResourceGroupRequest $request MoveResourceGroupRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - MoveResourceGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns MoveResourceGroupResponse
-     *
-     * @param MoveResourceGroupRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return MoveResourceGroupResponse
+     * @return MoveResourceGroupResponse MoveResourceGroupResponse
      */
     public function moveResourceGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->clientToken) {
-            @$body['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->dryRun) {
-            @$body['DryRun'] = $request->dryRun;
+        if (!Utils::isUnset($request->dryRun)) {
+            $body['DryRun'] = $request->dryRun;
         }
-
-        if (null !== $request->newResourceGroupId) {
-            @$body['NewResourceGroupId'] = $request->newResourceGroupId;
+        if (!Utils::isUnset($request->newResourceGroupId)) {
+            $body['NewResourceGroupId'] = $request->newResourceGroupId;
         }
-
-        if (null !== $request->resourceId) {
-            @$body['ResourceId'] = $request->resourceId;
+        if (!Utils::isUnset($request->resourceId)) {
+            $body['ResourceId'] = $request->resourceId;
         }
-
-        if (null !== $request->resourceType) {
-            @$body['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $body['ResourceType'] = $request->resourceType;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'MoveResourceGroup',
-            'version'     => '2023-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'MoveResourceGroup',
+            'version' => '2023-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return MoveResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return MoveResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return MoveResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Modifies the resource group to which an Express Connect router (ECR) belongs.
+     * @summary Modifies the resource group to which an Express Connect router (ECR) belongs.
+     *  *
+     * @param MoveResourceGroupRequest $request MoveResourceGroupRequest
      *
-     * @param request - MoveResourceGroupRequest
-     * @returns MoveResourceGroupResponse
-     *
-     * @param MoveResourceGroupRequest $request
-     *
-     * @return MoveResourceGroupResponse
+     * @return MoveResourceGroupResponse MoveResourceGroupResponse
      */
     public function moveResourceGroup($request)
     {
@@ -2705,79 +2183,62 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Revokes permissions on a virtual private cloud (VPC) or a virtual border router (VBR) from an Express Connect router (ECR) owned by another account.
+     * @summary Revokes permissions on a virtual private cloud (VPC) or a virtual border router (VBR) from an Express Connect router (ECR) owned by another account.
+     *  *
+     * @param RevokeInstanceFromExpressConnectRouterRequest $request RevokeInstanceFromExpressConnectRouterRequest
+     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - RevokeInstanceFromExpressConnectRouterRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns RevokeInstanceFromExpressConnectRouterResponse
-     *
-     * @param RevokeInstanceFromExpressConnectRouterRequest $request
-     * @param RuntimeOptions                                $runtime
-     *
-     * @return RevokeInstanceFromExpressConnectRouterResponse
+     * @return RevokeInstanceFromExpressConnectRouterResponse RevokeInstanceFromExpressConnectRouterResponse
      */
     public function revokeInstanceFromExpressConnectRouterWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->clientToken) {
-            @$body['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->dryRun) {
-            @$body['DryRun'] = $request->dryRun;
+        if (!Utils::isUnset($request->dryRun)) {
+            $body['DryRun'] = $request->dryRun;
         }
-
-        if (null !== $request->ecrId) {
-            @$body['EcrId'] = $request->ecrId;
+        if (!Utils::isUnset($request->ecrId)) {
+            $body['EcrId'] = $request->ecrId;
         }
-
-        if (null !== $request->ecrOwnerAliUid) {
-            @$body['EcrOwnerAliUid'] = $request->ecrOwnerAliUid;
+        if (!Utils::isUnset($request->ecrOwnerAliUid)) {
+            $body['EcrOwnerAliUid'] = $request->ecrOwnerAliUid;
         }
-
-        if (null !== $request->instanceId) {
-            @$body['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->instanceRegionId) {
-            @$body['InstanceRegionId'] = $request->instanceRegionId;
+        if (!Utils::isUnset($request->instanceRegionId)) {
+            $body['InstanceRegionId'] = $request->instanceRegionId;
         }
-
-        if (null !== $request->instanceType) {
-            @$body['InstanceType'] = $request->instanceType;
+        if (!Utils::isUnset($request->instanceType)) {
+            $body['InstanceType'] = $request->instanceType;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RevokeInstanceFromExpressConnectRouter',
-            'version'     => '2023-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RevokeInstanceFromExpressConnectRouter',
+            'version' => '2023-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RevokeInstanceFromExpressConnectRouterResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RevokeInstanceFromExpressConnectRouterResponse::fromMap($this->execute($params, $req, $runtime));
+        return RevokeInstanceFromExpressConnectRouterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Revokes permissions on a virtual private cloud (VPC) or a virtual border router (VBR) from an Express Connect router (ECR) owned by another account.
+     * @summary Revokes permissions on a virtual private cloud (VPC) or a virtual border router (VBR) from an Express Connect router (ECR) owned by another account.
+     *  *
+     * @param RevokeInstanceFromExpressConnectRouterRequest $request RevokeInstanceFromExpressConnectRouterRequest
      *
-     * @param request - RevokeInstanceFromExpressConnectRouterRequest
-     * @returns RevokeInstanceFromExpressConnectRouterResponse
-     *
-     * @param RevokeInstanceFromExpressConnectRouterRequest $request
-     *
-     * @return RevokeInstanceFromExpressConnectRouterResponse
+     * @return RevokeInstanceFromExpressConnectRouterResponse RevokeInstanceFromExpressConnectRouterResponse
      */
     public function revokeInstanceFromExpressConnectRouter($request)
     {
@@ -2787,69 +2248,54 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Synchronizes the forwarding bandwidth limit between regions for an Express Connect router (ECR).
+     * @summary Synchronizes the forwarding bandwidth limit between regions for an Express Connect router (ECR).
+     *  *
+     * @description Updates are allowed only when the ECR is in the **Active** state.
+     *  *
+     * @param SynchronizeExpressConnectRouterInterRegionBandwidthRequest $request SynchronizeExpressConnectRouterInterRegionBandwidthRequest
+     * @param RuntimeOptions                                             $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * Updates are allowed only when the ECR is in the **Active** state.
-     *
-     * @param request - SynchronizeExpressConnectRouterInterRegionBandwidthRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns SynchronizeExpressConnectRouterInterRegionBandwidthResponse
-     *
-     * @param SynchronizeExpressConnectRouterInterRegionBandwidthRequest $request
-     * @param RuntimeOptions                                             $runtime
-     *
-     * @return SynchronizeExpressConnectRouterInterRegionBandwidthResponse
+     * @return SynchronizeExpressConnectRouterInterRegionBandwidthResponse SynchronizeExpressConnectRouterInterRegionBandwidthResponse
      */
     public function synchronizeExpressConnectRouterInterRegionBandwidthWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->clientToken) {
-            @$body['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->dryRun) {
-            @$body['DryRun'] = $request->dryRun;
+        if (!Utils::isUnset($request->dryRun)) {
+            $body['DryRun'] = $request->dryRun;
         }
-
-        if (null !== $request->ecrId) {
-            @$body['EcrId'] = $request->ecrId;
+        if (!Utils::isUnset($request->ecrId)) {
+            $body['EcrId'] = $request->ecrId;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SynchronizeExpressConnectRouterInterRegionBandwidth',
-            'version'     => '2023-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SynchronizeExpressConnectRouterInterRegionBandwidth',
+            'version' => '2023-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SynchronizeExpressConnectRouterInterRegionBandwidthResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SynchronizeExpressConnectRouterInterRegionBandwidthResponse::fromMap($this->execute($params, $req, $runtime));
+        return SynchronizeExpressConnectRouterInterRegionBandwidthResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Synchronizes the forwarding bandwidth limit between regions for an Express Connect router (ECR).
+     * @summary Synchronizes the forwarding bandwidth limit between regions for an Express Connect router (ECR).
+     *  *
+     * @description Updates are allowed only when the ECR is in the **Active** state.
+     *  *
+     * @param SynchronizeExpressConnectRouterInterRegionBandwidthRequest $request SynchronizeExpressConnectRouterInterRegionBandwidthRequest
      *
-     * @remarks
-     * Updates are allowed only when the ECR is in the **Active** state.
-     *
-     * @param request - SynchronizeExpressConnectRouterInterRegionBandwidthRequest
-     * @returns SynchronizeExpressConnectRouterInterRegionBandwidthResponse
-     *
-     * @param SynchronizeExpressConnectRouterInterRegionBandwidthRequest $request
-     *
-     * @return SynchronizeExpressConnectRouterInterRegionBandwidthResponse
+     * @return SynchronizeExpressConnectRouterInterRegionBandwidthResponse SynchronizeExpressConnectRouterInterRegionBandwidthResponse
      */
     public function synchronizeExpressConnectRouterInterRegionBandwidth($request)
     {
@@ -2859,71 +2305,56 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Adds tags to an Express Connect router (ECR). You can add tags to only one ECR each time you call this operation. You can add multiple tags at a time.
+     * @summary Adds tags to an Express Connect router (ECR). You can add tags to only one ECR each time you call this operation. You can add multiple tags at a time.
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - TagResourcesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns TagResourcesResponse
-     *
-     * @param TagResourcesRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->clientToken) {
-            @$body['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->dryRun) {
-            @$body['DryRun'] = $request->dryRun;
+        if (!Utils::isUnset($request->dryRun)) {
+            $body['DryRun'] = $request->dryRun;
         }
-
-        if (null !== $request->resourceId) {
-            @$body['ResourceId'] = $request->resourceId;
+        if (!Utils::isUnset($request->resourceId)) {
+            $body['ResourceId'] = $request->resourceId;
         }
-
-        if (null !== $request->resourceType) {
-            @$body['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $body['ResourceType'] = $request->resourceType;
         }
-
-        if (null !== $request->tag) {
-            @$body['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $body['Tag'] = $request->tag;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'TagResources',
-            'version'     => '2023-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TagResources',
+            'version' => '2023-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return TagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Adds tags to an Express Connect router (ECR). You can add tags to only one ECR each time you call this operation. You can add multiple tags at a time.
+     * @summary Adds tags to an Express Connect router (ECR). You can add tags to only one ECR each time you call this operation. You can add multiple tags at a time.
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
      *
-     * @param request - TagResourcesRequest
-     * @returns TagResourcesResponse
-     *
-     * @param TagResourcesRequest $request
-     *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -2933,75 +2364,59 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Removes tags from an Express Connect router (ECR).
+     * @summary Removes tags from an Express Connect router (ECR).
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UntagResourcesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns UntagResourcesResponse
-     *
-     * @param UntagResourcesRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResourcesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->all) {
-            @$body['All'] = $request->all;
+        if (!Utils::isUnset($request->all)) {
+            $body['All'] = $request->all;
         }
-
-        if (null !== $request->clientToken) {
-            @$body['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->dryRun) {
-            @$body['DryRun'] = $request->dryRun;
+        if (!Utils::isUnset($request->dryRun)) {
+            $body['DryRun'] = $request->dryRun;
         }
-
-        if (null !== $request->resourceId) {
-            @$body['ResourceId'] = $request->resourceId;
+        if (!Utils::isUnset($request->resourceId)) {
+            $body['ResourceId'] = $request->resourceId;
         }
-
-        if (null !== $request->resourceType) {
-            @$body['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $body['ResourceType'] = $request->resourceType;
         }
-
-        if (null !== $request->tagKey) {
-            @$body['TagKey'] = $request->tagKey;
+        if (!Utils::isUnset($request->tagKey)) {
+            $body['TagKey'] = $request->tagKey;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UntagResources',
-            'version'     => '2023-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UntagResources',
+            'version' => '2023-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UntagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Removes tags from an Express Connect router (ECR).
+     * @summary Removes tags from an Express Connect router (ECR).
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
      *
-     * @param request - UntagResourcesRequest
-     * @returns UntagResourcesResponse
-     *
-     * @param UntagResourcesRequest $request
-     *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResources($request)
     {
