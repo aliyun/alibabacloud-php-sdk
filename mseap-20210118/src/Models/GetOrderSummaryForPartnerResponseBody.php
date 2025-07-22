@@ -4,19 +4,20 @@
 
 namespace AlibabaCloud\SDK\Mseap\V20210118\Models;
 
+use AlibabaCloud\SDK\Mseap\V20210118\Models\GetOrderSummaryForPartnerResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class ActivateLicenseResponseBody extends Model
+class GetOrderSummaryForPartnerResponseBody extends Model
 {
     /**
-     * @example True
-     *
-     * @var bool
+     * @var data
      */
     public $data;
 
     /**
-     * @example 88EDA98E-6BE7-55DA-9EB6-B6444B882C59
+     * @description Id of the request
+     *
+     * @example 56B009EB-AAA5-52C9-B05F-AF425E3885E8
      *
      * @var string
      */
@@ -32,7 +33,7 @@ class ActivateLicenseResponseBody extends Model
     {
         $res = [];
         if (null !== $this->data) {
-            $res['Data'] = $this->data;
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -44,13 +45,13 @@ class ActivateLicenseResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ActivateLicenseResponseBody
+     * @return GetOrderSummaryForPartnerResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Data'])) {
-            $model->data = $map['Data'];
+            $model->data = data::fromMap($map['Data']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

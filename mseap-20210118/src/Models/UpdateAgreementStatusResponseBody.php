@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Mseap\V20210118\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateAgreementStatusResponseBody extends Model
 {
     /**
+     * @example 6BDB1964-A6E9-5946-89A4-523D35645BB6
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +18,9 @@ class UpdateAgreementStatusResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +30,11 @@ class UpdateAgreementStatusResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateAgreementStatusResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

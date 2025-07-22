@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Mseap\V20210118\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class PullTaskResponse extends Model
+class GetOrderSummaryForPartnerResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class PullTaskResponse extends Model
     public $statusCode;
 
     /**
-     * @var PullTaskResponseBody
+     * @var GetOrderSummaryForPartnerResponseBody
      */
     public $body;
     protected $_name = [
@@ -49,7 +49,7 @@ class PullTaskResponse extends Model
     /**
      * @param array $map
      *
-     * @return PullTaskResponse
+     * @return GetOrderSummaryForPartnerResponse
      */
     public static function fromMap($map = [])
     {
@@ -61,7 +61,7 @@ class PullTaskResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = PullTaskResponseBody::fromMap($map['body']);
+            $model->body = GetOrderSummaryForPartnerResponseBody::fromMap($map['body']);
         }
 
         return $model;

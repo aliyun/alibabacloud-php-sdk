@@ -4,26 +4,34 @@
 
 namespace AlibabaCloud\SDK\Mseap\V20210118\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class SendNotificationForPartnerRequest extends Model
 {
     /**
+     * @example DMP
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $channelType;
 
     /**
+     * @example MESSAGE
+     *
      * @var string
      */
     public $notifyType;
 
     /**
+     * @example dmp_website_xxx
+     *
      * @var string
      */
     public $notifycationEventType;
@@ -34,6 +42,8 @@ class SendNotificationForPartnerRequest extends Model
     public $paramMap;
 
     /**
+     * @example 12312212312
+     *
      * @var string
      */
     public $sendTarget;
@@ -44,6 +54,8 @@ class SendNotificationForPartnerRequest extends Model
     public $smartSubChannels;
 
     /**
+     * @example 5b29647n-a172-4ccd-ba33-73669896c287
+     *
      * @var string
      */
     public $trackId;
@@ -58,59 +70,32 @@ class SendNotificationForPartnerRequest extends Model
         'trackId' => 'TrackId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->paramMap)) {
-            Model::validateArray($this->paramMap);
-        }
-        if (\is_array($this->smartSubChannels)) {
-            Model::validateArray($this->smartSubChannels);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->bizId) {
             $res['BizId'] = $this->bizId;
         }
-
         if (null !== $this->channelType) {
             $res['ChannelType'] = $this->channelType;
         }
-
         if (null !== $this->notifyType) {
             $res['NotifyType'] = $this->notifyType;
         }
-
         if (null !== $this->notifycationEventType) {
             $res['NotifycationEventType'] = $this->notifycationEventType;
         }
-
         if (null !== $this->paramMap) {
-            if (\is_array($this->paramMap)) {
-                $res['ParamMap'] = [];
-                foreach ($this->paramMap as $key1 => $value1) {
-                    $res['ParamMap'][$key1] = $value1;
-                }
-            }
+            $res['ParamMap'] = $this->paramMap;
         }
-
         if (null !== $this->sendTarget) {
             $res['SendTarget'] = $this->sendTarget;
         }
-
         if (null !== $this->smartSubChannels) {
-            if (\is_array($this->smartSubChannels)) {
-                $res['SmartSubChannels'] = [];
-                $n1 = 0;
-                foreach ($this->smartSubChannels as $item1) {
-                    $res['SmartSubChannels'][$n1++] = $item1;
-                }
-            }
+            $res['SmartSubChannels'] = $this->smartSubChannels;
         }
-
         if (null !== $this->trackId) {
             $res['TrackId'] = $this->trackId;
         }
@@ -118,53 +103,37 @@ class SendNotificationForPartnerRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return SendNotificationForPartnerRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BizId'])) {
             $model->bizId = $map['BizId'];
         }
-
         if (isset($map['ChannelType'])) {
             $model->channelType = $map['ChannelType'];
         }
-
         if (isset($map['NotifyType'])) {
             $model->notifyType = $map['NotifyType'];
         }
-
         if (isset($map['NotifycationEventType'])) {
             $model->notifycationEventType = $map['NotifycationEventType'];
         }
-
         if (isset($map['ParamMap'])) {
-            if (!empty($map['ParamMap'])) {
-                $model->paramMap = [];
-                foreach ($map['ParamMap'] as $key1 => $value1) {
-                    $model->paramMap[$key1] = $value1;
-                }
-            }
+            $model->paramMap = $map['ParamMap'];
         }
-
         if (isset($map['SendTarget'])) {
             $model->sendTarget = $map['SendTarget'];
         }
-
         if (isset($map['SmartSubChannels'])) {
             if (!empty($map['SmartSubChannels'])) {
-                $model->smartSubChannels = [];
-                $n1 = 0;
-                foreach ($map['SmartSubChannels'] as $item1) {
-                    $model->smartSubChannels[$n1++] = $item1;
-                }
+                $model->smartSubChannels = $map['SmartSubChannels'];
             }
         }
-
         if (isset($map['TrackId'])) {
             $model->trackId = $map['TrackId'];
         }

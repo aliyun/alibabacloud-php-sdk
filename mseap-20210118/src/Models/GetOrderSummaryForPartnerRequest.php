@@ -6,16 +6,16 @@ namespace AlibabaCloud\SDK\Mseap\V20210118\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeAgreementStatusRequest extends Model
+class GetOrderSummaryForPartnerRequest extends Model
 {
     /**
-     * @example 10aa40008e081ad7b1fb50bffc3a70b1
+     * @example 1672369049358
      *
      * @var string
      */
-    public $agreementCode;
+    public $orderId;
     protected $_name = [
-        'agreementCode' => 'AgreementCode',
+        'orderId' => 'OrderId',
     ];
 
     public function validate() {}
@@ -23,8 +23,8 @@ class DescribeAgreementStatusRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->agreementCode) {
-            $res['AgreementCode'] = $this->agreementCode;
+        if (null !== $this->orderId) {
+            $res['OrderId'] = $this->orderId;
         }
 
         return $res;
@@ -33,13 +33,13 @@ class DescribeAgreementStatusRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeAgreementStatusRequest
+     * @return GetOrderSummaryForPartnerRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AgreementCode'])) {
-            $model->agreementCode = $map['AgreementCode'];
+        if (isset($map['OrderId'])) {
+            $model->orderId = $map['OrderId'];
         }
 
         return $model;

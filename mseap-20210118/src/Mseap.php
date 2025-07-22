@@ -4,7 +4,8 @@
 
 namespace AlibabaCloud\SDK\Mseap\V20210118;
 
-use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Mseap\V20210118\Models\ActivateLicenseRequest;
 use AlibabaCloud\SDK\Mseap\V20210118\Models\ActivateLicenseResponse;
 use AlibabaCloud\SDK\Mseap\V20210118\Models\CallbackTaskRequest;
@@ -17,6 +18,8 @@ use AlibabaCloud\SDK\Mseap\V20210118\Models\GetNodeByFlowIdRequest;
 use AlibabaCloud\SDK\Mseap\V20210118\Models\GetNodeByFlowIdResponse;
 use AlibabaCloud\SDK\Mseap\V20210118\Models\GetNodeByTemplateIdRequest;
 use AlibabaCloud\SDK\Mseap\V20210118\Models\GetNodeByTemplateIdResponse;
+use AlibabaCloud\SDK\Mseap\V20210118\Models\GetOrderSummaryForPartnerRequest;
+use AlibabaCloud\SDK\Mseap\V20210118\Models\GetOrderSummaryForPartnerResponse;
 use AlibabaCloud\SDK\Mseap\V20210118\Models\GetPlatformUserInfoForPartnerRequest;
 use AlibabaCloud\SDK\Mseap\V20210118\Models\GetPlatformUserInfoForPartnerResponse;
 use AlibabaCloud\SDK\Mseap\V20210118\Models\GetProxyByTypeRequest;
@@ -42,10 +45,11 @@ use AlibabaCloud\SDK\Mseap\V20210118\Models\SetRedisValueRequest;
 use AlibabaCloud\SDK\Mseap\V20210118\Models\SetRedisValueResponse;
 use AlibabaCloud\SDK\Mseap\V20210118\Models\UpdateAgreementStatusRequest;
 use AlibabaCloud\SDK\Mseap\V20210118\Models\UpdateAgreementStatusResponse;
+use AlibabaCloud\Tea\Utils\Utils;
+use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
-use Darabonba\OpenApi\Utils;
 
 class Mseap extends OpenApiClient
 {
@@ -70,54 +74,45 @@ class Mseap extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (null !== $endpoint) {
+        if (!Utils::empty_($endpoint)) {
             return $endpoint;
         }
-
-        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
+        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
             return @$endpointMap[$regionId];
         }
 
-        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @param request - ActivateLicenseRequest
-     * @param runtime - runtime options for this request RuntimeOptions
+     * @summary 商品授权码激活
+     *  *
+     * @param ActivateLicenseRequest $request ActivateLicenseRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @returns ActivateLicenseResponse
-     *
-     * @param ActivateLicenseRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return ActivateLicenseResponse
+     * @return ActivateLicenseResponse ActivateLicenseResponse
      */
     public function activateLicenseWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->bizId) {
-            @$query['BizId'] = $request->bizId;
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
         }
-
-        if (null !== $request->bizType) {
-            @$query['BizType'] = $request->bizType;
+        if (!Utils::isUnset($request->bizType)) {
+            $query['BizType'] = $request->bizType;
         }
-
-        if (null !== $request->licenseCode) {
-            @$query['LicenseCode'] = $request->licenseCode;
+        if (!Utils::isUnset($request->licenseCode)) {
+            $query['LicenseCode'] = $request->licenseCode;
         }
-
-        if (null !== $request->licenseNo) {
-            @$query['LicenseNo'] = $request->licenseNo;
+        if (!Utils::isUnset($request->licenseNo)) {
+            $query['LicenseNo'] = $request->licenseNo;
         }
-
-        if (null !== $request->licensePublisher) {
-            @$query['LicensePublisher'] = $request->licensePublisher;
+        if (!Utils::isUnset($request->licensePublisher)) {
+            $query['LicensePublisher'] = $request->licensePublisher;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ActivateLicense',
@@ -135,13 +130,11 @@ class Mseap extends OpenApiClient
     }
 
     /**
-     * @param request - ActivateLicenseRequest
+     * @summary 商品授权码激活
+     *  *
+     * @param ActivateLicenseRequest $request ActivateLicenseRequest
      *
-     * @returns ActivateLicenseResponse
-     *
-     * @param ActivateLicenseRequest $request
-     *
-     * @return ActivateLicenseResponse
+     * @return ActivateLicenseResponse ActivateLicenseResponse
      */
     public function activateLicense($request)
     {
@@ -151,108 +144,82 @@ class Mseap extends OpenApiClient
     }
 
     /**
-     * 任务回调.
+     * @summary 任务回调
+     *  *
+     * @param CallbackTaskRequest $request CallbackTaskRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CallbackTaskRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CallbackTaskResponse
-     *
-     * @param CallbackTaskRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return CallbackTaskResponse
+     * @return CallbackTaskResponse CallbackTaskResponse
      */
     public function callbackTaskWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->aliyunKp) {
-            @$query['AliyunKp'] = $request->aliyunKp;
+        if (!Utils::isUnset($request->aliyunKp)) {
+            $query['AliyunKp'] = $request->aliyunKp;
         }
-
-        if (null !== $request->apiType) {
-            @$query['ApiType'] = $request->apiType;
+        if (!Utils::isUnset($request->apiType)) {
+            $query['ApiType'] = $request->apiType;
         }
-
-        if (null !== $request->bid) {
-            @$query['Bid'] = $request->bid;
+        if (!Utils::isUnset($request->bid)) {
+            $query['Bid'] = $request->bid;
         }
-
-        if (null !== $request->bizCode) {
-            @$query['BizCode'] = $request->bizCode;
+        if (!Utils::isUnset($request->bizCode)) {
+            $query['BizCode'] = $request->bizCode;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->orderId) {
-            @$query['OrderId'] = $request->orderId;
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
         }
-
-        if (null !== $request->originalRequest) {
-            @$query['OriginalRequest'] = $request->originalRequest;
+        if (!Utils::isUnset($request->originalRequest)) {
+            $query['OriginalRequest'] = $request->originalRequest;
         }
-
-        if (null !== $request->outTaskId) {
-            @$query['OutTaskId'] = $request->outTaskId;
+        if (!Utils::isUnset($request->outTaskId)) {
+            $query['OutTaskId'] = $request->outTaskId;
         }
-
-        if (null !== $request->principalKey) {
-            @$query['PrincipalKey'] = $request->principalKey;
+        if (!Utils::isUnset($request->principalKey)) {
+            $query['PrincipalKey'] = $request->principalKey;
         }
-
-        if (null !== $request->taskData) {
-            @$query['TaskData'] = $request->taskData;
+        if (!Utils::isUnset($request->taskData)) {
+            $query['TaskData'] = $request->taskData;
         }
-
-        if (null !== $request->taskId) {
-            @$query['TaskId'] = $request->taskId;
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
         }
-
-        if (null !== $request->taskType) {
-            @$query['TaskType'] = $request->taskType;
+        if (!Utils::isUnset($request->taskType)) {
+            $query['TaskType'] = $request->taskType;
         }
-
-        if (null !== $request->userAccessKeyId) {
-            @$query['UserAccessKeyId'] = $request->userAccessKeyId;
+        if (!Utils::isUnset($request->userAccessKeyId)) {
+            $query['UserAccessKeyId'] = $request->userAccessKeyId;
         }
-
-        if (null !== $request->userBid) {
-            @$query['UserBid'] = $request->userBid;
+        if (!Utils::isUnset($request->userBid)) {
+            $query['UserBid'] = $request->userBid;
         }
-
-        if (null !== $request->userCallerParentId) {
-            @$query['UserCallerParentId'] = $request->userCallerParentId;
+        if (!Utils::isUnset($request->userCallerParentId)) {
+            $query['UserCallerParentId'] = $request->userCallerParentId;
         }
-
-        if (null !== $request->userCallerSecurityTransport) {
-            @$query['UserCallerSecurityTransport'] = $request->userCallerSecurityTransport;
+        if (!Utils::isUnset($request->userCallerSecurityTransport)) {
+            $query['UserCallerSecurityTransport'] = $request->userCallerSecurityTransport;
         }
-
-        if (null !== $request->userCallerType) {
-            @$query['UserCallerType'] = $request->userCallerType;
+        if (!Utils::isUnset($request->userCallerType)) {
+            $query['UserCallerType'] = $request->userCallerType;
         }
-
-        if (null !== $request->userClientIp) {
-            @$query['UserClientIp'] = $request->userClientIp;
+        if (!Utils::isUnset($request->userClientIp)) {
+            $query['UserClientIp'] = $request->userClientIp;
         }
-
-        if (null !== $request->userKp) {
-            @$query['UserKp'] = $request->userKp;
+        if (!Utils::isUnset($request->userKp)) {
+            $query['UserKp'] = $request->userKp;
         }
-
-        if (null !== $request->userMfaPresent) {
-            @$query['UserMfaPresent'] = $request->userMfaPresent;
+        if (!Utils::isUnset($request->userMfaPresent)) {
+            $query['UserMfaPresent'] = $request->userMfaPresent;
         }
-
-        if (null !== $request->userSecurityToken) {
-            @$query['UserSecurityToken'] = $request->userSecurityToken;
+        if (!Utils::isUnset($request->userSecurityToken)) {
+            $query['UserSecurityToken'] = $request->userSecurityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CallbackTask',
@@ -270,15 +237,11 @@ class Mseap extends OpenApiClient
     }
 
     /**
-     * 任务回调.
+     * @summary 任务回调
+     *  *
+     * @param CallbackTaskRequest $request CallbackTaskRequest
      *
-     * @param request - CallbackTaskRequest
-     *
-     * @returns CallbackTaskResponse
-     *
-     * @param CallbackTaskRequest $request
-     *
-     * @return CallbackTaskResponse
+     * @return CallbackTaskResponse CallbackTaskResponse
      */
     public function callbackTask($request)
     {
@@ -288,26 +251,22 @@ class Mseap extends OpenApiClient
     }
 
     /**
-     * @param request - DescribeAgreementStatusRequest
-     * @param runtime - runtime options for this request RuntimeOptions
+     * @summary 查询协议状态
+     *  *
+     * @param DescribeAgreementStatusRequest $request DescribeAgreementStatusRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @returns DescribeAgreementStatusResponse
-     *
-     * @param DescribeAgreementStatusRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DescribeAgreementStatusResponse
+     * @return DescribeAgreementStatusResponse DescribeAgreementStatusResponse
      */
     public function describeAgreementStatusWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->agreementCode) {
-            @$query['AgreementCode'] = $request->agreementCode;
+        if (!Utils::isUnset($request->agreementCode)) {
+            $query['AgreementCode'] = $request->agreementCode;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeAgreementStatus',
@@ -325,13 +284,11 @@ class Mseap extends OpenApiClient
     }
 
     /**
-     * @param request - DescribeAgreementStatusRequest
+     * @summary 查询协议状态
+     *  *
+     * @param DescribeAgreementStatusRequest $request DescribeAgreementStatusRequest
      *
-     * @returns DescribeAgreementStatusResponse
-     *
-     * @param DescribeAgreementStatusRequest $request
-     *
-     * @return DescribeAgreementStatusResponse
+     * @return DescribeAgreementStatusResponse DescribeAgreementStatusResponse
      */
     public function describeAgreementStatus($request)
     {
@@ -341,36 +298,28 @@ class Mseap extends OpenApiClient
     }
 
     /**
-     * 合作伙伴生成上传文件策略.
+     * @summary 合作伙伴生成上传文件策略
+     *  *
+     * @param GenerateUploadFilePolicyForPartnerRequest $request GenerateUploadFilePolicyForPartnerRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GenerateUploadFilePolicyForPartnerRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GenerateUploadFilePolicyForPartnerResponse
-     *
-     * @param GenerateUploadFilePolicyForPartnerRequest $request
-     * @param RuntimeOptions                            $runtime
-     *
-     * @return GenerateUploadFilePolicyForPartnerResponse
+     * @return GenerateUploadFilePolicyForPartnerResponse GenerateUploadFilePolicyForPartnerResponse
      */
     public function generateUploadFilePolicyForPartnerWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->bizType) {
-            @$query['BizType'] = $request->bizType;
+        if (!Utils::isUnset($request->bizType)) {
+            $query['BizType'] = $request->bizType;
         }
-
-        if (null !== $request->fileName) {
-            @$query['FileName'] = $request->fileName;
+        if (!Utils::isUnset($request->fileName)) {
+            $query['FileName'] = $request->fileName;
         }
-
-        if (null !== $request->fileType) {
-            @$query['FileType'] = $request->fileType;
+        if (!Utils::isUnset($request->fileType)) {
+            $query['FileType'] = $request->fileType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GenerateUploadFilePolicyForPartner',
@@ -388,15 +337,11 @@ class Mseap extends OpenApiClient
     }
 
     /**
-     * 合作伙伴生成上传文件策略.
+     * @summary 合作伙伴生成上传文件策略
+     *  *
+     * @param GenerateUploadFilePolicyForPartnerRequest $request GenerateUploadFilePolicyForPartnerRequest
      *
-     * @param request - GenerateUploadFilePolicyForPartnerRequest
-     *
-     * @returns GenerateUploadFilePolicyForPartnerResponse
-     *
-     * @param GenerateUploadFilePolicyForPartnerRequest $request
-     *
-     * @return GenerateUploadFilePolicyForPartnerResponse
+     * @return GenerateUploadFilePolicyForPartnerResponse GenerateUploadFilePolicyForPartnerResponse
      */
     public function generateUploadFilePolicyForPartner($request)
     {
@@ -406,84 +351,64 @@ class Mseap extends OpenApiClient
     }
 
     /**
-     * 获取node节点通过流程id.
+     * @summary 获取node节点通过流程id
+     *  *
+     * @param GetNodeByFlowIdRequest $request GetNodeByFlowIdRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetNodeByFlowIdRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetNodeByFlowIdResponse
-     *
-     * @param GetNodeByFlowIdRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return GetNodeByFlowIdResponse
+     * @return GetNodeByFlowIdResponse GetNodeByFlowIdResponse
      */
     public function getNodeByFlowIdWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->aliyunKp) {
-            @$query['AliyunKp'] = $request->aliyunKp;
+        if (!Utils::isUnset($request->aliyunKp)) {
+            $query['AliyunKp'] = $request->aliyunKp;
         }
-
-        if (null !== $request->apiType) {
-            @$query['ApiType'] = $request->apiType;
+        if (!Utils::isUnset($request->apiType)) {
+            $query['ApiType'] = $request->apiType;
         }
-
-        if (null !== $request->bid) {
-            @$query['Bid'] = $request->bid;
+        if (!Utils::isUnset($request->bid)) {
+            $query['Bid'] = $request->bid;
         }
-
-        if (null !== $request->flowId) {
-            @$query['FlowId'] = $request->flowId;
+        if (!Utils::isUnset($request->flowId)) {
+            $query['FlowId'] = $request->flowId;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->originalRequest) {
-            @$query['OriginalRequest'] = $request->originalRequest;
+        if (!Utils::isUnset($request->originalRequest)) {
+            $query['OriginalRequest'] = $request->originalRequest;
         }
-
-        if (null !== $request->userAccessKeyId) {
-            @$query['UserAccessKeyId'] = $request->userAccessKeyId;
+        if (!Utils::isUnset($request->userAccessKeyId)) {
+            $query['UserAccessKeyId'] = $request->userAccessKeyId;
         }
-
-        if (null !== $request->userBid) {
-            @$query['UserBid'] = $request->userBid;
+        if (!Utils::isUnset($request->userBid)) {
+            $query['UserBid'] = $request->userBid;
         }
-
-        if (null !== $request->userCallerParentId) {
-            @$query['UserCallerParentId'] = $request->userCallerParentId;
+        if (!Utils::isUnset($request->userCallerParentId)) {
+            $query['UserCallerParentId'] = $request->userCallerParentId;
         }
-
-        if (null !== $request->userCallerSecurityTransport) {
-            @$query['UserCallerSecurityTransport'] = $request->userCallerSecurityTransport;
+        if (!Utils::isUnset($request->userCallerSecurityTransport)) {
+            $query['UserCallerSecurityTransport'] = $request->userCallerSecurityTransport;
         }
-
-        if (null !== $request->userCallerType) {
-            @$query['UserCallerType'] = $request->userCallerType;
+        if (!Utils::isUnset($request->userCallerType)) {
+            $query['UserCallerType'] = $request->userCallerType;
         }
-
-        if (null !== $request->userClientIp) {
-            @$query['UserClientIp'] = $request->userClientIp;
+        if (!Utils::isUnset($request->userClientIp)) {
+            $query['UserClientIp'] = $request->userClientIp;
         }
-
-        if (null !== $request->userKp) {
-            @$query['UserKp'] = $request->userKp;
+        if (!Utils::isUnset($request->userKp)) {
+            $query['UserKp'] = $request->userKp;
         }
-
-        if (null !== $request->userMfaPresent) {
-            @$query['UserMfaPresent'] = $request->userMfaPresent;
+        if (!Utils::isUnset($request->userMfaPresent)) {
+            $query['UserMfaPresent'] = $request->userMfaPresent;
         }
-
-        if (null !== $request->userSecurityToken) {
-            @$query['UserSecurityToken'] = $request->userSecurityToken;
+        if (!Utils::isUnset($request->userSecurityToken)) {
+            $query['UserSecurityToken'] = $request->userSecurityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetNodeByFlowId',
@@ -501,15 +426,11 @@ class Mseap extends OpenApiClient
     }
 
     /**
-     * 获取node节点通过流程id.
+     * @summary 获取node节点通过流程id
+     *  *
+     * @param GetNodeByFlowIdRequest $request GetNodeByFlowIdRequest
      *
-     * @param request - GetNodeByFlowIdRequest
-     *
-     * @returns GetNodeByFlowIdResponse
-     *
-     * @param GetNodeByFlowIdRequest $request
-     *
-     * @return GetNodeByFlowIdResponse
+     * @return GetNodeByFlowIdResponse GetNodeByFlowIdResponse
      */
     public function getNodeByFlowId($request)
     {
@@ -519,84 +440,64 @@ class Mseap extends OpenApiClient
     }
 
     /**
-     * 获取node节点通过模版id.
+     * @summary 获取node节点通过模版id
+     *  *
+     * @param GetNodeByTemplateIdRequest $request GetNodeByTemplateIdRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetNodeByTemplateIdRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetNodeByTemplateIdResponse
-     *
-     * @param GetNodeByTemplateIdRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return GetNodeByTemplateIdResponse
+     * @return GetNodeByTemplateIdResponse GetNodeByTemplateIdResponse
      */
     public function getNodeByTemplateIdWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->aliyunKp) {
-            @$query['AliyunKp'] = $request->aliyunKp;
+        if (!Utils::isUnset($request->aliyunKp)) {
+            $query['AliyunKp'] = $request->aliyunKp;
         }
-
-        if (null !== $request->apiType) {
-            @$query['ApiType'] = $request->apiType;
+        if (!Utils::isUnset($request->apiType)) {
+            $query['ApiType'] = $request->apiType;
         }
-
-        if (null !== $request->bid) {
-            @$query['Bid'] = $request->bid;
+        if (!Utils::isUnset($request->bid)) {
+            $query['Bid'] = $request->bid;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->originalRequest) {
-            @$query['OriginalRequest'] = $request->originalRequest;
+        if (!Utils::isUnset($request->originalRequest)) {
+            $query['OriginalRequest'] = $request->originalRequest;
         }
-
-        if (null !== $request->templateId) {
-            @$query['TemplateId'] = $request->templateId;
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
         }
-
-        if (null !== $request->userAccessKeyId) {
-            @$query['UserAccessKeyId'] = $request->userAccessKeyId;
+        if (!Utils::isUnset($request->userAccessKeyId)) {
+            $query['UserAccessKeyId'] = $request->userAccessKeyId;
         }
-
-        if (null !== $request->userBid) {
-            @$query['UserBid'] = $request->userBid;
+        if (!Utils::isUnset($request->userBid)) {
+            $query['UserBid'] = $request->userBid;
         }
-
-        if (null !== $request->userCallerParentId) {
-            @$query['UserCallerParentId'] = $request->userCallerParentId;
+        if (!Utils::isUnset($request->userCallerParentId)) {
+            $query['UserCallerParentId'] = $request->userCallerParentId;
         }
-
-        if (null !== $request->userCallerSecurityTransport) {
-            @$query['UserCallerSecurityTransport'] = $request->userCallerSecurityTransport;
+        if (!Utils::isUnset($request->userCallerSecurityTransport)) {
+            $query['UserCallerSecurityTransport'] = $request->userCallerSecurityTransport;
         }
-
-        if (null !== $request->userCallerType) {
-            @$query['UserCallerType'] = $request->userCallerType;
+        if (!Utils::isUnset($request->userCallerType)) {
+            $query['UserCallerType'] = $request->userCallerType;
         }
-
-        if (null !== $request->userClientIp) {
-            @$query['UserClientIp'] = $request->userClientIp;
+        if (!Utils::isUnset($request->userClientIp)) {
+            $query['UserClientIp'] = $request->userClientIp;
         }
-
-        if (null !== $request->userKp) {
-            @$query['UserKp'] = $request->userKp;
+        if (!Utils::isUnset($request->userKp)) {
+            $query['UserKp'] = $request->userKp;
         }
-
-        if (null !== $request->userMfaPresent) {
-            @$query['UserMfaPresent'] = $request->userMfaPresent;
+        if (!Utils::isUnset($request->userMfaPresent)) {
+            $query['UserMfaPresent'] = $request->userMfaPresent;
         }
-
-        if (null !== $request->userSecurityToken) {
-            @$query['UserSecurityToken'] = $request->userSecurityToken;
+        if (!Utils::isUnset($request->userSecurityToken)) {
+            $query['UserSecurityToken'] = $request->userSecurityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetNodeByTemplateId',
@@ -614,15 +515,11 @@ class Mseap extends OpenApiClient
     }
 
     /**
-     * 获取node节点通过模版id.
+     * @summary 获取node节点通过模版id
+     *  *
+     * @param GetNodeByTemplateIdRequest $request GetNodeByTemplateIdRequest
      *
-     * @param request - GetNodeByTemplateIdRequest
-     *
-     * @returns GetNodeByTemplateIdResponse
-     *
-     * @param GetNodeByTemplateIdRequest $request
-     *
-     * @return GetNodeByTemplateIdResponse
+     * @return GetNodeByTemplateIdResponse GetNodeByTemplateIdResponse
      */
     public function getNodeByTemplateId($request)
     {
@@ -632,36 +529,75 @@ class Mseap extends OpenApiClient
     }
 
     /**
-     * 合作伙伴获取用户跨平台信息.
+     * @summary 合作伙伴获取订单概要信息
+     *  *
+     * @param GetOrderSummaryForPartnerRequest $request GetOrderSummaryForPartnerRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetPlatformUserInfoForPartnerRequest
-     * @param runtime - runtime options for this request RuntimeOptions
+     * @return GetOrderSummaryForPartnerResponse GetOrderSummaryForPartnerResponse
+     */
+    public function getOrderSummaryForPartnerWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetOrderSummaryForPartner',
+            'version' => '2021-01-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetOrderSummaryForPartnerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 合作伙伴获取订单概要信息
+     *  *
+     * @param GetOrderSummaryForPartnerRequest $request GetOrderSummaryForPartnerRequest
      *
-     * @returns GetPlatformUserInfoForPartnerResponse
+     * @return GetOrderSummaryForPartnerResponse GetOrderSummaryForPartnerResponse
+     */
+    public function getOrderSummaryForPartner($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getOrderSummaryForPartnerWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 合作伙伴获取用户跨平台信息
+     *  *
+     * @param GetPlatformUserInfoForPartnerRequest $request GetPlatformUserInfoForPartnerRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @param GetPlatformUserInfoForPartnerRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return GetPlatformUserInfoForPartnerResponse
+     * @return GetPlatformUserInfoForPartnerResponse GetPlatformUserInfoForPartnerResponse
      */
     public function getPlatformUserInfoForPartnerWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->appId) {
-            @$query['AppId'] = $request->appId;
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
         }
-
-        if (null !== $request->platformType) {
-            @$query['PlatformType'] = $request->platformType;
+        if (!Utils::isUnset($request->platformType)) {
+            $query['PlatformType'] = $request->platformType;
         }
-
-        if (null !== $request->userId) {
-            @$query['UserId'] = $request->userId;
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetPlatformUserInfoForPartner',
@@ -679,15 +615,11 @@ class Mseap extends OpenApiClient
     }
 
     /**
-     * 合作伙伴获取用户跨平台信息.
+     * @summary 合作伙伴获取用户跨平台信息
+     *  *
+     * @param GetPlatformUserInfoForPartnerRequest $request GetPlatformUserInfoForPartnerRequest
      *
-     * @param request - GetPlatformUserInfoForPartnerRequest
-     *
-     * @returns GetPlatformUserInfoForPartnerResponse
-     *
-     * @param GetPlatformUserInfoForPartnerRequest $request
-     *
-     * @return GetPlatformUserInfoForPartnerResponse
+     * @return GetPlatformUserInfoForPartnerResponse GetPlatformUserInfoForPartnerResponse
      */
     public function getPlatformUserInfoForPartner($request)
     {
@@ -697,84 +629,64 @@ class Mseap extends OpenApiClient
     }
 
     /**
-     * 获取代理.
+     * @summary 获取代理
+     *  *
+     * @param GetProxyByTypeRequest $request GetProxyByTypeRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetProxyByTypeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetProxyByTypeResponse
-     *
-     * @param GetProxyByTypeRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return GetProxyByTypeResponse
+     * @return GetProxyByTypeResponse GetProxyByTypeResponse
      */
     public function getProxyByTypeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->aliyunKp) {
-            @$query['AliyunKp'] = $request->aliyunKp;
+        if (!Utils::isUnset($request->aliyunKp)) {
+            $query['AliyunKp'] = $request->aliyunKp;
         }
-
-        if (null !== $request->apiType) {
-            @$query['ApiType'] = $request->apiType;
+        if (!Utils::isUnset($request->apiType)) {
+            $query['ApiType'] = $request->apiType;
         }
-
-        if (null !== $request->bid) {
-            @$query['Bid'] = $request->bid;
+        if (!Utils::isUnset($request->bid)) {
+            $query['Bid'] = $request->bid;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->originalRequest) {
-            @$query['OriginalRequest'] = $request->originalRequest;
+        if (!Utils::isUnset($request->originalRequest)) {
+            $query['OriginalRequest'] = $request->originalRequest;
         }
-
-        if (null !== $request->type) {
-            @$query['Type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
         }
-
-        if (null !== $request->userAccessKeyId) {
-            @$query['UserAccessKeyId'] = $request->userAccessKeyId;
+        if (!Utils::isUnset($request->userAccessKeyId)) {
+            $query['UserAccessKeyId'] = $request->userAccessKeyId;
         }
-
-        if (null !== $request->userBid) {
-            @$query['UserBid'] = $request->userBid;
+        if (!Utils::isUnset($request->userBid)) {
+            $query['UserBid'] = $request->userBid;
         }
-
-        if (null !== $request->userCallerParentId) {
-            @$query['UserCallerParentId'] = $request->userCallerParentId;
+        if (!Utils::isUnset($request->userCallerParentId)) {
+            $query['UserCallerParentId'] = $request->userCallerParentId;
         }
-
-        if (null !== $request->userCallerSecurityTransport) {
-            @$query['UserCallerSecurityTransport'] = $request->userCallerSecurityTransport;
+        if (!Utils::isUnset($request->userCallerSecurityTransport)) {
+            $query['UserCallerSecurityTransport'] = $request->userCallerSecurityTransport;
         }
-
-        if (null !== $request->userCallerType) {
-            @$query['UserCallerType'] = $request->userCallerType;
+        if (!Utils::isUnset($request->userCallerType)) {
+            $query['UserCallerType'] = $request->userCallerType;
         }
-
-        if (null !== $request->userClientIp) {
-            @$query['UserClientIp'] = $request->userClientIp;
+        if (!Utils::isUnset($request->userClientIp)) {
+            $query['UserClientIp'] = $request->userClientIp;
         }
-
-        if (null !== $request->userKp) {
-            @$query['UserKp'] = $request->userKp;
+        if (!Utils::isUnset($request->userKp)) {
+            $query['UserKp'] = $request->userKp;
         }
-
-        if (null !== $request->userMfaPresent) {
-            @$query['UserMfaPresent'] = $request->userMfaPresent;
+        if (!Utils::isUnset($request->userMfaPresent)) {
+            $query['UserMfaPresent'] = $request->userMfaPresent;
         }
-
-        if (null !== $request->userSecurityToken) {
-            @$query['UserSecurityToken'] = $request->userSecurityToken;
+        if (!Utils::isUnset($request->userSecurityToken)) {
+            $query['UserSecurityToken'] = $request->userSecurityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetProxyByType',
@@ -792,15 +704,11 @@ class Mseap extends OpenApiClient
     }
 
     /**
-     * 获取代理.
+     * @summary 获取代理
+     *  *
+     * @param GetProxyByTypeRequest $request GetProxyByTypeRequest
      *
-     * @param request - GetProxyByTypeRequest
-     *
-     * @returns GetProxyByTypeResponse
-     *
-     * @param GetProxyByTypeRequest $request
-     *
-     * @return GetProxyByTypeResponse
+     * @return GetProxyByTypeResponse GetProxyByTypeResponse
      */
     public function getProxyByType($request)
     {
@@ -810,92 +718,70 @@ class Mseap extends OpenApiClient
     }
 
     /**
-     * 获取redis值
+     * @summary 获取redis值
+     *  *
+     * @param GetRedisValueRequest $request GetRedisValueRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetRedisValueRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetRedisValueResponse
-     *
-     * @param GetRedisValueRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return GetRedisValueResponse
+     * @return GetRedisValueResponse GetRedisValueResponse
      */
     public function getRedisValueWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->aliyunKp) {
-            @$query['AliyunKp'] = $request->aliyunKp;
+        if (!Utils::isUnset($request->aliyunKp)) {
+            $query['AliyunKp'] = $request->aliyunKp;
         }
-
-        if (null !== $request->apiType) {
-            @$query['ApiType'] = $request->apiType;
+        if (!Utils::isUnset($request->apiType)) {
+            $query['ApiType'] = $request->apiType;
         }
-
-        if (null !== $request->bid) {
-            @$query['Bid'] = $request->bid;
+        if (!Utils::isUnset($request->bid)) {
+            $query['Bid'] = $request->bid;
         }
-
-        if (null !== $request->key) {
-            @$query['Key'] = $request->key;
+        if (!Utils::isUnset($request->key)) {
+            $query['Key'] = $request->key;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->originalRequest) {
-            @$query['OriginalRequest'] = $request->originalRequest;
+        if (!Utils::isUnset($request->originalRequest)) {
+            $query['OriginalRequest'] = $request->originalRequest;
         }
-
-        if (null !== $request->timeout) {
-            @$query['Timeout'] = $request->timeout;
+        if (!Utils::isUnset($request->timeout)) {
+            $query['Timeout'] = $request->timeout;
         }
-
-        if (null !== $request->userAccessKeyId) {
-            @$query['UserAccessKeyId'] = $request->userAccessKeyId;
+        if (!Utils::isUnset($request->userAccessKeyId)) {
+            $query['UserAccessKeyId'] = $request->userAccessKeyId;
         }
-
-        if (null !== $request->userBid) {
-            @$query['UserBid'] = $request->userBid;
+        if (!Utils::isUnset($request->userBid)) {
+            $query['UserBid'] = $request->userBid;
         }
-
-        if (null !== $request->userCallerParentId) {
-            @$query['UserCallerParentId'] = $request->userCallerParentId;
+        if (!Utils::isUnset($request->userCallerParentId)) {
+            $query['UserCallerParentId'] = $request->userCallerParentId;
         }
-
-        if (null !== $request->userCallerSecurityTransport) {
-            @$query['UserCallerSecurityTransport'] = $request->userCallerSecurityTransport;
+        if (!Utils::isUnset($request->userCallerSecurityTransport)) {
+            $query['UserCallerSecurityTransport'] = $request->userCallerSecurityTransport;
         }
-
-        if (null !== $request->userCallerType) {
-            @$query['UserCallerType'] = $request->userCallerType;
+        if (!Utils::isUnset($request->userCallerType)) {
+            $query['UserCallerType'] = $request->userCallerType;
         }
-
-        if (null !== $request->userClientIp) {
-            @$query['UserClientIp'] = $request->userClientIp;
+        if (!Utils::isUnset($request->userClientIp)) {
+            $query['UserClientIp'] = $request->userClientIp;
         }
-
-        if (null !== $request->userKp) {
-            @$query['UserKp'] = $request->userKp;
+        if (!Utils::isUnset($request->userKp)) {
+            $query['UserKp'] = $request->userKp;
         }
-
-        if (null !== $request->userMfaPresent) {
-            @$query['UserMfaPresent'] = $request->userMfaPresent;
+        if (!Utils::isUnset($request->userMfaPresent)) {
+            $query['UserMfaPresent'] = $request->userMfaPresent;
         }
-
-        if (null !== $request->userSecurityToken) {
-            @$query['UserSecurityToken'] = $request->userSecurityToken;
+        if (!Utils::isUnset($request->userSecurityToken)) {
+            $query['UserSecurityToken'] = $request->userSecurityToken;
         }
-
-        if (null !== $request->value) {
-            @$query['Value'] = $request->value;
+        if (!Utils::isUnset($request->value)) {
+            $query['Value'] = $request->value;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetRedisValue',
@@ -913,15 +799,11 @@ class Mseap extends OpenApiClient
     }
 
     /**
-     * 获取redis值
+     * @summary 获取redis值
+     *  *
+     * @param GetRedisValueRequest $request GetRedisValueRequest
      *
-     * @param request - GetRedisValueRequest
-     *
-     * @returns GetRedisValueResponse
-     *
-     * @param GetRedisValueRequest $request
-     *
-     * @return GetRedisValueResponse
+     * @return GetRedisValueResponse GetRedisValueResponse
      */
     public function getRedisValue($request)
     {
@@ -931,84 +813,64 @@ class Mseap extends OpenApiClient
     }
 
     /**
-     * 获取变量.
+     * @summary 获取变量
+     *  *
+     * @param GetVariableRequest $request GetVariableRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetVariableRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetVariableResponse
-     *
-     * @param GetVariableRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return GetVariableResponse
+     * @return GetVariableResponse GetVariableResponse
      */
     public function getVariableWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->aliyunKp) {
-            @$query['AliyunKp'] = $request->aliyunKp;
+        if (!Utils::isUnset($request->aliyunKp)) {
+            $query['AliyunKp'] = $request->aliyunKp;
         }
-
-        if (null !== $request->apiType) {
-            @$query['ApiType'] = $request->apiType;
+        if (!Utils::isUnset($request->apiType)) {
+            $query['ApiType'] = $request->apiType;
         }
-
-        if (null !== $request->bid) {
-            @$query['Bid'] = $request->bid;
+        if (!Utils::isUnset($request->bid)) {
+            $query['Bid'] = $request->bid;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->originalRequest) {
-            @$query['OriginalRequest'] = $request->originalRequest;
+        if (!Utils::isUnset($request->originalRequest)) {
+            $query['OriginalRequest'] = $request->originalRequest;
         }
-
-        if (null !== $request->templateId) {
-            @$query['TemplateId'] = $request->templateId;
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
         }
-
-        if (null !== $request->userAccessKeyId) {
-            @$query['UserAccessKeyId'] = $request->userAccessKeyId;
+        if (!Utils::isUnset($request->userAccessKeyId)) {
+            $query['UserAccessKeyId'] = $request->userAccessKeyId;
         }
-
-        if (null !== $request->userBid) {
-            @$query['UserBid'] = $request->userBid;
+        if (!Utils::isUnset($request->userBid)) {
+            $query['UserBid'] = $request->userBid;
         }
-
-        if (null !== $request->userCallerParentId) {
-            @$query['UserCallerParentId'] = $request->userCallerParentId;
+        if (!Utils::isUnset($request->userCallerParentId)) {
+            $query['UserCallerParentId'] = $request->userCallerParentId;
         }
-
-        if (null !== $request->userCallerSecurityTransport) {
-            @$query['UserCallerSecurityTransport'] = $request->userCallerSecurityTransport;
+        if (!Utils::isUnset($request->userCallerSecurityTransport)) {
+            $query['UserCallerSecurityTransport'] = $request->userCallerSecurityTransport;
         }
-
-        if (null !== $request->userCallerType) {
-            @$query['UserCallerType'] = $request->userCallerType;
+        if (!Utils::isUnset($request->userCallerType)) {
+            $query['UserCallerType'] = $request->userCallerType;
         }
-
-        if (null !== $request->userClientIp) {
-            @$query['UserClientIp'] = $request->userClientIp;
+        if (!Utils::isUnset($request->userClientIp)) {
+            $query['UserClientIp'] = $request->userClientIp;
         }
-
-        if (null !== $request->userKp) {
-            @$query['UserKp'] = $request->userKp;
+        if (!Utils::isUnset($request->userKp)) {
+            $query['UserKp'] = $request->userKp;
         }
-
-        if (null !== $request->userMfaPresent) {
-            @$query['UserMfaPresent'] = $request->userMfaPresent;
+        if (!Utils::isUnset($request->userMfaPresent)) {
+            $query['UserMfaPresent'] = $request->userMfaPresent;
         }
-
-        if (null !== $request->userSecurityToken) {
-            @$query['UserSecurityToken'] = $request->userSecurityToken;
+        if (!Utils::isUnset($request->userSecurityToken)) {
+            $query['UserSecurityToken'] = $request->userSecurityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetVariable',
@@ -1026,15 +888,11 @@ class Mseap extends OpenApiClient
     }
 
     /**
-     * 获取变量.
+     * @summary 获取变量
+     *  *
+     * @param GetVariableRequest $request GetVariableRequest
      *
-     * @param request - GetVariableRequest
-     *
-     * @returns GetVariableResponse
-     *
-     * @param GetVariableRequest $request
-     *
-     * @return GetVariableResponse
+     * @return GetVariableResponse GetVariableResponse
      */
     public function getVariable($request)
     {
@@ -1044,92 +902,70 @@ class Mseap extends OpenApiClient
     }
 
     /**
-     * 识别验证码
+     * @summary 识别验证码
+     *  *
+     * @param IdentifyCodeRequest $request IdentifyCodeRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - IdentifyCodeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns IdentifyCodeResponse
-     *
-     * @param IdentifyCodeRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return IdentifyCodeResponse
+     * @return IdentifyCodeResponse IdentifyCodeResponse
      */
     public function identifyCodeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->aliyunKp) {
-            @$query['AliyunKp'] = $request->aliyunKp;
+        if (!Utils::isUnset($request->aliyunKp)) {
+            $query['AliyunKp'] = $request->aliyunKp;
         }
-
-        if (null !== $request->apiType) {
-            @$query['ApiType'] = $request->apiType;
+        if (!Utils::isUnset($request->apiType)) {
+            $query['ApiType'] = $request->apiType;
         }
-
-        if (null !== $request->bid) {
-            @$query['Bid'] = $request->bid;
+        if (!Utils::isUnset($request->bid)) {
+            $query['Bid'] = $request->bid;
         }
-
-        if (null !== $request->data) {
-            @$query['Data'] = $request->data;
+        if (!Utils::isUnset($request->data)) {
+            $query['Data'] = $request->data;
         }
-
-        if (null !== $request->label) {
-            @$query['Label'] = $request->label;
+        if (!Utils::isUnset($request->label)) {
+            $query['Label'] = $request->label;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->originalRequest) {
-            @$query['OriginalRequest'] = $request->originalRequest;
+        if (!Utils::isUnset($request->originalRequest)) {
+            $query['OriginalRequest'] = $request->originalRequest;
         }
-
-        if (null !== $request->type) {
-            @$query['Type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
         }
-
-        if (null !== $request->userAccessKeyId) {
-            @$query['UserAccessKeyId'] = $request->userAccessKeyId;
+        if (!Utils::isUnset($request->userAccessKeyId)) {
+            $query['UserAccessKeyId'] = $request->userAccessKeyId;
         }
-
-        if (null !== $request->userBid) {
-            @$query['UserBid'] = $request->userBid;
+        if (!Utils::isUnset($request->userBid)) {
+            $query['UserBid'] = $request->userBid;
         }
-
-        if (null !== $request->userCallerParentId) {
-            @$query['UserCallerParentId'] = $request->userCallerParentId;
+        if (!Utils::isUnset($request->userCallerParentId)) {
+            $query['UserCallerParentId'] = $request->userCallerParentId;
         }
-
-        if (null !== $request->userCallerSecurityTransport) {
-            @$query['UserCallerSecurityTransport'] = $request->userCallerSecurityTransport;
+        if (!Utils::isUnset($request->userCallerSecurityTransport)) {
+            $query['UserCallerSecurityTransport'] = $request->userCallerSecurityTransport;
         }
-
-        if (null !== $request->userCallerType) {
-            @$query['UserCallerType'] = $request->userCallerType;
+        if (!Utils::isUnset($request->userCallerType)) {
+            $query['UserCallerType'] = $request->userCallerType;
         }
-
-        if (null !== $request->userClientIp) {
-            @$query['UserClientIp'] = $request->userClientIp;
+        if (!Utils::isUnset($request->userClientIp)) {
+            $query['UserClientIp'] = $request->userClientIp;
         }
-
-        if (null !== $request->userKp) {
-            @$query['UserKp'] = $request->userKp;
+        if (!Utils::isUnset($request->userKp)) {
+            $query['UserKp'] = $request->userKp;
         }
-
-        if (null !== $request->userMfaPresent) {
-            @$query['UserMfaPresent'] = $request->userMfaPresent;
+        if (!Utils::isUnset($request->userMfaPresent)) {
+            $query['UserMfaPresent'] = $request->userMfaPresent;
         }
-
-        if (null !== $request->userSecurityToken) {
-            @$query['UserSecurityToken'] = $request->userSecurityToken;
+        if (!Utils::isUnset($request->userSecurityToken)) {
+            $query['UserSecurityToken'] = $request->userSecurityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'IdentifyCode',
@@ -1147,15 +983,11 @@ class Mseap extends OpenApiClient
     }
 
     /**
-     * 识别验证码
+     * @summary 识别验证码
+     *  *
+     * @param IdentifyCodeRequest $request IdentifyCodeRequest
      *
-     * @param request - IdentifyCodeRequest
-     *
-     * @returns IdentifyCodeResponse
-     *
-     * @param IdentifyCodeRequest $request
-     *
-     * @return IdentifyCodeResponse
+     * @return IdentifyCodeResponse IdentifyCodeResponse
      */
     public function identifyCode($request)
     {
@@ -1165,80 +997,61 @@ class Mseap extends OpenApiClient
     }
 
     /**
-     * 拉取协议变更识别模型.
+     * @summary 拉取协议变更识别模型
+     *  *
+     * @param PullRpaModelRequest $request PullRpaModelRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - PullRpaModelRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns PullRpaModelResponse
-     *
-     * @param PullRpaModelRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return PullRpaModelResponse
+     * @return PullRpaModelResponse PullRpaModelResponse
      */
     public function pullRpaModelWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->aliyunKp) {
-            @$query['AliyunKp'] = $request->aliyunKp;
+        if (!Utils::isUnset($request->aliyunKp)) {
+            $query['AliyunKp'] = $request->aliyunKp;
         }
-
-        if (null !== $request->apiType) {
-            @$query['ApiType'] = $request->apiType;
+        if (!Utils::isUnset($request->apiType)) {
+            $query['ApiType'] = $request->apiType;
         }
-
-        if (null !== $request->bid) {
-            @$query['Bid'] = $request->bid;
+        if (!Utils::isUnset($request->bid)) {
+            $query['Bid'] = $request->bid;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->originalRequest) {
-            @$query['OriginalRequest'] = $request->originalRequest;
+        if (!Utils::isUnset($request->originalRequest)) {
+            $query['OriginalRequest'] = $request->originalRequest;
         }
-
-        if (null !== $request->templateId) {
-            @$query['TemplateId'] = $request->templateId;
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
         }
-
-        if (null !== $request->userAccessKeyId) {
-            @$query['UserAccessKeyId'] = $request->userAccessKeyId;
+        if (!Utils::isUnset($request->userAccessKeyId)) {
+            $query['UserAccessKeyId'] = $request->userAccessKeyId;
         }
-
-        if (null !== $request->userBid) {
-            @$query['UserBid'] = $request->userBid;
+        if (!Utils::isUnset($request->userBid)) {
+            $query['UserBid'] = $request->userBid;
         }
-
-        if (null !== $request->userCallerParentId) {
-            @$query['UserCallerParentId'] = $request->userCallerParentId;
+        if (!Utils::isUnset($request->userCallerParentId)) {
+            $query['UserCallerParentId'] = $request->userCallerParentId;
         }
-
-        if (null !== $request->userCallerType) {
-            @$query['UserCallerType'] = $request->userCallerType;
+        if (!Utils::isUnset($request->userCallerType)) {
+            $query['UserCallerType'] = $request->userCallerType;
         }
-
-        if (null !== $request->userClientIp) {
-            @$query['UserClientIp'] = $request->userClientIp;
+        if (!Utils::isUnset($request->userClientIp)) {
+            $query['UserClientIp'] = $request->userClientIp;
         }
-
-        if (null !== $request->userKp) {
-            @$query['UserKp'] = $request->userKp;
+        if (!Utils::isUnset($request->userKp)) {
+            $query['UserKp'] = $request->userKp;
         }
-
-        if (null !== $request->userMfaPresent) {
-            @$query['UserMfaPresent'] = $request->userMfaPresent;
+        if (!Utils::isUnset($request->userMfaPresent)) {
+            $query['UserMfaPresent'] = $request->userMfaPresent;
         }
-
-        if (null !== $request->userSecurityToken) {
-            @$query['UserSecurityToken'] = $request->userSecurityToken;
+        if (!Utils::isUnset($request->userSecurityToken)) {
+            $query['UserSecurityToken'] = $request->userSecurityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'PullRpaModel',
@@ -1256,15 +1069,11 @@ class Mseap extends OpenApiClient
     }
 
     /**
-     * 拉取协议变更识别模型.
+     * @summary 拉取协议变更识别模型
+     *  *
+     * @param PullRpaModelRequest $request PullRpaModelRequest
      *
-     * @param request - PullRpaModelRequest
-     *
-     * @returns PullRpaModelResponse
-     *
-     * @param PullRpaModelRequest $request
-     *
-     * @return PullRpaModelResponse
+     * @return PullRpaModelResponse PullRpaModelResponse
      */
     public function pullRpaModel($request)
     {
@@ -1274,96 +1083,73 @@ class Mseap extends OpenApiClient
     }
 
     /**
-     * RPA拉取任务
+     * @summary RPA拉取任务
+     *  *
+     * @param PullTaskRequest $request PullTaskRequest
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - PullTaskRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns PullTaskResponse
-     *
-     * @param PullTaskRequest $request
-     * @param RuntimeOptions  $runtime
-     *
-     * @return PullTaskResponse
+     * @return PullTaskResponse PullTaskResponse
      */
     public function pullTaskWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->aliyunKp) {
-            @$query['AliyunKp'] = $request->aliyunKp;
+        if (!Utils::isUnset($request->aliyunKp)) {
+            $query['AliyunKp'] = $request->aliyunKp;
         }
-
-        if (null !== $request->apiType) {
-            @$query['ApiType'] = $request->apiType;
+        if (!Utils::isUnset($request->apiType)) {
+            $query['ApiType'] = $request->apiType;
         }
-
-        if (null !== $request->bid) {
-            @$query['Bid'] = $request->bid;
+        if (!Utils::isUnset($request->bid)) {
+            $query['Bid'] = $request->bid;
         }
-
-        if (null !== $request->bizCode) {
-            @$query['BizCode'] = $request->bizCode;
+        if (!Utils::isUnset($request->bizCode)) {
+            $query['BizCode'] = $request->bizCode;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->orderId) {
-            @$query['OrderId'] = $request->orderId;
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
         }
-
-        if (null !== $request->originalRequest) {
-            @$query['OriginalRequest'] = $request->originalRequest;
+        if (!Utils::isUnset($request->originalRequest)) {
+            $query['OriginalRequest'] = $request->originalRequest;
         }
-
-        if (null !== $request->principalKey) {
-            @$query['PrincipalKey'] = $request->principalKey;
+        if (!Utils::isUnset($request->principalKey)) {
+            $query['PrincipalKey'] = $request->principalKey;
         }
-
-        if (null !== $request->taskType) {
-            @$query['TaskType'] = $request->taskType;
+        if (!Utils::isUnset($request->taskType)) {
+            $query['TaskType'] = $request->taskType;
         }
-
-        if (null !== $request->userAccessKeyId) {
-            @$query['UserAccessKeyId'] = $request->userAccessKeyId;
+        if (!Utils::isUnset($request->userAccessKeyId)) {
+            $query['UserAccessKeyId'] = $request->userAccessKeyId;
         }
-
-        if (null !== $request->userBid) {
-            @$query['UserBid'] = $request->userBid;
+        if (!Utils::isUnset($request->userBid)) {
+            $query['UserBid'] = $request->userBid;
         }
-
-        if (null !== $request->userCallerParentId) {
-            @$query['UserCallerParentId'] = $request->userCallerParentId;
+        if (!Utils::isUnset($request->userCallerParentId)) {
+            $query['UserCallerParentId'] = $request->userCallerParentId;
         }
-
-        if (null !== $request->userCallerSecurityTransport) {
-            @$query['UserCallerSecurityTransport'] = $request->userCallerSecurityTransport;
+        if (!Utils::isUnset($request->userCallerSecurityTransport)) {
+            $query['UserCallerSecurityTransport'] = $request->userCallerSecurityTransport;
         }
-
-        if (null !== $request->userCallerType) {
-            @$query['UserCallerType'] = $request->userCallerType;
+        if (!Utils::isUnset($request->userCallerType)) {
+            $query['UserCallerType'] = $request->userCallerType;
         }
-
-        if (null !== $request->userClientIp) {
-            @$query['UserClientIp'] = $request->userClientIp;
+        if (!Utils::isUnset($request->userClientIp)) {
+            $query['UserClientIp'] = $request->userClientIp;
         }
-
-        if (null !== $request->userKp) {
-            @$query['UserKp'] = $request->userKp;
+        if (!Utils::isUnset($request->userKp)) {
+            $query['UserKp'] = $request->userKp;
         }
-
-        if (null !== $request->userMfaPresent) {
-            @$query['UserMfaPresent'] = $request->userMfaPresent;
+        if (!Utils::isUnset($request->userMfaPresent)) {
+            $query['UserMfaPresent'] = $request->userMfaPresent;
         }
-
-        if (null !== $request->userSecurityToken) {
-            @$query['UserSecurityToken'] = $request->userSecurityToken;
+        if (!Utils::isUnset($request->userSecurityToken)) {
+            $query['UserSecurityToken'] = $request->userSecurityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'PullTask',
@@ -1381,15 +1167,11 @@ class Mseap extends OpenApiClient
     }
 
     /**
-     * RPA拉取任务
+     * @summary RPA拉取任务
+     *  *
+     * @param PullTaskRequest $request PullTaskRequest
      *
-     * @param request - PullTaskRequest
-     *
-     * @returns PullTaskResponse
-     *
-     * @param PullTaskRequest $request
-     *
-     * @return PullTaskResponse
+     * @return PullTaskResponse PullTaskResponse
      */
     public function pullTask($request)
     {
@@ -1399,100 +1181,76 @@ class Mseap extends OpenApiClient
     }
 
     /**
-     * 推送RPA运行时任务
+     * @summary 推送RPA运行时任务
+     *  *
+     * @param PushRpaTaskRequest $request PushRpaTaskRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - PushRpaTaskRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns PushRpaTaskResponse
-     *
-     * @param PushRpaTaskRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return PushRpaTaskResponse
+     * @return PushRpaTaskResponse PushRpaTaskResponse
      */
     public function pushRpaTaskWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->aliyunKp) {
-            @$query['AliyunKp'] = $request->aliyunKp;
+        if (!Utils::isUnset($request->aliyunKp)) {
+            $query['AliyunKp'] = $request->aliyunKp;
         }
-
-        if (null !== $request->apiType) {
-            @$query['ApiType'] = $request->apiType;
+        if (!Utils::isUnset($request->apiType)) {
+            $query['ApiType'] = $request->apiType;
         }
-
-        if (null !== $request->bid) {
-            @$query['Bid'] = $request->bid;
+        if (!Utils::isUnset($request->bid)) {
+            $query['Bid'] = $request->bid;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->modelId) {
-            @$query['ModelId'] = $request->modelId;
+        if (!Utils::isUnset($request->modelId)) {
+            $query['ModelId'] = $request->modelId;
         }
-
-        if (null !== $request->name) {
-            @$query['Name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
         }
-
-        if (null !== $request->originalRequest) {
-            @$query['OriginalRequest'] = $request->originalRequest;
+        if (!Utils::isUnset($request->originalRequest)) {
+            $query['OriginalRequest'] = $request->originalRequest;
         }
-
-        if (null !== $request->request) {
-            @$query['Request'] = $request->request;
+        if (!Utils::isUnset($request->request)) {
+            $query['Request'] = $request->request;
         }
-
-        if (null !== $request->status) {
-            @$query['Status'] = $request->status;
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
         }
-
-        if (null !== $request->taskId) {
-            @$query['TaskId'] = $request->taskId;
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
         }
-
-        if (null !== $request->templateId) {
-            @$query['TemplateId'] = $request->templateId;
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
         }
-
-        if (null !== $request->userAccessKeyId) {
-            @$query['UserAccessKeyId'] = $request->userAccessKeyId;
+        if (!Utils::isUnset($request->userAccessKeyId)) {
+            $query['UserAccessKeyId'] = $request->userAccessKeyId;
         }
-
-        if (null !== $request->userBid) {
-            @$query['UserBid'] = $request->userBid;
+        if (!Utils::isUnset($request->userBid)) {
+            $query['UserBid'] = $request->userBid;
         }
-
-        if (null !== $request->userCallerParentId) {
-            @$query['UserCallerParentId'] = $request->userCallerParentId;
+        if (!Utils::isUnset($request->userCallerParentId)) {
+            $query['UserCallerParentId'] = $request->userCallerParentId;
         }
-
-        if (null !== $request->userCallerType) {
-            @$query['UserCallerType'] = $request->userCallerType;
+        if (!Utils::isUnset($request->userCallerType)) {
+            $query['UserCallerType'] = $request->userCallerType;
         }
-
-        if (null !== $request->userClientIp) {
-            @$query['UserClientIp'] = $request->userClientIp;
+        if (!Utils::isUnset($request->userClientIp)) {
+            $query['UserClientIp'] = $request->userClientIp;
         }
-
-        if (null !== $request->userKp) {
-            @$query['UserKp'] = $request->userKp;
+        if (!Utils::isUnset($request->userKp)) {
+            $query['UserKp'] = $request->userKp;
         }
-
-        if (null !== $request->userMfaPresent) {
-            @$query['UserMfaPresent'] = $request->userMfaPresent;
+        if (!Utils::isUnset($request->userMfaPresent)) {
+            $query['UserMfaPresent'] = $request->userMfaPresent;
         }
-
-        if (null !== $request->userSecurityToken) {
-            @$query['UserSecurityToken'] = $request->userSecurityToken;
+        if (!Utils::isUnset($request->userSecurityToken)) {
+            $query['UserSecurityToken'] = $request->userSecurityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'PushRpaTask',
@@ -1510,15 +1268,11 @@ class Mseap extends OpenApiClient
     }
 
     /**
-     * 推送RPA运行时任务
+     * @summary 推送RPA运行时任务
+     *  *
+     * @param PushRpaTaskRequest $request PushRpaTaskRequest
      *
-     * @param request - PushRpaTaskRequest
-     *
-     * @returns PushRpaTaskResponse
-     *
-     * @param PushRpaTaskRequest $request
-     *
-     * @return PushRpaTaskResponse
+     * @return PushRpaTaskResponse PushRpaTaskResponse
      */
     public function pushRpaTask($request)
     {
@@ -1528,112 +1282,85 @@ class Mseap extends OpenApiClient
     }
 
     /**
-     * 推送运行时任务明细.
+     * @summary 推送运行时任务明细
+     *  *
+     * @param PushRpaTaskDetailRequest $request PushRpaTaskDetailRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - PushRpaTaskDetailRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns PushRpaTaskDetailResponse
-     *
-     * @param PushRpaTaskDetailRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return PushRpaTaskDetailResponse
+     * @return PushRpaTaskDetailResponse PushRpaTaskDetailResponse
      */
     public function pushRpaTaskDetailWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->aliyunKp) {
-            @$query['AliyunKp'] = $request->aliyunKp;
+        if (!Utils::isUnset($request->aliyunKp)) {
+            $query['AliyunKp'] = $request->aliyunKp;
         }
-
-        if (null !== $request->apiType) {
-            @$query['ApiType'] = $request->apiType;
+        if (!Utils::isUnset($request->apiType)) {
+            $query['ApiType'] = $request->apiType;
         }
-
-        if (null !== $request->bid) {
-            @$query['Bid'] = $request->bid;
+        if (!Utils::isUnset($request->bid)) {
+            $query['Bid'] = $request->bid;
         }
-
-        if (null !== $request->inputData) {
-            @$query['InputData'] = $request->inputData;
+        if (!Utils::isUnset($request->inputData)) {
+            $query['InputData'] = $request->inputData;
         }
-
-        if (null !== $request->inputHtml) {
-            @$query['InputHtml'] = $request->inputHtml;
+        if (!Utils::isUnset($request->inputHtml)) {
+            $query['InputHtml'] = $request->inputHtml;
         }
-
-        if (null !== $request->inputScreenshot) {
-            @$query['InputScreenshot'] = $request->inputScreenshot;
+        if (!Utils::isUnset($request->inputScreenshot)) {
+            $query['InputScreenshot'] = $request->inputScreenshot;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->modelDetailId) {
-            @$query['ModelDetailId'] = $request->modelDetailId;
+        if (!Utils::isUnset($request->modelDetailId)) {
+            $query['ModelDetailId'] = $request->modelDetailId;
         }
-
-        if (null !== $request->originalRequest) {
-            @$query['OriginalRequest'] = $request->originalRequest;
+        if (!Utils::isUnset($request->originalRequest)) {
+            $query['OriginalRequest'] = $request->originalRequest;
         }
-
-        if (null !== $request->outputData) {
-            @$query['OutputData'] = $request->outputData;
+        if (!Utils::isUnset($request->outputData)) {
+            $query['OutputData'] = $request->outputData;
         }
-
-        if (null !== $request->outputHtml) {
-            @$query['OutputHtml'] = $request->outputHtml;
+        if (!Utils::isUnset($request->outputHtml)) {
+            $query['OutputHtml'] = $request->outputHtml;
         }
-
-        if (null !== $request->outputScreenshot) {
-            @$query['OutputScreenshot'] = $request->outputScreenshot;
+        if (!Utils::isUnset($request->outputScreenshot)) {
+            $query['OutputScreenshot'] = $request->outputScreenshot;
         }
-
-        if (null !== $request->status) {
-            @$query['Status'] = $request->status;
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
         }
-
-        if (null !== $request->taskDetailId) {
-            @$query['TaskDetailId'] = $request->taskDetailId;
+        if (!Utils::isUnset($request->taskDetailId)) {
+            $query['TaskDetailId'] = $request->taskDetailId;
         }
-
-        if (null !== $request->taskId) {
-            @$query['TaskId'] = $request->taskId;
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
         }
-
-        if (null !== $request->userAccessKeyId) {
-            @$query['UserAccessKeyId'] = $request->userAccessKeyId;
+        if (!Utils::isUnset($request->userAccessKeyId)) {
+            $query['UserAccessKeyId'] = $request->userAccessKeyId;
         }
-
-        if (null !== $request->userBid) {
-            @$query['UserBid'] = $request->userBid;
+        if (!Utils::isUnset($request->userBid)) {
+            $query['UserBid'] = $request->userBid;
         }
-
-        if (null !== $request->userCallerParentId) {
-            @$query['UserCallerParentId'] = $request->userCallerParentId;
+        if (!Utils::isUnset($request->userCallerParentId)) {
+            $query['UserCallerParentId'] = $request->userCallerParentId;
         }
-
-        if (null !== $request->userCallerType) {
-            @$query['UserCallerType'] = $request->userCallerType;
+        if (!Utils::isUnset($request->userCallerType)) {
+            $query['UserCallerType'] = $request->userCallerType;
         }
-
-        if (null !== $request->userClientIp) {
-            @$query['UserClientIp'] = $request->userClientIp;
+        if (!Utils::isUnset($request->userClientIp)) {
+            $query['UserClientIp'] = $request->userClientIp;
         }
-
-        if (null !== $request->userKp) {
-            @$query['UserKp'] = $request->userKp;
+        if (!Utils::isUnset($request->userKp)) {
+            $query['UserKp'] = $request->userKp;
         }
-
-        if (null !== $request->userSecurityToken) {
-            @$query['UserSecurityToken'] = $request->userSecurityToken;
+        if (!Utils::isUnset($request->userSecurityToken)) {
+            $query['UserSecurityToken'] = $request->userSecurityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'PushRpaTaskDetail',
@@ -1651,15 +1378,11 @@ class Mseap extends OpenApiClient
     }
 
     /**
-     * 推送运行时任务明细.
+     * @summary 推送运行时任务明细
+     *  *
+     * @param PushRpaTaskDetailRequest $request PushRpaTaskDetailRequest
      *
-     * @param request - PushRpaTaskDetailRequest
-     *
-     * @returns PushRpaTaskDetailResponse
-     *
-     * @param PushRpaTaskDetailRequest $request
-     *
-     * @return PushRpaTaskDetailResponse
+     * @return PushRpaTaskDetailResponse PushRpaTaskDetailResponse
      */
     public function pushRpaTaskDetail($request)
     {
@@ -1669,66 +1392,51 @@ class Mseap extends OpenApiClient
     }
 
     /**
-     * 合作伙伴发送消息通知.
+     * @summary 合作伙伴发送消息通知
+     *  *
+     * @param SendNotificationForPartnerRequest $tmpReq  SendNotificationForPartnerRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - SendNotificationForPartnerRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns SendNotificationForPartnerResponse
-     *
-     * @param SendNotificationForPartnerRequest $tmpReq
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return SendNotificationForPartnerResponse
+     * @return SendNotificationForPartnerResponse SendNotificationForPartnerResponse
      */
     public function sendNotificationForPartnerWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new SendNotificationForPartnerShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->paramMap) {
-            $request->paramMapShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->paramMap, 'ParamMap', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->paramMap)) {
+            $request->paramMapShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->paramMap, 'ParamMap', 'json');
         }
-
-        if (null !== $tmpReq->smartSubChannels) {
-            $request->smartSubChannelsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->smartSubChannels, 'SmartSubChannels', 'json');
+        if (!Utils::isUnset($tmpReq->smartSubChannels)) {
+            $request->smartSubChannelsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->smartSubChannels, 'SmartSubChannels', 'json');
         }
-
         $query = [];
-        if (null !== $request->bizId) {
-            @$query['BizId'] = $request->bizId;
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
         }
-
-        if (null !== $request->channelType) {
-            @$query['ChannelType'] = $request->channelType;
+        if (!Utils::isUnset($request->channelType)) {
+            $query['ChannelType'] = $request->channelType;
         }
-
-        if (null !== $request->notifyType) {
-            @$query['NotifyType'] = $request->notifyType;
+        if (!Utils::isUnset($request->notifyType)) {
+            $query['NotifyType'] = $request->notifyType;
         }
-
-        if (null !== $request->notifycationEventType) {
-            @$query['NotifycationEventType'] = $request->notifycationEventType;
+        if (!Utils::isUnset($request->notifycationEventType)) {
+            $query['NotifycationEventType'] = $request->notifycationEventType;
         }
-
-        if (null !== $request->paramMapShrink) {
-            @$query['ParamMap'] = $request->paramMapShrink;
+        if (!Utils::isUnset($request->paramMapShrink)) {
+            $query['ParamMap'] = $request->paramMapShrink;
         }
-
-        if (null !== $request->sendTarget) {
-            @$query['SendTarget'] = $request->sendTarget;
+        if (!Utils::isUnset($request->sendTarget)) {
+            $query['SendTarget'] = $request->sendTarget;
         }
-
-        if (null !== $request->smartSubChannelsShrink) {
-            @$query['SmartSubChannels'] = $request->smartSubChannelsShrink;
+        if (!Utils::isUnset($request->smartSubChannelsShrink)) {
+            $query['SmartSubChannels'] = $request->smartSubChannelsShrink;
         }
-
-        if (null !== $request->trackId) {
-            @$query['TrackId'] = $request->trackId;
+        if (!Utils::isUnset($request->trackId)) {
+            $query['TrackId'] = $request->trackId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'SendNotificationForPartner',
@@ -1746,15 +1454,11 @@ class Mseap extends OpenApiClient
     }
 
     /**
-     * 合作伙伴发送消息通知.
+     * @summary 合作伙伴发送消息通知
+     *  *
+     * @param SendNotificationForPartnerRequest $request SendNotificationForPartnerRequest
      *
-     * @param request - SendNotificationForPartnerRequest
-     *
-     * @returns SendNotificationForPartnerResponse
-     *
-     * @param SendNotificationForPartnerRequest $request
-     *
-     * @return SendNotificationForPartnerResponse
+     * @return SendNotificationForPartnerResponse SendNotificationForPartnerResponse
      */
     public function sendNotificationForPartner($request)
     {
@@ -1764,92 +1468,70 @@ class Mseap extends OpenApiClient
     }
 
     /**
-     * redis设置.
+     * @summary redis设置
+     *  *
+     * @param SetRedisValueRequest $request SetRedisValueRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - SetRedisValueRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns SetRedisValueResponse
-     *
-     * @param SetRedisValueRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return SetRedisValueResponse
+     * @return SetRedisValueResponse SetRedisValueResponse
      */
     public function setRedisValueWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->aliyunKp) {
-            @$query['AliyunKp'] = $request->aliyunKp;
+        if (!Utils::isUnset($request->aliyunKp)) {
+            $query['AliyunKp'] = $request->aliyunKp;
         }
-
-        if (null !== $request->apiType) {
-            @$query['ApiType'] = $request->apiType;
+        if (!Utils::isUnset($request->apiType)) {
+            $query['ApiType'] = $request->apiType;
         }
-
-        if (null !== $request->bid) {
-            @$query['Bid'] = $request->bid;
+        if (!Utils::isUnset($request->bid)) {
+            $query['Bid'] = $request->bid;
         }
-
-        if (null !== $request->key) {
-            @$query['Key'] = $request->key;
+        if (!Utils::isUnset($request->key)) {
+            $query['Key'] = $request->key;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->originalRequest) {
-            @$query['OriginalRequest'] = $request->originalRequest;
+        if (!Utils::isUnset($request->originalRequest)) {
+            $query['OriginalRequest'] = $request->originalRequest;
         }
-
-        if (null !== $request->requestId) {
-            @$query['RequestId'] = $request->requestId;
+        if (!Utils::isUnset($request->requestId)) {
+            $query['RequestId'] = $request->requestId;
         }
-
-        if (null !== $request->timeout) {
-            @$query['Timeout'] = $request->timeout;
+        if (!Utils::isUnset($request->timeout)) {
+            $query['Timeout'] = $request->timeout;
         }
-
-        if (null !== $request->userAccessKeyId) {
-            @$query['UserAccessKeyId'] = $request->userAccessKeyId;
+        if (!Utils::isUnset($request->userAccessKeyId)) {
+            $query['UserAccessKeyId'] = $request->userAccessKeyId;
         }
-
-        if (null !== $request->userBid) {
-            @$query['UserBid'] = $request->userBid;
+        if (!Utils::isUnset($request->userBid)) {
+            $query['UserBid'] = $request->userBid;
         }
-
-        if (null !== $request->userCallerParentId) {
-            @$query['UserCallerParentId'] = $request->userCallerParentId;
+        if (!Utils::isUnset($request->userCallerParentId)) {
+            $query['UserCallerParentId'] = $request->userCallerParentId;
         }
-
-        if (null !== $request->userCallerType) {
-            @$query['UserCallerType'] = $request->userCallerType;
+        if (!Utils::isUnset($request->userCallerType)) {
+            $query['UserCallerType'] = $request->userCallerType;
         }
-
-        if (null !== $request->userClientIp) {
-            @$query['UserClientIp'] = $request->userClientIp;
+        if (!Utils::isUnset($request->userClientIp)) {
+            $query['UserClientIp'] = $request->userClientIp;
         }
-
-        if (null !== $request->userKp) {
-            @$query['UserKp'] = $request->userKp;
+        if (!Utils::isUnset($request->userKp)) {
+            $query['UserKp'] = $request->userKp;
         }
-
-        if (null !== $request->userMfaPresent) {
-            @$query['UserMfaPresent'] = $request->userMfaPresent;
+        if (!Utils::isUnset($request->userMfaPresent)) {
+            $query['UserMfaPresent'] = $request->userMfaPresent;
         }
-
-        if (null !== $request->userSecurityToken) {
-            @$query['UserSecurityToken'] = $request->userSecurityToken;
+        if (!Utils::isUnset($request->userSecurityToken)) {
+            $query['UserSecurityToken'] = $request->userSecurityToken;
         }
-
-        if (null !== $request->value) {
-            @$query['Value'] = $request->value;
+        if (!Utils::isUnset($request->value)) {
+            $query['Value'] = $request->value;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'SetRedisValue',
@@ -1867,15 +1549,11 @@ class Mseap extends OpenApiClient
     }
 
     /**
-     * redis设置.
+     * @summary redis设置
+     *  *
+     * @param SetRedisValueRequest $request SetRedisValueRequest
      *
-     * @param request - SetRedisValueRequest
-     *
-     * @returns SetRedisValueResponse
-     *
-     * @param SetRedisValueRequest $request
-     *
-     * @return SetRedisValueResponse
+     * @return SetRedisValueResponse SetRedisValueResponse
      */
     public function setRedisValue($request)
     {
@@ -1885,26 +1563,22 @@ class Mseap extends OpenApiClient
     }
 
     /**
-     * @param request - UpdateAgreementStatusRequest
-     * @param runtime - runtime options for this request RuntimeOptions
+     * @summary 更新协议状态
+     *  *
+     * @param UpdateAgreementStatusRequest $request UpdateAgreementStatusRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @returns UpdateAgreementStatusResponse
-     *
-     * @param UpdateAgreementStatusRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return UpdateAgreementStatusResponse
+     * @return UpdateAgreementStatusResponse UpdateAgreementStatusResponse
      */
     public function updateAgreementStatusWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->agreementCode) {
-            @$query['AgreementCode'] = $request->agreementCode;
+        if (!Utils::isUnset($request->agreementCode)) {
+            $query['AgreementCode'] = $request->agreementCode;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateAgreementStatus',
@@ -1922,13 +1596,11 @@ class Mseap extends OpenApiClient
     }
 
     /**
-     * @param request - UpdateAgreementStatusRequest
+     * @summary 更新协议状态
+     *  *
+     * @param UpdateAgreementStatusRequest $request UpdateAgreementStatusRequest
      *
-     * @returns UpdateAgreementStatusResponse
-     *
-     * @param UpdateAgreementStatusRequest $request
-     *
-     * @return UpdateAgreementStatusResponse
+     * @return UpdateAgreementStatusResponse UpdateAgreementStatusResponse
      */
     public function updateAgreementStatus($request)
     {

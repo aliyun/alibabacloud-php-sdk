@@ -4,21 +4,27 @@
 
 namespace AlibabaCloud\SDK\Mseap\V20210118\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GenerateUploadFilePolicyForPartnerRequest extends Model
 {
     /**
+     * @example esp.website
+     *
      * @var string
      */
     public $bizType;
 
     /**
+     * @example 2024/06/25/website_partner_third_party_leads_02.csv
+     *
      * @var string
      */
     public $fileName;
 
     /**
+     * @example website_partner_third_party_leads
+     *
      * @var string
      */
     public $fileType;
@@ -28,22 +34,17 @@ class GenerateUploadFilePolicyForPartnerRequest extends Model
         'fileType' => 'FileType',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->bizType) {
             $res['BizType'] = $this->bizType;
         }
-
         if (null !== $this->fileName) {
             $res['FileName'] = $this->fileName;
         }
-
         if (null !== $this->fileType) {
             $res['FileType'] = $this->fileType;
         }
@@ -51,22 +52,20 @@ class GenerateUploadFilePolicyForPartnerRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GenerateUploadFilePolicyForPartnerRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BizType'])) {
             $model->bizType = $map['BizType'];
         }
-
         if (isset($map['FileName'])) {
             $model->fileName = $map['FileName'];
         }
-
         if (isset($map['FileType'])) {
             $model->fileType = $map['FileType'];
         }

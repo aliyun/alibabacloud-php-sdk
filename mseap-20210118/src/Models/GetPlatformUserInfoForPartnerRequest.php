@@ -4,21 +4,27 @@
 
 namespace AlibabaCloud\SDK\Mseap\V20210118\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetPlatformUserInfoForPartnerRequest extends Model
 {
     /**
+     * @example app-0wceagu85ceaaais
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @example MP
+     *
      * @var string
      */
     public $platformType;
 
     /**
+     * @example 123153124411
+     *
      * @var string
      */
     public $userId;
@@ -28,22 +34,17 @@ class GetPlatformUserInfoForPartnerRequest extends Model
         'userId' => 'UserId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
-
         if (null !== $this->platformType) {
             $res['PlatformType'] = $this->platformType;
         }
-
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
@@ -51,22 +52,20 @@ class GetPlatformUserInfoForPartnerRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetPlatformUserInfoForPartnerRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
-
         if (isset($map['PlatformType'])) {
             $model->platformType = $map['PlatformType'];
         }
-
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }
