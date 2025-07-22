@@ -19,6 +19,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\AddUserToDesktopGroupRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\AddUserToDesktopGroupResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\AddUserToDesktopOversoldUserGroupRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\AddUserToDesktopOversoldUserGroupResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\AllocateIpAddressRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\AllocateIpAddressResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ApplyAutoSnapshotPolicyRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ApplyAutoSnapshotPolicyResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ApplyCoordinatePrivilegeRequest;
@@ -27,8 +29,12 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\ApplyCoordinationForMonitoringRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ApplyCoordinationForMonitoringResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ApproveFotaUpdateRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ApproveFotaUpdateResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\AssociateIpAddressRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\AssociateIpAddressResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\AssociateNetworkPackageRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\AssociateNetworkPackageResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\AssociateRouteTableRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\AssociateRouteTableResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\AttachCenRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\AttachCenResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\AttachEndUserRequest;
@@ -96,20 +102,32 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateDriveRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateDriveResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateEcdReportTaskRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateEcdReportTaskResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateForwardEntryRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateForwardEntryResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateImageRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateImageResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateNASFileSystemRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateNASFileSystemResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateNatGatewayRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateNatGatewayResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateNetworkPackageRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateNetworkPackageResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreatePolicyGroupRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreatePolicyGroupResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateRAMDirectoryRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateRAMDirectoryResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateRouteEntryRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateRouteEntryResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateRouteTableRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateRouteTableResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateSimpleOfficeSiteRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateSimpleOfficeSiteResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateSnapshotRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateSnapshotResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateSnatEntryRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateSnatEntryResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateSubnetRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateSubnetResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateTemplateRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateTemplateResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteAutoSnapshotPolicyRequest;
@@ -138,18 +156,30 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteDriveRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteDriveResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteEduRoomRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteEduRoomResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteForwardEntryRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteForwardEntryResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteImagesRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteImagesResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteNASFileSystemsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteNASFileSystemsResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteNatGatewayRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteNatGatewayResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteNetworkPackagesRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteNetworkPackagesResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteOfficeSitesRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteOfficeSitesResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeletePolicyGroupsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeletePolicyGroupsResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteRouteEntryRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteRouteEntryResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteRouteTableRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteRouteTableResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteSnapshotRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteSnapshotResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteSnatEntryRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteSnatEntryResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteSubnetRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteSubnetResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteTemplatesRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteTemplatesResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteVirtualMFADeviceRequest;
@@ -210,6 +240,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeFlowMetricRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeFlowMetricResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeFlowStatisticRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeFlowStatisticResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeForwardTableEntriesRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeForwardTableEntriesResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeFotaPendingDesktopsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeFotaPendingDesktopsResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeFotaTasksRequest;
@@ -224,12 +256,16 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeImagesRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeImagesResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeInvocationsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeInvocationsResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeIpAddressesRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeIpAddressesResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeKmsKeysRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeKmsKeysResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeModificationPriceRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeModificationPriceResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeNASFileSystemsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeNASFileSystemsResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeNatGatewaysRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeNatGatewaysResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeNetworkPackagesRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeNetworkPackagesResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeOfficeSitesRequest;
@@ -254,10 +290,18 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeRenewalPriceRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeRenewalPriceResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeResourceByCenterPolicyIdRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeResourceByCenterPolicyIdResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeRouteEntryListRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeRouteEntryListResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeRouteTableListRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeRouteTableListResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeSessionStatisticRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeSessionStatisticResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeSnapshotsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeSnapshotsResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeSnatTableEntriesRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeSnatTableEntriesResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeSubnetsRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeSubnetsResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeTemplatesRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeTemplatesResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeTimerGroupRequest;
@@ -284,6 +328,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\DisableDesktopsInGroupRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DisableDesktopsInGroupResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DisconnectDesktopSessionsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DisconnectDesktopSessionsResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DissociateIpAddressRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DissociateIpAddressResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DissociateNetworkPackageRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DissociateNetworkPackageResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DownloadCdsFileRequest;
@@ -419,6 +465,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\RebootDesktopsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\RebootDesktopsResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\RebuildDesktopsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\RebuildDesktopsResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ReleaseIpAddressRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ReleaseIpAddressResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\RemoveFilePermissionRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\RemoveFilePermissionResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\RemoveFilePermissionShrinkRequest;
@@ -896,6 +944,59 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * @summary 实例开通公网IP
+     *  *
+     * @param AllocateIpAddressRequest $request AllocateIpAddressRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return AllocateIpAddressResponse AllocateIpAddressResponse
+     */
+    public function allocateIpAddressWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->networkInterfaceId)) {
+            $query['NetworkInterfaceId'] = $request->networkInterfaceId;
+        }
+        if (!Utils::isUnset($request->officeSiteId)) {
+            $query['OfficeSiteId'] = $request->officeSiteId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AllocateIpAddress',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AllocateIpAddressResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 实例开通公网IP
+     *  *
+     * @param AllocateIpAddressRequest $request AllocateIpAddressRequest
+     *
+     * @return AllocateIpAddressResponse AllocateIpAddressResponse
+     */
+    public function allocateIpAddress($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->allocateIpAddressWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Apply an automatic snapshot policy to cloud computers. After the automatic snapshot policy is applied to the cloud computers, Elastic Desktop Service automatically creates snapshots for the cloud computers based on the time specified in the automatic snapshot policy.
      *  *
      * @description You can also associate an automatic snapshot policy with a cloud desktop in the Elastic Desktop Service (EDS) console. To do so, perform the following steps: 1. Log on to the EDS console. 2. Choose Desktops and Groups > Desktops in the left-side navigation pane. 3. Find the cloud desktop that you want to manage on the Cloud Desktops page and choose More > Change Automatic Snapshot Policy in the Actions column. 4. Configure a policy for the cloud desktop as prompted in the Change Automatic Snapshot Policy panel.
@@ -1133,6 +1234,65 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * @summary 实例绑定公网IP
+     *  *
+     * @param AssociateIpAddressRequest $request AssociateIpAddressRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return AssociateIpAddressResponse AssociateIpAddressResponse
+     */
+    public function associateIpAddressWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->eipId)) {
+            $query['EipId'] = $request->eipId;
+        }
+        if (!Utils::isUnset($request->natGatewayId)) {
+            $query['NatGatewayId'] = $request->natGatewayId;
+        }
+        if (!Utils::isUnset($request->networkInterfaceId)) {
+            $query['NetworkInterfaceId'] = $request->networkInterfaceId;
+        }
+        if (!Utils::isUnset($request->officeSiteId)) {
+            $query['OfficeSiteId'] = $request->officeSiteId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AssociateIpAddress',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AssociateIpAddressResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 实例绑定公网IP
+     *  *
+     * @param AssociateIpAddressRequest $request AssociateIpAddressRequest
+     *
+     * @return AssociateIpAddressResponse AssociateIpAddressResponse
+     */
+    public function associateIpAddress($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->associateIpAddressWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Binds a premium bandwidth plan to an office network. A premium bandwidth plan is used together with only one office network.
      *  *
      * @param AssociateNetworkPackageRequest $request AssociateNetworkPackageRequest
@@ -1183,6 +1343,59 @@ class Ecd extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->associateNetworkPackageWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 将创建的自定义路由表和同一VPC内的交换机绑定
+     *  *
+     * @param AssociateRouteTableRequest $request AssociateRouteTableRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return AssociateRouteTableResponse AssociateRouteTableResponse
+     */
+    public function associateRouteTableWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->routeTableId)) {
+            $query['RouteTableId'] = $request->routeTableId;
+        }
+        if (!Utils::isUnset($request->vSwitchId)) {
+            $query['VSwitchId'] = $request->vSwitchId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AssociateRouteTable',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AssociateRouteTableResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 将创建的自定义路由表和同一VPC内的交换机绑定
+     *  *
+     * @param AssociateRouteTableRequest $request AssociateRouteTableRequest
+     *
+     * @return AssociateRouteTableResponse AssociateRouteTableResponse
+     */
+    public function associateRouteTable($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->associateRouteTableWithOptions($request, $runtime);
     }
 
     /**
@@ -3980,6 +4193,74 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * @summary 添加DNAT条目
+     *  *
+     * @param CreateForwardEntryRequest $request CreateForwardEntryRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateForwardEntryResponse CreateForwardEntryResponse
+     */
+    public function createForwardEntryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->externalIp)) {
+            $query['ExternalIp'] = $request->externalIp;
+        }
+        if (!Utils::isUnset($request->externalPort)) {
+            $query['ExternalPort'] = $request->externalPort;
+        }
+        if (!Utils::isUnset($request->forwardEntryName)) {
+            $query['ForwardEntryName'] = $request->forwardEntryName;
+        }
+        if (!Utils::isUnset($request->forwardTableId)) {
+            $query['ForwardTableId'] = $request->forwardTableId;
+        }
+        if (!Utils::isUnset($request->internalIp)) {
+            $query['InternalIp'] = $request->internalIp;
+        }
+        if (!Utils::isUnset($request->internalPort)) {
+            $query['InternalPort'] = $request->internalPort;
+        }
+        if (!Utils::isUnset($request->ipProtocol)) {
+            $query['IpProtocol'] = $request->ipProtocol;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateForwardEntry',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateForwardEntryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 添加DNAT条目
+     *  *
+     * @param CreateForwardEntryRequest $request CreateForwardEntryRequest
+     *
+     * @return CreateForwardEntryResponse CreateForwardEntryResponse
+     */
+    public function createForwardEntry($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createForwardEntryWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Creates a custom image based on a deployed cloud computer. Then, you can use the custom image to create cloud computers that have the same configurations. This prevents the repeated settings when you create cloud computers.
      *  *
      * @param CreateImageRequest $request CreateImageRequest
@@ -4135,6 +4416,59 @@ class Ecd extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createNASFileSystemWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 新建NAT网关
+     *  *
+     * @param CreateNatGatewayRequest $request CreateNatGatewayRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateNatGatewayResponse CreateNatGatewayResponse
+     */
+    public function createNatGatewayWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->vSwitchId)) {
+            $query['VSwitchId'] = $request->vSwitchId;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateNatGateway',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateNatGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 新建NAT网关
+     *  *
+     * @param CreateNatGatewayRequest $request CreateNatGatewayRequest
+     *
+     * @return CreateNatGatewayResponse CreateNatGatewayResponse
+     */
+    public function createNatGateway($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createNatGatewayWithOptions($request, $runtime);
     }
 
     /**
@@ -4504,6 +4838,130 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * @summary 新建路由条目
+     *  *
+     * @param CreateRouteEntryRequest $request CreateRouteEntryRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateRouteEntryResponse CreateRouteEntryResponse
+     */
+    public function createRouteEntryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->destinationCidrBlock)) {
+            $query['DestinationCidrBlock'] = $request->destinationCidrBlock;
+        }
+        if (!Utils::isUnset($request->nextHopId)) {
+            $query['NextHopId'] = $request->nextHopId;
+        }
+        if (!Utils::isUnset($request->nextHopType)) {
+            $query['NextHopType'] = $request->nextHopType;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->routeEntryName)) {
+            $query['RouteEntryName'] = $request->routeEntryName;
+        }
+        if (!Utils::isUnset($request->routeTableId)) {
+            $query['RouteTableId'] = $request->routeTableId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateRouteEntry',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateRouteEntryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 新建路由条目
+     *  *
+     * @param CreateRouteEntryRequest $request CreateRouteEntryRequest
+     *
+     * @return CreateRouteEntryResponse CreateRouteEntryResponse
+     */
+    public function createRouteEntry($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createRouteEntryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 新建自定义路由表
+     *  *
+     * @param CreateRouteTableRequest $request CreateRouteTableRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateRouteTableResponse CreateRouteTableResponse
+     */
+    public function createRouteTableWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->routeTableName)) {
+            $query['RouteTableName'] = $request->routeTableName;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateRouteTable',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateRouteTableResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 新建自定义路由表
+     *  *
+     * @param CreateRouteTableRequest $request CreateRouteTableRequest
+     *
+     * @return CreateRouteTableResponse CreateRouteTableResponse
+     */
+    public function createRouteTable($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createRouteTableWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Creates an office network of the convenience account type. Elastic Desktop Service supports the following types of accounts: convenience accounts and enterprise AD accounts.
      *  *
      * @param CreateSimpleOfficeSiteRequest $request CreateSimpleOfficeSiteRequest
@@ -4650,6 +5108,127 @@ class Ecd extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createSnapshotWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 添加SNAT条目
+     *  *
+     * @param CreateSnatEntryRequest $request CreateSnatEntryRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateSnatEntryResponse CreateSnatEntryResponse
+     */
+    public function createSnatEntryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->eipAffinity)) {
+            $query['EipAffinity'] = $request->eipAffinity;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->snatEntryName)) {
+            $query['SnatEntryName'] = $request->snatEntryName;
+        }
+        if (!Utils::isUnset($request->snatIp)) {
+            $query['SnatIp'] = $request->snatIp;
+        }
+        if (!Utils::isUnset($request->snatTableId)) {
+            $query['SnatTableId'] = $request->snatTableId;
+        }
+        if (!Utils::isUnset($request->sourceCIDR)) {
+            $query['SourceCIDR'] = $request->sourceCIDR;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateSnatEntry',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateSnatEntryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 添加SNAT条目
+     *  *
+     * @param CreateSnatEntryRequest $request CreateSnatEntryRequest
+     *
+     * @return CreateSnatEntryResponse CreateSnatEntryResponse
+     */
+    public function createSnatEntry($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSnatEntryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 新建子网
+     *  *
+     * @param CreateSubnetRequest $request CreateSubnetRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateSubnetResponse CreateSubnetResponse
+     */
+    public function createSubnetWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->cidrBlock)) {
+            $query['CidrBlock'] = $request->cidrBlock;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->officeSiteId)) {
+            $query['OfficeSiteId'] = $request->officeSiteId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateSubnet',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateSubnetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 新建子网
+     *  *
+     * @param CreateSubnetRequest $request CreateSubnetRequest
+     *
+     * @return CreateSubnetResponse CreateSubnetResponse
+     */
+    public function createSubnet($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSubnetWithOptions($request, $runtime);
     }
 
     /**
@@ -5460,6 +6039,59 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * @summary 删除DNAT条目
+     *  *
+     * @param DeleteForwardEntryRequest $request DeleteForwardEntryRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteForwardEntryResponse DeleteForwardEntryResponse
+     */
+    public function deleteForwardEntryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->forwardEntryId)) {
+            $query['ForwardEntryId'] = $request->forwardEntryId;
+        }
+        if (!Utils::isUnset($request->forwardTableId)) {
+            $query['ForwardTableId'] = $request->forwardTableId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteForwardEntry',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteForwardEntryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除DNAT条目
+     *  *
+     * @param DeleteForwardEntryRequest $request DeleteForwardEntryRequest
+     *
+     * @return DeleteForwardEntryResponse DeleteForwardEntryResponse
+     */
+    public function deleteForwardEntry($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteForwardEntryWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Deletes one or more custom images.
      *  *
      * @description *   Images include system images and custom images. System images cannot be deleted.
@@ -5572,6 +6204,56 @@ class Ecd extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteNASFileSystemsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除NAT网关
+     *  *
+     * @param DeleteNatGatewayRequest $request DeleteNatGatewayRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteNatGatewayResponse DeleteNatGatewayResponse
+     */
+    public function deleteNatGatewayWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->natGatewayId)) {
+            $query['NatGatewayId'] = $request->natGatewayId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteNatGateway',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteNatGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除NAT网关
+     *  *
+     * @param DeleteNatGatewayRequest $request DeleteNatGatewayRequest
+     *
+     * @return DeleteNatGatewayResponse DeleteNatGatewayResponse
+     */
+    public function deleteNatGateway($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteNatGatewayWithOptions($request, $runtime);
     }
 
     /**
@@ -5744,6 +6426,115 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * @summary 删除路由条目
+     *  *
+     * @param DeleteRouteEntryRequest $request DeleteRouteEntryRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteRouteEntryResponse DeleteRouteEntryResponse
+     */
+    public function deleteRouteEntryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->destinationCidrBlock)) {
+            $query['DestinationCidrBlock'] = $request->destinationCidrBlock;
+        }
+        if (!Utils::isUnset($request->nextHopId)) {
+            $query['NextHopId'] = $request->nextHopId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->routeEntryId)) {
+            $query['RouteEntryId'] = $request->routeEntryId;
+        }
+        if (!Utils::isUnset($request->routeTableId)) {
+            $query['RouteTableId'] = $request->routeTableId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteRouteEntry',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteRouteEntryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除路由条目
+     *  *
+     * @param DeleteRouteEntryRequest $request DeleteRouteEntryRequest
+     *
+     * @return DeleteRouteEntryResponse DeleteRouteEntryResponse
+     */
+    public function deleteRouteEntry($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteRouteEntryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除自定义路由表
+     *  *
+     * @param DeleteRouteTableRequest $request DeleteRouteTableRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteRouteTableResponse DeleteRouteTableResponse
+     */
+    public function deleteRouteTableWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->routeTableId)) {
+            $query['RouteTableId'] = $request->routeTableId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteRouteTable',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteRouteTableResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除自定义路由表
+     *  *
+     * @param DeleteRouteTableRequest $request DeleteRouteTableRequest
+     *
+     * @return DeleteRouteTableResponse DeleteRouteTableResponse
+     */
+    public function deleteRouteTable($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteRouteTableWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Deletes one or more snapshots.
      *  *
      * @description If the IDs of the snapshots that you specify do not exist, requests are ignored.
@@ -5795,6 +6586,109 @@ class Ecd extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteSnapshotWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除SNAT条目
+     *  *
+     * @param DeleteSnatEntryRequest $request DeleteSnatEntryRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteSnatEntryResponse DeleteSnatEntryResponse
+     */
+    public function deleteSnatEntryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->snatEntryId)) {
+            $query['SnatEntryId'] = $request->snatEntryId;
+        }
+        if (!Utils::isUnset($request->snatTableId)) {
+            $query['SnatTableId'] = $request->snatTableId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteSnatEntry',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteSnatEntryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除SNAT条目
+     *  *
+     * @param DeleteSnatEntryRequest $request DeleteSnatEntryRequest
+     *
+     * @return DeleteSnatEntryResponse DeleteSnatEntryResponse
+     */
+    public function deleteSnatEntry($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteSnatEntryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除子网
+     *  *
+     * @param DeleteSubnetRequest $request DeleteSubnetRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteSubnetResponse DeleteSubnetResponse
+     */
+    public function deleteSubnetWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->subnetId)) {
+            $query['SubnetId'] = $request->subnetId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteSubnet',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteSubnetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除子网
+     *  *
+     * @param DeleteSubnetRequest $request DeleteSubnetRequest
+     *
+     * @return DeleteSubnetResponse DeleteSubnetResponse
+     */
+    public function deleteSubnet($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteSubnetWithOptions($request, $runtime);
     }
 
     /**
@@ -7925,6 +8819,68 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * @summary 查询DNAT条目
+     *  *
+     * @param DescribeForwardTableEntriesRequest $request DescribeForwardTableEntriesRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeForwardTableEntriesResponse DescribeForwardTableEntriesResponse
+     */
+    public function describeForwardTableEntriesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->forwardEntryId)) {
+            $query['ForwardEntryId'] = $request->forwardEntryId;
+        }
+        if (!Utils::isUnset($request->forwardTableId)) {
+            $query['ForwardTableId'] = $request->forwardTableId;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->natGatewayId)) {
+            $query['NatGatewayId'] = $request->natGatewayId;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeForwardTableEntries',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeForwardTableEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询DNAT条目
+     *  *
+     * @param DescribeForwardTableEntriesRequest $request DescribeForwardTableEntriesRequest
+     *
+     * @return DescribeForwardTableEntriesResponse DescribeForwardTableEntriesResponse
+     */
+    public function describeForwardTableEntries($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeForwardTableEntriesWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries information about the cloud computers whose images can be and are pending to be updated to the specified version.
      *  *
      * @param DescribeFotaPendingDesktopsRequest $request DescribeFotaPendingDesktopsRequest
@@ -8389,6 +9345,65 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * @summary 查询公网IP
+     *  *
+     * @param DescribeIpAddressesRequest $request DescribeIpAddressesRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeIpAddressesResponse DescribeIpAddressesResponse
+     */
+    public function describeIpAddressesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->eipId)) {
+            $query['EipId'] = $request->eipId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeIpAddresses',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeIpAddressesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询公网IP
+     *  *
+     * @param DescribeIpAddressesRequest $request DescribeIpAddressesRequest
+     *
+     * @return DescribeIpAddressesResponse DescribeIpAddressesResponse
+     */
+    public function describeIpAddresses($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeIpAddressesWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries Key Management Service (KMS) keys of users. The first time you call this operation, you can try to create a service key for Elastic Desktop Service (EDS) and call the operation to return results.
      *  *
      * @param DescribeKmsKeysRequest $request DescribeKmsKeysRequest
@@ -8566,6 +9581,68 @@ class Ecd extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeNASFileSystemsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询NAT详细列表
+     *  *
+     * @param DescribeNatGatewaysRequest $request DescribeNatGatewaysRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeNatGatewaysResponse DescribeNatGatewaysResponse
+     */
+    public function describeNatGatewaysWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->natGatewayId)) {
+            $query['NatGatewayId'] = $request->natGatewayId;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeNatGateways',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeNatGatewaysResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询NAT详细列表
+     *  *
+     * @param DescribeNatGatewaysRequest $request DescribeNatGatewaysRequest
+     *
+     * @return DescribeNatGatewaysResponse DescribeNatGatewaysResponse
+     */
+    public function describeNatGateways($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeNatGatewaysWithOptions($request, $runtime);
     }
 
     /**
@@ -9347,6 +10424,124 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * @summary 查询路由条目列表
+     *  *
+     * @param DescribeRouteEntryListRequest $request DescribeRouteEntryListRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeRouteEntryListResponse DescribeRouteEntryListResponse
+     */
+    public function describeRouteEntryListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->routeTableId)) {
+            $query['RouteTableId'] = $request->routeTableId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeRouteEntryList',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeRouteEntryListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询路由条目列表
+     *  *
+     * @param DescribeRouteEntryListRequest $request DescribeRouteEntryListRequest
+     *
+     * @return DescribeRouteEntryListResponse DescribeRouteEntryListResponse
+     */
+    public function describeRouteEntryList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRouteEntryListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询路由表列表
+     *  *
+     * @param DescribeRouteTableListRequest $request DescribeRouteTableListRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeRouteTableListResponse DescribeRouteTableListResponse
+     */
+    public function describeRouteTableListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->routeTableId)) {
+            $query['RouteTableId'] = $request->routeTableId;
+        }
+        if (!Utils::isUnset($request->routeTableName)) {
+            $query['RouteTableName'] = $request->routeTableName;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeRouteTableList',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeRouteTableListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询路由表列表
+     *  *
+     * @param DescribeRouteTableListRequest $request DescribeRouteTableListRequest
+     *
+     * @return DescribeRouteTableListResponse DescribeRouteTableListResponse
+     */
+    public function describeRouteTableList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRouteTableListWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries the session statistics of a region.
      *  *
      * @description *   This is a central operation and can be called only by using services in the China (Shanghai) region.
@@ -9495,6 +10690,130 @@ class Ecd extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeSnapshotsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询SNAT条目
+     *  *
+     * @param DescribeSnatTableEntriesRequest $request DescribeSnatTableEntriesRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeSnatTableEntriesResponse DescribeSnatTableEntriesResponse
+     */
+    public function describeSnatTableEntriesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->natGatewayId)) {
+            $query['NatGatewayId'] = $request->natGatewayId;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->snatEntryId)) {
+            $query['SnatEntryId'] = $request->snatEntryId;
+        }
+        if (!Utils::isUnset($request->snatTableId)) {
+            $query['SnatTableId'] = $request->snatTableId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeSnatTableEntries',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeSnatTableEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询SNAT条目
+     *  *
+     * @param DescribeSnatTableEntriesRequest $request DescribeSnatTableEntriesRequest
+     *
+     * @return DescribeSnatTableEntriesResponse DescribeSnatTableEntriesResponse
+     */
+    public function describeSnatTableEntries($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSnatTableEntriesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询子网
+     *  *
+     * @param DescribeSubnetsRequest $request DescribeSubnetsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeSubnetsResponse DescribeSubnetsResponse
+     */
+    public function describeSubnetsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->officeSiteId)) {
+            $query['OfficeSiteId'] = $request->officeSiteId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->subnetId)) {
+            $query['SubnetId'] = $request->subnetId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeSubnets',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeSubnetsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询子网
+     *  *
+     * @param DescribeSubnetsRequest $request DescribeSubnetsRequest
+     *
+     * @return DescribeSubnetsResponse DescribeSubnetsResponse
+     */
+    public function describeSubnets($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSubnetsWithOptions($request, $runtime);
     }
 
     /**
@@ -10274,6 +11593,56 @@ class Ecd extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->disconnectDesktopSessionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 实例解绑/删除公网IP
+     *  *
+     * @param DissociateIpAddressRequest $request DissociateIpAddressRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DissociateIpAddressResponse DissociateIpAddressResponse
+     */
+    public function dissociateIpAddressWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->eipId)) {
+            $query['EipId'] = $request->eipId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DissociateIpAddress',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DissociateIpAddressResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 实例解绑/删除公网IP
+     *  *
+     * @param DissociateIpAddressRequest $request DissociateIpAddressRequest
+     *
+     * @return DissociateIpAddressResponse DissociateIpAddressResponse
+     */
+    public function dissociateIpAddress($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->dissociateIpAddressWithOptions($request, $runtime);
     }
 
     /**
@@ -15149,6 +16518,56 @@ class Ecd extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->rebuildDesktopsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除公网IP
+     *  *
+     * @param ReleaseIpAddressRequest $request ReleaseIpAddressRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ReleaseIpAddressResponse ReleaseIpAddressResponse
+     */
+    public function releaseIpAddressWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->eipId)) {
+            $query['EipId'] = $request->eipId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ReleaseIpAddress',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ReleaseIpAddressResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除公网IP
+     *  *
+     * @param ReleaseIpAddressRequest $request ReleaseIpAddressRequest
+     *
+     * @return ReleaseIpAddressResponse ReleaseIpAddressResponse
+     */
+    public function releaseIpAddress($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->releaseIpAddressWithOptions($request, $runtime);
     }
 
     /**

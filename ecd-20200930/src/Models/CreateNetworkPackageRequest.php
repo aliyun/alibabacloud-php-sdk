@@ -102,8 +102,6 @@ class CreateNetworkPackageRequest extends Model
     /**
      * @description The office network ID.
      *
-     * This parameter is required.
-     *
      * @example cn-hangzhou+dir-363353****
      *
      * @var string
