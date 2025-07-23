@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class TransformerForModify extends Model
 {
@@ -34,6 +34,8 @@ class TransformerForModify extends Model
     public $sortId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $transformerName;
@@ -46,46 +48,32 @@ class TransformerForModify extends Model
         'transformerName' => 'transformerName',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->actions)) {
-            Model::validateArray($this->actions);
-        }
-        if (null !== $this->filterSetting) {
-            $this->filterSetting->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->actions) {
-            if (\is_array($this->actions)) {
-                $res['actions'] = [];
-                $n1 = 0;
-                foreach ($this->actions as $item1) {
-                    $res['actions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['actions'] = [];
+            if (null !== $this->actions && \is_array($this->actions)) {
+                $n = 0;
+                foreach ($this->actions as $item) {
+                    $res['actions'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
-
         if (null !== $this->filterSetting) {
-            $res['filterSetting'] = null !== $this->filterSetting ? $this->filterSetting->toArray($noStream) : $this->filterSetting;
+            $res['filterSetting'] = null !== $this->filterSetting ? $this->filterSetting->toMap() : null;
         }
-
         if (null !== $this->quitAfterMatch) {
             $res['quitAfterMatch'] = $this->quitAfterMatch;
         }
-
         if (null !== $this->sortId) {
             $res['sortId'] = $this->sortId;
         }
-
         if (null !== $this->transformerName) {
             $res['transformerName'] = $this->transformerName;
         }
@@ -93,40 +81,35 @@ class TransformerForModify extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return TransformerForModify
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['actions'])) {
             if (!empty($map['actions'])) {
                 $model->actions = [];
-                $n1 = 0;
-                foreach ($map['actions'] as $item1) {
-                    $model->actions[$n1++] = TransformAction::fromMap($item1);
+                $n = 0;
+                foreach ($map['actions'] as $item) {
+                    $model->actions[$n++] = null !== $item ? TransformAction::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
-
         if (isset($map['filterSetting'])) {
             $model->filterSetting = FilterSetting::fromMap($map['filterSetting']);
         }
-
         if (isset($map['quitAfterMatch'])) {
             $model->quitAfterMatch = $map['quitAfterMatch'];
         }
-
         if (isset($map['sortId'])) {
             $model->sortId = $map['sortId'];
         }
-
         if (isset($map['transformerName'])) {
             $model->transformerName = $map['transformerName'];
         }

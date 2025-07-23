@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models\NotifyStrategyForView;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class groupingSetting extends Model
 {
@@ -34,35 +34,20 @@ class groupingSetting extends Model
         'times' => 'times',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->groupingKeys)) {
-            Model::validateArray($this->groupingKeys);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->groupingKeys) {
-            if (\is_array($this->groupingKeys)) {
-                $res['groupingKeys'] = [];
-                $n1 = 0;
-                foreach ($this->groupingKeys as $item1) {
-                    $res['groupingKeys'][$n1++] = $item1;
-                }
-            }
+            $res['groupingKeys'] = $this->groupingKeys;
         }
-
         if (null !== $this->periodMin) {
             $res['periodMin'] = $this->periodMin;
         }
-
         if (null !== $this->silenceSec) {
             $res['silenceSec'] = $this->silenceSec;
         }
-
         if (null !== $this->times) {
             $res['times'] = $this->times;
         }
@@ -70,32 +55,25 @@ class groupingSetting extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return groupingSetting
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['groupingKeys'])) {
             if (!empty($map['groupingKeys'])) {
-                $model->groupingKeys = [];
-                $n1 = 0;
-                foreach ($map['groupingKeys'] as $item1) {
-                    $model->groupingKeys[$n1++] = $item1;
-                }
+                $model->groupingKeys = $map['groupingKeys'];
             }
         }
-
         if (isset($map['periodMin'])) {
             $model->periodMin = $map['periodMin'];
         }
-
         if (isset($map['silenceSec'])) {
             $model->silenceSec = $map['silenceSec'];
         }
-
         if (isset($map['times'])) {
             $model->times = $map['times'];
         }

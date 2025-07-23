@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListAlertActionsRequest extends Model
 {
@@ -14,21 +14,29 @@ class ListAlertActionsRequest extends Model
     public $alertActionIds;
 
     /**
+     * @example testName
+     *
      * @var string
      */
     public $alertActionName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example FC
+     *
      * @var string
      */
     public $type;
@@ -40,39 +48,23 @@ class ListAlertActionsRequest extends Model
         'type' => 'type',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->alertActionIds)) {
-            Model::validateArray($this->alertActionIds);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->alertActionIds) {
-            if (\is_array($this->alertActionIds)) {
-                $res['alertActionIds'] = [];
-                $n1 = 0;
-                foreach ($this->alertActionIds as $item1) {
-                    $res['alertActionIds'][$n1++] = $item1;
-                }
-            }
+            $res['alertActionIds'] = $this->alertActionIds;
         }
-
         if (null !== $this->alertActionName) {
             $res['alertActionName'] = $this->alertActionName;
         }
-
         if (null !== $this->pageNumber) {
             $res['pageNumber'] = $this->pageNumber;
         }
-
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
         }
-
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -80,36 +72,28 @@ class ListAlertActionsRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListAlertActionsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['alertActionIds'])) {
             if (!empty($map['alertActionIds'])) {
-                $model->alertActionIds = [];
-                $n1 = 0;
-                foreach ($map['alertActionIds'] as $item1) {
-                    $model->alertActionIds[$n1++] = $item1;
-                }
+                $model->alertActionIds = $map['alertActionIds'];
             }
         }
-
         if (isset($map['alertActionName'])) {
             $model->alertActionName = $map['alertActionName'];
         }
-
         if (isset($map['pageNumber'])) {
             $model->pageNumber = $map['pageNumber'];
         }
-
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
         }
-
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }

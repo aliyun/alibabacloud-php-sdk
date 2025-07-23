@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models\AlertRuleCondition\compareList;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class valueLevelList extends Model
 {
@@ -22,18 +22,14 @@ class valueLevelList extends Model
         'value' => 'value',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->level) {
             $res['level'] = $this->level;
         }
-
         if (null !== $this->value) {
             $res['value'] = $this->value;
         }
@@ -41,18 +37,17 @@ class valueLevelList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return valueLevelList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['level'])) {
             $model->level = $map['level'];
         }
-
         if (isset($map['value'])) {
             $model->value = $map['value'];
         }

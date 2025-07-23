@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class AlertRuleTimeSpan extends Model
 {
@@ -34,35 +34,20 @@ class AlertRuleTimeSpan extends Model
         'startTime' => 'startTime',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->dayOfWeek)) {
-            Model::validateArray($this->dayOfWeek);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dayOfWeek) {
-            if (\is_array($this->dayOfWeek)) {
-                $res['dayOfWeek'] = [];
-                $n1 = 0;
-                foreach ($this->dayOfWeek as $item1) {
-                    $res['dayOfWeek'][$n1++] = $item1;
-                }
-            }
+            $res['dayOfWeek'] = $this->dayOfWeek;
         }
-
         if (null !== $this->endTime) {
             $res['endTime'] = $this->endTime;
         }
-
         if (null !== $this->gmtOffset) {
             $res['gmtOffset'] = $this->gmtOffset;
         }
-
         if (null !== $this->startTime) {
             $res['startTime'] = $this->startTime;
         }
@@ -70,32 +55,25 @@ class AlertRuleTimeSpan extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return AlertRuleTimeSpan
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['dayOfWeek'])) {
             if (!empty($map['dayOfWeek'])) {
-                $model->dayOfWeek = [];
-                $n1 = 0;
-                foreach ($map['dayOfWeek'] as $item1) {
-                    $model->dayOfWeek[$n1++] = $item1;
-                }
+                $model->dayOfWeek = $map['dayOfWeek'];
             }
         }
-
         if (isset($map['endTime'])) {
             $model->endTime = $map['endTime'];
         }
-
         if (isset($map['gmtOffset'])) {
             $model->gmtOffset = $map['gmtOffset'];
         }
-
         if (isset($map['startTime'])) {
             $model->startTime = $map['startTime'];
         }

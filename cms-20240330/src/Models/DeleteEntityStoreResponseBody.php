@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteEntityStoreResponseBody extends Model
 {
     /**
+     * @example 264C3E89-XXXX-XXXX-XXXX-CE9C2196C7DC
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +18,9 @@ class DeleteEntityStoreResponseBody extends Model
         'requestId' => 'requestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +30,11 @@ class DeleteEntityStoreResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteEntityStoreResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

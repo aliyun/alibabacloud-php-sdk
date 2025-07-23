@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListAlertActionsShrinkRequest extends Model
 {
@@ -14,21 +14,29 @@ class ListAlertActionsShrinkRequest extends Model
     public $alertActionIdsShrink;
 
     /**
+     * @example testName
+     *
      * @var string
      */
     public $alertActionName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example FC
+     *
      * @var string
      */
     public $type;
@@ -40,30 +48,23 @@ class ListAlertActionsShrinkRequest extends Model
         'type' => 'type',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->alertActionIdsShrink) {
             $res['alertActionIds'] = $this->alertActionIdsShrink;
         }
-
         if (null !== $this->alertActionName) {
             $res['alertActionName'] = $this->alertActionName;
         }
-
         if (null !== $this->pageNumber) {
             $res['pageNumber'] = $this->pageNumber;
         }
-
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
         }
-
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -71,30 +72,26 @@ class ListAlertActionsShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListAlertActionsShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['alertActionIds'])) {
             $model->alertActionIdsShrink = $map['alertActionIds'];
         }
-
         if (isset($map['alertActionName'])) {
             $model->alertActionName = $map['alertActionName'];
         }
-
         if (isset($map['pageNumber'])) {
             $model->pageNumber = $map['pageNumber'];
         }
-
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
         }
-
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }

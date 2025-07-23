@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models\NotifyStrategyForView;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class customTemplateEntries extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $targetType;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $templateUuid;
@@ -22,18 +26,14 @@ class customTemplateEntries extends Model
         'templateUuid' => 'templateUuid',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->targetType) {
             $res['targetType'] = $this->targetType;
         }
-
         if (null !== $this->templateUuid) {
             $res['templateUuid'] = $this->templateUuid;
         }
@@ -41,18 +41,17 @@ class customTemplateEntries extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return customTemplateEntries
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['targetType'])) {
             $model->targetType = $map['targetType'];
         }
-
         if (isset($map['templateUuid'])) {
             $model->templateUuid = $map['templateUuid'];
         }

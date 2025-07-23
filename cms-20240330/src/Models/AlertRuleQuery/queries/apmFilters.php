@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models\AlertRuleQuery\queries;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class apmFilters extends Model
 {
@@ -28,22 +28,17 @@ class apmFilters extends Model
         'value' => 'value',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dim) {
             $res['dim'] = $this->dim;
         }
-
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
-
         if (null !== $this->value) {
             $res['value'] = $this->value;
         }
@@ -51,22 +46,20 @@ class apmFilters extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return apmFilters
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['dim'])) {
             $model->dim = $map['dim'];
         }
-
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }
-
         if (isset($map['value'])) {
             $model->value = $map['value'];
         }

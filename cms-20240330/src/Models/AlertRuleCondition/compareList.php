@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models\AlertRuleCondition;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20240330\Models\AlertRuleCondition\compareList\valueLevelList;
+use AlibabaCloud\Tea\Model;
 
 class compareList extends Model
 {
@@ -47,43 +47,32 @@ class compareList extends Model
         'yoyTimeValue' => 'yoyTimeValue',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->valueLevelList)) {
-            Model::validateArray($this->valueLevelList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->aggregate) {
             $res['aggregate'] = $this->aggregate;
         }
-
         if (null !== $this->oper) {
             $res['oper'] = $this->oper;
         }
-
         if (null !== $this->value) {
             $res['value'] = $this->value;
         }
-
         if (null !== $this->valueLevelList) {
-            if (\is_array($this->valueLevelList)) {
-                $res['valueLevelList'] = [];
-                $n1 = 0;
-                foreach ($this->valueLevelList as $item1) {
-                    $res['valueLevelList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['valueLevelList'] = [];
+            if (null !== $this->valueLevelList && \is_array($this->valueLevelList)) {
+                $n = 0;
+                foreach ($this->valueLevelList as $item) {
+                    $res['valueLevelList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->yoyTimeUnit) {
             $res['yoyTimeUnit'] = $this->yoyTimeUnit;
         }
-
         if (null !== $this->yoyTimeValue) {
             $res['yoyTimeValue'] = $this->yoyTimeValue;
         }
@@ -91,40 +80,35 @@ class compareList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return compareList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['aggregate'])) {
             $model->aggregate = $map['aggregate'];
         }
-
         if (isset($map['oper'])) {
             $model->oper = $map['oper'];
         }
-
         if (isset($map['value'])) {
             $model->value = $map['value'];
         }
-
         if (isset($map['valueLevelList'])) {
             if (!empty($map['valueLevelList'])) {
                 $model->valueLevelList = [];
-                $n1 = 0;
-                foreach ($map['valueLevelList'] as $item1) {
-                    $model->valueLevelList[$n1++] = valueLevelList::fromMap($item1);
+                $n = 0;
+                foreach ($map['valueLevelList'] as $item) {
+                    $model->valueLevelList[$n++] = null !== $item ? valueLevelList::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['yoyTimeUnit'])) {
             $model->yoyTimeUnit = $map['yoyTimeUnit'];
         }
-
         if (isset($map['yoyTimeValue'])) {
             $model->yoyTimeValue = $map['yoyTimeValue'];
         }

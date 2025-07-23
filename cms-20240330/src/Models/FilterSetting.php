@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20240330\Models\FilterSetting\conditions;
+use AlibabaCloud\Tea\Model;
 
 class FilterSetting extends Model
 {
@@ -29,31 +29,23 @@ class FilterSetting extends Model
         'relation' => 'relation',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->conditions)) {
-            Model::validateArray($this->conditions);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->conditions) {
-            if (\is_array($this->conditions)) {
-                $res['conditions'] = [];
-                $n1 = 0;
-                foreach ($this->conditions as $item1) {
-                    $res['conditions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['conditions'] = [];
+            if (null !== $this->conditions && \is_array($this->conditions)) {
+                $n = 0;
+                foreach ($this->conditions as $item) {
+                    $res['conditions'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->expression) {
             $res['expression'] = $this->expression;
         }
-
         if (null !== $this->relation) {
             $res['relation'] = $this->relation;
         }
@@ -61,28 +53,26 @@ class FilterSetting extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return FilterSetting
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['conditions'])) {
             if (!empty($map['conditions'])) {
                 $model->conditions = [];
-                $n1 = 0;
-                foreach ($map['conditions'] as $item1) {
-                    $model->conditions[$n1++] = conditions::fromMap($item1);
+                $n = 0;
+                foreach ($map['conditions'] as $item) {
+                    $model->conditions[$n++] = null !== $item ? conditions::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['expression'])) {
             $model->expression = $map['expression'];
         }
-
         if (isset($map['relation'])) {
             $model->relation = $map['relation'];
         }

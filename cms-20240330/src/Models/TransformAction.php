@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class TransformAction extends Model
 {
@@ -64,57 +64,35 @@ class TransformAction extends Model
         'variable' => 'variable',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->filterSetting) {
-            $this->filterSetting->validate();
-        }
-        if (\is_array($this->mapping)) {
-            Model::validateArray($this->mapping);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->filterSetting) {
-            $res['filterSetting'] = null !== $this->filterSetting ? $this->filterSetting->toArray($noStream) : $this->filterSetting;
+            $res['filterSetting'] = null !== $this->filterSetting ? $this->filterSetting->toMap() : null;
         }
-
         if (null !== $this->labelKey) {
             $res['labelKey'] = $this->labelKey;
         }
-
         if (null !== $this->mapping) {
-            if (\is_array($this->mapping)) {
-                $res['mapping'] = [];
-                foreach ($this->mapping as $key1 => $value1) {
-                    $res['mapping'][$key1] = $value1;
-                }
-            }
+            $res['mapping'] = $this->mapping;
         }
-
         if (null !== $this->regExp) {
             $res['regExp'] = $this->regExp;
         }
-
         if (null !== $this->source) {
             $res['source'] = $this->source;
         }
-
         if (null !== $this->target) {
             $res['target'] = $this->target;
         }
-
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
-
         if (null !== $this->value) {
             $res['value'] = $this->value;
         }
-
         if (null !== $this->variable) {
             $res['variable'] = $this->variable;
         }
@@ -122,51 +100,38 @@ class TransformAction extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return TransformAction
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['filterSetting'])) {
             $model->filterSetting = FilterSetting::fromMap($map['filterSetting']);
         }
-
         if (isset($map['labelKey'])) {
             $model->labelKey = $map['labelKey'];
         }
-
         if (isset($map['mapping'])) {
-            if (!empty($map['mapping'])) {
-                $model->mapping = [];
-                foreach ($map['mapping'] as $key1 => $value1) {
-                    $model->mapping[$key1] = $value1;
-                }
-            }
+            $model->mapping = $map['mapping'];
         }
-
         if (isset($map['regExp'])) {
             $model->regExp = $map['regExp'];
         }
-
         if (isset($map['source'])) {
             $model->source = $map['source'];
         }
-
         if (isset($map['target'])) {
             $model->target = $map['target'];
         }
-
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }
-
         if (isset($map['value'])) {
             $model->value = $map['value'];
         }
-
         if (isset($map['variable'])) {
             $model->variable = $map['variable'];
         }

@@ -4,21 +4,33 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class PutWorkspaceRequest extends Model
 {
     /**
+     * @description 工作空间描述
+     *
+     * @example workspace test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example workspace-test
+     *
      * @var string
      */
     public $displayName;
 
     /**
+     * @description 工作空间绑定的日志服务项目名称
+     *
+     * This parameter is required.
+     *
+     * @example sls-project-test-001
+     *
      * @var string
      */
     public $slsProject;
@@ -28,22 +40,17 @@ class PutWorkspaceRequest extends Model
         'slsProject' => 'slsProject',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
-
         if (null !== $this->displayName) {
             $res['displayName'] = $this->displayName;
         }
-
         if (null !== $this->slsProject) {
             $res['slsProject'] = $this->slsProject;
         }
@@ -51,22 +58,20 @@ class PutWorkspaceRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return PutWorkspaceRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
-
         if (isset($map['displayName'])) {
             $model->displayName = $map['displayName'];
         }
-
         if (isset($map['slsProject'])) {
             $model->slsProject = $map['slsProject'];
         }

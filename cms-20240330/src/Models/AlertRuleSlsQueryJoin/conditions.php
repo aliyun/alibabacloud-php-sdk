@@ -4,21 +4,27 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models\AlertRuleSlsQueryJoin;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class conditions extends Model
 {
     /**
+     * @description 条件的左操作参数，格式为$<query_idx>.<结果集字段名>
+     *
      * @var string
      */
     public $firstField;
 
     /**
+     * @description <, >, ==, !=, <=, >=
+     *
      * @var string
      */
     public $oper;
 
     /**
+     * @description 条件的右操作参数，格式为$<query_idx>.<结果集字段名>
+     *
      * @var string
      */
     public $secondField;
@@ -28,22 +34,17 @@ class conditions extends Model
         'secondField' => 'secondField',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->firstField) {
             $res['firstField'] = $this->firstField;
         }
-
         if (null !== $this->oper) {
             $res['oper'] = $this->oper;
         }
-
         if (null !== $this->secondField) {
             $res['secondField'] = $this->secondField;
         }
@@ -51,22 +52,20 @@ class conditions extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return conditions
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['firstField'])) {
             $model->firstField = $map['firstField'];
         }
-
         if (isset($map['oper'])) {
             $model->oper = $map['oper'];
         }
-
         if (isset($map['secondField'])) {
             $model->secondField = $map['secondField'];
         }

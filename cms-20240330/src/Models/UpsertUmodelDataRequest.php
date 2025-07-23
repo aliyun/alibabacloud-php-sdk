@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpsertUmodelDataRequest extends Model
 {
@@ -14,6 +14,8 @@ class UpsertUmodelDataRequest extends Model
     public $elements;
 
     /**
+     * @example Upsert
+     *
      * @var string
      */
     public $method;
@@ -22,27 +24,14 @@ class UpsertUmodelDataRequest extends Model
         'method' => 'method',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->elements)) {
-            Model::validateArray($this->elements);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->elements) {
-            if (\is_array($this->elements)) {
-                $res['elements'] = [];
-                $n1 = 0;
-                foreach ($this->elements as $item1) {
-                    $res['elements'][$n1++] = $item1;
-                }
-            }
+            $res['elements'] = $this->elements;
         }
-
         if (null !== $this->method) {
             $res['method'] = $this->method;
         }
@@ -50,24 +39,19 @@ class UpsertUmodelDataRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpsertUmodelDataRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['elements'])) {
             if (!empty($map['elements'])) {
-                $model->elements = [];
-                $n1 = 0;
-                foreach ($map['elements'] as $item1) {
-                    $model->elements[$n1++] = $item1;
-                }
+                $model->elements = $map['elements'];
             }
         }
-
         if (isset($map['method'])) {
             $model->method = $map['method'];
         }

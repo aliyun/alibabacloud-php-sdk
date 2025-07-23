@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models\NotifyStrategyForView\routes;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class channels extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $channelType;
@@ -19,6 +21,8 @@ class channels extends Model
     public $enabledSubChannels;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $receivers;
@@ -28,76 +32,43 @@ class channels extends Model
         'receivers' => 'receivers',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->enabledSubChannels)) {
-            Model::validateArray($this->enabledSubChannels);
-        }
-        if (\is_array($this->receivers)) {
-            Model::validateArray($this->receivers);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->channelType) {
             $res['channelType'] = $this->channelType;
         }
-
         if (null !== $this->enabledSubChannels) {
-            if (\is_array($this->enabledSubChannels)) {
-                $res['enabledSubChannels'] = [];
-                $n1 = 0;
-                foreach ($this->enabledSubChannels as $item1) {
-                    $res['enabledSubChannels'][$n1++] = $item1;
-                }
-            }
+            $res['enabledSubChannels'] = $this->enabledSubChannels;
         }
-
         if (null !== $this->receivers) {
-            if (\is_array($this->receivers)) {
-                $res['receivers'] = [];
-                $n1 = 0;
-                foreach ($this->receivers as $item1) {
-                    $res['receivers'][$n1++] = $item1;
-                }
-            }
+            $res['receivers'] = $this->receivers;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return channels
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['channelType'])) {
             $model->channelType = $map['channelType'];
         }
-
         if (isset($map['enabledSubChannels'])) {
             if (!empty($map['enabledSubChannels'])) {
-                $model->enabledSubChannels = [];
-                $n1 = 0;
-                foreach ($map['enabledSubChannels'] as $item1) {
-                    $model->enabledSubChannels[$n1++] = $item1;
-                }
+                $model->enabledSubChannels = $map['enabledSubChannels'];
             }
         }
-
         if (isset($map['receivers'])) {
             if (!empty($map['receivers'])) {
-                $model->receivers = [];
-                $n1 = 0;
-                foreach ($map['receivers'] as $item1) {
-                    $model->receivers[$n1++] = $item1;
-                }
+                $model->receivers = $map['receivers'];
             }
         }
 

@@ -4,31 +4,41 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListWorkspacesRequest extends Model
 {
     /**
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example xxxxxxxxxx
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example cn-heyuan
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @example workspace-test-001
+     *
      * @var string
      */
     public $workspaceName;
 
     /**
+     * @example workspace-test-001
+     *
      * @var string[]
      */
     public $workspaceNameList;
@@ -40,77 +50,53 @@ class ListWorkspacesRequest extends Model
         'workspaceNameList' => 'workspaceNameList',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->workspaceNameList)) {
-            Model::validateArray($this->workspaceNameList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->maxResults) {
             $res['maxResults'] = $this->maxResults;
         }
-
         if (null !== $this->nextToken) {
             $res['nextToken'] = $this->nextToken;
         }
-
         if (null !== $this->region) {
             $res['region'] = $this->region;
         }
-
         if (null !== $this->workspaceName) {
             $res['workspaceName'] = $this->workspaceName;
         }
-
         if (null !== $this->workspaceNameList) {
-            if (\is_array($this->workspaceNameList)) {
-                $res['workspaceNameList'] = [];
-                $n1 = 0;
-                foreach ($this->workspaceNameList as $item1) {
-                    $res['workspaceNameList'][$n1++] = $item1;
-                }
-            }
+            $res['workspaceNameList'] = $this->workspaceNameList;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListWorkspacesRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['maxResults'])) {
             $model->maxResults = $map['maxResults'];
         }
-
         if (isset($map['nextToken'])) {
             $model->nextToken = $map['nextToken'];
         }
-
         if (isset($map['region'])) {
             $model->region = $map['region'];
         }
-
         if (isset($map['workspaceName'])) {
             $model->workspaceName = $map['workspaceName'];
         }
-
         if (isset($map['workspaceNameList'])) {
             if (!empty($map['workspaceNameList'])) {
-                $model->workspaceNameList = [];
-                $n1 = 0;
-                foreach ($map['workspaceNameList'] as $item1) {
-                    $model->workspaceNameList[$n1++] = $item1;
-                }
+                $model->workspaceNameList = $map['workspaceNameList'];
             }
         }
 

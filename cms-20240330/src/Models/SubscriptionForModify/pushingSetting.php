@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models\SubscriptionForModify;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class pushingSetting extends Model
 {
@@ -34,44 +34,20 @@ class pushingSetting extends Model
         'templateUuid' => 'templateUuid',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->alertActionIds)) {
-            Model::validateArray($this->alertActionIds);
-        }
-        if (\is_array($this->restoreActionIds)) {
-            Model::validateArray($this->restoreActionIds);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->alertActionIds) {
-            if (\is_array($this->alertActionIds)) {
-                $res['alertActionIds'] = [];
-                $n1 = 0;
-                foreach ($this->alertActionIds as $item1) {
-                    $res['alertActionIds'][$n1++] = $item1;
-                }
-            }
+            $res['alertActionIds'] = $this->alertActionIds;
         }
-
         if (null !== $this->responsePlanId) {
             $res['responsePlanId'] = $this->responsePlanId;
         }
-
         if (null !== $this->restoreActionIds) {
-            if (\is_array($this->restoreActionIds)) {
-                $res['restoreActionIds'] = [];
-                $n1 = 0;
-                foreach ($this->restoreActionIds as $item1) {
-                    $res['restoreActionIds'][$n1++] = $item1;
-                }
-            }
+            $res['restoreActionIds'] = $this->restoreActionIds;
         }
-
         if (null !== $this->templateUuid) {
             $res['templateUuid'] = $this->templateUuid;
         }
@@ -79,38 +55,27 @@ class pushingSetting extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return pushingSetting
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['alertActionIds'])) {
             if (!empty($map['alertActionIds'])) {
-                $model->alertActionIds = [];
-                $n1 = 0;
-                foreach ($map['alertActionIds'] as $item1) {
-                    $model->alertActionIds[$n1++] = $item1;
-                }
+                $model->alertActionIds = $map['alertActionIds'];
             }
         }
-
         if (isset($map['responsePlanId'])) {
             $model->responsePlanId = $map['responsePlanId'];
         }
-
         if (isset($map['restoreActionIds'])) {
             if (!empty($map['restoreActionIds'])) {
-                $model->restoreActionIds = [];
-                $n1 = 0;
-                foreach ($map['restoreActionIds'] as $item1) {
-                    $model->restoreActionIds[$n1++] = $item1;
-                }
+                $model->restoreActionIds = $map['restoreActionIds'];
             }
         }
-
         if (isset($map['templateUuid'])) {
             $model->templateUuid = $map['templateUuid'];
         }

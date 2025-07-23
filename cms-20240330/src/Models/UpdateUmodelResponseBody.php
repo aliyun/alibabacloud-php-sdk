@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateUmodelResponseBody extends Model
 {
     /**
+     * @example 234324-123-123-123-23423
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example workspace-test
+     *
      * @var string
      */
     public $workspace;
@@ -22,18 +26,14 @@ class UpdateUmodelResponseBody extends Model
         'workspace' => 'workspace',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
-
         if (null !== $this->workspace) {
             $res['workspace'] = $this->workspace;
         }
@@ -41,18 +41,17 @@ class UpdateUmodelResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateUmodelResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
-
         if (isset($map['workspace'])) {
             $model->workspace = $map['workspace'];
         }

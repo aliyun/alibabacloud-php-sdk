@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models\AddonMeta;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class dashboards extends Model
 {
@@ -28,22 +28,17 @@ class dashboards extends Model
         'url' => 'url',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
-
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
-
         if (null !== $this->url) {
             $res['url'] = $this->url;
         }
@@ -51,22 +46,20 @@ class dashboards extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return dashboards
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
-
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
-
         if (isset($map['url'])) {
             $model->url = $map['url'];
         }

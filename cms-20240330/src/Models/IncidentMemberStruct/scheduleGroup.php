@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models\IncidentMemberStruct;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class scheduleGroup extends Model
 {
@@ -22,18 +22,14 @@ class scheduleGroup extends Model
         'name' => 'name',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->contactId) {
             $res['contactId'] = $this->contactId;
         }
-
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
@@ -41,18 +37,17 @@ class scheduleGroup extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return scheduleGroup
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['contactId'])) {
             $model->contactId = $map['contactId'];
         }
-
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }

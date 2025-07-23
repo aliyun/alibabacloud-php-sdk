@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models\UpdateUmodelRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class commonSchemaRef extends Model
 {
     /**
+     * @example test-bmp-123123
+     *
      * @var string
      */
     public $group;
@@ -19,6 +21,8 @@ class commonSchemaRef extends Model
     public $items;
 
     /**
+     * @example 2.5.
+     *
      * @var string
      */
     public $version;
@@ -28,31 +32,17 @@ class commonSchemaRef extends Model
         'version' => 'version',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->items)) {
-            Model::validateArray($this->items);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->group) {
             $res['group'] = $this->group;
         }
-
         if (null !== $this->items) {
-            if (\is_array($this->items)) {
-                $res['items'] = [];
-                $n1 = 0;
-                foreach ($this->items as $item1) {
-                    $res['items'][$n1++] = $item1;
-                }
-            }
+            $res['items'] = $this->items;
         }
-
         if (null !== $this->version) {
             $res['version'] = $this->version;
         }
@@ -60,28 +50,22 @@ class commonSchemaRef extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return commonSchemaRef
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['group'])) {
             $model->group = $map['group'];
         }
-
         if (isset($map['items'])) {
             if (!empty($map['items'])) {
-                $model->items = [];
-                $n1 = 0;
-                foreach ($map['items'] as $item1) {
-                    $model->items[$n1++] = $item1;
-                }
+                $model->items = $map['items'];
             }
         }
-
         if (isset($map['version'])) {
             $model->version = $map['version'];
         }
