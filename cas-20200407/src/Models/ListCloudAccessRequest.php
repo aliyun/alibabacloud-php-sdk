@@ -4,53 +4,66 @@
 
 namespace AlibabaCloud\SDK\Cas\V20200407\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListCloudAccessRequest extends Model
 {
     /**
+     * @description The cloud service provider. Set the value to **Tencent**, which indicates Tencent Cloud.
+     *
+     * @example Tencent
+     *
      * @var string
      */
     public $cloudName;
+
     /**
+     * @description The page number. Default value: 1.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
+
     /**
+     * @description The AccessKey ID that is used to access cloud resources.
+     *
+     * @example 276
+     *
      * @var string
      */
     public $secretId;
+
     /**
+     * @description The number of entries per page. Valid values: **10**, **20**, and **50**.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $showSize;
     protected $_name = [
-        'cloudName'   => 'CloudName',
+        'cloudName' => 'CloudName',
         'currentPage' => 'CurrentPage',
-        'secretId'    => 'SecretId',
-        'showSize'    => 'ShowSize',
+        'secretId' => 'SecretId',
+        'showSize' => 'ShowSize',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->cloudName) {
             $res['CloudName'] = $this->cloudName;
         }
-
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
-
         if (null !== $this->secretId) {
             $res['SecretId'] = $this->secretId;
         }
-
         if (null !== $this->showSize) {
             $res['ShowSize'] = $this->showSize;
         }
@@ -58,26 +71,23 @@ class ListCloudAccessRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListCloudAccessRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CloudName'])) {
             $model->cloudName = $map['CloudName'];
         }
-
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
-
         if (isset($map['SecretId'])) {
             $model->secretId = $map['SecretId'];
         }
-
         if (isset($map['ShowSize'])) {
             $model->showSize = $map['ShowSize'];
         }

@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Cas\V20200407\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class MoveResourceGroupResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 5BCD2F6C-7A9D-47C1-8588-2CC6A4E0BE5E
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class MoveResourceGroupResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class MoveResourceGroupResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return MoveResourceGroupResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

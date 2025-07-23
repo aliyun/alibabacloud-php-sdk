@@ -4,11 +4,19 @@
 
 namespace AlibabaCloud\SDK\Cas\V20200407\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CancelOrderRequestRequest extends Model
 {
     /**
+     * @description The order ID.
+     *
+     * >  You can call the [ListUserCertificateOrder](https://help.aliyun.com/document_detail/455804.html) operation to obtain the ID.
+     *
+     * This parameter is required.
+     *
+     * @example 123451222
+     *
      * @var int
      */
     public $orderId;
@@ -16,12 +24,9 @@ class CancelOrderRequestRequest extends Model
         'orderId' => 'OrderId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->orderId) {
@@ -31,11 +36,11 @@ class CancelOrderRequestRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CancelOrderRequestRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

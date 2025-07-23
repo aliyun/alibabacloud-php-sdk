@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\Cas\V20200407\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListDeploymentJobResourceRequest extends Model
 {
     /**
+     * @description The ID of the deployment task.
+     *
+     * This parameter is required.
+     *
+     * @example 8888
+     *
      * @var int
      */
     public $jobId;
@@ -16,12 +22,9 @@ class ListDeploymentJobResourceRequest extends Model
         'jobId' => 'JobId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->jobId) {
@@ -31,11 +34,11 @@ class ListDeploymentJobResourceRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListDeploymentJobResourceRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

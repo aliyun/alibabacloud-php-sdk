@@ -4,35 +4,44 @@
 
 namespace AlibabaCloud\SDK\Cas\V20200407\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteWorkerResourceRequest extends Model
 {
     /**
+     * @description The ID of the deployment task.
+     *
+     * This parameter is required.
+     *
+     * @example 8888
+     *
      * @var int
      */
     public $jobId;
+
     /**
+     * @description The ID of the worker for the deployment task.
+     *
+     * This parameter is required.
+     *
+     * @example 13
+     *
      * @var int
      */
     public $workerId;
     protected $_name = [
-        'jobId'    => 'JobId',
+        'jobId' => 'JobId',
         'workerId' => 'WorkerId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
         }
-
         if (null !== $this->workerId) {
             $res['WorkerId'] = $this->workerId;
         }
@@ -40,18 +49,17 @@ class DeleteWorkerResourceRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteWorkerResourceRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
         }
-
         if (isset($map['WorkerId'])) {
             $model->workerId = $map['WorkerId'];
         }

@@ -4,35 +4,40 @@
 
 namespace AlibabaCloud\SDK\Cas\V20200407\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UploadCsrResponseBody extends Model
 {
     /**
+     * @description The ID of the CSR.
+     *
+     * @example 2271
+     *
      * @var int
      */
     public $csrId;
+
     /**
+     * @description The ID of the request.
+     *
+     * @example CBF1E9B7-D6A0-4E9E-AD3E-2B47E6C2837D
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'csrId'     => 'CsrId',
+        'csrId' => 'CsrId',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->csrId) {
             $res['CsrId'] = $this->csrId;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -40,18 +45,17 @@ class UploadCsrResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UploadCsrResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CsrId'])) {
             $model->csrId = $map['CsrId'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

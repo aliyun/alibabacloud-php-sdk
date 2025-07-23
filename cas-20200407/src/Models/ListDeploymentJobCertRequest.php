@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\Cas\V20200407\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListDeploymentJobCertRequest extends Model
 {
     /**
+     * @description The ID of the deployment task. You can call the [CreateDeploymentJob](https://help.aliyun.com/document_detail/2712234.html) operation to obtain the ID of a deployment task from the **JobId** parameter. You can also call the [ListDeploymentJob](https://help.aliyun.com/document_detail/2712223.html) operation to obtain the ID of a deployment task.
+     *
+     * This parameter is required.
+     *
+     * @example 8888
+     *
      * @var int
      */
     public $jobId;
@@ -16,12 +22,9 @@ class ListDeploymentJobCertRequest extends Model
         'jobId' => 'JobId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->jobId) {
@@ -31,11 +34,11 @@ class ListDeploymentJobCertRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListDeploymentJobCertRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Cas\V20200407\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteUserCertificateResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 3E50D480-9765-5CFD-9650-9BACCECA5135
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class DeleteUserCertificateResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class DeleteUserCertificateResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteUserCertificateResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\Cas\V20200407\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeCloudResourceStatusRequest extends Model
 {
     /**
+     * @description The AccessKey secret used to access cloud resources.
+     *
+     * >  You can call the [ListCloudAccess](https://help.aliyun.com/document_detail/2712219.html) operation to obtain the ID.
+     *
+     * @example AKID9*******XX
+     *
      * @var string
      */
     public $secretId;
@@ -16,12 +22,9 @@ class DescribeCloudResourceStatusRequest extends Model
         'secretId' => 'SecretId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->secretId) {
@@ -31,11 +34,11 @@ class DescribeCloudResourceStatusRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeCloudResourceStatusRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,44 +4,53 @@
 
 namespace AlibabaCloud\SDK\Cas\V20200407\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetCertWarehouseQuotaResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example CBF1E9B7-D6A0-4E9E-AD3E-2B47E6C2837D
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @description The total quota for certificate repositories, including the free quota and purchased quota.
+     *
+     * @example 5000
+     *
      * @var int
      */
     public $totalQuota;
+
     /**
+     * @description The used quota.
+     *
+     * @example 1000
+     *
      * @var int
      */
     public $useCount;
     protected $_name = [
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
         'totalQuota' => 'TotalQuota',
-        'useCount'   => 'UseCount',
+        'useCount' => 'UseCount',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->totalQuota) {
             $res['TotalQuota'] = $this->totalQuota;
         }
-
         if (null !== $this->useCount) {
             $res['UseCount'] = $this->useCount;
         }
@@ -49,22 +58,20 @@ class GetCertWarehouseQuotaResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetCertWarehouseQuotaResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['TotalQuota'])) {
             $model->totalQuota = $map['TotalQuota'];
         }
-
         if (isset($map['UseCount'])) {
             $model->useCount = $map['UseCount'];
         }

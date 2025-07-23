@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\Cas\V20200407\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeletePCACertRequest extends Model
 {
     /**
+     * @description The unique identifier of the certificate. You can call the [ListCert](https://help.aliyun.com/document_detail/452331.html) operation to query the unique identifiers of certificates.
+     *
+     * This parameter is required.
+     *
+     * @example ccaf0c629c2be1e2ab
+     *
      * @var string
      */
     public $identifier;
@@ -16,12 +22,9 @@ class DeletePCACertRequest extends Model
         'identifier' => 'Identifier',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->identifier) {
@@ -31,11 +34,11 @@ class DeletePCACertRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeletePCACertRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

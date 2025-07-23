@@ -4,35 +4,44 @@
 
 namespace AlibabaCloud\SDK\Cas\V20200407\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateCsrRequest extends Model
 {
     /**
+     * @description The ID of the CSR.
+     *
+     * This parameter is required.
+     *
+     * @example 5209
+     *
      * @var int
      */
     public $csrId;
+
     /**
+     * @description The private key content of the certificate in the PEM format.
+     *
+     * This parameter is required.
+     *
+     * @example -----BEGIN RSA PRIVATE KEY----- MII.... -----END RSA PRIVATE KEY-----
+     *
      * @var string
      */
     public $key;
     protected $_name = [
         'csrId' => 'CsrId',
-        'key'   => 'Key',
+        'key' => 'Key',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->csrId) {
             $res['CsrId'] = $this->csrId;
         }
-
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
@@ -40,18 +49,17 @@ class UpdateCsrRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateCsrRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CsrId'])) {
             $model->csrId = $map['CsrId'];
         }
-
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }

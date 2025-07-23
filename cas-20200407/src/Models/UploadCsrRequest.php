@@ -4,44 +4,55 @@
 
 namespace AlibabaCloud\SDK\Cas\V20200407\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UploadCsrRequest extends Model
 {
     /**
+     * @description The content of the CSR.
+     *
+     * This parameter is required.
+     *
+     * @example -----BEGIN CERTIFICATE REQUEST----- ...... -----END CERTIFICATE REQUEST-----
+     *
      * @var string
      */
     public $csr;
+
     /**
+     * @description The private key content of the certificate in the PEM format.
+     *
+     * @example -----BEGIN RSA PRIVATE KEY----- MII.... -----END RSA PRIVATE KEY-----
+     *
      * @var string
      */
     public $key;
+
     /**
+     * @description The name of the CSR.
+     *
+     * @example name
+     *
      * @var string
      */
     public $name;
     protected $_name = [
-        'csr'  => 'Csr',
-        'key'  => 'Key',
+        'csr' => 'Csr',
+        'key' => 'Key',
         'name' => 'Name',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->csr) {
             $res['Csr'] = $this->csr;
         }
-
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -49,22 +60,20 @@ class UploadCsrRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UploadCsrRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Csr'])) {
             $model->csr = $map['Csr'];
         }
-
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

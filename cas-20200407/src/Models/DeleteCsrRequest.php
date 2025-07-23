@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\Cas\V20200407\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteCsrRequest extends Model
 {
     /**
+     * @description The ID of the CSR.
+     *
+     * This parameter is required.
+     *
+     * @example 3013
+     *
      * @var int
      */
     public $csrId;
@@ -16,12 +22,9 @@ class DeleteCsrRequest extends Model
         'csrId' => 'CsrId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->csrId) {
@@ -31,11 +34,11 @@ class DeleteCsrRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteCsrRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
