@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Mnsopen\V20220119\Models\SubscribeRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class kafkaAttributes extends Model
 {
@@ -16,12 +16,9 @@ class kafkaAttributes extends Model
         'businessMode' => 'BusinessMode',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->businessMode) {
@@ -31,11 +28,11 @@ class kafkaAttributes extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return kafkaAttributes
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

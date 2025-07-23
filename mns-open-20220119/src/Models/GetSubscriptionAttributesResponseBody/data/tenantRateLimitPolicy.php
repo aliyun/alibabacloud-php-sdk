@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Mnsopen\V20220119\Models\GetSubscriptionAttributesResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class tenantRateLimitPolicy extends Model
 {
@@ -22,18 +22,14 @@ class tenantRateLimitPolicy extends Model
         'maxReceivesPerSecond' => 'MaxReceivesPerSecond',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->enabled) {
             $res['Enabled'] = $this->enabled;
         }
-
         if (null !== $this->maxReceivesPerSecond) {
             $res['MaxReceivesPerSecond'] = $this->maxReceivesPerSecond;
         }
@@ -41,18 +37,17 @@ class tenantRateLimitPolicy extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return tenantRateLimitPolicy
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Enabled'])) {
             $model->enabled = $map['Enabled'];
         }
-
         if (isset($map['MaxReceivesPerSecond'])) {
             $model->maxReceivesPerSecond = $map['MaxReceivesPerSecond'];
         }

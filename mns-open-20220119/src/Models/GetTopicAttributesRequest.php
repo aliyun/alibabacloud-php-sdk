@@ -4,17 +4,25 @@
 
 namespace AlibabaCloud\SDK\Mnsopen\V20220119\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mnsopen\V20220119\Models\GetTopicAttributesRequest\tag;
+use AlibabaCloud\Tea\Model;
 
 class GetTopicAttributesRequest extends Model
 {
     /**
+     * @description The tag.
+     *
      * @var tag[]
      */
     public $tag;
 
     /**
+     * @description The name of the topic.
+     *
+     * This parameter is required.
+     *
+     * @example demo-topic
+     *
      * @var string
      */
     public $topicName;
@@ -23,28 +31,20 @@ class GetTopicAttributesRequest extends Model
         'topicName' => 'TopicName',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->tag)) {
-            Model::validateArray($this->tag);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->tag) {
-            if (\is_array($this->tag)) {
-                $res['Tag'] = [];
-                $n1 = 0;
-                foreach ($this->tag as $item1) {
-                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->topicName) {
             $res['TopicName'] = $this->topicName;
         }
@@ -52,25 +52,23 @@ class GetTopicAttributesRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetTopicAttributesRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1 = 0;
-                foreach ($map['Tag'] as $item1) {
-                    $model->tag[$n1] = tag::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['TopicName'])) {
             $model->topicName = $map['TopicName'];
         }

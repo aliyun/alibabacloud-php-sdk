@@ -6,18 +6,14 @@ namespace AlibabaCloud\SDK\Mnsopen\V20220119\Models\CreateEventRuleRequest;
 
 use AlibabaCloud\Tea\Model;
 
-class endpoints extends Model
+class endpoint extends Model
 {
     /**
-     * @example http
-     *
      * @var string
      */
     public $endpointType;
 
     /**
-     * @example test-xxx-queue
-     *
      * @var string
      */
     public $endpointValue;
@@ -44,7 +40,7 @@ class endpoints extends Model
     /**
      * @param array $map
      *
-     * @return endpoints
+     * @return endpoint
      */
     public static function fromMap($map = [])
     {

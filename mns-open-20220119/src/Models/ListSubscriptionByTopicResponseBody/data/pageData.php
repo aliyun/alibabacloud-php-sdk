@@ -4,57 +4,102 @@
 
 namespace AlibabaCloud\SDK\Mnsopen\V20220119\Models\ListSubscriptionByTopicResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mnsopen\V20220119\Models\ListSubscriptionByTopicResponseBody\data\pageData\dlqPolicy;
+use AlibabaCloud\Tea\Model;
 
 class pageData extends Model
 {
     /**
+     * @description The time when the subscription was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
+     * @example 1449554806
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @description The dead-letter queue policy.
+     *
      * @var dlqPolicy
      */
     public $dlqPolicy;
 
     /**
+     * @description The endpoint to which the messages are pushed.
+     *
+     * @example http://example.com
+     *
      * @var string
      */
     public $endpoint;
 
     /**
+     * @description The tag that is used to filter messages. Only the messages that are attached with the specified tag can be pushed.
+     *
+     * @example important
+     *
      * @var string
      */
     public $filterTag;
 
     /**
+     * @description The time when the subscription was last modified. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
+     * @example 1449554806
+     *
      * @var int
      */
     public $lastModifyTime;
 
     /**
+     * @description The content format of the messages that are pushed to the endpoint. Valid values:
+     *
+     *   XML
+     *   JSON
+     *   SIMPLIFIED
+     *
+     * @example XML
+     *
      * @var string
      */
     public $notifyContentFormat;
 
     /**
+     * @description The retry policy that is applied if an error occurs when Message Service (MNS) pushes messages to the endpoint. Valid values:
+     *
+     *   BACKOFF_RETRY
+     *   EXPONENTIAL_DECAY_RETRY
+     *
+     * @example BACKOFF_RETRY
+     *
      * @var string
      */
     public $notifyStrategy;
 
     /**
+     * @description The name of the subscription.
+     *
+     * @example MySubscription
+     *
      * @var string
      */
     public $subscriptionName;
 
     /**
+     * @description The name of the topic.
+     *
+     * @example MyTopic
+     *
      * @var string
      */
     public $topicName;
 
     /**
+     * @description The Alibaba Cloud account ID of the topic owner.
+     *
+     * @example 123456789098****
+     *
      * @var string
      */
     public $topicOwner;
@@ -71,53 +116,38 @@ class pageData extends Model
         'topicOwner' => 'TopicOwner',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->dlqPolicy) {
-            $this->dlqPolicy->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-
         if (null !== $this->dlqPolicy) {
-            $res['DlqPolicy'] = null !== $this->dlqPolicy ? $this->dlqPolicy->toArray($noStream) : $this->dlqPolicy;
+            $res['DlqPolicy'] = null !== $this->dlqPolicy ? $this->dlqPolicy->toMap() : null;
         }
-
         if (null !== $this->endpoint) {
             $res['Endpoint'] = $this->endpoint;
         }
-
         if (null !== $this->filterTag) {
             $res['FilterTag'] = $this->filterTag;
         }
-
         if (null !== $this->lastModifyTime) {
             $res['LastModifyTime'] = $this->lastModifyTime;
         }
-
         if (null !== $this->notifyContentFormat) {
             $res['NotifyContentFormat'] = $this->notifyContentFormat;
         }
-
         if (null !== $this->notifyStrategy) {
             $res['NotifyStrategy'] = $this->notifyStrategy;
         }
-
         if (null !== $this->subscriptionName) {
             $res['SubscriptionName'] = $this->subscriptionName;
         }
-
         if (null !== $this->topicName) {
             $res['TopicName'] = $this->topicName;
         }
-
         if (null !== $this->topicOwner) {
             $res['TopicOwner'] = $this->topicOwner;
         }
@@ -125,50 +155,41 @@ class pageData extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return pageData
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
-
         if (isset($map['DlqPolicy'])) {
             $model->dlqPolicy = dlqPolicy::fromMap($map['DlqPolicy']);
         }
-
         if (isset($map['Endpoint'])) {
             $model->endpoint = $map['Endpoint'];
         }
-
         if (isset($map['FilterTag'])) {
             $model->filterTag = $map['FilterTag'];
         }
-
         if (isset($map['LastModifyTime'])) {
             $model->lastModifyTime = $map['LastModifyTime'];
         }
-
         if (isset($map['NotifyContentFormat'])) {
             $model->notifyContentFormat = $map['NotifyContentFormat'];
         }
-
         if (isset($map['NotifyStrategy'])) {
             $model->notifyStrategy = $map['NotifyStrategy'];
         }
-
         if (isset($map['SubscriptionName'])) {
             $model->subscriptionName = $map['SubscriptionName'];
         }
-
         if (isset($map['TopicName'])) {
             $model->topicName = $map['TopicName'];
         }
-
         if (isset($map['TopicOwner'])) {
             $model->topicOwner = $map['TopicOwner'];
         }

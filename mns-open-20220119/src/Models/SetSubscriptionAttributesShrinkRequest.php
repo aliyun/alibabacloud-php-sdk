@@ -4,21 +4,36 @@
 
 namespace AlibabaCloud\SDK\Mnsopen\V20220119\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class SetSubscriptionAttributesShrinkRequest extends Model
 {
     /**
+     * @description The dead-letter queue policy.
+     *
      * @var string
      */
     public $dlqPolicyShrink;
 
     /**
+     * @description The retry policy that is applied if an error occurs when Message Service (MNS) pushes messages to the endpoint. Valid values:
+     *
+     *   BACKOFF_RETRY
+     *   EXPONENTIAL_DECAY_RETRY
+     *
+     * @example BACKOFF_RETRY
+     *
      * @var string
      */
     public $notifyStrategy;
 
     /**
+     * @description The name of the subscription.
+     *
+     * This parameter is required.
+     *
+     * @example MySubscription
+     *
      * @var string
      */
     public $subscriptionName;
@@ -29,6 +44,12 @@ class SetSubscriptionAttributesShrinkRequest extends Model
     public $tenantRateLimitPolicyShrink;
 
     /**
+     * @description The name of the topic.
+     *
+     * This parameter is required.
+     *
+     * @example test
+     *
      * @var string
      */
     public $topicName;
@@ -40,30 +61,23 @@ class SetSubscriptionAttributesShrinkRequest extends Model
         'topicName' => 'TopicName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dlqPolicyShrink) {
             $res['DlqPolicy'] = $this->dlqPolicyShrink;
         }
-
         if (null !== $this->notifyStrategy) {
             $res['NotifyStrategy'] = $this->notifyStrategy;
         }
-
         if (null !== $this->subscriptionName) {
             $res['SubscriptionName'] = $this->subscriptionName;
         }
-
         if (null !== $this->tenantRateLimitPolicyShrink) {
             $res['TenantRateLimitPolicy'] = $this->tenantRateLimitPolicyShrink;
         }
-
         if (null !== $this->topicName) {
             $res['TopicName'] = $this->topicName;
         }
@@ -71,30 +85,26 @@ class SetSubscriptionAttributesShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return SetSubscriptionAttributesShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DlqPolicy'])) {
             $model->dlqPolicyShrink = $map['DlqPolicy'];
         }
-
         if (isset($map['NotifyStrategy'])) {
             $model->notifyStrategy = $map['NotifyStrategy'];
         }
-
         if (isset($map['SubscriptionName'])) {
             $model->subscriptionName = $map['SubscriptionName'];
         }
-
         if (isset($map['TenantRateLimitPolicy'])) {
             $model->tenantRateLimitPolicyShrink = $map['TenantRateLimitPolicy'];
         }
-
         if (isset($map['TopicName'])) {
             $model->topicName = $map['TopicName'];
         }

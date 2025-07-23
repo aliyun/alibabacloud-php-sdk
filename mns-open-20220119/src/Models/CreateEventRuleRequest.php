@@ -4,8 +4,9 @@
 
 namespace AlibabaCloud\SDK\Mnsopen\V20220119\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Mnsopen\V20220119\Models\CreateEventRuleRequest\endpoint;
 use AlibabaCloud\SDK\Mnsopen\V20220119\Models\CreateEventRuleRequest\endpoints;
+use AlibabaCloud\Tea\Model;
 
 class CreateEventRuleRequest extends Model
 {
@@ -20,32 +21,50 @@ class CreateEventRuleRequest extends Model
     public $deliveryMode;
 
     /**
+     * @var endpoint
+     */
+    public $endpoint;
+
+    /**
      * @var endpoints[]
      */
     public $endpoints;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $eventTypes;
 
     /**
+     * @description This parameter is required.
+     *
      * @var EventMatchRule[][]
      */
     public $matchRules;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example oss
+     *
      * @var string
      */
     public $productName;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example rule-xsXDW
+     *
      * @var string
      */
     public $ruleName;
     protected $_name = [
         'clientToken' => 'ClientToken',
         'deliveryMode' => 'DeliveryMode',
+        'endpoint' => 'Endpoint',
         'endpoints' => 'Endpoints',
         'eventTypes' => 'EventTypes',
         'matchRules' => 'MatchRules',
@@ -53,75 +72,38 @@ class CreateEventRuleRequest extends Model
         'ruleName' => 'RuleName',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->endpoints)) {
-            Model::validateArray($this->endpoints);
-        }
-        if (\is_array($this->eventTypes)) {
-            Model::validateArray($this->eventTypes);
-        }
-        if (\is_array($this->matchRules)) {
-            Model::validateArray($this->matchRules);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
-
         if (null !== $this->deliveryMode) {
             $res['DeliveryMode'] = $this->deliveryMode;
         }
-
+        if (null !== $this->endpoint) {
+            $res['Endpoint'] = null !== $this->endpoint ? $this->endpoint->toMap() : null;
+        }
         if (null !== $this->endpoints) {
-            if (\is_array($this->endpoints)) {
-                $res['Endpoints'] = [];
-                $n1 = 0;
-                foreach ($this->endpoints as $item1) {
-                    $res['Endpoints'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Endpoints'] = [];
+            if (null !== $this->endpoints && \is_array($this->endpoints)) {
+                $n = 0;
+                foreach ($this->endpoints as $item) {
+                    $res['Endpoints'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->eventTypes) {
-            if (\is_array($this->eventTypes)) {
-                $res['EventTypes'] = [];
-                $n1 = 0;
-                foreach ($this->eventTypes as $item1) {
-                    $res['EventTypes'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['EventTypes'] = $this->eventTypes;
         }
-
         if (null !== $this->matchRules) {
-            if (\is_array($this->matchRules)) {
-                $res['MatchRules'] = [];
-                $n1 = 0;
-                foreach ($this->matchRules as $item1) {
-                    if (\is_array($item1)) {
-                        $res['MatchRules'][$n1] = [];
-                        $n2 = 0;
-                        foreach ($item1 as $item2) {
-                            $res['MatchRules'][$n1][$n2] = null !== $item2 ? $item2->toArray($noStream) : $item2;
-                            ++$n2;
-                        }
-                    }
-                    ++$n1;
-                }
-            }
+            $res['MatchRules'] = $this->matchRules;
         }
-
         if (null !== $this->productName) {
             $res['ProductName'] = $this->productName;
         }
-
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
         }
@@ -129,66 +111,45 @@ class CreateEventRuleRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateEventRuleRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
-
         if (isset($map['DeliveryMode'])) {
             $model->deliveryMode = $map['DeliveryMode'];
         }
-
+        if (isset($map['Endpoint'])) {
+            $model->endpoint = endpoint::fromMap($map['Endpoint']);
+        }
         if (isset($map['Endpoints'])) {
             if (!empty($map['Endpoints'])) {
                 $model->endpoints = [];
-                $n1 = 0;
-                foreach ($map['Endpoints'] as $item1) {
-                    $model->endpoints[$n1] = endpoints::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Endpoints'] as $item) {
+                    $model->endpoints[$n++] = null !== $item ? endpoints::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['EventTypes'])) {
             if (!empty($map['EventTypes'])) {
-                $model->eventTypes = [];
-                $n1 = 0;
-                foreach ($map['EventTypes'] as $item1) {
-                    $model->eventTypes[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->eventTypes = $map['EventTypes'];
             }
         }
-
         if (isset($map['MatchRules'])) {
             if (!empty($map['MatchRules'])) {
-                $model->matchRules = [];
-                $n1 = 0;
-                foreach ($map['MatchRules'] as $item1) {
-                    if (!empty($item1)) {
-                        $model->matchRules[$n1] = [];
-                        $n2 = 0;
-                        foreach ($item1 as $item2) {
-                            $model->matchRules[$n1][$n2] = EventMatchRule::fromMap($item2);
-                            ++$n2;
-                        }
-                    }
-                    ++$n1;
-                }
+                $model->matchRules = $map['MatchRules'];
             }
         }
-
         if (isset($map['ProductName'])) {
             $model->productName = $map['ProductName'];
         }
-
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];
         }
