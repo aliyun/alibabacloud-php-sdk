@@ -60,11 +60,17 @@ class lifecycle extends Model
      * @var string
      */
     public $gmtCreateTime;
+
+    /**
+     * @var string
+     */
+    public $gmtEndTime;
     protected $_name = [
         'status' => 'Status',
         'reasonCode' => 'ReasonCode',
         'reasonMessage' => 'ReasonMessage',
         'gmtCreateTime' => 'GmtCreateTime',
+        'gmtEndTime' => 'GmtEndTime',
     ];
 
     public function validate() {}
@@ -83,6 +89,9 @@ class lifecycle extends Model
         }
         if (null !== $this->gmtCreateTime) {
             $res['GmtCreateTime'] = $this->gmtCreateTime;
+        }
+        if (null !== $this->gmtEndTime) {
+            $res['GmtEndTime'] = $this->gmtEndTime;
         }
 
         return $res;
@@ -107,6 +116,9 @@ class lifecycle extends Model
         }
         if (isset($map['GmtCreateTime'])) {
             $model->gmtCreateTime = $map['GmtCreateTime'];
+        }
+        if (isset($map['GmtEndTime'])) {
+            $model->gmtEndTime = $map['GmtEndTime'];
         }
 
         return $model;
