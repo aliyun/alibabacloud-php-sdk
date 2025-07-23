@@ -4,22 +4,33 @@
 
 namespace AlibabaCloud\SDK\Brainindustrial\V20200920\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Brainindustrial\V20200920\Models\CreateLoadForecastJobRequest\historyData;
+use AlibabaCloud\Tea\Model;
 
 class CreateLoadForecastJobRequest extends Model
 {
     /**
      * @var string
      */
+    public $businessKey;
+
+    /**
+     * @example electricityMeter
+     *
+     * @var string
+     */
     public $deviceType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $duration;
 
     /**
+     * @example FIFTEEN_MIN
+     *
      * @var string
      */
     public $freq;
@@ -30,25 +41,34 @@ class CreateLoadForecastJobRequest extends Model
     public $historyData;
 
     /**
+     * @example latest
+     *
      * @var string
      */
     public $modelVersion;
 
     /**
+     * @example 2025-12-12
+     *
      * @var string
      */
     public $runDate;
 
     /**
+     * @example load
+     *
      * @var string
      */
     public $systemType;
 
     /**
+     * @example Asia/Shanghai
+     *
      * @var string
      */
     public $timeZone;
     protected $_name = [
+        'businessKey' => 'BusinessKey',
         'deviceType' => 'DeviceType',
         'duration' => 'Duration',
         'freq' => 'Freq',
@@ -59,51 +79,41 @@ class CreateLoadForecastJobRequest extends Model
         'timeZone' => 'TimeZone',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->historyData)) {
-            Model::validateArray($this->historyData);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
+        if (null !== $this->businessKey) {
+            $res['BusinessKey'] = $this->businessKey;
+        }
         if (null !== $this->deviceType) {
             $res['DeviceType'] = $this->deviceType;
         }
-
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
         }
-
         if (null !== $this->freq) {
             $res['Freq'] = $this->freq;
         }
-
         if (null !== $this->historyData) {
-            if (\is_array($this->historyData)) {
-                $res['HistoryData'] = [];
-                $n1 = 0;
-                foreach ($this->historyData as $item1) {
-                    $res['HistoryData'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['HistoryData'] = [];
+            if (null !== $this->historyData && \is_array($this->historyData)) {
+                $n = 0;
+                foreach ($this->historyData as $item) {
+                    $res['HistoryData'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->modelVersion) {
             $res['ModelVersion'] = $this->modelVersion;
         }
-
         if (null !== $this->runDate) {
             $res['RunDate'] = $this->runDate;
         }
-
         if (null !== $this->systemType) {
             $res['SystemType'] = $this->systemType;
         }
-
         if (null !== $this->timeZone) {
             $res['TimeZone'] = $this->timeZone;
         }
@@ -111,48 +121,44 @@ class CreateLoadForecastJobRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateLoadForecastJobRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BusinessKey'])) {
+            $model->businessKey = $map['BusinessKey'];
+        }
         if (isset($map['DeviceType'])) {
             $model->deviceType = $map['DeviceType'];
         }
-
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
         }
-
         if (isset($map['Freq'])) {
             $model->freq = $map['Freq'];
         }
-
         if (isset($map['HistoryData'])) {
             if (!empty($map['HistoryData'])) {
                 $model->historyData = [];
-                $n1 = 0;
-                foreach ($map['HistoryData'] as $item1) {
-                    $model->historyData[$n1++] = historyData::fromMap($item1);
+                $n = 0;
+                foreach ($map['HistoryData'] as $item) {
+                    $model->historyData[$n++] = null !== $item ? historyData::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['ModelVersion'])) {
             $model->modelVersion = $map['ModelVersion'];
         }
-
         if (isset($map['RunDate'])) {
             $model->runDate = $map['RunDate'];
         }
-
         if (isset($map['SystemType'])) {
             $model->systemType = $map['SystemType'];
         }
-
         if (isset($map['TimeZone'])) {
             $model->timeZone = $map['TimeZone'];
         }

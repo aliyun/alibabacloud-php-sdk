@@ -4,21 +4,27 @@
 
 namespace AlibabaCloud\SDK\Brainindustrial\V20200920\Models\CreatePowerForecastJobResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class response extends Model
 {
     /**
+     * @example {}
+     *
      * @var mixed
      */
     public $debugInfo;
 
     /**
+     * @example LoadForecast
+     *
      * @var string
      */
     public $jobType;
 
     /**
+     * @example {}
+     *
      * @var mixed
      */
     public $result;
@@ -28,22 +34,17 @@ class response extends Model
         'result' => 'Result',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->debugInfo) {
             $res['DebugInfo'] = $this->debugInfo;
         }
-
         if (null !== $this->jobType) {
             $res['JobType'] = $this->jobType;
         }
-
         if (null !== $this->result) {
             $res['Result'] = $this->result;
         }
@@ -51,22 +52,20 @@ class response extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return response
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DebugInfo'])) {
             $model->debugInfo = $map['DebugInfo'];
         }
-
         if (isset($map['JobType'])) {
             $model->jobType = $map['JobType'];
         }
-
         if (isset($map['Result'])) {
             $model->result = $map['Result'];
         }

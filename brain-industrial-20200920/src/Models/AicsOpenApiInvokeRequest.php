@@ -4,26 +4,36 @@
 
 namespace AlibabaCloud\SDK\Brainindustrial\V20200920\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class AicsOpenApiInvokeRequest extends Model
 {
     /**
+     * @example 119397
+     *
      * @var string
      */
     public $nodeId;
 
     /**
+     * @example {"a":1}
+     *
      * @var mixed[]
      */
     public $param;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example ae5f9884c9914ed7af72b07e6c1616f9
+     *
      * @var string
      */
     public $serviceId;
 
     /**
+     * @example EXPERIMENT
+     *
      * @var string
      */
     public $type;
@@ -34,34 +44,20 @@ class AicsOpenApiInvokeRequest extends Model
         'type' => 'Type',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->param)) {
-            Model::validateArray($this->param);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
         }
-
         if (null !== $this->param) {
-            if (\is_array($this->param)) {
-                $res['Param'] = [];
-                foreach ($this->param as $key1 => $value1) {
-                    $res['Param'][$key1] = $value1;
-                }
-            }
+            $res['Param'] = $this->param;
         }
-
         if (null !== $this->serviceId) {
             $res['ServiceId'] = $this->serviceId;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -69,31 +65,23 @@ class AicsOpenApiInvokeRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return AicsOpenApiInvokeRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
         }
-
         if (isset($map['Param'])) {
-            if (!empty($map['Param'])) {
-                $model->param = [];
-                foreach ($map['Param'] as $key1 => $value1) {
-                    $model->param[$key1] = $value1;
-                }
-            }
+            $model->param = $map['Param'];
         }
-
         if (isset($map['ServiceId'])) {
             $model->serviceId = $map['ServiceId'];
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

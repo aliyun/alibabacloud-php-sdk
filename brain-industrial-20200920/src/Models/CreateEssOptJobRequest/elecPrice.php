@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\Brainindustrial\V20200920\Models\CreateEssOptJobRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class elecPrice extends Model
 {
     /**
+     * @example 00:00:15
+     *
      * @var string
      */
     public $dataTime;
 
     /**
+     * @example 0.5
+     *
      * @var string
      */
     public $price;
@@ -22,18 +26,14 @@ class elecPrice extends Model
         'price' => 'Price',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dataTime) {
             $res['DataTime'] = $this->dataTime;
         }
-
         if (null !== $this->price) {
             $res['Price'] = $this->price;
         }
@@ -41,18 +41,17 @@ class elecPrice extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return elecPrice
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DataTime'])) {
             $model->dataTime = $map['DataTime'];
         }
-
         if (isset($map['Price'])) {
             $model->price = $map['Price'];
         }
