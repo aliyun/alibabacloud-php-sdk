@@ -16,14 +16,26 @@ class UpdateAppModeRequest extends Model
     public $appId;
 
     /**
+     * @var string
+     */
+    public $appIds;
+
+    /**
      * @example true
      *
      * @var bool
      */
     public $enableIdle;
+
+    /**
+     * @var string
+     */
+    public $namespaceId;
     protected $_name = [
         'appId' => 'AppId',
+        'appIds' => 'AppIds',
         'enableIdle' => 'EnableIdle',
+        'namespaceId' => 'NamespaceId',
     ];
 
     public function validate() {}
@@ -34,8 +46,14 @@ class UpdateAppModeRequest extends Model
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+        if (null !== $this->appIds) {
+            $res['AppIds'] = $this->appIds;
+        }
         if (null !== $this->enableIdle) {
             $res['EnableIdle'] = $this->enableIdle;
+        }
+        if (null !== $this->namespaceId) {
+            $res['NamespaceId'] = $this->namespaceId;
         }
 
         return $res;
@@ -52,8 +70,14 @@ class UpdateAppModeRequest extends Model
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+        if (isset($map['AppIds'])) {
+            $model->appIds = $map['AppIds'];
+        }
         if (isset($map['EnableIdle'])) {
             $model->enableIdle = $map['EnableIdle'];
+        }
+        if (isset($map['NamespaceId'])) {
+            $model->namespaceId = $map['NamespaceId'];
         }
 
         return $model;

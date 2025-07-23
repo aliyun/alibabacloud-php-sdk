@@ -18,7 +18,7 @@ class DescribeInstanceLogRequest extends Model
     public $containerId;
 
     /**
-     * @description The ID of the request.
+     * @description The instance ID.
      *
      * This parameter is required.
      *

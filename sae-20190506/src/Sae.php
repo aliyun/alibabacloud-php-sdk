@@ -8165,8 +8165,14 @@ class Sae extends OpenApiClient
         if (!Utils::isUnset($request->appId)) {
             $query['AppId'] = $request->appId;
         }
+        if (!Utils::isUnset($request->appIds)) {
+            $query['AppIds'] = $request->appIds;
+        }
         if (!Utils::isUnset($request->enableIdle)) {
             $query['EnableIdle'] = $request->enableIdle;
+        }
+        if (!Utils::isUnset($request->namespaceId)) {
+            $query['NamespaceId'] = $request->namespaceId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,

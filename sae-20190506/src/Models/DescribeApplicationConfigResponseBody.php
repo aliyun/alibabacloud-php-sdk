@@ -36,6 +36,8 @@ class DescribeApplicationConfigResponseBody extends Model
      *   If the call is successful, the **ErrorCode** parameter is not returned.
      *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
      *
+     * @example Null
+     *
      * @var string
      */
     public $errorCode;

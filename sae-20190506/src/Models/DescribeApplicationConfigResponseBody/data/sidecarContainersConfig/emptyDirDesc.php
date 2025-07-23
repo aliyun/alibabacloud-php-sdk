@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class emptyDirDesc extends Model
 {
     /**
+     * @description Mount path of the data volume within the container.
+     *
+     * @example /mnt/cache
+     *
      * @var string
      */
     public $mountPath;
 
     /**
+     * @description The name of the shared temporary storage.
+     *
+     * @example sidecar-container
+     *
      * @var string
      */
     public $name;

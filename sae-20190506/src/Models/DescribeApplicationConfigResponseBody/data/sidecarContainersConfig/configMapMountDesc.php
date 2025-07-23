@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class configMapMountDesc extends Model
 {
     /**
+     * @description The ConfigMap ID.
+     *
+     * @example 7361
+     *
      * @var int
      */
     public $configMapId;
 
     /**
+     * @description The ConfigMap name.
+     *
+     * @example ConfigMap-test
+     *
      * @var string
      */
     public $configMapName;
 
     /**
+     * @description The ConfigMap key
+     *
+     * @example key
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The mount path.
+     *
+     * @example /mnt/test
+     *
      * @var string
      */
     public $mountPath;

@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class secretMountDesc extends Model
 {
     /**
+     * @description The key to Base64 encode values.
+     *
+     * @example task-center
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The mount path.
+     *
+     * @example /opt/www/runtime/logs
+     *
      * @var string
      */
     public $mountPath;
 
     /**
+     * @description The secret ID of the instance.
+     *
+     * @example 520
+     *
      * @var int
      */
     public $secretId;
 
     /**
+     * @description The name of the secret.
+     *
+     * @example dummy-name-opaque-894
+     *
      * @var string
      */
     public $secretName;

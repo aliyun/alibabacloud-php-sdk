@@ -9,10 +9,12 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceLogResponseBody extends Model
 {
     /**
-     * @description Indicates whether the log of the instance was obtained. Valid values:
+     * @description The interface state or POP error code. Valid values:
      *
-     *   **true**: indicates that the log was obtained.
-     *   **false**: indicates that the log could not be obtained.
+     *   **2xx**: indicates that the request was successful.
+     *   **3xx**: indicates that the request was redirected.
+     *   **4xx**: indicates that the request was invalid.
+     *   **5xx**: indicates that a server error occurred.
      *
      * @example 200
      *
@@ -21,10 +23,7 @@ class DescribeInstanceLogResponseBody extends Model
     public $code;
 
     /**
-     * @description The error code.
-     *
-     *   The **ErrorCode** parameter is not returned when the request succeeds.
-     *   The **ErrorCode** parameter is returned when the request fails. For more information, see **Error codes** in this topic.
+     * @description The information of instance logs.
      *
      * @example hello\\nsae\\n
      *
@@ -33,19 +32,23 @@ class DescribeInstanceLogResponseBody extends Model
     public $data;
 
     /**
-     * @description The HTTP status code. Valid values:
+     * @description Error code.
      *
-     *   **2xx**: indicates that the request was successful.
-     *   **3xx**: indicates that the request was redirected.
-     *   **4xx**: indicates that the request was invalid.
-     *   **5xx**: indicates that a server error occurred.
+     * - No error code returned if the request succeeded.
+     *
+     * - Error code returned if the request failed. Refer to error code list below for details.
+     *
+     * @example Null
      *
      * @var string
      */
     public $errorCode;
 
     /**
-     * @description The ID of the trace.
+     * @description The returned message.
+     *
+     * success is returned when the request succeeds.
+     * An error code is returned when the request fails.
      *
      * @example success
      *
@@ -54,10 +57,7 @@ class DescribeInstanceLogResponseBody extends Model
     public $message;
 
     /**
-     * @description The returned message.
-     *
-     *   **success** is returned when the request succeeds.
-     *   An error code is returned when the request fails.
+     * @description Request ID.
      *
      * @example 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
      *
@@ -66,6 +66,12 @@ class DescribeInstanceLogResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the logs of the instance is obtained.
+     *
+     * - true: logs obtained.
+     *
+     * - false: failed to obtain logs.
+     *
      * @example true
      *
      * @var bool
@@ -73,7 +79,7 @@ class DescribeInstanceLogResponseBody extends Model
     public $success;
 
     /**
-     * @description The log of the instance.
+     * @description Trace ID.
      *
      * @example 0a98a02315955564772843261e****
      *
