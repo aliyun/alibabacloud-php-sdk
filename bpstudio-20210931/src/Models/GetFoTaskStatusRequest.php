@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\BPStudio\V20210931\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetFoTaskStatusRequest extends Model
 {
     /**
+     * @description The disaster recovery switchover task ID.
+     *
+     * @example 2615
+     *
      * @var int
      */
     public $taskId;
@@ -16,12 +20,9 @@ class GetFoTaskStatusRequest extends Model
         'taskId' => 'TaskId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->taskId) {
@@ -31,11 +32,11 @@ class GetFoTaskStatusRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetFoTaskStatusRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

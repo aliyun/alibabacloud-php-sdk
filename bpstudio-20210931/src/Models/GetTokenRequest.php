@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\BPStudio\V20210931\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetTokenRequest extends Model
 {
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-aekzhfgmw4e6fwq
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -16,12 +20,9 @@ class GetTokenRequest extends Model
         'resourceGroupId' => 'ResourceGroupId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->resourceGroupId) {
@@ -31,11 +32,11 @@ class GetTokenRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetTokenRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

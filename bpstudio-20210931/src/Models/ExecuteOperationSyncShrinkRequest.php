@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\BPStudio\V20210931\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ExecuteOperationSyncShrinkRequest extends Model
 {
     /**
+     * @example BE68D71ZY5YYIU9R
+     *
      * @var string
      */
     public $applicationId;
@@ -19,21 +21,33 @@ class ExecuteOperationSyncShrinkRequest extends Model
     public $attributesShrink;
 
     /**
+     * @example 1600765710019
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example rename
+     *
      * @var string
      */
     public $operation;
 
     /**
+     * @example rg-acfmyjt3c5om3hi
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example dds
+     *
      * @var string
      */
     public $serviceType;
@@ -46,34 +60,26 @@ class ExecuteOperationSyncShrinkRequest extends Model
         'serviceType' => 'ServiceType',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->applicationId) {
             $res['ApplicationId'] = $this->applicationId;
         }
-
         if (null !== $this->attributesShrink) {
             $res['Attributes'] = $this->attributesShrink;
         }
-
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
-
         if (null !== $this->operation) {
             $res['Operation'] = $this->operation;
         }
-
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
-
         if (null !== $this->serviceType) {
             $res['ServiceType'] = $this->serviceType;
         }
@@ -81,34 +87,29 @@ class ExecuteOperationSyncShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ExecuteOperationSyncShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApplicationId'])) {
             $model->applicationId = $map['ApplicationId'];
         }
-
         if (isset($map['Attributes'])) {
             $model->attributesShrink = $map['Attributes'];
         }
-
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
-
         if (isset($map['Operation'])) {
             $model->operation = $map['Operation'];
         }
-
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
-
         if (isset($map['ServiceType'])) {
             $model->serviceType = $map['ServiceType'];
         }

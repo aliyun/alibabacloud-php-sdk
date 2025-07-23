@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\BPStudio\V20210931\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ExecuteOperationSyncRequest extends Model
 {
     /**
+     * @example BE68D71ZY5YYIU9R
+     *
      * @var string
      */
     public $applicationId;
@@ -19,21 +21,33 @@ class ExecuteOperationSyncRequest extends Model
     public $attributes;
 
     /**
+     * @example 1600765710019
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example rename
+     *
      * @var string
      */
     public $operation;
 
     /**
+     * @example rg-acfmyjt3c5om3hi
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example dds
+     *
      * @var string
      */
     public $serviceType;
@@ -46,42 +60,26 @@ class ExecuteOperationSyncRequest extends Model
         'serviceType' => 'ServiceType',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->attributes)) {
-            Model::validateArray($this->attributes);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->applicationId) {
             $res['ApplicationId'] = $this->applicationId;
         }
-
         if (null !== $this->attributes) {
-            if (\is_array($this->attributes)) {
-                $res['Attributes'] = [];
-                foreach ($this->attributes as $key1 => $value1) {
-                    $res['Attributes'][$key1] = $value1;
-                }
-            }
+            $res['Attributes'] = $this->attributes;
         }
-
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
-
         if (null !== $this->operation) {
             $res['Operation'] = $this->operation;
         }
-
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
-
         if (null !== $this->serviceType) {
             $res['ServiceType'] = $this->serviceType;
         }
@@ -89,39 +87,29 @@ class ExecuteOperationSyncRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ExecuteOperationSyncRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApplicationId'])) {
             $model->applicationId = $map['ApplicationId'];
         }
-
         if (isset($map['Attributes'])) {
-            if (!empty($map['Attributes'])) {
-                $model->attributes = [];
-                foreach ($map['Attributes'] as $key1 => $value1) {
-                    $model->attributes[$key1] = $value1;
-                }
-            }
+            $model->attributes = $map['Attributes'];
         }
-
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
-
         if (isset($map['Operation'])) {
             $model->operation = $map['Operation'];
         }
-
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
-
         if (isset($map['ServiceType'])) {
             $model->serviceType = $map['ServiceType'];
         }

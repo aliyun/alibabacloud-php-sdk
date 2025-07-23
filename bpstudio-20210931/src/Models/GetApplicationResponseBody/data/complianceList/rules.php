@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\BPStudio\V20210931\Models\GetApplicationResponseBody\data\complianceList;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class rules extends Model
 {
@@ -22,18 +22,14 @@ class rules extends Model
         'ruleId' => 'ruleId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->ruleDetail) {
             $res['ruleDetail'] = $this->ruleDetail;
         }
-
         if (null !== $this->ruleId) {
             $res['ruleId'] = $this->ruleId;
         }
@@ -41,18 +37,17 @@ class rules extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return rules
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ruleDetail'])) {
             $model->ruleDetail = $map['ruleDetail'];
         }
-
         if (isset($map['ruleId'])) {
             $model->ruleId = $map['ruleId'];
         }

@@ -4,36 +4,60 @@
 
 namespace AlibabaCloud\SDK\BPStudio\V20210931\Models\ListApplicationResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description The application ID.
+     *
+     * @example JIX9NEZUALGS46UI
+     *
      * @var string
      */
     public $applicationId;
 
     /**
+     * @description The time when the application was created.
+     *
+     * @example 2021-09-15  08:30:00
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The URL of the application architecture image.
+     *
+     * @example https://bp-studio-daily.oss-cn-beijing.aliyuncs.com/1411182597819805/sr-Y3KR7ZSQZR2F0YX3.png
+     *
      * @var string
      */
     public $imageURL;
 
     /**
+     * @description The name of the application.
+     *
+     * @example cadt-appName
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The ID of the resource group to which the application belongs.
+     *
+     * @example default
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The status of the application.
+     *
+     * @example Deployed_Success
+     *
      * @var string
      */
     public $status;
@@ -46,34 +70,26 @@ class data extends Model
         'status' => 'Status',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->applicationId) {
             $res['ApplicationId'] = $this->applicationId;
         }
-
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-
         if (null !== $this->imageURL) {
             $res['ImageURL'] = $this->imageURL;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
-
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -81,34 +97,29 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApplicationId'])) {
             $model->applicationId = $map['ApplicationId'];
         }
-
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
-
         if (isset($map['ImageURL'])) {
             $model->imageURL = $map['ImageURL'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
-
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

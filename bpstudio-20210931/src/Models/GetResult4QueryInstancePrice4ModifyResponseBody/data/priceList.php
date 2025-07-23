@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\BPStudio\V20210931\Models\GetResult4QueryInstancePrice4ModifyResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class priceList extends Model
 {
     /**
+     * @example 2
+     *
      * @var float
      */
     public $discountAmount;
@@ -19,11 +21,15 @@ class priceList extends Model
     public $error;
 
     /**
+     * @example vpc
+     *
      * @var string
      */
     public $nodeType;
 
     /**
+     * @example 3
+     *
      * @var float
      */
     public $originalAmount;
@@ -39,6 +45,8 @@ class priceList extends Model
     public $promotionName;
 
     /**
+     * @example 1
+     *
      * @var float
      */
     public $tradeAmount;
@@ -52,38 +60,29 @@ class priceList extends Model
         'tradeAmount' => 'TradeAmount',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->discountAmount) {
             $res['DiscountAmount'] = $this->discountAmount;
         }
-
         if (null !== $this->error) {
             $res['Error'] = $this->error;
         }
-
         if (null !== $this->nodeType) {
             $res['NodeType'] = $this->nodeType;
         }
-
         if (null !== $this->originalAmount) {
             $res['OriginalAmount'] = $this->originalAmount;
         }
-
         if (null !== $this->priceUnit) {
             $res['PriceUnit'] = $this->priceUnit;
         }
-
         if (null !== $this->promotionName) {
             $res['PromotionName'] = $this->promotionName;
         }
-
         if (null !== $this->tradeAmount) {
             $res['TradeAmount'] = $this->tradeAmount;
         }
@@ -91,38 +90,32 @@ class priceList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return priceList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DiscountAmount'])) {
             $model->discountAmount = $map['DiscountAmount'];
         }
-
         if (isset($map['Error'])) {
             $model->error = $map['Error'];
         }
-
         if (isset($map['NodeType'])) {
             $model->nodeType = $map['NodeType'];
         }
-
         if (isset($map['OriginalAmount'])) {
             $model->originalAmount = $map['OriginalAmount'];
         }
-
         if (isset($map['PriceUnit'])) {
             $model->priceUnit = $map['PriceUnit'];
         }
-
         if (isset($map['PromotionName'])) {
             $model->promotionName = $map['PromotionName'];
         }
-
         if (isset($map['TradeAmount'])) {
             $model->tradeAmount = $map['TradeAmount'];
         }

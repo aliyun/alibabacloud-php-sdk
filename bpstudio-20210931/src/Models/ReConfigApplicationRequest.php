@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\BPStudio\V20210931\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ReConfigApplicationRequest extends Model
 {
     /**
+     * @example Q2P4O9YSOKCT35L9
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @example {"${instance_type}":"ecs.c6.3xlarge"}
+     *
      * @var string
      */
     public $variables;
@@ -22,18 +26,14 @@ class ReConfigApplicationRequest extends Model
         'variables' => 'Variables',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
-
         if (null !== $this->variables) {
             $res['Variables'] = $this->variables;
         }
@@ -41,18 +41,17 @@ class ReConfigApplicationRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ReConfigApplicationRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
-
         if (isset($map['Variables'])) {
             $model->variables = $map['Variables'];
         }

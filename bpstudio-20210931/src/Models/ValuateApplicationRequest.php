@@ -4,21 +4,35 @@
 
 namespace AlibabaCloud\SDK\BPStudio\V20210931\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ValuateApplicationRequest extends Model
 {
     /**
+     * @description The operation that you want to perform. Set the value to ValuateApplication.
+     *
+     * This parameter is required.
+     *
+     * @example 02S7UU41WKJL7ERR
+     *
      * @var string
      */
     public $applicationId;
 
     /**
+     * @description The ID of the resource group to which the application you want to query belongs.
+     *
+     * @example 1600765710019
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfmyjt3c5om3hi
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -28,22 +42,17 @@ class ValuateApplicationRequest extends Model
         'resourceGroupId' => 'ResourceGroupId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->applicationId) {
             $res['ApplicationId'] = $this->applicationId;
         }
-
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
-
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
@@ -51,22 +60,20 @@ class ValuateApplicationRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ValuateApplicationRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApplicationId'])) {
             $model->applicationId = $map['ApplicationId'];
         }
-
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
-
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }

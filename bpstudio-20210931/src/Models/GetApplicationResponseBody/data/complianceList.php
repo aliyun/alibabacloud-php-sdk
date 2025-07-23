@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\BPStudio\V20210931\Models\GetApplicationResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\GetApplicationResponseBody\data\complianceList\rules;
+use AlibabaCloud\Tea\Model;
 
 class complianceList extends Model
 {
@@ -29,32 +29,23 @@ class complianceList extends Model
         'rules' => 'Rules',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->rules)) {
-            Model::validateArray($this->rules);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->resourceCode) {
             $res['ResourceCode'] = $this->resourceCode;
         }
-
         if (null !== $this->resourceName) {
             $res['ResourceName'] = $this->resourceName;
         }
-
         if (null !== $this->rules) {
-            if (\is_array($this->rules)) {
-                $res['Rules'] = [];
-                $n1 = 0;
-                foreach ($this->rules as $item1) {
-                    $res['Rules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Rules'] = [];
+            if (null !== $this->rules && \is_array($this->rules)) {
+                $n = 0;
+                foreach ($this->rules as $item) {
+                    $res['Rules'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -62,29 +53,26 @@ class complianceList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return complianceList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ResourceCode'])) {
             $model->resourceCode = $map['ResourceCode'];
         }
-
         if (isset($map['ResourceName'])) {
             $model->resourceName = $map['ResourceName'];
         }
-
         if (isset($map['Rules'])) {
             if (!empty($map['Rules'])) {
                 $model->rules = [];
-                $n1 = 0;
-                foreach ($map['Rules'] as $item1) {
-                    $model->rules[$n1] = rules::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Rules'] as $item) {
+                    $model->rules[$n++] = null !== $item ? rules::fromMap($item) : $item;
                 }
             }
         }

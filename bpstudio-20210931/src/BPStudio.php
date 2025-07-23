@@ -4,7 +4,8 @@
 
 namespace AlibabaCloud\SDK\BPStudio\V20210931;
 
-use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\AppFailBackRequest;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\AppFailBackResponse;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\AppFailOverRequest;
@@ -74,10 +75,12 @@ use AlibabaCloud\SDK\BPStudio\V20210931\Models\ValuateApplicationResponse;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\ValuateTemplateRequest;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\ValuateTemplateResponse;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\ValuateTemplateShrinkRequest;
+use AlibabaCloud\Tea\Tea;
+use AlibabaCloud\Tea\Utils\Utils;
+use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
-use Darabonba\OpenApi\Utils;
 
 class BPStudio extends OpenApiClient
 {
@@ -102,43 +105,35 @@ class BPStudio extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (null !== $endpoint) {
+        if (!Utils::empty_($endpoint)) {
             return $endpoint;
         }
-
-        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
+        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
             return @$endpointMap[$regionId];
         }
 
-        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * Switches a disaster recovery application back to the primary zone.
+     * @summary Switches a disaster recovery application back to the primary zone.
+     *  *
+     * @description You can call this operation to switch a disaster recovery application back to the primary zone.
+     *  *
+     * @param AppFailBackRequest $request AppFailBackRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can call this operation to switch a disaster recovery application back to the primary zone.
-     *
-     * @param request - AppFailBackRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns AppFailBackResponse
-     *
-     * @param AppFailBackRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return AppFailBackResponse
+     * @return AppFailBackResponse AppFailBackResponse
      */
     public function appFailBackWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->applicationId) {
-            @$body['ApplicationId'] = $request->applicationId;
+        if (!Utils::isUnset($request->applicationId)) {
+            $body['ApplicationId'] = $request->applicationId;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'AppFailBack',
@@ -156,18 +151,13 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * Switches a disaster recovery application back to the primary zone.
+     * @summary Switches a disaster recovery application back to the primary zone.
+     *  *
+     * @description You can call this operation to switch a disaster recovery application back to the primary zone.
+     *  *
+     * @param AppFailBackRequest $request AppFailBackRequest
      *
-     * @remarks
-     * You can call this operation to switch a disaster recovery application back to the primary zone.
-     *
-     * @param request - AppFailBackRequest
-     *
-     * @returns AppFailBackResponse
-     *
-     * @param AppFailBackRequest $request
-     *
-     * @return AppFailBackResponse
+     * @return AppFailBackResponse AppFailBackResponse
      */
     public function appFailBack($request)
     {
@@ -177,35 +167,27 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * Switches a disaster recovery application to another supported zone.
+     * @summary Switches a disaster recovery application to another supported zone.
+     *  *
+     * @description You can call this operation to switch a disaster recovery application to another supported zone.
+     *  *
+     * @param AppFailOverRequest $request AppFailOverRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can call this operation to switch a disaster recovery application to another supported zone.
-     *
-     * @param request - AppFailOverRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns AppFailOverResponse
-     *
-     * @param AppFailOverRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return AppFailOverResponse
+     * @return AppFailOverResponse AppFailOverResponse
      */
     public function appFailOverWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->applicationId) {
-            @$body['ApplicationId'] = $request->applicationId;
+        if (!Utils::isUnset($request->applicationId)) {
+            $body['ApplicationId'] = $request->applicationId;
         }
-
-        if (null !== $request->failZone) {
-            @$body['FailZone'] = $request->failZone;
+        if (!Utils::isUnset($request->failZone)) {
+            $body['FailZone'] = $request->failZone;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'AppFailOver',
@@ -223,18 +205,13 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * Switches a disaster recovery application to another supported zone.
+     * @summary Switches a disaster recovery application to another supported zone.
+     *  *
+     * @description You can call this operation to switch a disaster recovery application to another supported zone.
+     *  *
+     * @param AppFailOverRequest $request AppFailOverRequest
      *
-     * @remarks
-     * You can call this operation to switch a disaster recovery application to another supported zone.
-     *
-     * @param request - AppFailOverRequest
-     *
-     * @returns AppFailOverResponse
-     *
-     * @param AppFailOverRequest $request
-     *
-     * @return AppFailOverResponse
+     * @return AppFailOverResponse AppFailOverResponse
      */
     public function appFailOver($request)
     {
@@ -244,36 +221,28 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * Changes the resource group to which an application or template belongs.
+     * @summary Changes the resource group to which an application or template belongs.
+     *  *
+     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ChangeResourceGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ChangeResourceGroupResponse
-     *
-     * @param ChangeResourceGroupRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return ChangeResourceGroupResponse
+     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
      */
     public function changeResourceGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->newResourceGroupId) {
-            @$body['NewResourceGroupId'] = $request->newResourceGroupId;
+        if (!Utils::isUnset($request->newResourceGroupId)) {
+            $body['NewResourceGroupId'] = $request->newResourceGroupId;
         }
-
-        if (null !== $request->resourceId) {
-            @$body['ResourceId'] = $request->resourceId;
+        if (!Utils::isUnset($request->resourceId)) {
+            $body['ResourceId'] = $request->resourceId;
         }
-
-        if (null !== $request->resourceType) {
-            @$body['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $body['ResourceType'] = $request->resourceType;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ChangeResourceGroup',
@@ -291,15 +260,11 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * Changes the resource group to which an application or template belongs.
+     * @summary Changes the resource group to which an application or template belongs.
+     *  *
+     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
      *
-     * @param request - ChangeResourceGroupRequest
-     *
-     * @returns ChangeResourceGroupResponse
-     *
-     * @param ChangeResourceGroupRequest $request
-     *
-     * @return ChangeResourceGroupResponse
+     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
      */
     public function changeResourceGroup($request)
     {
@@ -309,78 +274,60 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * Creates an application based on an official template or private template in Cloud Architect Design Tool (CADT). Before you call this operation, make sure that you understand the billing methods and prices of Alibaba Cloud services to be used in the application.
+     * @summary Creates an application based on an official template or private template in Cloud Architect Design Tool (CADT). Before you call this operation, make sure that you understand the billing methods and prices of Alibaba Cloud services to be used in the application.
+     *  *
+     * @param CreateApplicationRequest $tmpReq  CreateApplicationRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - CreateApplicationRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateApplicationResponse
-     *
-     * @param CreateApplicationRequest $tmpReq
-     * @param RuntimeOptions           $runtime
-     *
-     * @return CreateApplicationResponse
+     * @return CreateApplicationResponse CreateApplicationResponse
      */
     public function createApplicationWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new CreateApplicationShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->configuration) {
-            $request->configurationShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->configuration, 'Configuration', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->configuration)) {
+            $request->configurationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->configuration, 'Configuration', 'json');
         }
-
-        if (null !== $tmpReq->instances) {
-            $request->instancesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->instances, 'Instances', 'json');
+        if (!Utils::isUnset($tmpReq->instances)) {
+            $request->instancesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->instances, 'Instances', 'json');
         }
-
-        if (null !== $tmpReq->processVariables) {
-            $request->processVariablesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->processVariables, 'ProcessVariables', 'json');
+        if (!Utils::isUnset($tmpReq->processVariables)) {
+            $request->processVariablesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->processVariables, 'ProcessVariables', 'json');
         }
-
-        if (null !== $tmpReq->variables) {
-            $request->variablesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->variables, 'Variables', 'json');
+        if (!Utils::isUnset($tmpReq->variables)) {
+            $request->variablesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->variables, 'Variables', 'json');
         }
-
         $body = [];
-        if (null !== $request->areaId) {
-            @$body['AreaId'] = $request->areaId;
+        if (!Utils::isUnset($request->areaId)) {
+            $body['AreaId'] = $request->areaId;
         }
-
-        if (null !== $request->clientToken) {
-            @$body['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->configurationShrink) {
-            @$body['Configuration'] = $request->configurationShrink;
+        if (!Utils::isUnset($request->configurationShrink)) {
+            $body['Configuration'] = $request->configurationShrink;
         }
-
-        if (null !== $request->instancesShrink) {
-            @$body['Instances'] = $request->instancesShrink;
+        if (!Utils::isUnset($request->instancesShrink)) {
+            $body['Instances'] = $request->instancesShrink;
         }
-
-        if (null !== $request->name) {
-            @$body['Name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
         }
-
-        if (null !== $request->processVariablesShrink) {
-            @$body['ProcessVariables'] = $request->processVariablesShrink;
+        if (!Utils::isUnset($request->processVariablesShrink)) {
+            $body['ProcessVariables'] = $request->processVariablesShrink;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$body['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $body['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->templateId) {
-            @$body['TemplateId'] = $request->templateId;
+        if (!Utils::isUnset($request->templateId)) {
+            $body['TemplateId'] = $request->templateId;
         }
-
-        if (null !== $request->variablesShrink) {
-            @$body['Variables'] = $request->variablesShrink;
+        if (!Utils::isUnset($request->variablesShrink)) {
+            $body['Variables'] = $request->variablesShrink;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateApplication',
@@ -398,15 +345,11 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * Creates an application based on an official template or private template in Cloud Architect Design Tool (CADT). Before you call this operation, make sure that you understand the billing methods and prices of Alibaba Cloud services to be used in the application.
+     * @summary Creates an application based on an official template or private template in Cloud Architect Design Tool (CADT). Before you call this operation, make sure that you understand the billing methods and prices of Alibaba Cloud services to be used in the application.
+     *  *
+     * @param CreateApplicationRequest $request CreateApplicationRequest
      *
-     * @param request - CreateApplicationRequest
-     *
-     * @returns CreateApplicationResponse
-     *
-     * @param CreateApplicationRequest $request
-     *
-     * @return CreateApplicationResponse
+     * @return CreateApplicationResponse CreateApplicationResponse
      */
     public function createApplication($request)
     {
@@ -416,35 +359,27 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * Deletes an application.
+     * @summary Deletes an application.
+     *  *
+     * @description Before you call this operation to delete an application, make sure that the application is in the `Destroyed_Success` state. Otherwise, the application fails to be deleted.`` You can call the [GetApplication](https://www.alibabacloud.com/help/en/bp-studio/latest/api-bpstudio-2021-09-31-getapplication) operation to query the status of an application.
+     *  *
+     * @param DeleteApplicationRequest $request DeleteApplicationRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * Before you call this operation to delete an application, make sure that the application is in the `Destroyed_Success` state. Otherwise, the application fails to be deleted.`` You can call the [GetApplication](https://www.alibabacloud.com/help/en/bp-studio/latest/api-bpstudio-2021-09-31-getapplication) operation to query the status of an application.
-     *
-     * @param request - DeleteApplicationRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteApplicationResponse
-     *
-     * @param DeleteApplicationRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return DeleteApplicationResponse
+     * @return DeleteApplicationResponse DeleteApplicationResponse
      */
     public function deleteApplicationWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->applicationId) {
-            @$body['ApplicationId'] = $request->applicationId;
+        if (!Utils::isUnset($request->applicationId)) {
+            $body['ApplicationId'] = $request->applicationId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$body['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $body['ResourceGroupId'] = $request->resourceGroupId;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DeleteApplication',
@@ -462,18 +397,13 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * Deletes an application.
+     * @summary Deletes an application.
+     *  *
+     * @description Before you call this operation to delete an application, make sure that the application is in the `Destroyed_Success` state. Otherwise, the application fails to be deleted.`` You can call the [GetApplication](https://www.alibabacloud.com/help/en/bp-studio/latest/api-bpstudio-2021-09-31-getapplication) operation to query the status of an application.
+     *  *
+     * @param DeleteApplicationRequest $request DeleteApplicationRequest
      *
-     * @remarks
-     * Before you call this operation to delete an application, make sure that the application is in the `Destroyed_Success` state. Otherwise, the application fails to be deleted.`` You can call the [GetApplication](https://www.alibabacloud.com/help/en/bp-studio/latest/api-bpstudio-2021-09-31-getapplication) operation to query the status of an application.
-     *
-     * @param request - DeleteApplicationRequest
-     *
-     * @returns DeleteApplicationResponse
-     *
-     * @param DeleteApplicationRequest $request
-     *
-     * @return DeleteApplicationResponse
+     * @return DeleteApplicationResponse DeleteApplicationResponse
      */
     public function deleteApplication($request)
     {
@@ -483,38 +413,30 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * Deploys an application after the payment.
+     * @summary Deploys an application after the payment.
+     *  *
+     * @param DeployApplicationRequest $request DeployApplicationRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeployApplicationRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeployApplicationResponse
-     *
-     * @param DeployApplicationRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return DeployApplicationResponse
+     * @return DeployApplicationResponse DeployApplicationResponse
      */
     public function deployApplicationWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->applicationId) {
-            @$query['ApplicationId'] = $request->applicationId;
+        if (!Utils::isUnset($request->applicationId)) {
+            $query['ApplicationId'] = $request->applicationId;
         }
-
         $body = [];
-        if (null !== $request->clientToken) {
-            @$body['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$body['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $body['ResourceGroupId'] = $request->resourceGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DeployApplication',
@@ -532,15 +454,11 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * Deploys an application after the payment.
+     * @summary Deploys an application after the payment.
+     *  *
+     * @param DeployApplicationRequest $request DeployApplicationRequest
      *
-     * @param request - DeployApplicationRequest
-     *
-     * @returns DeployApplicationResponse
-     *
-     * @param DeployApplicationRequest $request
-     *
-     * @return DeployApplicationResponse
+     * @return DeployApplicationResponse DeployApplicationResponse
      */
     public function deployApplication($request)
     {
@@ -550,54 +468,42 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * Asynchronous execution of product operation functions.
+     * @summary Asynchronous execution of product operation functions.
+     *  *
+     * @param ExecuteOperationASyncRequest $tmpReq  ExecuteOperationASyncRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - ExecuteOperationASyncRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ExecuteOperationASyncResponse
-     *
-     * @param ExecuteOperationASyncRequest $tmpReq
-     * @param RuntimeOptions               $runtime
-     *
-     * @return ExecuteOperationASyncResponse
+     * @return ExecuteOperationASyncResponse ExecuteOperationASyncResponse
      */
     public function executeOperationASyncWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new ExecuteOperationASyncShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->attributes) {
-            $request->attributesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->attributes, 'Attributes', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->attributes)) {
+            $request->attributesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->attributes, 'Attributes', 'json');
         }
-
         $body = [];
-        if (null !== $request->applicationId) {
-            @$body['ApplicationId'] = $request->applicationId;
+        if (!Utils::isUnset($request->applicationId)) {
+            $body['ApplicationId'] = $request->applicationId;
         }
-
-        if (null !== $request->attributesShrink) {
-            @$body['Attributes'] = $request->attributesShrink;
+        if (!Utils::isUnset($request->attributesShrink)) {
+            $body['Attributes'] = $request->attributesShrink;
         }
-
-        if (null !== $request->clientToken) {
-            @$body['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->operation) {
-            @$body['Operation'] = $request->operation;
+        if (!Utils::isUnset($request->operation)) {
+            $body['Operation'] = $request->operation;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$body['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $body['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->serviceType) {
-            @$body['ServiceType'] = $request->serviceType;
+        if (!Utils::isUnset($request->serviceType)) {
+            $body['ServiceType'] = $request->serviceType;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ExecuteOperationASync',
@@ -615,15 +521,11 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * Asynchronous execution of product operation functions.
+     * @summary Asynchronous execution of product operation functions.
+     *  *
+     * @param ExecuteOperationASyncRequest $request ExecuteOperationASyncRequest
      *
-     * @param request - ExecuteOperationASyncRequest
-     *
-     * @returns ExecuteOperationASyncResponse
-     *
-     * @param ExecuteOperationASyncRequest $request
-     *
-     * @return ExecuteOperationASyncResponse
+     * @return ExecuteOperationASyncResponse ExecuteOperationASyncResponse
      */
     public function executeOperationASync($request)
     {
@@ -633,54 +535,42 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * 维护应用下资源API（同步操作）.
+     * @summary 维护应用下资源API（同步操作）
+     *  *
+     * @param ExecuteOperationSyncRequest $tmpReq  ExecuteOperationSyncRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - ExecuteOperationSyncRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ExecuteOperationSyncResponse
-     *
-     * @param ExecuteOperationSyncRequest $tmpReq
-     * @param RuntimeOptions              $runtime
-     *
-     * @return ExecuteOperationSyncResponse
+     * @return ExecuteOperationSyncResponse ExecuteOperationSyncResponse
      */
     public function executeOperationSyncWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new ExecuteOperationSyncShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->attributes) {
-            $request->attributesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->attributes, 'Attributes', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->attributes)) {
+            $request->attributesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->attributes, 'Attributes', 'json');
         }
-
         $body = [];
-        if (null !== $request->applicationId) {
-            @$body['ApplicationId'] = $request->applicationId;
+        if (!Utils::isUnset($request->applicationId)) {
+            $body['ApplicationId'] = $request->applicationId;
         }
-
-        if (null !== $request->attributesShrink) {
-            @$body['Attributes'] = $request->attributesShrink;
+        if (!Utils::isUnset($request->attributesShrink)) {
+            $body['Attributes'] = $request->attributesShrink;
         }
-
-        if (null !== $request->clientToken) {
-            @$body['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->operation) {
-            @$body['Operation'] = $request->operation;
+        if (!Utils::isUnset($request->operation)) {
+            $body['Operation'] = $request->operation;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$body['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $body['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->serviceType) {
-            @$body['ServiceType'] = $request->serviceType;
+        if (!Utils::isUnset($request->serviceType)) {
+            $body['ServiceType'] = $request->serviceType;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ExecuteOperationSync',
@@ -698,15 +588,11 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * 维护应用下资源API（同步操作）.
+     * @summary 维护应用下资源API（同步操作）
+     *  *
+     * @param ExecuteOperationSyncRequest $request ExecuteOperationSyncRequest
      *
-     * @param request - ExecuteOperationSyncRequest
-     *
-     * @returns ExecuteOperationSyncResponse
-     *
-     * @param ExecuteOperationSyncRequest $request
-     *
-     * @return ExecuteOperationSyncResponse
+     * @return ExecuteOperationSyncResponse ExecuteOperationSyncResponse
      */
     public function executeOperationSync($request)
     {
@@ -716,32 +602,25 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * The URL of the application topology image.
+     * @summary The URL of the application topology image.
+     *  *
+     * @param GetApplicationRequest $request GetApplicationRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetApplicationRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetApplicationResponse
-     *
-     * @param GetApplicationRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return GetApplicationResponse
+     * @return GetApplicationResponse GetApplicationResponse
      */
     public function getApplicationWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->applicationId) {
-            @$body['ApplicationId'] = $request->applicationId;
+        if (!Utils::isUnset($request->applicationId)) {
+            $body['ApplicationId'] = $request->applicationId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$body['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $body['ResourceGroupId'] = $request->resourceGroupId;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetApplication',
@@ -759,15 +638,11 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * The URL of the application topology image.
+     * @summary The URL of the application topology image.
+     *  *
+     * @param GetApplicationRequest $request GetApplicationRequest
      *
-     * @param request - GetApplicationRequest
-     *
-     * @returns GetApplicationResponse
-     *
-     * @param GetApplicationRequest $request
-     *
-     * @return GetApplicationResponse
+     * @return GetApplicationResponse GetApplicationResponse
      */
     public function getApplication($request)
     {
@@ -777,28 +652,22 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * 获取应用输入参数.
+     * @summary 获取应用输入参数
+     *  *
+     * @param GetApplicationVariablesRequest $request GetApplicationVariablesRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetApplicationVariablesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetApplicationVariablesResponse
-     *
-     * @param GetApplicationVariablesRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return GetApplicationVariablesResponse
+     * @return GetApplicationVariablesResponse GetApplicationVariablesResponse
      */
     public function getApplicationVariablesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->appId) {
-            @$body['AppId'] = $request->appId;
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetApplicationVariables',
@@ -816,15 +685,11 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * 获取应用输入参数.
+     * @summary 获取应用输入参数
+     *  *
+     * @param GetApplicationVariablesRequest $request GetApplicationVariablesRequest
      *
-     * @param request - GetApplicationVariablesRequest
-     *
-     * @returns GetApplicationVariablesResponse
-     *
-     * @param GetApplicationVariablesRequest $request
-     *
-     * @return GetApplicationVariablesResponse
+     * @return GetApplicationVariablesResponse GetApplicationVariablesResponse
      */
     public function getApplicationVariables($request)
     {
@@ -834,28 +699,22 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * 获取需要重新配置的变量列表.
+     * @summary 获取需要重新配置的变量列表
+     *  *
+     * @param GetApplicationVariables4FailRequest $request GetApplicationVariables4FailRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetApplicationVariables4FailRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetApplicationVariables4FailResponse
-     *
-     * @param GetApplicationVariables4FailRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return GetApplicationVariables4FailResponse
+     * @return GetApplicationVariables4FailResponse GetApplicationVariables4FailResponse
      */
     public function getApplicationVariables4FailWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->appId) {
-            @$query['AppId'] = $request->appId;
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetApplicationVariables4Fail',
@@ -873,15 +732,11 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * 获取需要重新配置的变量列表.
+     * @summary 获取需要重新配置的变量列表
+     *  *
+     * @param GetApplicationVariables4FailRequest $request GetApplicationVariables4FailRequest
      *
-     * @param request - GetApplicationVariables4FailRequest
-     *
-     * @returns GetApplicationVariables4FailResponse
-     *
-     * @param GetApplicationVariables4FailRequest $request
-     *
-     * @return GetApplicationVariables4FailResponse
+     * @return GetApplicationVariables4FailResponse GetApplicationVariables4FailResponse
      */
     public function getApplicationVariables4Fail($request)
     {
@@ -891,32 +746,25 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * Asynchronously queries the result of an operation that is performed on a service instance.
+     * @summary Asynchronously queries the result of an operation that is performed on a service instance.
+     *  *
+     * @param GetExecuteOperationResultRequest $request GetExecuteOperationResultRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetExecuteOperationResultRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetExecuteOperationResultResponse
-     *
-     * @param GetExecuteOperationResultRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return GetExecuteOperationResultResponse
+     * @return GetExecuteOperationResultResponse GetExecuteOperationResultResponse
      */
     public function getExecuteOperationResultWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->operationId) {
-            @$body['OperationId'] = $request->operationId;
+        if (!Utils::isUnset($request->operationId)) {
+            $body['OperationId'] = $request->operationId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$body['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $body['ResourceGroupId'] = $request->resourceGroupId;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetExecuteOperationResult',
@@ -934,15 +782,11 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * Asynchronously queries the result of an operation that is performed on a service instance.
+     * @summary Asynchronously queries the result of an operation that is performed on a service instance.
+     *  *
+     * @param GetExecuteOperationResultRequest $request GetExecuteOperationResultRequest
      *
-     * @param request - GetExecuteOperationResultRequest
-     *
-     * @returns GetExecuteOperationResultResponse
-     *
-     * @param GetExecuteOperationResultRequest $request
-     *
-     * @return GetExecuteOperationResultResponse
+     * @return GetExecuteOperationResultResponse GetExecuteOperationResultResponse
      */
     public function getExecuteOperationResult($request)
     {
@@ -952,31 +796,24 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * Queries the status of a disaster recovery switchover task by task ID.
+     * @summary Queries the status of a disaster recovery switchover task by task ID.
+     *  *
+     * @description You can call this operation to query the status of a disaster recovery switchover task by task ID.
+     *  *
+     * @param GetFoTaskStatusRequest $request GetFoTaskStatusRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can call this operation to query the status of a disaster recovery switchover task by task ID.
-     *
-     * @param request - GetFoTaskStatusRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetFoTaskStatusResponse
-     *
-     * @param GetFoTaskStatusRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return GetFoTaskStatusResponse
+     * @return GetFoTaskStatusResponse GetFoTaskStatusResponse
      */
     public function getFoTaskStatusWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->taskId) {
-            @$body['TaskId'] = $request->taskId;
+        if (!Utils::isUnset($request->taskId)) {
+            $body['TaskId'] = $request->taskId;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetFoTaskStatus',
@@ -994,18 +831,13 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * Queries the status of a disaster recovery switchover task by task ID.
+     * @summary Queries the status of a disaster recovery switchover task by task ID.
+     *  *
+     * @description You can call this operation to query the status of a disaster recovery switchover task by task ID.
+     *  *
+     * @param GetFoTaskStatusRequest $request GetFoTaskStatusRequest
      *
-     * @remarks
-     * You can call this operation to query the status of a disaster recovery switchover task by task ID.
-     *
-     * @param request - GetFoTaskStatusRequest
-     *
-     * @returns GetFoTaskStatusResponse
-     *
-     * @param GetFoTaskStatusRequest $request
-     *
-     * @return GetFoTaskStatusResponse
+     * @return GetFoTaskStatusResponse GetFoTaskStatusResponse
      */
     public function getFoTaskStatus($request)
     {
@@ -1015,35 +847,27 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * Queries the zones where the specified disaster recovery service can be switched.
+     * @summary Queries the zones where the specified disaster recovery service can be switched.
+     *  *
+     * @description You can call this operation to query the zones where the specified disaster recovery service can be switched.
+     *  *
+     * @param GetPotentialFailZonesRequest $request GetPotentialFailZonesRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can call this operation to query the zones where the specified disaster recovery service can be switched.
-     *
-     * @param request - GetPotentialFailZonesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetPotentialFailZonesResponse
-     *
-     * @param GetPotentialFailZonesRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return GetPotentialFailZonesResponse
+     * @return GetPotentialFailZonesResponse GetPotentialFailZonesResponse
      */
     public function getPotentialFailZonesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->isPlanId) {
-            @$body['IsPlanId'] = $request->isPlanId;
+        if (!Utils::isUnset($request->isPlanId)) {
+            $body['IsPlanId'] = $request->isPlanId;
         }
-
-        if (null !== $request->objectId) {
-            @$body['ObjectId'] = $request->objectId;
+        if (!Utils::isUnset($request->objectId)) {
+            $body['ObjectId'] = $request->objectId;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetPotentialFailZones',
@@ -1061,18 +885,13 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * Queries the zones where the specified disaster recovery service can be switched.
+     * @summary Queries the zones where the specified disaster recovery service can be switched.
+     *  *
+     * @description You can call this operation to query the zones where the specified disaster recovery service can be switched.
+     *  *
+     * @param GetPotentialFailZonesRequest $request GetPotentialFailZonesRequest
      *
-     * @remarks
-     * You can call this operation to query the zones where the specified disaster recovery service can be switched.
-     *
-     * @param request - GetPotentialFailZonesRequest
-     *
-     * @returns GetPotentialFailZonesResponse
-     *
-     * @param GetPotentialFailZonesRequest $request
-     *
-     * @return GetPotentialFailZonesResponse
+     * @return GetPotentialFailZonesResponse GetPotentialFailZonesResponse
      */
     public function getPotentialFailZones($request)
     {
@@ -1082,36 +901,28 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * 获取询价应用变配记录.
+     * @summary 获取询价应用变配记录
+     *  *
+     * @param GetResource4ModifyRecordRequest $request GetResource4ModifyRecordRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetResource4ModifyRecordRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetResource4ModifyRecordResponse
-     *
-     * @param GetResource4ModifyRecordRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return GetResource4ModifyRecordResponse
+     * @return GetResource4ModifyRecordResponse GetResource4ModifyRecordResponse
      */
     public function getResource4ModifyRecordWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->applicationId) {
-            @$body['ApplicationId'] = $request->applicationId;
+        if (!Utils::isUnset($request->applicationId)) {
+            $body['ApplicationId'] = $request->applicationId;
         }
-
-        if (null !== $request->maxResults) {
-            @$body['MaxResults'] = $request->maxResults;
+        if (!Utils::isUnset($request->maxResults)) {
+            $body['MaxResults'] = $request->maxResults;
         }
-
-        if (null !== $request->nextToken) {
-            @$body['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $body['NextToken'] = $request->nextToken;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetResource4ModifyRecord',
@@ -1129,15 +940,11 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * 获取询价应用变配记录.
+     * @summary 获取询价应用变配记录
+     *  *
+     * @param GetResource4ModifyRecordRequest $request GetResource4ModifyRecordRequest
      *
-     * @param request - GetResource4ModifyRecordRequest
-     *
-     * @returns GetResource4ModifyRecordResponse
-     *
-     * @param GetResource4ModifyRecordRequest $request
-     *
-     * @return GetResource4ModifyRecordResponse
+     * @return GetResource4ModifyRecordResponse GetResource4ModifyRecordResponse
      */
     public function getResource4ModifyRecord($request)
     {
@@ -1147,32 +954,25 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * 获取询价结果.
+     * @summary 获取询价结果
+     *  *
+     * @param GetResult4QueryInstancePrice4ModifyRequest $request GetResult4QueryInstancePrice4ModifyRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetResult4QueryInstancePrice4ModifyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetResult4QueryInstancePrice4ModifyResponse
-     *
-     * @param GetResult4QueryInstancePrice4ModifyRequest $request
-     * @param RuntimeOptions                             $runtime
-     *
-     * @return GetResult4QueryInstancePrice4ModifyResponse
+     * @return GetResult4QueryInstancePrice4ModifyResponse GetResult4QueryInstancePrice4ModifyResponse
      */
     public function getResult4QueryInstancePrice4ModifyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->applicationId) {
-            @$body['ApplicationId'] = $request->applicationId;
+        if (!Utils::isUnset($request->applicationId)) {
+            $body['ApplicationId'] = $request->applicationId;
         }
-
-        if (null !== $request->taskId) {
-            @$body['TaskId'] = $request->taskId;
+        if (!Utils::isUnset($request->taskId)) {
+            $body['TaskId'] = $request->taskId;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetResult4QueryInstancePrice4Modify',
@@ -1190,15 +990,11 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * 获取询价结果.
+     * @summary 获取询价结果
+     *  *
+     * @param GetResult4QueryInstancePrice4ModifyRequest $request GetResult4QueryInstancePrice4ModifyRequest
      *
-     * @param request - GetResult4QueryInstancePrice4ModifyRequest
-     *
-     * @returns GetResult4QueryInstancePrice4ModifyResponse
-     *
-     * @param GetResult4QueryInstancePrice4ModifyRequest $request
-     *
-     * @return GetResult4QueryInstancePrice4ModifyResponse
+     * @return GetResult4QueryInstancePrice4ModifyResponse GetResult4QueryInstancePrice4ModifyResponse
      */
     public function getResult4QueryInstancePrice4Modify($request)
     {
@@ -1208,36 +1004,28 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * Gets template images and information about architecture diagrams.
+     * @summary Gets template images and information about architecture diagrams.
+     *  *
+     * @param GetTemplateRequest $request GetTemplateRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetTemplateRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetTemplateResponse
-     *
-     * @param GetTemplateRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return GetTemplateResponse
+     * @return GetTemplateResponse GetTemplateResponse
      */
     public function getTemplateWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->region) {
-            @$body['Region'] = $request->region;
+        if (!Utils::isUnset($request->region)) {
+            $body['Region'] = $request->region;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$body['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $body['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->templateId) {
-            @$body['TemplateId'] = $request->templateId;
+        if (!Utils::isUnset($request->templateId)) {
+            $body['TemplateId'] = $request->templateId;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetTemplate',
@@ -1255,15 +1043,11 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * Gets template images and information about architecture diagrams.
+     * @summary Gets template images and information about architecture diagrams.
+     *  *
+     * @param GetTemplateRequest $request GetTemplateRequest
      *
-     * @param request - GetTemplateRequest
-     *
-     * @returns GetTemplateResponse
-     *
-     * @param GetTemplateRequest $request
-     *
-     * @return GetTemplateResponse
+     * @return GetTemplateResponse GetTemplateResponse
      */
     public function getTemplate($request)
     {
@@ -1272,35 +1056,29 @@ class BPStudio extends OpenApiClient
         return $this->getTemplateWithOptions($request, $runtime);
     }
 
-    // Deprecated
     /**
-     * Obtains a temporary token that is used to read the architecture diagram. The validity period of the token is 30 minutes.
-     *
-     * @remarks
-     * >Danger:  This API is no longer recommended, and the image related to the Application has included access authorization in the GetApplication property.
-     *
      * @deprecated openAPI GetToken is deprecated, please use BPStudio::2021-09-31::GetApplication instead
+     *  *
+     * @summary Obtains a temporary token that is used to read the architecture diagram. The validity period of the token is 30 minutes.
+     *  *
+     * @description >Danger:  This API is no longer recommended, and the image related to the Application has included access authorization in the GetApplication property.
+     *  *
+     * Deprecated
      *
-     * @param request - GetTokenRequest
-     * @param runtime - runtime options for this request RuntimeOptions
+     * @param GetTokenRequest $request GetTokenRequest
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @returns GetTokenResponse
-     *
-     * @param GetTokenRequest $request
-     * @param RuntimeOptions  $runtime
-     *
-     * @return GetTokenResponse
+     * @return GetTokenResponse GetTokenResponse
      */
     public function getTokenWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->resourceGroupId) {
-            @$body['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $body['ResourceGroupId'] = $request->resourceGroupId;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetToken',
@@ -1317,22 +1095,18 @@ class BPStudio extends OpenApiClient
         return GetTokenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
-    // Deprecated
     /**
-     * Obtains a temporary token that is used to read the architecture diagram. The validity period of the token is 30 minutes.
-     *
-     * @remarks
-     * >Danger:  This API is no longer recommended, and the image related to the Application has included access authorization in the GetApplication property.
-     *
      * @deprecated openAPI GetToken is deprecated, please use BPStudio::2021-09-31::GetApplication instead
+     *  *
+     * @summary Obtains a temporary token that is used to read the architecture diagram. The validity period of the token is 30 minutes.
+     *  *
+     * @description >Danger:  This API is no longer recommended, and the image related to the Application has included access authorization in the GetApplication property.
+     *  *
+     * Deprecated
      *
-     * @param request - GetTokenRequest
+     * @param GetTokenRequest $request GetTokenRequest
      *
-     * @returns GetTokenResponse
-     *
-     * @param GetTokenRequest $request
-     *
-     * @return GetTokenResponse
+     * @return GetTokenResponse GetTokenResponse
      */
     public function getToken($request)
     {
@@ -1342,31 +1116,24 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * Prepares for application switchover and initiates a switchover task.
+     * @summary Prepares for application switchover and initiates a switchover task.
+     *  *
+     * @description You can call this operation to prepare for application switchover and initiate a switchover task.
+     *  *
+     * @param InitAppFailOverRequest $request InitAppFailOverRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can call this operation to prepare for application switchover and initiate a switchover task.
-     *
-     * @param request - InitAppFailOverRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns InitAppFailOverResponse
-     *
-     * @param InitAppFailOverRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return InitAppFailOverResponse
+     * @return InitAppFailOverResponse InitAppFailOverResponse
      */
     public function initAppFailOverWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->applicationId) {
-            @$body['ApplicationId'] = $request->applicationId;
+        if (!Utils::isUnset($request->applicationId)) {
+            $body['ApplicationId'] = $request->applicationId;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'InitAppFailOver',
@@ -1384,18 +1151,13 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * Prepares for application switchover and initiates a switchover task.
+     * @summary Prepares for application switchover and initiates a switchover task.
+     *  *
+     * @description You can call this operation to prepare for application switchover and initiate a switchover task.
+     *  *
+     * @param InitAppFailOverRequest $request InitAppFailOverRequest
      *
-     * @remarks
-     * You can call this operation to prepare for application switchover and initiate a switchover task.
-     *
-     * @param request - InitAppFailOverRequest
-     *
-     * @returns InitAppFailOverResponse
-     *
-     * @param InitAppFailOverRequest $request
-     *
-     * @return InitAppFailOverResponse
+     * @return InitAppFailOverResponse InitAppFailOverResponse
      */
     public function initAppFailOver($request)
     {
@@ -1405,60 +1167,46 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * This API provides a list of all applications under the current user. The optional keyword parameter defines the keywords contained in the application name.
+     * @summary This API provides a list of all applications under the current user. The optional keyword parameter defines the keywords contained in the application name.
+     *  *
+     * @param ListApplicationRequest $request ListApplicationRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListApplicationRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListApplicationResponse
-     *
-     * @param ListApplicationRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return ListApplicationResponse
+     * @return ListApplicationResponse ListApplicationResponse
      */
     public function listApplicationWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->keyword) {
-            @$body['Keyword'] = $request->keyword;
+        if (!Utils::isUnset($request->keyword)) {
+            $body['Keyword'] = $request->keyword;
         }
-
-        if (null !== $request->maxResults) {
-            @$body['MaxResults'] = $request->maxResults;
+        if (!Utils::isUnset($request->maxResults)) {
+            $body['MaxResults'] = $request->maxResults;
         }
-
-        if (null !== $request->nextToken) {
-            @$body['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $body['NextToken'] = $request->nextToken;
         }
-
-        if (null !== $request->orderType) {
-            @$body['OrderType'] = $request->orderType;
+        if (!Utils::isUnset($request->orderType)) {
+            $body['OrderType'] = $request->orderType;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$body['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $body['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceId) {
-            @$body['ResourceId'] = $request->resourceId;
+        if (!Utils::isUnset($request->resourceId)) {
+            $body['ResourceId'] = $request->resourceId;
         }
-
-        if (null !== $request->showHide) {
-            @$body['ShowHide'] = $request->showHide;
+        if (!Utils::isUnset($request->showHide)) {
+            $body['ShowHide'] = $request->showHide;
         }
-
-        if (null !== $request->status) {
-            @$body['Status'] = $request->status;
+        if (!Utils::isUnset($request->status)) {
+            $body['Status'] = $request->status;
         }
-
-        if (null !== $request->templateId) {
-            @$body['TemplateId'] = $request->templateId;
+        if (!Utils::isUnset($request->templateId)) {
+            $body['TemplateId'] = $request->templateId;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListApplication',
@@ -1476,15 +1224,11 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * This API provides a list of all applications under the current user. The optional keyword parameter defines the keywords contained in the application name.
+     * @summary This API provides a list of all applications under the current user. The optional keyword parameter defines the keywords contained in the application name.
+     *  *
+     * @param ListApplicationRequest $request ListApplicationRequest
      *
-     * @param request - ListApplicationRequest
-     *
-     * @returns ListApplicationResponse
-     *
-     * @param ListApplicationRequest $request
-     *
-     * @return ListApplicationResponse
+     * @return ListApplicationResponse ListApplicationResponse
      */
     public function listApplication($request)
     {
@@ -1494,19 +1238,13 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * Queries the information about all disaster recovery plans of the current account.
+     * @summary Queries the information about all disaster recovery plans of the current account.
+     *  *
+     * @description Queries the information about all disaster recovery plans of the current account.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * Queries the information about all disaster recovery plans of the current account.
-     *
-     * @param request - ListFoCreatedAppsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListFoCreatedAppsResponse
-     *
-     * @param RuntimeOptions $runtime
-     *
-     * @return ListFoCreatedAppsResponse
+     * @return ListFoCreatedAppsResponse ListFoCreatedAppsResponse
      */
     public function listFoCreatedAppsWithOptions($runtime)
     {
@@ -1527,14 +1265,11 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * Queries the information about all disaster recovery plans of the current account.
-     *
-     * @remarks
-     * Queries the information about all disaster recovery plans of the current account.
-     *
-     * @returns ListFoCreatedAppsResponse
-     *
-     * @return ListFoCreatedAppsResponse
+     * @summary Queries the information about all disaster recovery plans of the current account.
+     *  *
+     * @description Queries the information about all disaster recovery plans of the current account.
+     *  *
+     * @return ListFoCreatedAppsResponse ListFoCreatedAppsResponse
      */
     public function listFoCreatedApps()
     {
@@ -1544,51 +1279,39 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * Queries the tags of one or more applications or templates.
+     * @summary Queries the tags of one or more applications or templates.
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListTagResourcesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListTagResourcesResponse
-     *
-     * @param ListTagResourcesRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->clientToken) {
-            @$body['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->nextToken) {
-            @$body['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $body['NextToken'] = $request->nextToken;
         }
-
-        if (null !== $request->regionId) {
-            @$body['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
         }
-
         $bodyFlat = [];
-        if (null !== $request->resourceId) {
-            @$bodyFlat['ResourceId'] = $request->resourceId;
+        if (!Utils::isUnset($request->resourceId)) {
+            $bodyFlat['ResourceId'] = $request->resourceId;
         }
-
-        if (null !== $request->resourceType) {
-            @$body['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $body['ResourceType'] = $request->resourceType;
         }
-
-        if (null !== $request->tag) {
-            @$bodyFlat['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $bodyFlat['Tag'] = $request->tag;
         }
-
-        $body = Dara::merge([
-        ], $body, Utils::query($bodyFlat));
+        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListTagResources',
@@ -1606,15 +1329,11 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * Queries the tags of one or more applications or templates.
+     * @summary Queries the tags of one or more applications or templates.
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
-     * @param request - ListTagResourcesRequest
-     *
-     * @returns ListTagResourcesResponse
-     *
-     * @param ListTagResourcesRequest $request
-     *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -1624,62 +1343,48 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * Queries templates, including information such as the template name, architecture image URL, and URL of the serialized architecture image file.
+     * @summary Queries templates, including information such as the template name, architecture image URL, and URL of the serialized architecture image file.
+     *  *
+     * @param ListTemplateRequest $tmpReq  ListTemplateRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - ListTemplateRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListTemplateResponse
-     *
-     * @param ListTemplateRequest $tmpReq
-     * @param RuntimeOptions      $runtime
-     *
-     * @return ListTemplateResponse
+     * @return ListTemplateResponse ListTemplateResponse
      */
     public function listTemplateWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new ListTemplateShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->tag) {
-            $request->tagShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->tag)) {
+            $request->tagShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
         }
-
         $body = [];
-        if (null !== $request->keyword) {
-            @$body['Keyword'] = $request->keyword;
+        if (!Utils::isUnset($request->keyword)) {
+            $body['Keyword'] = $request->keyword;
         }
-
-        if (null !== $request->maxResults) {
-            @$body['MaxResults'] = $request->maxResults;
+        if (!Utils::isUnset($request->maxResults)) {
+            $body['MaxResults'] = $request->maxResults;
         }
-
-        if (null !== $request->nextToken) {
-            @$body['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $body['NextToken'] = $request->nextToken;
         }
-
-        if (null !== $request->orderType) {
-            @$body['OrderType'] = $request->orderType;
+        if (!Utils::isUnset($request->orderType)) {
+            $body['OrderType'] = $request->orderType;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$body['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $body['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->tagShrink) {
-            @$body['Tag'] = $request->tagShrink;
+        if (!Utils::isUnset($request->tagShrink)) {
+            $body['Tag'] = $request->tagShrink;
         }
-
-        if (null !== $request->tagList) {
-            @$body['TagList'] = $request->tagList;
+        if (!Utils::isUnset($request->tagList)) {
+            $body['TagList'] = $request->tagList;
         }
-
-        if (null !== $request->type) {
-            @$body['Type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $body['Type'] = $request->type;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListTemplate',
@@ -1697,15 +1402,11 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * Queries templates, including information such as the template name, architecture image URL, and URL of the serialized architecture image file.
+     * @summary Queries templates, including information such as the template name, architecture image URL, and URL of the serialized architecture image file.
+     *  *
+     * @param ListTemplateRequest $request ListTemplateRequest
      *
-     * @param request - ListTemplateRequest
-     *
-     * @returns ListTemplateResponse
-     *
-     * @param ListTemplateRequest $request
-     *
-     * @return ListTemplateResponse
+     * @return ListTemplateResponse ListTemplateResponse
      */
     public function listTemplate($request)
     {
@@ -1715,38 +1416,30 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * 提交应用变配.
+     * @summary 提交应用变配
+     *  *
+     * @param ModifyApplicationSpecRequest $tmpReq  ModifyApplicationSpecRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - ModifyApplicationSpecRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyApplicationSpecResponse
-     *
-     * @param ModifyApplicationSpecRequest $tmpReq
-     * @param RuntimeOptions               $runtime
-     *
-     * @return ModifyApplicationSpecResponse
+     * @return ModifyApplicationSpecResponse ModifyApplicationSpecResponse
      */
     public function modifyApplicationSpecWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new ModifyApplicationSpecShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->instanceSpec) {
-            $request->instanceSpecShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->instanceSpec, 'InstanceSpec', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->instanceSpec)) {
+            $request->instanceSpecShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->instanceSpec, 'InstanceSpec', 'json');
         }
-
         $body = [];
-        if (null !== $request->applicationId) {
-            @$body['ApplicationId'] = $request->applicationId;
+        if (!Utils::isUnset($request->applicationId)) {
+            $body['ApplicationId'] = $request->applicationId;
         }
-
-        if (null !== $request->instanceSpecShrink) {
-            @$body['InstanceSpec'] = $request->instanceSpecShrink;
+        if (!Utils::isUnset($request->instanceSpecShrink)) {
+            $body['InstanceSpec'] = $request->instanceSpecShrink;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ModifyApplicationSpec',
@@ -1764,15 +1457,11 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * 提交应用变配.
+     * @summary 提交应用变配
+     *  *
+     * @param ModifyApplicationSpecRequest $request ModifyApplicationSpecRequest
      *
-     * @param request - ModifyApplicationSpecRequest
-     *
-     * @returns ModifyApplicationSpecResponse
-     *
-     * @param ModifyApplicationSpecRequest $request
-     *
-     * @return ModifyApplicationSpecResponse
+     * @return ModifyApplicationSpecResponse ModifyApplicationSpecResponse
      */
     public function modifyApplicationSpec($request)
     {
@@ -1782,42 +1471,33 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * 查询变配价格
+     * @summary 查询变配价格
+     *  *
+     * @param QueryInstancePrice4ModifyRequest $tmpReq  QueryInstancePrice4ModifyRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - QueryInstancePrice4ModifyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns QueryInstancePrice4ModifyResponse
-     *
-     * @param QueryInstancePrice4ModifyRequest $tmpReq
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return QueryInstancePrice4ModifyResponse
+     * @return QueryInstancePrice4ModifyResponse QueryInstancePrice4ModifyResponse
      */
     public function queryInstancePrice4ModifyWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new QueryInstancePrice4ModifyShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->configuration) {
-            $request->configurationShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->configuration, 'Configuration', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->configuration)) {
+            $request->configurationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->configuration, 'Configuration', 'json');
         }
-
         $body = [];
-        if (null !== $request->applicationId) {
-            @$body['ApplicationId'] = $request->applicationId;
+        if (!Utils::isUnset($request->applicationId)) {
+            $body['ApplicationId'] = $request->applicationId;
         }
-
-        if (null !== $request->configurationShrink) {
-            @$body['Configuration'] = $request->configurationShrink;
+        if (!Utils::isUnset($request->configurationShrink)) {
+            $body['Configuration'] = $request->configurationShrink;
         }
-
-        if (null !== $request->instanceId) {
-            @$body['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'QueryInstancePrice4Modify',
@@ -1835,15 +1515,11 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * 查询变配价格
+     * @summary 查询变配价格
+     *  *
+     * @param QueryInstancePrice4ModifyRequest $request QueryInstancePrice4ModifyRequest
      *
-     * @param request - QueryInstancePrice4ModifyRequest
-     *
-     * @returns QueryInstancePrice4ModifyResponse
-     *
-     * @param QueryInstancePrice4ModifyRequest $request
-     *
-     * @return QueryInstancePrice4ModifyResponse
+     * @return QueryInstancePrice4ModifyResponse QueryInstancePrice4ModifyResponse
      */
     public function queryInstancePrice4Modify($request)
     {
@@ -1853,46 +1529,36 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * 查询变配规格列表.
+     * @summary 查询变配规格列表
+     *  *
+     * @param QueryInstanceSpec4ModifyRequest $tmpReq  QueryInstanceSpec4ModifyRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - QueryInstanceSpec4ModifyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns QueryInstanceSpec4ModifyResponse
-     *
-     * @param QueryInstanceSpec4ModifyRequest $tmpReq
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return QueryInstanceSpec4ModifyResponse
+     * @return QueryInstanceSpec4ModifyResponse QueryInstanceSpec4ModifyResponse
      */
     public function queryInstanceSpec4ModifyWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new QueryInstanceSpec4ModifyShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->parameters) {
-            $request->parametersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->parameters, 'Parameters', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->parameters)) {
+            $request->parametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->parameters, 'Parameters', 'json');
         }
-
         $body = [];
-        if (null !== $request->applicationId) {
-            @$body['ApplicationId'] = $request->applicationId;
+        if (!Utils::isUnset($request->applicationId)) {
+            $body['ApplicationId'] = $request->applicationId;
         }
-
-        if (null !== $request->instanceId) {
-            @$body['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->methodName) {
-            @$body['MethodName'] = $request->methodName;
+        if (!Utils::isUnset($request->methodName)) {
+            $body['MethodName'] = $request->methodName;
         }
-
-        if (null !== $request->parametersShrink) {
-            @$body['Parameters'] = $request->parametersShrink;
+        if (!Utils::isUnset($request->parametersShrink)) {
+            $body['Parameters'] = $request->parametersShrink;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'QueryInstanceSpec4Modify',
@@ -1910,15 +1576,11 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * 查询变配规格列表.
+     * @summary 查询变配规格列表
+     *  *
+     * @param QueryInstanceSpec4ModifyRequest $request QueryInstanceSpec4ModifyRequest
      *
-     * @param request - QueryInstanceSpec4ModifyRequest
-     *
-     * @returns QueryInstanceSpec4ModifyResponse
-     *
-     * @param QueryInstanceSpec4ModifyRequest $request
-     *
-     * @return QueryInstanceSpec4ModifyResponse
+     * @return QueryInstanceSpec4ModifyResponse QueryInstanceSpec4ModifyResponse
      */
     public function queryInstanceSpec4Modify($request)
     {
@@ -1928,32 +1590,25 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * 重新配置应用.
+     * @summary 重新配置应用
+     *  *
+     * @param ReConfigApplicationRequest $request ReConfigApplicationRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ReConfigApplicationRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ReConfigApplicationResponse
-     *
-     * @param ReConfigApplicationRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return ReConfigApplicationResponse
+     * @return ReConfigApplicationResponse ReConfigApplicationResponse
      */
     public function reConfigApplicationWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->appId) {
-            @$body['AppId'] = $request->appId;
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
         }
-
-        if (null !== $request->variables) {
-            @$body['Variables'] = $request->variables;
+        if (!Utils::isUnset($request->variables)) {
+            $body['Variables'] = $request->variables;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ReConfigApplication',
@@ -1971,15 +1626,11 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * 重新配置应用.
+     * @summary 重新配置应用
+     *  *
+     * @param ReConfigApplicationRequest $request ReConfigApplicationRequest
      *
-     * @param request - ReConfigApplicationRequest
-     *
-     * @returns ReConfigApplicationResponse
-     *
-     * @param ReConfigApplicationRequest $request
-     *
-     * @return ReConfigApplicationResponse
+     * @return ReConfigApplicationResponse ReConfigApplicationResponse
      */
     public function reConfigApplication($request)
     {
@@ -1989,36 +1640,28 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * Releases the resources of an application.
+     * @summary Releases the resources of an application.
+     *  *
+     * @param ReleaseApplicationRequest $request ReleaseApplicationRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ReleaseApplicationRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ReleaseApplicationResponse
-     *
-     * @param ReleaseApplicationRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return ReleaseApplicationResponse
+     * @return ReleaseApplicationResponse ReleaseApplicationResponse
      */
     public function releaseApplicationWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->applicationId) {
-            @$body['ApplicationId'] = $request->applicationId;
+        if (!Utils::isUnset($request->applicationId)) {
+            $body['ApplicationId'] = $request->applicationId;
         }
-
-        if (null !== $request->clientToken) {
-            @$body['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$body['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $body['ResourceGroupId'] = $request->resourceGroupId;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ReleaseApplication',
@@ -2036,15 +1679,11 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * Releases the resources of an application.
+     * @summary Releases the resources of an application.
+     *  *
+     * @param ReleaseApplicationRequest $request ReleaseApplicationRequest
      *
-     * @param request - ReleaseApplicationRequest
-     *
-     * @returns ReleaseApplicationResponse
-     *
-     * @param ReleaseApplicationRequest $request
-     *
-     * @return ReleaseApplicationResponse
+     * @return ReleaseApplicationResponse ReleaseApplicationResponse
      */
     public function releaseApplication($request)
     {
@@ -2054,38 +1693,30 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * Verifies the resources of an application. ValidateApplication is an asynchronous operation. You can call the GetApplication operation to query the verification result.
+     * @summary Verifies the resources of an application. ValidateApplication is an asynchronous operation. You can call the GetApplication operation to query the verification result.
+     *  *
+     * @param ValidateApplicationRequest $request ValidateApplicationRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ValidateApplicationRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ValidateApplicationResponse
-     *
-     * @param ValidateApplicationRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return ValidateApplicationResponse
+     * @return ValidateApplicationResponse ValidateApplicationResponse
      */
     public function validateApplicationWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->applicationId) {
-            @$query['ApplicationId'] = $request->applicationId;
+        if (!Utils::isUnset($request->applicationId)) {
+            $query['ApplicationId'] = $request->applicationId;
         }
-
         $body = [];
-        if (null !== $request->clientToken) {
-            @$body['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$body['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $body['ResourceGroupId'] = $request->resourceGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ValidateApplication',
@@ -2103,15 +1734,11 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * Verifies the resources of an application. ValidateApplication is an asynchronous operation. You can call the GetApplication operation to query the verification result.
+     * @summary Verifies the resources of an application. ValidateApplication is an asynchronous operation. You can call the GetApplication operation to query the verification result.
+     *  *
+     * @param ValidateApplicationRequest $request ValidateApplicationRequest
      *
-     * @param request - ValidateApplicationRequest
-     *
-     * @returns ValidateApplicationResponse
-     *
-     * @param ValidateApplicationRequest $request
-     *
-     * @return ValidateApplicationResponse
+     * @return ValidateApplicationResponse ValidateApplicationResponse
      */
     public function validateApplication($request)
     {
@@ -2121,36 +1748,28 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * Queries the prices of resources of an application. You can call the GetApplication operation to obtain the query results.
+     * @summary Queries the prices of resources of an application. You can call the GetApplication operation to obtain the query results.
+     *  *
+     * @param ValuateApplicationRequest $request ValuateApplicationRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ValuateApplicationRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ValuateApplicationResponse
-     *
-     * @param ValuateApplicationRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return ValuateApplicationResponse
+     * @return ValuateApplicationResponse ValuateApplicationResponse
      */
     public function valuateApplicationWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->applicationId) {
-            @$body['ApplicationId'] = $request->applicationId;
+        if (!Utils::isUnset($request->applicationId)) {
+            $body['ApplicationId'] = $request->applicationId;
         }
-
-        if (null !== $request->clientToken) {
-            @$body['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$body['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $body['ResourceGroupId'] = $request->resourceGroupId;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ValuateApplication',
@@ -2168,15 +1787,11 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * Queries the prices of resources of an application. You can call the GetApplication operation to obtain the query results.
+     * @summary Queries the prices of resources of an application. You can call the GetApplication operation to obtain the query results.
+     *  *
+     * @param ValuateApplicationRequest $request ValuateApplicationRequest
      *
-     * @param request - ValuateApplicationRequest
-     *
-     * @returns ValuateApplicationResponse
-     *
-     * @param ValuateApplicationRequest $request
-     *
-     * @return ValuateApplicationResponse
+     * @return ValuateApplicationResponse ValuateApplicationResponse
      */
     public function valuateApplication($request)
     {
@@ -2186,58 +1801,45 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * Queries the price of a template.
+     * @summary Queries the price of a template.
+     *  *
+     * @param ValuateTemplateRequest $tmpReq  ValuateTemplateRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - ValuateTemplateRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ValuateTemplateResponse
-     *
-     * @param ValuateTemplateRequest $tmpReq
-     * @param RuntimeOptions         $runtime
-     *
-     * @return ValuateTemplateResponse
+     * @return ValuateTemplateResponse ValuateTemplateResponse
      */
     public function valuateTemplateWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new ValuateTemplateShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->instances) {
-            $request->instancesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->instances, 'Instances', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->instances)) {
+            $request->instancesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->instances, 'Instances', 'json');
         }
-
-        if (null !== $tmpReq->variables) {
-            $request->variablesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->variables, 'Variables', 'json');
+        if (!Utils::isUnset($tmpReq->variables)) {
+            $request->variablesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->variables, 'Variables', 'json');
         }
-
         $body = [];
-        if (null !== $request->areaId) {
-            @$body['AreaId'] = $request->areaId;
+        if (!Utils::isUnset($request->areaId)) {
+            $body['AreaId'] = $request->areaId;
         }
-
-        if (null !== $request->clientToken) {
-            @$body['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->instancesShrink) {
-            @$body['Instances'] = $request->instancesShrink;
+        if (!Utils::isUnset($request->instancesShrink)) {
+            $body['Instances'] = $request->instancesShrink;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$body['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $body['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->templateId) {
-            @$body['TemplateId'] = $request->templateId;
+        if (!Utils::isUnset($request->templateId)) {
+            $body['TemplateId'] = $request->templateId;
         }
-
-        if (null !== $request->variablesShrink) {
-            @$body['Variables'] = $request->variablesShrink;
+        if (!Utils::isUnset($request->variablesShrink)) {
+            $body['Variables'] = $request->variablesShrink;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ValuateTemplate',
@@ -2255,15 +1857,11 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * Queries the price of a template.
+     * @summary Queries the price of a template.
+     *  *
+     * @param ValuateTemplateRequest $request ValuateTemplateRequest
      *
-     * @param request - ValuateTemplateRequest
-     *
-     * @returns ValuateTemplateResponse
-     *
-     * @param ValuateTemplateRequest $request
-     *
-     * @return ValuateTemplateResponse
+     * @return ValuateTemplateResponse ValuateTemplateResponse
      */
     public function valuateTemplate($request)
     {

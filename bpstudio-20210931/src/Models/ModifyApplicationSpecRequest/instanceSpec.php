@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\BPStudio\V20210931\Models\ModifyApplicationSpecRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class instanceSpec extends Model
 {
@@ -14,6 +14,8 @@ class instanceSpec extends Model
     public $configuration;
 
     /**
+     * @example rm-2ze8f4ah378a*****
+     *
      * @var string
      */
     public $instanceId;
@@ -22,26 +24,14 @@ class instanceSpec extends Model
         'instanceId' => 'InstanceId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->configuration)) {
-            Model::validateArray($this->configuration);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->configuration) {
-            if (\is_array($this->configuration)) {
-                $res['Configuration'] = [];
-                foreach ($this->configuration as $key1 => $value1) {
-                    $res['Configuration'][$key1] = $value1;
-                }
-            }
+            $res['Configuration'] = $this->configuration;
         }
-
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -49,23 +39,17 @@ class instanceSpec extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return instanceSpec
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Configuration'])) {
-            if (!empty($map['Configuration'])) {
-                $model->configuration = [];
-                foreach ($map['Configuration'] as $key1 => $value1) {
-                    $model->configuration[$key1] = $value1;
-                }
-            }
+            $model->configuration = $map['Configuration'];
         }
-
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

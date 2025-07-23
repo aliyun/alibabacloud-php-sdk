@@ -4,37 +4,61 @@
 
 namespace AlibabaCloud\SDK\BPStudio\V20210931\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\ValuateTemplateRequest\instances;
+use AlibabaCloud\Tea\Model;
 
 class ValuateTemplateRequest extends Model
 {
     /**
+     * @description The region ID.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $areaId;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * This parameter is required.
+     *
+     * @example 1600765710019
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The instances to be replaced.
+     *
      * @var instances[]
      */
     public $instances;
 
     /**
+     * @description The ID of the resource group to which the application belongs.
+     *
+     * @example rg-acfmyjt3c5om3fi
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The template ID.
+     *
+     * This parameter is required.
+     *
+     * @example 0KSHPM6SJU03TNZP
+     *
      * @var string
      */
     public $templateId;
 
     /**
+     * @description The parameter values that are contained in the template. If the template contains no parameter values, the default values are used.
+     *
      * @var mixed[]
      */
     public $variables;
@@ -47,101 +71,70 @@ class ValuateTemplateRequest extends Model
         'variables' => 'Variables',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->instances)) {
-            Model::validateArray($this->instances);
-        }
-        if (\is_array($this->variables)) {
-            Model::validateArray($this->variables);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->areaId) {
             $res['AreaId'] = $this->areaId;
         }
-
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
-
         if (null !== $this->instances) {
-            if (\is_array($this->instances)) {
-                $res['Instances'] = [];
-                $n1 = 0;
-                foreach ($this->instances as $item1) {
-                    $res['Instances'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Instances'] = [];
+            if (null !== $this->instances && \is_array($this->instances)) {
+                $n = 0;
+                foreach ($this->instances as $item) {
+                    $res['Instances'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
-
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
-
         if (null !== $this->variables) {
-            if (\is_array($this->variables)) {
-                $res['Variables'] = [];
-                foreach ($this->variables as $key1 => $value1) {
-                    $res['Variables'][$key1] = $value1;
-                }
-            }
+            $res['Variables'] = $this->variables;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ValuateTemplateRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AreaId'])) {
             $model->areaId = $map['AreaId'];
         }
-
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
-
         if (isset($map['Instances'])) {
             if (!empty($map['Instances'])) {
                 $model->instances = [];
-                $n1 = 0;
-                foreach ($map['Instances'] as $item1) {
-                    $model->instances[$n1] = instances::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Instances'] as $item) {
+                    $model->instances[$n++] = null !== $item ? instances::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
-
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }
-
         if (isset($map['Variables'])) {
-            if (!empty($map['Variables'])) {
-                $model->variables = [];
-                foreach ($map['Variables'] as $key1 => $value1) {
-                    $model->variables[$key1] = $value1;
-                }
-            }
+            $model->variables = $map['Variables'];
         }
 
         return $model;

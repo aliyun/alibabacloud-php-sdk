@@ -4,16 +4,26 @@
 
 namespace AlibabaCloud\SDK\BPStudio\V20210931\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetExecuteOperationResultRequest extends Model
 {
     /**
+     * @description The ID of the operation.
+     *
+     * This parameter is required.
+     *
+     * @example op_xxxxxxxxxxxxxxxxxxxxxx
+     *
      * @var string
      */
     public $operationId;
 
     /**
+     * @description The ID of the resource group. This parameter is specified to verify the permissions on the resource group.
+     *
+     * @example testResourceId
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -22,18 +32,14 @@ class GetExecuteOperationResultRequest extends Model
         'resourceGroupId' => 'ResourceGroupId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->operationId) {
             $res['OperationId'] = $this->operationId;
         }
-
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
@@ -41,18 +47,17 @@ class GetExecuteOperationResultRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetExecuteOperationResultRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OperationId'])) {
             $model->operationId = $map['OperationId'];
         }
-
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }

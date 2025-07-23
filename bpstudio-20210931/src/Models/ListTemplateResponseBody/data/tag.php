@@ -2,28 +2,24 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\BPStudio\V20210931\Models\GetApplicationVariablesResponseBody\data;
+namespace AlibabaCloud\SDK\BPStudio\V20210931\Models\ListTemplateResponseBody\data;
 
 use AlibabaCloud\Tea\Model;
 
-class variableList extends Model
+class tag extends Model
 {
     /**
-     * @example ecs.c6.4xlarge
-     *
+     * @var string
+     */
+    public $key;
+
+    /**
      * @var string
      */
     public $value;
-
-    /**
-     * @example ${instance_type}
-     *
-     * @var string
-     */
-    public $variable;
     protected $_name = [
+        'key' => 'Key',
         'value' => 'Value',
-        'variable' => 'Variable',
     ];
 
     public function validate() {}
@@ -31,11 +27,11 @@ class variableList extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->key) {
+            $res['Key'] = $this->key;
+        }
         if (null !== $this->value) {
             $res['Value'] = $this->value;
-        }
-        if (null !== $this->variable) {
-            $res['Variable'] = $this->variable;
         }
 
         return $res;
@@ -44,16 +40,16 @@ class variableList extends Model
     /**
      * @param array $map
      *
-     * @return variableList
+     * @return tag
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Key'])) {
+            $model->key = $map['Key'];
+        }
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
-        }
-        if (isset($map['Variable'])) {
-            $model->variable = $map['Variable'];
         }
 
         return $model;

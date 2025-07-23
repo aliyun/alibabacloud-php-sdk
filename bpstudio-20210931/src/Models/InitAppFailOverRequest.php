@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\BPStudio\V20210931\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class InitAppFailOverRequest extends Model
 {
     /**
+     * @description The application ID.
+     *
+     * @example 002XWH7MXB8MJRU0
+     *
      * @var string
      */
     public $applicationId;
@@ -16,12 +20,9 @@ class InitAppFailOverRequest extends Model
         'applicationId' => 'ApplicationId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->applicationId) {
@@ -31,11 +32,11 @@ class InitAppFailOverRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return InitAppFailOverRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

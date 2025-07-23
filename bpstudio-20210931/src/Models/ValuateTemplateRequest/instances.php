@@ -4,21 +4,33 @@
 
 namespace AlibabaCloud\SDK\BPStudio\V20210931\Models\ValuateTemplateRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class instances extends Model
 {
     /**
+     * @description The instance ID.
+     *
+     * @example vpc-bp1q56trhtaq40vlq5oj
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The name of the application instance that is displayed on the diagram.
+     *
+     * @example ecs
+     *
      * @var string
      */
     public $nodeName;
 
     /**
+     * @description The instance type.
+     *
+     * @example ecs
+     *
      * @var string
      */
     public $nodeType;
@@ -28,22 +40,17 @@ class instances extends Model
         'nodeType' => 'NodeType',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->nodeName) {
             $res['NodeName'] = $this->nodeName;
         }
-
         if (null !== $this->nodeType) {
             $res['NodeType'] = $this->nodeType;
         }
@@ -51,22 +58,20 @@ class instances extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return instances
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['NodeName'])) {
             $model->nodeName = $map['NodeName'];
         }
-
         if (isset($map['NodeType'])) {
             $model->nodeType = $map['NodeType'];
         }

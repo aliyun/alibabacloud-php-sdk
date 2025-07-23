@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\BPStudio\V20210931\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetApplicationVariables4FailRequest extends Model
 {
     /**
+     * @example Q2P4O9YSOKCT35L9
+     *
      * @var string
      */
     public $appId;
@@ -16,12 +18,9 @@ class GetApplicationVariables4FailRequest extends Model
         'appId' => 'AppId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appId) {
@@ -31,11 +30,11 @@ class GetApplicationVariables4FailRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetApplicationVariables4FailRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
