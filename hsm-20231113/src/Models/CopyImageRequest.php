@@ -26,13 +26,11 @@ class CopyImageRequest extends Model
      */
     public $targetRegionId;
     protected $_name = [
-        'imageUid'       => 'ImageUid',
+        'imageUid' => 'ImageUid',
         'targetRegionId' => 'TargetRegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

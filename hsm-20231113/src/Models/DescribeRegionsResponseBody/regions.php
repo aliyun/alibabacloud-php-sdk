@@ -12,6 +12,8 @@ class regions extends Model
     /**
      * @description The name of the region.
      *
+     * @example Singapore
+     *
      * @var string
      */
     public $localName;
@@ -19,7 +21,7 @@ class regions extends Model
     /**
      * @description The region ID.
      *
-     * @example cn-hangzhou
+     * @example ap-southeast-1
      *
      * @var string
      */
@@ -33,13 +35,11 @@ class regions extends Model
     public $zones;
     protected $_name = [
         'localName' => 'LocalName',
-        'regionId'  => 'RegionId',
-        'zones'     => 'Zones',
+        'regionId' => 'RegionId',
+        'zones' => 'Zones',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -80,7 +80,7 @@ class regions extends Model
         if (isset($map['Zones'])) {
             if (!empty($map['Zones'])) {
                 $model->zones = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['Zones'] as $item) {
                     $model->zones[$n++] = null !== $item ? zones::fromMap($item) : $item;
                 }

@@ -12,6 +12,7 @@ class SwitchClusterMasterRequest extends Model
      * @description The ID of the cluster.
      *
      * This parameter is required.
+     *
      * @example cluster-w3G9vOJI2****
      *
      * @var string
@@ -22,19 +23,18 @@ class SwitchClusterMasterRequest extends Model
      * @description The ID of the HSM that you want to promote to the master HSM.
      *
      * This parameter is required.
+     *
      * @example hsm-cn-vj30bil8****
      *
      * @var string
      */
     public $instanceId;
     protected $_name = [
-        'clusterId'  => 'ClusterId',
+        'clusterId' => 'ClusterId',
         'instanceId' => 'InstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

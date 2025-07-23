@@ -12,6 +12,7 @@ class ConfigInstanceIpAddressRequest extends Model
      * @description The ID of the HSM.
      *
      * This parameter is required.
+     *
      * @example hsm-cn-mp90fxef****
      *
      * @var string
@@ -22,6 +23,7 @@ class ConfigInstanceIpAddressRequest extends Model
      * @description The endpoint of the VPC to which the HMS belongs.
      *
      * This parameter is required.
+     *
      * @example 192.168.XX.XX
      *
      * @var string
@@ -32,6 +34,7 @@ class ConfigInstanceIpAddressRequest extends Model
      * @description The ID of the region.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -42,6 +45,7 @@ class ConfigInstanceIpAddressRequest extends Model
      * @description The ID of the vSwitch to which the HMS belongs.
      *
      * This parameter is required.
+     *
      * @example vsw-u7gb0qahu****
      *
      * @var string
@@ -52,6 +56,7 @@ class ConfigInstanceIpAddressRequest extends Model
      * @description The ID of the VPC to which the HMS belongs.
      *
      * This parameter is required.
+     *
      * @example vpc-lmkmivmo6****
      *
      * @var string
@@ -59,15 +64,13 @@ class ConfigInstanceIpAddressRequest extends Model
     public $vpcId;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'ip'         => 'Ip',
-        'regionId'   => 'RegionId',
-        'vSwitchId'  => 'VSwitchId',
-        'vpcId'      => 'VpcId',
+        'ip' => 'Ip',
+        'regionId' => 'RegionId',
+        'vSwitchId' => 'VSwitchId',
+        'vpcId' => 'VpcId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

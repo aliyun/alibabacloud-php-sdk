@@ -12,6 +12,7 @@ class EnableBackupRequest extends Model
      * @description The ID of the backup.
      *
      * This parameter is required.
+     *
      * @example backup-1736207****
      *
      * @var string
@@ -22,19 +23,18 @@ class EnableBackupRequest extends Model
      * @description The ID of the HSM.
      *
      * This parameter is required.
+     *
      * @example hsm-cn-mp90fxef****
      *
      * @var string
      */
     public $instanceId;
     protected $_name = [
-        'backupId'   => 'BackupId',
+        'backupId' => 'BackupId',
         'instanceId' => 'InstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

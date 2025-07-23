@@ -12,6 +12,7 @@ class InitializeClusterRequest extends Model
      * @description The ID of the cluster.
      *
      * This parameter is required.
+     *
      * @example cluster-p94y1dud9****
      *
      * @var string
@@ -21,9 +22,7 @@ class InitializeClusterRequest extends Model
         'clusterId' => 'ClusterId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

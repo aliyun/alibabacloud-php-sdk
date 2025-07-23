@@ -12,6 +12,7 @@ class ConfigClusterNameRequest extends Model
      * @description The ID of the cluster.
      *
      * This parameter is required.
+     *
      * @example cluster-BqxX63Bsgfaisdf****
      *
      * @var string
@@ -22,19 +23,18 @@ class ConfigClusterNameRequest extends Model
      * @description The name of the cluster.
      *
      * This parameter is required.
+     *
      * @example cluster_on****
      *
      * @var string
      */
     public $clusterName;
     protected $_name = [
-        'clusterId'   => 'ClusterId',
+        'clusterId' => 'ClusterId',
         'clusterName' => 'ClusterName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

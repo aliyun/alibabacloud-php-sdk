@@ -25,13 +25,11 @@ class GetBackupResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'backup'    => 'Backup',
+        'backup' => 'Backup',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

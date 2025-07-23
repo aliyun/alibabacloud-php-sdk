@@ -20,9 +20,7 @@ class GetBackupRequest extends Model
         'backupId' => 'BackupId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

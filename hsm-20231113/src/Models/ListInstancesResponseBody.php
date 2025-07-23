@@ -53,15 +53,13 @@ class ListInstancesResponseBody extends Model
     public $total;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'instances'   => 'Instances',
-        'pageSize'    => 'PageSize',
-        'requestId'   => 'RequestId',
-        'total'       => 'Total',
+        'instances' => 'Instances',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'total' => 'Total',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -105,7 +103,7 @@ class ListInstancesResponseBody extends Model
         if (isset($map['Instances'])) {
             if (!empty($map['Instances'])) {
                 $model->instances = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['Instances'] as $item) {
                     $model->instances[$n++] = null !== $item ? instances::fromMap($item) : $item;
                 }

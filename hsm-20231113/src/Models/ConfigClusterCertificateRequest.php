@@ -12,9 +12,12 @@ class ConfigClusterCertificateRequest extends Model
      * @description The cluster certificate.
      *
      * This parameter is required.
+     *
      * @example -----BEGIN CERTIFICATE-----
+     * MIIDaTCCAlECAQEwDQYJKoZIhvcNAQELBQAwVTELMAkGA1UEBhMCY24xCzAJBgNV
      * BAgMAnpqMQswCQYDVQQHDAJoejEWMBQGA1UECgwNQWxpYmFiYSBDbG91ZDEUMBIG
      * A1UECwwLU2VjQ2xvdWRIc20wHhcNMjQwNzAzM****-----END CERTIFICATE-----
+     *
      * @var string
      */
     public $clusterCertificate;
@@ -23,6 +26,7 @@ class ConfigClusterCertificateRequest extends Model
      * @description The ID of the cluster.
      *
      * This parameter is required.
+     *
      * @example cluster-BqxX63Bsg****
      *
      * @var string
@@ -33,22 +37,23 @@ class ConfigClusterCertificateRequest extends Model
      * @description The self-signed certificate.
      *
      * This parameter is required.
+     *
      * @example -----BEGIN CERTIFICATE-----
+     * MIIDfTCCAmWgAwIBAgIJAMRqQMr5if66MA0GCSqGSIb3DQEBCwUAMFUxCzAJBgNV
      * BAYTAmNuMQswCQYDVQQIDAJ6ajELMAkGA1UEBwwCaHoxFjAUBgNVBAoMDUFsaWJh
      * YmEgQ2xvdWQxFDA****
      * -----END CERTIFICATE-----
+     *
      * @var string
      */
     public $issuerCertificate;
     protected $_name = [
         'clusterCertificate' => 'ClusterCertificate',
-        'clusterId'          => 'ClusterId',
-        'issuerCertificate'  => 'IssuerCertificate',
+        'clusterId' => 'ClusterId',
+        'issuerCertificate' => 'IssuerCertificate',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

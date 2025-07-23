@@ -168,28 +168,26 @@ class backup extends Model
      */
     public $type;
     protected $_name = [
-        'autoImageCount'      => 'AutoImageCount',
-        'backupHourInDay'     => 'BackupHourInDay',
-        'backupId'            => 'BackupId',
-        'backupPeriod'        => 'BackupPeriod',
-        'createTime'          => 'CreateTime',
-        'expireTime'          => 'ExpireTime',
-        'instanceId'          => 'InstanceId',
-        'maxImageCount'       => 'MaxImageCount',
-        'name'                => 'Name',
+        'autoImageCount' => 'AutoImageCount',
+        'backupHourInDay' => 'BackupHourInDay',
+        'backupId' => 'BackupId',
+        'backupPeriod' => 'BackupPeriod',
+        'createTime' => 'CreateTime',
+        'expireTime' => 'ExpireTime',
+        'instanceId' => 'InstanceId',
+        'maxImageCount' => 'MaxImageCount',
+        'name' => 'Name',
         'nextImageCreateTime' => 'NextImageCreateTime',
-        'ownerInstanceId'     => 'OwnerInstanceId',
-        'regionId'            => 'RegionId',
-        'releaseTime'         => 'ReleaseTime',
-        'remark'              => 'Remark',
-        'spInstanceId'        => 'SpInstanceId',
-        'status'              => 'Status',
-        'type'                => 'Type',
+        'ownerInstanceId' => 'OwnerInstanceId',
+        'regionId' => 'RegionId',
+        'releaseTime' => 'ReleaseTime',
+        'remark' => 'Remark',
+        'spInstanceId' => 'SpInstanceId',
+        'status' => 'Status',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

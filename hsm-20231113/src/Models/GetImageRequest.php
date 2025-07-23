@@ -12,6 +12,7 @@ class GetImageRequest extends Model
      * @description The ID of the image.
      *
      * This parameter is required.
+     *
      * @example image-wz9c5ths5dfuwx47****
      *
      * @var string
@@ -21,9 +22,7 @@ class GetImageRequest extends Model
         'imageId' => 'ImageId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

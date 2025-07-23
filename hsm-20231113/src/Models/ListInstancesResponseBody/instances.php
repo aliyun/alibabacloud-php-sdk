@@ -36,12 +36,10 @@ class instances extends Model
     public $status;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'status'     => 'Status',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

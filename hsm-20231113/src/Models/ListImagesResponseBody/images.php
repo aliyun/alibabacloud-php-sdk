@@ -56,8 +56,8 @@ class images extends Model
     /**
      * @description The image generation mode. Valid values:
      *
-     *   PERIODIC: The image is automatically generated.
-     *   MANUAL: The image is manually generated.
+     *   PERIODIC: It is automatically generated.
+     *   MANUAL: It is manually generated.
      *
      * @example MANUAL
      *
@@ -122,10 +122,10 @@ class images extends Model
     /**
      * @description The status of the image. Valid values:
      *
-     *   NEW: The image is disabled.
-     *   DELETED: The image is deleted.
-     *   CREATING: The image is being created.
-     *   NORMAL: The image is created.
+     *   NEW: It is disabled.
+     *   DELETED: It is deleted.
+     *   CREATING: It is being created.
+     *   NORMAL: It is created.
      *
      * @example CREATING
      *
@@ -142,25 +142,23 @@ class images extends Model
      */
     public $vsmDigest;
     protected $_name = [
-        'backupId'         => 'BackupId',
-        'copyTime'         => 'CopyTime',
-        'exportTime'       => 'ExportTime',
-        'imageId'          => 'ImageId',
-        'instanceId'       => 'InstanceId',
-        'mode'             => 'Mode',
-        'regionId'         => 'RegionId',
-        'remark'           => 'Remark',
-        'sourceBackupUid'  => 'SourceBackupUid',
-        'sourceImageUid'   => 'SourceImageUid',
+        'backupId' => 'BackupId',
+        'copyTime' => 'CopyTime',
+        'exportTime' => 'ExportTime',
+        'imageId' => 'ImageId',
+        'instanceId' => 'InstanceId',
+        'mode' => 'Mode',
+        'regionId' => 'RegionId',
+        'remark' => 'Remark',
+        'sourceBackupUid' => 'SourceBackupUid',
+        'sourceImageUid' => 'SourceImageUid',
         'sourceInstanceId' => 'SourceInstanceId',
-        'sourceRegionId'   => 'SourceRegionId',
-        'status'           => 'Status',
-        'vsmDigest'        => 'VsmDigest',
+        'sourceRegionId' => 'SourceRegionId',
+        'status' => 'Status',
+        'vsmDigest' => 'VsmDigest',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

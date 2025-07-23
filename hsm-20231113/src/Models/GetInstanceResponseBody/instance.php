@@ -141,7 +141,11 @@ class instance extends Model
     public $status;
 
     /**
-     * @description 密码机硬件隔离类型，枚举值"vsm"虚拟密码机，"hostedHsm"托管硬件密码机
+     * @description The type of HSMs that is classified based on resource isolation. Valid values:
+     * - vsm: Virtual security modules (VSMs)
+     * - hostedHsm: Dedicated HSMs.
+     *
+     * @example vsm
      *
      * @var string
      */
@@ -192,30 +196,28 @@ class instance extends Model
      */
     public $zoneId;
     protected $_name = [
-        'clusterId'           => 'ClusterId',
-        'clusterName'         => 'ClusterName',
-        'createTime'          => 'CreateTime',
-        'deviceType'          => 'DeviceType',
-        'expireTime'          => 'ExpireTime',
-        'instanceId'          => 'InstanceId',
-        'ip'                  => 'Ip',
-        'isTrial'             => 'IsTrial',
-        'master'              => 'Master',
-        'orderId'             => 'OrderId',
-        'regionId'            => 'RegionId',
-        'remark'              => 'Remark',
-        'status'              => 'Status',
+        'clusterId' => 'ClusterId',
+        'clusterName' => 'ClusterName',
+        'createTime' => 'CreateTime',
+        'deviceType' => 'DeviceType',
+        'expireTime' => 'ExpireTime',
+        'instanceId' => 'InstanceId',
+        'ip' => 'Ip',
+        'isTrial' => 'IsTrial',
+        'master' => 'Master',
+        'orderId' => 'OrderId',
+        'regionId' => 'RegionId',
+        'remark' => 'Remark',
+        'status' => 'Status',
         'tenantIsolationType' => 'TenantIsolationType',
-        'vSwitchId'           => 'VSwitchId',
-        'vendor'              => 'Vendor',
-        'vpcId'               => 'VpcId',
-        'whitelist'           => 'Whitelist',
-        'zoneId'              => 'ZoneId',
+        'vSwitchId' => 'VSwitchId',
+        'vendor' => 'Vendor',
+        'vpcId' => 'VpcId',
+        'whitelist' => 'Whitelist',
+        'zoneId' => 'ZoneId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

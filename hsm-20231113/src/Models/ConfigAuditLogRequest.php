@@ -15,6 +15,7 @@ class ConfigAuditLogRequest extends Model
      *   disable
      *
      * This parameter is required.
+     *
      * @example enable
      *
      * @var string
@@ -34,20 +35,19 @@ class ConfigAuditLogRequest extends Model
      * @description The ID of the region.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'auditAction'    => 'AuditAction',
+        'auditAction' => 'AuditAction',
         'auditOssBucket' => 'AuditOssBucket',
-        'regionId'       => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

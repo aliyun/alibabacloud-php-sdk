@@ -12,6 +12,7 @@ class ExportImageRequest extends Model
      * @description The ID of the image.
      *
      * This parameter is required.
+     *
      * @example image-8vbdd5uc6v10ecn5****
      *
      * @var string
@@ -22,19 +23,18 @@ class ExportImageRequest extends Model
      * @description The ID of the HSM.
      *
      * This parameter is required.
+     *
      * @example hsm-cn-vj30bil8****
      *
      * @var string
      */
     public $instanceId;
     protected $_name = [
-        'imageId'    => 'ImageId',
+        'imageId' => 'ImageId',
         'instanceId' => 'InstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

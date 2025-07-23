@@ -12,6 +12,7 @@ class QuickInitInstanceRequest extends Model
      * @description The ID of the HSM.
      *
      * This parameter is required.
+     *
      * @example hsm-cn-mp90fxef****
      *
      * @var string
@@ -21,9 +22,7 @@ class QuickInitInstanceRequest extends Model
         'instanceId' => 'InstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

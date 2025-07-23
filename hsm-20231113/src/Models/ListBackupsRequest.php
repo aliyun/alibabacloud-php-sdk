@@ -21,6 +21,7 @@ class ListBackupsRequest extends Model
      * @description The page number.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -49,6 +50,7 @@ class ListBackupsRequest extends Model
      * @description The number of entries per page. Valid values: 1 to 1000.
      *
      * This parameter is required.
+     *
      * @example 20
      *
      * @var int
@@ -59,23 +61,22 @@ class ListBackupsRequest extends Model
      * @description The ID of the region.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'backupId'    => 'BackupId',
+        'backupId' => 'BackupId',
         'currentPage' => 'CurrentPage',
-        'instanceId'  => 'InstanceId',
-        'name'        => 'Name',
-        'pageSize'    => 'PageSize',
-        'regionId'    => 'RegionId',
+        'instanceId' => 'InstanceId',
+        'name' => 'Name',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

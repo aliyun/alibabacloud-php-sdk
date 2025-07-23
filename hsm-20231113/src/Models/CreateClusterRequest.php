@@ -12,6 +12,7 @@ class CreateClusterRequest extends Model
      * @description The name of the cluster.
      *
      * This parameter is required.
+     *
      * @example cluster_on****
      *
      * @var string
@@ -22,6 +23,7 @@ class CreateClusterRequest extends Model
      * @description The ID of the master HSM.
      *
      * This parameter is required.
+     *
      * @example hsm_intl-sg-uz63ixak****
      *
      * @var string
@@ -32,20 +34,19 @@ class CreateClusterRequest extends Model
      * @description The ID of the region.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'clusterName'      => 'ClusterName',
+        'clusterName' => 'ClusterName',
         'masterInstanceId' => 'MasterInstanceId',
-        'regionId'         => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

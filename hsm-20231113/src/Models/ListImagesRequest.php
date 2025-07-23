@@ -12,6 +12,7 @@ class ListImagesRequest extends Model
      * @description The ID of the backup.
      *
      * This parameter is required.
+     *
      * @example backup-fdb897sdf****
      *
      * @var string
@@ -22,6 +23,7 @@ class ListImagesRequest extends Model
      * @description The page number.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -31,8 +33,8 @@ class ListImagesRequest extends Model
     /**
      * @description The image generation mode. Valid values:
      *
-     *   PERIODIC: The image is automatically generated.
-     *   MANUAL: The image is manually generated.
+     *   PERIODIC: It is automatically generated.
+     *   MANUAL: It is manually generated.
      *
      * @example MANUAL
      *
@@ -44,6 +46,7 @@ class ListImagesRequest extends Model
      * @description The number of images per page. Valid values: 1 to 1000.
      *
      * This parameter is required.
+     *
      * @example 20
      *
      * @var int
@@ -54,22 +57,21 @@ class ListImagesRequest extends Model
      * @description The ID of the region.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'backupId'    => 'BackupId',
+        'backupId' => 'BackupId',
         'currentPage' => 'CurrentPage',
-        'mode'        => 'Mode',
-        'pageSize'    => 'PageSize',
-        'regionId'    => 'RegionId',
+        'mode' => 'Mode',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

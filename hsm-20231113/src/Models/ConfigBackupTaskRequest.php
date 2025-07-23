@@ -39,6 +39,7 @@ class ConfigBackupTaskRequest extends Model
      *   23
      *
      * This parameter is required.
+     *
      * @example 12
      *
      * @var int
@@ -49,6 +50,7 @@ class ConfigBackupTaskRequest extends Model
      * @description The ID of the backup.
      *
      * This parameter is required.
+     *
      * @example backup-173620705****
      *
      * @var string
@@ -59,6 +61,7 @@ class ConfigBackupTaskRequest extends Model
      * @description The automatic backup cycle. Unit: days. Valid values: 1, 3, 7, and 30.
      *
      * This parameter is required.
+     *
      * @example 3
      *
      * @var int
@@ -79,16 +82,14 @@ class ConfigBackupTaskRequest extends Model
      */
     public $periodic2ManualList;
     protected $_name = [
-        'backupHourInDay'     => 'BackupHourInDay',
-        'backupId'            => 'BackupId',
-        'backupPeriod'        => 'BackupPeriod',
+        'backupHourInDay' => 'BackupHourInDay',
+        'backupId' => 'BackupId',
+        'backupPeriod' => 'BackupPeriod',
         'manual2PeriodicList' => 'Manual2PeriodicList',
         'periodic2ManualList' => 'Periodic2ManualList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

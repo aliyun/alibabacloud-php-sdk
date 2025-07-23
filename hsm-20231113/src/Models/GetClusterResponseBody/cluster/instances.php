@@ -39,13 +39,11 @@ class instances extends Model
     public $nodeId;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'master'     => 'Master',
-        'nodeId'     => 'NodeId',
+        'master' => 'Master',
+        'nodeId' => 'NodeId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

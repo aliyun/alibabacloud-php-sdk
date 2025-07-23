@@ -25,13 +25,11 @@ class ExportImageResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'job'       => 'Job',
+        'job' => 'Job',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

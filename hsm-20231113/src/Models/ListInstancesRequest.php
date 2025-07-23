@@ -12,6 +12,7 @@ class ListInstancesRequest extends Model
      * @description The page number.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +23,7 @@ class ListInstancesRequest extends Model
      * @description The number of entries per page. Valid values: 1 to 1000.
      *
      * This parameter is required.
+     *
      * @example 20
      *
      * @var int
@@ -32,6 +34,7 @@ class ListInstancesRequest extends Model
      * @description The ID of the region.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -39,21 +42,23 @@ class ListInstancesRequest extends Model
     public $regionId;
 
     /**
-     * @description 密码机硬件隔离类型，枚举值"vsm"虚拟密码机，"hostedHsm"托管硬件密码机
+     * @description The type of HSMs that is classified based on resource isolation. Valid values:
+     * - vsm: Virtual security modules (VSMs).
+     * - hostedHsm: Dedicated HSMs.
+     *
+     * @example vsm
      *
      * @var string
      */
     public $tenantIsolationType;
     protected $_name = [
-        'currentPage'         => 'CurrentPage',
-        'pageSize'            => 'PageSize',
-        'regionId'            => 'RegionId',
+        'currentPage' => 'CurrentPage',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
         'tenantIsolationType' => 'TenantIsolationType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

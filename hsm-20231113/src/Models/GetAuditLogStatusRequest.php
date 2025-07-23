@@ -24,6 +24,7 @@ class GetAuditLogStatusRequest extends Model
      * @description The ID of the region.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -31,12 +32,10 @@ class GetAuditLogStatusRequest extends Model
     public $regionId;
     protected $_name = [
         'getOssBucket' => 'GetOssBucket',
-        'regionId'     => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

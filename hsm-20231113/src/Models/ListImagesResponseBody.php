@@ -53,15 +53,13 @@ class ListImagesResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'images'      => 'Images',
-        'pageSize'    => 'PageSize',
-        'requestId'   => 'RequestId',
-        'totalCount'  => 'TotalCount',
+        'images' => 'Images',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -105,7 +103,7 @@ class ListImagesResponseBody extends Model
         if (isset($map['Images'])) {
             if (!empty($map['Images'])) {
                 $model->images = [];
-                $n             = 0;
+                $n = 0;
                 foreach ($map['Images'] as $item) {
                     $model->images[$n++] = null !== $item ? images::fromMap($item) : $item;
                 }

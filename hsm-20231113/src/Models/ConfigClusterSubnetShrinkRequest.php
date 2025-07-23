@@ -12,6 +12,7 @@ class ConfigClusterSubnetShrinkRequest extends Model
      * @description The ID of the cluster. You can call the ListCluster operation to obtain cluster IDs.
      *
      * This parameter is required.
+     *
      * @example cluster-BqxX63Bsg****
      *
      * @var string
@@ -22,6 +23,7 @@ class ConfigClusterSubnetShrinkRequest extends Model
      * @description The ID of the region.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -32,6 +34,7 @@ class ConfigClusterSubnetShrinkRequest extends Model
      * @description A list of vSwitches that are associated with the cluster. Note: You must include all vSwitches that you want to associate with the cluster.
      *
      * This parameter is required.
+     *
      * @var string
      */
     public $vSwitchIdsShrink;
@@ -40,21 +43,20 @@ class ConfigClusterSubnetShrinkRequest extends Model
      * @description The ID of the virtual private cloud (VPC).
      *
      * This parameter is required.
+     *
      * @example vpc-7xvkh90cw39p0****
      *
      * @var string
      */
     public $vpcId;
     protected $_name = [
-        'clusterId'        => 'ClusterId',
-        'regionId'         => 'RegionId',
+        'clusterId' => 'ClusterId',
+        'regionId' => 'RegionId',
         'vSwitchIdsShrink' => 'VSwitchIds',
-        'vpcId'            => 'VpcId',
+        'vpcId' => 'VpcId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

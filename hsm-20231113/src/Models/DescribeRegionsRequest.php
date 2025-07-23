@@ -14,7 +14,7 @@ class DescribeRegionsRequest extends Model
      *   zh: Chinese.
      *   en: English.
      *
-     * @example zh
+     * @example en
      *
      * @var string
      */
@@ -23,9 +23,7 @@ class DescribeRegionsRequest extends Model
         'acceptLanguage' => 'AcceptLanguage',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

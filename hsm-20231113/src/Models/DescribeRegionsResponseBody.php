@@ -25,13 +25,11 @@ class DescribeRegionsResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'regions'   => 'Regions',
+        'regions' => 'Regions',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class DescribeRegionsResponseBody extends Model
         if (isset($map['Regions'])) {
             if (!empty($map['Regions'])) {
                 $model->regions = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['Regions'] as $item) {
                     $model->regions[$n++] = null !== $item ? regions::fromMap($item) : $item;
                 }

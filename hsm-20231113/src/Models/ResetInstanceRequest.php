@@ -12,6 +12,7 @@ class ResetInstanceRequest extends Model
      * @description The ID of the HSM.
      *
      * This parameter is required.
+     *
      * @example hsm-cn-vj30bil8****
      *
      * @var string
@@ -21,9 +22,7 @@ class ResetInstanceRequest extends Model
         'instanceId' => 'InstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

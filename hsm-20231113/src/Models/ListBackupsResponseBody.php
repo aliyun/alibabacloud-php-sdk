@@ -52,16 +52,14 @@ class ListBackupsResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'backups'     => 'Backups',
+        'backups' => 'Backups',
         'currentPage' => 'CurrentPage',
-        'pageSize'    => 'PageSize',
-        'requestId'   => 'RequestId',
-        'totalCount'  => 'TotalCount',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -102,7 +100,7 @@ class ListBackupsResponseBody extends Model
         if (isset($map['Backups'])) {
             if (!empty($map['Backups'])) {
                 $model->backups = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['Backups'] as $item) {
                     $model->backups[$n++] = null !== $item ? backups::fromMap($item) : $item;
                 }

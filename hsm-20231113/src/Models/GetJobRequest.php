@@ -12,6 +12,7 @@ class GetJobRequest extends Model
      * @description The ID of the task.
      *
      * This parameter is required.
+     *
      * @example job-202401250936hze747fd7e0007005
      *
      * @var string
@@ -21,9 +22,7 @@ class GetJobRequest extends Model
         'jobId' => 'JobId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

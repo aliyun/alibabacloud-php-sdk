@@ -12,6 +12,7 @@ class ConfigInstanceRemarkRequest extends Model
      * @description The ID of the HSM.
      *
      * This parameter is required.
+     *
      * @example hsm-cn-vj30bil8****
      *
      * @var string
@@ -22,6 +23,7 @@ class ConfigInstanceRemarkRequest extends Model
      * @description The description of the HSM.
      *
      * This parameter is required.
+     *
      * @example hsmOnline
      *
      * @var string
@@ -29,12 +31,10 @@ class ConfigInstanceRemarkRequest extends Model
     public $remark;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'remark'     => 'Remark',
+        'remark' => 'Remark',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

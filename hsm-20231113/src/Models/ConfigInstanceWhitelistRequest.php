@@ -12,6 +12,7 @@ class ConfigInstanceWhitelistRequest extends Model
      * @description The ID of the HSM.
      *
      * This parameter is required.
+     *
      * @example hsm-cn-vj30bil8****
      *
      * @var string
@@ -22,6 +23,7 @@ class ConfigInstanceWhitelistRequest extends Model
      * @description A list of IP addresses that you want to configure in the whitelist. Separate multiple IP addresses with spaces or commas (,).
      *
      * This parameter is required.
+     *
      * @example 18.68.XX.XX,18.68.XX.XX
      *
      * @var string
@@ -29,12 +31,10 @@ class ConfigInstanceWhitelistRequest extends Model
     public $whitelist;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'whitelist'  => 'Whitelist',
+        'whitelist' => 'Whitelist',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class ConfigImageRemarkRequest extends Model
      * @description The ID of the image.
      *
      * This parameter is required.
+     *
      * @example image-d79x4k11pmg19****
      *
      * @var string
@@ -22,6 +23,7 @@ class ConfigImageRemarkRequest extends Model
      * @description The description of the image.
      *
      * This parameter is required.
+     *
      * @example hsm-****
      *
      * @var string
@@ -29,12 +31,10 @@ class ConfigImageRemarkRequest extends Model
     public $remark;
     protected $_name = [
         'imageId' => 'ImageId',
-        'remark'  => 'Remark',
+        'remark' => 'Remark',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

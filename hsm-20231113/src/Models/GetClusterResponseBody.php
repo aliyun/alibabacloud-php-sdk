@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetClusterResponseBody extends Model
 {
     /**
-     * @description The information about the cluster.
+     * @description The cluster details.
      *
      * @var cluster
      */
@@ -25,13 +25,11 @@ class GetClusterResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'cluster'   => 'Cluster',
+        'cluster' => 'Cluster',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

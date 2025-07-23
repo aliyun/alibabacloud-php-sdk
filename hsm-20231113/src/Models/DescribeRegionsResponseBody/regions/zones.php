@@ -23,6 +23,8 @@ class zones extends Model
     /**
      * @description The name of the zone.
      *
+     * @example Singapore Zone A
+     *
      * @var string
      */
     public $localName;
@@ -30,20 +32,18 @@ class zones extends Model
     /**
      * @description The zone ID.
      *
-     * @example cn-hangzhou-a
+     * @example ap-southeast-1a
      *
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'cluster'   => 'Cluster',
+        'cluster' => 'Cluster',
         'localName' => 'LocalName',
-        'zoneId'    => 'ZoneId',
+        'zoneId' => 'ZoneId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -78,18 +78,16 @@ class GetAuditLogStatusResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'auditLogStatus'       => 'AuditLogStatus',
-        'auditOssBucket'       => 'AuditOssBucket',
+        'auditLogStatus' => 'AuditLogStatus',
+        'auditOssBucket' => 'AuditOssBucket',
         'grantedServiceAccess' => 'GrantedServiceAccess',
-        'ossBuckets'           => 'OssBuckets',
-        'regionId'             => 'RegionId',
-        'requestId'            => 'RequestId',
-        'success'              => 'Success',
+        'ossBuckets' => 'OssBuckets',
+        'regionId' => 'RegionId',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

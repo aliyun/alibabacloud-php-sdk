@@ -11,12 +11,19 @@ use AlibabaCloud\Tea\Model;
 class cluster extends Model
 {
     /**
+     * @var bool
+     */
+    public $certManaged;
+
+    /**
      * @description The cluster certificate.
      *
      * @example -----BEGIN CERTIFICATE-----
+     * MIIDfTCCAmWgAwIBAgIJAMRqQMr5if66MA0GCSqGSIb3DQEBCwUAMFUxCzAJBgNV
      * BAYTAmNuMQswCQYDVQQIDAJ6ajELMAkGA1UEBwwCaHoxFjAUBgNVBAoMDUFsaWJh
      * YmEgQ2xvdWQxFDA****
      * -----END CERTIFICATE-----
+     *
      * @var string
      */
     public $clusterCertificate;
@@ -26,6 +33,7 @@ class cluster extends Model
      *
      * @example -----BEGIN CERTIFICATE REQUEST-----\\nMIIC5TCCAc0CAQAwgZ8xWTAJBgNVBAYTAlVTMAkGA1UECAwCQ0EwDQYDVQQKDAZD\\nYXZpdW0wDQYDVQQLDAZOM0ZJUFMwDgYDVQQHDAdTYW5Kb3NlMBMGA1UdEQwMMTk****
      * -----END CERTIFICATE REQUEST-----
+     *
      * @var string
      */
     public $clusterCsr;
@@ -40,6 +48,12 @@ class cluster extends Model
     public $clusterId;
 
     /**
+     * @description The cluster mode.
+     *
+     * 2: automatically synchronizes the cluster.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $clusterMode;
@@ -57,9 +71,11 @@ class cluster extends Model
      * @description The self-signed certificate of the cluster.
      *
      * @example ----BEGIN CERTIFICATE-----
+     * MIIDaTCCAlECAQEwDQYJKoZIhvcNAQELBQAwVTELMAkGA1UEBhMCY24xCzAJBgNV
      * BAgMAnpqMQswCQYDVQQHDAJoejEWMBQGA1UECgwNQWxpYmFiYSBDbG91ZDEUMBIG
      * A1UECwwLU2VjQ2xvdWRIc20wHhcNMjQwNzAzM****
      * -----END CERTIFICATE-----
+     *
      * @var string
      */
     public $clusterOwnerCertificate;
@@ -81,6 +97,11 @@ class cluster extends Model
      * @var string
      */
     public $deviceType;
+
+    /**
+     * @var string
+     */
+    public $entityCertExpireTime;
 
     /**
      * @description The HSMs in the cluster.
@@ -147,30 +168,33 @@ class cluster extends Model
      */
     public $zones;
     protected $_name = [
-        'clusterCertificate'      => 'ClusterCertificate',
-        'clusterCsr'              => 'ClusterCsr',
-        'clusterId'               => 'ClusterId',
-        'clusterMode'             => 'ClusterMode',
-        'clusterName'             => 'ClusterName',
+        'certManaged' => 'CertManaged',
+        'clusterCertificate' => 'ClusterCertificate',
+        'clusterCsr' => 'ClusterCsr',
+        'clusterId' => 'ClusterId',
+        'clusterMode' => 'ClusterMode',
+        'clusterName' => 'ClusterName',
         'clusterOwnerCertificate' => 'ClusterOwnerCertificate',
-        'createTime'              => 'CreateTime',
-        'deviceType'              => 'DeviceType',
-        'instances'               => 'Instances',
-        'regionId'                => 'RegionId',
-        'size'                    => 'Size',
-        'status'                  => 'Status',
-        'vpcId'                   => 'VpcId',
-        'whitelist'               => 'Whitelist',
-        'zones'                   => 'Zones',
+        'createTime' => 'CreateTime',
+        'deviceType' => 'DeviceType',
+        'entityCertExpireTime' => 'EntityCertExpireTime',
+        'instances' => 'Instances',
+        'regionId' => 'RegionId',
+        'size' => 'Size',
+        'status' => 'Status',
+        'vpcId' => 'VpcId',
+        'whitelist' => 'Whitelist',
+        'zones' => 'Zones',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->certManaged) {
+            $res['CertManaged'] = $this->certManaged;
+        }
         if (null !== $this->clusterCertificate) {
             $res['ClusterCertificate'] = $this->clusterCertificate;
         }
@@ -194,6 +218,9 @@ class cluster extends Model
         }
         if (null !== $this->deviceType) {
             $res['DeviceType'] = $this->deviceType;
+        }
+        if (null !== $this->entityCertExpireTime) {
+            $res['EntityCertExpireTime'] = $this->entityCertExpireTime;
         }
         if (null !== $this->instances) {
             $res['Instances'] = [];
@@ -240,6 +267,9 @@ class cluster extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CertManaged'])) {
+            $model->certManaged = $map['CertManaged'];
+        }
         if (isset($map['ClusterCertificate'])) {
             $model->clusterCertificate = $map['ClusterCertificate'];
         }
@@ -264,10 +294,13 @@ class cluster extends Model
         if (isset($map['DeviceType'])) {
             $model->deviceType = $map['DeviceType'];
         }
+        if (isset($map['EntityCertExpireTime'])) {
+            $model->entityCertExpireTime = $map['EntityCertExpireTime'];
+        }
         if (isset($map['Instances'])) {
             if (!empty($map['Instances'])) {
                 $model->instances = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['Instances'] as $item) {
                     $model->instances[$n++] = null !== $item ? instances::fromMap($item) : $item;
                 }
@@ -291,7 +324,7 @@ class cluster extends Model
         if (isset($map['Zones'])) {
             if (!empty($map['Zones'])) {
                 $model->zones = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['Zones'] as $item) {
                     $model->zones[$n++] = null !== $item ? zones::fromMap($item) : $item;
                 }

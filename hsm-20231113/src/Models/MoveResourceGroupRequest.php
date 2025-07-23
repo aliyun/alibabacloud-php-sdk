@@ -12,6 +12,7 @@ class MoveResourceGroupRequest extends Model
      * @description The ID of the region.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -22,6 +23,7 @@ class MoveResourceGroupRequest extends Model
      * @description The ID of the resource group.
      *
      * This parameter is required.
+     *
      * @example rg-aek2tsvbnfe****
      *
      * @var string
@@ -32,6 +34,7 @@ class MoveResourceGroupRequest extends Model
      * @description The ID of the hardware security module (HSM).
      *
      * This parameter is required.
+     *
      * @example hsm-2ze0qae64mjuc0ni****
      *
      * @var string
@@ -42,21 +45,20 @@ class MoveResourceGroupRequest extends Model
      * @description The type of the resource.
      *
      * This parameter is required.
+     *
      * @example instance
      *
      * @var string
      */
     public $resourceType;
     protected $_name = [
-        'regionId'        => 'RegionId',
+        'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
-        'resourceId'      => 'ResourceId',
-        'resourceType'    => 'ResourceType',
+        'resourceId' => 'ResourceId',
+        'resourceType' => 'ResourceType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

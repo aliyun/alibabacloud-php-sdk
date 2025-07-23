@@ -12,6 +12,7 @@ class SyncClusterRequest extends Model
      * @description The ID of the cluster.
      *
      * This parameter is required.
+     *
      * @example cluster-BqxX63Bsgytet****
      *
      * @var string
@@ -21,9 +22,7 @@ class SyncClusterRequest extends Model
         'clusterId' => 'ClusterId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class ListClustersRequest extends Model
      * @description The page number.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +23,7 @@ class ListClustersRequest extends Model
      * @description The number of entries per page. Valid values: 1 to 1000.
      *
      * This parameter is required.
+     *
      * @example 20
      *
      * @var int
@@ -32,6 +34,7 @@ class ListClustersRequest extends Model
      * @description The ID of the region.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -39,13 +42,11 @@ class ListClustersRequest extends Model
     public $regionId;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'pageSize'    => 'PageSize',
-        'regionId'    => 'RegionId',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

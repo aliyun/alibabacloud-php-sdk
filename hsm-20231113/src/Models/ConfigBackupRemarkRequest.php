@@ -12,6 +12,7 @@ class ConfigBackupRemarkRequest extends Model
      * @description The ID of the backup.
      *
      * This parameter is required.
+     *
      * @example backup-fdb897sdfg****
      *
      * @var string
@@ -30,18 +31,18 @@ class ConfigBackupRemarkRequest extends Model
     /**
      * @description The description of the backup.
      *
+     * @example Test backup.
+     *
      * @var string
      */
     public $remark;
     protected $_name = [
         'backupId' => 'BackupId',
-        'name'     => 'Name',
-        'remark'   => 'Remark',
+        'name' => 'Name',
+        'remark' => 'Remark',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

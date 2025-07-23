@@ -12,6 +12,7 @@ class ConfigClusterWhitelistRequest extends Model
      * @description The ID of the cluster.
      *
      * This parameter is required.
+     *
      * @example cluster-729dm40FG****
      *
      * @var string
@@ -22,6 +23,7 @@ class ConfigClusterWhitelistRequest extends Model
      * @description The IP address whitelist of the cluster.
      *
      * This parameter is required.
+     *
      * @example 18.68.XX.XX
      *
      * @var string
@@ -32,9 +34,7 @@ class ConfigClusterWhitelistRequest extends Model
         'whitelist' => 'Whitelist',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

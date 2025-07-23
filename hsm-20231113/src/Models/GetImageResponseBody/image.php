@@ -142,25 +142,23 @@ class image extends Model
      */
     public $vsmDigest;
     protected $_name = [
-        'backupId'         => 'BackupId',
-        'copyTime'         => 'CopyTime',
-        'exportTime'       => 'ExportTime',
-        'imageId'          => 'ImageId',
-        'instanceId'       => 'InstanceId',
-        'mode'             => 'Mode',
-        'regionId'         => 'RegionId',
-        'remark'           => 'Remark',
-        'sourceBackupUid'  => 'SourceBackupUid',
-        'sourceImageUid'   => 'SourceImageUid',
+        'backupId' => 'BackupId',
+        'copyTime' => 'CopyTime',
+        'exportTime' => 'ExportTime',
+        'imageId' => 'ImageId',
+        'instanceId' => 'InstanceId',
+        'mode' => 'Mode',
+        'regionId' => 'RegionId',
+        'remark' => 'Remark',
+        'sourceBackupUid' => 'SourceBackupUid',
+        'sourceImageUid' => 'SourceImageUid',
         'sourceInstanceId' => 'SourceInstanceId',
-        'sourceRegionId'   => 'SourceRegionId',
-        'status'           => 'Status',
-        'vsmDigest'        => 'VsmDigest',
+        'sourceRegionId' => 'SourceRegionId',
+        'status' => 'Status',
+        'vsmDigest' => 'VsmDigest',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -154,15 +154,15 @@ class Hsm extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ConfigAuditLog',
-            'version'     => '2023-11-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ConfigAuditLog',
+            'version' => '2023-11-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ConfigAuditLogResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -211,15 +211,15 @@ class Hsm extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ConfigBackupRemark',
-            'version'     => '2023-11-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ConfigBackupRemark',
+            'version' => '2023-11-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ConfigBackupRemarkResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -272,15 +272,15 @@ class Hsm extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ConfigBackupTask',
-            'version'     => '2023-11-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ConfigBackupTask',
+            'version' => '2023-11-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ConfigBackupTaskResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -329,15 +329,15 @@ class Hsm extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ConfigClusterCertificate',
-            'version'     => '2023-11-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ConfigClusterCertificate',
+            'version' => '2023-11-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ConfigClusterCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -381,15 +381,15 @@ class Hsm extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ConfigClusterName',
-            'version'     => '2023-11-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ConfigClusterName',
+            'version' => '2023-11-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ConfigClusterNameResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -444,15 +444,15 @@ class Hsm extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ConfigClusterSubnet',
-            'version'     => '2023-11-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ConfigClusterSubnet',
+            'version' => '2023-11-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ConfigClusterSubnetResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -498,15 +498,15 @@ class Hsm extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ConfigClusterWhitelist',
-            'version'     => '2023-11-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ConfigClusterWhitelist',
+            'version' => '2023-11-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ConfigClusterWhitelistResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -550,15 +550,15 @@ class Hsm extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ConfigImageRemark',
-            'version'     => '2023-11-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ConfigImageRemark',
+            'version' => '2023-11-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ConfigImageRemarkResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -611,15 +611,15 @@ class Hsm extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ConfigInstanceIpAddress',
-            'version'     => '2023-11-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ConfigInstanceIpAddress',
+            'version' => '2023-11-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ConfigInstanceIpAddressResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -663,15 +663,15 @@ class Hsm extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ConfigInstanceRemark',
-            'version'     => '2023-11-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ConfigInstanceRemark',
+            'version' => '2023-11-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ConfigInstanceRemarkResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -715,15 +715,15 @@ class Hsm extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ConfigInstanceWhitelist',
-            'version'     => '2023-11-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ConfigInstanceWhitelist',
+            'version' => '2023-11-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ConfigInstanceWhitelistResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -769,15 +769,15 @@ class Hsm extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CopyImage',
-            'version'     => '2023-11-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CopyImage',
+            'version' => '2023-11-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CopyImageResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -826,15 +826,15 @@ class Hsm extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateCluster',
-            'version'     => '2023-11-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateCluster',
+            'version' => '2023-11-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateClusterResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -877,15 +877,15 @@ class Hsm extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteCluster',
-            'version'     => '2023-11-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteCluster',
+            'version' => '2023-11-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteClusterResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -926,15 +926,15 @@ class Hsm extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRegions',
-            'version'     => '2023-11-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRegions',
+            'version' => '2023-11-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -978,15 +978,15 @@ class Hsm extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'EnableBackup',
-            'version'     => '2023-11-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EnableBackup',
+            'version' => '2023-11-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return EnableBackupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1030,15 +1030,15 @@ class Hsm extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ExportImage',
-            'version'     => '2023-11-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ExportImage',
+            'version' => '2023-11-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ExportImageResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1080,15 +1080,15 @@ class Hsm extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAuditLogStatus',
-            'version'     => '2023-11-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAuditLogStatus',
+            'version' => '2023-11-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetAuditLogStatusResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1127,15 +1127,15 @@ class Hsm extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetBackup',
-            'version'     => '2023-11-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetBackup',
+            'version' => '2023-11-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetBackupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1174,15 +1174,15 @@ class Hsm extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetCluster',
-            'version'     => '2023-11-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetCluster',
+            'version' => '2023-11-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetClusterResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1221,15 +1221,15 @@ class Hsm extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetImage',
-            'version'     => '2023-11-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetImage',
+            'version' => '2023-11-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetImageResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1268,15 +1268,15 @@ class Hsm extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetInstance',
-            'version'     => '2023-11-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetInstance',
+            'version' => '2023-11-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1315,15 +1315,15 @@ class Hsm extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetJob',
-            'version'     => '2023-11-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetJob',
+            'version' => '2023-11-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetJobResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1352,17 +1352,17 @@ class Hsm extends OpenApiClient
      */
     public function initializeAuditLogWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'InitializeAuditLog',
-            'version'     => '2023-11-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'InitializeAuditLog',
+            'version' => '2023-11-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return InitializeAuditLogResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1402,15 +1402,15 @@ class Hsm extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'InitializeCluster',
-            'version'     => '2023-11-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'InitializeCluster',
+            'version' => '2023-11-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return InitializeClusterResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1458,15 +1458,15 @@ class Hsm extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'JoinCluster',
-            'version'     => '2023-11-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'JoinCluster',
+            'version' => '2023-11-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return JoinClusterResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1514,15 +1514,15 @@ class Hsm extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'LeaveCluster',
-            'version'     => '2023-11-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'LeaveCluster',
+            'version' => '2023-11-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return LeaveClusterResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1579,15 +1579,15 @@ class Hsm extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListBackups',
-            'version'     => '2023-11-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListBackups',
+            'version' => '2023-11-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListBackupsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1632,15 +1632,15 @@ class Hsm extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListClusters',
-            'version'     => '2023-11-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListClusters',
+            'version' => '2023-11-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListClustersResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1691,15 +1691,15 @@ class Hsm extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListImages',
-            'version'     => '2023-11-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListImages',
+            'version' => '2023-11-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListImagesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1747,15 +1747,15 @@ class Hsm extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListInstances',
-            'version'     => '2023-11-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListInstances',
+            'version' => '2023-11-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1803,15 +1803,15 @@ class Hsm extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'MoveResourceGroup',
-            'version'     => '2023-11-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'MoveResourceGroup',
+            'version' => '2023-11-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return MoveResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1852,15 +1852,15 @@ class Hsm extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'PauseInstance',
-            'version'     => '2023-11-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PauseInstance',
+            'version' => '2023-11-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PauseInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1903,15 +1903,15 @@ class Hsm extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QuickInitInstance',
-            'version'     => '2023-11-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QuickInitInstance',
+            'version' => '2023-11-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QuickInitInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1954,15 +1954,15 @@ class Hsm extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ResetBackup',
-            'version'     => '2023-11-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ResetBackup',
+            'version' => '2023-11-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ResetBackupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2005,15 +2005,15 @@ class Hsm extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ResetInstance',
-            'version'     => '2023-11-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ResetInstance',
+            'version' => '2023-11-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ResetInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2059,15 +2059,15 @@ class Hsm extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RestoreInstance',
-            'version'     => '2023-11-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RestoreInstance',
+            'version' => '2023-11-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RestoreInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2108,15 +2108,15 @@ class Hsm extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ResumeInstance',
-            'version'     => '2023-11-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ResumeInstance',
+            'version' => '2023-11-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ResumeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2137,7 +2137,7 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Promotes a non-master hardware security module (HSM) in a cluster to the master HSM.
+     * @summary Promotes a slave hardware security module (HSM) to the master HSM within the cluster. Clusters that are manually synchronized in the Chinese Mainland do not support this operation.
      *  *
      * @param SwitchClusterMasterRequest $request SwitchClusterMasterRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -2158,22 +2158,22 @@ class Hsm extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SwitchClusterMaster',
-            'version'     => '2023-11-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SwitchClusterMaster',
+            'version' => '2023-11-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SwitchClusterMasterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Promotes a non-master hardware security module (HSM) in a cluster to the master HSM.
+     * @summary Promotes a slave hardware security module (HSM) to the master HSM within the cluster. Clusters that are manually synchronized in the Chinese Mainland do not support this operation.
      *  *
      * @param SwitchClusterMasterRequest $request SwitchClusterMasterRequest
      *
@@ -2189,8 +2189,8 @@ class Hsm extends OpenApiClient
     /**
      * @summary Synchronizes the data of hardware security modules (HSMs) in a cluster.
      *  *
-     * @description *   This operation is supported only for hardware security modules (HSMs) that are created in regions in the Chinese mainland.
-     * *   The time required to synchronize the data is approximately 5 minutes. We recommend that you synchronize data during off-peak hours to prevent service interruptions.
+     * @description *   This operation is used for manually synchronizing data within clusters located in the Chinese Mainland. For clusters outside the Chinese Mainland, automatic data synchronization is supported, and this operation is unnecessary. If you attempt to use this operation, a 400 error code will be returned.
+     * *   The data synchronization takes approximately 5 minutes. To avoid service interruptions, we recommend performing this operation during off-peak hours.
      *  *
      * @param SyncClusterRequest $request SyncClusterRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
@@ -2208,15 +2208,15 @@ class Hsm extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SyncCluster',
-            'version'     => '2023-11-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SyncCluster',
+            'version' => '2023-11-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SyncClusterResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2225,8 +2225,8 @@ class Hsm extends OpenApiClient
     /**
      * @summary Synchronizes the data of hardware security modules (HSMs) in a cluster.
      *  *
-     * @description *   This operation is supported only for hardware security modules (HSMs) that are created in regions in the Chinese mainland.
-     * *   The time required to synchronize the data is approximately 5 minutes. We recommend that you synchronize data during off-peak hours to prevent service interruptions.
+     * @description *   This operation is used for manually synchronizing data within clusters located in the Chinese Mainland. For clusters outside the Chinese Mainland, automatic data synchronization is supported, and this operation is unnecessary. If you attempt to use this operation, a 400 error code will be returned.
+     * *   The data synchronization takes approximately 5 minutes. To avoid service interruptions, we recommend performing this operation during off-peak hours.
      *  *
      * @param SyncClusterRequest $request SyncClusterRequest
      *

@@ -25,13 +25,11 @@ class GetInstanceResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'instance'  => 'Instance',
+        'instance' => 'Instance',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

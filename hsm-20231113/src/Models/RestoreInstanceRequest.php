@@ -12,6 +12,7 @@ class RestoreInstanceRequest extends Model
      * @description The ID of the image that you want to use to restore the HSM.
      *
      * This parameter is required.
+     *
      * @example image-eaOGHkRDQgh4****
      *
      * @var string
@@ -22,19 +23,18 @@ class RestoreInstanceRequest extends Model
      * @description The ID of the HSM.
      *
      * This parameter is required.
+     *
      * @example hsm-cn-mp90fxef****
      *
      * @var string
      */
     public $instanceId;
     protected $_name = [
-        'imageId'    => 'ImageId',
+        'imageId' => 'ImageId',
         'instanceId' => 'InstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

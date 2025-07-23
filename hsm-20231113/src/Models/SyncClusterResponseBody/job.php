@@ -91,19 +91,17 @@ class job extends Model
      */
     public $type;
     protected $_name = [
-        'completed'  => 'Completed',
+        'completed' => 'Completed',
         'createTime' => 'CreateTime',
-        'error'      => 'Error',
-        'jobId'      => 'JobId',
-        'progress'   => 'Progress',
-        'response'   => 'Response',
-        'status'     => 'Status',
-        'type'       => 'Type',
+        'error' => 'Error',
+        'jobId' => 'JobId',
+        'progress' => 'Progress',
+        'response' => 'Response',
+        'status' => 'Status',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
