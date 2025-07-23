@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\DFS\V20180620\Models\ListQosPoliciesResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class qosPolicies extends Model
 {
@@ -51,6 +51,11 @@ class qosPolicies extends Model
     /**
      * @var string
      */
+    public $reqTags;
+
+    /**
+     * @var string
+     */
     public $zoneIds;
     protected $_name = [
         'description' => 'Description',
@@ -61,49 +66,42 @@ class qosPolicies extends Model
         'maxIOps' => 'MaxIOps',
         'maxMetaQps' => 'MaxMetaQps',
         'qosPolicyId' => 'QosPolicyId',
+        'reqTags' => 'ReqTags',
         'zoneIds' => 'ZoneIds',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-
         if (null !== $this->federationId) {
             $res['FederationId'] = $this->federationId;
         }
-
         if (null !== $this->fileSystemId) {
             $res['FileSystemId'] = $this->fileSystemId;
         }
-
         if (null !== $this->flowIds) {
             $res['FlowIds'] = $this->flowIds;
         }
-
         if (null !== $this->maxIOBandWidth) {
             $res['MaxIOBandWidth'] = $this->maxIOBandWidth;
         }
-
         if (null !== $this->maxIOps) {
             $res['MaxIOps'] = $this->maxIOps;
         }
-
         if (null !== $this->maxMetaQps) {
             $res['MaxMetaQps'] = $this->maxMetaQps;
         }
-
         if (null !== $this->qosPolicyId) {
             $res['QosPolicyId'] = $this->qosPolicyId;
         }
-
+        if (null !== $this->reqTags) {
+            $res['ReqTags'] = $this->reqTags;
+        }
         if (null !== $this->zoneIds) {
             $res['ZoneIds'] = $this->zoneIds;
         }
@@ -111,46 +109,41 @@ class qosPolicies extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return qosPolicies
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-
         if (isset($map['FederationId'])) {
             $model->federationId = $map['FederationId'];
         }
-
         if (isset($map['FileSystemId'])) {
             $model->fileSystemId = $map['FileSystemId'];
         }
-
         if (isset($map['FlowIds'])) {
             $model->flowIds = $map['FlowIds'];
         }
-
         if (isset($map['MaxIOBandWidth'])) {
             $model->maxIOBandWidth = $map['MaxIOBandWidth'];
         }
-
         if (isset($map['MaxIOps'])) {
             $model->maxIOps = $map['MaxIOps'];
         }
-
         if (isset($map['MaxMetaQps'])) {
             $model->maxMetaQps = $map['MaxMetaQps'];
         }
-
         if (isset($map['QosPolicyId'])) {
             $model->qosPolicyId = $map['QosPolicyId'];
         }
-
+        if (isset($map['ReqTags'])) {
+            $model->reqTags = $map['ReqTags'];
+        }
         if (isset($map['ZoneIds'])) {
             $model->zoneIds = $map['ZoneIds'];
         }

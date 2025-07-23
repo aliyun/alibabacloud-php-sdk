@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\DFS\V20180620\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\DFS\V20180620\Models\AttachVscToMountPointsRequest\attachInfos;
+use AlibabaCloud\Tea\Model;
 
 class AttachVscToMountPointsRequest extends Model
 {
@@ -15,11 +15,17 @@ class AttachVscToMountPointsRequest extends Model
     public $attachInfos;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $inputRegionId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $useAssumeRoleChkServerPerm;
@@ -29,32 +35,23 @@ class AttachVscToMountPointsRequest extends Model
         'useAssumeRoleChkServerPerm' => 'UseAssumeRoleChkServerPerm',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->attachInfos)) {
-            Model::validateArray($this->attachInfos);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->attachInfos) {
-            if (\is_array($this->attachInfos)) {
-                $res['AttachInfos'] = [];
-                $n1 = 0;
-                foreach ($this->attachInfos as $item1) {
-                    $res['AttachInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['AttachInfos'] = [];
+            if (null !== $this->attachInfos && \is_array($this->attachInfos)) {
+                $n = 0;
+                foreach ($this->attachInfos as $item) {
+                    $res['AttachInfos'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->inputRegionId) {
             $res['InputRegionId'] = $this->inputRegionId;
         }
-
         if (null !== $this->useAssumeRoleChkServerPerm) {
             $res['UseAssumeRoleChkServerPerm'] = $this->useAssumeRoleChkServerPerm;
         }
@@ -62,29 +59,26 @@ class AttachVscToMountPointsRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return AttachVscToMountPointsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AttachInfos'])) {
             if (!empty($map['AttachInfos'])) {
                 $model->attachInfos = [];
-                $n1 = 0;
-                foreach ($map['AttachInfos'] as $item1) {
-                    $model->attachInfos[$n1] = attachInfos::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['AttachInfos'] as $item) {
+                    $model->attachInfos[$n++] = null !== $item ? attachInfos::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['InputRegionId'])) {
             $model->inputRegionId = $map['InputRegionId'];
         }
-
         if (isset($map['UseAssumeRoleChkServerPerm'])) {
             $model->useAssumeRoleChkServerPerm = $map['UseAssumeRoleChkServerPerm'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\DFS\V20180620\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyFileSystemRequest extends Model
 {
@@ -14,31 +14,45 @@ class ModifyFileSystemRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $fileSystemId;
 
     /**
+     * @example MyFirstModDFS
+     *
      * @var string
      */
     public $fileSystemName;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $inputRegionId;
 
     /**
+     * @example 1024
+     *
      * @var int
      */
     public $provisionedThroughputInMiBps;
 
     /**
+     * @example 1024
+     *
      * @var int
      */
     public $spaceCapacity;
 
     /**
+     * @example Standard
+     *
      * @var string
      */
     public $throughputMode;
@@ -52,38 +66,29 @@ class ModifyFileSystemRequest extends Model
         'throughputMode' => 'ThroughputMode',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-
         if (null !== $this->fileSystemId) {
             $res['FileSystemId'] = $this->fileSystemId;
         }
-
         if (null !== $this->fileSystemName) {
             $res['FileSystemName'] = $this->fileSystemName;
         }
-
         if (null !== $this->inputRegionId) {
             $res['InputRegionId'] = $this->inputRegionId;
         }
-
         if (null !== $this->provisionedThroughputInMiBps) {
             $res['ProvisionedThroughputInMiBps'] = $this->provisionedThroughputInMiBps;
         }
-
         if (null !== $this->spaceCapacity) {
             $res['SpaceCapacity'] = $this->spaceCapacity;
         }
-
         if (null !== $this->throughputMode) {
             $res['ThroughputMode'] = $this->throughputMode;
         }
@@ -91,38 +96,32 @@ class ModifyFileSystemRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyFileSystemRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-
         if (isset($map['FileSystemId'])) {
             $model->fileSystemId = $map['FileSystemId'];
         }
-
         if (isset($map['FileSystemName'])) {
             $model->fileSystemName = $map['FileSystemName'];
         }
-
         if (isset($map['InputRegionId'])) {
             $model->inputRegionId = $map['InputRegionId'];
         }
-
         if (isset($map['ProvisionedThroughputInMiBps'])) {
             $model->provisionedThroughputInMiBps = $map['ProvisionedThroughputInMiBps'];
         }
-
         if (isset($map['SpaceCapacity'])) {
             $model->spaceCapacity = $map['SpaceCapacity'];
         }
-
         if (isset($map['ThroughputMode'])) {
             $model->throughputMode = $map['ThroughputMode'];
         }

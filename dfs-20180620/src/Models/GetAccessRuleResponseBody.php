@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\DFS\V20180620\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\DFS\V20180620\Models\GetAccessRuleResponseBody\accessRule;
+use AlibabaCloud\Tea\Model;
 
 class GetAccessRuleResponseBody extends Model
 {
@@ -15,6 +15,8 @@ class GetAccessRuleResponseBody extends Model
     public $accessRule;
 
     /**
+     * @example 55C5FFD6-BF99-41BD-9C66-FFF39189****
+     *
      * @var string
      */
     public $requestId;
@@ -23,21 +25,14 @@ class GetAccessRuleResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->accessRule) {
-            $this->accessRule->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->accessRule) {
-            $res['AccessRule'] = null !== $this->accessRule ? $this->accessRule->toArray($noStream) : $this->accessRule;
+            $res['AccessRule'] = null !== $this->accessRule ? $this->accessRule->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,18 +40,17 @@ class GetAccessRuleResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetAccessRuleResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccessRule'])) {
             $model->accessRule = accessRule::fromMap($map['AccessRule']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

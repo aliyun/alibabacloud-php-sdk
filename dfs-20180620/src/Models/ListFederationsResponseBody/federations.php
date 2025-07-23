@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\DFS\V20180620\Models\ListFederationsResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class federations extends Model
 {
@@ -22,18 +22,14 @@ class federations extends Model
         'fileSystemIds' => 'FileSystemIds',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->federationId) {
             $res['FederationId'] = $this->federationId;
         }
-
         if (null !== $this->fileSystemIds) {
             $res['FileSystemIds'] = $this->fileSystemIds;
         }
@@ -41,18 +37,17 @@ class federations extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return federations
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FederationId'])) {
             $model->federationId = $map['FederationId'];
         }
-
         if (isset($map['FileSystemIds'])) {
             $model->fileSystemIds = $map['FileSystemIds'];
         }

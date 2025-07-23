@@ -4,16 +4,22 @@
 
 namespace AlibabaCloud\SDK\DFS\V20180620\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListFileSystemsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $inputRegionId;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $limit;
@@ -24,16 +30,22 @@ class ListFileSystemsRequest extends Model
     public $nextToken;
 
     /**
+     * @example CreateTime
+     *
      * @var string
      */
     public $orderBy;
 
     /**
+     * @example ASC
+     *
      * @var string
      */
     public $orderType;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $startOffset;
@@ -46,34 +58,26 @@ class ListFileSystemsRequest extends Model
         'startOffset' => 'StartOffset',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->inputRegionId) {
             $res['InputRegionId'] = $this->inputRegionId;
         }
-
         if (null !== $this->limit) {
             $res['Limit'] = $this->limit;
         }
-
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
-
         if (null !== $this->orderBy) {
             $res['OrderBy'] = $this->orderBy;
         }
-
         if (null !== $this->orderType) {
             $res['OrderType'] = $this->orderType;
         }
-
         if (null !== $this->startOffset) {
             $res['StartOffset'] = $this->startOffset;
         }
@@ -81,34 +85,29 @@ class ListFileSystemsRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListFileSystemsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InputRegionId'])) {
             $model->inputRegionId = $map['InputRegionId'];
         }
-
         if (isset($map['Limit'])) {
             $model->limit = $map['Limit'];
         }
-
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
-
         if (isset($map['OrderBy'])) {
             $model->orderBy = $map['OrderBy'];
         }
-
         if (isset($map['OrderType'])) {
             $model->orderType = $map['OrderType'];
         }
-
         if (isset($map['StartOffset'])) {
             $model->startOffset = $map['StartOffset'];
         }

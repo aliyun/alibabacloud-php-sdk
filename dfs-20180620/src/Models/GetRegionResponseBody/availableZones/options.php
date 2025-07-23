@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\DFS\V20180620\Models\GetRegionResponseBody\availableZones;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class options extends Model
 {
     /**
+     * @example HDFS
+     *
      * @var string
      */
     public $protocolType;
 
     /**
+     * @example STANDARD
+     *
      * @var string
      */
     public $storageType;
@@ -22,18 +26,14 @@ class options extends Model
         'storageType' => 'StorageType',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->protocolType) {
             $res['ProtocolType'] = $this->protocolType;
         }
-
         if (null !== $this->storageType) {
             $res['StorageType'] = $this->storageType;
         }
@@ -41,18 +41,17 @@ class options extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return options
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ProtocolType'])) {
             $model->protocolType = $map['ProtocolType'];
         }
-
         if (isset($map['StorageType'])) {
             $model->storageType = $map['StorageType'];
         }

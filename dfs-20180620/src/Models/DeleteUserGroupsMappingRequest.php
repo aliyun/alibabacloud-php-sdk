@@ -4,26 +4,40 @@
 
 namespace AlibabaCloud\SDK\DFS\V20180620\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteUserGroupsMappingRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 55C5FFD6-BF99-41BD-9C66-FFF39189****
+     *
      * @var string
      */
     public $fileSystemId;
 
     /**
+     * @example ["group1","group2"]
+     *
      * @var string[]
      */
     public $groupNames;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $inputRegionId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example user1
+     *
      * @var string
      */
     public $userName;
@@ -34,36 +48,20 @@ class DeleteUserGroupsMappingRequest extends Model
         'userName' => 'UserName',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->groupNames)) {
-            Model::validateArray($this->groupNames);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->fileSystemId) {
             $res['FileSystemId'] = $this->fileSystemId;
         }
-
         if (null !== $this->groupNames) {
-            if (\is_array($this->groupNames)) {
-                $res['GroupNames'] = [];
-                $n1 = 0;
-                foreach ($this->groupNames as $item1) {
-                    $res['GroupNames'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['GroupNames'] = $this->groupNames;
         }
-
         if (null !== $this->inputRegionId) {
             $res['InputRegionId'] = $this->inputRegionId;
         }
-
         if (null !== $this->userName) {
             $res['UserName'] = $this->userName;
         }
@@ -71,33 +69,25 @@ class DeleteUserGroupsMappingRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteUserGroupsMappingRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FileSystemId'])) {
             $model->fileSystemId = $map['FileSystemId'];
         }
-
         if (isset($map['GroupNames'])) {
             if (!empty($map['GroupNames'])) {
-                $model->groupNames = [];
-                $n1 = 0;
-                foreach ($map['GroupNames'] as $item1) {
-                    $model->groupNames[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->groupNames = $map['GroupNames'];
             }
         }
-
         if (isset($map['InputRegionId'])) {
             $model->inputRegionId = $map['InputRegionId'];
         }
-
         if (isset($map['UserName'])) {
             $model->userName = $map['UserName'];
         }

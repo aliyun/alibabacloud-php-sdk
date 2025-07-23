@@ -4,21 +4,33 @@
 
 namespace AlibabaCloud\SDK\DFS\V20180620\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteVscMountPointRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 037c****1d
+     *
      * @var string
      */
     public $fileSystemId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $inputRegionId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 037cb49e1d-c***5
+     *
      * @var string
      */
     public $mountPointId;
@@ -28,22 +40,17 @@ class DeleteVscMountPointRequest extends Model
         'mountPointId' => 'MountPointId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->fileSystemId) {
             $res['FileSystemId'] = $this->fileSystemId;
         }
-
         if (null !== $this->inputRegionId) {
             $res['InputRegionId'] = $this->inputRegionId;
         }
-
         if (null !== $this->mountPointId) {
             $res['MountPointId'] = $this->mountPointId;
         }
@@ -51,22 +58,20 @@ class DeleteVscMountPointRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteVscMountPointRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FileSystemId'])) {
             $model->fileSystemId = $map['FileSystemId'];
         }
-
         if (isset($map['InputRegionId'])) {
             $model->inputRegionId = $map['InputRegionId'];
         }
-
         if (isset($map['MountPointId'])) {
             $model->mountPointId = $map['MountPointId'];
         }

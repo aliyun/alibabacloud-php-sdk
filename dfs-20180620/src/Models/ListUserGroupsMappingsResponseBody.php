@@ -4,22 +4,28 @@
 
 namespace AlibabaCloud\SDK\DFS\V20180620\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\DFS\V20180620\Models\ListUserGroupsMappingsResponseBody\userGroupsMappings;
+use AlibabaCloud\Tea\Model;
 
 class ListUserGroupsMappingsResponseBody extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $hasMore;
 
     /**
+     * @example user1
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example 55C5FFD6-BF99-41BD-9C66-FFF39189****
+     *
      * @var string
      */
     public $requestId;
@@ -35,36 +41,26 @@ class ListUserGroupsMappingsResponseBody extends Model
         'userGroupsMappings' => 'UserGroupsMappings',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->userGroupsMappings)) {
-            Model::validateArray($this->userGroupsMappings);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->hasMore) {
             $res['HasMore'] = $this->hasMore;
         }
-
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->userGroupsMappings) {
-            if (\is_array($this->userGroupsMappings)) {
-                $res['UserGroupsMappings'] = [];
-                $n1 = 0;
-                foreach ($this->userGroupsMappings as $item1) {
-                    $res['UserGroupsMappings'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['UserGroupsMappings'] = [];
+            if (null !== $this->userGroupsMappings && \is_array($this->userGroupsMappings)) {
+                $n = 0;
+                foreach ($this->userGroupsMappings as $item) {
+                    $res['UserGroupsMappings'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -72,33 +68,29 @@ class ListUserGroupsMappingsResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListUserGroupsMappingsResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HasMore'])) {
             $model->hasMore = $map['HasMore'];
         }
-
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['UserGroupsMappings'])) {
             if (!empty($map['UserGroupsMappings'])) {
                 $model->userGroupsMappings = [];
-                $n1 = 0;
-                foreach ($map['UserGroupsMappings'] as $item1) {
-                    $model->userGroupsMappings[$n1] = userGroupsMappings::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['UserGroupsMappings'] as $item) {
+                    $model->userGroupsMappings[$n++] = null !== $item ? userGroupsMappings::fromMap($item) : $item;
                 }
             }
         }

@@ -4,26 +4,40 @@
 
 namespace AlibabaCloud\SDK\DFS\V20180620\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateUserGroupsMappingShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 55C5FFD6-BF99-41BD-9C66-FFF39189****
+     *
      * @var string
      */
     public $fileSystemId;
 
     /**
+     * @example ["group1","group2"]
+     *
      * @var string
      */
     public $groupNamesShrink;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $inputRegionId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example user1
+     *
      * @var string
      */
     public $userName;
@@ -34,26 +48,20 @@ class CreateUserGroupsMappingShrinkRequest extends Model
         'userName' => 'UserName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->fileSystemId) {
             $res['FileSystemId'] = $this->fileSystemId;
         }
-
         if (null !== $this->groupNamesShrink) {
             $res['GroupNames'] = $this->groupNamesShrink;
         }
-
         if (null !== $this->inputRegionId) {
             $res['InputRegionId'] = $this->inputRegionId;
         }
-
         if (null !== $this->userName) {
             $res['UserName'] = $this->userName;
         }
@@ -61,26 +69,23 @@ class CreateUserGroupsMappingShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateUserGroupsMappingShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FileSystemId'])) {
             $model->fileSystemId = $map['FileSystemId'];
         }
-
         if (isset($map['GroupNames'])) {
             $model->groupNamesShrink = $map['GroupNames'];
         }
-
         if (isset($map['InputRegionId'])) {
             $model->inputRegionId = $map['InputRegionId'];
         }
-
         if (isset($map['UserName'])) {
             $model->userName = $map['UserName'];
         }

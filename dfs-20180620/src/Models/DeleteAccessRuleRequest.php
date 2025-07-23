@@ -4,21 +4,33 @@
 
 namespace AlibabaCloud\SDK\DFS\V20180620\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteAccessRuleRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example acg-e3755fb0-358d-4286-9942-8d461048****
+     *
      * @var string
      */
     public $accessGroupId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example acr-c38028f0-f313-4385-9456-3501b1f5****
+     *
      * @var string
      */
     public $accessRuleId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $inputRegionId;
@@ -28,22 +40,17 @@ class DeleteAccessRuleRequest extends Model
         'inputRegionId' => 'InputRegionId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->accessGroupId) {
             $res['AccessGroupId'] = $this->accessGroupId;
         }
-
         if (null !== $this->accessRuleId) {
             $res['AccessRuleId'] = $this->accessRuleId;
         }
-
         if (null !== $this->inputRegionId) {
             $res['InputRegionId'] = $this->inputRegionId;
         }
@@ -51,22 +58,20 @@ class DeleteAccessRuleRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteAccessRuleRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccessGroupId'])) {
             $model->accessGroupId = $map['AccessGroupId'];
         }
-
         if (isset($map['AccessRuleId'])) {
             $model->accessRuleId = $map['AccessRuleId'];
         }
-
         if (isset($map['InputRegionId'])) {
             $model->inputRegionId = $map['InputRegionId'];
         }

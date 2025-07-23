@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\DFS\V20180620\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\DFS\V20180620\Models\ListFileSystemsResponseBody\fileSystems;
+use AlibabaCloud\Tea\Model;
 
 class ListFileSystemsResponseBody extends Model
 {
@@ -20,11 +20,15 @@ class ListFileSystemsResponseBody extends Model
     public $nextToken;
 
     /**
+     * @example 55C5FFD6-BF99-41BD-9C66-FFF39189****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;
@@ -35,36 +39,26 @@ class ListFileSystemsResponseBody extends Model
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->fileSystems)) {
-            Model::validateArray($this->fileSystems);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->fileSystems) {
-            if (\is_array($this->fileSystems)) {
-                $res['FileSystems'] = [];
-                $n1 = 0;
-                foreach ($this->fileSystems as $item1) {
-                    $res['FileSystems'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['FileSystems'] = [];
+            if (null !== $this->fileSystems && \is_array($this->fileSystems)) {
+                $n = 0;
+                foreach ($this->fileSystems as $item) {
+                    $res['FileSystems'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -72,33 +66,29 @@ class ListFileSystemsResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListFileSystemsResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FileSystems'])) {
             if (!empty($map['FileSystems'])) {
                 $model->fileSystems = [];
-                $n1 = 0;
-                foreach ($map['FileSystems'] as $item1) {
-                    $model->fileSystems[$n1] = fileSystems::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['FileSystems'] as $item) {
+                    $model->fileSystems[$n++] = null !== $item ? fileSystems::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }
