@@ -2,20 +2,20 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\WebsiteBuild\V20250429\Models;
+namespace AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\SyncAppInstanceForPartnerResponseBody\data;
 
 use AlibabaCloud\Tea\Model;
 
-class GetCreateLogoTaskRequest extends Model
+class appInstance extends Model
 {
     /**
-     * @example 20051349
+     * @example WD20250626114752000001
      *
      * @var string
      */
-    public $taskId;
+    public $bizId;
     protected $_name = [
-        'taskId' => 'TaskId',
+        'bizId' => 'BizId',
     ];
 
     public function validate() {}
@@ -23,8 +23,8 @@ class GetCreateLogoTaskRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
+        if (null !== $this->bizId) {
+            $res['BizId'] = $this->bizId;
         }
 
         return $res;
@@ -33,13 +33,13 @@ class GetCreateLogoTaskRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetCreateLogoTaskRequest
+     * @return appInstance
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
+        if (isset($map['BizId'])) {
+            $model->bizId = $map['BizId'];
         }
 
         return $model;

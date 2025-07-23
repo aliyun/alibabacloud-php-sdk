@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\WebsiteBuild\V20250429\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class OperateAppInstanceForPartnerResponse extends Model
+class SyncAppInstanceForPartnerResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class OperateAppInstanceForPartnerResponse extends Model
     public $statusCode;
 
     /**
-     * @var OperateAppInstanceForPartnerResponseBody
+     * @var SyncAppInstanceForPartnerResponseBody
      */
     public $body;
     protected $_name = [
@@ -49,7 +49,7 @@ class OperateAppInstanceForPartnerResponse extends Model
     /**
      * @param array $map
      *
-     * @return OperateAppInstanceForPartnerResponse
+     * @return SyncAppInstanceForPartnerResponse
      */
     public static function fromMap($map = [])
     {
@@ -61,7 +61,7 @@ class OperateAppInstanceForPartnerResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = OperateAppInstanceForPartnerResponseBody::fromMap($map['body']);
+            $model->body = SyncAppInstanceForPartnerResponseBody::fromMap($map['body']);
         }
 
         return $model;
