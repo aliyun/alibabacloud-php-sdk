@@ -9,9 +9,12 @@ use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateEntityStoreResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreatePrometheusInstanceRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreatePrometheusInstanceResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\CreateServiceRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\CreateServiceResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateUmodelRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateUmodelResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteEntityStoreResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteServiceResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteUmodelDataRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteUmodelDataResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteUmodelResponse;
@@ -21,6 +24,7 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\GetEntityStoreDataRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetEntityStoreDataResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetEntityStoreResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetServiceObservabilityResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetServiceResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetUmodelDataRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetUmodelDataResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetUmodelResponse;
@@ -28,11 +32,15 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\GetWorkspaceResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListAlertActionsRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListAlertActionsResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListAlertActionsShrinkRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListServicesRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListServicesResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListWorkspacesRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListWorkspacesResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListWorkspacesShrinkRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\PutWorkspaceRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\PutWorkspaceResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateServiceRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateServiceResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateUmodelRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateUmodelResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpsertUmodelDataRequest;
@@ -204,6 +212,76 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * @summary 创建Service
+     *  *
+     * @param string               $workspace
+     * @param CreateServiceRequest $request   CreateServiceRequest
+     * @param string[]             $headers   map
+     * @param RuntimeOptions       $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return CreateServiceResponse CreateServiceResponse
+     */
+    public function createServiceWithOptions($workspace, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->attributes)) {
+            $body['attributes'] = $request->attributes;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->displayName)) {
+            $body['displayName'] = $request->displayName;
+        }
+        if (!Utils::isUnset($request->pid)) {
+            $body['pid'] = $request->pid;
+        }
+        if (!Utils::isUnset($request->serviceName)) {
+            $body['serviceName'] = $request->serviceName;
+        }
+        if (!Utils::isUnset($request->serviceStatus)) {
+            $body['serviceStatus'] = $request->serviceStatus;
+        }
+        if (!Utils::isUnset($request->serviceType)) {
+            $body['serviceType'] = $request->serviceType;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateService',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspace/' . OpenApiUtilClient::getEncodeParam($workspace) . '/service',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建Service
+     *  *
+     * @param string               $workspace
+     * @param CreateServiceRequest $request   CreateServiceRequest
+     *
+     * @return CreateServiceResponse CreateServiceResponse
+     */
+    public function createService($workspace, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createServiceWithOptions($workspace, $request, $headers, $runtime);
+    }
+
+    /**
      * @summary 创建Umodel配置
      *  *
      * @param string              $workspace
@@ -300,6 +378,52 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->deleteEntityStoreWithOptions($workspaceName, $headers, $runtime);
+    }
+
+    /**
+     * @summary 删除Service
+     *  *
+     * @param string         $workspace
+     * @param string         $serviceId
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return DeleteServiceResponse DeleteServiceResponse
+     */
+    public function deleteServiceWithOptions($workspace, $serviceId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteService',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspace/' . OpenApiUtilClient::getEncodeParam($workspace) . '/service/' . OpenApiUtilClient::getEncodeParam($serviceId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除Service
+     *  *
+     * @param string $workspace
+     * @param string $serviceId
+     *
+     * @return DeleteServiceResponse DeleteServiceResponse
+     */
+    public function deleteService($workspace, $serviceId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteServiceWithOptions($workspace, $serviceId, $headers, $runtime);
     }
 
     /**
@@ -555,6 +679,52 @@ class Cms extends OpenApiClient
         $headers = new GetEntityStoreDataHeaders([]);
 
         return $this->getEntityStoreDataWithOptions($workspace, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 查询 Service
+     *  *
+     * @param string         $workspace
+     * @param string         $serviceId
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return GetServiceResponse GetServiceResponse
+     */
+    public function getServiceWithOptions($workspace, $serviceId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetService',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspace/' . OpenApiUtilClient::getEncodeParam($workspace) . '/service/' . OpenApiUtilClient::getEncodeParam($serviceId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询 Service
+     *  *
+     * @param string $workspace
+     * @param string $serviceId
+     *
+     * @return GetServiceResponse GetServiceResponse
+     */
+    public function getService($workspace, $serviceId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getServiceWithOptions($workspace, $serviceId, $headers, $runtime);
     }
 
     /**
@@ -816,6 +986,64 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * @summary 列出资源Service
+     *  *
+     * @param string              $workspace
+     * @param ListServicesRequest $request   ListServicesRequest
+     * @param string[]            $headers   map
+     * @param RuntimeOptions      $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return ListServicesResponse ListServicesResponse
+     */
+    public function listServicesWithOptions($workspace, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['maxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['nextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->serviceType)) {
+            $query['serviceType'] = $request->serviceType;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListServices',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspace/' . OpenApiUtilClient::getEncodeParam($workspace) . '/services',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListServicesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 列出资源Service
+     *  *
+     * @param string              $workspace
+     * @param ListServicesRequest $request   ListServicesRequest
+     *
+     * @return ListServicesResponse ListServicesResponse
+     */
+    public function listServices($workspace, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listServicesWithOptions($workspace, $request, $headers, $runtime);
+    }
+
+    /**
      * @summary 获取工作空间列表
      *  *
      * @param ListWorkspacesRequest $tmpReq  ListWorkspacesRequest
@@ -938,6 +1166,69 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->putWorkspaceWithOptions($workspaceName, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 更新UpdateService
+     *  *
+     * @param string               $workspace
+     * @param string               $serviceId
+     * @param UpdateServiceRequest $request   UpdateServiceRequest
+     * @param string[]             $headers   map
+     * @param RuntimeOptions       $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return UpdateServiceResponse UpdateServiceResponse
+     */
+    public function updateServiceWithOptions($workspace, $serviceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->attributes)) {
+            $body['attributes'] = $request->attributes;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->displayName)) {
+            $body['displayName'] = $request->displayName;
+        }
+        if (!Utils::isUnset($request->serviceStatus)) {
+            $body['serviceStatus'] = $request->serviceStatus;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateService',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspace/' . OpenApiUtilClient::getEncodeParam($workspace) . '/service/' . OpenApiUtilClient::getEncodeParam($serviceId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新UpdateService
+     *  *
+     * @param string               $workspace
+     * @param string               $serviceId
+     * @param UpdateServiceRequest $request   UpdateServiceRequest
+     *
+     * @return UpdateServiceResponse UpdateServiceResponse
+     */
+    public function updateService($workspace, $serviceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateServiceWithOptions($workspace, $serviceId, $request, $headers, $runtime);
     }
 
     /**
