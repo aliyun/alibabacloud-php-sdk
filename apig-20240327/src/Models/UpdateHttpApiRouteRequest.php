@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\APIG\V20240327\Models;
 
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateHttpApiRouteRequest\backendConfig;
+use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateHttpApiRouteRequest\mcpRouteConfig;
 use AlibabaCloud\Tea\Model;
 
 class UpdateHttpApiRouteRequest extends Model
@@ -52,6 +53,16 @@ class UpdateHttpApiRouteRequest extends Model
      * @var HttpRouteMatch
      */
     public $match;
+
+    /**
+     * @var mcpRouteConfig
+     */
+    public $mcpRouteConfig;
+
+    /**
+     * @var string
+     */
+    public $name;
     protected $_name = [
         'backendConfig' => 'backendConfig',
         'deployConfigs' => 'deployConfigs',
@@ -59,6 +70,8 @@ class UpdateHttpApiRouteRequest extends Model
         'domainIds' => 'domainIds',
         'environmentId' => 'environmentId',
         'match' => 'match',
+        'mcpRouteConfig' => 'mcpRouteConfig',
+        'name' => 'name',
     ];
 
     public function validate() {}
@@ -89,6 +102,12 @@ class UpdateHttpApiRouteRequest extends Model
         }
         if (null !== $this->match) {
             $res['match'] = null !== $this->match ? $this->match->toMap() : null;
+        }
+        if (null !== $this->mcpRouteConfig) {
+            $res['mcpRouteConfig'] = null !== $this->mcpRouteConfig ? $this->mcpRouteConfig->toMap() : null;
+        }
+        if (null !== $this->name) {
+            $res['name'] = $this->name;
         }
 
         return $res;
@@ -127,6 +146,12 @@ class UpdateHttpApiRouteRequest extends Model
         }
         if (isset($map['match'])) {
             $model->match = HttpRouteMatch::fromMap($map['match']);
+        }
+        if (isset($map['mcpRouteConfig'])) {
+            $model->mcpRouteConfig = mcpRouteConfig::fromMap($map['mcpRouteConfig']);
+        }
+        if (isset($map['name'])) {
+            $model->name = $map['name'];
         }
 
         return $model;

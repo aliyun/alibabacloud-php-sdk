@@ -97,6 +97,11 @@ class QueryConsumerAuthorizationRulesRequest extends Model
      * @var string
      */
     public $resourceType;
+
+    /**
+     * @var string
+     */
+    public $resourceTypes;
     protected $_name = [
         'apiNameLike' => 'apiNameLike',
         'consumerId' => 'consumerId',
@@ -108,6 +113,7 @@ class QueryConsumerAuthorizationRulesRequest extends Model
         'parentResourceId' => 'parentResourceId',
         'resourceId' => 'resourceId',
         'resourceType' => 'resourceType',
+        'resourceTypes' => 'resourceTypes',
     ];
 
     public function validate() {}
@@ -144,6 +150,9 @@ class QueryConsumerAuthorizationRulesRequest extends Model
         }
         if (null !== $this->resourceType) {
             $res['resourceType'] = $this->resourceType;
+        }
+        if (null !== $this->resourceTypes) {
+            $res['resourceTypes'] = $this->resourceTypes;
         }
 
         return $res;
@@ -186,6 +195,9 @@ class QueryConsumerAuthorizationRulesRequest extends Model
         }
         if (isset($map['resourceType'])) {
             $model->resourceType = $map['resourceType'];
+        }
+        if (isset($map['resourceTypes'])) {
+            $model->resourceTypes = $map['resourceTypes'];
         }
 
         return $model;

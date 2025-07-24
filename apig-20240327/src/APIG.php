@@ -2057,6 +2057,9 @@ class APIG extends OpenApiClient
         if (!Utils::isUnset($request->pluginId)) {
             $query['pluginId'] = $request->pluginId;
         }
+        if (!Utils::isUnset($request->routeId)) {
+            $query['routeId'] = $request->routeId;
+        }
         if (!Utils::isUnset($request->source)) {
             $query['source'] = $request->source;
         }
@@ -3731,6 +3734,9 @@ class APIG extends OpenApiClient
         if (!Utils::isUnset($request->resourceType)) {
             $query['resourceType'] = $request->resourceType;
         }
+        if (!Utils::isUnset($request->resourceTypes)) {
+            $query['resourceTypes'] = $request->resourceTypes;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query' => OpenApiUtilClient::query($query),
@@ -4457,6 +4463,12 @@ class APIG extends OpenApiClient
         }
         if (!Utils::isUnset($request->match)) {
             $body['match'] = $request->match;
+        }
+        if (!Utils::isUnset($request->mcpRouteConfig)) {
+            $body['mcpRouteConfig'] = $request->mcpRouteConfig;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['name'] = $request->name;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,

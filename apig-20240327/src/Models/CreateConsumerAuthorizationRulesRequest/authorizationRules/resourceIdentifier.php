@@ -18,6 +18,11 @@ class resourceIdentifier extends Model
     public $environmentId;
 
     /**
+     * @var string
+     */
+    public $parentResourceId;
+
+    /**
      * @description The resource ID.
      *
      * @example ha-cn-li942gy8p03
@@ -25,9 +30,16 @@ class resourceIdentifier extends Model
      * @var string
      */
     public $resourceId;
+
+    /**
+     * @var string[]
+     */
+    public $resources;
     protected $_name = [
         'environmentId' => 'environmentId',
+        'parentResourceId' => 'parentResourceId',
         'resourceId' => 'resourceId',
+        'resources' => 'resources',
     ];
 
     public function validate() {}
@@ -38,8 +50,14 @@ class resourceIdentifier extends Model
         if (null !== $this->environmentId) {
             $res['environmentId'] = $this->environmentId;
         }
+        if (null !== $this->parentResourceId) {
+            $res['parentResourceId'] = $this->parentResourceId;
+        }
         if (null !== $this->resourceId) {
             $res['resourceId'] = $this->resourceId;
+        }
+        if (null !== $this->resources) {
+            $res['resources'] = $this->resources;
         }
 
         return $res;
@@ -56,8 +74,16 @@ class resourceIdentifier extends Model
         if (isset($map['environmentId'])) {
             $model->environmentId = $map['environmentId'];
         }
+        if (isset($map['parentResourceId'])) {
+            $model->parentResourceId = $map['parentResourceId'];
+        }
         if (isset($map['resourceId'])) {
             $model->resourceId = $map['resourceId'];
+        }
+        if (isset($map['resources'])) {
+            if (!empty($map['resources'])) {
+                $model->resources = $map['resources'];
+            }
         }
 
         return $model;

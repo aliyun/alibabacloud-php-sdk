@@ -61,6 +61,11 @@ class GetDashboardRequest extends Model
     public $pluginId;
 
     /**
+     * @var string
+     */
+    public $routeId;
+
+    /**
      * @description The dashboard source. Valid values:
      *
      *   SLS: Simple Log Service
@@ -82,6 +87,7 @@ class GetDashboardRequest extends Model
         'name' => 'name',
         'pluginClassId' => 'pluginClassId',
         'pluginId' => 'pluginId',
+        'routeId' => 'routeId',
         'source' => 'source',
         'upstreamCluster' => 'upstreamCluster',
     ];
@@ -108,6 +114,9 @@ class GetDashboardRequest extends Model
         }
         if (null !== $this->pluginId) {
             $res['pluginId'] = $this->pluginId;
+        }
+        if (null !== $this->routeId) {
+            $res['routeId'] = $this->routeId;
         }
         if (null !== $this->source) {
             $res['source'] = $this->source;
@@ -144,6 +153,9 @@ class GetDashboardRequest extends Model
         }
         if (isset($map['pluginId'])) {
             $model->pluginId = $map['pluginId'];
+        }
+        if (isset($map['routeId'])) {
+            $model->routeId = $map['routeId'];
         }
         if (isset($map['source'])) {
             $model->source = $map['source'];

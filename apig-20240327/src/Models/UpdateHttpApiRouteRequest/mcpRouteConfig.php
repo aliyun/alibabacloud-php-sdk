@@ -2,7 +2,7 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\APIG\V20240327\Models\CreateHttpApiRouteRequest;
+namespace AlibabaCloud\SDK\APIG\V20240327\Models\UpdateHttpApiRouteRequest;
 
 use AlibabaCloud\Tea\Model;
 
