@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\IQS\V20241111\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ValueAddedCredits extends Model
 {
@@ -22,18 +22,14 @@ class ValueAddedCredits extends Model
         'summary' => 'summary',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->advanced) {
             $res['advanced'] = $this->advanced;
         }
-
         if (null !== $this->summary) {
             $res['summary'] = $this->summary;
         }
@@ -41,18 +37,17 @@ class ValueAddedCredits extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ValueAddedCredits
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['advanced'])) {
             $model->advanced = $map['advanced'];
         }
-
         if (isset($map['summary'])) {
             $model->summary = $map['summary'];
         }

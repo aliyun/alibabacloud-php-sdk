@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\IQS\V20241111\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GenericSearchResponse extends Model
+class GetIqsUsageResponse extends Model
 {
     /**
      * @var string[]
@@ -45,7 +45,7 @@ class GenericSearchResponse extends Model
     /**
      * @param array $map
      *
-     * @return GenericSearchResponse
+     * @return GetIqsUsageResponse
      */
     public static function fromMap($map = [])
     {
@@ -57,7 +57,7 @@ class GenericSearchResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = GenericSearchResult::fromMap($map['body']);
+            $model->body = GetIqsUsageResult::fromMap($map['body']);
         }
 
         return $model;

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\IQS\V20241111\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class RequestContents extends Model
 {
@@ -34,26 +34,20 @@ class RequestContents extends Model
         'summary' => 'summary',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->mainText) {
             $res['mainText'] = $this->mainText;
         }
-
         if (null !== $this->markdownText) {
             $res['markdownText'] = $this->markdownText;
         }
-
         if (null !== $this->rerankScore) {
             $res['rerankScore'] = $this->rerankScore;
         }
-
         if (null !== $this->summary) {
             $res['summary'] = $this->summary;
         }
@@ -61,26 +55,23 @@ class RequestContents extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return RequestContents
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['mainText'])) {
             $model->mainText = $map['mainText'];
         }
-
         if (isset($map['markdownText'])) {
             $model->markdownText = $map['markdownText'];
         }
-
         if (isset($map['rerankScore'])) {
             $model->rerankScore = $map['rerankScore'];
         }
-
         if (isset($map['summary'])) {
             $model->summary = $map['summary'];
         }

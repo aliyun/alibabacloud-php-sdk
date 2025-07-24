@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\IQS\V20241111\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class SearchCredits extends Model
 {
@@ -16,12 +16,9 @@ class SearchCredits extends Model
         'genericTextSearch' => 'genericTextSearch',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->genericTextSearch) {
@@ -31,11 +28,11 @@ class SearchCredits extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return SearchCredits
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

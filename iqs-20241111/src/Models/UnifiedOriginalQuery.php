@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\IQS\V20241111\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UnifiedOriginalQuery extends Model
 {
@@ -22,18 +22,14 @@ class UnifiedOriginalQuery extends Model
         'timeRange' => 'timeRange',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->query) {
             $res['query'] = $this->query;
         }
-
         if (null !== $this->timeRange) {
             $res['timeRange'] = $this->timeRange;
         }
@@ -41,18 +37,17 @@ class UnifiedOriginalQuery extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UnifiedOriginalQuery
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['query'])) {
             $model->query = $map['query'];
         }
-
         if (isset($map['timeRange'])) {
             $model->timeRange = $map['timeRange'];
         }

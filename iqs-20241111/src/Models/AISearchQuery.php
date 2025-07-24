@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\IQS\V20241111\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class AISearchQuery extends Model
 {
@@ -58,42 +58,32 @@ class AISearchQuery extends Model
         'timeRange' => 'timeRange',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->card) {
             $res['card'] = $this->card;
         }
-
         if (null !== $this->cardQuery) {
             $res['cardQuery'] = $this->cardQuery;
         }
-
         if (null !== $this->page) {
             $res['page'] = $this->page;
         }
-
         if (null !== $this->query) {
             $res['query'] = $this->query;
         }
-
         if (null !== $this->searchEngine) {
             $res['searchEngine'] = $this->searchEngine;
         }
-
         if (null !== $this->searchPlan) {
             $res['searchPlan'] = $this->searchPlan;
         }
-
         if (null !== $this->sessionId) {
             $res['sessionId'] = $this->sessionId;
         }
-
         if (null !== $this->timeRange) {
             $res['timeRange'] = $this->timeRange;
         }
@@ -101,42 +91,35 @@ class AISearchQuery extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return AISearchQuery
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['card'])) {
             $model->card = $map['card'];
         }
-
         if (isset($map['cardQuery'])) {
             $model->cardQuery = $map['cardQuery'];
         }
-
         if (isset($map['page'])) {
             $model->page = $map['page'];
         }
-
         if (isset($map['query'])) {
             $model->query = $map['query'];
         }
-
         if (isset($map['searchEngine'])) {
             $model->searchEngine = $map['searchEngine'];
         }
-
         if (isset($map['searchPlan'])) {
             $model->searchPlan = $map['searchPlan'];
         }
-
         if (isset($map['sessionId'])) {
             $model->sessionId = $map['sessionId'];
         }
-
         if (isset($map['timeRange'])) {
             $model->timeRange = $map['timeRange'];
         }

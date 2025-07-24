@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\IQS\V20241111\Models\AiSearchResponseBody\header;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\IQS\V20241111\Models\AiSearchResponseBody\header\queryContext\originalQuery;
 use AlibabaCloud\SDK\IQS\V20241111\Models\AiSearchResponseBody\header\queryContext\rewrite;
+use AlibabaCloud\Tea\Model;
 
 class queryContext extends Model
 {
@@ -24,43 +24,32 @@ class queryContext extends Model
         'rewrite' => 'rewrite',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->originalQuery) {
-            $this->originalQuery->validate();
-        }
-        if (null !== $this->rewrite) {
-            $this->rewrite->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->originalQuery) {
-            $res['originalQuery'] = null !== $this->originalQuery ? $this->originalQuery->toArray($noStream) : $this->originalQuery;
+            $res['originalQuery'] = null !== $this->originalQuery ? $this->originalQuery->toMap() : null;
         }
-
         if (null !== $this->rewrite) {
-            $res['rewrite'] = null !== $this->rewrite ? $this->rewrite->toArray($noStream) : $this->rewrite;
+            $res['rewrite'] = null !== $this->rewrite ? $this->rewrite->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return queryContext
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['originalQuery'])) {
             $model->originalQuery = originalQuery::fromMap($map['originalQuery']);
         }
-
         if (isset($map['rewrite'])) {
             $model->rewrite = rewrite::fromMap($map['rewrite']);
         }

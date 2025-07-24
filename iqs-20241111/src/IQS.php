@@ -4,21 +4,25 @@
 
 namespace AlibabaCloud\SDK\IQS\V20241111;
 
-use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\IQS\V20241111\Models\AiSearchRequest;
 use AlibabaCloud\SDK\IQS\V20241111\Models\AiSearchResponse;
 use AlibabaCloud\SDK\IQS\V20241111\Models\GenericAdvancedSearchRequest;
 use AlibabaCloud\SDK\IQS\V20241111\Models\GenericAdvancedSearchResponse;
 use AlibabaCloud\SDK\IQS\V20241111\Models\GenericSearchRequest;
 use AlibabaCloud\SDK\IQS\V20241111\Models\GenericSearchResponse;
+use AlibabaCloud\SDK\IQS\V20241111\Models\GetIqsUsageRequest;
+use AlibabaCloud\SDK\IQS\V20241111\Models\GetIqsUsageResponse;
 use AlibabaCloud\SDK\IQS\V20241111\Models\GlobalSearchRequest;
 use AlibabaCloud\SDK\IQS\V20241111\Models\GlobalSearchResponse;
 use AlibabaCloud\SDK\IQS\V20241111\Models\UnifiedSearchRequest;
 use AlibabaCloud\SDK\IQS\V20241111\Models\UnifiedSearchResponse;
+use AlibabaCloud\Tea\Utils\Utils;
+use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
-use Darabonba\OpenApi\Utils;
 
 class IQS extends OpenApiClient
 {
@@ -43,59 +47,47 @@ class IQS extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (null !== $endpoint) {
+        if (!Utils::empty_($endpoint)) {
             return $endpoint;
         }
-
-        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
+        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
             return @$endpointMap[$regionId];
         }
 
-        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * AI搜索流式接口.
+     * @summary AI搜索流式接口
+     *  *
+     * @param AiSearchRequest $request AiSearchRequest
+     * @param string[]        $headers map
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - AiSearchRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns AiSearchResponse
-     *
-     * @param AiSearchRequest $request
-     * @param string[]        $headers
-     * @param RuntimeOptions  $runtime
-     *
-     * @return AiSearchResponse
+     * @return AiSearchResponse AiSearchResponse
      */
     public function aiSearchWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->industry) {
-            @$query['industry'] = $request->industry;
+        if (!Utils::isUnset($request->industry)) {
+            $query['industry'] = $request->industry;
         }
-
-        if (null !== $request->page) {
-            @$query['page'] = $request->page;
+        if (!Utils::isUnset($request->page)) {
+            $query['page'] = $request->page;
         }
-
-        if (null !== $request->query) {
-            @$query['query'] = $request->query;
+        if (!Utils::isUnset($request->query)) {
+            $query['query'] = $request->query;
         }
-
-        if (null !== $request->sessionId) {
-            @$query['sessionId'] = $request->sessionId;
+        if (!Utils::isUnset($request->sessionId)) {
+            $query['sessionId'] = $request->sessionId;
         }
-
-        if (null !== $request->timeRange) {
-            @$query['timeRange'] = $request->timeRange;
+        if (!Utils::isUnset($request->timeRange)) {
+            $query['timeRange'] = $request->timeRange;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'AiSearch',
@@ -113,15 +105,11 @@ class IQS extends OpenApiClient
     }
 
     /**
-     * AI搜索流式接口.
+     * @summary AI搜索流式接口
+     *  *
+     * @param AiSearchRequest $request AiSearchRequest
      *
-     * @param request - AiSearchRequest
-     *
-     * @returns AiSearchResponse
-     *
-     * @param AiSearchRequest $request
-     *
-     * @return AiSearchResponse
+     * @return AiSearchResponse AiSearchResponse
      */
     public function aiSearch($request)
     {
@@ -132,43 +120,33 @@ class IQS extends OpenApiClient
     }
 
     /**
-     * 增强版通用搜索.
+     * @summary 增强版通用搜索
+     *  *
+     * @param GenericAdvancedSearchRequest $request GenericAdvancedSearchRequest
+     * @param string[]                     $headers map
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GenericAdvancedSearchRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GenericAdvancedSearchResponse
-     *
-     * @param GenericAdvancedSearchRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
-     *
-     * @return GenericAdvancedSearchResponse
+     * @return GenericAdvancedSearchResponse GenericAdvancedSearchResponse
      */
     public function genericAdvancedSearchWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->industry) {
-            @$query['industry'] = $request->industry;
+        if (!Utils::isUnset($request->industry)) {
+            $query['industry'] = $request->industry;
         }
-
-        if (null !== $request->query) {
-            @$query['query'] = $request->query;
+        if (!Utils::isUnset($request->query)) {
+            $query['query'] = $request->query;
         }
-
-        if (null !== $request->sessionId) {
-            @$query['sessionId'] = $request->sessionId;
+        if (!Utils::isUnset($request->sessionId)) {
+            $query['sessionId'] = $request->sessionId;
         }
-
-        if (null !== $request->timeRange) {
-            @$query['timeRange'] = $request->timeRange;
+        if (!Utils::isUnset($request->timeRange)) {
+            $query['timeRange'] = $request->timeRange;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GenericAdvancedSearch',
@@ -186,15 +164,11 @@ class IQS extends OpenApiClient
     }
 
     /**
-     * 增强版通用搜索.
+     * @summary 增强版通用搜索
+     *  *
+     * @param GenericAdvancedSearchRequest $request GenericAdvancedSearchRequest
      *
-     * @param request - GenericAdvancedSearchRequest
-     *
-     * @returns GenericAdvancedSearchResponse
-     *
-     * @param GenericAdvancedSearchRequest $request
-     *
-     * @return GenericAdvancedSearchResponse
+     * @return GenericAdvancedSearchResponse GenericAdvancedSearchResponse
      */
     public function genericAdvancedSearch($request)
     {
@@ -205,63 +179,48 @@ class IQS extends OpenApiClient
     }
 
     /**
-     * 通用搜索.
+     * @summary 通用搜索
+     *  *
+     * @param GenericSearchRequest $request GenericSearchRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GenericSearchRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GenericSearchResponse
-     *
-     * @param GenericSearchRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
-     *
-     * @return GenericSearchResponse
+     * @return GenericSearchResponse GenericSearchResponse
      */
     public function genericSearchWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->enableRerank) {
-            @$query['enableRerank'] = $request->enableRerank;
+        if (!Utils::isUnset($request->enableRerank)) {
+            $query['enableRerank'] = $request->enableRerank;
         }
-
-        if (null !== $request->industry) {
-            @$query['industry'] = $request->industry;
+        if (!Utils::isUnset($request->industry)) {
+            $query['industry'] = $request->industry;
         }
-
-        if (null !== $request->page) {
-            @$query['page'] = $request->page;
+        if (!Utils::isUnset($request->page)) {
+            $query['page'] = $request->page;
         }
-
-        if (null !== $request->query) {
-            @$query['query'] = $request->query;
+        if (!Utils::isUnset($request->query)) {
+            $query['query'] = $request->query;
         }
-
-        if (null !== $request->returnMainText) {
-            @$query['returnMainText'] = $request->returnMainText;
+        if (!Utils::isUnset($request->returnMainText)) {
+            $query['returnMainText'] = $request->returnMainText;
         }
-
-        if (null !== $request->returnMarkdownText) {
-            @$query['returnMarkdownText'] = $request->returnMarkdownText;
+        if (!Utils::isUnset($request->returnMarkdownText)) {
+            $query['returnMarkdownText'] = $request->returnMarkdownText;
         }
-
-        if (null !== $request->returnSummary) {
-            @$query['returnSummary'] = $request->returnSummary;
+        if (!Utils::isUnset($request->returnSummary)) {
+            $query['returnSummary'] = $request->returnSummary;
         }
-
-        if (null !== $request->sessionId) {
-            @$query['sessionId'] = $request->sessionId;
+        if (!Utils::isUnset($request->sessionId)) {
+            $query['sessionId'] = $request->sessionId;
         }
-
-        if (null !== $request->timeRange) {
-            @$query['timeRange'] = $request->timeRange;
+        if (!Utils::isUnset($request->timeRange)) {
+            $query['timeRange'] = $request->timeRange;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GenericSearch',
@@ -279,15 +238,11 @@ class IQS extends OpenApiClient
     }
 
     /**
-     * 通用搜索.
+     * @summary 通用搜索
+     *  *
+     * @param GenericSearchRequest $request GenericSearchRequest
      *
-     * @param request - GenericSearchRequest
-     *
-     * @returns GenericSearchResponse
-     *
-     * @param GenericSearchRequest $request
-     *
-     * @return GenericSearchResponse
+     * @return GenericSearchResponse GenericSearchResponse
      */
     public function genericSearch($request)
     {
@@ -298,43 +253,86 @@ class IQS extends OpenApiClient
     }
 
     /**
-     * 通晓搜索-出海版(全球信息搜索).
+     * @summary 信息查询服务接口日维度使用量查询
+     *  *
+     * @param GetIqsUsageRequest $request GetIqsUsageRequest
+     * @param string[]           $headers map
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GlobalSearchRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
+     * @return GetIqsUsageResponse GetIqsUsageResponse
+     */
+    public function getIqsUsageWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endDate)) {
+            $query['endDate'] = $request->endDate;
+        }
+        if (!Utils::isUnset($request->startDate)) {
+            $query['startDate'] = $request->startDate;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetIqsUsage',
+            'version' => '2024-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/linked-retrieval/linked-retrieval-admin/v1/iqs/usage',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetIqsUsageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 信息查询服务接口日维度使用量查询
+     *  *
+     * @param GetIqsUsageRequest $request GetIqsUsageRequest
      *
-     * @returns GlobalSearchResponse
+     * @return GetIqsUsageResponse GetIqsUsageResponse
+     */
+    public function getIqsUsage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getIqsUsageWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 通晓搜索-出海版(全球信息搜索)
+     *  *
+     * @param GlobalSearchRequest $request GlobalSearchRequest
+     * @param string[]            $headers map
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param GlobalSearchRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
-     *
-     * @return GlobalSearchResponse
+     * @return GlobalSearchResponse GlobalSearchResponse
      */
     public function globalSearchWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->page) {
-            @$query['page'] = $request->page;
+        if (!Utils::isUnset($request->page)) {
+            $query['page'] = $request->page;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['pageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['pageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->query) {
-            @$query['query'] = $request->query;
+        if (!Utils::isUnset($request->query)) {
+            $query['query'] = $request->query;
         }
-
-        if (null !== $request->timeRange) {
-            @$query['timeRange'] = $request->timeRange;
+        if (!Utils::isUnset($request->timeRange)) {
+            $query['timeRange'] = $request->timeRange;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GlobalSearch',
@@ -352,15 +350,11 @@ class IQS extends OpenApiClient
     }
 
     /**
-     * 通晓搜索-出海版(全球信息搜索).
+     * @summary 通晓搜索-出海版(全球信息搜索)
+     *  *
+     * @param GlobalSearchRequest $request GlobalSearchRequest
      *
-     * @param request - GlobalSearchRequest
-     *
-     * @returns GlobalSearchResponse
-     *
-     * @param GlobalSearchRequest $request
-     *
-     * @return GlobalSearchResponse
+     * @return GlobalSearchResponse GlobalSearchResponse
      */
     public function globalSearch($request)
     {
@@ -371,26 +365,20 @@ class IQS extends OpenApiClient
     }
 
     /**
-     * 通晓统一搜索API.
+     * @summary 通晓统一搜索API
+     *  *
+     * @param UnifiedSearchRequest $request UnifiedSearchRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UnifiedSearchRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UnifiedSearchResponse
-     *
-     * @param UnifiedSearchRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
-     *
-     * @return UnifiedSearchResponse
+     * @return UnifiedSearchResponse UnifiedSearchResponse
      */
     public function unifiedSearchWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => Utils::parseToMap($request->body),
+            'body' => OpenApiUtilClient::parseToMap($request->body),
         ]);
         $params = new Params([
             'action' => 'UnifiedSearch',
@@ -408,15 +396,11 @@ class IQS extends OpenApiClient
     }
 
     /**
-     * 通晓统一搜索API.
+     * @summary 通晓统一搜索API
+     *  *
+     * @param UnifiedSearchRequest $request UnifiedSearchRequest
      *
-     * @param request - UnifiedSearchRequest
-     *
-     * @returns UnifiedSearchResponse
-     *
-     * @param UnifiedSearchRequest $request
-     *
-     * @return UnifiedSearchResponse
+     * @return UnifiedSearchResponse UnifiedSearchResponse
      */
     public function unifiedSearch($request)
     {

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\IQS\V20241111\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UnifiedRewrite extends Model
 {
@@ -22,18 +22,14 @@ class UnifiedRewrite extends Model
         'timeRange' => 'timeRange',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->enabled) {
             $res['enabled'] = $this->enabled;
         }
-
         if (null !== $this->timeRange) {
             $res['timeRange'] = $this->timeRange;
         }
@@ -41,18 +37,17 @@ class UnifiedRewrite extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UnifiedRewrite
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['enabled'])) {
             $model->enabled = $map['enabled'];
         }
-
         if (isset($map['timeRange'])) {
             $model->timeRange = $map['timeRange'];
         }

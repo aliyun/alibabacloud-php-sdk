@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\IQS\V20241111\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\IQS\V20241111\Models\GlobalQueryContext\originalQuery;
+use AlibabaCloud\Tea\Model;
 
 class GlobalQueryContext extends Model
 {
@@ -17,29 +17,23 @@ class GlobalQueryContext extends Model
         'originalQuery' => 'originalQuery',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->originalQuery) {
-            $this->originalQuery->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->originalQuery) {
-            $res['originalQuery'] = null !== $this->originalQuery ? $this->originalQuery->toArray($noStream) : $this->originalQuery;
+            $res['originalQuery'] = null !== $this->originalQuery ? $this->originalQuery->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GlobalQueryContext
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

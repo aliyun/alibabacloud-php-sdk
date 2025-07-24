@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\IQS\V20241111\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class SearchInformation extends Model
 {
@@ -22,18 +22,14 @@ class SearchInformation extends Model
         'total' => 'total',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->searchTime) {
             $res['searchTime'] = $this->searchTime;
         }
-
         if (null !== $this->total) {
             $res['total'] = $this->total;
         }
@@ -41,18 +37,17 @@ class SearchInformation extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return SearchInformation
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['searchTime'])) {
             $model->searchTime = $map['searchTime'];
         }
-
         if (isset($map['total'])) {
             $model->total = $map['total'];
         }

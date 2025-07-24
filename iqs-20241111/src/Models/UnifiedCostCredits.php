@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\IQS\V20241111\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UnifiedCostCredits extends Model
 {
@@ -22,43 +22,32 @@ class UnifiedCostCredits extends Model
         'valueAdded' => 'valueAdded',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->search) {
-            $this->search->validate();
-        }
-        if (null !== $this->valueAdded) {
-            $this->valueAdded->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->search) {
-            $res['search'] = null !== $this->search ? $this->search->toArray($noStream) : $this->search;
+            $res['search'] = null !== $this->search ? $this->search->toMap() : null;
         }
-
         if (null !== $this->valueAdded) {
-            $res['valueAdded'] = null !== $this->valueAdded ? $this->valueAdded->toArray($noStream) : $this->valueAdded;
+            $res['valueAdded'] = null !== $this->valueAdded ? $this->valueAdded->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UnifiedCostCredits
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['search'])) {
             $model->search = SearchCredits::fromMap($map['search']);
         }
-
         if (isset($map['valueAdded'])) {
             $model->valueAdded = ValueAddedCredits::fromMap($map['valueAdded']);
         }
