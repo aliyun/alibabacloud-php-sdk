@@ -235,6 +235,11 @@ class instanceVO extends Model
     public $paidType;
 
     /**
+     * @var int
+     */
+    public $recommendedPartitionCount;
+
+    /**
      * @description The ID of the region where the instance resides.
      *
      * @example cn-hangzhou
@@ -549,6 +554,7 @@ class instanceVO extends Model
         'msgRetain' => 'MsgRetain',
         'name' => 'Name',
         'paidType' => 'PaidType',
+        'recommendedPartitionCount' => 'RecommendedPartitionCount',
         'regionId' => 'RegionId',
         'reservedPublishCapacity' => 'ReservedPublishCapacity',
         'reservedSubscribeCapacity' => 'ReservedSubscribeCapacity',
@@ -650,6 +656,9 @@ class instanceVO extends Model
         }
         if (null !== $this->paidType) {
             $res['PaidType'] = $this->paidType;
+        }
+        if (null !== $this->recommendedPartitionCount) {
+            $res['RecommendedPartitionCount'] = $this->recommendedPartitionCount;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -809,6 +818,9 @@ class instanceVO extends Model
         }
         if (isset($map['PaidType'])) {
             $model->paidType = $map['PaidType'];
+        }
+        if (isset($map['RecommendedPartitionCount'])) {
+            $model->recommendedPartitionCount = $map['RecommendedPartitionCount'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
