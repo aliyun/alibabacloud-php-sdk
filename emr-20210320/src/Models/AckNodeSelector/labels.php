@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models\AckNodeSelector;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class labels extends Model
 {
     /**
+     * @description 标签键。
+     *
+     * @example emr
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description 标签值。
+     *
+     * @example true
+     *
      * @var string
      */
     public $value;
@@ -22,18 +30,14 @@ class labels extends Model
         'value' => 'Value',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
-
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -41,18 +45,17 @@ class labels extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return labels
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
-
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

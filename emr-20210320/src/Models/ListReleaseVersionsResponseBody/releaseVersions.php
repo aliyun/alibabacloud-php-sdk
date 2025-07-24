@@ -4,21 +4,33 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models\ListReleaseVersionsResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class releaseVersions extends Model
 {
     /**
+     * @description The IaaS type.
+     *
+     * @example ECS
+     *
      * @var string
      */
     public $iaasType;
 
     /**
+     * @description The EMR version.
+     *
+     * @example EMR-5.3.0
+     *
      * @var string
      */
     public $releaseVersion;
 
     /**
+     * @description The version series.
+     *
+     * @example EMR-6.X
+     *
      * @var string
      */
     public $series;
@@ -28,22 +40,17 @@ class releaseVersions extends Model
         'series' => 'Series',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->iaasType) {
             $res['IaasType'] = $this->iaasType;
         }
-
         if (null !== $this->releaseVersion) {
             $res['ReleaseVersion'] = $this->releaseVersion;
         }
-
         if (null !== $this->series) {
             $res['Series'] = $this->series;
         }
@@ -51,22 +58,20 @@ class releaseVersions extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return releaseVersions
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IaasType'])) {
             $model->iaasType = $map['IaasType'];
         }
-
         if (isset($map['ReleaseVersion'])) {
             $model->releaseVersion = $map['ReleaseVersion'];
         }
-
         if (isset($map['Series'])) {
             $model->series = $map['Series'];
         }

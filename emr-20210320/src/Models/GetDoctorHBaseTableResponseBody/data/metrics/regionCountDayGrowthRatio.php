@@ -4,26 +4,42 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models\GetDoctorHBaseTableResponseBody\data\metrics;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class regionCountDayGrowthRatio extends Model
 {
     /**
+     * @description Metric description.
+     *
+     * @example Day growth ratio of region count
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description Metric name.
+     *
+     * @example regionCountDayGrowthRatio
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description Metric unit.
+     *
+     * @example ""
+     *
      * @var string
      */
     public $unit;
 
     /**
+     * @description Metric value.
+     *
+     * @example 0.8
+     *
      * @var float
      */
     public $value;
@@ -34,26 +50,20 @@ class regionCountDayGrowthRatio extends Model
         'value' => 'Value',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->unit) {
             $res['Unit'] = $this->unit;
         }
-
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -61,26 +71,23 @@ class regionCountDayGrowthRatio extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return regionCountDayGrowthRatio
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['Unit'])) {
             $model->unit = $map['Unit'];
         }
-
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

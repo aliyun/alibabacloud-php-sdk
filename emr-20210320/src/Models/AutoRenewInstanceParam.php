@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class AutoRenewInstanceParam extends Model
 {
@@ -34,26 +34,20 @@ class AutoRenewInstanceParam extends Model
         'instanceId' => 'InstanceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->autoRenew) {
             $res['AutoRenew'] = $this->autoRenew;
         }
-
         if (null !== $this->autoRenewDuration) {
             $res['AutoRenewDuration'] = $this->autoRenewDuration;
         }
-
         if (null !== $this->autoRenewDurationUnit) {
             $res['AutoRenewDurationUnit'] = $this->autoRenewDurationUnit;
         }
-
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -61,26 +55,23 @@ class AutoRenewInstanceParam extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return AutoRenewInstanceParam
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AutoRenew'])) {
             $model->autoRenew = $map['AutoRenew'];
         }
-
         if (isset($map['AutoRenewDuration'])) {
             $model->autoRenewDuration = $map['AutoRenewDuration'];
         }
-
         if (isset($map['AutoRenewDurationUnit'])) {
             $model->autoRenewDurationUnit = $map['AutoRenewDurationUnit'];
         }
-
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

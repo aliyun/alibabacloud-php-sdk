@@ -4,26 +4,34 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models\ListDoctorHDFSDirectoriesResponseBody\data\metrics;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class totalDataSizeDayGrowthRatio extends Model
 {
     /**
+     * @example Day growth ratio of total data size
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example totalDataSizeDayGrowthRatio
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example ”“
+     *
      * @var string
      */
     public $unit;
 
     /**
+     * @example 0.14
+     *
      * @var float
      */
     public $value;
@@ -34,26 +42,20 @@ class totalDataSizeDayGrowthRatio extends Model
         'value' => 'Value',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->unit) {
             $res['Unit'] = $this->unit;
         }
-
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -61,26 +63,23 @@ class totalDataSizeDayGrowthRatio extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return totalDataSizeDayGrowthRatio
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['Unit'])) {
             $model->unit = $map['Unit'];
         }
-
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

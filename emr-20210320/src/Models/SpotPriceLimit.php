@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class SpotPriceLimit extends Model
 {
@@ -22,18 +22,14 @@ class SpotPriceLimit extends Model
         'priceLimit' => 'PriceLimit',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
         }
-
         if (null !== $this->priceLimit) {
             $res['PriceLimit'] = $this->priceLimit;
         }
@@ -41,18 +37,17 @@ class SpotPriceLimit extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return SpotPriceLimit
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
         }
-
         if (isset($map['PriceLimit'])) {
             $model->priceLimit = $map['PriceLimit'];
         }

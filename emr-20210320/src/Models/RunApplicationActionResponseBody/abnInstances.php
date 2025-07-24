@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models\RunApplicationActionResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class abnInstances extends Model
 {
     /**
+     * @description The ID of the abnormal node.
+     *
+     * @example i-bp1cudc25w2bfwl5****
+     *
      * @var string
      */
     public $nodeId;
 
     /**
+     * @description The name of the abnormal node.
+     *
+     * @example core1-1
+     *
      * @var string
      */
     public $nodeName;
@@ -22,18 +30,14 @@ class abnInstances extends Model
         'nodeName' => 'NodeName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
         }
-
         if (null !== $this->nodeName) {
             $res['NodeName'] = $this->nodeName;
         }
@@ -41,18 +45,17 @@ class abnInstances extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return abnInstances
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
         }
-
         if (isset($map['NodeName'])) {
             $model->nodeName = $map['NodeName'];
         }

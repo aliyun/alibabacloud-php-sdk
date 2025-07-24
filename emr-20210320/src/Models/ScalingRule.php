@@ -4,41 +4,77 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ScalingRule extends Model
 {
     /**
+     * @description 伸缩活动类型。取值范围：
+     * - SCALE_OUT：扩容。
+     * - SCALE_IN：缩容。
+     *
+     * This parameter is required.
+     *
+     * @example SCALE_IN
+     *
      * @var string
      */
     public $activityType;
 
     /**
+     * @description 调整值。需要为正数，代表需要扩容或者缩容的实例数量。
+     *
+     * This parameter is required.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $adjustmentValue;
 
     /**
+     * @description 按照负载伸缩描述。
+     * <p>
+     *
      * @var MetricsTrigger
      */
     public $metricsTrigger;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $minAdjustmentValue;
 
     /**
+     * @description 规则名称。
+     *
+     * This parameter is required.
+     *
+     * @example scale-out-memory
+     *
      * @var string
      */
     public $ruleName;
 
     /**
+     * @description 按照时间伸缩描述。
+     * <p>
+     *
      * @var TimeTrigger
      */
     public $timeTrigger;
 
     /**
+     * @description 伸缩规则类型。 取值范围：
+     * - TIME_TRIGGER: 按时间伸缩。
+     * - METRICS_TRIGGER: 按负载伸缩。
+     *
+     * This parameter is required.
+     *
+     * @example TIME_TRIGGER
+     *
      * @var string
      */
     public $triggerType;
@@ -52,44 +88,29 @@ class ScalingRule extends Model
         'triggerType' => 'TriggerType',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->metricsTrigger) {
-            $this->metricsTrigger->validate();
-        }
-        if (null !== $this->timeTrigger) {
-            $this->timeTrigger->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->activityType) {
             $res['ActivityType'] = $this->activityType;
         }
-
         if (null !== $this->adjustmentValue) {
             $res['AdjustmentValue'] = $this->adjustmentValue;
         }
-
         if (null !== $this->metricsTrigger) {
-            $res['MetricsTrigger'] = null !== $this->metricsTrigger ? $this->metricsTrigger->toArray($noStream) : $this->metricsTrigger;
+            $res['MetricsTrigger'] = null !== $this->metricsTrigger ? $this->metricsTrigger->toMap() : null;
         }
-
         if (null !== $this->minAdjustmentValue) {
             $res['MinAdjustmentValue'] = $this->minAdjustmentValue;
         }
-
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
         }
-
         if (null !== $this->timeTrigger) {
-            $res['TimeTrigger'] = null !== $this->timeTrigger ? $this->timeTrigger->toArray($noStream) : $this->timeTrigger;
+            $res['TimeTrigger'] = null !== $this->timeTrigger ? $this->timeTrigger->toMap() : null;
         }
-
         if (null !== $this->triggerType) {
             $res['TriggerType'] = $this->triggerType;
         }
@@ -97,38 +118,32 @@ class ScalingRule extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ScalingRule
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ActivityType'])) {
             $model->activityType = $map['ActivityType'];
         }
-
         if (isset($map['AdjustmentValue'])) {
             $model->adjustmentValue = $map['AdjustmentValue'];
         }
-
         if (isset($map['MetricsTrigger'])) {
             $model->metricsTrigger = MetricsTrigger::fromMap($map['MetricsTrigger']);
         }
-
         if (isset($map['MinAdjustmentValue'])) {
             $model->minAdjustmentValue = $map['MinAdjustmentValue'];
         }
-
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];
         }
-
         if (isset($map['TimeTrigger'])) {
             $model->timeTrigger = TimeTrigger::fromMap($map['TimeTrigger']);
         }
-
         if (isset($map['TriggerType'])) {
             $model->triggerType = $map['TriggerType'];
         }

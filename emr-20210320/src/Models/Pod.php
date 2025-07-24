@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class Pod extends Model
 {
@@ -34,26 +34,20 @@ class Pod extends Model
         'reason' => 'Reason',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
-
         if (null !== $this->podName) {
             $res['PodName'] = $this->podName;
         }
-
         if (null !== $this->podStatus) {
             $res['PodStatus'] = $this->podStatus;
         }
-
         if (null !== $this->reason) {
             $res['Reason'] = $this->reason;
         }
@@ -61,26 +55,23 @@ class Pod extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return Pod
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
-
         if (isset($map['PodName'])) {
             $model->podName = $map['PodName'];
         }
-
         if (isset($map['PodStatus'])) {
             $model->podStatus = $map['PodStatus'];
         }
-
         if (isset($map['Reason'])) {
             $model->reason = $map['Reason'];
         }

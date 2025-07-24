@@ -4,7 +4,6 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models\GetDoctorHBaseClusterResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Emr\V20210320\Models\GetDoctorHBaseClusterResponseBody\data\metrics\avgLoad;
 use AlibabaCloud\SDK\Emr\V20210320\Models\GetDoctorHBaseClusterResponseBody\data\metrics\dailyReadRequest;
 use AlibabaCloud\SDK\Emr\V20210320\Models\GetDoctorHBaseClusterResponseBody\data\metrics\dailyWriteRequest;
@@ -19,75 +18,104 @@ use AlibabaCloud\SDK\Emr\V20210320\Models\GetDoctorHBaseClusterResponseBody\data
 use AlibabaCloud\SDK\Emr\V20210320\Models\GetDoctorHBaseClusterResponseBody\data\metrics\totalReadRequest;
 use AlibabaCloud\SDK\Emr\V20210320\Models\GetDoctorHBaseClusterResponseBody\data\metrics\totalRequest;
 use AlibabaCloud\SDK\Emr\V20210320\Models\GetDoctorHBaseClusterResponseBody\data\metrics\totalWriteRequest;
+use AlibabaCloud\Tea\Model;
 
 class metrics extends Model
 {
     /**
+     * @description The average load.
+     *
      * @var avgLoad
      */
     public $avgLoad;
 
     /**
+     * @description The number of read requests in a day.
+     *
      * @var dailyReadRequest
      */
     public $dailyReadRequest;
 
     /**
+     * @description The number of write requests in a day.
+     *
      * @var dailyWriteRequest
      */
     public $dailyWriteRequest;
 
     /**
+     * @description The memory size.
+     *
      * @var memHeap
      */
     public $memHeap;
 
     /**
+     * @description The normal average load.
+     *
      * @var normalAvgLoad
      */
     public $normalAvgLoad;
 
     /**
+     * @description The region balance degree.
+     *
      * @var regionBalance
      */
     public $regionBalance;
 
     /**
+     * @description The number of regions.
+     *
      * @var regionCount
      */
     public $regionCount;
 
     /**
+     * @description The number of region servers.
+     *
      * @var regionServerCount
      */
     public $regionServerCount;
 
     /**
+     * @description The number of StoreFiles.
+     *
      * @var storeFileCount
      */
     public $storeFileCount;
 
     /**
+     * @description The number of tables.
+     *
      * @var tableCount
      */
     public $tableCount;
 
     /**
+     * @description The size of the cluster.
+     *
      * @var totalDataSize
      */
     public $totalDataSize;
 
     /**
+     * @description The total number of read requests.
+     *
      * @var totalReadRequest
      */
     public $totalReadRequest;
 
     /**
+     * @description The total number of requests in the cluster.
+     *
      * @var totalRequest
      */
     public $totalRequest;
 
     /**
+     * @description The total number of write requests.
+     *
      * @var totalWriteRequest
      */
     public $totalWriteRequest;
@@ -108,175 +136,104 @@ class metrics extends Model
         'totalWriteRequest' => 'TotalWriteRequest',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->avgLoad) {
-            $this->avgLoad->validate();
-        }
-        if (null !== $this->dailyReadRequest) {
-            $this->dailyReadRequest->validate();
-        }
-        if (null !== $this->dailyWriteRequest) {
-            $this->dailyWriteRequest->validate();
-        }
-        if (null !== $this->memHeap) {
-            $this->memHeap->validate();
-        }
-        if (null !== $this->normalAvgLoad) {
-            $this->normalAvgLoad->validate();
-        }
-        if (null !== $this->regionBalance) {
-            $this->regionBalance->validate();
-        }
-        if (null !== $this->regionCount) {
-            $this->regionCount->validate();
-        }
-        if (null !== $this->regionServerCount) {
-            $this->regionServerCount->validate();
-        }
-        if (null !== $this->storeFileCount) {
-            $this->storeFileCount->validate();
-        }
-        if (null !== $this->tableCount) {
-            $this->tableCount->validate();
-        }
-        if (null !== $this->totalDataSize) {
-            $this->totalDataSize->validate();
-        }
-        if (null !== $this->totalReadRequest) {
-            $this->totalReadRequest->validate();
-        }
-        if (null !== $this->totalRequest) {
-            $this->totalRequest->validate();
-        }
-        if (null !== $this->totalWriteRequest) {
-            $this->totalWriteRequest->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->avgLoad) {
-            $res['AvgLoad'] = null !== $this->avgLoad ? $this->avgLoad->toArray($noStream) : $this->avgLoad;
+            $res['AvgLoad'] = null !== $this->avgLoad ? $this->avgLoad->toMap() : null;
         }
-
         if (null !== $this->dailyReadRequest) {
-            $res['DailyReadRequest'] = null !== $this->dailyReadRequest ? $this->dailyReadRequest->toArray($noStream) : $this->dailyReadRequest;
+            $res['DailyReadRequest'] = null !== $this->dailyReadRequest ? $this->dailyReadRequest->toMap() : null;
         }
-
         if (null !== $this->dailyWriteRequest) {
-            $res['DailyWriteRequest'] = null !== $this->dailyWriteRequest ? $this->dailyWriteRequest->toArray($noStream) : $this->dailyWriteRequest;
+            $res['DailyWriteRequest'] = null !== $this->dailyWriteRequest ? $this->dailyWriteRequest->toMap() : null;
         }
-
         if (null !== $this->memHeap) {
-            $res['MemHeap'] = null !== $this->memHeap ? $this->memHeap->toArray($noStream) : $this->memHeap;
+            $res['MemHeap'] = null !== $this->memHeap ? $this->memHeap->toMap() : null;
         }
-
         if (null !== $this->normalAvgLoad) {
-            $res['NormalAvgLoad'] = null !== $this->normalAvgLoad ? $this->normalAvgLoad->toArray($noStream) : $this->normalAvgLoad;
+            $res['NormalAvgLoad'] = null !== $this->normalAvgLoad ? $this->normalAvgLoad->toMap() : null;
         }
-
         if (null !== $this->regionBalance) {
-            $res['RegionBalance'] = null !== $this->regionBalance ? $this->regionBalance->toArray($noStream) : $this->regionBalance;
+            $res['RegionBalance'] = null !== $this->regionBalance ? $this->regionBalance->toMap() : null;
         }
-
         if (null !== $this->regionCount) {
-            $res['RegionCount'] = null !== $this->regionCount ? $this->regionCount->toArray($noStream) : $this->regionCount;
+            $res['RegionCount'] = null !== $this->regionCount ? $this->regionCount->toMap() : null;
         }
-
         if (null !== $this->regionServerCount) {
-            $res['RegionServerCount'] = null !== $this->regionServerCount ? $this->regionServerCount->toArray($noStream) : $this->regionServerCount;
+            $res['RegionServerCount'] = null !== $this->regionServerCount ? $this->regionServerCount->toMap() : null;
         }
-
         if (null !== $this->storeFileCount) {
-            $res['StoreFileCount'] = null !== $this->storeFileCount ? $this->storeFileCount->toArray($noStream) : $this->storeFileCount;
+            $res['StoreFileCount'] = null !== $this->storeFileCount ? $this->storeFileCount->toMap() : null;
         }
-
         if (null !== $this->tableCount) {
-            $res['TableCount'] = null !== $this->tableCount ? $this->tableCount->toArray($noStream) : $this->tableCount;
+            $res['TableCount'] = null !== $this->tableCount ? $this->tableCount->toMap() : null;
         }
-
         if (null !== $this->totalDataSize) {
-            $res['TotalDataSize'] = null !== $this->totalDataSize ? $this->totalDataSize->toArray($noStream) : $this->totalDataSize;
+            $res['TotalDataSize'] = null !== $this->totalDataSize ? $this->totalDataSize->toMap() : null;
         }
-
         if (null !== $this->totalReadRequest) {
-            $res['TotalReadRequest'] = null !== $this->totalReadRequest ? $this->totalReadRequest->toArray($noStream) : $this->totalReadRequest;
+            $res['TotalReadRequest'] = null !== $this->totalReadRequest ? $this->totalReadRequest->toMap() : null;
         }
-
         if (null !== $this->totalRequest) {
-            $res['TotalRequest'] = null !== $this->totalRequest ? $this->totalRequest->toArray($noStream) : $this->totalRequest;
+            $res['TotalRequest'] = null !== $this->totalRequest ? $this->totalRequest->toMap() : null;
         }
-
         if (null !== $this->totalWriteRequest) {
-            $res['TotalWriteRequest'] = null !== $this->totalWriteRequest ? $this->totalWriteRequest->toArray($noStream) : $this->totalWriteRequest;
+            $res['TotalWriteRequest'] = null !== $this->totalWriteRequest ? $this->totalWriteRequest->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return metrics
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AvgLoad'])) {
             $model->avgLoad = avgLoad::fromMap($map['AvgLoad']);
         }
-
         if (isset($map['DailyReadRequest'])) {
             $model->dailyReadRequest = dailyReadRequest::fromMap($map['DailyReadRequest']);
         }
-
         if (isset($map['DailyWriteRequest'])) {
             $model->dailyWriteRequest = dailyWriteRequest::fromMap($map['DailyWriteRequest']);
         }
-
         if (isset($map['MemHeap'])) {
             $model->memHeap = memHeap::fromMap($map['MemHeap']);
         }
-
         if (isset($map['NormalAvgLoad'])) {
             $model->normalAvgLoad = normalAvgLoad::fromMap($map['NormalAvgLoad']);
         }
-
         if (isset($map['RegionBalance'])) {
             $model->regionBalance = regionBalance::fromMap($map['RegionBalance']);
         }
-
         if (isset($map['RegionCount'])) {
             $model->regionCount = regionCount::fromMap($map['RegionCount']);
         }
-
         if (isset($map['RegionServerCount'])) {
             $model->regionServerCount = regionServerCount::fromMap($map['RegionServerCount']);
         }
-
         if (isset($map['StoreFileCount'])) {
             $model->storeFileCount = storeFileCount::fromMap($map['StoreFileCount']);
         }
-
         if (isset($map['TableCount'])) {
             $model->tableCount = tableCount::fromMap($map['TableCount']);
         }
-
         if (isset($map['TotalDataSize'])) {
             $model->totalDataSize = totalDataSize::fromMap($map['TotalDataSize']);
         }
-
         if (isset($map['TotalReadRequest'])) {
             $model->totalReadRequest = totalReadRequest::fromMap($map['TotalReadRequest']);
         }
-
         if (isset($map['TotalRequest'])) {
             $model->totalRequest = totalRequest::fromMap($map['TotalRequest']);
         }
-
         if (isset($map['TotalWriteRequest'])) {
             $model->totalWriteRequest = totalWriteRequest::fromMap($map['TotalWriteRequest']);
         }

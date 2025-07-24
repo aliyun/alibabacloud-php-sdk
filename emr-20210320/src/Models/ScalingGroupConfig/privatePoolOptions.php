@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models\ScalingGroupConfig;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class privatePoolOptions extends Model
 {
     /**
+     * @description 私有池id。
+     *
+     * @example eap-bp67acfmxazb4****
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description 实例启动的私有池容量选项。。
+     *
+     * @example Open
+     *
      * @var string
      */
     public $matchCriteria;
@@ -22,18 +30,14 @@ class privatePoolOptions extends Model
         'matchCriteria' => 'MatchCriteria',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->matchCriteria) {
             $res['MatchCriteria'] = $this->matchCriteria;
         }
@@ -41,18 +45,17 @@ class privatePoolOptions extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return privatePoolOptions
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['MatchCriteria'])) {
             $model->matchCriteria = $map['MatchCriteria'];
         }

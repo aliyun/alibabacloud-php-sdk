@@ -4,21 +4,29 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class NodeCountConstraint extends Model
 {
     /**
+     * @example 100
+     *
      * @var int
      */
     public $max;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $min;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example range
+     *
      * @var string
      */
     public $type;
@@ -34,71 +42,47 @@ class NodeCountConstraint extends Model
         'values' => 'Values',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->values)) {
-            Model::validateArray($this->values);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->max) {
             $res['Max'] = $this->max;
         }
-
         if (null !== $this->min) {
             $res['Min'] = $this->min;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
-
         if (null !== $this->values) {
-            if (\is_array($this->values)) {
-                $res['Values'] = [];
-                $n1 = 0;
-                foreach ($this->values as $item1) {
-                    $res['Values'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['Values'] = $this->values;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return NodeCountConstraint
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Max'])) {
             $model->max = $map['Max'];
         }
-
         if (isset($map['Min'])) {
             $model->min = $map['Min'];
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
-
         if (isset($map['Values'])) {
             if (!empty($map['Values'])) {
-                $model->values = [];
-                $n1 = 0;
-                foreach ($map['Values'] as $item1) {
-                    $model->values[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->values = $map['Values'];
             }
         }
 

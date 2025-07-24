@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeploymentLayout extends Model
 {
@@ -28,48 +28,38 @@ class DeploymentLayout extends Model
         'nodeSelector' => 'NodeSelector',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->nodeSelector) {
-            $this->nodeSelector->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->applicationName) {
             $res['ApplicationName'] = $this->applicationName;
         }
-
         if (null !== $this->componentName) {
             $res['ComponentName'] = $this->componentName;
         }
-
         if (null !== $this->nodeSelector) {
-            $res['NodeSelector'] = null !== $this->nodeSelector ? $this->nodeSelector->toArray($noStream) : $this->nodeSelector;
+            $res['NodeSelector'] = null !== $this->nodeSelector ? $this->nodeSelector->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeploymentLayout
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApplicationName'])) {
             $model->applicationName = $map['ApplicationName'];
         }
-
         if (isset($map['ComponentName'])) {
             $model->componentName = $map['ComponentName'];
         }
-
         if (isset($map['NodeSelector'])) {
             $model->nodeSelector = NodeSelector::fromMap($map['NodeSelector']);
         }

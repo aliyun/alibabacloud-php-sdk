@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class MetricUnitValue extends Model
 {
     /**
+     * @description 指标名称。
+     *
      * @var string
      */
     public $metricName;
 
     /**
+     * @description 指标单位。
+     *
      * @var string
      */
     public $metricUnit;
@@ -22,18 +26,14 @@ class MetricUnitValue extends Model
         'metricUnit' => 'MetricUnit',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->metricName) {
             $res['MetricName'] = $this->metricName;
         }
-
         if (null !== $this->metricUnit) {
             $res['MetricUnit'] = $this->metricUnit;
         }
@@ -41,18 +41,17 @@ class MetricUnitValue extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return MetricUnitValue
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MetricName'])) {
             $model->metricName = $map['MetricName'];
         }
-
         if (isset($map['MetricUnit'])) {
             $model->metricUnit = $map['MetricUnit'];
         }

@@ -4,16 +4,28 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ApplicationConfigFile extends Model
 {
     /**
+     * @description 应用名称。
+     *
+     * This parameter is required.
+     *
+     * @example HDFS
+     *
      * @var string
      */
     public $applicationName;
 
     /**
+     * @description 配置文件名称。
+     *
+     * This parameter is required.
+     *
+     * @example core-site.xml
+     *
      * @var string
      */
     public $configFileName;
@@ -22,18 +34,14 @@ class ApplicationConfigFile extends Model
         'configFileName' => 'ConfigFileName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->applicationName) {
             $res['ApplicationName'] = $this->applicationName;
         }
-
         if (null !== $this->configFileName) {
             $res['ConfigFileName'] = $this->configFileName;
         }
@@ -41,18 +49,17 @@ class ApplicationConfigFile extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ApplicationConfigFile
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApplicationName'])) {
             $model->applicationName = $map['ApplicationName'];
         }
-
         if (isset($map['ConfigFileName'])) {
             $model->configFileName = $map['ConfigFileName'];
         }

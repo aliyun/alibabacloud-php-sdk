@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ClusterScript extends Model
 {
     /**
+     * @example 取值:FAILED_CONTINUE, FAILED_BLOCKED
+     *
      * @var string
      */
     public $executionFailStrategy;
 
     /**
+     * @example 取值:BEFORE_INSTALL, AFTER_STARTED
+     *
      * @var string
      */
     public $executionMoment;
@@ -52,41 +56,29 @@ class ClusterScript extends Model
         'scriptPath' => 'ScriptPath',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->nodeSelect) {
-            $this->nodeSelect->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->executionFailStrategy) {
             $res['ExecutionFailStrategy'] = $this->executionFailStrategy;
         }
-
         if (null !== $this->executionMoment) {
             $res['ExecutionMoment'] = $this->executionMoment;
         }
-
         if (null !== $this->nodeSelect) {
-            $res['NodeSelect'] = null !== $this->nodeSelect ? $this->nodeSelect->toArray($noStream) : $this->nodeSelect;
+            $res['NodeSelect'] = null !== $this->nodeSelect ? $this->nodeSelect->toMap() : null;
         }
-
         if (null !== $this->priority) {
             $res['Priority'] = $this->priority;
         }
-
         if (null !== $this->scriptArgs) {
             $res['ScriptArgs'] = $this->scriptArgs;
         }
-
         if (null !== $this->scriptName) {
             $res['ScriptName'] = $this->scriptName;
         }
-
         if (null !== $this->scriptPath) {
             $res['ScriptPath'] = $this->scriptPath;
         }
@@ -94,38 +86,32 @@ class ClusterScript extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ClusterScript
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExecutionFailStrategy'])) {
             $model->executionFailStrategy = $map['ExecutionFailStrategy'];
         }
-
         if (isset($map['ExecutionMoment'])) {
             $model->executionMoment = $map['ExecutionMoment'];
         }
-
         if (isset($map['NodeSelect'])) {
             $model->nodeSelect = NodeSelector::fromMap($map['NodeSelect']);
         }
-
         if (isset($map['Priority'])) {
             $model->priority = $map['Priority'];
         }
-
         if (isset($map['ScriptArgs'])) {
             $model->scriptArgs = $map['ScriptArgs'];
         }
-
         if (isset($map['ScriptName'])) {
             $model->scriptName = $map['ScriptName'];
         }
-
         if (isset($map['ScriptPath'])) {
             $model->scriptPath = $map['ScriptPath'];
         }

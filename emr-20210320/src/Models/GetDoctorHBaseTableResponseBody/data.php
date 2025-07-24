@@ -4,18 +4,22 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models\GetDoctorHBaseTableResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Emr\V20210320\Models\GetDoctorHBaseTableResponseBody\data\analysis;
 use AlibabaCloud\SDK\Emr\V20210320\Models\GetDoctorHBaseTableResponseBody\data\metrics;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description Diagnostic results.
+     *
      * @var analysis
      */
     public $analysis;
 
     /**
+     * @description Metrics information.
+     *
      * @var metrics
      */
     public $metrics;
@@ -24,43 +28,32 @@ class data extends Model
         'metrics' => 'Metrics',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->analysis) {
-            $this->analysis->validate();
-        }
-        if (null !== $this->metrics) {
-            $this->metrics->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->analysis) {
-            $res['Analysis'] = null !== $this->analysis ? $this->analysis->toArray($noStream) : $this->analysis;
+            $res['Analysis'] = null !== $this->analysis ? $this->analysis->toMap() : null;
         }
-
         if (null !== $this->metrics) {
-            $res['Metrics'] = null !== $this->metrics ? $this->metrics->toArray($noStream) : $this->metrics;
+            $res['Metrics'] = null !== $this->metrics ? $this->metrics->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Analysis'])) {
             $model->analysis = analysis::fromMap($map['Analysis']);
         }
-
         if (isset($map['Metrics'])) {
             $model->metrics = metrics::fromMap($map['Metrics']);
         }

@@ -4,17 +4,23 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Emr\V20210320\Models\GetDoctorHDFSClusterResponseBody\data;
+use AlibabaCloud\Tea\Model;
 
 class GetDoctorHDFSClusterResponseBody extends Model
 {
     /**
+     * @description The HDFS analysis results.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The request ID.
+     *
+     * @example DD6B1B2A-5837-5237-ABE4-FF0C8944****
+     *
      * @var string
      */
     public $requestId;
@@ -23,21 +29,14 @@ class GetDoctorHDFSClusterResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->data) {
-            $this->data->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,18 +44,17 @@ class GetDoctorHDFSClusterResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetDoctorHDFSClusterResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Data'])) {
             $model->data = data::fromMap($map['Data']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

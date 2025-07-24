@@ -4,7 +4,8 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320;
 
-use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Emr\V20210320\Models\CreateApiTemplateRequest;
 use AlibabaCloud\SDK\Emr\V20210320\Models\CreateApiTemplateResponse;
 use AlibabaCloud\SDK\Emr\V20210320\Models\CreateClusterRequest;
@@ -64,6 +65,8 @@ use AlibabaCloud\SDK\Emr\V20210320\Models\GetDoctorJobRequest;
 use AlibabaCloud\SDK\Emr\V20210320\Models\GetDoctorJobResponse;
 use AlibabaCloud\SDK\Emr\V20210320\Models\GetDoctorReportComponentSummaryRequest;
 use AlibabaCloud\SDK\Emr\V20210320\Models\GetDoctorReportComponentSummaryResponse;
+use AlibabaCloud\SDK\Emr\V20210320\Models\GetManagedScalingPolicyRequest;
+use AlibabaCloud\SDK\Emr\V20210320\Models\GetManagedScalingPolicyResponse;
 use AlibabaCloud\SDK\Emr\V20210320\Models\GetNodeGroupRequest;
 use AlibabaCloud\SDK\Emr\V20210320\Models\GetNodeGroupResponse;
 use AlibabaCloud\SDK\Emr\V20210320\Models\GetOperationRequest;
@@ -150,10 +153,12 @@ use AlibabaCloud\SDK\Emr\V20210320\Models\UpdateScriptResponse;
 use AlibabaCloud\SDK\Emr\V20210320\Models\UpdateScriptShrinkRequest;
 use AlibabaCloud\SDK\Emr\V20210320\Models\UpdateUserAttributeRequest;
 use AlibabaCloud\SDK\Emr\V20210320\Models\UpdateUserAttributeResponse;
+use AlibabaCloud\Tea\Tea;
+use AlibabaCloud\Tea\Utils\Utils;
+use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
-use Darabonba\OpenApi\Utils;
 
 class Emr extends OpenApiClient
 {
@@ -222,56 +227,45 @@ class Emr extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (null !== $endpoint) {
+        if (!Utils::empty_($endpoint)) {
             return $endpoint;
         }
-
-        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
+        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
             return @$endpointMap[$regionId];
         }
 
-        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * Creates a predefined API operation template. The template contains information about an API operation, including the basic structure, request method, URL path, request parameters, and response format.
+     * @summary Creates a predefined API operation template. The template contains information about an API operation, including the basic structure, request method, URL path, request parameters, and response format.
+     *  *
+     * @param CreateApiTemplateRequest $request CreateApiTemplateRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateApiTemplateRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateApiTemplateResponse
-     *
-     * @param CreateApiTemplateRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return CreateApiTemplateResponse
+     * @return CreateApiTemplateResponse CreateApiTemplateResponse
      */
     public function createApiTemplateWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->apiName) {
-            @$query['ApiName'] = $request->apiName;
+        if (!Utils::isUnset($request->apiName)) {
+            $query['ApiName'] = $request->apiName;
         }
-
-        if (null !== $request->content) {
-            @$query['Content'] = $request->content;
+        if (!Utils::isUnset($request->content)) {
+            $query['Content'] = $request->content;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->templateName) {
-            @$query['TemplateName'] = $request->templateName;
+        if (!Utils::isUnset($request->templateName)) {
+            $query['TemplateName'] = $request->templateName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateApiTemplate',
@@ -289,15 +283,11 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Creates a predefined API operation template. The template contains information about an API operation, including the basic structure, request method, URL path, request parameters, and response format.
+     * @summary Creates a predefined API operation template. The template contains information about an API operation, including the basic structure, request method, URL path, request parameters, and response format.
+     *  *
+     * @param CreateApiTemplateRequest $request CreateApiTemplateRequest
      *
-     * @param request - CreateApiTemplateRequest
-     *
-     * @returns CreateApiTemplateResponse
-     *
-     * @param CreateApiTemplateRequest $request
-     *
-     * @return CreateApiTemplateResponse
+     * @return CreateApiTemplateResponse CreateApiTemplateResponse
      */
     public function createApiTemplate($request)
     {
@@ -307,96 +297,73 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Creates a pay-as-you-go or subscription cluster.
+     * @summary Creates a pay-as-you-go or subscription cluster.
+     *  *
+     * @param CreateClusterRequest $request CreateClusterRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateClusterRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateClusterResponse
-     *
-     * @param CreateClusterRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return CreateClusterResponse
+     * @return CreateClusterResponse CreateClusterResponse
      */
     public function createClusterWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->applicationConfigs) {
-            @$query['ApplicationConfigs'] = $request->applicationConfigs;
+        if (!Utils::isUnset($request->applicationConfigs)) {
+            $query['ApplicationConfigs'] = $request->applicationConfigs;
         }
-
-        if (null !== $request->applications) {
-            @$query['Applications'] = $request->applications;
+        if (!Utils::isUnset($request->applications)) {
+            $query['Applications'] = $request->applications;
         }
-
-        if (null !== $request->bootstrapScripts) {
-            @$query['BootstrapScripts'] = $request->bootstrapScripts;
+        if (!Utils::isUnset($request->bootstrapScripts)) {
+            $query['BootstrapScripts'] = $request->bootstrapScripts;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->clusterName) {
-            @$query['ClusterName'] = $request->clusterName;
+        if (!Utils::isUnset($request->clusterName)) {
+            $query['ClusterName'] = $request->clusterName;
         }
-
-        if (null !== $request->clusterType) {
-            @$query['ClusterType'] = $request->clusterType;
+        if (!Utils::isUnset($request->clusterType)) {
+            $query['ClusterType'] = $request->clusterType;
         }
-
-        if (null !== $request->deletionProtection) {
-            @$query['DeletionProtection'] = $request->deletionProtection;
+        if (!Utils::isUnset($request->deletionProtection)) {
+            $query['DeletionProtection'] = $request->deletionProtection;
         }
-
-        if (null !== $request->deployMode) {
-            @$query['DeployMode'] = $request->deployMode;
+        if (!Utils::isUnset($request->deployMode)) {
+            $query['DeployMode'] = $request->deployMode;
         }
-
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->nodeAttributes) {
-            @$query['NodeAttributes'] = $request->nodeAttributes;
+        if (!Utils::isUnset($request->nodeAttributes)) {
+            $query['NodeAttributes'] = $request->nodeAttributes;
         }
-
-        if (null !== $request->nodeGroups) {
-            @$query['NodeGroups'] = $request->nodeGroups;
+        if (!Utils::isUnset($request->nodeGroups)) {
+            $query['NodeGroups'] = $request->nodeGroups;
         }
-
-        if (null !== $request->paymentType) {
-            @$query['PaymentType'] = $request->paymentType;
+        if (!Utils::isUnset($request->paymentType)) {
+            $query['PaymentType'] = $request->paymentType;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->releaseVersion) {
-            @$query['ReleaseVersion'] = $request->releaseVersion;
+        if (!Utils::isUnset($request->releaseVersion)) {
+            $query['ReleaseVersion'] = $request->releaseVersion;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->securityMode) {
-            @$query['SecurityMode'] = $request->securityMode;
+        if (!Utils::isUnset($request->securityMode)) {
+            $query['SecurityMode'] = $request->securityMode;
         }
-
-        if (null !== $request->subscriptionConfig) {
-            @$query['SubscriptionConfig'] = $request->subscriptionConfig;
+        if (!Utils::isUnset($request->subscriptionConfig)) {
+            $query['SubscriptionConfig'] = $request->subscriptionConfig;
         }
-
-        if (null !== $request->tags) {
-            @$query['Tags'] = $request->tags;
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateCluster',
@@ -414,15 +381,11 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Creates a pay-as-you-go or subscription cluster.
+     * @summary Creates a pay-as-you-go or subscription cluster.
+     *  *
+     * @param CreateClusterRequest $request CreateClusterRequest
      *
-     * @param request - CreateClusterRequest
-     *
-     * @returns CreateClusterResponse
-     *
-     * @param CreateClusterRequest $request
-     *
-     * @return CreateClusterResponse
+     * @return CreateClusterResponse CreateClusterResponse
      */
     public function createCluster($request)
     {
@@ -432,39 +395,30 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Creates a node group.
+     * @summary Creates a node group.
+     *  *
+     * @description 创建节点组。
+     *  *
+     * @param CreateNodeGroupRequest $request CreateNodeGroupRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * 创建节点组。
-     *
-     * @param request - CreateNodeGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateNodeGroupResponse
-     *
-     * @param CreateNodeGroupRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return CreateNodeGroupResponse
+     * @return CreateNodeGroupResponse CreateNodeGroupResponse
      */
     public function createNodeGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->nodeGroup) {
-            @$query['NodeGroup'] = $request->nodeGroup;
+        if (!Utils::isUnset($request->nodeGroup)) {
+            $query['NodeGroup'] = $request->nodeGroup;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateNodeGroup',
@@ -482,18 +436,13 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Creates a node group.
+     * @summary Creates a node group.
+     *  *
+     * @description 创建节点组。
+     *  *
+     * @param CreateNodeGroupRequest $request CreateNodeGroupRequest
      *
-     * @remarks
-     * 创建节点组。
-     *
-     * @param request - CreateNodeGroupRequest
-     *
-     * @returns CreateNodeGroupResponse
-     *
-     * @param CreateNodeGroupRequest $request
-     *
-     * @return CreateNodeGroupResponse
+     * @return CreateNodeGroupResponse CreateNodeGroupResponse
      */
     public function createNodeGroup($request)
     {
@@ -503,44 +452,34 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Adds a bootstrap action or a common script of an E-MapReduce (EMR) cluster.
+     * @summary Adds a bootstrap action or a common script of an E-MapReduce (EMR) cluster.
+     *  *
+     * @param CreateScriptRequest $request CreateScriptRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateScriptRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateScriptResponse
-     *
-     * @param CreateScriptRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return CreateScriptResponse
+     * @return CreateScriptResponse CreateScriptResponse
      */
     public function createScriptWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->scriptType) {
-            @$query['ScriptType'] = $request->scriptType;
+        if (!Utils::isUnset($request->scriptType)) {
+            $query['ScriptType'] = $request->scriptType;
         }
-
-        if (null !== $request->scripts) {
-            @$query['Scripts'] = $request->scripts;
+        if (!Utils::isUnset($request->scripts)) {
+            $query['Scripts'] = $request->scripts;
         }
-
-        if (null !== $request->timeoutSecs) {
-            @$query['TimeoutSecs'] = $request->timeoutSecs;
+        if (!Utils::isUnset($request->timeoutSecs)) {
+            $query['TimeoutSecs'] = $request->timeoutSecs;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateScript',
@@ -558,15 +497,11 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Adds a bootstrap action or a common script of an E-MapReduce (EMR) cluster.
+     * @summary Adds a bootstrap action or a common script of an E-MapReduce (EMR) cluster.
+     *  *
+     * @param CreateScriptRequest $request CreateScriptRequest
      *
-     * @param request - CreateScriptRequest
-     *
-     * @returns CreateScriptResponse
-     *
-     * @param CreateScriptRequest $request
-     *
-     * @return CreateScriptResponse
+     * @return CreateScriptResponse CreateScriptResponse
      */
     public function createScript($request)
     {
@@ -576,39 +511,30 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Creates multiple users at a time.
+     * @summary Creates multiple users at a time.
+     *  *
+     * @description You can call this operation to create multiple users at a time.
+     *  *
+     * @param CreateUsersRequest $request CreateUsersRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can call this operation to create multiple users at a time.
-     *
-     * @param request - CreateUsersRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateUsersResponse
-     *
-     * @param CreateUsersRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return CreateUsersResponse
+     * @return CreateUsersResponse CreateUsersResponse
      */
     public function createUsersWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->users) {
-            @$query['Users'] = $request->users;
+        if (!Utils::isUnset($request->users)) {
+            $query['Users'] = $request->users;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateUsers',
@@ -626,18 +552,13 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Creates multiple users at a time.
+     * @summary Creates multiple users at a time.
+     *  *
+     * @description You can call this operation to create multiple users at a time.
+     *  *
+     * @param CreateUsersRequest $request CreateUsersRequest
      *
-     * @remarks
-     * You can call this operation to create multiple users at a time.
-     *
-     * @param request - CreateUsersRequest
-     *
-     * @returns CreateUsersResponse
-     *
-     * @param CreateUsersRequest $request
-     *
-     * @return CreateUsersResponse
+     * @return CreateUsersResponse CreateUsersResponse
      */
     public function createUsers($request)
     {
@@ -647,52 +568,40 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Performs a scale-out operation on the target node group.
+     * @summary Performs a scale-out operation on the target node group.
+     *  *
+     * @param DecreaseNodesRequest $request DecreaseNodesRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DecreaseNodesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DecreaseNodesResponse
-     *
-     * @param DecreaseNodesRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return DecreaseNodesResponse
+     * @return DecreaseNodesResponse DecreaseNodesResponse
      */
     public function decreaseNodesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->batchInterval) {
-            @$query['BatchInterval'] = $request->batchInterval;
+        if (!Utils::isUnset($request->batchInterval)) {
+            $query['BatchInterval'] = $request->batchInterval;
         }
-
-        if (null !== $request->batchSize) {
-            @$query['BatchSize'] = $request->batchSize;
+        if (!Utils::isUnset($request->batchSize)) {
+            $query['BatchSize'] = $request->batchSize;
         }
-
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->decreaseNodeCount) {
-            @$query['DecreaseNodeCount'] = $request->decreaseNodeCount;
+        if (!Utils::isUnset($request->decreaseNodeCount)) {
+            $query['DecreaseNodeCount'] = $request->decreaseNodeCount;
         }
-
-        if (null !== $request->nodeGroupId) {
-            @$query['NodeGroupId'] = $request->nodeGroupId;
+        if (!Utils::isUnset($request->nodeGroupId)) {
+            $query['NodeGroupId'] = $request->nodeGroupId;
         }
-
-        if (null !== $request->nodeIds) {
-            @$query['NodeIds'] = $request->nodeIds;
+        if (!Utils::isUnset($request->nodeIds)) {
+            $query['NodeIds'] = $request->nodeIds;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DecreaseNodes',
@@ -710,15 +619,11 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Performs a scale-out operation on the target node group.
+     * @summary Performs a scale-out operation on the target node group.
+     *  *
+     * @param DecreaseNodesRequest $request DecreaseNodesRequest
      *
-     * @param request - DecreaseNodesRequest
-     *
-     * @returns DecreaseNodesResponse
-     *
-     * @param DecreaseNodesRequest $request
-     *
-     * @return DecreaseNodesResponse
+     * @return DecreaseNodesResponse DecreaseNodesResponse
      */
     public function decreaseNodes($request)
     {
@@ -728,40 +633,31 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Deletes an API operation template.
+     * @summary Deletes an API operation template.
+     *  *
+     * @param DeleteApiTemplateRequest $request DeleteApiTemplateRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteApiTemplateRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteApiTemplateResponse
-     *
-     * @param DeleteApiTemplateRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return DeleteApiTemplateResponse
+     * @return DeleteApiTemplateResponse DeleteApiTemplateResponse
      */
     public function deleteApiTemplateWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->apiName) {
-            @$query['ApiName'] = $request->apiName;
+        if (!Utils::isUnset($request->apiName)) {
+            $query['ApiName'] = $request->apiName;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->templateId) {
-            @$query['TemplateId'] = $request->templateId;
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteApiTemplate',
@@ -779,15 +675,11 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Deletes an API operation template.
+     * @summary Deletes an API operation template.
+     *  *
+     * @param DeleteApiTemplateRequest $request DeleteApiTemplateRequest
      *
-     * @param request - DeleteApiTemplateRequest
-     *
-     * @returns DeleteApiTemplateResponse
-     *
-     * @param DeleteApiTemplateRequest $request
-     *
-     * @return DeleteApiTemplateResponse
+     * @return DeleteApiTemplateResponse DeleteApiTemplateResponse
      */
     public function deleteApiTemplate($request)
     {
@@ -797,30 +689,23 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @param request - DeleteClusterRequest
-     * @param runtime - runtime options for this request RuntimeOptions
+     * @param DeleteClusterRequest $request DeleteClusterRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @returns DeleteClusterResponse
-     *
-     * @param DeleteClusterRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return DeleteClusterResponse
+     * @return DeleteClusterResponse DeleteClusterResponse
      */
     public function deleteClusterWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteCluster',
@@ -838,13 +723,9 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @param request - DeleteClusterRequest
+     * @param DeleteClusterRequest $request DeleteClusterRequest
      *
-     * @returns DeleteClusterResponse
-     *
-     * @param DeleteClusterRequest $request
-     *
-     * @return DeleteClusterResponse
+     * @return DeleteClusterResponse DeleteClusterResponse
      */
     public function deleteCluster($request)
     {
@@ -854,40 +735,31 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Deletes a bootstrap action or a common script of an E-MapReduce (EMR) cluster.
+     * @summary Deletes a bootstrap action or a common script of an E-MapReduce (EMR) cluster.
+     *  *
+     * @param DeleteScriptRequest $request DeleteScriptRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteScriptRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteScriptResponse
-     *
-     * @param DeleteScriptRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return DeleteScriptResponse
+     * @return DeleteScriptResponse DeleteScriptResponse
      */
     public function deleteScriptWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->scriptId) {
-            @$query['ScriptId'] = $request->scriptId;
+        if (!Utils::isUnset($request->scriptId)) {
+            $query['ScriptId'] = $request->scriptId;
         }
-
-        if (null !== $request->scriptType) {
-            @$query['ScriptType'] = $request->scriptType;
+        if (!Utils::isUnset($request->scriptType)) {
+            $query['ScriptType'] = $request->scriptType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteScript',
@@ -905,15 +777,11 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Deletes a bootstrap action or a common script of an E-MapReduce (EMR) cluster.
+     * @summary Deletes a bootstrap action or a common script of an E-MapReduce (EMR) cluster.
+     *  *
+     * @param DeleteScriptRequest $request DeleteScriptRequest
      *
-     * @param request - DeleteScriptRequest
-     *
-     * @returns DeleteScriptResponse
-     *
-     * @param DeleteScriptRequest $request
-     *
-     * @return DeleteScriptResponse
+     * @return DeleteScriptResponse DeleteScriptResponse
      */
     public function deleteScript($request)
     {
@@ -923,47 +791,37 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Deletes multiple users at a time.
+     * @summary Deletes multiple users at a time.
+     *  *
+     * @description Deletes multiple users at a time.
+     *  *
+     * @param DeleteUsersRequest $tmpReq  DeleteUsersRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * Deletes multiple users at a time.
-     *
-     * @param tmpReq - DeleteUsersRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteUsersResponse
-     *
-     * @param DeleteUsersRequest $tmpReq
-     * @param RuntimeOptions     $runtime
-     *
-     * @return DeleteUsersResponse
+     * @return DeleteUsersResponse DeleteUsersResponse
      */
     public function deleteUsersWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new DeleteUsersShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->userNames) {
-            $request->userNamesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userNames, 'UserNames', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->userNames)) {
+            $request->userNamesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userNames, 'UserNames', 'json');
         }
-
         $query = [];
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $body = [];
-        if (null !== $request->clusterId) {
-            @$body['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $body['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->userNamesShrink) {
-            @$body['UserNames'] = $request->userNamesShrink;
+        if (!Utils::isUnset($request->userNamesShrink)) {
+            $body['UserNames'] = $request->userNamesShrink;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DeleteUsers',
@@ -981,18 +839,13 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Deletes multiple users at a time.
+     * @summary Deletes multiple users at a time.
+     *  *
+     * @description Deletes multiple users at a time.
+     *  *
+     * @param DeleteUsersRequest $request DeleteUsersRequest
      *
-     * @remarks
-     * Deletes multiple users at a time.
-     *
-     * @param request - DeleteUsersRequest
-     *
-     * @returns DeleteUsersResponse
-     *
-     * @param DeleteUsersRequest $request
-     *
-     * @return DeleteUsersResponse
+     * @return DeleteUsersResponse DeleteUsersResponse
      */
     public function deleteUsers($request)
     {
@@ -1002,32 +855,25 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Queries the detailed configuration information about an API operation template.
+     * @summary Queries the detailed configuration information about an API operation template.
+     *  *
+     * @param GetApiTemplateRequest $request GetApiTemplateRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetApiTemplateRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetApiTemplateResponse
-     *
-     * @param GetApiTemplateRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return GetApiTemplateResponse
+     * @return GetApiTemplateResponse GetApiTemplateResponse
      */
     public function getApiTemplateWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->templateId) {
-            @$query['TemplateId'] = $request->templateId;
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetApiTemplate',
@@ -1045,15 +891,11 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Queries the detailed configuration information about an API operation template.
+     * @summary Queries the detailed configuration information about an API operation template.
+     *  *
+     * @param GetApiTemplateRequest $request GetApiTemplateRequest
      *
-     * @param request - GetApiTemplateRequest
-     *
-     * @returns GetApiTemplateResponse
-     *
-     * @param GetApiTemplateRequest $request
-     *
-     * @return GetApiTemplateResponse
+     * @return GetApiTemplateResponse GetApiTemplateResponse
      */
     public function getApiTemplate($request)
     {
@@ -1063,37 +905,28 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @remarks
-     * 查询应用详情。
+     * @description 查询应用详情。
+     *  *
+     * @param GetApplicationRequest $request GetApplicationRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetApplicationRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetApplicationResponse
-     *
-     * @param GetApplicationRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return GetApplicationResponse
+     * @return GetApplicationResponse GetApplicationResponse
      */
     public function getApplicationWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->applicationName) {
-            @$query['ApplicationName'] = $request->applicationName;
+        if (!Utils::isUnset($request->applicationName)) {
+            $query['ApplicationName'] = $request->applicationName;
         }
-
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetApplication',
@@ -1111,16 +944,11 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @remarks
-     * 查询应用详情。
+     * @description 查询应用详情。
+     *  *
+     * @param GetApplicationRequest $request GetApplicationRequest
      *
-     * @param request - GetApplicationRequest
-     *
-     * @returns GetApplicationResponse
-     *
-     * @param GetApplicationRequest $request
-     *
-     * @return GetApplicationResponse
+     * @return GetApplicationResponse GetApplicationResponse
      */
     public function getApplication($request)
     {
@@ -1130,36 +958,28 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Queries the information about an auto scaling activity.
+     * @summary Queries the information about an auto scaling activity.
+     *  *
+     * @param GetAutoScalingActivityRequest $request GetAutoScalingActivityRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetAutoScalingActivityRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetAutoScalingActivityResponse
-     *
-     * @param GetAutoScalingActivityRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return GetAutoScalingActivityResponse
+     * @return GetAutoScalingActivityResponse GetAutoScalingActivityResponse
      */
     public function getAutoScalingActivityWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->scalingActivityId) {
-            @$query['ScalingActivityId'] = $request->scalingActivityId;
+        if (!Utils::isUnset($request->scalingActivityId)) {
+            $query['ScalingActivityId'] = $request->scalingActivityId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetAutoScalingActivity',
@@ -1177,15 +997,11 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Queries the information about an auto scaling activity.
+     * @summary Queries the information about an auto scaling activity.
+     *  *
+     * @param GetAutoScalingActivityRequest $request GetAutoScalingActivityRequest
      *
-     * @param request - GetAutoScalingActivityRequest
-     *
-     * @returns GetAutoScalingActivityResponse
-     *
-     * @param GetAutoScalingActivityRequest $request
-     *
-     * @return GetAutoScalingActivityResponse
+     * @return GetAutoScalingActivityResponse GetAutoScalingActivityResponse
      */
     public function getAutoScalingActivity($request)
     {
@@ -1195,36 +1011,28 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Queries custom auto scaling rules.
+     * @summary Queries custom auto scaling rules.
+     *  *
+     * @param GetAutoScalingPolicyRequest $request GetAutoScalingPolicyRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetAutoScalingPolicyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetAutoScalingPolicyResponse
-     *
-     * @param GetAutoScalingPolicyRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return GetAutoScalingPolicyResponse
+     * @return GetAutoScalingPolicyResponse GetAutoScalingPolicyResponse
      */
     public function getAutoScalingPolicyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->nodeGroupId) {
-            @$query['NodeGroupId'] = $request->nodeGroupId;
+        if (!Utils::isUnset($request->nodeGroupId)) {
+            $query['NodeGroupId'] = $request->nodeGroupId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetAutoScalingPolicy',
@@ -1242,15 +1050,11 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Queries custom auto scaling rules.
+     * @summary Queries custom auto scaling rules.
+     *  *
+     * @param GetAutoScalingPolicyRequest $request GetAutoScalingPolicyRequest
      *
-     * @param request - GetAutoScalingPolicyRequest
-     *
-     * @returns GetAutoScalingPolicyResponse
-     *
-     * @param GetAutoScalingPolicyRequest $request
-     *
-     * @return GetAutoScalingPolicyResponse
+     * @return GetAutoScalingPolicyResponse GetAutoScalingPolicyResponse
      */
     public function getAutoScalingPolicy($request)
     {
@@ -1260,32 +1064,25 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Obtains the details of a cluster.
+     * @summary Obtains the details of a cluster.
+     *  *
+     * @param GetClusterRequest $request GetClusterRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetClusterRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetClusterResponse
-     *
-     * @param GetClusterRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return GetClusterResponse
+     * @return GetClusterResponse GetClusterResponse
      */
     public function getClusterWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetCluster',
@@ -1303,15 +1100,11 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Obtains the details of a cluster.
+     * @summary Obtains the details of a cluster.
+     *  *
+     * @param GetClusterRequest $request GetClusterRequest
      *
-     * @param request - GetClusterRequest
-     *
-     * @returns GetClusterResponse
-     *
-     * @param GetClusterRequest $request
-     *
-     * @return GetClusterResponse
+     * @return GetClusterResponse GetClusterResponse
      */
     public function getCluster($request)
     {
@@ -1321,32 +1114,25 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Obtains metadata of the E-MapReduce (EMR) cluster that you want to clone. This helps you call the CreateCluster API operation to quickly create an EMR cluster.
+     * @summary Obtains metadata of the E-MapReduce (EMR) cluster that you want to clone. This helps you call the CreateCluster API operation to quickly create an EMR cluster.
+     *  *
+     * @param GetClusterCloneMetaRequest $request GetClusterCloneMetaRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetClusterCloneMetaRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetClusterCloneMetaResponse
-     *
-     * @param GetClusterCloneMetaRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return GetClusterCloneMetaResponse
+     * @return GetClusterCloneMetaResponse GetClusterCloneMetaResponse
      */
     public function getClusterCloneMetaWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetClusterCloneMeta',
@@ -1364,15 +1150,11 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Obtains metadata of the E-MapReduce (EMR) cluster that you want to clone. This helps you call the CreateCluster API operation to quickly create an EMR cluster.
+     * @summary Obtains metadata of the E-MapReduce (EMR) cluster that you want to clone. This helps you call the CreateCluster API operation to quickly create an EMR cluster.
+     *  *
+     * @param GetClusterCloneMetaRequest $request GetClusterCloneMetaRequest
      *
-     * @param request - GetClusterCloneMetaRequest
-     *
-     * @returns GetClusterCloneMetaResponse
-     *
-     * @param GetClusterCloneMetaRequest $request
-     *
-     * @return GetClusterCloneMetaResponse
+     * @return GetClusterCloneMetaResponse GetClusterCloneMetaResponse
      */
     public function getClusterCloneMeta($request)
     {
@@ -1382,43 +1164,33 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Obtains job analysis information on E-MapReduce (EMR) Doctor.
+     * @summary Obtains job analysis information on E-MapReduce (EMR) Doctor.
+     *  *
+     * @description get one doctor analysis app
+     *  *
+     * @param GetDoctorApplicationRequest $request GetDoctorApplicationRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * get one doctor analysis app
-     *
-     * @param request - GetDoctorApplicationRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetDoctorApplicationResponse
-     *
-     * @param GetDoctorApplicationRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return GetDoctorApplicationResponse
+     * @return GetDoctorApplicationResponse GetDoctorApplicationResponse
      */
     public function getDoctorApplicationWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->appId) {
-            @$query['AppId'] = $request->appId;
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
         }
-
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->dateTime) {
-            @$query['DateTime'] = $request->dateTime;
+        if (!Utils::isUnset($request->dateTime)) {
+            $query['DateTime'] = $request->dateTime;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetDoctorApplication',
@@ -1436,18 +1208,13 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Obtains job analysis information on E-MapReduce (EMR) Doctor.
+     * @summary Obtains job analysis information on E-MapReduce (EMR) Doctor.
+     *  *
+     * @description get one doctor analysis app
+     *  *
+     * @param GetDoctorApplicationRequest $request GetDoctorApplicationRequest
      *
-     * @remarks
-     * get one doctor analysis app
-     *
-     * @param request - GetDoctorApplicationRequest
-     *
-     * @returns GetDoctorApplicationResponse
-     *
-     * @param GetDoctorApplicationRequest $request
-     *
-     * @return GetDoctorApplicationResponse
+     * @return GetDoctorApplicationResponse GetDoctorApplicationResponse
      */
     public function getDoctorApplication($request)
     {
@@ -1457,43 +1224,33 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Obtains the information about resource usage in a cluster on E-MapReduce (EMR) Doctor.
+     * @summary Obtains the information about resource usage in a cluster on E-MapReduce (EMR) Doctor.
+     *  *
+     * @description get one specific luster engine queue by <type, name>
+     *  *
+     * @param GetDoctorComputeSummaryRequest $request GetDoctorComputeSummaryRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * get one specific luster engine queue by <type, name>
-     *
-     * @param request - GetDoctorComputeSummaryRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetDoctorComputeSummaryResponse
-     *
-     * @param GetDoctorComputeSummaryRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return GetDoctorComputeSummaryResponse
+     * @return GetDoctorComputeSummaryResponse GetDoctorComputeSummaryResponse
      */
     public function getDoctorComputeSummaryWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->componentInfo) {
-            @$query['ComponentInfo'] = $request->componentInfo;
+        if (!Utils::isUnset($request->componentInfo)) {
+            $query['ComponentInfo'] = $request->componentInfo;
         }
-
-        if (null !== $request->dateTime) {
-            @$query['DateTime'] = $request->dateTime;
+        if (!Utils::isUnset($request->dateTime)) {
+            $query['DateTime'] = $request->dateTime;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetDoctorComputeSummary',
@@ -1511,18 +1268,13 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Obtains the information about resource usage in a cluster on E-MapReduce (EMR) Doctor.
+     * @summary Obtains the information about resource usage in a cluster on E-MapReduce (EMR) Doctor.
+     *  *
+     * @description get one specific luster engine queue by <type, name>
+     *  *
+     * @param GetDoctorComputeSummaryRequest $request GetDoctorComputeSummaryRequest
      *
-     * @remarks
-     * get one specific luster engine queue by <type, name>
-     *
-     * @param request - GetDoctorComputeSummaryRequest
-     *
-     * @returns GetDoctorComputeSummaryResponse
-     *
-     * @param GetDoctorComputeSummaryRequest $request
-     *
-     * @return GetDoctorComputeSummaryResponse
+     * @return GetDoctorComputeSummaryResponse GetDoctorComputeSummaryResponse
      */
     public function getDoctorComputeSummary($request)
     {
@@ -1532,39 +1284,30 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Obtains the metrics of an HBase cluster.
+     * @summary Obtains the metrics of an HBase cluster.
+     *  *
+     * @description get Doctor HBaseCluster
+     *  *
+     * @param GetDoctorHBaseClusterRequest $request GetDoctorHBaseClusterRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * get Doctor HBaseCluster
-     *
-     * @param request - GetDoctorHBaseClusterRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetDoctorHBaseClusterResponse
-     *
-     * @param GetDoctorHBaseClusterRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return GetDoctorHBaseClusterResponse
+     * @return GetDoctorHBaseClusterResponse GetDoctorHBaseClusterResponse
      */
     public function getDoctorHBaseClusterWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->dateTime) {
-            @$query['DateTime'] = $request->dateTime;
+        if (!Utils::isUnset($request->dateTime)) {
+            $query['DateTime'] = $request->dateTime;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetDoctorHBaseCluster',
@@ -1582,18 +1325,13 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Obtains the metrics of an HBase cluster.
+     * @summary Obtains the metrics of an HBase cluster.
+     *  *
+     * @description get Doctor HBaseCluster
+     *  *
+     * @param GetDoctorHBaseClusterRequest $request GetDoctorHBaseClusterRequest
      *
-     * @remarks
-     * get Doctor HBaseCluster
-     *
-     * @param request - GetDoctorHBaseClusterRequest
-     *
-     * @returns GetDoctorHBaseClusterResponse
-     *
-     * @param GetDoctorHBaseClusterRequest $request
-     *
-     * @return GetDoctorHBaseClusterResponse
+     * @return GetDoctorHBaseClusterResponse GetDoctorHBaseClusterResponse
      */
     public function getDoctorHBaseCluster($request)
     {
@@ -1603,43 +1341,33 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Get HBase Region information.
+     * @summary Get HBase Region information.
+     *  *
+     * @description List Doctor HBase Regions
+     *  *
+     * @param GetDoctorHBaseRegionRequest $request GetDoctorHBaseRegionRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * List Doctor HBase Regions
-     *
-     * @param request - GetDoctorHBaseRegionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetDoctorHBaseRegionResponse
-     *
-     * @param GetDoctorHBaseRegionRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return GetDoctorHBaseRegionResponse
+     * @return GetDoctorHBaseRegionResponse GetDoctorHBaseRegionResponse
      */
     public function getDoctorHBaseRegionWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->dateTime) {
-            @$query['DateTime'] = $request->dateTime;
+        if (!Utils::isUnset($request->dateTime)) {
+            $query['DateTime'] = $request->dateTime;
         }
-
-        if (null !== $request->hbaseRegionId) {
-            @$query['HbaseRegionId'] = $request->hbaseRegionId;
+        if (!Utils::isUnset($request->hbaseRegionId)) {
+            $query['HbaseRegionId'] = $request->hbaseRegionId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetDoctorHBaseRegion',
@@ -1657,18 +1385,13 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Get HBase Region information.
+     * @summary Get HBase Region information.
+     *  *
+     * @description List Doctor HBase Regions
+     *  *
+     * @param GetDoctorHBaseRegionRequest $request GetDoctorHBaseRegionRequest
      *
-     * @remarks
-     * List Doctor HBase Regions
-     *
-     * @param request - GetDoctorHBaseRegionRequest
-     *
-     * @returns GetDoctorHBaseRegionResponse
-     *
-     * @param GetDoctorHBaseRegionRequest $request
-     *
-     * @return GetDoctorHBaseRegionResponse
+     * @return GetDoctorHBaseRegionResponse GetDoctorHBaseRegionResponse
      */
     public function getDoctorHBaseRegion($request)
     {
@@ -1678,43 +1401,33 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Obtains the information about an HBase region server.
+     * @summary Obtains the information about an HBase region server.
+     *  *
+     * @description get Doctor HBaseRegionServer
+     *  *
+     * @param GetDoctorHBaseRegionServerRequest $request GetDoctorHBaseRegionServerRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * get Doctor HBaseRegionServer
-     *
-     * @param request - GetDoctorHBaseRegionServerRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetDoctorHBaseRegionServerResponse
-     *
-     * @param GetDoctorHBaseRegionServerRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return GetDoctorHBaseRegionServerResponse
+     * @return GetDoctorHBaseRegionServerResponse GetDoctorHBaseRegionServerResponse
      */
     public function getDoctorHBaseRegionServerWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->dateTime) {
-            @$query['DateTime'] = $request->dateTime;
+        if (!Utils::isUnset($request->dateTime)) {
+            $query['DateTime'] = $request->dateTime;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->regionServerHost) {
-            @$query['RegionServerHost'] = $request->regionServerHost;
+        if (!Utils::isUnset($request->regionServerHost)) {
+            $query['RegionServerHost'] = $request->regionServerHost;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetDoctorHBaseRegionServer',
@@ -1732,18 +1445,13 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Obtains the information about an HBase region server.
+     * @summary Obtains the information about an HBase region server.
+     *  *
+     * @description get Doctor HBaseRegionServer
+     *  *
+     * @param GetDoctorHBaseRegionServerRequest $request GetDoctorHBaseRegionServerRequest
      *
-     * @remarks
-     * get Doctor HBaseRegionServer
-     *
-     * @param request - GetDoctorHBaseRegionServerRequest
-     *
-     * @returns GetDoctorHBaseRegionServerResponse
-     *
-     * @param GetDoctorHBaseRegionServerRequest $request
-     *
-     * @return GetDoctorHBaseRegionServerResponse
+     * @return GetDoctorHBaseRegionServerResponse GetDoctorHBaseRegionServerResponse
      */
     public function getDoctorHBaseRegionServer($request)
     {
@@ -1753,43 +1461,33 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Get HBase Table information.
+     * @summary Get HBase Table information.
+     *  *
+     * @description get Doctor HBaseTable
+     *  *
+     * @param GetDoctorHBaseTableRequest $request GetDoctorHBaseTableRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * get Doctor HBaseTable
-     *
-     * @param request - GetDoctorHBaseTableRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetDoctorHBaseTableResponse
-     *
-     * @param GetDoctorHBaseTableRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return GetDoctorHBaseTableResponse
+     * @return GetDoctorHBaseTableResponse GetDoctorHBaseTableResponse
      */
     public function getDoctorHBaseTableWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->dateTime) {
-            @$query['DateTime'] = $request->dateTime;
+        if (!Utils::isUnset($request->dateTime)) {
+            $query['DateTime'] = $request->dateTime;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->tableName) {
-            @$query['TableName'] = $request->tableName;
+        if (!Utils::isUnset($request->tableName)) {
+            $query['TableName'] = $request->tableName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetDoctorHBaseTable',
@@ -1807,18 +1505,13 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Get HBase Table information.
+     * @summary Get HBase Table information.
+     *  *
+     * @description get Doctor HBaseTable
+     *  *
+     * @param GetDoctorHBaseTableRequest $request GetDoctorHBaseTableRequest
      *
-     * @remarks
-     * get Doctor HBaseTable
-     *
-     * @param request - GetDoctorHBaseTableRequest
-     *
-     * @returns GetDoctorHBaseTableResponse
-     *
-     * @param GetDoctorHBaseTableRequest $request
-     *
-     * @return GetDoctorHBaseTableResponse
+     * @return GetDoctorHBaseTableResponse GetDoctorHBaseTableResponse
      */
     public function getDoctorHBaseTable($request)
     {
@@ -1828,39 +1521,30 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Obtains the analysis results of the Hadoop Distributed File System (HDFS) storage resources of a cluster on E-MapReduce (EMR) Doctor.
+     * @summary Obtains the analysis results of the Hadoop Distributed File System (HDFS) storage resources of a cluster on E-MapReduce (EMR) Doctor.
+     *  *
+     * @description list Doctor HBaseTableRegions
+     *  *
+     * @param GetDoctorHDFSClusterRequest $request GetDoctorHDFSClusterRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * list Doctor HBaseTableRegions
-     *
-     * @param request - GetDoctorHDFSClusterRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetDoctorHDFSClusterResponse
-     *
-     * @param GetDoctorHDFSClusterRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return GetDoctorHDFSClusterResponse
+     * @return GetDoctorHDFSClusterResponse GetDoctorHDFSClusterResponse
      */
     public function getDoctorHDFSClusterWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->dateTime) {
-            @$query['DateTime'] = $request->dateTime;
+        if (!Utils::isUnset($request->dateTime)) {
+            $query['DateTime'] = $request->dateTime;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetDoctorHDFSCluster',
@@ -1878,18 +1562,13 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Obtains the analysis results of the Hadoop Distributed File System (HDFS) storage resources of a cluster on E-MapReduce (EMR) Doctor.
+     * @summary Obtains the analysis results of the Hadoop Distributed File System (HDFS) storage resources of a cluster on E-MapReduce (EMR) Doctor.
+     *  *
+     * @description list Doctor HBaseTableRegions
+     *  *
+     * @param GetDoctorHDFSClusterRequest $request GetDoctorHDFSClusterRequest
      *
-     * @remarks
-     * list Doctor HBaseTableRegions
-     *
-     * @param request - GetDoctorHDFSClusterRequest
-     *
-     * @returns GetDoctorHDFSClusterResponse
-     *
-     * @param GetDoctorHDFSClusterRequest $request
-     *
-     * @return GetDoctorHDFSClusterResponse
+     * @return GetDoctorHDFSClusterResponse GetDoctorHDFSClusterResponse
      */
     public function getDoctorHDFSCluster($request)
     {
@@ -1899,43 +1578,33 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Obtains the analysis results of a specific Hadoop Distributed File System (HDFS) directory of a cluster. The depth of the directory is not greater than five.
+     * @summary Obtains the analysis results of a specific Hadoop Distributed File System (HDFS) directory of a cluster. The depth of the directory is not greater than five.
+     *  *
+     * @description get Doctor HDFSNode
+     *  *
+     * @param GetDoctorHDFSDirectoryRequest $request GetDoctorHDFSDirectoryRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * get Doctor HDFSNode
-     *
-     * @param request - GetDoctorHDFSDirectoryRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetDoctorHDFSDirectoryResponse
-     *
-     * @param GetDoctorHDFSDirectoryRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return GetDoctorHDFSDirectoryResponse
+     * @return GetDoctorHDFSDirectoryResponse GetDoctorHDFSDirectoryResponse
      */
     public function getDoctorHDFSDirectoryWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->dateTime) {
-            @$query['DateTime'] = $request->dateTime;
+        if (!Utils::isUnset($request->dateTime)) {
+            $query['DateTime'] = $request->dateTime;
         }
-
-        if (null !== $request->dirPath) {
-            @$query['DirPath'] = $request->dirPath;
+        if (!Utils::isUnset($request->dirPath)) {
+            $query['DirPath'] = $request->dirPath;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetDoctorHDFSDirectory',
@@ -1953,18 +1622,13 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Obtains the analysis results of a specific Hadoop Distributed File System (HDFS) directory of a cluster. The depth of the directory is not greater than five.
+     * @summary Obtains the analysis results of a specific Hadoop Distributed File System (HDFS) directory of a cluster. The depth of the directory is not greater than five.
+     *  *
+     * @description get Doctor HDFSNode
+     *  *
+     * @param GetDoctorHDFSDirectoryRequest $request GetDoctorHDFSDirectoryRequest
      *
-     * @remarks
-     * get Doctor HDFSNode
-     *
-     * @param request - GetDoctorHDFSDirectoryRequest
-     *
-     * @returns GetDoctorHDFSDirectoryResponse
-     *
-     * @param GetDoctorHDFSDirectoryRequest $request
-     *
-     * @return GetDoctorHDFSDirectoryResponse
+     * @return GetDoctorHDFSDirectoryResponse GetDoctorHDFSDirectoryResponse
      */
     public function getDoctorHDFSDirectory($request)
     {
@@ -1974,39 +1638,30 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Obtains the analysis results of a Hive cluster.
+     * @summary Obtains the analysis results of a Hive cluster.
+     *  *
+     * @description list Doctor Hive Cluster
+     *  *
+     * @param GetDoctorHiveClusterRequest $request GetDoctorHiveClusterRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * list Doctor Hive Cluster
-     *
-     * @param request - GetDoctorHiveClusterRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetDoctorHiveClusterResponse
-     *
-     * @param GetDoctorHiveClusterRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return GetDoctorHiveClusterResponse
+     * @return GetDoctorHiveClusterResponse GetDoctorHiveClusterResponse
      */
     public function getDoctorHiveClusterWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->dateTime) {
-            @$query['DateTime'] = $request->dateTime;
+        if (!Utils::isUnset($request->dateTime)) {
+            $query['DateTime'] = $request->dateTime;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetDoctorHiveCluster',
@@ -2024,18 +1679,13 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Obtains the analysis results of a Hive cluster.
+     * @summary Obtains the analysis results of a Hive cluster.
+     *  *
+     * @description list Doctor Hive Cluster
+     *  *
+     * @param GetDoctorHiveClusterRequest $request GetDoctorHiveClusterRequest
      *
-     * @remarks
-     * list Doctor Hive Cluster
-     *
-     * @param request - GetDoctorHiveClusterRequest
-     *
-     * @returns GetDoctorHiveClusterResponse
-     *
-     * @param GetDoctorHiveClusterRequest $request
-     *
-     * @return GetDoctorHiveClusterResponse
+     * @return GetDoctorHiveClusterResponse GetDoctorHiveClusterResponse
      */
     public function getDoctorHiveCluster($request)
     {
@@ -2045,43 +1695,33 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Obtains the analysis results of a Hive database.
+     * @summary Obtains the analysis results of a Hive database.
+     *  *
+     * @description get Doctor Hive Database
+     *  *
+     * @param GetDoctorHiveDatabaseRequest $request GetDoctorHiveDatabaseRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * get Doctor Hive Database
-     *
-     * @param request - GetDoctorHiveDatabaseRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetDoctorHiveDatabaseResponse
-     *
-     * @param GetDoctorHiveDatabaseRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return GetDoctorHiveDatabaseResponse
+     * @return GetDoctorHiveDatabaseResponse GetDoctorHiveDatabaseResponse
      */
     public function getDoctorHiveDatabaseWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->databaseName) {
-            @$query['DatabaseName'] = $request->databaseName;
+        if (!Utils::isUnset($request->databaseName)) {
+            $query['DatabaseName'] = $request->databaseName;
         }
-
-        if (null !== $request->dateTime) {
-            @$query['DateTime'] = $request->dateTime;
+        if (!Utils::isUnset($request->dateTime)) {
+            $query['DateTime'] = $request->dateTime;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetDoctorHiveDatabase',
@@ -2099,18 +1739,13 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Obtains the analysis results of a Hive database.
+     * @summary Obtains the analysis results of a Hive database.
+     *  *
+     * @description get Doctor Hive Database
+     *  *
+     * @param GetDoctorHiveDatabaseRequest $request GetDoctorHiveDatabaseRequest
      *
-     * @remarks
-     * get Doctor Hive Database
-     *
-     * @param request - GetDoctorHiveDatabaseRequest
-     *
-     * @returns GetDoctorHiveDatabaseResponse
-     *
-     * @param GetDoctorHiveDatabaseRequest $request
-     *
-     * @return GetDoctorHiveDatabaseResponse
+     * @return GetDoctorHiveDatabaseResponse GetDoctorHiveDatabaseResponse
      */
     public function getDoctorHiveDatabase($request)
     {
@@ -2120,43 +1755,33 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Obtains the analysis results of a specific Hive table in a cluster on E-MapReduce (EMR) Doctor.
+     * @summary Obtains the analysis results of a specific Hive table in a cluster on E-MapReduce (EMR) Doctor.
+     *  *
+     * @description get Doctor Hive Table
+     *  *
+     * @param GetDoctorHiveTableRequest $request GetDoctorHiveTableRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * get Doctor Hive Table
-     *
-     * @param request - GetDoctorHiveTableRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetDoctorHiveTableResponse
-     *
-     * @param GetDoctorHiveTableRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return GetDoctorHiveTableResponse
+     * @return GetDoctorHiveTableResponse GetDoctorHiveTableResponse
      */
     public function getDoctorHiveTableWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->dateTime) {
-            @$query['DateTime'] = $request->dateTime;
+        if (!Utils::isUnset($request->dateTime)) {
+            $query['DateTime'] = $request->dateTime;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->tableName) {
-            @$query['TableName'] = $request->tableName;
+        if (!Utils::isUnset($request->tableName)) {
+            $query['TableName'] = $request->tableName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetDoctorHiveTable',
@@ -2174,18 +1799,13 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Obtains the analysis results of a specific Hive table in a cluster on E-MapReduce (EMR) Doctor.
+     * @summary Obtains the analysis results of a specific Hive table in a cluster on E-MapReduce (EMR) Doctor.
+     *  *
+     * @description get Doctor Hive Table
+     *  *
+     * @param GetDoctorHiveTableRequest $request GetDoctorHiveTableRequest
      *
-     * @remarks
-     * get Doctor Hive Table
-     *
-     * @param request - GetDoctorHiveTableRequest
-     *
-     * @returns GetDoctorHiveTableResponse
-     *
-     * @param GetDoctorHiveTableRequest $request
-     *
-     * @return GetDoctorHiveTableResponse
+     * @return GetDoctorHiveTableResponse GetDoctorHiveTableResponse
      */
     public function getDoctorHiveTable($request)
     {
@@ -2195,39 +1815,30 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Obtains the basic running information about a job on E-MapReduce (EMR) Doctor.
+     * @summary Obtains the basic running information about a job on E-MapReduce (EMR) Doctor.
+     *  *
+     * @description Get realtime job by yarn
+     *  *
+     * @param GetDoctorJobRequest $request GetDoctorJobRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * Get realtime job by yarn
-     *
-     * @param request - GetDoctorJobRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetDoctorJobResponse
-     *
-     * @param GetDoctorJobRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return GetDoctorJobResponse
+     * @return GetDoctorJobResponse GetDoctorJobResponse
      */
     public function getDoctorJobWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->appId) {
-            @$query['AppId'] = $request->appId;
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
         }
-
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetDoctorJob',
@@ -2245,18 +1856,13 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Obtains the basic running information about a job on E-MapReduce (EMR) Doctor.
+     * @summary Obtains the basic running information about a job on E-MapReduce (EMR) Doctor.
+     *  *
+     * @description Get realtime job by yarn
+     *  *
+     * @param GetDoctorJobRequest $request GetDoctorJobRequest
      *
-     * @remarks
-     * Get realtime job by yarn
-     *
-     * @param request - GetDoctorJobRequest
-     *
-     * @returns GetDoctorJobResponse
-     *
-     * @param GetDoctorJobRequest $request
-     *
-     * @return GetDoctorJobResponse
+     * @return GetDoctorJobResponse GetDoctorJobResponse
      */
     public function getDoctorJob($request)
     {
@@ -2266,43 +1872,33 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Obtain the analysis result report of a specified component from EMR Doctor.
+     * @summary Obtain the analysis result report of a specified component from EMR Doctor.
+     *  *
+     * @description get specify component\\"s report analysis by EMR Doctor
+     *  *
+     * @param GetDoctorReportComponentSummaryRequest $request GetDoctorReportComponentSummaryRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * get specify component\\"s report analysis by EMR Doctor
-     *
-     * @param request - GetDoctorReportComponentSummaryRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetDoctorReportComponentSummaryResponse
-     *
-     * @param GetDoctorReportComponentSummaryRequest $request
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return GetDoctorReportComponentSummaryResponse
+     * @return GetDoctorReportComponentSummaryResponse GetDoctorReportComponentSummaryResponse
      */
     public function getDoctorReportComponentSummaryWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->componentType) {
-            @$query['ComponentType'] = $request->componentType;
+        if (!Utils::isUnset($request->componentType)) {
+            $query['ComponentType'] = $request->componentType;
         }
-
-        if (null !== $request->dateTime) {
-            @$query['DateTime'] = $request->dateTime;
+        if (!Utils::isUnset($request->dateTime)) {
+            $query['DateTime'] = $request->dateTime;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetDoctorReportComponentSummary',
@@ -2320,18 +1916,13 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Obtain the analysis result report of a specified component from EMR Doctor.
+     * @summary Obtain the analysis result report of a specified component from EMR Doctor.
+     *  *
+     * @description get specify component\\"s report analysis by EMR Doctor
+     *  *
+     * @param GetDoctorReportComponentSummaryRequest $request GetDoctorReportComponentSummaryRequest
      *
-     * @remarks
-     * get specify component\\"s report analysis by EMR Doctor
-     *
-     * @param request - GetDoctorReportComponentSummaryRequest
-     *
-     * @returns GetDoctorReportComponentSummaryResponse
-     *
-     * @param GetDoctorReportComponentSummaryRequest $request
-     *
-     * @return GetDoctorReportComponentSummaryResponse
+     * @return GetDoctorReportComponentSummaryResponse GetDoctorReportComponentSummaryResponse
      */
     public function getDoctorReportComponentSummary($request)
     {
@@ -2341,39 +1932,76 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * You can call this operation to obtain the details of a node group.
+     * @param GetManagedScalingPolicyRequest $request GetManagedScalingPolicyRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * 获取节点组详情。
+     * @return GetManagedScalingPolicyResponse GetManagedScalingPolicyResponse
+     */
+    public function getManagedScalingPolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetManagedScalingPolicy',
+            'version' => '2021-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetManagedScalingPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetManagedScalingPolicyRequest $request GetManagedScalingPolicyRequest
      *
-     * @param request - GetNodeGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
+     * @return GetManagedScalingPolicyResponse GetManagedScalingPolicyResponse
+     */
+    public function getManagedScalingPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getManagedScalingPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary You can call this operation to obtain the details of a node group.
+     *  *
+     * @description 获取节点组详情。
+     *  *
+     * @param GetNodeGroupRequest $request GetNodeGroupRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @returns GetNodeGroupResponse
-     *
-     * @param GetNodeGroupRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return GetNodeGroupResponse
+     * @return GetNodeGroupResponse GetNodeGroupResponse
      */
     public function getNodeGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->nodeGroupId) {
-            @$query['NodeGroupId'] = $request->nodeGroupId;
+        if (!Utils::isUnset($request->nodeGroupId)) {
+            $query['NodeGroupId'] = $request->nodeGroupId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetNodeGroup',
@@ -2391,18 +2019,13 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * You can call this operation to obtain the details of a node group.
+     * @summary You can call this operation to obtain the details of a node group.
+     *  *
+     * @description 获取节点组详情。
+     *  *
+     * @param GetNodeGroupRequest $request GetNodeGroupRequest
      *
-     * @remarks
-     * 获取节点组详情。
-     *
-     * @param request - GetNodeGroupRequest
-     *
-     * @returns GetNodeGroupResponse
-     *
-     * @param GetNodeGroupRequest $request
-     *
-     * @return GetNodeGroupResponse
+     * @return GetNodeGroupResponse GetNodeGroupResponse
      */
     public function getNodeGroup($request)
     {
@@ -2412,36 +2035,28 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Gets the details of an asynchronous operation.
+     * @summary Gets the details of an asynchronous operation.
+     *  *
+     * @param GetOperationRequest $request GetOperationRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetOperationRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetOperationResponse
-     *
-     * @param GetOperationRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return GetOperationResponse
+     * @return GetOperationResponse GetOperationResponse
      */
     public function getOperationWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->operationId) {
-            @$query['OperationId'] = $request->operationId;
+        if (!Utils::isUnset($request->operationId)) {
+            $query['OperationId'] = $request->operationId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetOperation',
@@ -2459,15 +2074,11 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Gets the details of an asynchronous operation.
+     * @summary Gets the details of an asynchronous operation.
+     *  *
+     * @param GetOperationRequest $request GetOperationRequest
      *
-     * @param request - GetOperationRequest
-     *
-     * @returns GetOperationResponse
-     *
-     * @param GetOperationRequest $request
-     *
-     * @return GetOperationResponse
+     * @return GetOperationResponse GetOperationResponse
      */
     public function getOperation($request)
     {
@@ -2477,68 +2088,52 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Scales out the node group.
+     * @summary Scales out the node group.
+     *  *
+     * @param IncreaseNodesRequest $request IncreaseNodesRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - IncreaseNodesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns IncreaseNodesResponse
-     *
-     * @param IncreaseNodesRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return IncreaseNodesResponse
+     * @return IncreaseNodesResponse IncreaseNodesResponse
      */
     public function increaseNodesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->applicationConfigs) {
-            @$query['ApplicationConfigs'] = $request->applicationConfigs;
+        if (!Utils::isUnset($request->applicationConfigs)) {
+            $query['ApplicationConfigs'] = $request->applicationConfigs;
         }
-
-        if (null !== $request->autoPayOrder) {
-            @$query['AutoPayOrder'] = $request->autoPayOrder;
+        if (!Utils::isUnset($request->autoPayOrder)) {
+            $query['AutoPayOrder'] = $request->autoPayOrder;
         }
-
-        if (null !== $request->autoRenew) {
-            @$query['AutoRenew'] = $request->autoRenew;
+        if (!Utils::isUnset($request->autoRenew)) {
+            $query['AutoRenew'] = $request->autoRenew;
         }
-
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->increaseNodeCount) {
-            @$query['IncreaseNodeCount'] = $request->increaseNodeCount;
+        if (!Utils::isUnset($request->increaseNodeCount)) {
+            $query['IncreaseNodeCount'] = $request->increaseNodeCount;
         }
-
-        if (null !== $request->minIncreaseNodeCount) {
-            @$query['MinIncreaseNodeCount'] = $request->minIncreaseNodeCount;
+        if (!Utils::isUnset($request->minIncreaseNodeCount)) {
+            $query['MinIncreaseNodeCount'] = $request->minIncreaseNodeCount;
         }
-
-        if (null !== $request->nodeGroupId) {
-            @$query['NodeGroupId'] = $request->nodeGroupId;
+        if (!Utils::isUnset($request->nodeGroupId)) {
+            $query['NodeGroupId'] = $request->nodeGroupId;
         }
-
-        if (null !== $request->paymentDuration) {
-            @$query['PaymentDuration'] = $request->paymentDuration;
+        if (!Utils::isUnset($request->paymentDuration)) {
+            $query['PaymentDuration'] = $request->paymentDuration;
         }
-
-        if (null !== $request->paymentDurationUnit) {
-            @$query['PaymentDurationUnit'] = $request->paymentDurationUnit;
+        if (!Utils::isUnset($request->paymentDurationUnit)) {
+            $query['PaymentDurationUnit'] = $request->paymentDurationUnit;
         }
-
-        if (null !== $request->promotions) {
-            @$query['Promotions'] = $request->promotions;
+        if (!Utils::isUnset($request->promotions)) {
+            $query['Promotions'] = $request->promotions;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'IncreaseNodes',
@@ -2556,15 +2151,11 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Scales out the node group.
+     * @summary Scales out the node group.
+     *  *
+     * @param IncreaseNodesRequest $request IncreaseNodesRequest
      *
-     * @param request - IncreaseNodesRequest
-     *
-     * @returns IncreaseNodesResponse
-     *
-     * @param IncreaseNodesRequest $request
-     *
-     * @return IncreaseNodesResponse
+     * @return IncreaseNodesResponse IncreaseNodesResponse
      */
     public function increaseNodes($request)
     {
@@ -2574,40 +2165,31 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Adds an EMR resource to a resource group. A resource can belong to only one resource group.
+     * @summary Adds an EMR resource to a resource group. A resource can belong to only one resource group.
+     *  *
+     * @param JoinResourceGroupRequest $request JoinResourceGroupRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - JoinResourceGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns JoinResourceGroupResponse
-     *
-     * @param JoinResourceGroupRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return JoinResourceGroupResponse
+     * @return JoinResourceGroupResponse JoinResourceGroupResponse
      */
     public function joinResourceGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceId) {
-            @$query['ResourceId'] = $request->resourceId;
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
         }
-
-        if (null !== $request->resourceType) {
-            @$query['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'JoinResourceGroup',
@@ -2625,15 +2207,11 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Adds an EMR resource to a resource group. A resource can belong to only one resource group.
+     * @summary Adds an EMR resource to a resource group. A resource can belong to only one resource group.
+     *  *
+     * @param JoinResourceGroupRequest $request JoinResourceGroupRequest
      *
-     * @param request - JoinResourceGroupRequest
-     *
-     * @returns JoinResourceGroupResponse
-     *
-     * @param JoinResourceGroupRequest $request
-     *
-     * @return JoinResourceGroupResponse
+     * @return JoinResourceGroupResponse JoinResourceGroupResponse
      */
     public function joinResourceGroup($request)
     {
@@ -2643,56 +2221,43 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * 查询API模板
+     * @summary 查询API模板
+     *  *
+     * @param ListApiTemplatesRequest $request ListApiTemplatesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListApiTemplatesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListApiTemplatesResponse
-     *
-     * @param ListApiTemplatesRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return ListApiTemplatesResponse
+     * @return ListApiTemplatesResponse ListApiTemplatesResponse
      */
     public function listApiTemplatesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->apiName) {
-            @$query['ApiName'] = $request->apiName;
+        if (!Utils::isUnset($request->apiName)) {
+            $query['ApiName'] = $request->apiName;
         }
-
-        if (null !== $request->maxResults) {
-            @$query['MaxResults'] = $request->maxResults;
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
         }
-
-        if (null !== $request->nextToken) {
-            @$query['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->templateId) {
-            @$query['TemplateId'] = $request->templateId;
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
         }
-
-        if (null !== $request->templateIds) {
-            @$query['TemplateIds'] = $request->templateIds;
+        if (!Utils::isUnset($request->templateIds)) {
+            $query['TemplateIds'] = $request->templateIds;
         }
-
-        if (null !== $request->templateName) {
-            @$query['TemplateName'] = $request->templateName;
+        if (!Utils::isUnset($request->templateName)) {
+            $query['TemplateName'] = $request->templateName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListApiTemplates',
@@ -2710,15 +2275,11 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * 查询API模板
+     * @summary 查询API模板
+     *  *
+     * @param ListApiTemplatesRequest $request ListApiTemplatesRequest
      *
-     * @param request - ListApiTemplatesRequest
-     *
-     * @returns ListApiTemplatesResponse
-     *
-     * @param ListApiTemplatesRequest $request
-     *
-     * @return ListApiTemplatesResponse
+     * @return ListApiTemplatesResponse ListApiTemplatesResponse
      */
     public function listApiTemplates($request)
     {
@@ -2728,67 +2289,51 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Queries the configurations of the application.
+     * @summary Queries the configurations of the application.
+     *  *
+     * @description 查询应用配置。
+     *  *
+     * @param ListApplicationConfigsRequest $request ListApplicationConfigsRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * 查询应用配置。
-     *
-     * @param request - ListApplicationConfigsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListApplicationConfigsResponse
-     *
-     * @param ListApplicationConfigsRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return ListApplicationConfigsResponse
+     * @return ListApplicationConfigsResponse ListApplicationConfigsResponse
      */
     public function listApplicationConfigsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->applicationName) {
-            @$query['ApplicationName'] = $request->applicationName;
+        if (!Utils::isUnset($request->applicationName)) {
+            $query['ApplicationName'] = $request->applicationName;
         }
-
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->configFileName) {
-            @$query['ConfigFileName'] = $request->configFileName;
+        if (!Utils::isUnset($request->configFileName)) {
+            $query['ConfigFileName'] = $request->configFileName;
         }
-
-        if (null !== $request->configItemKey) {
-            @$query['ConfigItemKey'] = $request->configItemKey;
+        if (!Utils::isUnset($request->configItemKey)) {
+            $query['ConfigItemKey'] = $request->configItemKey;
         }
-
-        if (null !== $request->configItemValue) {
-            @$query['ConfigItemValue'] = $request->configItemValue;
+        if (!Utils::isUnset($request->configItemValue)) {
+            $query['ConfigItemValue'] = $request->configItemValue;
         }
-
-        if (null !== $request->maxResults) {
-            @$query['MaxResults'] = $request->maxResults;
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
         }
-
-        if (null !== $request->nextToken) {
-            @$query['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
         }
-
-        if (null !== $request->nodeGroupId) {
-            @$query['NodeGroupId'] = $request->nodeGroupId;
+        if (!Utils::isUnset($request->nodeGroupId)) {
+            $query['NodeGroupId'] = $request->nodeGroupId;
         }
-
-        if (null !== $request->nodeId) {
-            @$query['NodeId'] = $request->nodeId;
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListApplicationConfigs',
@@ -2806,18 +2351,13 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Queries the configurations of the application.
+     * @summary Queries the configurations of the application.
+     *  *
+     * @description 查询应用配置。
+     *  *
+     * @param ListApplicationConfigsRequest $request ListApplicationConfigsRequest
      *
-     * @remarks
-     * 查询应用配置。
-     *
-     * @param request - ListApplicationConfigsRequest
-     *
-     * @returns ListApplicationConfigsResponse
-     *
-     * @param ListApplicationConfigsRequest $request
-     *
-     * @return ListApplicationConfigsResponse
+     * @return ListApplicationConfigsResponse ListApplicationConfigsResponse
      */
     public function listApplicationConfigs($request)
     {
@@ -2827,44 +2367,34 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Queries a list of applications.
+     * @summary Queries a list of applications.
+     *  *
+     * @param ListApplicationsRequest $request ListApplicationsRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListApplicationsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListApplicationsResponse
-     *
-     * @param ListApplicationsRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return ListApplicationsResponse
+     * @return ListApplicationsResponse ListApplicationsResponse
      */
     public function listApplicationsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->applicationNames) {
-            @$query['ApplicationNames'] = $request->applicationNames;
+        if (!Utils::isUnset($request->applicationNames)) {
+            $query['ApplicationNames'] = $request->applicationNames;
         }
-
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->maxResults) {
-            @$query['MaxResults'] = $request->maxResults;
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
         }
-
-        if (null !== $request->nextToken) {
-            @$query['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListApplications',
@@ -2882,15 +2412,11 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Queries a list of applications.
+     * @summary Queries a list of applications.
+     *  *
+     * @param ListApplicationsRequest $request ListApplicationsRequest
      *
-     * @param request - ListApplicationsRequest
-     *
-     * @returns ListApplicationsResponse
-     *
-     * @param ListApplicationsRequest $request
-     *
-     * @return ListApplicationsResponse
+     * @return ListApplicationsResponse ListApplicationsResponse
      */
     public function listApplications($request)
     {
@@ -2900,68 +2426,52 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Queries a list of auto scaling activities.
+     * @summary Queries a list of auto scaling activities.
+     *  *
+     * @param ListAutoScalingActivitiesRequest $request ListAutoScalingActivitiesRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListAutoScalingActivitiesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListAutoScalingActivitiesResponse
-     *
-     * @param ListAutoScalingActivitiesRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return ListAutoScalingActivitiesResponse
+     * @return ListAutoScalingActivitiesResponse ListAutoScalingActivitiesResponse
      */
     public function listAutoScalingActivitiesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->maxResults) {
-            @$query['MaxResults'] = $request->maxResults;
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
         }
-
-        if (null !== $request->nextToken) {
-            @$query['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
         }
-
-        if (null !== $request->nodeGroupId) {
-            @$query['NodeGroupId'] = $request->nodeGroupId;
+        if (!Utils::isUnset($request->nodeGroupId)) {
+            $query['NodeGroupId'] = $request->nodeGroupId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->scalingActivityStates) {
-            @$query['ScalingActivityStates'] = $request->scalingActivityStates;
+        if (!Utils::isUnset($request->scalingActivityStates)) {
+            $query['ScalingActivityStates'] = $request->scalingActivityStates;
         }
-
-        if (null !== $request->scalingActivityType) {
-            @$query['ScalingActivityType'] = $request->scalingActivityType;
+        if (!Utils::isUnset($request->scalingActivityType)) {
+            $query['ScalingActivityType'] = $request->scalingActivityType;
         }
-
-        if (null !== $request->scalingPolicyType) {
-            @$query['ScalingPolicyType'] = $request->scalingPolicyType;
+        if (!Utils::isUnset($request->scalingPolicyType)) {
+            $query['ScalingPolicyType'] = $request->scalingPolicyType;
         }
-
-        if (null !== $request->scalingRuleName) {
-            @$query['ScalingRuleName'] = $request->scalingRuleName;
+        if (!Utils::isUnset($request->scalingRuleName)) {
+            $query['ScalingRuleName'] = $request->scalingRuleName;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListAutoScalingActivities',
@@ -2979,15 +2489,11 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Queries a list of auto scaling activities.
+     * @summary Queries a list of auto scaling activities.
+     *  *
+     * @param ListAutoScalingActivitiesRequest $request ListAutoScalingActivitiesRequest
      *
-     * @param request - ListAutoScalingActivitiesRequest
-     *
-     * @returns ListAutoScalingActivitiesResponse
-     *
-     * @param ListAutoScalingActivitiesRequest $request
-     *
-     * @return ListAutoScalingActivitiesResponse
+     * @return ListAutoScalingActivitiesResponse ListAutoScalingActivitiesResponse
      */
     public function listAutoScalingActivities($request)
     {
@@ -2997,64 +2503,49 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Queries E-MapReduce (EMR) clusters.
+     * @summary Queries E-MapReduce (EMR) clusters.
+     *  *
+     * @param ListClustersRequest $request ListClustersRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListClustersRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListClustersResponse
-     *
-     * @param ListClustersRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return ListClustersResponse
+     * @return ListClustersResponse ListClustersResponse
      */
     public function listClustersWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clusterIds) {
-            @$query['ClusterIds'] = $request->clusterIds;
+        if (!Utils::isUnset($request->clusterIds)) {
+            $query['ClusterIds'] = $request->clusterIds;
         }
-
-        if (null !== $request->clusterName) {
-            @$query['ClusterName'] = $request->clusterName;
+        if (!Utils::isUnset($request->clusterName)) {
+            $query['ClusterName'] = $request->clusterName;
         }
-
-        if (null !== $request->clusterStates) {
-            @$query['ClusterStates'] = $request->clusterStates;
+        if (!Utils::isUnset($request->clusterStates)) {
+            $query['ClusterStates'] = $request->clusterStates;
         }
-
-        if (null !== $request->clusterTypes) {
-            @$query['ClusterTypes'] = $request->clusterTypes;
+        if (!Utils::isUnset($request->clusterTypes)) {
+            $query['ClusterTypes'] = $request->clusterTypes;
         }
-
-        if (null !== $request->maxResults) {
-            @$query['MaxResults'] = $request->maxResults;
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
         }
-
-        if (null !== $request->nextToken) {
-            @$query['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
         }
-
-        if (null !== $request->paymentTypes) {
-            @$query['PaymentTypes'] = $request->paymentTypes;
+        if (!Utils::isUnset($request->paymentTypes)) {
+            $query['PaymentTypes'] = $request->paymentTypes;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->tags) {
-            @$query['Tags'] = $request->tags;
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListClusters',
@@ -3072,15 +2563,11 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Queries E-MapReduce (EMR) clusters.
+     * @summary Queries E-MapReduce (EMR) clusters.
+     *  *
+     * @param ListClustersRequest $request ListClustersRequest
      *
-     * @param request - ListClustersRequest
-     *
-     * @returns ListClustersResponse
-     *
-     * @param ListClustersRequest $request
-     *
-     * @return ListClustersResponse
+     * @return ListClustersResponse ListClustersResponse
      */
     public function listClusters($request)
     {
@@ -3090,62 +2577,47 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @param request - ListComponentInstancesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
+     * @param ListComponentInstancesRequest $request ListComponentInstancesRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @returns ListComponentInstancesResponse
-     *
-     * @param ListComponentInstancesRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return ListComponentInstancesResponse
+     * @return ListComponentInstancesResponse ListComponentInstancesResponse
      */
     public function listComponentInstancesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->applicationNames) {
-            @$query['ApplicationNames'] = $request->applicationNames;
+        if (!Utils::isUnset($request->applicationNames)) {
+            $query['ApplicationNames'] = $request->applicationNames;
         }
-
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->componentNames) {
-            @$query['ComponentNames'] = $request->componentNames;
+        if (!Utils::isUnset($request->componentNames)) {
+            $query['ComponentNames'] = $request->componentNames;
         }
-
-        if (null !== $request->componentStates) {
-            @$query['ComponentStates'] = $request->componentStates;
+        if (!Utils::isUnset($request->componentStates)) {
+            $query['ComponentStates'] = $request->componentStates;
         }
-
-        if (null !== $request->maxResults) {
-            @$query['MaxResults'] = $request->maxResults;
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
         }
-
-        if (null !== $request->nextToken) {
-            @$query['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
         }
-
-        if (null !== $request->nodeIds) {
-            @$query['NodeIds'] = $request->nodeIds;
+        if (!Utils::isUnset($request->nodeIds)) {
+            $query['NodeIds'] = $request->nodeIds;
         }
-
-        if (null !== $request->nodeNames) {
-            @$query['NodeNames'] = $request->nodeNames;
+        if (!Utils::isUnset($request->nodeNames)) {
+            $query['NodeNames'] = $request->nodeNames;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->zoneId) {
-            @$query['ZoneId'] = $request->zoneId;
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListComponentInstances',
@@ -3163,13 +2635,9 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @param request - ListComponentInstancesRequest
+     * @param ListComponentInstancesRequest $request ListComponentInstancesRequest
      *
-     * @returns ListComponentInstancesResponse
-     *
-     * @param ListComponentInstancesRequest $request
-     *
-     * @return ListComponentInstancesResponse
+     * @return ListComponentInstancesResponse ListComponentInstancesResponse
      */
     public function listComponentInstances($request)
     {
@@ -3179,50 +2647,38 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @param request - ListComponentsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
+     * @param ListComponentsRequest $request ListComponentsRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @returns ListComponentsResponse
-     *
-     * @param ListComponentsRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return ListComponentsResponse
+     * @return ListComponentsResponse ListComponentsResponse
      */
     public function listComponentsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->applicationNames) {
-            @$query['ApplicationNames'] = $request->applicationNames;
+        if (!Utils::isUnset($request->applicationNames)) {
+            $query['ApplicationNames'] = $request->applicationNames;
         }
-
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->componentNames) {
-            @$query['ComponentNames'] = $request->componentNames;
+        if (!Utils::isUnset($request->componentNames)) {
+            $query['ComponentNames'] = $request->componentNames;
         }
-
-        if (null !== $request->componentStates) {
-            @$query['ComponentStates'] = $request->componentStates;
+        if (!Utils::isUnset($request->componentStates)) {
+            $query['ComponentStates'] = $request->componentStates;
         }
-
-        if (null !== $request->maxResults) {
-            @$query['MaxResults'] = $request->maxResults;
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
         }
-
-        if (null !== $request->nextToken) {
-            @$query['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListComponents',
@@ -3240,13 +2696,9 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @param request - ListComponentsRequest
+     * @param ListComponentsRequest $request ListComponentsRequest
      *
-     * @returns ListComponentsResponse
-     *
-     * @param ListComponentsRequest $request
-     *
-     * @return ListComponentsResponse
+     * @return ListComponentsResponse ListComponentsResponse
      */
     public function listComponents($request)
     {
@@ -3256,71 +2708,54 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Obtains the analysis results of multiple jobs on E-MapReduce (EMR) Doctor.
+     * @summary Obtains the analysis results of multiple jobs on E-MapReduce (EMR) Doctor.
+     *  *
+     * @description list all doctor analysis apps
+     *  *
+     * @param ListDoctorApplicationsRequest $request ListDoctorApplicationsRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * list all doctor analysis apps
-     *
-     * @param request - ListDoctorApplicationsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListDoctorApplicationsResponse
-     *
-     * @param ListDoctorApplicationsRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return ListDoctorApplicationsResponse
+     * @return ListDoctorApplicationsResponse ListDoctorApplicationsResponse
      */
     public function listDoctorApplicationsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->appIds) {
-            @$query['AppIds'] = $request->appIds;
+        if (!Utils::isUnset($request->appIds)) {
+            $query['AppIds'] = $request->appIds;
         }
-
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->dateTime) {
-            @$query['DateTime'] = $request->dateTime;
+        if (!Utils::isUnset($request->dateTime)) {
+            $query['DateTime'] = $request->dateTime;
         }
-
-        if (null !== $request->maxResults) {
-            @$query['MaxResults'] = $request->maxResults;
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
         }
-
-        if (null !== $request->nextToken) {
-            @$query['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
         }
-
-        if (null !== $request->orderBy) {
-            @$query['OrderBy'] = $request->orderBy;
+        if (!Utils::isUnset($request->orderBy)) {
+            $query['OrderBy'] = $request->orderBy;
         }
-
-        if (null !== $request->orderType) {
-            @$query['OrderType'] = $request->orderType;
+        if (!Utils::isUnset($request->orderType)) {
+            $query['OrderType'] = $request->orderType;
         }
-
-        if (null !== $request->queues) {
-            @$query['Queues'] = $request->queues;
+        if (!Utils::isUnset($request->queues)) {
+            $query['Queues'] = $request->queues;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->types) {
-            @$query['Types'] = $request->types;
+        if (!Utils::isUnset($request->types)) {
+            $query['Types'] = $request->types;
         }
-
-        if (null !== $request->users) {
-            @$query['Users'] = $request->users;
+        if (!Utils::isUnset($request->users)) {
+            $query['Users'] = $request->users;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListDoctorApplications',
@@ -3338,18 +2773,13 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Obtains the analysis results of multiple jobs on E-MapReduce (EMR) Doctor.
+     * @summary Obtains the analysis results of multiple jobs on E-MapReduce (EMR) Doctor.
+     *  *
+     * @description list all doctor analysis apps
+     *  *
+     * @param ListDoctorApplicationsRequest $request ListDoctorApplicationsRequest
      *
-     * @remarks
-     * list all doctor analysis apps
-     *
-     * @param request - ListDoctorApplicationsRequest
-     *
-     * @returns ListDoctorApplicationsResponse
-     *
-     * @param ListDoctorApplicationsRequest $request
-     *
-     * @return ListDoctorApplicationsResponse
+     * @return ListDoctorApplicationsResponse ListDoctorApplicationsResponse
      */
     public function listDoctorApplications($request)
     {
@@ -3359,59 +2789,45 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Obtains the information about resource usage by resource type in a cluster on E-MapReduce (EMR) Doctor.
+     * @summary Obtains the information about resource usage by resource type in a cluster on E-MapReduce (EMR) Doctor.
+     *  *
+     * @description list Doctor analysis result of cluster engine queue view
+     *  *
+     * @param ListDoctorComputeSummaryRequest $request ListDoctorComputeSummaryRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * list Doctor analysis result of cluster engine queue view
-     *
-     * @param request - ListDoctorComputeSummaryRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListDoctorComputeSummaryResponse
-     *
-     * @param ListDoctorComputeSummaryRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return ListDoctorComputeSummaryResponse
+     * @return ListDoctorComputeSummaryResponse ListDoctorComputeSummaryResponse
      */
     public function listDoctorComputeSummaryWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->componentTypes) {
-            @$query['ComponentTypes'] = $request->componentTypes;
+        if (!Utils::isUnset($request->componentTypes)) {
+            $query['ComponentTypes'] = $request->componentTypes;
         }
-
-        if (null !== $request->dateTime) {
-            @$query['DateTime'] = $request->dateTime;
+        if (!Utils::isUnset($request->dateTime)) {
+            $query['DateTime'] = $request->dateTime;
         }
-
-        if (null !== $request->maxResults) {
-            @$query['MaxResults'] = $request->maxResults;
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
         }
-
-        if (null !== $request->nextToken) {
-            @$query['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
         }
-
-        if (null !== $request->orderBy) {
-            @$query['OrderBy'] = $request->orderBy;
+        if (!Utils::isUnset($request->orderBy)) {
+            $query['OrderBy'] = $request->orderBy;
         }
-
-        if (null !== $request->orderType) {
-            @$query['OrderType'] = $request->orderType;
+        if (!Utils::isUnset($request->orderType)) {
+            $query['OrderType'] = $request->orderType;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListDoctorComputeSummary',
@@ -3429,18 +2845,13 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Obtains the information about resource usage by resource type in a cluster on E-MapReduce (EMR) Doctor.
+     * @summary Obtains the information about resource usage by resource type in a cluster on E-MapReduce (EMR) Doctor.
+     *  *
+     * @description list Doctor analysis result of cluster engine queue view
+     *  *
+     * @param ListDoctorComputeSummaryRequest $request ListDoctorComputeSummaryRequest
      *
-     * @remarks
-     * list Doctor analysis result of cluster engine queue view
-     *
-     * @param request - ListDoctorComputeSummaryRequest
-     *
-     * @returns ListDoctorComputeSummaryResponse
-     *
-     * @param ListDoctorComputeSummaryRequest $request
-     *
-     * @return ListDoctorComputeSummaryResponse
+     * @return ListDoctorComputeSummaryResponse ListDoctorComputeSummaryResponse
      */
     public function listDoctorComputeSummary($request)
     {
@@ -3450,59 +2861,45 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Obtains the information about multiple HBase RegionServers at a time.
+     * @summary Obtains the information about multiple HBase RegionServers at a time.
+     *  *
+     * @description list Doctor HBaseRegionServers
+     *  *
+     * @param ListDoctorHBaseRegionServersRequest $request ListDoctorHBaseRegionServersRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * list Doctor HBaseRegionServers
-     *
-     * @param request - ListDoctorHBaseRegionServersRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListDoctorHBaseRegionServersResponse
-     *
-     * @param ListDoctorHBaseRegionServersRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return ListDoctorHBaseRegionServersResponse
+     * @return ListDoctorHBaseRegionServersResponse ListDoctorHBaseRegionServersResponse
      */
     public function listDoctorHBaseRegionServersWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->dateTime) {
-            @$query['DateTime'] = $request->dateTime;
+        if (!Utils::isUnset($request->dateTime)) {
+            $query['DateTime'] = $request->dateTime;
         }
-
-        if (null !== $request->maxResults) {
-            @$query['MaxResults'] = $request->maxResults;
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
         }
-
-        if (null !== $request->nextToken) {
-            @$query['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
         }
-
-        if (null !== $request->orderBy) {
-            @$query['OrderBy'] = $request->orderBy;
+        if (!Utils::isUnset($request->orderBy)) {
+            $query['OrderBy'] = $request->orderBy;
         }
-
-        if (null !== $request->orderType) {
-            @$query['OrderType'] = $request->orderType;
+        if (!Utils::isUnset($request->orderType)) {
+            $query['OrderType'] = $request->orderType;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->regionServerHosts) {
-            @$query['RegionServerHosts'] = $request->regionServerHosts;
+        if (!Utils::isUnset($request->regionServerHosts)) {
+            $query['RegionServerHosts'] = $request->regionServerHosts;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListDoctorHBaseRegionServers',
@@ -3520,18 +2917,13 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Obtains the information about multiple HBase RegionServers at a time.
+     * @summary Obtains the information about multiple HBase RegionServers at a time.
+     *  *
+     * @description list Doctor HBaseRegionServers
+     *  *
+     * @param ListDoctorHBaseRegionServersRequest $request ListDoctorHBaseRegionServersRequest
      *
-     * @remarks
-     * list Doctor HBaseRegionServers
-     *
-     * @param request - ListDoctorHBaseRegionServersRequest
-     *
-     * @returns ListDoctorHBaseRegionServersResponse
-     *
-     * @param ListDoctorHBaseRegionServersRequest $request
-     *
-     * @return ListDoctorHBaseRegionServersResponse
+     * @return ListDoctorHBaseRegionServersResponse ListDoctorHBaseRegionServersResponse
      */
     public function listDoctorHBaseRegionServers($request)
     {
@@ -3541,59 +2933,45 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Obtains the information about multiple HBase tables at a time.
+     * @summary Obtains the information about multiple HBase tables at a time.
+     *  *
+     * @description list Doctor HBaseTables
+     *  *
+     * @param ListDoctorHBaseTablesRequest $request ListDoctorHBaseTablesRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * list Doctor HBaseTables
-     *
-     * @param request - ListDoctorHBaseTablesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListDoctorHBaseTablesResponse
-     *
-     * @param ListDoctorHBaseTablesRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return ListDoctorHBaseTablesResponse
+     * @return ListDoctorHBaseTablesResponse ListDoctorHBaseTablesResponse
      */
     public function listDoctorHBaseTablesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->dateTime) {
-            @$query['DateTime'] = $request->dateTime;
+        if (!Utils::isUnset($request->dateTime)) {
+            $query['DateTime'] = $request->dateTime;
         }
-
-        if (null !== $request->maxResults) {
-            @$query['MaxResults'] = $request->maxResults;
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
         }
-
-        if (null !== $request->nextToken) {
-            @$query['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
         }
-
-        if (null !== $request->orderBy) {
-            @$query['OrderBy'] = $request->orderBy;
+        if (!Utils::isUnset($request->orderBy)) {
+            $query['OrderBy'] = $request->orderBy;
         }
-
-        if (null !== $request->orderType) {
-            @$query['OrderType'] = $request->orderType;
+        if (!Utils::isUnset($request->orderType)) {
+            $query['OrderType'] = $request->orderType;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->tableNames) {
-            @$query['TableNames'] = $request->tableNames;
+        if (!Utils::isUnset($request->tableNames)) {
+            $query['TableNames'] = $request->tableNames;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListDoctorHBaseTables',
@@ -3611,18 +2989,13 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Obtains the information about multiple HBase tables at a time.
+     * @summary Obtains the information about multiple HBase tables at a time.
+     *  *
+     * @description list Doctor HBaseTables
+     *  *
+     * @param ListDoctorHBaseTablesRequest $request ListDoctorHBaseTablesRequest
      *
-     * @remarks
-     * list Doctor HBaseTables
-     *
-     * @param request - ListDoctorHBaseTablesRequest
-     *
-     * @returns ListDoctorHBaseTablesResponse
-     *
-     * @param ListDoctorHBaseTablesRequest $request
-     *
-     * @return ListDoctorHBaseTablesResponse
+     * @return ListDoctorHBaseTablesResponse ListDoctorHBaseTablesResponse
      */
     public function listDoctorHBaseTables($request)
     {
@@ -3632,57 +3005,43 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @remarks
-     * list Doctor HDFSNodes
+     * @description list Doctor HDFSNodes
+     *  *
+     * @param ListDoctorHDFSDirectoriesRequest $request ListDoctorHDFSDirectoriesRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListDoctorHDFSDirectoriesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListDoctorHDFSDirectoriesResponse
-     *
-     * @param ListDoctorHDFSDirectoriesRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return ListDoctorHDFSDirectoriesResponse
+     * @return ListDoctorHDFSDirectoriesResponse ListDoctorHDFSDirectoriesResponse
      */
     public function listDoctorHDFSDirectoriesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->dateTime) {
-            @$query['DateTime'] = $request->dateTime;
+        if (!Utils::isUnset($request->dateTime)) {
+            $query['DateTime'] = $request->dateTime;
         }
-
-        if (null !== $request->dirPath) {
-            @$query['DirPath'] = $request->dirPath;
+        if (!Utils::isUnset($request->dirPath)) {
+            $query['DirPath'] = $request->dirPath;
         }
-
-        if (null !== $request->maxResults) {
-            @$query['MaxResults'] = $request->maxResults;
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
         }
-
-        if (null !== $request->nextToken) {
-            @$query['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
         }
-
-        if (null !== $request->orderBy) {
-            @$query['OrderBy'] = $request->orderBy;
+        if (!Utils::isUnset($request->orderBy)) {
+            $query['OrderBy'] = $request->orderBy;
         }
-
-        if (null !== $request->orderType) {
-            @$query['OrderType'] = $request->orderType;
+        if (!Utils::isUnset($request->orderType)) {
+            $query['OrderType'] = $request->orderType;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListDoctorHDFSDirectories',
@@ -3700,16 +3059,11 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @remarks
-     * list Doctor HDFSNodes
+     * @description list Doctor HDFSNodes
+     *  *
+     * @param ListDoctorHDFSDirectoriesRequest $request ListDoctorHDFSDirectoriesRequest
      *
-     * @param request - ListDoctorHDFSDirectoriesRequest
-     *
-     * @returns ListDoctorHDFSDirectoriesResponse
-     *
-     * @param ListDoctorHDFSDirectoriesRequest $request
-     *
-     * @return ListDoctorHDFSDirectoriesResponse
+     * @return ListDoctorHDFSDirectoriesResponse ListDoctorHDFSDirectoriesResponse
      */
     public function listDoctorHDFSDirectories($request)
     {
@@ -3719,59 +3073,45 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Obtains the analysis results of Hadoop Distributed File System (HDFS) storage resources for multiple owners or groups at a time on E-MapReduce (EMR) Doctor.
+     * @summary Obtains the analysis results of Hadoop Distributed File System (HDFS) storage resources for multiple owners or groups at a time on E-MapReduce (EMR) Doctor.
+     *  *
+     * @description list Doctor HDFS UGIs
+     *  *
+     * @param ListDoctorHDFSUGIRequest $request ListDoctorHDFSUGIRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * list Doctor HDFS UGIs
-     *
-     * @param request - ListDoctorHDFSUGIRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListDoctorHDFSUGIResponse
-     *
-     * @param ListDoctorHDFSUGIRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return ListDoctorHDFSUGIResponse
+     * @return ListDoctorHDFSUGIResponse ListDoctorHDFSUGIResponse
      */
     public function listDoctorHDFSUGIWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->dateTime) {
-            @$query['DateTime'] = $request->dateTime;
+        if (!Utils::isUnset($request->dateTime)) {
+            $query['DateTime'] = $request->dateTime;
         }
-
-        if (null !== $request->maxResults) {
-            @$query['MaxResults'] = $request->maxResults;
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
         }
-
-        if (null !== $request->nextToken) {
-            @$query['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
         }
-
-        if (null !== $request->orderBy) {
-            @$query['OrderBy'] = $request->orderBy;
+        if (!Utils::isUnset($request->orderBy)) {
+            $query['OrderBy'] = $request->orderBy;
         }
-
-        if (null !== $request->orderType) {
-            @$query['OrderType'] = $request->orderType;
+        if (!Utils::isUnset($request->orderType)) {
+            $query['OrderType'] = $request->orderType;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->type) {
-            @$query['Type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListDoctorHDFSUGI',
@@ -3789,18 +3129,13 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Obtains the analysis results of Hadoop Distributed File System (HDFS) storage resources for multiple owners or groups at a time on E-MapReduce (EMR) Doctor.
+     * @summary Obtains the analysis results of Hadoop Distributed File System (HDFS) storage resources for multiple owners or groups at a time on E-MapReduce (EMR) Doctor.
+     *  *
+     * @description list Doctor HDFS UGIs
+     *  *
+     * @param ListDoctorHDFSUGIRequest $request ListDoctorHDFSUGIRequest
      *
-     * @remarks
-     * list Doctor HDFS UGIs
-     *
-     * @param request - ListDoctorHDFSUGIRequest
-     *
-     * @returns ListDoctorHDFSUGIResponse
-     *
-     * @param ListDoctorHDFSUGIRequest $request
-     *
-     * @return ListDoctorHDFSUGIResponse
+     * @return ListDoctorHDFSUGIResponse ListDoctorHDFSUGIResponse
      */
     public function listDoctorHDFSUGI($request)
     {
@@ -3810,59 +3145,45 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Obtains the analysis results of multiple Hive databases at a time.
+     * @summary Obtains the analysis results of multiple Hive databases at a time.
+     *  *
+     * @description list Doctor Hive Databases
+     *  *
+     * @param ListDoctorHiveDatabasesRequest $request ListDoctorHiveDatabasesRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * list Doctor Hive Databases
-     *
-     * @param request - ListDoctorHiveDatabasesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListDoctorHiveDatabasesResponse
-     *
-     * @param ListDoctorHiveDatabasesRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return ListDoctorHiveDatabasesResponse
+     * @return ListDoctorHiveDatabasesResponse ListDoctorHiveDatabasesResponse
      */
     public function listDoctorHiveDatabasesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->databaseNames) {
-            @$query['DatabaseNames'] = $request->databaseNames;
+        if (!Utils::isUnset($request->databaseNames)) {
+            $query['DatabaseNames'] = $request->databaseNames;
         }
-
-        if (null !== $request->dateTime) {
-            @$query['DateTime'] = $request->dateTime;
+        if (!Utils::isUnset($request->dateTime)) {
+            $query['DateTime'] = $request->dateTime;
         }
-
-        if (null !== $request->maxResults) {
-            @$query['MaxResults'] = $request->maxResults;
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
         }
-
-        if (null !== $request->nextToken) {
-            @$query['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
         }
-
-        if (null !== $request->orderBy) {
-            @$query['OrderBy'] = $request->orderBy;
+        if (!Utils::isUnset($request->orderBy)) {
+            $query['OrderBy'] = $request->orderBy;
         }
-
-        if (null !== $request->orderType) {
-            @$query['OrderType'] = $request->orderType;
+        if (!Utils::isUnset($request->orderType)) {
+            $query['OrderType'] = $request->orderType;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListDoctorHiveDatabases',
@@ -3880,18 +3201,13 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Obtains the analysis results of multiple Hive databases at a time.
+     * @summary Obtains the analysis results of multiple Hive databases at a time.
+     *  *
+     * @description list Doctor Hive Databases
+     *  *
+     * @param ListDoctorHiveDatabasesRequest $request ListDoctorHiveDatabasesRequest
      *
-     * @remarks
-     * list Doctor Hive Databases
-     *
-     * @param request - ListDoctorHiveDatabasesRequest
-     *
-     * @returns ListDoctorHiveDatabasesResponse
-     *
-     * @param ListDoctorHiveDatabasesRequest $request
-     *
-     * @return ListDoctorHiveDatabasesResponse
+     * @return ListDoctorHiveDatabasesResponse ListDoctorHiveDatabasesResponse
      */
     public function listDoctorHiveDatabases($request)
     {
@@ -3901,59 +3217,45 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Obtains the analysis results of multiple Hive tables at a time on E-MapReduce (EMR) Doctor.
+     * @summary Obtains the analysis results of multiple Hive tables at a time on E-MapReduce (EMR) Doctor.
+     *  *
+     * @description list Doctor Hive Tables
+     *  *
+     * @param ListDoctorHiveTablesRequest $request ListDoctorHiveTablesRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * list Doctor Hive Tables
-     *
-     * @param request - ListDoctorHiveTablesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListDoctorHiveTablesResponse
-     *
-     * @param ListDoctorHiveTablesRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return ListDoctorHiveTablesResponse
+     * @return ListDoctorHiveTablesResponse ListDoctorHiveTablesResponse
      */
     public function listDoctorHiveTablesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->dateTime) {
-            @$query['DateTime'] = $request->dateTime;
+        if (!Utils::isUnset($request->dateTime)) {
+            $query['DateTime'] = $request->dateTime;
         }
-
-        if (null !== $request->maxResults) {
-            @$query['MaxResults'] = $request->maxResults;
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
         }
-
-        if (null !== $request->nextToken) {
-            @$query['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
         }
-
-        if (null !== $request->orderBy) {
-            @$query['OrderBy'] = $request->orderBy;
+        if (!Utils::isUnset($request->orderBy)) {
+            $query['OrderBy'] = $request->orderBy;
         }
-
-        if (null !== $request->orderType) {
-            @$query['OrderType'] = $request->orderType;
+        if (!Utils::isUnset($request->orderType)) {
+            $query['OrderType'] = $request->orderType;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->tableNames) {
-            @$query['TableNames'] = $request->tableNames;
+        if (!Utils::isUnset($request->tableNames)) {
+            $query['TableNames'] = $request->tableNames;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListDoctorHiveTables',
@@ -3971,18 +3273,13 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Obtains the analysis results of multiple Hive tables at a time on E-MapReduce (EMR) Doctor.
+     * @summary Obtains the analysis results of multiple Hive tables at a time on E-MapReduce (EMR) Doctor.
+     *  *
+     * @description list Doctor Hive Tables
+     *  *
+     * @param ListDoctorHiveTablesRequest $request ListDoctorHiveTablesRequest
      *
-     * @remarks
-     * list Doctor Hive Tables
-     *
-     * @param request - ListDoctorHiveTablesRequest
-     *
-     * @returns ListDoctorHiveTablesResponse
-     *
-     * @param ListDoctorHiveTablesRequest $request
-     *
-     * @return ListDoctorHiveTablesResponse
+     * @return ListDoctorHiveTablesResponse ListDoctorHiveTablesResponse
      */
     public function listDoctorHiveTables($request)
     {
@@ -3992,75 +3289,57 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Obtains the basic running information about multiple jobs at a time on E-MapReduce (EMR) Doctor.
+     * @summary Obtains the basic running information about multiple jobs at a time on E-MapReduce (EMR) Doctor.
+     *  *
+     * @description list realtime jobs by yarn
+     *  *
+     * @param ListDoctorJobsRequest $request ListDoctorJobsRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * list realtime jobs by yarn
-     *
-     * @param request - ListDoctorJobsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListDoctorJobsResponse
-     *
-     * @param ListDoctorJobsRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return ListDoctorJobsResponse
+     * @return ListDoctorJobsResponse ListDoctorJobsResponse
      */
     public function listDoctorJobsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->appIds) {
-            @$query['AppIds'] = $request->appIds;
+        if (!Utils::isUnset($request->appIds)) {
+            $query['AppIds'] = $request->appIds;
         }
-
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->endRange) {
-            @$query['EndRange'] = $request->endRange;
+        if (!Utils::isUnset($request->endRange)) {
+            $query['EndRange'] = $request->endRange;
         }
-
-        if (null !== $request->maxResults) {
-            @$query['MaxResults'] = $request->maxResults;
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
         }
-
-        if (null !== $request->nextToken) {
-            @$query['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
         }
-
-        if (null !== $request->orderBy) {
-            @$query['OrderBy'] = $request->orderBy;
+        if (!Utils::isUnset($request->orderBy)) {
+            $query['OrderBy'] = $request->orderBy;
         }
-
-        if (null !== $request->orderType) {
-            @$query['OrderType'] = $request->orderType;
+        if (!Utils::isUnset($request->orderType)) {
+            $query['OrderType'] = $request->orderType;
         }
-
-        if (null !== $request->queues) {
-            @$query['Queues'] = $request->queues;
+        if (!Utils::isUnset($request->queues)) {
+            $query['Queues'] = $request->queues;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->startRange) {
-            @$query['StartRange'] = $request->startRange;
+        if (!Utils::isUnset($request->startRange)) {
+            $query['StartRange'] = $request->startRange;
         }
-
-        if (null !== $request->types) {
-            @$query['Types'] = $request->types;
+        if (!Utils::isUnset($request->types)) {
+            $query['Types'] = $request->types;
         }
-
-        if (null !== $request->users) {
-            @$query['Users'] = $request->users;
+        if (!Utils::isUnset($request->users)) {
+            $query['Users'] = $request->users;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListDoctorJobs',
@@ -4078,18 +3357,13 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Obtains the basic running information about multiple jobs at a time on E-MapReduce (EMR) Doctor.
+     * @summary Obtains the basic running information about multiple jobs at a time on E-MapReduce (EMR) Doctor.
+     *  *
+     * @description list realtime jobs by yarn
+     *  *
+     * @param ListDoctorJobsRequest $request ListDoctorJobsRequest
      *
-     * @remarks
-     * list realtime jobs by yarn
-     *
-     * @param request - ListDoctorJobsRequest
-     *
-     * @returns ListDoctorJobsResponse
-     *
-     * @param ListDoctorJobsRequest $request
-     *
-     * @return ListDoctorJobsResponse
+     * @return ListDoctorJobsResponse ListDoctorJobsResponse
      */
     public function listDoctorJobs($request)
     {
@@ -4099,63 +3373,48 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Obtains the summary of basic running information about multiple jobs at a time on E-MapReduce (EMR) Doctor.
+     * @summary Obtains the summary of basic running information about multiple jobs at a time on E-MapReduce (EMR) Doctor.
+     *  *
+     * @description list stats groupBy jobs by yarn
+     *  *
+     * @param ListDoctorJobsStatsRequest $request ListDoctorJobsStatsRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * list stats groupBy jobs by yarn
-     *
-     * @param request - ListDoctorJobsStatsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListDoctorJobsStatsResponse
-     *
-     * @param ListDoctorJobsStatsRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return ListDoctorJobsStatsResponse
+     * @return ListDoctorJobsStatsResponse ListDoctorJobsStatsResponse
      */
     public function listDoctorJobsStatsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->endRange) {
-            @$query['EndRange'] = $request->endRange;
+        if (!Utils::isUnset($request->endRange)) {
+            $query['EndRange'] = $request->endRange;
         }
-
-        if (null !== $request->groupBy) {
-            @$query['GroupBy'] = $request->groupBy;
+        if (!Utils::isUnset($request->groupBy)) {
+            $query['GroupBy'] = $request->groupBy;
         }
-
-        if (null !== $request->maxResults) {
-            @$query['MaxResults'] = $request->maxResults;
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
         }
-
-        if (null !== $request->nextToken) {
-            @$query['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
         }
-
-        if (null !== $request->orderBy) {
-            @$query['OrderBy'] = $request->orderBy;
+        if (!Utils::isUnset($request->orderBy)) {
+            $query['OrderBy'] = $request->orderBy;
         }
-
-        if (null !== $request->orderType) {
-            @$query['OrderType'] = $request->orderType;
+        if (!Utils::isUnset($request->orderType)) {
+            $query['OrderType'] = $request->orderType;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->startRange) {
-            @$query['StartRange'] = $request->startRange;
+        if (!Utils::isUnset($request->startRange)) {
+            $query['StartRange'] = $request->startRange;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListDoctorJobsStats',
@@ -4173,18 +3432,13 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Obtains the summary of basic running information about multiple jobs at a time on E-MapReduce (EMR) Doctor.
+     * @summary Obtains the summary of basic running information about multiple jobs at a time on E-MapReduce (EMR) Doctor.
+     *  *
+     * @description list stats groupBy jobs by yarn
+     *  *
+     * @param ListDoctorJobsStatsRequest $request ListDoctorJobsStatsRequest
      *
-     * @remarks
-     * list stats groupBy jobs by yarn
-     *
-     * @param request - ListDoctorJobsStatsRequest
-     *
-     * @returns ListDoctorJobsStatsResponse
-     *
-     * @param ListDoctorJobsStatsRequest $request
-     *
-     * @return ListDoctorJobsStatsResponse
+     * @return ListDoctorJobsStatsResponse ListDoctorJobsStatsResponse
      */
     public function listDoctorJobsStats($request)
     {
@@ -4194,43 +3448,33 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Obtains the overall analysis result reports of E-MapReduce (EMR) Doctor at a time.
+     * @summary Obtains the overall analysis result reports of E-MapReduce (EMR) Doctor at a time.
+     *  *
+     * @description list all reports analysis by emr doctor
+     *  *
+     * @param ListDoctorReportsRequest $request ListDoctorReportsRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * list all reports analysis by emr doctor
-     *
-     * @param request - ListDoctorReportsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListDoctorReportsResponse
-     *
-     * @param ListDoctorReportsRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return ListDoctorReportsResponse
+     * @return ListDoctorReportsResponse ListDoctorReportsResponse
      */
     public function listDoctorReportsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->maxResults) {
-            @$query['MaxResults'] = $request->maxResults;
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
         }
-
-        if (null !== $request->nextToken) {
-            @$query['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListDoctorReports',
@@ -4248,18 +3492,13 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Obtains the overall analysis result reports of E-MapReduce (EMR) Doctor at a time.
+     * @summary Obtains the overall analysis result reports of E-MapReduce (EMR) Doctor at a time.
+     *  *
+     * @description list all reports analysis by emr doctor
+     *  *
+     * @param ListDoctorReportsRequest $request ListDoctorReportsRequest
      *
-     * @remarks
-     * list all reports analysis by emr doctor
-     *
-     * @param request - ListDoctorReportsRequest
-     *
-     * @returns ListDoctorReportsResponse
-     *
-     * @param ListDoctorReportsRequest $request
-     *
-     * @return ListDoctorReportsResponse
+     * @return ListDoctorReportsResponse ListDoctorReportsResponse
      */
     public function listDoctorReports($request)
     {
@@ -4269,68 +3508,52 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Lists instance types.
+     * @summary Lists instance types.
+     *  *
+     * @param ListInstanceTypesRequest $request ListInstanceTypesRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListInstanceTypesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListInstanceTypesResponse
-     *
-     * @param ListInstanceTypesRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return ListInstanceTypesResponse
+     * @return ListInstanceTypesResponse ListInstanceTypesResponse
      */
     public function listInstanceTypesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->clusterType) {
-            @$query['ClusterType'] = $request->clusterType;
+        if (!Utils::isUnset($request->clusterType)) {
+            $query['ClusterType'] = $request->clusterType;
         }
-
-        if (null !== $request->deployMode) {
-            @$query['DeployMode'] = $request->deployMode;
+        if (!Utils::isUnset($request->deployMode)) {
+            $query['DeployMode'] = $request->deployMode;
         }
-
-        if (null !== $request->instanceType) {
-            @$query['InstanceType'] = $request->instanceType;
+        if (!Utils::isUnset($request->instanceType)) {
+            $query['InstanceType'] = $request->instanceType;
         }
-
-        if (null !== $request->isModification) {
-            @$query['IsModification'] = $request->isModification;
+        if (!Utils::isUnset($request->isModification)) {
+            $query['IsModification'] = $request->isModification;
         }
-
-        if (null !== $request->nodeGroupId) {
-            @$query['NodeGroupId'] = $request->nodeGroupId;
+        if (!Utils::isUnset($request->nodeGroupId)) {
+            $query['NodeGroupId'] = $request->nodeGroupId;
         }
-
-        if (null !== $request->nodeGroupType) {
-            @$query['NodeGroupType'] = $request->nodeGroupType;
+        if (!Utils::isUnset($request->nodeGroupType)) {
+            $query['NodeGroupType'] = $request->nodeGroupType;
         }
-
-        if (null !== $request->paymentType) {
-            @$query['PaymentType'] = $request->paymentType;
+        if (!Utils::isUnset($request->paymentType)) {
+            $query['PaymentType'] = $request->paymentType;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->releaseVersion) {
-            @$query['ReleaseVersion'] = $request->releaseVersion;
+        if (!Utils::isUnset($request->releaseVersion)) {
+            $query['ReleaseVersion'] = $request->releaseVersion;
         }
-
-        if (null !== $request->zoneId) {
-            @$query['ZoneId'] = $request->zoneId;
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListInstanceTypes',
@@ -4348,15 +3571,11 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Lists instance types.
+     * @summary Lists instance types.
+     *  *
+     * @param ListInstanceTypesRequest $request ListInstanceTypesRequest
      *
-     * @param request - ListInstanceTypesRequest
-     *
-     * @returns ListInstanceTypesResponse
-     *
-     * @param ListInstanceTypesRequest $request
-     *
-     * @return ListInstanceTypesResponse
+     * @return ListInstanceTypesResponse ListInstanceTypesResponse
      */
     public function listInstanceTypes($request)
     {
@@ -4366,60 +3585,46 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Queries the list of node groups in an EMR cluster.
+     * @summary Queries the list of node groups in an EMR cluster.
+     *  *
+     * @param ListNodeGroupsRequest $request ListNodeGroupsRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListNodeGroupsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListNodeGroupsResponse
-     *
-     * @param ListNodeGroupsRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return ListNodeGroupsResponse
+     * @return ListNodeGroupsResponse ListNodeGroupsResponse
      */
     public function listNodeGroupsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->maxResults) {
-            @$query['MaxResults'] = $request->maxResults;
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
         }
-
-        if (null !== $request->nextToken) {
-            @$query['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
         }
-
-        if (null !== $request->nodeGroupIds) {
-            @$query['NodeGroupIds'] = $request->nodeGroupIds;
+        if (!Utils::isUnset($request->nodeGroupIds)) {
+            $query['NodeGroupIds'] = $request->nodeGroupIds;
         }
-
-        if (null !== $request->nodeGroupNames) {
-            @$query['NodeGroupNames'] = $request->nodeGroupNames;
+        if (!Utils::isUnset($request->nodeGroupNames)) {
+            $query['NodeGroupNames'] = $request->nodeGroupNames;
         }
-
-        if (null !== $request->nodeGroupStates) {
-            @$query['NodeGroupStates'] = $request->nodeGroupStates;
+        if (!Utils::isUnset($request->nodeGroupStates)) {
+            $query['NodeGroupStates'] = $request->nodeGroupStates;
         }
-
-        if (null !== $request->nodeGroupTypes) {
-            @$query['NodeGroupTypes'] = $request->nodeGroupTypes;
+        if (!Utils::isUnset($request->nodeGroupTypes)) {
+            $query['NodeGroupTypes'] = $request->nodeGroupTypes;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->zoneId) {
-            @$query['ZoneId'] = $request->zoneId;
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListNodeGroups',
@@ -4437,15 +3642,11 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Queries the list of node groups in an EMR cluster.
+     * @summary Queries the list of node groups in an EMR cluster.
+     *  *
+     * @param ListNodeGroupsRequest $request ListNodeGroupsRequest
      *
-     * @param request - ListNodeGroupsRequest
-     *
-     * @returns ListNodeGroupsResponse
-     *
-     * @param ListNodeGroupsRequest $request
-     *
-     * @return ListNodeGroupsResponse
+     * @return ListNodeGroupsResponse ListNodeGroupsResponse
      */
     public function listNodeGroups($request)
     {
@@ -4455,68 +3656,52 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Queries the node list of an EMR cluster.
+     * @summary Queries the node list of an EMR cluster.
+     *  *
+     * @param ListNodesRequest $request ListNodesRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListNodesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListNodesResponse
-     *
-     * @param ListNodesRequest $request
-     * @param RuntimeOptions   $runtime
-     *
-     * @return ListNodesResponse
+     * @return ListNodesResponse ListNodesResponse
      */
     public function listNodesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->maxResults) {
-            @$query['MaxResults'] = $request->maxResults;
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
         }
-
-        if (null !== $request->nextToken) {
-            @$query['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
         }
-
-        if (null !== $request->nodeGroupIds) {
-            @$query['NodeGroupIds'] = $request->nodeGroupIds;
+        if (!Utils::isUnset($request->nodeGroupIds)) {
+            $query['NodeGroupIds'] = $request->nodeGroupIds;
         }
-
-        if (null !== $request->nodeIds) {
-            @$query['NodeIds'] = $request->nodeIds;
+        if (!Utils::isUnset($request->nodeIds)) {
+            $query['NodeIds'] = $request->nodeIds;
         }
-
-        if (null !== $request->nodeNames) {
-            @$query['NodeNames'] = $request->nodeNames;
+        if (!Utils::isUnset($request->nodeNames)) {
+            $query['NodeNames'] = $request->nodeNames;
         }
-
-        if (null !== $request->nodeStates) {
-            @$query['NodeStates'] = $request->nodeStates;
+        if (!Utils::isUnset($request->nodeStates)) {
+            $query['NodeStates'] = $request->nodeStates;
         }
-
-        if (null !== $request->privateIps) {
-            @$query['PrivateIps'] = $request->privateIps;
+        if (!Utils::isUnset($request->privateIps)) {
+            $query['PrivateIps'] = $request->privateIps;
         }
-
-        if (null !== $request->publicIps) {
-            @$query['PublicIps'] = $request->publicIps;
+        if (!Utils::isUnset($request->publicIps)) {
+            $query['PublicIps'] = $request->publicIps;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->tags) {
-            @$query['Tags'] = $request->tags;
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListNodes',
@@ -4534,15 +3719,11 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Queries the node list of an EMR cluster.
+     * @summary Queries the node list of an EMR cluster.
+     *  *
+     * @param ListNodesRequest $request ListNodesRequest
      *
-     * @param request - ListNodesRequest
-     *
-     * @returns ListNodesResponse
-     *
-     * @param ListNodesRequest $request
-     *
-     * @return ListNodesResponse
+     * @return ListNodesResponse ListNodesResponse
      */
     public function listNodes($request)
     {
@@ -4552,39 +3733,30 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Queries the major E-MapReduce (EMR) versions.
+     * @summary Queries the major E-MapReduce (EMR) versions.
+     *  *
+     * @description 查询主版本。
+     *  *
+     * @param ListReleaseVersionsRequest $request ListReleaseVersionsRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * 查询主版本。
-     *
-     * @param request - ListReleaseVersionsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListReleaseVersionsResponse
-     *
-     * @param ListReleaseVersionsRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return ListReleaseVersionsResponse
+     * @return ListReleaseVersionsResponse ListReleaseVersionsResponse
      */
     public function listReleaseVersionsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clusterType) {
-            @$query['ClusterType'] = $request->clusterType;
+        if (!Utils::isUnset($request->clusterType)) {
+            $query['ClusterType'] = $request->clusterType;
         }
-
-        if (null !== $request->iaasType) {
-            @$query['IaasType'] = $request->iaasType;
+        if (!Utils::isUnset($request->iaasType)) {
+            $query['IaasType'] = $request->iaasType;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListReleaseVersions',
@@ -4602,18 +3774,13 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Queries the major E-MapReduce (EMR) versions.
+     * @summary Queries the major E-MapReduce (EMR) versions.
+     *  *
+     * @description 查询主版本。
+     *  *
+     * @param ListReleaseVersionsRequest $request ListReleaseVersionsRequest
      *
-     * @remarks
-     * 查询主版本。
-     *
-     * @param request - ListReleaseVersionsRequest
-     *
-     * @returns ListReleaseVersionsResponse
-     *
-     * @param ListReleaseVersionsRequest $request
-     *
-     * @return ListReleaseVersionsResponse
+     * @return ListReleaseVersionsResponse ListReleaseVersionsResponse
      */
     public function listReleaseVersions($request)
     {
@@ -4623,56 +3790,43 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Query EMR cluster bootstrap scripts or regular scripts.
+     * @summary Query EMR cluster bootstrap scripts or regular scripts.
+     *  *
+     * @param ListScriptsRequest $request ListScriptsRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListScriptsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListScriptsResponse
-     *
-     * @param ListScriptsRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return ListScriptsResponse
+     * @return ListScriptsResponse ListScriptsResponse
      */
     public function listScriptsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->maxResults) {
-            @$query['MaxResults'] = $request->maxResults;
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
         }
-
-        if (null !== $request->nextToken) {
-            @$query['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->scriptId) {
-            @$query['ScriptId'] = $request->scriptId;
+        if (!Utils::isUnset($request->scriptId)) {
+            $query['ScriptId'] = $request->scriptId;
         }
-
-        if (null !== $request->scriptName) {
-            @$query['ScriptName'] = $request->scriptName;
+        if (!Utils::isUnset($request->scriptName)) {
+            $query['ScriptName'] = $request->scriptName;
         }
-
-        if (null !== $request->scriptType) {
-            @$query['ScriptType'] = $request->scriptType;
+        if (!Utils::isUnset($request->scriptType)) {
+            $query['ScriptType'] = $request->scriptType;
         }
-
-        if (null !== $request->statuses) {
-            @$query['Statuses'] = $request->statuses;
+        if (!Utils::isUnset($request->statuses)) {
+            $query['Statuses'] = $request->statuses;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListScripts',
@@ -4690,15 +3844,11 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Query EMR cluster bootstrap scripts or regular scripts.
+     * @summary Query EMR cluster bootstrap scripts or regular scripts.
+     *  *
+     * @param ListScriptsRequest $request ListScriptsRequest
      *
-     * @param request - ListScriptsRequest
-     *
-     * @returns ListScriptsResponse
-     *
-     * @param ListScriptsRequest $request
-     *
-     * @return ListScriptsResponse
+     * @return ListScriptsResponse ListScriptsResponse
      */
     public function listScripts($request)
     {
@@ -4708,48 +3858,37 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Queries the tags that are bound to an EMR cluster.
+     * @summary Queries the tags that are bound to an EMR cluster.
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListTagResourcesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListTagResourcesResponse
-     *
-     * @param ListTagResourcesRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->maxResults) {
-            @$query['MaxResults'] = $request->maxResults;
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
         }
-
-        if (null !== $request->nextToken) {
-            @$query['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceIds) {
-            @$query['ResourceIds'] = $request->resourceIds;
+        if (!Utils::isUnset($request->resourceIds)) {
+            $query['ResourceIds'] = $request->resourceIds;
         }
-
-        if (null !== $request->resourceType) {
-            @$query['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
         }
-
-        if (null !== $request->tags) {
-            @$query['Tags'] = $request->tags;
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListTagResources',
@@ -4767,15 +3906,11 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Queries the tags that are bound to an EMR cluster.
+     * @summary Queries the tags that are bound to an EMR cluster.
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
-     * @param request - ListTagResourcesRequest
-     *
-     * @returns ListTagResourcesResponse
-     *
-     * @param ListTagResourcesRequest $request
-     *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -4785,51 +3920,39 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Queries a user.
+     * @summary Queries a user.
+     *  *
+     * @description Queries a user.
+     *  *
+     * @param ListUsersRequest $request ListUsersRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * Queries a user.
-     *
-     * @param request - ListUsersRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListUsersResponse
-     *
-     * @param ListUsersRequest $request
-     * @param RuntimeOptions   $runtime
-     *
-     * @return ListUsersResponse
+     * @return ListUsersResponse ListUsersResponse
      */
     public function listUsersWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->maxResults) {
-            @$query['MaxResults'] = $request->maxResults;
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
         }
-
-        if (null !== $request->nextToken) {
-            @$query['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->userName) {
-            @$query['UserName'] = $request->userName;
+        if (!Utils::isUnset($request->userName)) {
+            $query['UserName'] = $request->userName;
         }
-
-        if (null !== $request->userNames) {
-            @$query['UserNames'] = $request->userNames;
+        if (!Utils::isUnset($request->userNames)) {
+            $query['UserNames'] = $request->userNames;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListUsers',
@@ -4847,18 +3970,13 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Queries a user.
+     * @summary Queries a user.
+     *  *
+     * @description Queries a user.
+     *  *
+     * @param ListUsersRequest $request ListUsersRequest
      *
-     * @remarks
-     * Queries a user.
-     *
-     * @param request - ListUsersRequest
-     *
-     * @returns ListUsersResponse
-     *
-     * @param ListUsersRequest $request
-     *
-     * @return ListUsersResponse
+     * @return ListUsersResponse ListUsersResponse
      */
     public function listUsers($request)
     {
@@ -4868,47 +3986,36 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Adds a custom auto scaling rule.
+     * @summary Adds a custom auto scaling rule.
+     *  *
+     * @description You can call this operation to configure auto scaling policies.
+     *  *
+     * @param PutAutoScalingPolicyRequest $request PutAutoScalingPolicyRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can call this operation to configure auto scaling policies.
-     *
-     * @param request - PutAutoScalingPolicyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns PutAutoScalingPolicyResponse
-     *
-     * @param PutAutoScalingPolicyRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return PutAutoScalingPolicyResponse
+     * @return PutAutoScalingPolicyResponse PutAutoScalingPolicyResponse
      */
     public function putAutoScalingPolicyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->constraints) {
-            @$query['Constraints'] = $request->constraints;
+        if (!Utils::isUnset($request->constraints)) {
+            $query['Constraints'] = $request->constraints;
         }
-
-        if (null !== $request->nodeGroupId) {
-            @$query['NodeGroupId'] = $request->nodeGroupId;
+        if (!Utils::isUnset($request->nodeGroupId)) {
+            $query['NodeGroupId'] = $request->nodeGroupId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->scalingRules) {
-            @$query['ScalingRules'] = $request->scalingRules;
+        if (!Utils::isUnset($request->scalingRules)) {
+            $query['ScalingRules'] = $request->scalingRules;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'PutAutoScalingPolicy',
@@ -4926,18 +4033,13 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Adds a custom auto scaling rule.
+     * @summary Adds a custom auto scaling rule.
+     *  *
+     * @description You can call this operation to configure auto scaling policies.
+     *  *
+     * @param PutAutoScalingPolicyRequest $request PutAutoScalingPolicyRequest
      *
-     * @remarks
-     * You can call this operation to configure auto scaling policies.
-     *
-     * @param request - PutAutoScalingPolicyRequest
-     *
-     * @returns PutAutoScalingPolicyResponse
-     *
-     * @param PutAutoScalingPolicyRequest $request
-     *
-     * @return PutAutoScalingPolicyResponse
+     * @return PutAutoScalingPolicyResponse PutAutoScalingPolicyResponse
      */
     public function putAutoScalingPolicy($request)
     {
@@ -4947,34 +4049,26 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @param request - PutManagedScalingPolicyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
+     * @param PutManagedScalingPolicyRequest $request PutManagedScalingPolicyRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @returns PutManagedScalingPolicyResponse
-     *
-     * @param PutManagedScalingPolicyRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return PutManagedScalingPolicyResponse
+     * @return PutManagedScalingPolicyResponse PutManagedScalingPolicyResponse
      */
     public function putManagedScalingPolicyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->constraints) {
-            @$query['Constraints'] = $request->constraints;
+        if (!Utils::isUnset($request->constraints)) {
+            $query['Constraints'] = $request->constraints;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'PutManagedScalingPolicy',
@@ -4992,13 +4086,9 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @param request - PutManagedScalingPolicyRequest
+     * @param PutManagedScalingPolicyRequest $request PutManagedScalingPolicyRequest
      *
-     * @returns PutManagedScalingPolicyResponse
-     *
-     * @param PutManagedScalingPolicyRequest $request
-     *
-     * @return PutManagedScalingPolicyResponse
+     * @return PutManagedScalingPolicyResponse PutManagedScalingPolicyResponse
      */
     public function putManagedScalingPolicy($request)
     {
@@ -5008,36 +4098,28 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Removes an auto scaling policy.
+     * @summary Removes an auto scaling policy.
+     *  *
+     * @param RemoveAutoScalingPolicyRequest $request RemoveAutoScalingPolicyRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - RemoveAutoScalingPolicyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns RemoveAutoScalingPolicyResponse
-     *
-     * @param RemoveAutoScalingPolicyRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return RemoveAutoScalingPolicyResponse
+     * @return RemoveAutoScalingPolicyResponse RemoveAutoScalingPolicyResponse
      */
     public function removeAutoScalingPolicyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->nodeGroupId) {
-            @$query['NodeGroupId'] = $request->nodeGroupId;
+        if (!Utils::isUnset($request->nodeGroupId)) {
+            $query['NodeGroupId'] = $request->nodeGroupId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'RemoveAutoScalingPolicy',
@@ -5055,15 +4137,11 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Removes an auto scaling policy.
+     * @summary Removes an auto scaling policy.
+     *  *
+     * @param RemoveAutoScalingPolicyRequest $request RemoveAutoScalingPolicyRequest
      *
-     * @param request - RemoveAutoScalingPolicyRequest
-     *
-     * @returns RemoveAutoScalingPolicyResponse
-     *
-     * @param RemoveAutoScalingPolicyRequest $request
-     *
-     * @return RemoveAutoScalingPolicyResponse
+     * @return RemoveAutoScalingPolicyResponse RemoveAutoScalingPolicyResponse
      */
     public function removeAutoScalingPolicy($request)
     {
@@ -5073,38 +4151,29 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @param request - RunApiTemplateRequest
-     * @param runtime - runtime options for this request RuntimeOptions
+     * @param RunApiTemplateRequest $request RunApiTemplateRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @returns RunApiTemplateResponse
-     *
-     * @param RunApiTemplateRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return RunApiTemplateResponse
+     * @return RunApiTemplateResponse RunApiTemplateResponse
      */
     public function runApiTemplateWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->apiName) {
-            @$query['ApiName'] = $request->apiName;
+        if (!Utils::isUnset($request->apiName)) {
+            $query['ApiName'] = $request->apiName;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->templateId) {
-            @$query['TemplateId'] = $request->templateId;
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'RunApiTemplate',
@@ -5122,13 +4191,9 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @param request - RunApiTemplateRequest
+     * @param RunApiTemplateRequest $request RunApiTemplateRequest
      *
-     * @returns RunApiTemplateResponse
-     *
-     * @param RunApiTemplateRequest $request
-     *
-     * @return RunApiTemplateResponse
+     * @return RunApiTemplateResponse RunApiTemplateResponse
      */
     public function runApiTemplate($request)
     {
@@ -5138,60 +4203,46 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Manages a service deployed in a cluster. For example, you can call this operation to start pr stop a service.
+     * @summary Manages a service deployed in a cluster. For example, you can call this operation to start pr stop a service.
+     *  *
+     * @param RunApplicationActionRequest $request RunApplicationActionRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - RunApplicationActionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns RunApplicationActionResponse
-     *
-     * @param RunApplicationActionRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return RunApplicationActionResponse
+     * @return RunApplicationActionResponse RunApplicationActionResponse
      */
     public function runApplicationActionWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->actionName) {
-            @$query['ActionName'] = $request->actionName;
+        if (!Utils::isUnset($request->actionName)) {
+            $query['ActionName'] = $request->actionName;
         }
-
-        if (null !== $request->batchSize) {
-            @$query['BatchSize'] = $request->batchSize;
+        if (!Utils::isUnset($request->batchSize)) {
+            $query['BatchSize'] = $request->batchSize;
         }
-
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->componentInstanceSelector) {
-            @$query['ComponentInstanceSelector'] = $request->componentInstanceSelector;
+        if (!Utils::isUnset($request->componentInstanceSelector)) {
+            $query['ComponentInstanceSelector'] = $request->componentInstanceSelector;
         }
-
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->executeStrategy) {
-            @$query['ExecuteStrategy'] = $request->executeStrategy;
+        if (!Utils::isUnset($request->executeStrategy)) {
+            $query['ExecuteStrategy'] = $request->executeStrategy;
         }
-
-        if (null !== $request->interval) {
-            @$query['Interval'] = $request->interval;
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->rollingExecute) {
-            @$query['RollingExecute'] = $request->rollingExecute;
+        if (!Utils::isUnset($request->rollingExecute)) {
+            $query['RollingExecute'] = $request->rollingExecute;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'RunApplicationAction',
@@ -5209,15 +4260,11 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Manages a service deployed in a cluster. For example, you can call this operation to start pr stop a service.
+     * @summary Manages a service deployed in a cluster. For example, you can call this operation to start pr stop a service.
+     *  *
+     * @param RunApplicationActionRequest $request RunApplicationActionRequest
      *
-     * @param request - RunApplicationActionRequest
-     *
-     * @returns RunApplicationActionResponse
-     *
-     * @param RunApplicationActionRequest $request
-     *
-     * @return RunApplicationActionResponse
+     * @return RunApplicationActionResponse RunApplicationActionResponse
      */
     public function runApplicationAction($request)
     {
@@ -5227,139 +4274,106 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Creates a pay-as-you-go or subscription E-MapReduce (EMR) cluster.
+     * @summary Creates a pay-as-you-go or subscription E-MapReduce (EMR) cluster.
+     *  *
+     * @description RunCluster is an upgraded version of CreateCluster. RunCluster uses HTTPS POST requests and supports more parameters. Complex parameters, such as parameters of the object and array types, are in the JSON format and are more friendly for users who use CLI.
+     *  *
+     * @param RunClusterRequest $tmpReq  RunClusterRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * RunCluster is an upgraded version of CreateCluster. RunCluster uses HTTPS POST requests and supports more parameters. Complex parameters, such as parameters of the object and array types, are in the JSON format and are more friendly for users who use CLI.
-     *
-     * @param tmpReq - RunClusterRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns RunClusterResponse
-     *
-     * @param RunClusterRequest $tmpReq
-     * @param RuntimeOptions    $runtime
-     *
-     * @return RunClusterResponse
+     * @return RunClusterResponse RunClusterResponse
      */
     public function runClusterWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new RunClusterShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->applicationConfigs) {
-            $request->applicationConfigsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->applicationConfigs, 'ApplicationConfigs', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->applicationConfigs)) {
+            $request->applicationConfigsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->applicationConfigs, 'ApplicationConfigs', 'json');
         }
-
-        if (null !== $tmpReq->applications) {
-            $request->applicationsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->applications, 'Applications', 'json');
+        if (!Utils::isUnset($tmpReq->applications)) {
+            $request->applicationsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->applications, 'Applications', 'json');
         }
-
-        if (null !== $tmpReq->bootstrapScripts) {
-            $request->bootstrapScriptsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->bootstrapScripts, 'BootstrapScripts', 'json');
+        if (!Utils::isUnset($tmpReq->bootstrapScripts)) {
+            $request->bootstrapScriptsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->bootstrapScripts, 'BootstrapScripts', 'json');
         }
-
-        if (null !== $tmpReq->nodeAttributes) {
-            $request->nodeAttributesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->nodeAttributes, 'NodeAttributes', 'json');
+        if (!Utils::isUnset($tmpReq->nodeAttributes)) {
+            $request->nodeAttributesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->nodeAttributes, 'NodeAttributes', 'json');
         }
-
-        if (null !== $tmpReq->nodeGroups) {
-            $request->nodeGroupsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->nodeGroups, 'NodeGroups', 'json');
+        if (!Utils::isUnset($tmpReq->nodeGroups)) {
+            $request->nodeGroupsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->nodeGroups, 'NodeGroups', 'json');
         }
-
-        if (null !== $tmpReq->promotions) {
-            $request->promotionsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->promotions, 'Promotions', 'json');
+        if (!Utils::isUnset($tmpReq->promotions)) {
+            $request->promotionsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->promotions, 'Promotions', 'json');
         }
-
-        if (null !== $tmpReq->subscriptionConfig) {
-            $request->subscriptionConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->subscriptionConfig, 'SubscriptionConfig', 'json');
+        if (!Utils::isUnset($tmpReq->subscriptionConfig)) {
+            $request->subscriptionConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->subscriptionConfig, 'SubscriptionConfig', 'json');
         }
-
-        if (null !== $tmpReq->tags) {
-            $request->tagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        if (!Utils::isUnset($tmpReq->tags)) {
+            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
         }
-
         $query = [];
-        if (null !== $request->promotionsShrink) {
-            @$query['Promotions'] = $request->promotionsShrink;
+        if (!Utils::isUnset($request->promotionsShrink)) {
+            $query['Promotions'] = $request->promotionsShrink;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $body = [];
-        if (null !== $request->applicationConfigsShrink) {
-            @$body['ApplicationConfigs'] = $request->applicationConfigsShrink;
+        if (!Utils::isUnset($request->applicationConfigsShrink)) {
+            $body['ApplicationConfigs'] = $request->applicationConfigsShrink;
         }
-
-        if (null !== $request->applicationsShrink) {
-            @$body['Applications'] = $request->applicationsShrink;
+        if (!Utils::isUnset($request->applicationsShrink)) {
+            $body['Applications'] = $request->applicationsShrink;
         }
-
-        if (null !== $request->bootstrapScriptsShrink) {
-            @$body['BootstrapScripts'] = $request->bootstrapScriptsShrink;
+        if (!Utils::isUnset($request->bootstrapScriptsShrink)) {
+            $body['BootstrapScripts'] = $request->bootstrapScriptsShrink;
         }
-
-        if (null !== $request->clientToken) {
-            @$body['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->clusterName) {
-            @$body['ClusterName'] = $request->clusterName;
+        if (!Utils::isUnset($request->clusterName)) {
+            $body['ClusterName'] = $request->clusterName;
         }
-
-        if (null !== $request->clusterType) {
-            @$body['ClusterType'] = $request->clusterType;
+        if (!Utils::isUnset($request->clusterType)) {
+            $body['ClusterType'] = $request->clusterType;
         }
-
-        if (null !== $request->deletionProtection) {
-            @$body['DeletionProtection'] = $request->deletionProtection;
+        if (!Utils::isUnset($request->deletionProtection)) {
+            $body['DeletionProtection'] = $request->deletionProtection;
         }
-
-        if (null !== $request->deployMode) {
-            @$body['DeployMode'] = $request->deployMode;
+        if (!Utils::isUnset($request->deployMode)) {
+            $body['DeployMode'] = $request->deployMode;
         }
-
-        if (null !== $request->description) {
-            @$body['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
         }
-
-        if (null !== $request->nodeAttributesShrink) {
-            @$body['NodeAttributes'] = $request->nodeAttributesShrink;
+        if (!Utils::isUnset($request->nodeAttributesShrink)) {
+            $body['NodeAttributes'] = $request->nodeAttributesShrink;
         }
-
-        if (null !== $request->nodeGroupsShrink) {
-            @$body['NodeGroups'] = $request->nodeGroupsShrink;
+        if (!Utils::isUnset($request->nodeGroupsShrink)) {
+            $body['NodeGroups'] = $request->nodeGroupsShrink;
         }
-
-        if (null !== $request->paymentType) {
-            @$body['PaymentType'] = $request->paymentType;
+        if (!Utils::isUnset($request->paymentType)) {
+            $body['PaymentType'] = $request->paymentType;
         }
-
-        if (null !== $request->releaseVersion) {
-            @$body['ReleaseVersion'] = $request->releaseVersion;
+        if (!Utils::isUnset($request->releaseVersion)) {
+            $body['ReleaseVersion'] = $request->releaseVersion;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$body['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $body['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->securityMode) {
-            @$body['SecurityMode'] = $request->securityMode;
+        if (!Utils::isUnset($request->securityMode)) {
+            $body['SecurityMode'] = $request->securityMode;
         }
-
-        if (null !== $request->subscriptionConfigShrink) {
-            @$body['SubscriptionConfig'] = $request->subscriptionConfigShrink;
+        if (!Utils::isUnset($request->subscriptionConfigShrink)) {
+            $body['SubscriptionConfig'] = $request->subscriptionConfigShrink;
         }
-
-        if (null !== $request->tagsShrink) {
-            @$body['Tags'] = $request->tagsShrink;
+        if (!Utils::isUnset($request->tagsShrink)) {
+            $body['Tags'] = $request->tagsShrink;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'RunCluster',
@@ -5377,18 +4391,13 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Creates a pay-as-you-go or subscription E-MapReduce (EMR) cluster.
+     * @summary Creates a pay-as-you-go or subscription E-MapReduce (EMR) cluster.
+     *  *
+     * @description RunCluster is an upgraded version of CreateCluster. RunCluster uses HTTPS POST requests and supports more parameters. Complex parameters, such as parameters of the object and array types, are in the JSON format and are more friendly for users who use CLI.
+     *  *
+     * @param RunClusterRequest $request RunClusterRequest
      *
-     * @remarks
-     * RunCluster is an upgraded version of CreateCluster. RunCluster uses HTTPS POST requests and supports more parameters. Complex parameters, such as parameters of the object and array types, are in the JSON format and are more friendly for users who use CLI.
-     *
-     * @param request - RunClusterRequest
-     *
-     * @returns RunClusterResponse
-     *
-     * @param RunClusterRequest $request
-     *
-     * @return RunClusterResponse
+     * @return RunClusterResponse RunClusterResponse
      */
     public function runCluster($request)
     {
@@ -5398,40 +4407,31 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Binds tags to a specified EMR cluster.
+     * @summary Binds tags to a specified EMR cluster.
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - TagResourcesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns TagResourcesResponse
-     *
-     * @param TagResourcesRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceIds) {
-            @$query['ResourceIds'] = $request->resourceIds;
+        if (!Utils::isUnset($request->resourceIds)) {
+            $query['ResourceIds'] = $request->resourceIds;
         }
-
-        if (null !== $request->resourceType) {
-            @$query['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
         }
-
-        if (null !== $request->tags) {
-            @$query['Tags'] = $request->tags;
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'TagResources',
@@ -5449,15 +4449,11 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Binds tags to a specified EMR cluster.
+     * @summary Binds tags to a specified EMR cluster.
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
      *
-     * @param request - TagResourcesRequest
-     *
-     * @returns TagResourcesResponse
-     *
-     * @param TagResourcesRequest $request
-     *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -5467,44 +4463,34 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Unbinds tags from a specified column in an EMR cluster. If the tag is not bound to other resources, the tag is automatically deleted.
+     * @summary Unbinds tags from a specified column in an EMR cluster. If the tag is not bound to other resources, the tag is automatically deleted.
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UntagResourcesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UntagResourcesResponse
-     *
-     * @param UntagResourcesRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResourcesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->all) {
-            @$query['All'] = $request->all;
+        if (!Utils::isUnset($request->all)) {
+            $query['All'] = $request->all;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceIds) {
-            @$query['ResourceIds'] = $request->resourceIds;
+        if (!Utils::isUnset($request->resourceIds)) {
+            $query['ResourceIds'] = $request->resourceIds;
         }
-
-        if (null !== $request->resourceType) {
-            @$query['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
         }
-
-        if (null !== $request->tagKeys) {
-            @$query['TagKeys'] = $request->tagKeys;
+        if (!Utils::isUnset($request->tagKeys)) {
+            $query['TagKeys'] = $request->tagKeys;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UntagResources',
@@ -5522,15 +4508,11 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Unbinds tags from a specified column in an EMR cluster. If the tag is not bound to other resources, the tag is automatically deleted.
+     * @summary Unbinds tags from a specified column in an EMR cluster. If the tag is not bound to other resources, the tag is automatically deleted.
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
      *
-     * @param request - UntagResourcesRequest
-     *
-     * @returns UntagResourcesResponse
-     *
-     * @param UntagResourcesRequest $request
-     *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResources($request)
     {
@@ -5540,51 +4522,39 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Updates an API operation template.
+     * @summary Updates an API operation template.
+     *  *
+     * @description 修改集群模板
+     *  *
+     * @param UpdateApiTemplateRequest $request UpdateApiTemplateRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * 修改集群模板
-     *
-     * @param request - UpdateApiTemplateRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateApiTemplateResponse
-     *
-     * @param UpdateApiTemplateRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return UpdateApiTemplateResponse
+     * @return UpdateApiTemplateResponse UpdateApiTemplateResponse
      */
     public function updateApiTemplateWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->apiName) {
-            @$query['ApiName'] = $request->apiName;
+        if (!Utils::isUnset($request->apiName)) {
+            $query['ApiName'] = $request->apiName;
         }
-
-        if (null !== $request->content) {
-            @$query['Content'] = $request->content;
+        if (!Utils::isUnset($request->content)) {
+            $query['Content'] = $request->content;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->templateId) {
-            @$query['TemplateId'] = $request->templateId;
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
         }
-
-        if (null !== $request->templateName) {
-            @$query['TemplateName'] = $request->templateName;
+        if (!Utils::isUnset($request->templateName)) {
+            $query['TemplateName'] = $request->templateName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateApiTemplate',
@@ -5602,18 +4572,13 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Updates an API operation template.
+     * @summary Updates an API operation template.
+     *  *
+     * @description 修改集群模板
+     *  *
+     * @param UpdateApiTemplateRequest $request UpdateApiTemplateRequest
      *
-     * @remarks
-     * 修改集群模板
-     *
-     * @param request - UpdateApiTemplateRequest
-     *
-     * @returns UpdateApiTemplateResponse
-     *
-     * @param UpdateApiTemplateRequest $request
-     *
-     * @return UpdateApiTemplateResponse
+     * @return UpdateApiTemplateResponse UpdateApiTemplateResponse
      */
     public function updateApiTemplate($request)
     {
@@ -5623,69 +4588,53 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Updates the application configurations.
+     * @summary Updates the application configurations.
+     *  *
+     * @param UpdateApplicationConfigsRequest $request UpdateApplicationConfigsRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateApplicationConfigsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateApplicationConfigsResponse
-     *
-     * @param UpdateApplicationConfigsRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return UpdateApplicationConfigsResponse
+     * @return UpdateApplicationConfigsResponse UpdateApplicationConfigsResponse
      */
     public function updateApplicationConfigsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->applicationName) {
-            @$query['ApplicationName'] = $request->applicationName;
+        if (!Utils::isUnset($request->applicationName)) {
+            $query['ApplicationName'] = $request->applicationName;
         }
-
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->configAction) {
-            @$query['ConfigAction'] = $request->configAction;
+        if (!Utils::isUnset($request->configAction)) {
+            $query['ConfigAction'] = $request->configAction;
         }
-
-        if (null !== $request->configScope) {
-            @$query['ConfigScope'] = $request->configScope;
+        if (!Utils::isUnset($request->configScope)) {
+            $query['ConfigScope'] = $request->configScope;
         }
-
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->nodeGroupId) {
-            @$query['NodeGroupId'] = $request->nodeGroupId;
+        if (!Utils::isUnset($request->nodeGroupId)) {
+            $query['NodeGroupId'] = $request->nodeGroupId;
         }
-
-        if (null !== $request->nodeId) {
-            @$query['NodeId'] = $request->nodeId;
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
         }
-
-        if (null !== $request->refreshConfig) {
-            @$query['RefreshConfig'] = $request->refreshConfig;
+        if (!Utils::isUnset($request->refreshConfig)) {
+            $query['RefreshConfig'] = $request->refreshConfig;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $body = [];
         $bodyFlat = [];
-        if (null !== $request->applicationConfigs) {
-            @$bodyFlat['ApplicationConfigs'] = $request->applicationConfigs;
+        if (!Utils::isUnset($request->applicationConfigs)) {
+            $bodyFlat['ApplicationConfigs'] = $request->applicationConfigs;
         }
-
-        $body = Dara::merge([
-        ], $body, Utils::query($bodyFlat));
+        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateApplicationConfigs',
@@ -5703,15 +4652,11 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Updates the application configurations.
+     * @summary Updates the application configurations.
+     *  *
+     * @param UpdateApplicationConfigsRequest $request UpdateApplicationConfigsRequest
      *
-     * @param request - UpdateApplicationConfigsRequest
-     *
-     * @returns UpdateApplicationConfigsResponse
-     *
-     * @param UpdateApplicationConfigsRequest $request
-     *
-     * @return UpdateApplicationConfigsResponse
+     * @return UpdateApplicationConfigsResponse UpdateApplicationConfigsResponse
      */
     public function updateApplicationConfigs($request)
     {
@@ -5721,44 +4666,34 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Updates cluster attributes.
+     * @summary Updates cluster attributes.
+     *  *
+     * @param UpdateClusterAttributeRequest $request UpdateClusterAttributeRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateClusterAttributeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateClusterAttributeResponse
-     *
-     * @param UpdateClusterAttributeRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return UpdateClusterAttributeResponse
+     * @return UpdateClusterAttributeResponse UpdateClusterAttributeResponse
      */
     public function updateClusterAttributeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->clusterName) {
-            @$query['ClusterName'] = $request->clusterName;
+        if (!Utils::isUnset($request->clusterName)) {
+            $query['ClusterName'] = $request->clusterName;
         }
-
-        if (null !== $request->deletionProtection) {
-            @$query['DeletionProtection'] = $request->deletionProtection;
+        if (!Utils::isUnset($request->deletionProtection)) {
+            $query['DeletionProtection'] = $request->deletionProtection;
         }
-
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateClusterAttribute',
@@ -5776,15 +4711,11 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Updates cluster attributes.
+     * @summary Updates cluster attributes.
+     *  *
+     * @param UpdateClusterAttributeRequest $request UpdateClusterAttributeRequest
      *
-     * @param request - UpdateClusterAttributeRequest
-     *
-     * @returns UpdateClusterAttributeResponse
-     *
-     * @param UpdateClusterAttributeRequest $request
-     *
-     * @return UpdateClusterAttributeResponse
+     * @return UpdateClusterAttributeResponse UpdateClusterAttributeResponse
      */
     public function updateClusterAttribute($request)
     {
@@ -5794,50 +4725,39 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Updates a bootstrap action or a common script of an E-MapReduce (EMR) cluster.
+     * @summary Updates a bootstrap action or a common script of an E-MapReduce (EMR) cluster.
+     *  *
+     * @param UpdateScriptRequest $tmpReq  UpdateScriptRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - UpdateScriptRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateScriptResponse
-     *
-     * @param UpdateScriptRequest $tmpReq
-     * @param RuntimeOptions      $runtime
-     *
-     * @return UpdateScriptResponse
+     * @return UpdateScriptResponse UpdateScriptResponse
      */
     public function updateScriptWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new UpdateScriptShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->script) {
-            $request->scriptShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->script, 'Script', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->script)) {
+            $request->scriptShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->script, 'Script', 'json');
         }
-
         $query = [];
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->scriptShrink) {
-            @$query['Script'] = $request->scriptShrink;
+        if (!Utils::isUnset($request->scriptShrink)) {
+            $query['Script'] = $request->scriptShrink;
         }
-
-        if (null !== $request->scriptId) {
-            @$query['ScriptId'] = $request->scriptId;
+        if (!Utils::isUnset($request->scriptId)) {
+            $query['ScriptId'] = $request->scriptId;
         }
-
-        if (null !== $request->scriptType) {
-            @$query['ScriptType'] = $request->scriptType;
+        if (!Utils::isUnset($request->scriptType)) {
+            $query['ScriptType'] = $request->scriptType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateScript',
@@ -5855,15 +4775,11 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Updates a bootstrap action or a common script of an E-MapReduce (EMR) cluster.
+     * @summary Updates a bootstrap action or a common script of an E-MapReduce (EMR) cluster.
+     *  *
+     * @param UpdateScriptRequest $request UpdateScriptRequest
      *
-     * @param request - UpdateScriptRequest
-     *
-     * @returns UpdateScriptResponse
-     *
-     * @param UpdateScriptRequest $request
-     *
-     * @return UpdateScriptResponse
+     * @return UpdateScriptResponse UpdateScriptResponse
      */
     public function updateScript($request)
     {
@@ -5873,51 +4789,39 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Updates the information about a user.
+     * @summary Updates the information about a user.
+     *  *
+     * @description Updates the information about a user.
+     *  *
+     * @param UpdateUserAttributeRequest $request UpdateUserAttributeRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * Updates the information about a user.
-     *
-     * @param request - UpdateUserAttributeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateUserAttributeResponse
-     *
-     * @param UpdateUserAttributeRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return UpdateUserAttributeResponse
+     * @return UpdateUserAttributeResponse UpdateUserAttributeResponse
      */
     public function updateUserAttributeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->password) {
-            @$query['Password'] = $request->password;
+        if (!Utils::isUnset($request->password)) {
+            $query['Password'] = $request->password;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->userId) {
-            @$query['UserId'] = $request->userId;
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
         }
-
-        if (null !== $request->userName) {
-            @$query['UserName'] = $request->userName;
+        if (!Utils::isUnset($request->userName)) {
+            $query['UserName'] = $request->userName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateUserAttribute',
@@ -5935,18 +4839,13 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Updates the information about a user.
+     * @summary Updates the information about a user.
+     *  *
+     * @description Updates the information about a user.
+     *  *
+     * @param UpdateUserAttributeRequest $request UpdateUserAttributeRequest
      *
-     * @remarks
-     * Updates the information about a user.
-     *
-     * @param request - UpdateUserAttributeRequest
-     *
-     * @returns UpdateUserAttributeResponse
-     *
-     * @param UpdateUserAttributeRequest $request
-     *
-     * @return UpdateUserAttributeResponse
+     * @return UpdateUserAttributeResponse UpdateUserAttributeResponse
      */
     public function updateUserAttribute($request)
     {

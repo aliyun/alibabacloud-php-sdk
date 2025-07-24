@@ -4,41 +4,71 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListComponentsRequest extends Model
 {
     /**
+     * @description 应用名称列表。
+     *
+     * @example 20
+     *
      * @var string[]
      */
     public $applicationNames;
 
     /**
+     * @description 集群ID。
+     *
+     * This parameter is required.
+     *
+     * @example C-8CFEBCCFFEF5****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description 组件名称列表。
+     *
+     * @example ["HDFS"]
+     *
      * @var string[]
      */
     public $componentNames;
 
     /**
+     * @example null
+     *
      * @var string[]
      */
     public $componentStates;
 
     /**
+     * @description 一次获取的最大记录数。取值范围：1~100。
+     *
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description 标记当前开始读取的位置，置空表示从头开始。
+     *
+     * @example ""
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description 地域ID。
+     *
+     * This parameter is required.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -52,68 +82,29 @@ class ListComponentsRequest extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->applicationNames)) {
-            Model::validateArray($this->applicationNames);
-        }
-        if (\is_array($this->componentNames)) {
-            Model::validateArray($this->componentNames);
-        }
-        if (\is_array($this->componentStates)) {
-            Model::validateArray($this->componentStates);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->applicationNames) {
-            if (\is_array($this->applicationNames)) {
-                $res['ApplicationNames'] = [];
-                $n1 = 0;
-                foreach ($this->applicationNames as $item1) {
-                    $res['ApplicationNames'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['ApplicationNames'] = $this->applicationNames;
         }
-
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
-
         if (null !== $this->componentNames) {
-            if (\is_array($this->componentNames)) {
-                $res['ComponentNames'] = [];
-                $n1 = 0;
-                foreach ($this->componentNames as $item1) {
-                    $res['ComponentNames'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['ComponentNames'] = $this->componentNames;
         }
-
         if (null !== $this->componentStates) {
-            if (\is_array($this->componentStates)) {
-                $res['ComponentStates'] = [];
-                $n1 = 0;
-                foreach ($this->componentStates as $item1) {
-                    $res['ComponentStates'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['ComponentStates'] = $this->componentStates;
         }
-
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
-
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -121,59 +112,38 @@ class ListComponentsRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListComponentsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApplicationNames'])) {
             if (!empty($map['ApplicationNames'])) {
-                $model->applicationNames = [];
-                $n1 = 0;
-                foreach ($map['ApplicationNames'] as $item1) {
-                    $model->applicationNames[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->applicationNames = $map['ApplicationNames'];
             }
         }
-
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
-
         if (isset($map['ComponentNames'])) {
             if (!empty($map['ComponentNames'])) {
-                $model->componentNames = [];
-                $n1 = 0;
-                foreach ($map['ComponentNames'] as $item1) {
-                    $model->componentNames[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->componentNames = $map['ComponentNames'];
             }
         }
-
         if (isset($map['ComponentStates'])) {
             if (!empty($map['ComponentStates'])) {
-                $model->componentStates = [];
-                $n1 = 0;
-                foreach ($map['ComponentStates'] as $item1) {
-                    $model->componentStates[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->componentStates = $map['ComponentStates'];
             }
         }
-
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
-
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

@@ -4,21 +4,33 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class RunClusterResponseBody extends Model
 {
     /**
+     * @description The cluster ID.
+     *
+     * @example c-b933c5aac7f7***
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The operation ID.
+     *
+     * @example op-13c37a77c505****
+     *
      * @var string
      */
     public $operationId;
 
     /**
+     * @description The request ID.
+     *
+     * @example DD6B1B2A-5837-5237-ABE4-FF0C8944****
+     *
      * @var string
      */
     public $requestId;
@@ -28,22 +40,17 @@ class RunClusterResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
-
         if (null !== $this->operationId) {
             $res['OperationId'] = $this->operationId;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -51,22 +58,20 @@ class RunClusterResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return RunClusterResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
-
         if (isset($map['OperationId'])) {
             $model->operationId = $map['OperationId'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,31 +4,58 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateScriptRequest extends Model
 {
     /**
+     * @description The cluster ID.
+     *
+     * This parameter is required.
+     *
+     * @example c-b933c5aac8fe****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The region ID.
+     *
+     * This parameter is required.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The type of the script. Valid values:
+     *
+     *   BOOTSTRAP: indicates a bootstrap action of the Elastic Compute Service (ECS) instance.
+     *   NORMAL: indicates a common script.
+     *
+     * This parameter is required.
+     *
+     * @example BOOTSTRAP
+     *
      * @var string
      */
     public $scriptType;
 
     /**
+     * @description The list of scripts.
+     *
+     * This parameter is required.
+     *
      * @var Script[]
      */
     public $scripts;
 
     /**
+     * @description The timeout period for a manual execution script. You cannot specify a timeout period for a bootstrap action.
+     *
      * @var string
      */
     public $timeoutSecs;
@@ -40,40 +67,29 @@ class CreateScriptRequest extends Model
         'timeoutSecs' => 'TimeoutSecs',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->scripts)) {
-            Model::validateArray($this->scripts);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->scriptType) {
             $res['ScriptType'] = $this->scriptType;
         }
-
         if (null !== $this->scripts) {
-            if (\is_array($this->scripts)) {
-                $res['Scripts'] = [];
-                $n1 = 0;
-                foreach ($this->scripts as $item1) {
-                    $res['Scripts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Scripts'] = [];
+            if (null !== $this->scripts && \is_array($this->scripts)) {
+                $n = 0;
+                foreach ($this->scripts as $item) {
+                    $res['Scripts'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->timeoutSecs) {
             $res['TimeoutSecs'] = $this->timeoutSecs;
         }
@@ -81,37 +97,32 @@ class CreateScriptRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateScriptRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['ScriptType'])) {
             $model->scriptType = $map['ScriptType'];
         }
-
         if (isset($map['Scripts'])) {
             if (!empty($map['Scripts'])) {
                 $model->scripts = [];
-                $n1 = 0;
-                foreach ($map['Scripts'] as $item1) {
-                    $model->scripts[$n1] = Script::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Scripts'] as $item) {
+                    $model->scripts[$n++] = null !== $item ? Script::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['TimeoutSecs'])) {
             $model->timeoutSecs = $map['TimeoutSecs'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ClickhouseConf extends Model
 {
@@ -34,26 +34,20 @@ class ClickhouseConf extends Model
         'resizeType' => 'ResizeType',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->initialReplica) {
             $res['InitialReplica'] = $this->initialReplica;
         }
-
         if (null !== $this->initialShard) {
             $res['InitialShard'] = $this->initialShard;
         }
-
         if (null !== $this->newNodeCount) {
             $res['NewNodeCount'] = $this->newNodeCount;
         }
-
         if (null !== $this->resizeType) {
             $res['ResizeType'] = $this->resizeType;
         }
@@ -61,26 +55,23 @@ class ClickhouseConf extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ClickhouseConf
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InitialReplica'])) {
             $model->initialReplica = $map['InitialReplica'];
         }
-
         if (isset($map['InitialShard'])) {
             $model->initialShard = $map['InitialShard'];
         }
-
         if (isset($map['NewNodeCount'])) {
             $model->newNodeCount = $map['NewNodeCount'];
         }
-
         if (isset($map['ResizeType'])) {
             $model->resizeType = $map['ResizeType'];
         }

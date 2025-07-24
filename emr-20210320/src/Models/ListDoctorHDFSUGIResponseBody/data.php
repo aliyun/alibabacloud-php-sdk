@@ -4,17 +4,23 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models\ListDoctorHDFSUGIResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Emr\V20210320\Models\ListDoctorHDFSUGIResponseBody\data\metrics;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description The metric information.
+     *
      * @var metrics
      */
     public $metrics;
 
     /**
+     * @description The actual name of the owner or group returned based on the value of Type.
+     *
+     * @example DW
+     *
      * @var string
      */
     public $name;
@@ -23,21 +29,14 @@ class data extends Model
         'name' => 'Name',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->metrics) {
-            $this->metrics->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->metrics) {
-            $res['Metrics'] = null !== $this->metrics ? $this->metrics->toArray($noStream) : $this->metrics;
+            $res['Metrics'] = null !== $this->metrics ? $this->metrics->toMap() : null;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -45,18 +44,17 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Metrics'])) {
             $model->metrics = metrics::fromMap($map['Metrics']);
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

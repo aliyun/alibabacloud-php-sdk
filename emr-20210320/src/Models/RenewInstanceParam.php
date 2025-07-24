@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class RenewInstanceParam extends Model
 {
@@ -28,22 +28,17 @@ class RenewInstanceParam extends Model
         'renewDurationUnit' => 'RenewDurationUnit',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->renewDuration) {
             $res['RenewDuration'] = $this->renewDuration;
         }
-
         if (null !== $this->renewDurationUnit) {
             $res['RenewDurationUnit'] = $this->renewDurationUnit;
         }
@@ -51,22 +46,20 @@ class RenewInstanceParam extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return RenewInstanceParam
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['RenewDuration'])) {
             $model->renewDuration = $map['RenewDuration'];
         }
-
         if (isset($map['RenewDurationUnit'])) {
             $model->renewDurationUnit = $map['RenewDurationUnit'];
         }

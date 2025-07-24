@@ -4,22 +4,82 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models\ListDoctorReportsResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Emr\V20210320\Models\ListDoctorReportsResponseBody\data\summaryReport;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description The component types.
+     *
+     * Valid values:
+     *
+     *   compute
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
+     *   hive
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
+     *   hdfs
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
+     *   yarn
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
+     *   oss
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
+     *   hbase
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
+     * @example null
+     *
      * @var string[]
      */
     public $componentTypes;
 
     /**
+     * @description The date on which the report was generated.
+     *
+     * @example 2023-06-29
+     *
      * @var string
      */
     public $dateTime;
 
     /**
+     * @description The summary of the report.
+     *
      * @var summaryReport
      */
     public $summaryReport;
@@ -29,65 +89,40 @@ class data extends Model
         'summaryReport' => 'SummaryReport',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->componentTypes)) {
-            Model::validateArray($this->componentTypes);
-        }
-        if (null !== $this->summaryReport) {
-            $this->summaryReport->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->componentTypes) {
-            if (\is_array($this->componentTypes)) {
-                $res['ComponentTypes'] = [];
-                $n1 = 0;
-                foreach ($this->componentTypes as $item1) {
-                    $res['ComponentTypes'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['ComponentTypes'] = $this->componentTypes;
         }
-
         if (null !== $this->dateTime) {
             $res['DateTime'] = $this->dateTime;
         }
-
         if (null !== $this->summaryReport) {
-            $res['SummaryReport'] = null !== $this->summaryReport ? $this->summaryReport->toArray($noStream) : $this->summaryReport;
+            $res['SummaryReport'] = null !== $this->summaryReport ? $this->summaryReport->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ComponentTypes'])) {
             if (!empty($map['ComponentTypes'])) {
-                $model->componentTypes = [];
-                $n1 = 0;
-                foreach ($map['ComponentTypes'] as $item1) {
-                    $model->componentTypes[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->componentTypes = $map['ComponentTypes'];
             }
         }
-
         if (isset($map['DateTime'])) {
             $model->dateTime = $map['DateTime'];
         }
-
         if (isset($map['SummaryReport'])) {
             $model->summaryReport = summaryReport::fromMap($map['SummaryReport']);
         }

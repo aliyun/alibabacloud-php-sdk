@@ -4,32 +4,50 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Emr\V20210320\Models\ListApplicationsResponseBody\applications;
+use AlibabaCloud\Tea\Model;
 
 class ListApplicationsResponseBody extends Model
 {
     /**
+     * @description The applications.
+     *
      * @var applications[]
      */
     public $applications;
 
     /**
+     * @description The number of entries per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The page number of the next page returned.
+     *
+     * @example 2
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The request ID.
+     *
+     * @example 9E3A7161-EB7B-172B-8D18-FFB06BA3****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of pages.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $totalCount;
@@ -41,40 +59,29 @@ class ListApplicationsResponseBody extends Model
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->applications)) {
-            Model::validateArray($this->applications);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->applications) {
-            if (\is_array($this->applications)) {
-                $res['Applications'] = [];
-                $n1 = 0;
-                foreach ($this->applications as $item1) {
-                    $res['Applications'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Applications'] = [];
+            if (null !== $this->applications && \is_array($this->applications)) {
+                $n = 0;
+                foreach ($this->applications as $item) {
+                    $res['Applications'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
-
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -82,37 +89,32 @@ class ListApplicationsResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListApplicationsResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Applications'])) {
             if (!empty($map['Applications'])) {
                 $model->applications = [];
-                $n1 = 0;
-                foreach ($map['Applications'] as $item1) {
-                    $model->applications[$n1] = applications::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Applications'] as $item) {
+                    $model->applications[$n++] = null !== $item ? applications::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
-
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

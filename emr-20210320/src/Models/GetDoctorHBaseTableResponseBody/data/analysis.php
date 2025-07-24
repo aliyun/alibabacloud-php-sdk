@@ -4,41 +4,63 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models\GetDoctorHBaseTableResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class analysis extends Model
 {
     /**
+     * @description List of read hotspot regions.
+     *
+     * @example null
+     *
      * @var string[]
      */
     public $readRequestHotspotRegionList;
 
     /**
+     * @description Description of read imbalance.
+     *
      * @var string
      */
     public $readRequestUnbalanceSuggestion;
 
     /**
+     * @description List of read/write hotspot regions.
+     *
+     * @example null
+     *
      * @var string[]
      */
     public $requestHotspotRegionList;
 
     /**
+     * @description Description of read/write imbalance.
+     *
      * @var string
      */
     public $requestUnbalanceSuggestion;
 
     /**
+     * @description Table score.
+     *
+     * @example 85
+     *
      * @var int
      */
     public $tableScore;
 
     /**
+     * @description List of write hotspot regions.
+     *
+     * @example null
+     *
      * @var string[]
      */
     public $writeRequestHotspotRegionList;
 
     /**
+     * @description Description of write imbalance.
+     *
      * @var string
      */
     public $writeRequestUnbalanceSuggestion;
@@ -52,68 +74,29 @@ class analysis extends Model
         'writeRequestUnbalanceSuggestion' => 'WriteRequestUnbalanceSuggestion',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->readRequestHotspotRegionList)) {
-            Model::validateArray($this->readRequestHotspotRegionList);
-        }
-        if (\is_array($this->requestHotspotRegionList)) {
-            Model::validateArray($this->requestHotspotRegionList);
-        }
-        if (\is_array($this->writeRequestHotspotRegionList)) {
-            Model::validateArray($this->writeRequestHotspotRegionList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->readRequestHotspotRegionList) {
-            if (\is_array($this->readRequestHotspotRegionList)) {
-                $res['ReadRequestHotspotRegionList'] = [];
-                $n1 = 0;
-                foreach ($this->readRequestHotspotRegionList as $item1) {
-                    $res['ReadRequestHotspotRegionList'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['ReadRequestHotspotRegionList'] = $this->readRequestHotspotRegionList;
         }
-
         if (null !== $this->readRequestUnbalanceSuggestion) {
             $res['ReadRequestUnbalanceSuggestion'] = $this->readRequestUnbalanceSuggestion;
         }
-
         if (null !== $this->requestHotspotRegionList) {
-            if (\is_array($this->requestHotspotRegionList)) {
-                $res['RequestHotspotRegionList'] = [];
-                $n1 = 0;
-                foreach ($this->requestHotspotRegionList as $item1) {
-                    $res['RequestHotspotRegionList'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['RequestHotspotRegionList'] = $this->requestHotspotRegionList;
         }
-
         if (null !== $this->requestUnbalanceSuggestion) {
             $res['RequestUnbalanceSuggestion'] = $this->requestUnbalanceSuggestion;
         }
-
         if (null !== $this->tableScore) {
             $res['TableScore'] = $this->tableScore;
         }
-
         if (null !== $this->writeRequestHotspotRegionList) {
-            if (\is_array($this->writeRequestHotspotRegionList)) {
-                $res['WriteRequestHotspotRegionList'] = [];
-                $n1 = 0;
-                foreach ($this->writeRequestHotspotRegionList as $item1) {
-                    $res['WriteRequestHotspotRegionList'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['WriteRequestHotspotRegionList'] = $this->writeRequestHotspotRegionList;
         }
-
         if (null !== $this->writeRequestUnbalanceSuggestion) {
             $res['WriteRequestUnbalanceSuggestion'] = $this->writeRequestUnbalanceSuggestion;
         }
@@ -121,59 +104,38 @@ class analysis extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return analysis
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ReadRequestHotspotRegionList'])) {
             if (!empty($map['ReadRequestHotspotRegionList'])) {
-                $model->readRequestHotspotRegionList = [];
-                $n1 = 0;
-                foreach ($map['ReadRequestHotspotRegionList'] as $item1) {
-                    $model->readRequestHotspotRegionList[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->readRequestHotspotRegionList = $map['ReadRequestHotspotRegionList'];
             }
         }
-
         if (isset($map['ReadRequestUnbalanceSuggestion'])) {
             $model->readRequestUnbalanceSuggestion = $map['ReadRequestUnbalanceSuggestion'];
         }
-
         if (isset($map['RequestHotspotRegionList'])) {
             if (!empty($map['RequestHotspotRegionList'])) {
-                $model->requestHotspotRegionList = [];
-                $n1 = 0;
-                foreach ($map['RequestHotspotRegionList'] as $item1) {
-                    $model->requestHotspotRegionList[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->requestHotspotRegionList = $map['RequestHotspotRegionList'];
             }
         }
-
         if (isset($map['RequestUnbalanceSuggestion'])) {
             $model->requestUnbalanceSuggestion = $map['RequestUnbalanceSuggestion'];
         }
-
         if (isset($map['TableScore'])) {
             $model->tableScore = $map['TableScore'];
         }
-
         if (isset($map['WriteRequestHotspotRegionList'])) {
             if (!empty($map['WriteRequestHotspotRegionList'])) {
-                $model->writeRequestHotspotRegionList = [];
-                $n1 = 0;
-                foreach ($map['WriteRequestHotspotRegionList'] as $item1) {
-                    $model->writeRequestHotspotRegionList[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->writeRequestHotspotRegionList = $map['WriteRequestHotspotRegionList'];
             }
         }
-
         if (isset($map['WriteRequestUnbalanceSuggestion'])) {
             $model->writeRequestUnbalanceSuggestion = $map['WriteRequestUnbalanceSuggestion'];
         }

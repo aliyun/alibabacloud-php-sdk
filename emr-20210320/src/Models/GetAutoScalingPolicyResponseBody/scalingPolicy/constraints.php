@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models\GetAutoScalingPolicyResponseBody\scalingPolicy;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class constraints extends Model
 {
     /**
+     * @description The maximum number of nodes in the node group. Default value: 2000.
+     *
+     * @example 2000
+     *
      * @var int
      */
     public $maxCapacity;
 
     /**
+     * @description The minimum number of nodes in the node group. Default value: 0.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $minCapacity;
@@ -22,18 +30,14 @@ class constraints extends Model
         'minCapacity' => 'MinCapacity',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->maxCapacity) {
             $res['MaxCapacity'] = $this->maxCapacity;
         }
-
         if (null !== $this->minCapacity) {
             $res['MinCapacity'] = $this->minCapacity;
         }
@@ -41,18 +45,17 @@ class constraints extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return constraints
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MaxCapacity'])) {
             $model->maxCapacity = $map['MaxCapacity'];
         }
-
         if (isset($map['MinCapacity'])) {
             $model->minCapacity = $map['MinCapacity'];
         }

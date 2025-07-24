@@ -4,46 +4,82 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListNodeGroupsRequest extends Model
 {
     /**
+     * @description The cluster ID.
+     *
+     * This parameter is required.
+     *
+     * @example c-b933c5aac8fe****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The number of maximum number of records to obtain at a time. Valid values: 1 to 100.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description Marks the current position where reading starts. If you set this value to null, you can start from the beginning.
+     *
+     * @example DD6B1B2A-5837-5237-ABE4-FF0C89568980
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The IDs of node groups. Valid values of the number of array elements N: 1 to 100.
+     *
+     * @example c-b933c5aac8fe****
+     *
      * @var string[]
      */
     public $nodeGroupIds;
 
     /**
+     * @description The list of node group names. Valid values of the number of array elements N: 1 to 100.
+     *
+     * @example DD6B1B2A-5837-5237-ABE4-FF0C89568980
+     *
      * @var string[]
      */
     public $nodeGroupNames;
 
     /**
+     * @description The status of the node group. Valid values of the number of array elements N: 1 to 100.
+     *
+     * @example ["CORE"]
+     *
      * @var string[]
      */
     public $nodeGroupStates;
 
     /**
+     * @description The list of node group types. Valid values of the number of array elements N: 1 to 100.
+     *
+     * @example 20
+     *
      * @var string[]
      */
     public $nodeGroupTypes;
 
     /**
+     * @description The ID of the region in which you want to create the instance.
+     *
+     * This parameter is required.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -64,86 +100,35 @@ class ListNodeGroupsRequest extends Model
         'zoneId' => 'ZoneId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->nodeGroupIds)) {
-            Model::validateArray($this->nodeGroupIds);
-        }
-        if (\is_array($this->nodeGroupNames)) {
-            Model::validateArray($this->nodeGroupNames);
-        }
-        if (\is_array($this->nodeGroupStates)) {
-            Model::validateArray($this->nodeGroupStates);
-        }
-        if (\is_array($this->nodeGroupTypes)) {
-            Model::validateArray($this->nodeGroupTypes);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
-
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
-
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
-
         if (null !== $this->nodeGroupIds) {
-            if (\is_array($this->nodeGroupIds)) {
-                $res['NodeGroupIds'] = [];
-                $n1 = 0;
-                foreach ($this->nodeGroupIds as $item1) {
-                    $res['NodeGroupIds'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['NodeGroupIds'] = $this->nodeGroupIds;
         }
-
         if (null !== $this->nodeGroupNames) {
-            if (\is_array($this->nodeGroupNames)) {
-                $res['NodeGroupNames'] = [];
-                $n1 = 0;
-                foreach ($this->nodeGroupNames as $item1) {
-                    $res['NodeGroupNames'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['NodeGroupNames'] = $this->nodeGroupNames;
         }
-
         if (null !== $this->nodeGroupStates) {
-            if (\is_array($this->nodeGroupStates)) {
-                $res['NodeGroupStates'] = [];
-                $n1 = 0;
-                foreach ($this->nodeGroupStates as $item1) {
-                    $res['NodeGroupStates'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['NodeGroupStates'] = $this->nodeGroupStates;
         }
-
         if (null !== $this->nodeGroupTypes) {
-            if (\is_array($this->nodeGroupTypes)) {
-                $res['NodeGroupTypes'] = [];
-                $n1 = 0;
-                foreach ($this->nodeGroupTypes as $item1) {
-                    $res['NodeGroupTypes'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['NodeGroupTypes'] = $this->nodeGroupTypes;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
@@ -151,74 +136,46 @@ class ListNodeGroupsRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListNodeGroupsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
-
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
-
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
-
         if (isset($map['NodeGroupIds'])) {
             if (!empty($map['NodeGroupIds'])) {
-                $model->nodeGroupIds = [];
-                $n1 = 0;
-                foreach ($map['NodeGroupIds'] as $item1) {
-                    $model->nodeGroupIds[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->nodeGroupIds = $map['NodeGroupIds'];
             }
         }
-
         if (isset($map['NodeGroupNames'])) {
             if (!empty($map['NodeGroupNames'])) {
-                $model->nodeGroupNames = [];
-                $n1 = 0;
-                foreach ($map['NodeGroupNames'] as $item1) {
-                    $model->nodeGroupNames[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->nodeGroupNames = $map['NodeGroupNames'];
             }
         }
-
         if (isset($map['NodeGroupStates'])) {
             if (!empty($map['NodeGroupStates'])) {
-                $model->nodeGroupStates = [];
-                $n1 = 0;
-                foreach ($map['NodeGroupStates'] as $item1) {
-                    $model->nodeGroupStates[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->nodeGroupStates = $map['NodeGroupStates'];
             }
         }
-
         if (isset($map['NodeGroupTypes'])) {
             if (!empty($map['NodeGroupTypes'])) {
-                $model->nodeGroupTypes = [];
-                $n1 = 0;
-                foreach ($map['NodeGroupTypes'] as $item1) {
-                    $model->nodeGroupTypes[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->nodeGroupTypes = $map['NodeGroupTypes'];
             }
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
         }

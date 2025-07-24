@@ -4,26 +4,42 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class Disk extends Model
 {
     /**
+     * @description 磁盘类型。
+     *
+     * @example cloud_essd
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @description 每个节点磁盘数量。
+     *
+     * @example 5
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description 性能级别。
+     *
+     * @example S0
+     *
      * @var string
      */
     public $performanceLevel;
 
     /**
+     * @description 单位GB。
+     *
+     * @example 80
+     *
      * @var int
      */
     public $size;
@@ -34,26 +50,20 @@ class Disk extends Model
         'size' => 'Size',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->category) {
             $res['Category'] = $this->category;
         }
-
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
-
         if (null !== $this->performanceLevel) {
             $res['PerformanceLevel'] = $this->performanceLevel;
         }
-
         if (null !== $this->size) {
             $res['Size'] = $this->size;
         }
@@ -61,26 +71,23 @@ class Disk extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return Disk
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
         }
-
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }
-
         if (isset($map['PerformanceLevel'])) {
             $model->performanceLevel = $map['PerformanceLevel'];
         }
-
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
         }
