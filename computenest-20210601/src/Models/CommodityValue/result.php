@@ -4,29 +4,41 @@
 
 namespace AlibabaCloud\SDK\ComputeNest\V20210601\Models\CommodityValue;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\CommodityValue\result\coupons;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\CommodityValue\result\order;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\CommodityValue\result\subOrders;
+use AlibabaCloud\Tea\Model;
 
 class result extends Model
 {
     /**
+     * @description 订单信息。
+     *
      * @var order
      */
     public $order;
 
     /**
+     * @description 询价类型，可选值：
+     * 1. Buy：新购询价。
+     * 2. ModificationBuy：变配询价。
+     *
+     * @example Buy
+     *
      * @var string
      */
     public $inquiryType;
 
     /**
+     * @description 订单子项。
+     *
      * @var subOrders
      */
     public $subOrders;
 
     /**
+     * @description 优惠券。
+     *
      * @var coupons[]
      */
     public $coupons;
@@ -37,42 +49,26 @@ class result extends Model
         'coupons' => 'Coupons',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->order) {
-            $this->order->validate();
-        }
-        if (null !== $this->subOrders) {
-            $this->subOrders->validate();
-        }
-        if (\is_array($this->coupons)) {
-            Model::validateArray($this->coupons);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->order) {
-            $res['Order'] = null !== $this->order ? $this->order->toArray($noStream) : $this->order;
+            $res['Order'] = null !== $this->order ? $this->order->toMap() : null;
         }
-
         if (null !== $this->inquiryType) {
             $res['InquiryType'] = $this->inquiryType;
         }
-
         if (null !== $this->subOrders) {
-            $res['SubOrders'] = null !== $this->subOrders ? $this->subOrders->toArray($noStream) : $this->subOrders;
+            $res['SubOrders'] = null !== $this->subOrders ? $this->subOrders->toMap() : null;
         }
-
         if (null !== $this->coupons) {
-            if (\is_array($this->coupons)) {
-                $res['Coupons'] = [];
-                $n1 = 0;
-                foreach ($this->coupons as $item1) {
-                    $res['Coupons'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Coupons'] = [];
+            if (null !== $this->coupons && \is_array($this->coupons)) {
+                $n = 0;
+                foreach ($this->coupons as $item) {
+                    $res['Coupons'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -80,33 +76,29 @@ class result extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return result
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Order'])) {
             $model->order = order::fromMap($map['Order']);
         }
-
         if (isset($map['InquiryType'])) {
             $model->inquiryType = $map['InquiryType'];
         }
-
         if (isset($map['SubOrders'])) {
             $model->subOrders = subOrders::fromMap($map['SubOrders']);
         }
-
         if (isset($map['Coupons'])) {
             if (!empty($map['Coupons'])) {
                 $model->coupons = [];
-                $n1 = 0;
-                foreach ($map['Coupons'] as $item1) {
-                    $model->coupons[$n1] = coupons::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Coupons'] as $item) {
+                    $model->coupons[$n++] = null !== $item ? coupons::fromMap($item) : $item;
                 }
             }
         }

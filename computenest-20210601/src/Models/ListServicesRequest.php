@@ -4,53 +4,87 @@
 
 namespace AlibabaCloud\SDK\ComputeNest\V20210601\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListServicesRequest\filter;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListServicesRequest\tag;
+use AlibabaCloud\Tea\Model;
 
 class ListServicesRequest extends Model
 {
     /**
+     * @description The filter.
+     *
      * @var filter[]
      */
     public $filter;
 
     /**
+     * @description Keyword fuzzy query.
+     *
+     * @example name
+     *
      * @var string
      */
     public $fuzzyKeyword;
 
     /**
+     * @description Whether it is used. Optional values:
+     * - true: already in use.
+     * @example false
+     *
      * @var bool
      */
     public $inUsed;
 
     /**
+     * @description The number of entries page. Valid values: 1 to 100. Default value: 20.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+     *
+     * @example BBBAAfu+XtuBE55iRLHEYYuojI4=
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description Service ordering type.
+     *
+     * @example UpdateTime
+     *
      * @var string
      */
     public $orderByType;
 
     /**
+     * @description The region ID.
+     *
+     * This parameter is required.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description Service access type.
+     *
+     * @example All
+     *
      * @var string
      */
     public $serviceAccessType;
 
     /**
+     * @description The tags.
+     *
      * @var tag[]
      */
     public $tag;
@@ -66,66 +100,47 @@ class ListServicesRequest extends Model
         'tag' => 'Tag',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->filter)) {
-            Model::validateArray($this->filter);
-        }
-        if (\is_array($this->tag)) {
-            Model::validateArray($this->tag);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->filter) {
-            if (\is_array($this->filter)) {
-                $res['Filter'] = [];
-                $n1 = 0;
-                foreach ($this->filter as $item1) {
-                    $res['Filter'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Filter'] = [];
+            if (null !== $this->filter && \is_array($this->filter)) {
+                $n = 0;
+                foreach ($this->filter as $item) {
+                    $res['Filter'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->fuzzyKeyword) {
             $res['FuzzyKeyword'] = $this->fuzzyKeyword;
         }
-
         if (null !== $this->inUsed) {
             $res['InUsed'] = $this->inUsed;
         }
-
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
-
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
-
         if (null !== $this->orderByType) {
             $res['OrderByType'] = $this->orderByType;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->serviceAccessType) {
             $res['ServiceAccessType'] = $this->serviceAccessType;
         }
-
         if (null !== $this->tag) {
-            if (\is_array($this->tag)) {
-                $res['Tag'] = [];
-                $n1 = 0;
-                foreach ($this->tag as $item1) {
-                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -133,60 +148,50 @@ class ListServicesRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListServicesRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Filter'])) {
             if (!empty($map['Filter'])) {
                 $model->filter = [];
-                $n1 = 0;
-                foreach ($map['Filter'] as $item1) {
-                    $model->filter[$n1] = filter::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Filter'] as $item) {
+                    $model->filter[$n++] = null !== $item ? filter::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['FuzzyKeyword'])) {
             $model->fuzzyKeyword = $map['FuzzyKeyword'];
         }
-
         if (isset($map['InUsed'])) {
             $model->inUsed = $map['InUsed'];
         }
-
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
-
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
-
         if (isset($map['OrderByType'])) {
             $model->orderByType = $map['OrderByType'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['ServiceAccessType'])) {
             $model->serviceAccessType = $map['ServiceAccessType'];
         }
-
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1 = 0;
-                foreach ($map['Tag'] as $item1) {
-                    $model->tag[$n1] = tag::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }
             }
         }

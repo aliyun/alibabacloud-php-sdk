@@ -4,26 +4,42 @@
 
 namespace AlibabaCloud\SDK\ComputeNest\V20210601\Models\CommodityValue\result;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class order extends Model
 {
     /**
+     * @description 货币代码。
+     *
+     * @example CNY
+     *
      * @var string
      */
     public $currency;
 
     /**
+     * @description 优惠后。
+     *
+     * @example 9.99
+     *
      * @var string
      */
     public $tradeAmount;
 
     /**
+     * @description 抵扣金额。
+     *
+     * @example 1.99
+     *
      * @var string
      */
     public $discountAmount;
 
     /**
+     * @description 优惠前。
+     *
+     * @example 11.98
+     *
      * @var string
      */
     public $originalAmount;
@@ -34,26 +50,20 @@ class order extends Model
         'originalAmount' => 'OriginalAmount',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->currency) {
             $res['Currency'] = $this->currency;
         }
-
         if (null !== $this->tradeAmount) {
             $res['TradeAmount'] = $this->tradeAmount;
         }
-
         if (null !== $this->discountAmount) {
             $res['DiscountAmount'] = $this->discountAmount;
         }
-
         if (null !== $this->originalAmount) {
             $res['OriginalAmount'] = $this->originalAmount;
         }
@@ -61,26 +71,23 @@ class order extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return order
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Currency'])) {
             $model->currency = $map['Currency'];
         }
-
         if (isset($map['TradeAmount'])) {
             $model->tradeAmount = $map['TradeAmount'];
         }
-
         if (isset($map['DiscountAmount'])) {
             $model->discountAmount = $map['DiscountAmount'];
         }
-
         if (isset($map['OriginalAmount'])) {
             $model->originalAmount = $map['OriginalAmount'];
         }

@@ -4,32 +4,50 @@
 
 namespace AlibabaCloud\SDK\ComputeNest\V20210601\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListServiceInstanceBillResponseBody\item;
+use AlibabaCloud\Tea\Model;
 
 class ListServiceInstanceBillResponseBody extends Model
 {
     /**
+     * @description The billing information of the backup schedule.
+     *
      * @var item[]
      */
     public $item;
 
     /**
+     * @description The number of entries per page. Valid values: 1 to 100. Default value: 20.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+     *
+     * @example AAAAAc3HCuYhJi/wvpk4xOr0VLbAx7BkQzyYC+ONO+WudHGKEdB0uWSY7AGnM3qCgm/Ynge7zU6NWdbj0Tegyajyqyc=
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The request ID.
+     *
+     * @example 2849EE73-AFFA-5AFD-9575-12FA886451DA
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $totalCount;
@@ -41,40 +59,29 @@ class ListServiceInstanceBillResponseBody extends Model
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->item)) {
-            Model::validateArray($this->item);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->item) {
-            if (\is_array($this->item)) {
-                $res['Item'] = [];
-                $n1 = 0;
-                foreach ($this->item as $item1) {
-                    $res['Item'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Item'] = [];
+            if (null !== $this->item && \is_array($this->item)) {
+                $n = 0;
+                foreach ($this->item as $item) {
+                    $res['Item'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
-
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -82,37 +89,32 @@ class ListServiceInstanceBillResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListServiceInstanceBillResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Item'])) {
             if (!empty($map['Item'])) {
                 $model->item = [];
-                $n1 = 0;
-                foreach ($map['Item'] as $item1) {
-                    $model->item[$n1] = item::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Item'] as $item) {
+                    $model->item[$n++] = null !== $item ? item::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
-
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

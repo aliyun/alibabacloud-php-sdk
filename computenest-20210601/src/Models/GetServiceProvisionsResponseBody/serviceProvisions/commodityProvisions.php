@@ -4,21 +4,33 @@
 
 namespace AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetServiceProvisionsResponseBody\serviceProvisions;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class commodityProvisions extends Model
 {
     /**
+     * @description Commodity Code
+     *
+     * @example acs_postpaid_public_cn
+     *
      * @var string
      */
     public $commodityCode;
 
     /**
+     * @description Product activation link.
+     *
+     * @example https://common-buy.aliyun.com/?commodityCode=acs_postpaid_public_cn
+     *
      * @var string
      */
     public $enableURL;
 
     /**
+     * @description Cloud service activation status.
+     *
+     * @example Disabled
+     *
      * @var string
      */
     public $status;
@@ -28,22 +40,17 @@ class commodityProvisions extends Model
         'status' => 'Status',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->commodityCode) {
             $res['CommodityCode'] = $this->commodityCode;
         }
-
         if (null !== $this->enableURL) {
             $res['EnableURL'] = $this->enableURL;
         }
-
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -51,22 +58,20 @@ class commodityProvisions extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return commodityProvisions
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CommodityCode'])) {
             $model->commodityCode = $map['CommodityCode'];
         }
-
         if (isset($map['EnableURL'])) {
             $model->enableURL = $map['EnableURL'];
         }
-
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

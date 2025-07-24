@@ -4,16 +4,22 @@
 
 namespace AlibabaCloud\SDK\ComputeNest\V20210601\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpgradeServiceInstanceResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 4DB0F536-B3BE-4F0D-BD29-E83FB56D550C
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The parameters required for the upgrade. This parameter is returned only if DryRun is set to true in the request. You can specify the required parameters based on the returned value when you perform an actual request.
+     *
      * @var string[]
      */
     public $upgradeRequiredParameters;
@@ -22,55 +28,35 @@ class UpgradeServiceInstanceResponseBody extends Model
         'upgradeRequiredParameters' => 'UpgradeRequiredParameters',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->upgradeRequiredParameters)) {
-            Model::validateArray($this->upgradeRequiredParameters);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->upgradeRequiredParameters) {
-            if (\is_array($this->upgradeRequiredParameters)) {
-                $res['UpgradeRequiredParameters'] = [];
-                $n1 = 0;
-                foreach ($this->upgradeRequiredParameters as $item1) {
-                    $res['UpgradeRequiredParameters'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['UpgradeRequiredParameters'] = $this->upgradeRequiredParameters;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpgradeServiceInstanceResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['UpgradeRequiredParameters'])) {
             if (!empty($map['UpgradeRequiredParameters'])) {
-                $model->upgradeRequiredParameters = [];
-                $n1 = 0;
-                foreach ($map['UpgradeRequiredParameters'] as $item1) {
-                    $model->upgradeRequiredParameters[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->upgradeRequiredParameters = $map['UpgradeRequiredParameters'];
             }
         }
 

@@ -4,21 +4,31 @@
 
 namespace AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetServiceResponseBody\commodity;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class specifications extends Model
 {
     /**
+     * @description The commodity code.
+     *
+     * @example cmjj00****
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The specification name.
+     *
+     * @example specifications1
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The subscription duration. Unit: week or year.
+     *
      * @var string[]
      */
     public $times;
@@ -28,63 +38,41 @@ class specifications extends Model
         'times' => 'Times',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->times)) {
-            Model::validateArray($this->times);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->times) {
-            if (\is_array($this->times)) {
-                $res['Times'] = [];
-                $n1 = 0;
-                foreach ($this->times as $item1) {
-                    $res['Times'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['Times'] = $this->times;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return specifications
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['Times'])) {
             if (!empty($map['Times'])) {
-                $model->times = [];
-                $n1 = 0;
-                foreach ($map['Times'] as $item1) {
-                    $model->times[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->times = $map['Times'];
             }
         }
 

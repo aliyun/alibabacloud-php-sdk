@@ -4,36 +4,65 @@
 
 namespace AlibabaCloud\SDK\ComputeNest\V20210601\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ContinueDeployServiceInstanceRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description Specifies whether to perform only a dry run for the request to check information such as the permissions and instance status. Valid values:
+     *
+     *   true: performs a dry run for the request, but does not create a service instance.
+     *   false: performs a dry run for the request, and creates a service instance if the request passes the dry run.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
+     * @description The options that the system adopts when the system continues to create the service instance.
+     *
      * @var string[]
      */
     public $option;
 
     /**
+     * @description The parameters configured for the service instance.
+     *
+     * @example {"NodeCount": 3, "SystemDiskSize": 40, "InstancePassword": "******"}
+     *
      * @var string
      */
     public $parameters;
 
     /**
+     * @description The region ID.
+     *
+     * This parameter is required.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the service instance.
+     *
+     * This parameter is required.
+     *
+     * @example si-0e6fca6a51a54420****
+     *
      * @var string
      */
     public $serviceInstanceId;
@@ -46,44 +75,26 @@ class ContinueDeployServiceInstanceRequest extends Model
         'serviceInstanceId' => 'ServiceInstanceId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->option)) {
-            Model::validateArray($this->option);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
-
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
         }
-
         if (null !== $this->option) {
-            if (\is_array($this->option)) {
-                $res['Option'] = [];
-                $n1 = 0;
-                foreach ($this->option as $item1) {
-                    $res['Option'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['Option'] = $this->option;
         }
-
         if (null !== $this->parameters) {
             $res['Parameters'] = $this->parameters;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->serviceInstanceId) {
             $res['ServiceInstanceId'] = $this->serviceInstanceId;
         }
@@ -91,41 +102,31 @@ class ContinueDeployServiceInstanceRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ContinueDeployServiceInstanceRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
-
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
         }
-
         if (isset($map['Option'])) {
             if (!empty($map['Option'])) {
-                $model->option = [];
-                $n1 = 0;
-                foreach ($map['Option'] as $item1) {
-                    $model->option[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->option = $map['Option'];
             }
         }
-
         if (isset($map['Parameters'])) {
             $model->parameters = $map['Parameters'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['ServiceInstanceId'])) {
             $model->serviceInstanceId = $map['ServiceInstanceId'];
         }

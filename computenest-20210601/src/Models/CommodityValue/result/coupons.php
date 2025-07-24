@@ -4,31 +4,51 @@
 
 namespace AlibabaCloud\SDK\ComputeNest\V20210601\Models\CommodityValue\result;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class coupons extends Model
 {
     /**
+     * @description 可支付金额。
+     *
+     * @example 9.99
+     *
      * @var float
      */
     public $canPromFee;
 
     /**
+     * @description Coupon Description
+     *
+     * @example 10元优惠券（有效期至2024年9月8日）
+     *
      * @var string
      */
     public $couponDesc;
 
     /**
+     * @description Coupon Name
+     *
+     * @example 10元优惠券
+     *
      * @var string
      */
     public $couponName;
 
     /**
+     * @description Coupon OptionNo
+     *
+     * @example 50008800000xxxx
+     *
      * @var string
      */
     public $couponOptionNo;
 
     /**
+     * @description 是否选中。
+     *
+     * @example true
+     *
      * @var bool
      */
     public $selected;
@@ -40,30 +60,23 @@ class coupons extends Model
         'selected' => 'Selected',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->canPromFee) {
             $res['CanPromFee'] = $this->canPromFee;
         }
-
         if (null !== $this->couponDesc) {
             $res['CouponDesc'] = $this->couponDesc;
         }
-
         if (null !== $this->couponName) {
             $res['CouponName'] = $this->couponName;
         }
-
         if (null !== $this->couponOptionNo) {
             $res['CouponOptionNo'] = $this->couponOptionNo;
         }
-
         if (null !== $this->selected) {
             $res['Selected'] = $this->selected;
         }
@@ -71,30 +84,26 @@ class coupons extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return coupons
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CanPromFee'])) {
             $model->canPromFee = $map['CanPromFee'];
         }
-
         if (isset($map['CouponDesc'])) {
             $model->couponDesc = $map['CouponDesc'];
         }
-
         if (isset($map['CouponName'])) {
             $model->couponName = $map['CouponName'];
         }
-
         if (isset($map['CouponOptionNo'])) {
             $model->couponOptionNo = $map['CouponOptionNo'];
         }
-
         if (isset($map['Selected'])) {
             $model->selected = $map['Selected'];
         }
