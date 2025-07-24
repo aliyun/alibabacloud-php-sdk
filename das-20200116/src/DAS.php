@@ -48,6 +48,8 @@ use AlibabaCloud\SDK\DAS\V20200116\Models\DescribeCloudBenchTasksRequest;
 use AlibabaCloud\SDK\DAS\V20200116\Models\DescribeCloudBenchTasksResponse;
 use AlibabaCloud\SDK\DAS\V20200116\Models\DescribeDiagnosticReportListRequest;
 use AlibabaCloud\SDK\DAS\V20200116\Models\DescribeDiagnosticReportListResponse;
+use AlibabaCloud\SDK\DAS\V20200116\Models\DescribeErrorLogRecordsRequest;
+use AlibabaCloud\SDK\DAS\V20200116\Models\DescribeErrorLogRecordsResponse;
 use AlibabaCloud\SDK\DAS\V20200116\Models\DescribeHotBigKeysRequest;
 use AlibabaCloud\SDK\DAS\V20200116\Models\DescribeHotBigKeysResponse;
 use AlibabaCloud\SDK\DAS\V20200116\Models\DescribeHotKeysRequest;
@@ -1688,6 +1690,74 @@ class DAS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDiagnosticReportListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询实例错误日志
+     *  *
+     * @param DescribeErrorLogRecordsRequest $request DescribeErrorLogRecordsRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeErrorLogRecordsResponse DescribeErrorLogRecordsResponse
+     */
+    public function describeErrorLogRecordsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->filters)) {
+            $body['Filters'] = $request->filters;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->nodeId)) {
+            $body['NodeId'] = $request->nodeId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->role)) {
+            $body['Role'] = $request->role;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeErrorLogRecords',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeErrorLogRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询实例错误日志
+     *  *
+     * @param DescribeErrorLogRecordsRequest $request DescribeErrorLogRecordsRequest
+     *
+     * @return DescribeErrorLogRecordsResponse DescribeErrorLogRecordsResponse
+     */
+    public function describeErrorLogRecords($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeErrorLogRecordsWithOptions($request, $runtime);
     }
 
     /**
