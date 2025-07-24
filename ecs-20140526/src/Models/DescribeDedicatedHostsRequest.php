@@ -19,7 +19,7 @@ class DescribeDedicatedHostsRequest extends Model
     public $dedicatedHostClusterId;
 
     /**
-     * @description The IDs of dedicated hosts. You can specify up to 100 dedicated host IDs in a single request. Separate the IDs with commas (,).
+     * @description The list of DDH IDs. You can specify up to 100 deployment set IDs in each request. Separate the deployment set IDs with commas (,).
      *
      * @example ["dh-bp165p6xk2tlw61e****", "dh-bp1f9vxmno7emy96****"]
      *
@@ -37,7 +37,7 @@ class DescribeDedicatedHostsRequest extends Model
     public $dedicatedHostName;
 
     /**
-     * @description The dedicated host type. You can call the [DescribeDedicatedHostTypes](https://help.aliyun.com/document_detail/134240.html) operation to query the most recent list of dedicated host types.
+     * @description The type of the DDH. You can call the [DescribeDedicatedHostTypes](https://help.aliyun.com/document_detail/134240.html) operation to query the most recent list of DDH types.
      *
      * @example ddh.g5
      *
@@ -90,9 +90,7 @@ class DescribeDedicatedHostsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of entries per page.
-     *
-     * Default value: 1.
+     * @description >  This parameter will be removed in the future. You can use NextToken and MaxResults for a paged query.
      *
      * @example 1
      *
@@ -101,11 +99,7 @@ class DescribeDedicatedHostsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries per page.
-     *
-     * Valid values: 1 to 100.
-     *
-     * Default value: 10.
+     * @description >  This parameter will be removed in the future. You can use NextToken and MaxResults for a paged query.
      *
      * @example 10
      *
@@ -151,10 +145,16 @@ class DescribeDedicatedHostsRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description Specifies whether to display socket information. Valid values:
+     * @description Specifies whether to display socket information. You can view the remaining resources (vCPUs, memory usage, remaining resources, and total resources) based on the capacity information of the socket dimension. Then you can determine whether ECS instances of the corresponding specifications can be created. Valid values:
      *
-     *   true
+     *   true Only some DDHs support the information about resources in the socket dimension. For more information, see [View and export information about DDHs](https://help.aliyun.com/document_detail/68989.html).
      *   false
+     *
+     * >  Each DDH generally has two CPUs, and each CPU corresponds to Socket 0 and Socket 1. To maximize the performance of an ECS instance on a DDH, ECS instances are not created across sockets.
+     *
+     *   If one socket has available computing resources for creating the ECS instance, creation succeeds.
+     *
+     *   If not, creation fails even if the combined available resources of both sockets are sufficient. Although the remaining resources of the two sockets on the DDH are larger than the ECS instance type, the ECS instance cannot be created.
      *
      * @example true
      *
@@ -180,7 +180,7 @@ class DescribeDedicatedHostsRequest extends Model
     public $status;
 
     /**
-     * @description The tags of the dedicated host.
+     * @description The list of tags. The list length ranges from 0 to 20.
      *
      * @var tag[]
      */

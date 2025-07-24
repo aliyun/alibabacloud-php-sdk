@@ -15,6 +15,8 @@ use AlibabaCloud\Tea\Model;
 class instanceType extends Model
 {
     /**
+     * @description The list of specification attributes.
+     *
      * @var attributes
      */
     public $attributes;
@@ -29,6 +31,8 @@ class instanceType extends Model
     public $baselineCredit;
 
     /**
+     * @description The clock supported by the specification.
+     *
      * @var clock
      */
     public $clock;
@@ -362,6 +366,8 @@ class instanceType extends Model
      *
      *   true
      *   false
+     *
+     * >  This parameter is in invitational preview and is not publicly available.
      *
      * @example true
      *

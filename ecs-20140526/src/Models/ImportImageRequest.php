@@ -72,7 +72,7 @@ class ImportImageRequest extends Model
     public $detectionStrategy;
 
     /**
-     * @description The information of disks from which the custom images are created.
+     * @description Details about the custom images.
      *
      * @var diskDeviceMapping[]
      */

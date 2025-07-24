@@ -16,9 +16,9 @@ class AllocateDedicatedHostsRequest extends Model
     public $networkAttributes;
 
     /**
-     * @description The policy used to migrate the instances deployed on the dedicated host when the dedicated host fails or needs to be repaired online. Valid values:
+     * @description The policy for migrating the instances deployed on the dedicated host when the dedicated host fails or needs to be repaired online. Valid values:
      *
-     *   Migrate: The instances are migrated to another physical server and restarted.
+     *   Migrate: The instances are migrated to another physical machine and then restarted.
      *
      * If cloud disks are attached to the dedicated host, the default value is Migrate.
      *

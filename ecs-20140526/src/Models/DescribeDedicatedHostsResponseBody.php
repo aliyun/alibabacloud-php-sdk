@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDedicatedHostsResponseBody extends Model
 {
     /**
-     * @description Details about the dedicated hosts.
+     * @description Details about the DDH.
      *
      * @var dedicatedHosts
      */

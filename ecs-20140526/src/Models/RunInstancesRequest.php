@@ -174,9 +174,11 @@ class RunInstancesRequest extends Model
     public $dataDisk;
 
     /**
-     * @description The ID of the dedicated host on which to create the instance. Spot instances cannot be created on dedicated hosts. If you specify `DedicatedHostId`, `SpotStrategy` and `SpotPriceLimit` are ignored.
+     * @description The ID of the dedicated host.
      *
      * You can call the [DescribeDedicatedHosts](https://help.aliyun.com/document_detail/134242.html) operation to query the list of dedicated host IDs.
+     *
+     * > Spot instances cannot be created on dedicated hosts. If you specify DedicatedHostId, SpotStrategy and SpotPriceLimit are automatically ignored.
      *
      * @example dh-bp67acfmxazb4p****
      *
@@ -752,12 +754,20 @@ class RunInstancesRequest extends Model
     public $securityGroupIds;
 
     /**
-     * @description The protection period of the spot instance. Unit: hours. Default value: 1. Valid values:
+     * @description The protection period of the spot instance. Unit: hours. Valid values:
      *
      *   1: After a spot instance is created, Alibaba Cloud ensures that the instance is not automatically released within 1 hour. After the 1-hour protection period ends, the system compares the bid price with the market price and checks the resource inventory to determine whether to retain or release the instance.
-     *   0: After a spot instance is created, Alibaba Cloud does not ensure that the instance runs for 1 hour. The system compares the bid price with the market price and checks the resource inventory to determine whether to retain or release the instance.
+     *   0: After a spot instance is created, Alibaba Cloud does not ensure that the instance can run for one hour. The system compares the biding price with the market prices and checks the resource inventory to determine whether to retain or release the instance.
      *
-     * Alibaba Cloud sends an ECS system event to notify you 5 minutes before the instance is released. The spot instance is billed by second. We recommend that you specify an appropriate protection period based on your business requirements.
+     * Default value: 1.
+     *
+     * >
+     *
+     *   You can set this parameter only to 0 or 1.
+     *
+     *   The spot instance is billed by second. Specify an appropriate protection period.
+     *
+     *   Alibaba Cloud sends an ECS system event to notify you 5 minutes before the instance is released.
      *
      * @example 1
      *

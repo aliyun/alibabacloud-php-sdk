@@ -9,9 +9,7 @@ use AlibabaCloud\Tea\Model;
 class cpuOptions extends Model
 {
     /**
-     * @description The number of CPU cores. This parameter cannot be specified but only uses its default value.
-     *
-     * For information about the default value, see [Customize CPU options](https://help.aliyun.com/document_detail/145895.html).
+     * @description The number of CPU cores.
      *
      * @example 2
      *

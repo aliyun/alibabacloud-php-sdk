@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class clock extends Model
 {
     /**
+     * @description Whether PTP is supported. Possible values:
+     *
+     *   supported
+     *   unsupported
+     *
+     * @example unsupported
+     *
      * @var string
      */
     public $ptpSupport;

@@ -53,7 +53,7 @@ class ModifyElasticityAssuranceRequest extends Model
     public $ownerId;
 
     /**
-     * @description The assurance schedules based on which the capacity reservation takes effect.
+     * @description The assurance schedules of the time-segmented elasticity assurance.
      *
      * >  Time-segmented elasticity assurances are available only in specific regions and to specific users. To use time-segmented elasticity assurances, [submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket-intl).
      *

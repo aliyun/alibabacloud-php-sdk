@@ -11,8 +11,8 @@ class networkInterface extends Model
     /**
      * @description Specifies whether to release ENI N when the associated instance is released. Valid values:
      *
-     *   true
-     *   false
+     *   true: releases the ENI when the associated instance is released.
+     *   false: retains the ENI when the associated instance is released.
      *
      * Default value: true.
      *
@@ -40,11 +40,11 @@ class networkInterface extends Model
     public $description;
 
     /**
-     * @description The type of ENI N. The value of N cannot exceed the maximum number of ENIs per instance that the instance type supports. For the maximum number of ENIs per instance that an instance type supports, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html) or call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/2679699.html) operation.
+     * @description The type of ENI N. The value of the first N in this parameter cannot exceed the maximum number of ENIs per instance that the instance type supports. For the maximum number of ENIs per instance that an instance type supports, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html) or call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/2679699.html) operation.
      *
      * Valid values:
      *
-     *   Primary
+     *   Primary: the primary ENI
      *   Secondary
      *
      * Default value: Secondary.
@@ -88,7 +88,7 @@ class networkInterface extends Model
      *
      * Take note of the following items:
      *
-     *   You can specify network card indexes only for instances of specific instance types.
+     *   You can specify NIC indexes only for instances of specific instance types.
      *   If you set NetworkInterface.N.InstanceType to Primary, you can set NetworkInterface.N.NetworkCardIndex only to 0 for instance types that support network cards.
      *   If you set NetworkInterface.N.InstanceType to Secondary or leave NetworkInterface.N.InstanceType empty, you can specify NetworkInterface.N.NetworkCardIndex based on instance types if the instance types support network cards. For more information, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html).
      *
@@ -99,7 +99,7 @@ class networkInterface extends Model
     public $networkCardIndex;
 
     /**
-     * @description The ID of ENI N to attach to the instance.
+     * @description The ID of the ENI to attach to the instance.
      *
      * If you specify this parameter, you must set `Amount` to 1.
      *
@@ -172,7 +172,7 @@ class networkInterface extends Model
      *
      *   The value of N cannot exceed the maximum number of ENIs per instance that the instance type supports. For the maximum number of ENIs per instance that an instance type supports, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html) or call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/2679699.html) operation.
      *   The value of this parameter cannot exceed the maximum number of queues allowed per ENI.
-     *   The total number of queues for all ENIs on an instance cannot exceed the queue quota for the instance type. To query the maximum number of queues per ENI and the queue quota for an instance type, you can call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) operation and check the `MaximumQueueNumberPerEni` and `TotalEniQueueQuantity` values in the response.
+     *   The total number of queues for all ENIs of an instance cannot exceed the queue quota for the instance type. To query the maximum number of queues per ENI and the queue quota for an instance type, you can call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) operation and check the `MaximumQueueNumberPerEni` and `TotalEniQueueQuantity` values in the response.
      *   If you specify this parameter and set `NetworkInterface.N.InstanceType` to `Primary`, you cannot specify `NetworkInterfaceQueueNumber`.
      *
      * @example 8
@@ -218,7 +218,7 @@ class networkInterface extends Model
      *
      *   The value of N cannot exceed the maximum number of ENIs per instance that the instance type supports. For the maximum number of ENIs per instance that an instance type supports, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html) or call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/2679699.html) operation.
      *   If `NetworkInterface.N.InstanceType` is set to `Primary`, you must specify this parameter. In this case, this parameter is equivalent to `SecurityGroupId` and you cannot specify `SecurityGroupId`, `SecurityGroupIds.N`, or `NetworkInterface.N.SecurityGroupIds.N`.
-     *   If `NetworkInterface.N.InstanceType` is set to `Secondary` or left empty, you do not need to specify this parameter. The default value is the ID of the security group to which to assign the instance.
+     *   If you set `NetworkInterface.N.InstanceType` to `Secondary` or leave NetworkInterface.N.InstanceType empty, you do not need to specify this parameter. The default value is the ID of the security group to which to assign the instance.
      *
      * @example sg-bp67acfmxazb4p****
      *
@@ -230,7 +230,7 @@ class networkInterface extends Model
      * @description The IDs of security groups to which to assign ENI N.
      *
      *   The value of the first N in this parameter cannot exceed the maximum number of ENIs per instance that the instance type supports. For the maximum number of ENIs per instance that an instance type supports, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html) or call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/2679699.html) operation.
-     *   The second N in this parameter indicates that one or more security group IDs can be specified. The valid values of the second N vary based on the maximum number of security groups to which an instance can belong. For more information, see the [Security group limits](~~25412#SecurityGroupQuota1~~) section of the "Limits" topic.
+     *   The second N in this parameter indicates that one or more security group IDs can be specified. The valid values of the second N vary based on the maximum number of security groups to which an instance can belong. For more information, see [Security group limits](~~25412#SecurityGroupQuota1~~).
      *
      * Take note of the following items:
      *
@@ -244,7 +244,14 @@ class networkInterface extends Model
     public $securityGroupIds;
 
     /**
-     * @description >  This parameter is in invitational preview and is not publicly available.
+     * @description Specifies whether to enable the source and destination IP address check feature. We recommend that you enable the feature to improve network security. Valid value:
+     *
+     *   true: enables the performance burst feature for the system disk.
+     *   false: disables the performance burst feature for the data disk.
+     *
+     * Default value: false.
+     *
+     * >  This feature is available only in some regions. Before you use this method, read [Source and destination IP address check](https://help.aliyun.com/document_detail/2863210.html).
      *
      * @example false
      *
@@ -272,7 +279,7 @@ class networkInterface extends Model
     /**
      * @description The ID of the vSwitch to which to connect ENI N.
      *
-     * Take note of the following items:
+     * When you specify this parameter, take note of the following items:
      *
      *   The value of N cannot exceed the maximum number of ENIs per instance that the instance type supports. For the maximum number of ENIs per instance that an instance type supports, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html) or call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/2679699.html) operation.
      *   If `NetworkInterface.N.InstanceType` is set to `Primary`, you must specify this parameter. In this case, this parameter is equivalent to `VSwitchId`. You cannot specify both NetworkInterface.N.VSwitchId and `VSwitchId` in the same request.

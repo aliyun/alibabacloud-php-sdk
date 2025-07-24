@@ -11,6 +11,11 @@ use AlibabaCloud\Tea\Model;
 class deploymentSet extends Model
 {
     /**
+     * @var int
+     */
+    public $accountId;
+
+    /**
      * @description Details of the capacities of the deployment set. This parameter is valid only when the deployment set contains ECS instances. The value contains information about the capacities of the deployment set in different zones.
      *
      * @var capacities
@@ -116,6 +121,7 @@ class deploymentSet extends Model
      */
     public $strategy;
     protected $_name = [
+        'accountId' => 'AccountId',
         'capacities' => 'Capacities',
         'creationTime' => 'CreationTime',
         'deploymentSetDescription' => 'DeploymentSetDescription',
@@ -135,6 +141,9 @@ class deploymentSet extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accountId) {
+            $res['AccountId'] = $this->accountId;
+        }
         if (null !== $this->capacities) {
             $res['Capacities'] = null !== $this->capacities ? $this->capacities->toMap() : null;
         }
@@ -183,6 +192,9 @@ class deploymentSet extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccountId'])) {
+            $model->accountId = $map['AccountId'];
+        }
         if (isset($map['Capacities'])) {
             $model->capacities = capacities::fromMap($map['Capacities']);
         }

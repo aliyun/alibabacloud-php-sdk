@@ -86,7 +86,7 @@ class dedicatedHost extends Model
     public $cores;
 
     /**
-     * @description The CPU overcommit ratio.Valid values: 1 to 5.
+     * @description The CPU overcommit ratio. Valid values: 1 to 5.
      *
      * @example 1
      *

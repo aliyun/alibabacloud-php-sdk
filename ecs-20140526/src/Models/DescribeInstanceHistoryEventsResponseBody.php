@@ -19,6 +19,8 @@ class DescribeInstanceHistoryEventsResponseBody extends Model
     /**
      * @description A pagination token. It can be used in the next request to retrieve a new page of results.
      *
+     * >  If the NextToken parameter is not returned when you use the MaxResults and NextToken parameters to perform a paged query, no more data is returned.
+     *
      * @example f1c9fa9de5752***
      *
      * @var string

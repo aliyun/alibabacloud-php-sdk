@@ -57,7 +57,7 @@ class launchTemplateSet extends Model
     public $launchTemplateId;
 
     /**
-     * @description The name of the template.
+     * @description The name of the launch template.
      *
      * @example wd-152630748****
      *

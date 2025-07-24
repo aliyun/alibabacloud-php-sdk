@@ -36,6 +36,10 @@ class connection extends Model
     public $endTime;
 
     /**
+     * @description Cause of the connection failure. This parameter is returned only when the Status parameter is Failed.
+     *
+     * @example The Session Manager is closed normally.
+     *
      * @var string
      */
     public $failedDetail;
@@ -63,8 +67,6 @@ class connection extends Model
      *
      *   Connecting: The connection is being established.
      *   Connected: The connection is established.
-     *   Disconnected: The connection is disconnected.
-     *   Terminating: The session is being terminated.
      *   Terminated: The session is terminated.
      *   Failed: The connection failed.
      *

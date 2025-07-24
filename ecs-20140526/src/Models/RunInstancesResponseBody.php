@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class RunInstancesResponseBody extends Model
 {
     /**
-     * @description The instance IDs (`InstanceIdSet`).
+     * @description The instance IDs.
      *
      * @var instanceIdSets
      */
