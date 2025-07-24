@@ -11,6 +11,21 @@ class AsyncCreateClipsTimeLineRequest extends Model
     /**
      * @var string
      */
+    public $additionalContent;
+
+    /**
+     * @var string
+     */
+    public $customContent;
+
+    /**
+     * @var bool
+     */
+    public $noRefVideo;
+
+    /**
+     * @var string
+     */
     public $processPrompt;
 
     /**
@@ -31,6 +46,9 @@ class AsyncCreateClipsTimeLineRequest extends Model
      */
     public $workspaceId;
     protected $_name = [
+        'additionalContent' => 'AdditionalContent',
+        'customContent' => 'CustomContent',
+        'noRefVideo' => 'NoRefVideo',
         'processPrompt' => 'ProcessPrompt',
         'taskId' => 'TaskId',
         'workspaceId' => 'WorkspaceId',
@@ -41,6 +59,15 @@ class AsyncCreateClipsTimeLineRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->additionalContent) {
+            $res['AdditionalContent'] = $this->additionalContent;
+        }
+        if (null !== $this->customContent) {
+            $res['CustomContent'] = $this->customContent;
+        }
+        if (null !== $this->noRefVideo) {
+            $res['NoRefVideo'] = $this->noRefVideo;
+        }
         if (null !== $this->processPrompt) {
             $res['ProcessPrompt'] = $this->processPrompt;
         }
@@ -62,6 +89,15 @@ class AsyncCreateClipsTimeLineRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AdditionalContent'])) {
+            $model->additionalContent = $map['AdditionalContent'];
+        }
+        if (isset($map['CustomContent'])) {
+            $model->customContent = $map['CustomContent'];
+        }
+        if (isset($map['NoRefVideo'])) {
+            $model->noRefVideo = $map['NoRefVideo'];
+        }
         if (isset($map['ProcessPrompt'])) {
             $model->processPrompt = $map['ProcessPrompt'];
         }

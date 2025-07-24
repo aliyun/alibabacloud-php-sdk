@@ -638,6 +638,15 @@ class AiMiaoBi extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->additionalContent)) {
+            $body['AdditionalContent'] = $request->additionalContent;
+        }
+        if (!Utils::isUnset($request->customContent)) {
+            $body['CustomContent'] = $request->customContent;
+        }
+        if (!Utils::isUnset($request->noRefVideo)) {
+            $body['NoRefVideo'] = $request->noRefVideo;
+        }
         if (!Utils::isUnset($request->processPrompt)) {
             $body['ProcessPrompt'] = $request->processPrompt;
         }
@@ -753,6 +762,9 @@ class AiMiaoBi extends OpenApiClient
         Utils::validateModel($tmpReq);
         $request = new AsyncUploadVideoShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->referenceVideo)) {
+            $request->referenceVideoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->referenceVideo, 'ReferenceVideo', 'json');
+        }
         if (!Utils::isUnset($tmpReq->sourceVideos)) {
             $request->sourceVideosShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sourceVideos, 'SourceVideos', 'json');
         }
@@ -760,8 +772,14 @@ class AiMiaoBi extends OpenApiClient
         if (!Utils::isUnset($request->anlysisPrompt)) {
             $body['AnlysisPrompt'] = $request->anlysisPrompt;
         }
+        if (!Utils::isUnset($request->referenceVideoShrink)) {
+            $body['ReferenceVideo'] = $request->referenceVideoShrink;
+        }
         if (!Utils::isUnset($request->sourceVideosShrink)) {
             $body['SourceVideos'] = $request->sourceVideosShrink;
+        }
+        if (!Utils::isUnset($request->splitInterval)) {
+            $body['SplitInterval'] = $request->splitInterval;
         }
         if (!Utils::isUnset($request->workspaceId)) {
             $body['WorkspaceId'] = $request->workspaceId;

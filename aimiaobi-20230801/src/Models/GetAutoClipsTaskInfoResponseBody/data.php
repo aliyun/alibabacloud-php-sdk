@@ -23,6 +23,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $errorMessage;
+
+    /**
+     * @var string
+     */
     public $mediaCloudTimeline;
 
     /**
@@ -96,6 +101,7 @@ class data extends Model
     protected $_name = [
         'colorWords' => 'ColorWords',
         'content' => 'Content',
+        'errorMessage' => 'ErrorMessage',
         'mediaCloudTimeline' => 'MediaCloudTimeline',
         'musicStyle' => 'MusicStyle',
         'musicUrl' => 'MusicUrl',
@@ -126,6 +132,9 @@ class data extends Model
         }
         if (null !== $this->content) {
             $res['Content'] = $this->content;
+        }
+        if (null !== $this->errorMessage) {
+            $res['ErrorMessage'] = $this->errorMessage;
         }
         if (null !== $this->mediaCloudTimeline) {
             $res['MediaCloudTimeline'] = $this->mediaCloudTimeline;
@@ -192,6 +201,9 @@ class data extends Model
         }
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
+        }
+        if (isset($map['ErrorMessage'])) {
+            $model->errorMessage = $map['ErrorMessage'];
         }
         if (isset($map['MediaCloudTimeline'])) {
             $model->mediaCloudTimeline = $map['MediaCloudTimeline'];

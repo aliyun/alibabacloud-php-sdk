@@ -24,9 +24,19 @@ class clips extends Model
     public $in;
 
     /**
+     * @var float
+     */
+    public $inEx;
+
+    /**
      * @var int
      */
     public $out;
+
+    /**
+     * @var float
+     */
+    public $outEx;
 
     /**
      * @var string
@@ -41,7 +51,9 @@ class clips extends Model
         'clipId' => 'ClipId',
         'contentInner' => 'ContentInner',
         'in' => 'In',
+        'inEx' => 'InEx',
         'out' => 'Out',
+        'outEx' => 'OutEx',
         'videoId' => 'VideoId',
         'videoName' => 'VideoName',
     ];
@@ -60,8 +72,14 @@ class clips extends Model
         if (null !== $this->in) {
             $res['In'] = $this->in;
         }
+        if (null !== $this->inEx) {
+            $res['InEx'] = $this->inEx;
+        }
         if (null !== $this->out) {
             $res['Out'] = $this->out;
+        }
+        if (null !== $this->outEx) {
+            $res['OutEx'] = $this->outEx;
         }
         if (null !== $this->videoId) {
             $res['VideoId'] = $this->videoId;
@@ -90,8 +108,14 @@ class clips extends Model
         if (isset($map['In'])) {
             $model->in = $map['In'];
         }
+        if (isset($map['InEx'])) {
+            $model->inEx = $map['InEx'];
+        }
         if (isset($map['Out'])) {
             $model->out = $map['Out'];
+        }
+        if (isset($map['OutEx'])) {
+            $model->outEx = $map['OutEx'];
         }
         if (isset($map['VideoId'])) {
             $model->videoId = $map['VideoId'];
