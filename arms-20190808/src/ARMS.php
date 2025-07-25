@@ -6815,6 +6815,9 @@ class ARMS extends OpenApiClient
         if (!Utils::isUnset($request->alertType)) {
             $query['AlertType'] = $request->alertType;
         }
+        if (!Utils::isUnset($request->bizRegionId)) {
+            $query['BizRegionId'] = $request->bizRegionId;
+        }
         if (!Utils::isUnset($request->clusterId)) {
             $query['ClusterId'] = $request->clusterId;
         }

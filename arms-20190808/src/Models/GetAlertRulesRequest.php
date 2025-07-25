@@ -64,6 +64,11 @@ class GetAlertRulesRequest extends Model
     public $alertType;
 
     /**
+     * @var string
+     */
+    public $bizRegionId;
+
+    /**
      * @description The ID of the monitored cluster.
      *
      * @example ceba9b9ea5b924dd0b6726d2de6******
@@ -125,6 +130,7 @@ class GetAlertRulesRequest extends Model
         'alertNames' => 'AlertNames',
         'alertStatus' => 'AlertStatus',
         'alertType' => 'AlertType',
+        'bizRegionId' => 'BizRegionId',
         'clusterId' => 'ClusterId',
         'page' => 'Page',
         'productCode' => 'ProductCode',
@@ -149,6 +155,9 @@ class GetAlertRulesRequest extends Model
         }
         if (null !== $this->alertType) {
             $res['AlertType'] = $this->alertType;
+        }
+        if (null !== $this->bizRegionId) {
+            $res['BizRegionId'] = $this->bizRegionId;
         }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
@@ -197,6 +206,9 @@ class GetAlertRulesRequest extends Model
         }
         if (isset($map['AlertType'])) {
             $model->alertType = $map['AlertType'];
+        }
+        if (isset($map['BizRegionId'])) {
+            $model->bizRegionId = $map['BizRegionId'];
         }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
