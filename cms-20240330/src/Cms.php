@@ -11,6 +11,8 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\CreatePrometheusInstanceRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreatePrometheusInstanceResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateServiceRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateServiceResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\CreateTicketRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\CreateTicketResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateUmodelRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateUmodelResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteEntityStoreResponse;
@@ -279,6 +281,59 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->createServiceWithOptions($workspace, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 创建票据
+     *  *
+     * @param CreateTicketRequest $request CreateTicketRequest
+     * @param string[]            $headers map
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateTicketResponse CreateTicketResponse
+     */
+    public function createTicketWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessTokenExpirationTime)) {
+            $query['accessTokenExpirationTime'] = $request->accessTokenExpirationTime;
+        }
+        if (!Utils::isUnset($request->expirationTime)) {
+            $query['expirationTime'] = $request->expirationTime;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateTicket',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/tickets',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateTicketResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建票据
+     *  *
+     * @param CreateTicketRequest $request CreateTicketRequest
+     *
+     * @return CreateTicketResponse CreateTicketResponse
+     */
+    public function createTicket($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createTicketWithOptions($request, $headers, $runtime);
     }
 
     /**
