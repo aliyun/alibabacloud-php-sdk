@@ -1,3 +1,6 @@
+2025-07-25 Version: 1.3.1
+- Generated php 2016-01-20 for Kms.
+
 2025-07-21 Version: 1.3.0
 - Support API GetDefaultKmsInstance.
 - Update API CreateKey: add request parameters KeyStorageMechanism.
