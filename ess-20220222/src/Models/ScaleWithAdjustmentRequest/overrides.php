@@ -33,10 +33,16 @@ class overrides extends Model
      * @var float
      */
     public $memory;
+
+    /**
+     * @var string
+     */
+    public $userData;
     protected $_name = [
         'containerOverrides' => 'ContainerOverrides',
         'cpu' => 'Cpu',
         'memory' => 'Memory',
+        'userData' => 'UserData',
     ];
 
     public function validate() {}
@@ -58,6 +64,9 @@ class overrides extends Model
         }
         if (null !== $this->memory) {
             $res['Memory'] = $this->memory;
+        }
+        if (null !== $this->userData) {
+            $res['UserData'] = $this->userData;
         }
 
         return $res;
@@ -85,6 +94,9 @@ class overrides extends Model
         }
         if (isset($map['Memory'])) {
             $model->memory = $map['Memory'];
+        }
+        if (isset($map['UserData'])) {
+            $model->userData = $map['UserData'];
         }
 
         return $model;
