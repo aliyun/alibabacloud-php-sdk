@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeCloudPhoneNodesResponseBody;
 
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeCloudPhoneNodesResponseBody\nodeModel\bizTags;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeCloudPhoneNodesResponseBody\nodeModel\networkInfos;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeCloudPhoneNodesResponseBody\nodeModel\phoneDataInfo;
 use AlibabaCloud\Tea\Model;
@@ -19,6 +20,11 @@ class nodeModel extends Model
      * @var string
      */
     public $bandwidthPackageType;
+
+    /**
+     * @var bizTags[]
+     */
+    public $bizTags;
 
     /**
      * @description The billing method.
@@ -195,6 +201,7 @@ class nodeModel extends Model
     protected $_name = [
         'bandwidthPackageId' => 'BandwidthPackageId',
         'bandwidthPackageType' => 'BandwidthPackageType',
+        'bizTags' => 'BizTags',
         'chargeType' => 'ChargeType',
         'cpu' => 'Cpu',
         'gmtCreate' => 'GmtCreate',
@@ -228,6 +235,15 @@ class nodeModel extends Model
         }
         if (null !== $this->bandwidthPackageType) {
             $res['BandwidthPackageType'] = $this->bandwidthPackageType;
+        }
+        if (null !== $this->bizTags) {
+            $res['BizTags'] = [];
+            if (null !== $this->bizTags && \is_array($this->bizTags)) {
+                $n = 0;
+                foreach ($this->bizTags as $item) {
+                    $res['BizTags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
@@ -315,6 +331,15 @@ class nodeModel extends Model
         }
         if (isset($map['BandwidthPackageType'])) {
             $model->bandwidthPackageType = $map['BandwidthPackageType'];
+        }
+        if (isset($map['BizTags'])) {
+            if (!empty($map['BizTags'])) {
+                $model->bizTags = [];
+                $n = 0;
+                foreach ($map['BizTags'] as $item) {
+                    $model->bizTags[$n++] = null !== $item ? bizTags::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];

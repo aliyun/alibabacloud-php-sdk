@@ -4,10 +4,16 @@
 
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models;
 
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeImageListRequest\imageBizTags;
 use AlibabaCloud\Tea\Model;
 
 class DescribeImageListRequest extends Model
 {
+    /**
+     * @var imageBizTags[]
+     */
+    public $imageBizTags;
+
     /**
      * @description The ID of the image.
      *
@@ -52,6 +58,11 @@ class DescribeImageListRequest extends Model
     public $imageType;
 
     /**
+     * @var string
+     */
+    public $instanceType;
+
+    /**
      * @description The number of entries per page. Valid values: 1 to 100. Default value: 20.
      *
      * @example 20
@@ -86,10 +97,12 @@ class DescribeImageListRequest extends Model
      */
     public $status;
     protected $_name = [
+        'imageBizTags' => 'ImageBizTags',
         'imageId' => 'ImageId',
         'imageName' => 'ImageName',
         'imagePackageType' => 'ImagePackageType',
         'imageType' => 'ImageType',
+        'instanceType' => 'InstanceType',
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
         'status' => 'Status',
@@ -100,6 +113,15 @@ class DescribeImageListRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->imageBizTags) {
+            $res['ImageBizTags'] = [];
+            if (null !== $this->imageBizTags && \is_array($this->imageBizTags)) {
+                $n = 0;
+                foreach ($this->imageBizTags as $item) {
+                    $res['ImageBizTags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
         }
@@ -111,6 +133,9 @@ class DescribeImageListRequest extends Model
         }
         if (null !== $this->imageType) {
             $res['ImageType'] = $this->imageType;
+        }
+        if (null !== $this->instanceType) {
+            $res['InstanceType'] = $this->instanceType;
         }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
@@ -133,6 +158,15 @@ class DescribeImageListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ImageBizTags'])) {
+            if (!empty($map['ImageBizTags'])) {
+                $model->imageBizTags = [];
+                $n = 0;
+                foreach ($map['ImageBizTags'] as $item) {
+                    $model->imageBizTags[$n++] = null !== $item ? imageBizTags::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
         }
@@ -144,6 +178,9 @@ class DescribeImageListRequest extends Model
         }
         if (isset($map['ImageType'])) {
             $model->imageType = $map['ImageType'];
+        }
+        if (isset($map['InstanceType'])) {
+            $model->instanceType = $map['InstanceType'];
         }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];

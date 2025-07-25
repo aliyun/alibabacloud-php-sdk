@@ -1967,8 +1967,14 @@ class Edsaic extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->imageBizTags)) {
+            $query['ImageBizTags'] = $request->imageBizTags;
+        }
         if (!Utils::isUnset($request->imagePackageType)) {
             $query['ImagePackageType'] = $request->imagePackageType;
+        }
+        if (!Utils::isUnset($request->instanceType)) {
+            $query['InstanceType'] = $request->instanceType;
         }
         $body = [];
         if (!Utils::isUnset($request->imageId)) {

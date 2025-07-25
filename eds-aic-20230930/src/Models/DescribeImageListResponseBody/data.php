@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeImageListResponseBody;
 
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DataImageRegionDistributeMapValue;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeImageListResponseBody\data\imageBizTags;
 use AlibabaCloud\Tea\Model;
 
 class data extends Model
@@ -44,6 +45,11 @@ class data extends Model
      * @var string
      */
     public $gmtModified;
+
+    /**
+     * @var imageBizTags[]
+     */
+    public $imageBizTags;
 
     /**
      * @description The ID of the image.
@@ -159,6 +165,7 @@ class data extends Model
         'description' => 'Description',
         'gmtCreate' => 'GmtCreate',
         'gmtModified' => 'GmtModified',
+        'imageBizTags' => 'ImageBizTags',
         'imageId' => 'ImageId',
         'imageName' => 'ImageName',
         'imageRegionDistributeMap' => 'ImageRegionDistributeMap',
@@ -188,6 +195,15 @@ class data extends Model
         }
         if (null !== $this->gmtModified) {
             $res['GmtModified'] = $this->gmtModified;
+        }
+        if (null !== $this->imageBizTags) {
+            $res['ImageBizTags'] = [];
+            if (null !== $this->imageBizTags && \is_array($this->imageBizTags)) {
+                $n = 0;
+                foreach ($this->imageBizTags as $item) {
+                    $res['ImageBizTags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
@@ -250,6 +266,15 @@ class data extends Model
         }
         if (isset($map['GmtModified'])) {
             $model->gmtModified = $map['GmtModified'];
+        }
+        if (isset($map['ImageBizTags'])) {
+            if (!empty($map['ImageBizTags'])) {
+                $model->imageBizTags = [];
+                $n = 0;
+                foreach ($map['ImageBizTags'] as $item) {
+                    $model->imageBizTags[$n++] = null !== $item ? imageBizTags::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];

@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeAndroidInstancesResponseBody;
 
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeAndroidInstancesResponseBody\instanceModel\appManagePolicy;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeAndroidInstancesResponseBody\instanceModel\bizTags;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeAndroidInstancesResponseBody\instanceModel\disks;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeAndroidInstancesResponseBody\instanceModel\displayConfig;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeAndroidInstancesResponseBody\instanceModel\phoneDataInfo;
@@ -108,6 +109,11 @@ class instanceModel extends Model
      * @var string
      */
     public $bindUserId;
+
+    /**
+     * @var bizTags[]
+     */
+    public $bizTags;
 
     /**
      * @description The billing method of the instance.
@@ -327,6 +333,11 @@ class instanceModel extends Model
     public $renderingType;
 
     /**
+     * @var string
+     */
+    public $serverType;
+
+    /**
      * @description The session status.
      *
      * Valid values:
@@ -379,6 +390,7 @@ class instanceModel extends Model
         'bandwidthPackageId' => 'BandwidthPackageId',
         'bandwidthPackageType' => 'BandwidthPackageType',
         'bindUserId' => 'BindUserId',
+        'bizTags' => 'BizTags',
         'chargeType' => 'ChargeType',
         'cpu' => 'Cpu',
         'disks' => 'Disks',
@@ -406,6 +418,7 @@ class instanceModel extends Model
         'rate' => 'Rate',
         'regionId' => 'RegionId',
         'renderingType' => 'RenderingType',
+        'serverType' => 'ServerType',
         'sessionStatus' => 'SessionStatus',
         'streamMode' => 'StreamMode',
         'tags' => 'Tags',
@@ -454,6 +467,15 @@ class instanceModel extends Model
         }
         if (null !== $this->bindUserId) {
             $res['BindUserId'] = $this->bindUserId;
+        }
+        if (null !== $this->bizTags) {
+            $res['BizTags'] = [];
+            if (null !== $this->bizTags && \is_array($this->bizTags)) {
+                $n = 0;
+                foreach ($this->bizTags as $item) {
+                    $res['BizTags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
@@ -542,6 +564,9 @@ class instanceModel extends Model
         if (null !== $this->renderingType) {
             $res['RenderingType'] = $this->renderingType;
         }
+        if (null !== $this->serverType) {
+            $res['ServerType'] = $this->serverType;
+        }
         if (null !== $this->sessionStatus) {
             $res['SessionStatus'] = $this->sessionStatus;
         }
@@ -613,6 +638,15 @@ class instanceModel extends Model
         }
         if (isset($map['BindUserId'])) {
             $model->bindUserId = $map['BindUserId'];
+        }
+        if (isset($map['BizTags'])) {
+            if (!empty($map['BizTags'])) {
+                $model->bizTags = [];
+                $n = 0;
+                foreach ($map['BizTags'] as $item) {
+                    $model->bizTags[$n++] = null !== $item ? bizTags::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
@@ -700,6 +734,9 @@ class instanceModel extends Model
         }
         if (isset($map['RenderingType'])) {
             $model->renderingType = $map['RenderingType'];
+        }
+        if (isset($map['ServerType'])) {
+            $model->serverType = $map['ServerType'];
         }
         if (isset($map['SessionStatus'])) {
             $model->sessionStatus = $map['SessionStatus'];
