@@ -3474,11 +3474,17 @@ class APIG extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->attachResourceId)) {
+            $query['attachResourceId'] = $request->attachResourceId;
+        }
         if (!Utils::isUnset($request->attachResourceType)) {
             $query['attachResourceType'] = $request->attachResourceType;
         }
         if (!Utils::isUnset($request->direction)) {
             $query['direction'] = $request->direction;
+        }
+        if (!Utils::isUnset($request->gatewayId)) {
+            $query['gatewayId'] = $request->gatewayId;
         }
         if (!Utils::isUnset($request->pageNumber)) {
             $query['pageNumber'] = $request->pageNumber;

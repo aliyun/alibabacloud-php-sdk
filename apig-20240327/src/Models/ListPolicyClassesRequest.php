@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListPolicyClassesRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $attachResourceId;
+
+    /**
      * @description Types of attachment points supported by the policy.
      *
      * - HttpApi: HttpApi.
@@ -38,6 +43,11 @@ class ListPolicyClassesRequest extends Model
     public $direction;
 
     /**
+     * @var string
+     */
+    public $gatewayId;
+
+    /**
      * @description Page number, default is 1.
      *
      * @example 1
@@ -64,8 +74,10 @@ class ListPolicyClassesRequest extends Model
      */
     public $type;
     protected $_name = [
+        'attachResourceId' => 'attachResourceId',
         'attachResourceType' => 'attachResourceType',
         'direction' => 'direction',
+        'gatewayId' => 'gatewayId',
         'pageNumber' => 'pageNumber',
         'pageSize' => 'pageSize',
         'type' => 'type',
@@ -76,11 +88,17 @@ class ListPolicyClassesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->attachResourceId) {
+            $res['attachResourceId'] = $this->attachResourceId;
+        }
         if (null !== $this->attachResourceType) {
             $res['attachResourceType'] = $this->attachResourceType;
         }
         if (null !== $this->direction) {
             $res['direction'] = $this->direction;
+        }
+        if (null !== $this->gatewayId) {
+            $res['gatewayId'] = $this->gatewayId;
         }
         if (null !== $this->pageNumber) {
             $res['pageNumber'] = $this->pageNumber;
@@ -103,11 +121,17 @@ class ListPolicyClassesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['attachResourceId'])) {
+            $model->attachResourceId = $map['attachResourceId'];
+        }
         if (isset($map['attachResourceType'])) {
             $model->attachResourceType = $map['attachResourceType'];
         }
         if (isset($map['direction'])) {
             $model->direction = $map['direction'];
+        }
+        if (isset($map['gatewayId'])) {
+            $model->gatewayId = $map['gatewayId'];
         }
         if (isset($map['pageNumber'])) {
             $model->pageNumber = $map['pageNumber'];
