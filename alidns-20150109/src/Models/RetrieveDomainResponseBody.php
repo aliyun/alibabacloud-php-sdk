@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class RetrieveDomainResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 9CC0D642-49D4-48DE-A1A5-9F218652E4A7
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class RetrieveDomainResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class RetrieveDomainResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return RetrieveDomainResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

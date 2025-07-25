@@ -4,17 +4,23 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeDnsGtmAddrAttributeInfoResponseBody\addr;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeDnsGtmAddrAttributeInfoResponseBody\addr\addr\attributeInfo;
+use AlibabaCloud\Tea\Model;
 
 class addr extends Model
 {
     /**
+     * @description The address in the address pool.
+     *
+     * @example 1.1.1.1
+     *
      * @var string
      */
     public $addr;
 
     /**
+     * @description The information about the source region of the address.
+     *
      * @var attributeInfo
      */
     public $attributeInfo;
@@ -23,40 +29,32 @@ class addr extends Model
         'attributeInfo' => 'AttributeInfo',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->attributeInfo) {
-            $this->attributeInfo->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->addr) {
             $res['Addr'] = $this->addr;
         }
-
         if (null !== $this->attributeInfo) {
-            $res['AttributeInfo'] = null !== $this->attributeInfo ? $this->attributeInfo->toArray($noStream) : $this->attributeInfo;
+            $res['AttributeInfo'] = null !== $this->attributeInfo ? $this->attributeInfo->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return addr
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Addr'])) {
             $model->addr = $map['Addr'];
         }
-
         if (isset($map['AttributeInfo'])) {
             $model->attributeInfo = attributeInfo::fromMap($map['AttributeInfo']);
         }

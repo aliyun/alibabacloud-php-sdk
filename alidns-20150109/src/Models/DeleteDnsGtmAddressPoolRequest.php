@@ -4,16 +4,26 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteDnsGtmAddressPoolRequest extends Model
 {
     /**
+     * @description The ID of the address pool.
+     *
+     * This parameter is required.
+     *
+     * @example testpool1
+     *
      * @var string
      */
     public $addrPoolId;
 
     /**
+     * @description The language to return some response parameters. Default value: en. Valid values: en, zh, and ja.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
@@ -22,18 +32,14 @@ class DeleteDnsGtmAddressPoolRequest extends Model
         'lang' => 'Lang',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->addrPoolId) {
             $res['AddrPoolId'] = $this->addrPoolId;
         }
-
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
@@ -41,18 +47,17 @@ class DeleteDnsGtmAddressPoolRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteDnsGtmAddressPoolRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AddrPoolId'])) {
             $model->addrPoolId = $map['AddrPoolId'];
         }
-
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }

@@ -4,31 +4,41 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ValidateDnsGtmCnameRrCanUseRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $cnameMode;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $cnameRr;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $cnameType;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $cnameZone;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $instanceId;
@@ -46,34 +56,26 @@ class ValidateDnsGtmCnameRrCanUseRequest extends Model
         'lang' => 'Lang',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->cnameMode) {
             $res['CnameMode'] = $this->cnameMode;
         }
-
         if (null !== $this->cnameRr) {
             $res['CnameRr'] = $this->cnameRr;
         }
-
         if (null !== $this->cnameType) {
             $res['CnameType'] = $this->cnameType;
         }
-
         if (null !== $this->cnameZone) {
             $res['CnameZone'] = $this->cnameZone;
         }
-
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
@@ -81,34 +83,29 @@ class ValidateDnsGtmCnameRrCanUseRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ValidateDnsGtmCnameRrCanUseRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CnameMode'])) {
             $model->cnameMode = $map['CnameMode'];
         }
-
         if (isset($map['CnameRr'])) {
             $model->cnameRr = $map['CnameRr'];
         }
-
         if (isset($map['CnameType'])) {
             $model->cnameType = $map['CnameType'];
         }
-
         if (isset($map['CnameZone'])) {
             $model->cnameZone = $map['CnameZone'];
         }
-
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }

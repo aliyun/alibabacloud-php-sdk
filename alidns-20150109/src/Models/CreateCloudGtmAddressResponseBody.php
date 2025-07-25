@@ -4,21 +4,35 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateCloudGtmAddressResponseBody extends Model
 {
     /**
+     * @description The address ID. This ID uniquely identifies the address.
+     *
+     * @example addr-8951821811436**192
+     *
      * @var string
      */
     public $addressId;
 
     /**
+     * @description Unique request identification code.
+     *
+     * @example 46973D4C-E3E4-4ABA-9190-9A9DE406C7E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the address creation operation is successful:
+     * - true: Operation was successful
+     * - false: Operation was failed
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;
@@ -28,22 +42,17 @@ class CreateCloudGtmAddressResponseBody extends Model
         'success' => 'Success',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->addressId) {
             $res['AddressId'] = $this->addressId;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -51,22 +60,20 @@ class CreateCloudGtmAddressResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateCloudGtmAddressResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AddressId'])) {
             $model->addressId = $map['AddressId'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

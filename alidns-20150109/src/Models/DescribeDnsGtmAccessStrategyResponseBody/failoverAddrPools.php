@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeDnsGtmAccessStrategyResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeDnsGtmAccessStrategyResponseBody\failoverAddrPools\failoverAddrPool;
+use AlibabaCloud\Tea\Model;
 
 class failoverAddrPools extends Model
 {
@@ -17,24 +17,17 @@ class failoverAddrPools extends Model
         'failoverAddrPool' => 'FailoverAddrPool',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->failoverAddrPool)) {
-            Model::validateArray($this->failoverAddrPool);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->failoverAddrPool) {
-            if (\is_array($this->failoverAddrPool)) {
-                $res['FailoverAddrPool'] = [];
-                $n1 = 0;
-                foreach ($this->failoverAddrPool as $item1) {
-                    $res['FailoverAddrPool'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['FailoverAddrPool'] = [];
+            if (null !== $this->failoverAddrPool && \is_array($this->failoverAddrPool)) {
+                $n = 0;
+                foreach ($this->failoverAddrPool as $item) {
+                    $res['FailoverAddrPool'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -42,21 +35,20 @@ class failoverAddrPools extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return failoverAddrPools
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FailoverAddrPool'])) {
             if (!empty($map['FailoverAddrPool'])) {
                 $model->failoverAddrPool = [];
-                $n1 = 0;
-                foreach ($map['FailoverAddrPool'] as $item1) {
-                    $model->failoverAddrPool[$n1] = failoverAddrPool::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['FailoverAddrPool'] as $item) {
+                    $model->failoverAddrPool[$n++] = null !== $item ? failoverAddrPool::fromMap($item) : $item;
                 }
             }
         }

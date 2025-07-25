@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeGtmAccessStrategiesResponseBody\strategies\strategy;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeGtmAccessStrategiesResponseBody\strategies\strategy\lines\line;
+use AlibabaCloud\Tea\Model;
 
 class lines extends Model
 {
@@ -17,24 +17,17 @@ class lines extends Model
         'line' => 'Line',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->line)) {
-            Model::validateArray($this->line);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->line) {
-            if (\is_array($this->line)) {
-                $res['Line'] = [];
-                $n1 = 0;
-                foreach ($this->line as $item1) {
-                    $res['Line'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Line'] = [];
+            if (null !== $this->line && \is_array($this->line)) {
+                $n = 0;
+                foreach ($this->line as $item) {
+                    $res['Line'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -42,21 +35,20 @@ class lines extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return lines
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Line'])) {
             if (!empty($map['Line'])) {
                 $model->line = [];
-                $n1 = 0;
-                foreach ($map['Line'] as $item1) {
-                    $model->line[$n1] = line::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Line'] as $item) {
+                    $model->line[$n++] = null !== $item ? line::fromMap($item) : $item;
                 }
             }
         }

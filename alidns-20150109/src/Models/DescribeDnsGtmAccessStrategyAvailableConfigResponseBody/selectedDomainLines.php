@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeDnsGtmAccessStrategyAvailableConfigResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class selectedDomainLines extends Model
 {
@@ -16,47 +16,29 @@ class selectedDomainLines extends Model
         'selectedDomainLine' => 'SelectedDomainLine',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->selectedDomainLine)) {
-            Model::validateArray($this->selectedDomainLine);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->selectedDomainLine) {
-            if (\is_array($this->selectedDomainLine)) {
-                $res['SelectedDomainLine'] = [];
-                $n1 = 0;
-                foreach ($this->selectedDomainLine as $item1) {
-                    $res['SelectedDomainLine'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['SelectedDomainLine'] = $this->selectedDomainLine;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return selectedDomainLines
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SelectedDomainLine'])) {
             if (!empty($map['SelectedDomainLine'])) {
-                $model->selectedDomainLine = [];
-                $n1 = 0;
-                foreach ($map['SelectedDomainLine'] as $item1) {
-                    $model->selectedDomainLine[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->selectedDomainLine = $map['SelectedDomainLine'];
             }
         }
 

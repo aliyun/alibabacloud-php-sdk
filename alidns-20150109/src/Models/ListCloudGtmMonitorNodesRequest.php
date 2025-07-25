@@ -4,11 +4,18 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListCloudGtmMonitorNodesRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   **zh-CN**: Chinese
+     *   **en-US** (default): English
+     *
+     * @example en-US
+     *
      * @var string
      */
     public $acceptLanguage;
@@ -16,12 +23,9 @@ class ListCloudGtmMonitorNodesRequest extends Model
         'acceptLanguage' => 'AcceptLanguage',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->acceptLanguage) {
@@ -31,11 +35,11 @@ class ListCloudGtmMonitorNodesRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListCloudGtmMonitorNodesRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

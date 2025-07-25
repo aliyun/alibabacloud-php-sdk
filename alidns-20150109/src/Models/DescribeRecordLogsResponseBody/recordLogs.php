@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeRecordLogsResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeRecordLogsResponseBody\recordLogs\recordLog;
+use AlibabaCloud\Tea\Model;
 
 class recordLogs extends Model
 {
@@ -17,24 +17,17 @@ class recordLogs extends Model
         'recordLog' => 'RecordLog',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->recordLog)) {
-            Model::validateArray($this->recordLog);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->recordLog) {
-            if (\is_array($this->recordLog)) {
-                $res['RecordLog'] = [];
-                $n1 = 0;
-                foreach ($this->recordLog as $item1) {
-                    $res['RecordLog'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['RecordLog'] = [];
+            if (null !== $this->recordLog && \is_array($this->recordLog)) {
+                $n = 0;
+                foreach ($this->recordLog as $item) {
+                    $res['RecordLog'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -42,21 +35,20 @@ class recordLogs extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return recordLogs
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RecordLog'])) {
             if (!empty($map['RecordLog'])) {
                 $model->recordLog = [];
-                $n1 = 0;
-                foreach ($map['RecordLog'] as $item1) {
-                    $model->recordLog[$n1] = recordLog::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['RecordLog'] as $item) {
+                    $model->recordLog[$n++] = null !== $item ? recordLog::fromMap($item) : $item;
                 }
             }
         }

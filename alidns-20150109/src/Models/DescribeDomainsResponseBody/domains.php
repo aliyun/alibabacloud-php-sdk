@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeDomainsResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeDomainsResponseBody\domains\domain;
+use AlibabaCloud\Tea\Model;
 
 class domains extends Model
 {
@@ -17,24 +17,17 @@ class domains extends Model
         'domain' => 'Domain',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->domain)) {
-            Model::validateArray($this->domain);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->domain) {
-            if (\is_array($this->domain)) {
-                $res['Domain'] = [];
-                $n1 = 0;
-                foreach ($this->domain as $item1) {
-                    $res['Domain'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Domain'] = [];
+            if (null !== $this->domain && \is_array($this->domain)) {
+                $n = 0;
+                foreach ($this->domain as $item) {
+                    $res['Domain'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -42,21 +35,20 @@ class domains extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return domains
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Domain'])) {
             if (!empty($map['Domain'])) {
                 $model->domain = [];
-                $n1 = 0;
-                foreach ($map['Domain'] as $item1) {
-                    $model->domain[$n1] = domain::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Domain'] as $item) {
+                    $model->domain[$n++] = null !== $item ? domain::fromMap($item) : $item;
                 }
             }
         }

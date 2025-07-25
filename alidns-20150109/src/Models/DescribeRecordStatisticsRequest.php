@@ -4,36 +4,77 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeRecordStatisticsRequest extends Model
 {
     /**
+     * @description The primary domain name.
+     *
+     * This parameter is required.
+     *
+     * @example dns-example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The type of the domain name. The parameter value is not case-sensitive. Valid values:
+     *
+     *   PUBLIC (default): hosted public domain name
+     *   CACHE: cache-accelerated domain name
+     *
+     * @example PUBLIC
+     *
      * @var string
      */
     public $domainType;
 
     /**
+     * @description The end date of the query. Specify the end date in the **YYYY-MM-DD** format.
+     *
+     * The default value is the day when you query the data.
+     *
+     * @example 2019-07-04
+     *
      * @var string
      */
     public $endDate;
 
     /**
+     * @description The language.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The hostname. If you want to resolve www.dns-exmaple.top, set Rr to www.
+     *
+     * This parameter is required.
+     *
+     * @example www
+     *
      * @var string
      */
     public $rr;
 
     /**
+     * @description The start date of the query. Specify the start date in the **YYYY-MM-DD** format.
+     *
+     * You can only query the DNS records within the last 90 days.``
+     *
+     * If the time range is less than or equal to seven days, data is returned on an hourly basis.````
+     *
+     * If the time range is greater than seven days, data is returned on a daily basis.````
+     *
+     * This parameter is required.
+     *
+     * @example 2019-07-04
+     *
      * @var string
      */
     public $startDate;
@@ -46,34 +87,26 @@ class DescribeRecordStatisticsRequest extends Model
         'startDate' => 'StartDate',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
-
         if (null !== $this->domainType) {
             $res['DomainType'] = $this->domainType;
         }
-
         if (null !== $this->endDate) {
             $res['EndDate'] = $this->endDate;
         }
-
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
-
         if (null !== $this->rr) {
             $res['Rr'] = $this->rr;
         }
-
         if (null !== $this->startDate) {
             $res['StartDate'] = $this->startDate;
         }
@@ -81,34 +114,29 @@ class DescribeRecordStatisticsRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeRecordStatisticsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
-
         if (isset($map['DomainType'])) {
             $model->domainType = $map['DomainType'];
         }
-
         if (isset($map['EndDate'])) {
             $model->endDate = $map['EndDate'];
         }
-
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
-
         if (isset($map['Rr'])) {
             $model->rr = $map['Rr'];
         }
-
         if (isset($map['StartDate'])) {
             $model->startDate = $map['StartDate'];
         }

@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models\ListCloudGtmAvailableAlertGroupsResponseBody\alertGroups;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class alertGroup extends Model
 {
     /**
+     * @description The name of the alert contact group.
+     *
+     * @example [\\"Default\\"]
+     *
      * @var string
      */
     public $groupName;
@@ -16,12 +20,9 @@ class alertGroup extends Model
         'groupName' => 'GroupName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->groupName) {
@@ -31,11 +32,11 @@ class alertGroup extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return alertGroup
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

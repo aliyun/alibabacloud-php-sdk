@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models\PreviewGtmRecoveryPlanResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\PreviewGtmRecoveryPlanResponseBody\previews\preview;
+use AlibabaCloud\Tea\Model;
 
 class previews extends Model
 {
@@ -17,24 +17,17 @@ class previews extends Model
         'preview' => 'Preview',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->preview)) {
-            Model::validateArray($this->preview);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->preview) {
-            if (\is_array($this->preview)) {
-                $res['Preview'] = [];
-                $n1 = 0;
-                foreach ($this->preview as $item1) {
-                    $res['Preview'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Preview'] = [];
+            if (null !== $this->preview && \is_array($this->preview)) {
+                $n = 0;
+                foreach ($this->preview as $item) {
+                    $res['Preview'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -42,21 +35,20 @@ class previews extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return previews
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Preview'])) {
             if (!empty($map['Preview'])) {
                 $model->preview = [];
-                $n1 = 0;
-                foreach ($map['Preview'] as $item1) {
-                    $model->preview[$n1] = preview::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Preview'] as $item) {
+                    $model->preview[$n++] = null !== $item ? preview::fromMap($item) : $item;
                 }
             }
         }

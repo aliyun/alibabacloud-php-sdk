@@ -4,31 +4,69 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateDnsGtmAddressPoolRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class addr extends Model
 {
     /**
+     * @description The address in the address pool.
+     *
+     * This parameter is required.
+     *
+     * @example 1.1.1.1
+     *
      * @var string
      */
     public $addr;
 
     /**
+     * @description The information about the source region of the address. The value of the parameter is a string in the JSON format. Valid values:
+     *
+     *   LineCode: the line code of the source region. This parameter is deprecated. Use lineCodes instead.
+     *
+     *   lineCodes: the line codes of the source region
+     *
+     *   lineCodeRectifyType: the rectification type of the line code. Default value: AUTO. Valid values:
+     *
+     *   NO_NEED: no need for rectification
+     *   RECTIFIED: rectified
+     *   AUTO: automatic rectification
+     *
+     * @example Linecode:default,lineCodes:["default"],lineCodeRectifyType:"NO_NEED"
+     *
      * @var string
      */
     public $attributeInfo;
 
     /**
+     * @description The weight of the address.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $lbaWeight;
 
     /**
+     * @description The return mode of the addresses. Valid values:
+     *
+     *   SMART: smart return
+     *   ONLINE: always online
+     *   OFFLINE: always offline
+     *
+     * This parameter is required.
+     *
+     * @example online
+     *
      * @var string
      */
     public $mode;
 
     /**
+     * @description The description of the address pool.
+     *
+     * @example test
+     *
      * @var string
      */
     public $remark;
@@ -40,30 +78,23 @@ class addr extends Model
         'remark' => 'Remark',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->addr) {
             $res['Addr'] = $this->addr;
         }
-
         if (null !== $this->attributeInfo) {
             $res['AttributeInfo'] = $this->attributeInfo;
         }
-
         if (null !== $this->lbaWeight) {
             $res['LbaWeight'] = $this->lbaWeight;
         }
-
         if (null !== $this->mode) {
             $res['Mode'] = $this->mode;
         }
-
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
         }
@@ -71,30 +102,26 @@ class addr extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return addr
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Addr'])) {
             $model->addr = $map['Addr'];
         }
-
         if (isset($map['AttributeInfo'])) {
             $model->attributeInfo = $map['AttributeInfo'];
         }
-
         if (isset($map['LbaWeight'])) {
             $model->lbaWeight = $map['LbaWeight'];
         }
-
         if (isset($map['Mode'])) {
             $model->mode = $map['Mode'];
         }
-
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
         }

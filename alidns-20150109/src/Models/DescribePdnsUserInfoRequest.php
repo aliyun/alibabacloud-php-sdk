@@ -4,11 +4,18 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribePdnsUserInfoRequest extends Model
 {
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid value:
+     *
+     *   **zh**: Chinese.
+     *   **en**: English.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
@@ -16,12 +23,9 @@ class DescribePdnsUserInfoRequest extends Model
         'lang' => 'Lang',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->lang) {
@@ -31,11 +35,11 @@ class DescribePdnsUserInfoRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribePdnsUserInfoRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

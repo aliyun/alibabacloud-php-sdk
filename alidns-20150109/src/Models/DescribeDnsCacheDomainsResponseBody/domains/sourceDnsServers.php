@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeDnsCacheDomainsResponseBody\domains;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class sourceDnsServers extends Model
 {
     /**
+     * @description The domain name or IP address of the origin DNS server.
+     *
+     * @example ns8.alidns.com
+     *
      * @var string
      */
     public $host;
 
     /**
+     * @description The port of the origin DNS server.
+     *
+     * @example 53
+     *
      * @var string
      */
     public $port;
@@ -22,18 +30,14 @@ class sourceDnsServers extends Model
         'port' => 'Port',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->host) {
             $res['Host'] = $this->host;
         }
-
         if (null !== $this->port) {
             $res['Port'] = $this->port;
         }
@@ -41,18 +45,17 @@ class sourceDnsServers extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return sourceDnsServers
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Host'])) {
             $model->host = $map['Host'];
         }
-
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
         }

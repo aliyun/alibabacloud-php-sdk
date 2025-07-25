@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeIspFlushCacheTaskResponseBody\flushCacheResults\dnsNodes;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class answers extends Model
 {
@@ -34,26 +34,20 @@ class answers extends Model
         'type' => 'Type',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->record) {
             $res['Record'] = $this->record;
         }
-
         if (null !== $this->ttl) {
             $res['Ttl'] = $this->ttl;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -61,26 +55,23 @@ class answers extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return answers
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['Record'])) {
             $model->record = $map['Record'];
         }
-
         if (isset($map['Ttl'])) {
             $model->ttl = $map['Ttl'];
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

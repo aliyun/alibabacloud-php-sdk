@@ -4,36 +4,70 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeBatchResultDetailRequest extends Model
 {
     /**
+     * @description The type of the batch operation. Valid values:
+     *
+     *   **DOMAIN_ADD**: adds domain names in batches.
+     *   **DOMAIN_DEL**: deletes domain names in batches.
+     *   **RR_ADD**: adds Domain Name System (DNS) records in batches.
+     *   **RR_DEL**: deletes DNS records in batches.
+     *
+     * >  Do not perform filtering when this field is empty.
+     *
+     * @example DOMAIN_ADD
+     *
      * @var string
      */
     public $batchType;
 
     /**
+     * @description The language of the content within the request and response. Default: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The page number. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The execution result. If you do not specify this parameter, all results are returned.
+     *
+     * @example SUCCESS
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The task ID.
+     *
+     * @example 83618818
+     *
      * @var int
      */
     public $taskId;
@@ -46,34 +80,26 @@ class DescribeBatchResultDetailRequest extends Model
         'taskId' => 'TaskId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->batchType) {
             $res['BatchType'] = $this->batchType;
         }
-
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
-
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
-
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -81,34 +107,29 @@ class DescribeBatchResultDetailRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeBatchResultDetailRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BatchType'])) {
             $model->batchType = $map['BatchType'];
         }
-
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
-
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
-
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

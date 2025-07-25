@@ -4,21 +4,33 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeGtmRecoveryPlanResponseBody\faultAddrPools\faultAddrPool\addrs;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class addr extends Model
 {
     /**
+     * @description The address ID.
+     *
+     * @example 739
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The address mode.
+     *
+     * @example OFFLINE
+     *
      * @var string
      */
     public $mode;
 
     /**
+     * @description The address.
+     *
+     * @example 1.1.1.1
+     *
      * @var string
      */
     public $value;
@@ -28,22 +40,17 @@ class addr extends Model
         'value' => 'Value',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->mode) {
             $res['Mode'] = $this->mode;
         }
-
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -51,22 +58,20 @@ class addr extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return addr
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['Mode'])) {
             $model->mode = $map['Mode'];
         }
-
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

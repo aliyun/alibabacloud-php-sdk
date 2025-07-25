@@ -4,47 +4,115 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\AddGtmMonitorRequest\ispCityNode;
+use AlibabaCloud\Tea\Model;
 
 class AddGtmMonitorRequest extends Model
 {
     /**
+     * @description The ID of the address pool.
+     *
+     * This parameter is required.
+     *
+     * @example xxxx
+     *
      * @var string
      */
     public $addrPoolId;
 
     /**
+     * @description The number of consecutive failures.
+     *
+     * This parameter is required.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $evaluationCount;
 
     /**
+     * @description The health check interval. Unit: seconds. Set the value to 60.
+     *
+     * This parameter is required.
+     *
+     * @example 60
+     *
      * @var int
      */
     public $interval;
 
     /**
+     * @description The nodes for monitoring.
+     *
+     * This parameter is required.
+     *
      * @var ispCityNode[]
      */
     public $ispCityNode;
 
     /**
+     * @description The language.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The extended information. The required parameters vary based on the health check protocol.
+     *
+     * HTTP or HTTPS
+     *
+     *   port: the port that you want to check
+     *   failureRate: the failure rate
+     *   code: the return code. The health check result is deemed abnormal if the returned value is greater than the specified value. Valid values: 400 and 500.
+     *   host: the host settings
+     *   path: the URL path
+     *
+     * PING
+     *
+     *   packetNum: the number of ping packets
+     *   packetLossRate: the packet loss rate
+     *   failureRate: the failure rate
+     *
+     * TCP
+     *
+     *   port: the port that you want to check
+     *   failureRate: the failure rate
+     *
+     * This parameter is required.
+     *
+     * @example {\\"code\\":200,\\"path\\":\\"/index.htm\\",\\"host\\":\\"aliyun.com\\"}
+     *
      * @var string
      */
     public $monitorExtendInfo;
 
     /**
+     * @description The protocol used for the health check. Valid values:
+     *
+     *   HTTP
+     *   HTTPS
+     *   PING
+     *   TCP
+     *
+     * This parameter is required.
+     *
+     * @example HTTP
+     *
      * @var string
      */
     public $protocolType;
 
     /**
+     * @description The health check timeout period. Unit: milliseconds. Valid values: 2000, 3000, 5000, and 10000.
+     *
+     * This parameter is required.
+     *
+     * @example 3000
+     *
      * @var int
      */
     public $timeout;
@@ -59,52 +127,38 @@ class AddGtmMonitorRequest extends Model
         'timeout' => 'Timeout',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->ispCityNode)) {
-            Model::validateArray($this->ispCityNode);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->addrPoolId) {
             $res['AddrPoolId'] = $this->addrPoolId;
         }
-
         if (null !== $this->evaluationCount) {
             $res['EvaluationCount'] = $this->evaluationCount;
         }
-
         if (null !== $this->interval) {
             $res['Interval'] = $this->interval;
         }
-
         if (null !== $this->ispCityNode) {
-            if (\is_array($this->ispCityNode)) {
-                $res['IspCityNode'] = [];
-                $n1 = 0;
-                foreach ($this->ispCityNode as $item1) {
-                    $res['IspCityNode'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['IspCityNode'] = [];
+            if (null !== $this->ispCityNode && \is_array($this->ispCityNode)) {
+                $n = 0;
+                foreach ($this->ispCityNode as $item) {
+                    $res['IspCityNode'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
-
         if (null !== $this->monitorExtendInfo) {
             $res['MonitorExtendInfo'] = $this->monitorExtendInfo;
         }
-
         if (null !== $this->protocolType) {
             $res['ProtocolType'] = $this->protocolType;
         }
-
         if (null !== $this->timeout) {
             $res['Timeout'] = $this->timeout;
         }
@@ -112,49 +166,41 @@ class AddGtmMonitorRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return AddGtmMonitorRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AddrPoolId'])) {
             $model->addrPoolId = $map['AddrPoolId'];
         }
-
         if (isset($map['EvaluationCount'])) {
             $model->evaluationCount = $map['EvaluationCount'];
         }
-
         if (isset($map['Interval'])) {
             $model->interval = $map['Interval'];
         }
-
         if (isset($map['IspCityNode'])) {
             if (!empty($map['IspCityNode'])) {
                 $model->ispCityNode = [];
-                $n1 = 0;
-                foreach ($map['IspCityNode'] as $item1) {
-                    $model->ispCityNode[$n1] = ispCityNode::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['IspCityNode'] as $item) {
+                    $model->ispCityNode[$n++] = null !== $item ? ispCityNode::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
-
         if (isset($map['MonitorExtendInfo'])) {
             $model->monitorExtendInfo = $map['MonitorExtendInfo'];
         }
-
         if (isset($map['ProtocolType'])) {
             $model->protocolType = $map['ProtocolType'];
         }
-
         if (isset($map['Timeout'])) {
             $model->timeout = $map['Timeout'];
         }

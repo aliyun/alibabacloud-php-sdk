@@ -1,3 +1,7 @@
+2025-07-25 Version: 3.4.11
+- Update API DescribeDomainRecords: add response parameters Body.DomainRecords.$.LbaStatus.
+
+
 2025-06-27 Version: 3.4.10
 - Update API DescribeDomains: add response parameters Body.Domains.$.SlaveDnsStatus.
 - Update API DescribeInternetDnsLogs: add request parameters RecursionProtocolType.

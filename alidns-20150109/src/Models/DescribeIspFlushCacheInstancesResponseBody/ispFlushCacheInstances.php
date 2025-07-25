@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeIspFlushCacheInstancesResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeIspFlushCacheInstancesResponseBody\ispFlushCacheInstances\quotaInfo;
+use AlibabaCloud\Tea\Model;
 
 class ispFlushCacheInstances extends Model
 {
@@ -59,45 +59,32 @@ class ispFlushCacheInstances extends Model
         'versionCode' => 'VersionCode',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->quotaInfo) {
-            $this->quotaInfo->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->expireTime) {
             $res['ExpireTime'] = $this->expireTime;
         }
-
         if (null !== $this->expireTimestamp) {
             $res['ExpireTimestamp'] = $this->expireTimestamp;
         }
-
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
         }
-
         if (null !== $this->isp) {
             $res['Isp'] = $this->isp;
         }
-
         if (null !== $this->quotaInfo) {
-            $res['QuotaInfo'] = null !== $this->quotaInfo ? $this->quotaInfo->toArray($noStream) : $this->quotaInfo;
+            $res['QuotaInfo'] = null !== $this->quotaInfo ? $this->quotaInfo->toMap() : null;
         }
-
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-
         if (null !== $this->versionCode) {
             $res['VersionCode'] = $this->versionCode;
         }
@@ -105,42 +92,35 @@ class ispFlushCacheInstances extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ispFlushCacheInstances
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExpireTime'])) {
             $model->expireTime = $map['ExpireTime'];
         }
-
         if (isset($map['ExpireTimestamp'])) {
             $model->expireTimestamp = $map['ExpireTimestamp'];
         }
-
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
         }
-
         if (isset($map['Isp'])) {
             $model->isp = $map['Isp'];
         }
-
         if (isset($map['QuotaInfo'])) {
             $model->quotaInfo = quotaInfo::fromMap($map['QuotaInfo']);
         }
-
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-
         if (isset($map['VersionCode'])) {
             $model->versionCode = $map['VersionCode'];
         }

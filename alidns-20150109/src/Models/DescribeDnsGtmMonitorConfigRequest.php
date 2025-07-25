@@ -4,16 +4,26 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeDnsGtmMonitorConfigRequest extends Model
 {
     /**
+     * @description The language of the values of specific response parameters. Default value: en. Valid values: en, zh, and ja.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The ID of the health check task.
+     *
+     * This parameter is required.
+     *
+     * @example MonitorConfigId1
+     *
      * @var string
      */
     public $monitorConfigId;
@@ -22,18 +32,14 @@ class DescribeDnsGtmMonitorConfigRequest extends Model
         'monitorConfigId' => 'MonitorConfigId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
-
         if (null !== $this->monitorConfigId) {
             $res['MonitorConfigId'] = $this->monitorConfigId;
         }
@@ -41,18 +47,17 @@ class DescribeDnsGtmMonitorConfigRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeDnsGtmMonitorConfigRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
-
         if (isset($map['MonitorConfigId'])) {
             $model->monitorConfigId = $map['MonitorConfigId'];
         }

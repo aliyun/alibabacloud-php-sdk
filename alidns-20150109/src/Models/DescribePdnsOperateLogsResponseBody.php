@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribePdnsOperateLogsResponseBody\logs;
+use AlibabaCloud\Tea\Model;
 
 class DescribePdnsOperateLogsResponseBody extends Model
 {
@@ -41,40 +41,29 @@ class DescribePdnsOperateLogsResponseBody extends Model
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->logs)) {
-            Model::validateArray($this->logs);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->logs) {
-            if (\is_array($this->logs)) {
-                $res['Logs'] = [];
-                $n1 = 0;
-                foreach ($this->logs as $item1) {
-                    $res['Logs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Logs'] = [];
+            if (null !== $this->logs && \is_array($this->logs)) {
+                $n = 0;
+                foreach ($this->logs as $item) {
+                    $res['Logs'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
-
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -82,37 +71,32 @@ class DescribePdnsOperateLogsResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribePdnsOperateLogsResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Logs'])) {
             if (!empty($map['Logs'])) {
                 $model->logs = [];
-                $n1 = 0;
-                foreach ($map['Logs'] as $item1) {
-                    $model->logs[$n1] = logs::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Logs'] as $item) {
+                    $model->logs[$n++] = null !== $item ? logs::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
-
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

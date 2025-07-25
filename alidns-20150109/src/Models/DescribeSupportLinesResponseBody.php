@@ -4,17 +4,21 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeSupportLinesResponseBody\recordLines;
+use AlibabaCloud\Tea\Model;
 
 class DescribeSupportLinesResponseBody extends Model
 {
     /**
+     * @description The Alibaba Cloud DNS lines.
+     *
      * @var recordLines
      */
     public $recordLines;
 
     /**
+     * @example CFDA0830-7D6E-4C13-8632-B57C7EDCF079
+     *
      * @var string
      */
     public $requestId;
@@ -23,21 +27,14 @@ class DescribeSupportLinesResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->recordLines) {
-            $this->recordLines->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->recordLines) {
-            $res['RecordLines'] = null !== $this->recordLines ? $this->recordLines->toArray($noStream) : $this->recordLines;
+            $res['RecordLines'] = null !== $this->recordLines ? $this->recordLines->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,18 +42,17 @@ class DescribeSupportLinesResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeSupportLinesResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RecordLines'])) {
             $model->recordLines = recordLines::fromMap($map['RecordLines']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

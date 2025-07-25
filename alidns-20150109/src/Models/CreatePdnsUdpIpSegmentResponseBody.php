@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreatePdnsUdpIpSegmentResponseBody extends Model
 {
@@ -22,18 +22,14 @@ class CreatePdnsUdpIpSegmentResponseBody extends Model
         'validMessage' => 'ValidMessage',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->validMessage) {
             $res['ValidMessage'] = $this->validMessage;
         }
@@ -41,18 +37,17 @@ class CreatePdnsUdpIpSegmentResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreatePdnsUdpIpSegmentResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['ValidMessage'])) {
             $model->validMessage = $map['ValidMessage'];
         }

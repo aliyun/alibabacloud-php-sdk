@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models\ListCloudGtmInstanceConfigsResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\ListCloudGtmInstanceConfigsResponseBody\instanceConfigs\instanceConfig;
+use AlibabaCloud\Tea\Model;
 
 class instanceConfigs extends Model
 {
@@ -17,24 +17,17 @@ class instanceConfigs extends Model
         'instanceConfig' => 'InstanceConfig',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->instanceConfig)) {
-            Model::validateArray($this->instanceConfig);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceConfig) {
-            if (\is_array($this->instanceConfig)) {
-                $res['InstanceConfig'] = [];
-                $n1 = 0;
-                foreach ($this->instanceConfig as $item1) {
-                    $res['InstanceConfig'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['InstanceConfig'] = [];
+            if (null !== $this->instanceConfig && \is_array($this->instanceConfig)) {
+                $n = 0;
+                foreach ($this->instanceConfig as $item) {
+                    $res['InstanceConfig'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -42,21 +35,20 @@ class instanceConfigs extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return instanceConfigs
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceConfig'])) {
             if (!empty($map['InstanceConfig'])) {
                 $model->instanceConfig = [];
-                $n1 = 0;
-                foreach ($map['InstanceConfig'] as $item1) {
-                    $model->instanceConfig[$n1] = instanceConfig::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['InstanceConfig'] as $item) {
+                    $model->instanceConfig[$n++] = null !== $item ? instanceConfig::fromMap($item) : $item;
                 }
             }
         }

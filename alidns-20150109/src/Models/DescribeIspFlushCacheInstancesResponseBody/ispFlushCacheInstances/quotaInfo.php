@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeIspFlushCacheInstancesResponseBody\ispFlushCacheInstances;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class quotaInfo extends Model
 {
@@ -22,18 +22,14 @@ class quotaInfo extends Model
         'instanceQuotaUsed' => 'InstanceQuotaUsed',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceQuota) {
             $res['InstanceQuota'] = $this->instanceQuota;
         }
-
         if (null !== $this->instanceQuotaUsed) {
             $res['InstanceQuotaUsed'] = $this->instanceQuotaUsed;
         }
@@ -41,18 +37,17 @@ class quotaInfo extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return quotaInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceQuota'])) {
             $model->instanceQuota = $map['InstanceQuota'];
         }
-
         if (isset($map['InstanceQuotaUsed'])) {
             $model->instanceQuotaUsed = $map['InstanceQuotaUsed'];
         }

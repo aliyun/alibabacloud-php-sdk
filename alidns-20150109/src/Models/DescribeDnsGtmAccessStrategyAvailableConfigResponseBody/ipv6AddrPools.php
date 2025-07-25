@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeDnsGtmAccessStrategyAvailableConfigResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeDnsGtmAccessStrategyAvailableConfigResponseBody\ipv6AddrPools\ipv6AddrPool;
+use AlibabaCloud\Tea\Model;
 
 class ipv6AddrPools extends Model
 {
@@ -17,24 +17,17 @@ class ipv6AddrPools extends Model
         'ipv6AddrPool' => 'Ipv6AddrPool',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->ipv6AddrPool)) {
-            Model::validateArray($this->ipv6AddrPool);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->ipv6AddrPool) {
-            if (\is_array($this->ipv6AddrPool)) {
-                $res['Ipv6AddrPool'] = [];
-                $n1 = 0;
-                foreach ($this->ipv6AddrPool as $item1) {
-                    $res['Ipv6AddrPool'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Ipv6AddrPool'] = [];
+            if (null !== $this->ipv6AddrPool && \is_array($this->ipv6AddrPool)) {
+                $n = 0;
+                foreach ($this->ipv6AddrPool as $item) {
+                    $res['Ipv6AddrPool'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -42,21 +35,20 @@ class ipv6AddrPools extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ipv6AddrPools
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Ipv6AddrPool'])) {
             if (!empty($map['Ipv6AddrPool'])) {
                 $model->ipv6AddrPool = [];
-                $n1 = 0;
-                foreach ($map['Ipv6AddrPool'] as $item1) {
-                    $model->ipv6AddrPool[$n1] = ipv6AddrPool::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Ipv6AddrPool'] as $item) {
+                    $model->ipv6AddrPool[$n++] = null !== $item ? ipv6AddrPool::fromMap($item) : $item;
                 }
             }
         }

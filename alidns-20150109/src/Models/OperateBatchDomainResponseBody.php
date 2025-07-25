@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class OperateBatchDomainResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 75446CC1-FC9A-4595-8D96-089D73D7A63D
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The task ID.
+     *
+     * @example 345345
+     *
      * @var int
      */
     public $taskId;
@@ -22,18 +30,14 @@ class OperateBatchDomainResponseBody extends Model
         'taskId' => 'TaskId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -41,18 +45,17 @@ class OperateBatchDomainResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return OperateBatchDomainResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

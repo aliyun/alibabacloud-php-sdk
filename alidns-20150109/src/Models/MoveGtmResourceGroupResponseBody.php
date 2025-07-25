@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class MoveGtmResourceGroupResponseBody extends Model
 {
     /**
+     * @example C6F1D541-E7A6-447A-A2B5-9F7A20B2A8FB
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +18,9 @@ class MoveGtmResourceGroupResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +30,11 @@ class MoveGtmResourceGroupResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return MoveGtmResourceGroupResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

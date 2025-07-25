@@ -4,16 +4,22 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models\PreviewGtmRecoveryPlanResponseBody\previews\preview\switchInfos;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class switchInfo extends Model
 {
     /**
+     * @description The formatted message content.
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @description The name of the switching policy for address pools.
+     *
+     * @example strategy-name-example-1
+     *
      * @var string
      */
     public $strategyName;
@@ -22,18 +28,14 @@ class switchInfo extends Model
         'strategyName' => 'StrategyName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
-
         if (null !== $this->strategyName) {
             $res['StrategyName'] = $this->strategyName;
         }
@@ -41,18 +43,17 @@ class switchInfo extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return switchInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
-
         if (isset($map['StrategyName'])) {
             $model->strategyName = $map['StrategyName'];
         }

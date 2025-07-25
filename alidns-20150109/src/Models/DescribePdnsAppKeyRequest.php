@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribePdnsAppKeyRequest extends Model
 {
@@ -28,22 +28,17 @@ class DescribePdnsAppKeyRequest extends Model
         'lang' => 'Lang',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appKeyId) {
             $res['AppKeyId'] = $this->appKeyId;
         }
-
         if (null !== $this->authCode) {
             $res['AuthCode'] = $this->authCode;
         }
-
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
@@ -51,22 +46,20 @@ class DescribePdnsAppKeyRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribePdnsAppKeyRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppKeyId'])) {
             $model->appKeyId = $map['AppKeyId'];
         }
-
         if (isset($map['AuthCode'])) {
             $model->authCode = $map['AuthCode'];
         }
-
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }

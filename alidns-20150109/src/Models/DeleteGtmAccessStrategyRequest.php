@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteGtmAccessStrategyRequest extends Model
 {
     /**
+     * @description The language used by the user.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The ID of the access policy that you want to delete.
+     *
+     * @example hrskc
+     *
      * @var string
      */
     public $strategyId;
@@ -22,18 +30,14 @@ class DeleteGtmAccessStrategyRequest extends Model
         'strategyId' => 'StrategyId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
-
         if (null !== $this->strategyId) {
             $res['StrategyId'] = $this->strategyId;
         }
@@ -41,18 +45,17 @@ class DeleteGtmAccessStrategyRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteGtmAccessStrategyRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
-
         if (isset($map['StrategyId'])) {
             $model->strategyId = $map['StrategyId'];
         }

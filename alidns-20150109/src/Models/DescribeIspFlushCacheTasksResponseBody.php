@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeIspFlushCacheTasksResponseBody\ispFlushCacheTasks;
+use AlibabaCloud\Tea\Model;
 
 class DescribeIspFlushCacheTasksResponseBody extends Model
 {
@@ -47,44 +47,32 @@ class DescribeIspFlushCacheTasksResponseBody extends Model
         'totalPages' => 'TotalPages',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->ispFlushCacheTasks)) {
-            Model::validateArray($this->ispFlushCacheTasks);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->ispFlushCacheTasks) {
-            if (\is_array($this->ispFlushCacheTasks)) {
-                $res['IspFlushCacheTasks'] = [];
-                $n1 = 0;
-                foreach ($this->ispFlushCacheTasks as $item1) {
-                    $res['IspFlushCacheTasks'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['IspFlushCacheTasks'] = [];
+            if (null !== $this->ispFlushCacheTasks && \is_array($this->ispFlushCacheTasks)) {
+                $n = 0;
+                foreach ($this->ispFlushCacheTasks as $item) {
+                    $res['IspFlushCacheTasks'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
-
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->totalItems) {
             $res['TotalItems'] = $this->totalItems;
         }
-
         if (null !== $this->totalPages) {
             $res['TotalPages'] = $this->totalPages;
         }
@@ -92,41 +80,35 @@ class DescribeIspFlushCacheTasksResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeIspFlushCacheTasksResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IspFlushCacheTasks'])) {
             if (!empty($map['IspFlushCacheTasks'])) {
                 $model->ispFlushCacheTasks = [];
-                $n1 = 0;
-                foreach ($map['IspFlushCacheTasks'] as $item1) {
-                    $model->ispFlushCacheTasks[$n1] = ispFlushCacheTasks::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['IspFlushCacheTasks'] as $item) {
+                    $model->ispFlushCacheTasks[$n++] = null !== $item ? ispFlushCacheTasks::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
-
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['TotalItems'])) {
             $model->totalItems = $map['TotalItems'];
         }
-
         if (isset($map['TotalPages'])) {
             $model->totalPages = $map['TotalPages'];
         }

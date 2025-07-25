@@ -4,16 +4,26 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeDnsGtmAccessStrategyRequest extends Model
 {
     /**
+     * @description The language to return some response parameters. Default value: en. Valid values: en, zh, and ja.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The ID of the access policy.
+     *
+     * This parameter is required.
+     *
+     * @example strategyId1
+     *
      * @var string
      */
     public $strategyId;
@@ -22,18 +32,14 @@ class DescribeDnsGtmAccessStrategyRequest extends Model
         'strategyId' => 'StrategyId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
-
         if (null !== $this->strategyId) {
             $res['StrategyId'] = $this->strategyId;
         }
@@ -41,18 +47,17 @@ class DescribeDnsGtmAccessStrategyRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeDnsGtmAccessStrategyRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
-
         if (isset($map['StrategyId'])) {
             $model->strategyId = $map['StrategyId'];
         }

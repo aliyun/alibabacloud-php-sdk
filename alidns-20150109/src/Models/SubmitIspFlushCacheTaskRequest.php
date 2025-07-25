@@ -4,21 +4,27 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class SubmitIspFlushCacheTaskRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $isp;
@@ -34,36 +40,20 @@ class SubmitIspFlushCacheTaskRequest extends Model
         'lang' => 'Lang',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->isp)) {
-            Model::validateArray($this->isp);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
-
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
-
         if (null !== $this->isp) {
-            if (\is_array($this->isp)) {
-                $res['Isp'] = [];
-                $n1 = 0;
-                foreach ($this->isp as $item1) {
-                    $res['Isp'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['Isp'] = $this->isp;
         }
-
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
@@ -71,33 +61,25 @@ class SubmitIspFlushCacheTaskRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return SubmitIspFlushCacheTaskRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
-
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
-
         if (isset($map['Isp'])) {
             if (!empty($map['Isp'])) {
-                $model->isp = [];
-                $n1 = 0;
-                foreach ($map['Isp'] as $item1) {
-                    $model->isp[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->isp = $map['Isp'];
             }
         }
-
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }

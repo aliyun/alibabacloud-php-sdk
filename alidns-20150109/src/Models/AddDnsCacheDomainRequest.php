@@ -4,52 +4,103 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\AddDnsCacheDomainRequest\sourceDnsServer;
+use AlibabaCloud\Tea\Model;
 
 class AddDnsCacheDomainRequest extends Model
 {
     /**
+     * @description The maximum TTL period of the cached data retrieved from the origin DNS server. Unit: seconds. Valid values: 30 to 86400.
+     *
+     * This parameter is required.
+     *
+     * @example 86400
+     *
      * @var int
      */
     public $cacheTtlMax;
 
     /**
+     * @description The minimum time-to-live (TTL) period of the cached data retrieved from the origin Domain Name System (DNS) server. Unit: seconds. Valid values: 30 to 86400.
+     *
+     * This parameter is required.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $cacheTtlMin;
 
     /**
+     * @description The domain name. You can call the [DescribeDomains](https://www.alibabacloud.com/help/zh/dns/api-alidns-2015-01-09-describedomains?spm=a2c63.p38356.help-menu-search-29697.d_0) operation to obtain the domain name.
+     *
+     * This parameter is required.
+     *
+     * @example dns.example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The instance ID of the cache-accelerated domain name. You can call the [ListCloudGtmInstances](https://www.alibabacloud.com/help/zh/dns/api-alidns-2015-01-09-listcloudgtminstances?spm=a2c63.p38356.help-menu-search-29697.d_0) operation to obtain the instance ID.
+     *
+     * This parameter is required.
+     *
+     * @example dns-cn-j6666
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The language of the content within the request and response. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English Default: **zh**
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The remarks.
+     *
+     * @example test
+     *
      * @var string
      */
     public $remark;
 
     /**
+     * @description The origin DNS servers. A maximum of 10 origin DNS servers are supported.
+     *
+     * This parameter is required.
+     *
      * @var sourceDnsServer[]
      */
     public $sourceDnsServer;
 
     /**
+     * @description Specifies whether the origin DNS server supports Extension Mechanisms for DNS (EDNS). Valid values: NOT_SUPPORT and SUPPORT.
+     *
+     * This parameter is required.
+     *
+     * @example SUPPORT
+     *
      * @var string
      */
     public $sourceEdns;
 
     /**
+     * @description The origin protocol policy. Valid values: TCP and UDP. Default value: UDP.
+     *
+     * This parameter is required.
+     *
+     * @example UDP
+     *
      * @var string
      */
     public $sourceProtocol;
@@ -65,56 +116,41 @@ class AddDnsCacheDomainRequest extends Model
         'sourceProtocol' => 'SourceProtocol',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->sourceDnsServer)) {
-            Model::validateArray($this->sourceDnsServer);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->cacheTtlMax) {
             $res['CacheTtlMax'] = $this->cacheTtlMax;
         }
-
         if (null !== $this->cacheTtlMin) {
             $res['CacheTtlMin'] = $this->cacheTtlMin;
         }
-
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
-
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
-
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
         }
-
         if (null !== $this->sourceDnsServer) {
-            if (\is_array($this->sourceDnsServer)) {
-                $res['SourceDnsServer'] = [];
-                $n1 = 0;
-                foreach ($this->sourceDnsServer as $item1) {
-                    $res['SourceDnsServer'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['SourceDnsServer'] = [];
+            if (null !== $this->sourceDnsServer && \is_array($this->sourceDnsServer)) {
+                $n = 0;
+                foreach ($this->sourceDnsServer as $item) {
+                    $res['SourceDnsServer'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->sourceEdns) {
             $res['SourceEdns'] = $this->sourceEdns;
         }
-
         if (null !== $this->sourceProtocol) {
             $res['SourceProtocol'] = $this->sourceProtocol;
         }
@@ -122,53 +158,44 @@ class AddDnsCacheDomainRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return AddDnsCacheDomainRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CacheTtlMax'])) {
             $model->cacheTtlMax = $map['CacheTtlMax'];
         }
-
         if (isset($map['CacheTtlMin'])) {
             $model->cacheTtlMin = $map['CacheTtlMin'];
         }
-
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
-
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
-
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
         }
-
         if (isset($map['SourceDnsServer'])) {
             if (!empty($map['SourceDnsServer'])) {
                 $model->sourceDnsServer = [];
-                $n1 = 0;
-                foreach ($map['SourceDnsServer'] as $item1) {
-                    $model->sourceDnsServer[$n1] = sourceDnsServer::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['SourceDnsServer'] as $item) {
+                    $model->sourceDnsServer[$n++] = null !== $item ? sourceDnsServer::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['SourceEdns'])) {
             $model->sourceEdns = $map['SourceEdns'];
         }
-
         if (isset($map['SourceProtocol'])) {
             $model->sourceProtocol = $map['SourceProtocol'];
         }

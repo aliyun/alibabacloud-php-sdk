@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models\DescribePdnsUdpIpSegmentsResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ipSegments extends Model
 {
@@ -64,46 +64,35 @@ class ipSegments extends Model
         'updateDate' => 'UpdateDate',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->createDate) {
             $res['CreateDate'] = $this->createDate;
         }
-
         if (null !== $this->createTimestamp) {
             $res['CreateTimestamp'] = $this->createTimestamp;
         }
-
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->ip) {
             $res['Ip'] = $this->ip;
         }
-
         if (null !== $this->mask) {
             $res['Mask'] = $this->mask;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->secretKey) {
             $res['SecretKey'] = $this->secretKey;
         }
-
         if (null !== $this->state) {
             $res['State'] = $this->state;
         }
-
         if (null !== $this->updateDate) {
             $res['UpdateDate'] = $this->updateDate;
         }
@@ -111,46 +100,38 @@ class ipSegments extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ipSegments
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreateDate'])) {
             $model->createDate = $map['CreateDate'];
         }
-
         if (isset($map['CreateTimestamp'])) {
             $model->createTimestamp = $map['CreateTimestamp'];
         }
-
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['Ip'])) {
             $model->ip = $map['Ip'];
         }
-
         if (isset($map['Mask'])) {
             $model->mask = $map['Mask'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['SecretKey'])) {
             $model->secretKey = $map['SecretKey'];
         }
-
         if (isset($map['State'])) {
             $model->state = $map['State'];
         }
-
         if (isset($map['UpdateDate'])) {
             $model->updateDate = $map['UpdateDate'];
         }

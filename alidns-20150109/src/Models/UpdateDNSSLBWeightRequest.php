@@ -4,26 +4,49 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateDNSSLBWeightRequest extends Model
 {
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The ID of the DNS record. You can call the [DescribeDomainRecords](https://www.alibabacloud.com/help/en/dns/api-alidns-2015-01-09-describedomainrecords?spm=a2c63.p38356.help-menu-search-29697.d_0) operation to obtain the ID.
+     *
+     * This parameter is required.
+     *
+     * @example 9999985
+     *
      * @var string
      */
     public $recordId;
 
     /**
+     * @description The IP address of the client.
+     *
+     * @example 1.1.1.1
+     *
      * @var string
      */
     public $userClientIp;
 
     /**
+     * @description The weight of the DNS record that you want to specify. Valid values: `1 to 100`.
+     *
+     * This parameter is required.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $weight;
@@ -34,26 +57,20 @@ class UpdateDNSSLBWeightRequest extends Model
         'weight' => 'Weight',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
-
         if (null !== $this->recordId) {
             $res['RecordId'] = $this->recordId;
         }
-
         if (null !== $this->userClientIp) {
             $res['UserClientIp'] = $this->userClientIp;
         }
-
         if (null !== $this->weight) {
             $res['Weight'] = $this->weight;
         }
@@ -61,26 +78,23 @@ class UpdateDNSSLBWeightRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateDNSSLBWeightRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
-
         if (isset($map['RecordId'])) {
             $model->recordId = $map['RecordId'];
         }
-
         if (isset($map['UserClientIp'])) {
             $model->userClientIp = $map['UserClientIp'];
         }
-
         if (isset($map['Weight'])) {
             $model->weight = $map['Weight'];
         }

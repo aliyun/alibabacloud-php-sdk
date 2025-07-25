@@ -4,16 +4,26 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeGtmAccessStrategyAvailableConfigRequest extends Model
 {
     /**
+     * @description The ID of the Global Traffic Manager (GTM) instance.
+     *
+     * This parameter is required.
+     *
+     * @example gtm-cn-xxxx
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The language.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
@@ -22,18 +32,14 @@ class DescribeGtmAccessStrategyAvailableConfigRequest extends Model
         'lang' => 'Lang',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
@@ -41,18 +47,17 @@ class DescribeGtmAccessStrategyAvailableConfigRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeGtmAccessStrategyAvailableConfigRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }

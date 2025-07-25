@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeCloudGtmInstanceConfigAlertResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class alertGroup extends Model
 {
@@ -16,47 +16,29 @@ class alertGroup extends Model
         'alertGroup' => 'AlertGroup',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->alertGroup)) {
-            Model::validateArray($this->alertGroup);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->alertGroup) {
-            if (\is_array($this->alertGroup)) {
-                $res['AlertGroup'] = [];
-                $n1 = 0;
-                foreach ($this->alertGroup as $item1) {
-                    $res['AlertGroup'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['AlertGroup'] = $this->alertGroup;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return alertGroup
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AlertGroup'])) {
             if (!empty($map['AlertGroup'])) {
-                $model->alertGroup = [];
-                $n1 = 0;
-                foreach ($map['AlertGroup'] as $item1) {
-                    $model->alertGroup[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->alertGroup = $map['AlertGroup'];
             }
         }
 

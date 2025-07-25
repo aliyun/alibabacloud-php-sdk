@@ -4,21 +4,37 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateGtmAddressPoolRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class addr extends Model
 {
     /**
+     * @description The weight of the address pool that you want to modify.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $lbaWeight;
 
     /**
+     * @description The mode of the address pool that you want to modify.
+     *
+     *   **SMART**: Intelligent return
+     *   **ONLINE**: Always online
+     *   **OFFLINE**: Always offline
+     *
+     * @example SMART
+     *
      * @var string
      */
     public $mode;
 
     /**
+     * @description The addresses in the address pool.
+     *
+     * @example 1.1.1.1
+     *
      * @var string
      */
     public $value;
@@ -28,22 +44,17 @@ class addr extends Model
         'value' => 'Value',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->lbaWeight) {
             $res['LbaWeight'] = $this->lbaWeight;
         }
-
         if (null !== $this->mode) {
             $res['Mode'] = $this->mode;
         }
-
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -51,22 +62,20 @@ class addr extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return addr
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LbaWeight'])) {
             $model->lbaWeight = $map['LbaWeight'];
         }
-
         if (isset($map['Mode'])) {
             $model->mode = $map['Mode'];
         }
-
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

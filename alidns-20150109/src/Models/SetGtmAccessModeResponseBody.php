@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class SetGtmAccessModeResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 29D0F8F8-5499-4F6C-9FDC-1EE13BF55925
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class SetGtmAccessModeResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class SetGtmAccessModeResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return SetGtmAccessModeResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

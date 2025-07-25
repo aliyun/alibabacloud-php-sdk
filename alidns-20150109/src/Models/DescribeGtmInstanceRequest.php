@@ -4,21 +4,35 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeGtmInstanceRequest extends Model
 {
     /**
+     * @description The ID of the GTM instance.
+     *
+     * This parameter is required.
+     *
+     * @example instance1
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The language of the values of specific response parameters.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description Specifies whether additional information is required. Default value: **false**. If the value is **true**, the AccessStrategyNum and AddressPoolNum parameters are returned.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $needDetailAttributes;
@@ -28,22 +42,17 @@ class DescribeGtmInstanceRequest extends Model
         'needDetailAttributes' => 'NeedDetailAttributes',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
-
         if (null !== $this->needDetailAttributes) {
             $res['NeedDetailAttributes'] = $this->needDetailAttributes;
         }
@@ -51,22 +60,20 @@ class DescribeGtmInstanceRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeGtmInstanceRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
-
         if (isset($map['NeedDetailAttributes'])) {
             $model->needDetailAttributes = $map['NeedDetailAttributes'];
         }

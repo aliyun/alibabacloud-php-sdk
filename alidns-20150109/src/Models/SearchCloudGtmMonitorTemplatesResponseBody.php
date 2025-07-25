@@ -4,37 +4,49 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\SearchCloudGtmMonitorTemplatesResponseBody\templates;
+use AlibabaCloud\Tea\Model;
 
 class SearchCloudGtmMonitorTemplatesResponseBody extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 536E9CAD-DB30-4647-AC87-AA5CC38C5382
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The health check templates.
+     *
      * @var templates
      */
     public $templates;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalItems;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalPages;
@@ -47,37 +59,26 @@ class SearchCloudGtmMonitorTemplatesResponseBody extends Model
         'totalPages' => 'TotalPages',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->templates) {
-            $this->templates->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
-
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->templates) {
-            $res['Templates'] = null !== $this->templates ? $this->templates->toArray($noStream) : $this->templates;
+            $res['Templates'] = null !== $this->templates ? $this->templates->toMap() : null;
         }
-
         if (null !== $this->totalItems) {
             $res['TotalItems'] = $this->totalItems;
         }
-
         if (null !== $this->totalPages) {
             $res['TotalPages'] = $this->totalPages;
         }
@@ -85,34 +86,29 @@ class SearchCloudGtmMonitorTemplatesResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return SearchCloudGtmMonitorTemplatesResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
-
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['Templates'])) {
             $model->templates = templates::fromMap($map['Templates']);
         }
-
         if (isset($map['TotalItems'])) {
             $model->totalItems = $map['TotalItems'];
         }
-
         if (isset($map['TotalPages'])) {
             $model->totalPages = $map['TotalPages'];
         }

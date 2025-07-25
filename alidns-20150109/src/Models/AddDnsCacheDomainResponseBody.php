@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class AddDnsCacheDomainResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example B57C121B-A45F-44D8-A9B2-XXXXXXX
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class AddDnsCacheDomainResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class AddDnsCacheDomainResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return AddDnsCacheDomainResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

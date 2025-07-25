@@ -4,7 +4,8 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109;
 
-use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\AddCustomLineRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\AddCustomLineResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\AddDnsCacheDomainRequest;
@@ -432,10 +433,11 @@ use AlibabaCloud\SDK\Alidns\V20150109\Models\ValidateDnsGtmCnameRrCanUseRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\ValidateDnsGtmCnameRrCanUseResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\ValidatePdnsUdpIpSegmentRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\ValidatePdnsUdpIpSegmentResponse;
+use AlibabaCloud\Tea\Utils\Utils;
+use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
-use Darabonba\OpenApi\Utils;
 
 class Alidns extends OpenApiClient
 {
@@ -460,56 +462,45 @@ class Alidns extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (null !== $endpoint) {
+        if (!Utils::empty_($endpoint)) {
             return $endpoint;
         }
-
-        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
+        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
             return @$endpointMap[$regionId];
         }
 
-        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * Adds a custom line to the domain name.
-     *
-     * @remarks
-     * In each CIDR block, the end IP address must be greater than or equal to the start IP address.\\
+     * @summary Adds a custom line to the domain name.
+     *  *
+     * @description In each CIDR block, the end IP address must be greater than or equal to the start IP address.\\
      * The CIDR blocks that are specified for all custom lines of a domain name cannot be overlapped.
+     *  *
+     * @param AddCustomLineRequest $request AddCustomLineRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - AddCustomLineRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns AddCustomLineResponse
-     *
-     * @param AddCustomLineRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return AddCustomLineResponse
+     * @return AddCustomLineResponse AddCustomLineResponse
      */
     public function addCustomLineWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->domainName) {
-            @$query['DomainName'] = $request->domainName;
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
         }
-
-        if (null !== $request->ipSegment) {
-            @$query['IpSegment'] = $request->ipSegment;
+        if (!Utils::isUnset($request->ipSegment)) {
+            $query['IpSegment'] = $request->ipSegment;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->lineName) {
-            @$query['LineName'] = $request->lineName;
+        if (!Utils::isUnset($request->lineName)) {
+            $query['LineName'] = $request->lineName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'AddCustomLine',
@@ -527,19 +518,14 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Adds a custom line to the domain name.
-     *
-     * @remarks
-     * In each CIDR block, the end IP address must be greater than or equal to the start IP address.\\
+     * @summary Adds a custom line to the domain name.
+     *  *
+     * @description In each CIDR block, the end IP address must be greater than or equal to the start IP address.\\
      * The CIDR blocks that are specified for all custom lines of a domain name cannot be overlapped.
+     *  *
+     * @param AddCustomLineRequest $request AddCustomLineRequest
      *
-     * @param request - AddCustomLineRequest
-     *
-     * @returns AddCustomLineResponse
-     *
-     * @param AddCustomLineRequest $request
-     *
-     * @return AddCustomLineResponse
+     * @return AddCustomLineResponse AddCustomLineResponse
      */
     public function addCustomLine($request)
     {
@@ -549,60 +535,46 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Adds a cache-accelerated domain name based on the specified parameters.
+     * @summary Adds a cache-accelerated domain name based on the specified parameters.
+     *  *
+     * @param AddDnsCacheDomainRequest $request AddDnsCacheDomainRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - AddDnsCacheDomainRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns AddDnsCacheDomainResponse
-     *
-     * @param AddDnsCacheDomainRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return AddDnsCacheDomainResponse
+     * @return AddDnsCacheDomainResponse AddDnsCacheDomainResponse
      */
     public function addDnsCacheDomainWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->cacheTtlMax) {
-            @$query['CacheTtlMax'] = $request->cacheTtlMax;
+        if (!Utils::isUnset($request->cacheTtlMax)) {
+            $query['CacheTtlMax'] = $request->cacheTtlMax;
         }
-
-        if (null !== $request->cacheTtlMin) {
-            @$query['CacheTtlMin'] = $request->cacheTtlMin;
+        if (!Utils::isUnset($request->cacheTtlMin)) {
+            $query['CacheTtlMin'] = $request->cacheTtlMin;
         }
-
-        if (null !== $request->domainName) {
-            @$query['DomainName'] = $request->domainName;
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->remark) {
-            @$query['Remark'] = $request->remark;
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
         }
-
-        if (null !== $request->sourceDnsServer) {
-            @$query['SourceDnsServer'] = $request->sourceDnsServer;
+        if (!Utils::isUnset($request->sourceDnsServer)) {
+            $query['SourceDnsServer'] = $request->sourceDnsServer;
         }
-
-        if (null !== $request->sourceEdns) {
-            @$query['SourceEdns'] = $request->sourceEdns;
+        if (!Utils::isUnset($request->sourceEdns)) {
+            $query['SourceEdns'] = $request->sourceEdns;
         }
-
-        if (null !== $request->sourceProtocol) {
-            @$query['SourceProtocol'] = $request->sourceProtocol;
+        if (!Utils::isUnset($request->sourceProtocol)) {
+            $query['SourceProtocol'] = $request->sourceProtocol;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'AddDnsCacheDomain',
@@ -620,15 +592,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Adds a cache-accelerated domain name based on the specified parameters.
+     * @summary Adds a cache-accelerated domain name based on the specified parameters.
+     *  *
+     * @param AddDnsCacheDomainRequest $request AddDnsCacheDomainRequest
      *
-     * @param request - AddDnsCacheDomainRequest
-     *
-     * @returns AddDnsCacheDomainResponse
-     *
-     * @param AddDnsCacheDomainRequest $request
-     *
-     * @return AddDnsCacheDomainResponse
+     * @return AddDnsCacheDomainResponse AddDnsCacheDomainResponse
      */
     public function addDnsCacheDomain($request)
     {
@@ -638,92 +606,70 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Creates an access policy.
+     * @summary Creates an access policy.
+     *  *
+     * @param AddDnsGtmAccessStrategyRequest $request AddDnsGtmAccessStrategyRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - AddDnsGtmAccessStrategyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns AddDnsGtmAccessStrategyResponse
-     *
-     * @param AddDnsGtmAccessStrategyRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return AddDnsGtmAccessStrategyResponse
+     * @return AddDnsGtmAccessStrategyResponse AddDnsGtmAccessStrategyResponse
      */
     public function addDnsGtmAccessStrategyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->defaultAddrPool) {
-            @$query['DefaultAddrPool'] = $request->defaultAddrPool;
+        if (!Utils::isUnset($request->defaultAddrPool)) {
+            $query['DefaultAddrPool'] = $request->defaultAddrPool;
         }
-
-        if (null !== $request->defaultAddrPoolType) {
-            @$query['DefaultAddrPoolType'] = $request->defaultAddrPoolType;
+        if (!Utils::isUnset($request->defaultAddrPoolType)) {
+            $query['DefaultAddrPoolType'] = $request->defaultAddrPoolType;
         }
-
-        if (null !== $request->defaultLatencyOptimization) {
-            @$query['DefaultLatencyOptimization'] = $request->defaultLatencyOptimization;
+        if (!Utils::isUnset($request->defaultLatencyOptimization)) {
+            $query['DefaultLatencyOptimization'] = $request->defaultLatencyOptimization;
         }
-
-        if (null !== $request->defaultLbaStrategy) {
-            @$query['DefaultLbaStrategy'] = $request->defaultLbaStrategy;
+        if (!Utils::isUnset($request->defaultLbaStrategy)) {
+            $query['DefaultLbaStrategy'] = $request->defaultLbaStrategy;
         }
-
-        if (null !== $request->defaultMaxReturnAddrNum) {
-            @$query['DefaultMaxReturnAddrNum'] = $request->defaultMaxReturnAddrNum;
+        if (!Utils::isUnset($request->defaultMaxReturnAddrNum)) {
+            $query['DefaultMaxReturnAddrNum'] = $request->defaultMaxReturnAddrNum;
         }
-
-        if (null !== $request->defaultMinAvailableAddrNum) {
-            @$query['DefaultMinAvailableAddrNum'] = $request->defaultMinAvailableAddrNum;
+        if (!Utils::isUnset($request->defaultMinAvailableAddrNum)) {
+            $query['DefaultMinAvailableAddrNum'] = $request->defaultMinAvailableAddrNum;
         }
-
-        if (null !== $request->failoverAddrPool) {
-            @$query['FailoverAddrPool'] = $request->failoverAddrPool;
+        if (!Utils::isUnset($request->failoverAddrPool)) {
+            $query['FailoverAddrPool'] = $request->failoverAddrPool;
         }
-
-        if (null !== $request->failoverAddrPoolType) {
-            @$query['FailoverAddrPoolType'] = $request->failoverAddrPoolType;
+        if (!Utils::isUnset($request->failoverAddrPoolType)) {
+            $query['FailoverAddrPoolType'] = $request->failoverAddrPoolType;
         }
-
-        if (null !== $request->failoverLatencyOptimization) {
-            @$query['FailoverLatencyOptimization'] = $request->failoverLatencyOptimization;
+        if (!Utils::isUnset($request->failoverLatencyOptimization)) {
+            $query['FailoverLatencyOptimization'] = $request->failoverLatencyOptimization;
         }
-
-        if (null !== $request->failoverLbaStrategy) {
-            @$query['FailoverLbaStrategy'] = $request->failoverLbaStrategy;
+        if (!Utils::isUnset($request->failoverLbaStrategy)) {
+            $query['FailoverLbaStrategy'] = $request->failoverLbaStrategy;
         }
-
-        if (null !== $request->failoverMaxReturnAddrNum) {
-            @$query['FailoverMaxReturnAddrNum'] = $request->failoverMaxReturnAddrNum;
+        if (!Utils::isUnset($request->failoverMaxReturnAddrNum)) {
+            $query['FailoverMaxReturnAddrNum'] = $request->failoverMaxReturnAddrNum;
         }
-
-        if (null !== $request->failoverMinAvailableAddrNum) {
-            @$query['FailoverMinAvailableAddrNum'] = $request->failoverMinAvailableAddrNum;
+        if (!Utils::isUnset($request->failoverMinAvailableAddrNum)) {
+            $query['FailoverMinAvailableAddrNum'] = $request->failoverMinAvailableAddrNum;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->lines) {
-            @$query['Lines'] = $request->lines;
+        if (!Utils::isUnset($request->lines)) {
+            $query['Lines'] = $request->lines;
         }
-
-        if (null !== $request->strategyMode) {
-            @$query['StrategyMode'] = $request->strategyMode;
+        if (!Utils::isUnset($request->strategyMode)) {
+            $query['StrategyMode'] = $request->strategyMode;
         }
-
-        if (null !== $request->strategyName) {
-            @$query['StrategyName'] = $request->strategyName;
+        if (!Utils::isUnset($request->strategyName)) {
+            $query['StrategyName'] = $request->strategyName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'AddDnsGtmAccessStrategy',
@@ -741,15 +687,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Creates an access policy.
+     * @summary Creates an access policy.
+     *  *
+     * @param AddDnsGtmAccessStrategyRequest $request AddDnsGtmAccessStrategyRequest
      *
-     * @param request - AddDnsGtmAccessStrategyRequest
-     *
-     * @returns AddDnsGtmAccessStrategyResponse
-     *
-     * @param AddDnsGtmAccessStrategyRequest $request
-     *
-     * @return AddDnsGtmAccessStrategyResponse
+     * @return AddDnsGtmAccessStrategyResponse AddDnsGtmAccessStrategyResponse
      */
     public function addDnsGtmAccessStrategy($request)
     {
@@ -759,76 +701,58 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Creates an address pool.
+     * @summary Creates an address pool.
+     *  *
+     * @param AddDnsGtmAddressPoolRequest $request AddDnsGtmAddressPoolRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - AddDnsGtmAddressPoolRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns AddDnsGtmAddressPoolResponse
-     *
-     * @param AddDnsGtmAddressPoolRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return AddDnsGtmAddressPoolResponse
+     * @return AddDnsGtmAddressPoolResponse AddDnsGtmAddressPoolResponse
      */
     public function addDnsGtmAddressPoolWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->addr) {
-            @$query['Addr'] = $request->addr;
+        if (!Utils::isUnset($request->addr)) {
+            $query['Addr'] = $request->addr;
         }
-
-        if (null !== $request->evaluationCount) {
-            @$query['EvaluationCount'] = $request->evaluationCount;
+        if (!Utils::isUnset($request->evaluationCount)) {
+            $query['EvaluationCount'] = $request->evaluationCount;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->interval) {
-            @$query['Interval'] = $request->interval;
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
         }
-
-        if (null !== $request->ispCityNode) {
-            @$query['IspCityNode'] = $request->ispCityNode;
+        if (!Utils::isUnset($request->ispCityNode)) {
+            $query['IspCityNode'] = $request->ispCityNode;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->lbaStrategy) {
-            @$query['LbaStrategy'] = $request->lbaStrategy;
+        if (!Utils::isUnset($request->lbaStrategy)) {
+            $query['LbaStrategy'] = $request->lbaStrategy;
         }
-
-        if (null !== $request->monitorExtendInfo) {
-            @$query['MonitorExtendInfo'] = $request->monitorExtendInfo;
+        if (!Utils::isUnset($request->monitorExtendInfo)) {
+            $query['MonitorExtendInfo'] = $request->monitorExtendInfo;
         }
-
-        if (null !== $request->monitorStatus) {
-            @$query['MonitorStatus'] = $request->monitorStatus;
+        if (!Utils::isUnset($request->monitorStatus)) {
+            $query['MonitorStatus'] = $request->monitorStatus;
         }
-
-        if (null !== $request->name) {
-            @$query['Name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
         }
-
-        if (null !== $request->protocolType) {
-            @$query['ProtocolType'] = $request->protocolType;
+        if (!Utils::isUnset($request->protocolType)) {
+            $query['ProtocolType'] = $request->protocolType;
         }
-
-        if (null !== $request->timeout) {
-            @$query['Timeout'] = $request->timeout;
+        if (!Utils::isUnset($request->timeout)) {
+            $query['Timeout'] = $request->timeout;
         }
-
-        if (null !== $request->type) {
-            @$query['Type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'AddDnsGtmAddressPool',
@@ -846,15 +770,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Creates an address pool.
+     * @summary Creates an address pool.
+     *  *
+     * @param AddDnsGtmAddressPoolRequest $request AddDnsGtmAddressPoolRequest
      *
-     * @param request - AddDnsGtmAddressPoolRequest
-     *
-     * @returns AddDnsGtmAddressPoolResponse
-     *
-     * @param AddDnsGtmAddressPoolRequest $request
-     *
-     * @return AddDnsGtmAddressPoolResponse
+     * @return AddDnsGtmAddressPoolResponse AddDnsGtmAddressPoolResponse
      */
     public function addDnsGtmAddressPool($request)
     {
@@ -864,58 +784,45 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Creates a health check task.
+     * @summary Creates a health check task.
+     *  *
+     * @description ***
+     *  *
+     * @param AddDnsGtmMonitorRequest $request AddDnsGtmMonitorRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     *
-     * @param request - AddDnsGtmMonitorRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns AddDnsGtmMonitorResponse
-     *
-     * @param AddDnsGtmMonitorRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return AddDnsGtmMonitorResponse
+     * @return AddDnsGtmMonitorResponse AddDnsGtmMonitorResponse
      */
     public function addDnsGtmMonitorWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->addrPoolId) {
-            @$query['AddrPoolId'] = $request->addrPoolId;
+        if (!Utils::isUnset($request->addrPoolId)) {
+            $query['AddrPoolId'] = $request->addrPoolId;
         }
-
-        if (null !== $request->evaluationCount) {
-            @$query['EvaluationCount'] = $request->evaluationCount;
+        if (!Utils::isUnset($request->evaluationCount)) {
+            $query['EvaluationCount'] = $request->evaluationCount;
         }
-
-        if (null !== $request->interval) {
-            @$query['Interval'] = $request->interval;
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
         }
-
-        if (null !== $request->ispCityNode) {
-            @$query['IspCityNode'] = $request->ispCityNode;
+        if (!Utils::isUnset($request->ispCityNode)) {
+            $query['IspCityNode'] = $request->ispCityNode;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->monitorExtendInfo) {
-            @$query['MonitorExtendInfo'] = $request->monitorExtendInfo;
+        if (!Utils::isUnset($request->monitorExtendInfo)) {
+            $query['MonitorExtendInfo'] = $request->monitorExtendInfo;
         }
-
-        if (null !== $request->protocolType) {
-            @$query['ProtocolType'] = $request->protocolType;
+        if (!Utils::isUnset($request->protocolType)) {
+            $query['ProtocolType'] = $request->protocolType;
         }
-
-        if (null !== $request->timeout) {
-            @$query['Timeout'] = $request->timeout;
+        if (!Utils::isUnset($request->timeout)) {
+            $query['Timeout'] = $request->timeout;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'AddDnsGtmMonitor',
@@ -933,17 +840,13 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Creates a health check task.
+     * @summary Creates a health check task.
+     *  *
+     * @description ***
+     *  *
+     * @param AddDnsGtmMonitorRequest $request AddDnsGtmMonitorRequest
      *
-     * @remarks
-     *
-     * @param request - AddDnsGtmMonitorRequest
-     *
-     * @returns AddDnsGtmMonitorResponse
-     *
-     * @param AddDnsGtmMonitorRequest $request
-     *
-     * @return AddDnsGtmMonitorResponse
+     * @return AddDnsGtmMonitorResponse AddDnsGtmMonitorResponse
      */
     public function addDnsGtmMonitor($request)
     {
@@ -953,44 +856,34 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Adds a domain name based on the specified parameters.
-     *
-     * @remarks
-     * For more information about how to check whether a domain name is valid, see
+     * @summary Adds a domain name based on the specified parameters.
+     *  *
+     * @description For more information about how to check whether a domain name is valid, see
      * [Domain name validity](https://www.alibabacloud.com/help/zh/doc-detail/67788.htm).
+     *  *
+     * @param AddDomainRequest $request AddDomainRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - AddDomainRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns AddDomainResponse
-     *
-     * @param AddDomainRequest $request
-     * @param RuntimeOptions   $runtime
-     *
-     * @return AddDomainResponse
+     * @return AddDomainResponse AddDomainResponse
      */
     public function addDomainWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->domainName) {
-            @$query['DomainName'] = $request->domainName;
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'AddDomain',
@@ -1008,19 +901,14 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Adds a domain name based on the specified parameters.
-     *
-     * @remarks
-     * For more information about how to check whether a domain name is valid, see
+     * @summary Adds a domain name based on the specified parameters.
+     *  *
+     * @description For more information about how to check whether a domain name is valid, see
      * [Domain name validity](https://www.alibabacloud.com/help/zh/doc-detail/67788.htm).
+     *  *
+     * @param AddDomainRequest $request AddDomainRequest
      *
-     * @param request - AddDomainRequest
-     *
-     * @returns AddDomainResponse
-     *
-     * @param AddDomainRequest $request
-     *
-     * @return AddDomainResponse
+     * @return AddDomainResponse AddDomainResponse
      */
     public function addDomain($request)
     {
@@ -1030,36 +918,28 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Creates a backup task for a domain name.
+     * @summary Creates a backup task for a domain name.
+     *  *
+     * @param AddDomainBackupRequest $request AddDomainBackupRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - AddDomainBackupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns AddDomainBackupResponse
-     *
-     * @param AddDomainBackupRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return AddDomainBackupResponse
+     * @return AddDomainBackupResponse AddDomainBackupResponse
      */
     public function addDomainBackupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->domainName) {
-            @$query['DomainName'] = $request->domainName;
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->periodType) {
-            @$query['PeriodType'] = $request->periodType;
+        if (!Utils::isUnset($request->periodType)) {
+            $query['PeriodType'] = $request->periodType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'AddDomainBackup',
@@ -1077,15 +957,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Creates a backup task for a domain name.
+     * @summary Creates a backup task for a domain name.
+     *  *
+     * @param AddDomainBackupRequest $request AddDomainBackupRequest
      *
-     * @param request - AddDomainBackupRequest
-     *
-     * @returns AddDomainBackupResponse
-     *
-     * @param AddDomainBackupRequest $request
-     *
-     * @return AddDomainBackupResponse
+     * @return AddDomainBackupResponse AddDomainBackupResponse
      */
     public function addDomainBackup($request)
     {
@@ -1095,32 +971,25 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Creates a domain name group based on the specified parameters.
+     * @summary Creates a domain name group based on the specified parameters.
+     *  *
+     * @param AddDomainGroupRequest $request AddDomainGroupRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - AddDomainGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns AddDomainGroupResponse
-     *
-     * @param AddDomainGroupRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return AddDomainGroupResponse
+     * @return AddDomainGroupResponse AddDomainGroupResponse
      */
     public function addDomainGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->groupName) {
-            @$query['GroupName'] = $request->groupName;
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'AddDomainGroup',
@@ -1138,15 +1007,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Creates a domain name group based on the specified parameters.
+     * @summary Creates a domain name group based on the specified parameters.
+     *  *
+     * @param AddDomainGroupRequest $request AddDomainGroupRequest
      *
-     * @param request - AddDomainGroupRequest
-     *
-     * @returns AddDomainGroupResponse
-     *
-     * @param AddDomainGroupRequest $request
-     *
-     * @return AddDomainGroupResponse
+     * @return AddDomainGroupResponse AddDomainGroupResponse
      */
     public function addDomainGroup($request)
     {
@@ -1156,60 +1021,46 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Adds a Domain Name System (DNS) record based on the specified parameters.
+     * @summary Adds a Domain Name System (DNS) record based on the specified parameters.
+     *  *
+     * @param AddDomainRecordRequest $request AddDomainRecordRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - AddDomainRecordRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns AddDomainRecordResponse
-     *
-     * @param AddDomainRecordRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return AddDomainRecordResponse
+     * @return AddDomainRecordResponse AddDomainRecordResponse
      */
     public function addDomainRecordWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->domainName) {
-            @$query['DomainName'] = $request->domainName;
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->line) {
-            @$query['Line'] = $request->line;
+        if (!Utils::isUnset($request->line)) {
+            $query['Line'] = $request->line;
         }
-
-        if (null !== $request->priority) {
-            @$query['Priority'] = $request->priority;
+        if (!Utils::isUnset($request->priority)) {
+            $query['Priority'] = $request->priority;
         }
-
-        if (null !== $request->RR) {
-            @$query['RR'] = $request->RR;
+        if (!Utils::isUnset($request->RR)) {
+            $query['RR'] = $request->RR;
         }
-
-        if (null !== $request->TTL) {
-            @$query['TTL'] = $request->TTL;
+        if (!Utils::isUnset($request->TTL)) {
+            $query['TTL'] = $request->TTL;
         }
-
-        if (null !== $request->type) {
-            @$query['Type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
         }
-
-        if (null !== $request->userClientIp) {
-            @$query['UserClientIp'] = $request->userClientIp;
+        if (!Utils::isUnset($request->userClientIp)) {
+            $query['UserClientIp'] = $request->userClientIp;
         }
-
-        if (null !== $request->value) {
-            @$query['Value'] = $request->value;
+        if (!Utils::isUnset($request->value)) {
+            $query['Value'] = $request->value;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'AddDomainRecord',
@@ -1227,15 +1078,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Adds a Domain Name System (DNS) record based on the specified parameters.
+     * @summary Adds a Domain Name System (DNS) record based on the specified parameters.
+     *  *
+     * @param AddDomainRecordRequest $request AddDomainRecordRequest
      *
-     * @param request - AddDomainRecordRequest
-     *
-     * @returns AddDomainRecordResponse
-     *
-     * @param AddDomainRecordRequest $request
-     *
-     * @return AddDomainRecordResponse
+     * @return AddDomainRecordResponse AddDomainRecordResponse
      */
     public function addDomainRecord($request)
     {
@@ -1245,46 +1092,35 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param request - AddGtmAccessStrategyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
+     * @param AddGtmAccessStrategyRequest $request AddGtmAccessStrategyRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @returns AddGtmAccessStrategyResponse
-     *
-     * @param AddGtmAccessStrategyRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return AddGtmAccessStrategyResponse
+     * @return AddGtmAccessStrategyResponse AddGtmAccessStrategyResponse
      */
     public function addGtmAccessStrategyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accessLines) {
-            @$query['AccessLines'] = $request->accessLines;
+        if (!Utils::isUnset($request->accessLines)) {
+            $query['AccessLines'] = $request->accessLines;
         }
-
-        if (null !== $request->defaultAddrPoolId) {
-            @$query['DefaultAddrPoolId'] = $request->defaultAddrPoolId;
+        if (!Utils::isUnset($request->defaultAddrPoolId)) {
+            $query['DefaultAddrPoolId'] = $request->defaultAddrPoolId;
         }
-
-        if (null !== $request->failoverAddrPoolId) {
-            @$query['FailoverAddrPoolId'] = $request->failoverAddrPoolId;
+        if (!Utils::isUnset($request->failoverAddrPoolId)) {
+            $query['FailoverAddrPoolId'] = $request->failoverAddrPoolId;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->strategyName) {
-            @$query['StrategyName'] = $request->strategyName;
+        if (!Utils::isUnset($request->strategyName)) {
+            $query['StrategyName'] = $request->strategyName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'AddGtmAccessStrategy',
@@ -1302,13 +1138,9 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param request - AddGtmAccessStrategyRequest
+     * @param AddGtmAccessStrategyRequest $request AddGtmAccessStrategyRequest
      *
-     * @returns AddGtmAccessStrategyResponse
-     *
-     * @param AddGtmAccessStrategyRequest $request
-     *
-     * @return AddGtmAccessStrategyResponse
+     * @return AddGtmAccessStrategyResponse AddGtmAccessStrategyResponse
      */
     public function addGtmAccessStrategy($request)
     {
@@ -1318,76 +1150,58 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Creates an address pool.
+     * @summary Creates an address pool.
+     *  *
+     * @param AddGtmAddressPoolRequest $request AddGtmAddressPoolRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - AddGtmAddressPoolRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns AddGtmAddressPoolResponse
-     *
-     * @param AddGtmAddressPoolRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return AddGtmAddressPoolResponse
+     * @return AddGtmAddressPoolResponse AddGtmAddressPoolResponse
      */
     public function addGtmAddressPoolWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->addr) {
-            @$query['Addr'] = $request->addr;
+        if (!Utils::isUnset($request->addr)) {
+            $query['Addr'] = $request->addr;
         }
-
-        if (null !== $request->evaluationCount) {
-            @$query['EvaluationCount'] = $request->evaluationCount;
+        if (!Utils::isUnset($request->evaluationCount)) {
+            $query['EvaluationCount'] = $request->evaluationCount;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->interval) {
-            @$query['Interval'] = $request->interval;
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
         }
-
-        if (null !== $request->ispCityNode) {
-            @$query['IspCityNode'] = $request->ispCityNode;
+        if (!Utils::isUnset($request->ispCityNode)) {
+            $query['IspCityNode'] = $request->ispCityNode;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->minAvailableAddrNum) {
-            @$query['MinAvailableAddrNum'] = $request->minAvailableAddrNum;
+        if (!Utils::isUnset($request->minAvailableAddrNum)) {
+            $query['MinAvailableAddrNum'] = $request->minAvailableAddrNum;
         }
-
-        if (null !== $request->monitorExtendInfo) {
-            @$query['MonitorExtendInfo'] = $request->monitorExtendInfo;
+        if (!Utils::isUnset($request->monitorExtendInfo)) {
+            $query['MonitorExtendInfo'] = $request->monitorExtendInfo;
         }
-
-        if (null !== $request->monitorStatus) {
-            @$query['MonitorStatus'] = $request->monitorStatus;
+        if (!Utils::isUnset($request->monitorStatus)) {
+            $query['MonitorStatus'] = $request->monitorStatus;
         }
-
-        if (null !== $request->name) {
-            @$query['Name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
         }
-
-        if (null !== $request->protocolType) {
-            @$query['ProtocolType'] = $request->protocolType;
+        if (!Utils::isUnset($request->protocolType)) {
+            $query['ProtocolType'] = $request->protocolType;
         }
-
-        if (null !== $request->timeout) {
-            @$query['Timeout'] = $request->timeout;
+        if (!Utils::isUnset($request->timeout)) {
+            $query['Timeout'] = $request->timeout;
         }
-
-        if (null !== $request->type) {
-            @$query['Type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'AddGtmAddressPool',
@@ -1405,15 +1219,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Creates an address pool.
+     * @summary Creates an address pool.
+     *  *
+     * @param AddGtmAddressPoolRequest $request AddGtmAddressPoolRequest
      *
-     * @param request - AddGtmAddressPoolRequest
-     *
-     * @returns AddGtmAddressPoolResponse
-     *
-     * @param AddGtmAddressPoolRequest $request
-     *
-     * @return AddGtmAddressPoolResponse
+     * @return AddGtmAddressPoolResponse AddGtmAddressPoolResponse
      */
     public function addGtmAddressPool($request)
     {
@@ -1423,56 +1233,43 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Creates a health check task.
+     * @summary Creates a health check task.
+     *  *
+     * @param AddGtmMonitorRequest $request AddGtmMonitorRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - AddGtmMonitorRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns AddGtmMonitorResponse
-     *
-     * @param AddGtmMonitorRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return AddGtmMonitorResponse
+     * @return AddGtmMonitorResponse AddGtmMonitorResponse
      */
     public function addGtmMonitorWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->addrPoolId) {
-            @$query['AddrPoolId'] = $request->addrPoolId;
+        if (!Utils::isUnset($request->addrPoolId)) {
+            $query['AddrPoolId'] = $request->addrPoolId;
         }
-
-        if (null !== $request->evaluationCount) {
-            @$query['EvaluationCount'] = $request->evaluationCount;
+        if (!Utils::isUnset($request->evaluationCount)) {
+            $query['EvaluationCount'] = $request->evaluationCount;
         }
-
-        if (null !== $request->interval) {
-            @$query['Interval'] = $request->interval;
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
         }
-
-        if (null !== $request->ispCityNode) {
-            @$query['IspCityNode'] = $request->ispCityNode;
+        if (!Utils::isUnset($request->ispCityNode)) {
+            $query['IspCityNode'] = $request->ispCityNode;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->monitorExtendInfo) {
-            @$query['MonitorExtendInfo'] = $request->monitorExtendInfo;
+        if (!Utils::isUnset($request->monitorExtendInfo)) {
+            $query['MonitorExtendInfo'] = $request->monitorExtendInfo;
         }
-
-        if (null !== $request->protocolType) {
-            @$query['ProtocolType'] = $request->protocolType;
+        if (!Utils::isUnset($request->protocolType)) {
+            $query['ProtocolType'] = $request->protocolType;
         }
-
-        if (null !== $request->timeout) {
-            @$query['Timeout'] = $request->timeout;
+        if (!Utils::isUnset($request->timeout)) {
+            $query['Timeout'] = $request->timeout;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'AddGtmMonitor',
@@ -1490,15 +1287,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Creates a health check task.
+     * @summary Creates a health check task.
+     *  *
+     * @param AddGtmMonitorRequest $request AddGtmMonitorRequest
      *
-     * @param request - AddGtmMonitorRequest
-     *
-     * @returns AddGtmMonitorResponse
-     *
-     * @param AddGtmMonitorRequest $request
-     *
-     * @return AddGtmMonitorResponse
+     * @return AddGtmMonitorResponse AddGtmMonitorResponse
      */
     public function addGtmMonitor($request)
     {
@@ -1508,40 +1301,31 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Creates a disaster recovery plan.
+     * @summary Creates a disaster recovery plan.
+     *  *
+     * @param AddGtmRecoveryPlanRequest $request AddGtmRecoveryPlanRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - AddGtmRecoveryPlanRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns AddGtmRecoveryPlanResponse
-     *
-     * @param AddGtmRecoveryPlanRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return AddGtmRecoveryPlanResponse
+     * @return AddGtmRecoveryPlanResponse AddGtmRecoveryPlanResponse
      */
     public function addGtmRecoveryPlanWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->faultAddrPool) {
-            @$query['FaultAddrPool'] = $request->faultAddrPool;
+        if (!Utils::isUnset($request->faultAddrPool)) {
+            $query['FaultAddrPool'] = $request->faultAddrPool;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->name) {
-            @$query['Name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
         }
-
-        if (null !== $request->remark) {
-            @$query['Remark'] = $request->remark;
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'AddGtmRecoveryPlan',
@@ -1559,15 +1343,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Creates a disaster recovery plan.
+     * @summary Creates a disaster recovery plan.
+     *  *
+     * @param AddGtmRecoveryPlanRequest $request AddGtmRecoveryPlanRequest
      *
-     * @param request - AddGtmRecoveryPlanRequest
-     *
-     * @returns AddGtmRecoveryPlanResponse
-     *
-     * @param AddGtmRecoveryPlanRequest $request
-     *
-     * @return AddGtmRecoveryPlanResponse
+     * @return AddGtmRecoveryPlanResponse AddGtmRecoveryPlanResponse
      */
     public function addGtmRecoveryPlan($request)
     {
@@ -1577,40 +1357,31 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Binds one or more domain names to a paid Alibaba Cloud DNS instance.
-     *
-     * @remarks
-     * A paid Alibaba Cloud DNS instance whose ID starts with dns is an instance of the new version. You can call this API operation to bind multiple domain names to the instance. If the upper limit is exceeded, an error message is returned.\\
+     * @summary Binds one or more domain names to a paid Alibaba Cloud DNS instance.
+     *  *
+     * @description A paid Alibaba Cloud DNS instance whose ID starts with dns is an instance of the new version. You can call this API operation to bind multiple domain names to the instance. If the upper limit is exceeded, an error message is returned.\\
      * A paid Alibaba Cloud DNS instance whose ID does not start with dns is an instance of the old version. You can call this API operation to bind only one domain name to the instance. However, if the instance is already bound to a domain name, you must unbind the original domain name from the instance and bind the desired domain name to the instance.
+     *  *
+     * @param BindInstanceDomainsRequest $request BindInstanceDomainsRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - BindInstanceDomainsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns BindInstanceDomainsResponse
-     *
-     * @param BindInstanceDomainsRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return BindInstanceDomainsResponse
+     * @return BindInstanceDomainsResponse BindInstanceDomainsResponse
      */
     public function bindInstanceDomainsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->domainNames) {
-            @$query['DomainNames'] = $request->domainNames;
+        if (!Utils::isUnset($request->domainNames)) {
+            $query['DomainNames'] = $request->domainNames;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'BindInstanceDomains',
@@ -1628,19 +1399,14 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Binds one or more domain names to a paid Alibaba Cloud DNS instance.
-     *
-     * @remarks
-     * A paid Alibaba Cloud DNS instance whose ID starts with dns is an instance of the new version. You can call this API operation to bind multiple domain names to the instance. If the upper limit is exceeded, an error message is returned.\\
+     * @summary Binds one or more domain names to a paid Alibaba Cloud DNS instance.
+     *  *
+     * @description A paid Alibaba Cloud DNS instance whose ID starts with dns is an instance of the new version. You can call this API operation to bind multiple domain names to the instance. If the upper limit is exceeded, an error message is returned.\\
      * A paid Alibaba Cloud DNS instance whose ID does not start with dns is an instance of the old version. You can call this API operation to bind only one domain name to the instance. However, if the instance is already bound to a domain name, you must unbind the original domain name from the instance and bind the desired domain name to the instance.
+     *  *
+     * @param BindInstanceDomainsRequest $request BindInstanceDomainsRequest
      *
-     * @param request - BindInstanceDomainsRequest
-     *
-     * @returns BindInstanceDomainsResponse
-     *
-     * @param BindInstanceDomainsRequest $request
-     *
-     * @return BindInstanceDomainsResponse
+     * @return BindInstanceDomainsResponse BindInstanceDomainsResponse
      */
     public function bindInstanceDomains($request)
     {
@@ -1650,39 +1416,30 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Moves a domain name from the original group to the new group based on the specified parameters.
+     * @summary Moves a domain name from the original group to the new group based on the specified parameters.
+     *  *
+     * @description You can specify GroupId to move a domain name to a specific domain name group. You can move the domain name to the group that contains all domain names or the default group.
+     *  *
+     * @param ChangeDomainGroupRequest $request ChangeDomainGroupRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can specify GroupId to move a domain name to a specific domain name group. You can move the domain name to the group that contains all domain names or the default group.
-     *
-     * @param request - ChangeDomainGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ChangeDomainGroupResponse
-     *
-     * @param ChangeDomainGroupRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return ChangeDomainGroupResponse
+     * @return ChangeDomainGroupResponse ChangeDomainGroupResponse
      */
     public function changeDomainGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->domainName) {
-            @$query['DomainName'] = $request->domainName;
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ChangeDomainGroup',
@@ -1700,18 +1457,13 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Moves a domain name from the original group to the new group based on the specified parameters.
+     * @summary Moves a domain name from the original group to the new group based on the specified parameters.
+     *  *
+     * @description You can specify GroupId to move a domain name to a specific domain name group. You can move the domain name to the group that contains all domain names or the default group.
+     *  *
+     * @param ChangeDomainGroupRequest $request ChangeDomainGroupRequest
      *
-     * @remarks
-     * You can specify GroupId to move a domain name to a specific domain name group. You can move the domain name to the group that contains all domain names or the default group.
-     *
-     * @param request - ChangeDomainGroupRequest
-     *
-     * @returns ChangeDomainGroupResponse
-     *
-     * @param ChangeDomainGroupRequest $request
-     *
-     * @return ChangeDomainGroupResponse
+     * @return ChangeDomainGroupResponse ChangeDomainGroupResponse
      */
     public function changeDomainGroup($request)
     {
@@ -1721,48 +1473,37 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Changes the domain name that is bound to an Alibaba Cloud DNS instance.
-     *
-     * @remarks
-     *   **You can call this operation regardless of whether the Alibaba Cloud DNS instance is bound to a domain name. You can also call this operation to unbind the domain name from the Alibaba Cloud DNS instance by leaving the NewDomain parameter empty.**
+     * @summary Changes the domain name that is bound to an Alibaba Cloud DNS instance.
+     *  *
+     * @description *   **You can call this operation regardless of whether the Alibaba Cloud DNS instance is bound to a domain name. You can also call this operation to unbind the domain name from the Alibaba Cloud DNS instance by leaving the NewDomain parameter empty.**
      * *   **This operation applies to instances of the custom edition. To change the domain name that is bound to an Alibaba Cloud DNS instance of Personal Edition, Enterprise Standard Edition, or Enterprise Ultimate Edition, call the BindInstanceDomains operation.
+     *  *
+     * @param ChangeDomainOfDnsProductRequest $request ChangeDomainOfDnsProductRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ChangeDomainOfDnsProductRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ChangeDomainOfDnsProductResponse
-     *
-     * @param ChangeDomainOfDnsProductRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return ChangeDomainOfDnsProductResponse
+     * @return ChangeDomainOfDnsProductResponse ChangeDomainOfDnsProductResponse
      */
     public function changeDomainOfDnsProductWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->force) {
-            @$query['Force'] = $request->force;
+        if (!Utils::isUnset($request->force)) {
+            $query['Force'] = $request->force;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->newDomain) {
-            @$query['NewDomain'] = $request->newDomain;
+        if (!Utils::isUnset($request->newDomain)) {
+            $query['NewDomain'] = $request->newDomain;
         }
-
-        if (null !== $request->userClientIp) {
-            @$query['UserClientIp'] = $request->userClientIp;
+        if (!Utils::isUnset($request->userClientIp)) {
+            $query['UserClientIp'] = $request->userClientIp;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ChangeDomainOfDnsProduct',
@@ -1780,19 +1521,14 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Changes the domain name that is bound to an Alibaba Cloud DNS instance.
-     *
-     * @remarks
-     *   **You can call this operation regardless of whether the Alibaba Cloud DNS instance is bound to a domain name. You can also call this operation to unbind the domain name from the Alibaba Cloud DNS instance by leaving the NewDomain parameter empty.**
+     * @summary Changes the domain name that is bound to an Alibaba Cloud DNS instance.
+     *  *
+     * @description *   **You can call this operation regardless of whether the Alibaba Cloud DNS instance is bound to a domain name. You can also call this operation to unbind the domain name from the Alibaba Cloud DNS instance by leaving the NewDomain parameter empty.**
      * *   **This operation applies to instances of the custom edition. To change the domain name that is bound to an Alibaba Cloud DNS instance of Personal Edition, Enterprise Standard Edition, or Enterprise Ultimate Edition, call the BindInstanceDomains operation.
+     *  *
+     * @param ChangeDomainOfDnsProductRequest $request ChangeDomainOfDnsProductRequest
      *
-     * @param request - ChangeDomainOfDnsProductRequest
-     *
-     * @returns ChangeDomainOfDnsProductResponse
-     *
-     * @param ChangeDomainOfDnsProductRequest $request
-     *
-     * @return ChangeDomainOfDnsProductResponse
+     * @return ChangeDomainOfDnsProductResponse ChangeDomainOfDnsProductResponse
      */
     public function changeDomainOfDnsProduct($request)
     {
@@ -1802,40 +1538,31 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Copies the configurations of a Global Traffic Manager (GTM) instance.
+     * @summary Copies the configurations of a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param CopyGtmConfigRequest $request CopyGtmConfigRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CopyGtmConfigRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CopyGtmConfigResponse
-     *
-     * @param CopyGtmConfigRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return CopyGtmConfigResponse
+     * @return CopyGtmConfigResponse CopyGtmConfigResponse
      */
     public function copyGtmConfigWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->copyType) {
-            @$query['CopyType'] = $request->copyType;
+        if (!Utils::isUnset($request->copyType)) {
+            $query['CopyType'] = $request->copyType;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->sourceId) {
-            @$query['SourceId'] = $request->sourceId;
+        if (!Utils::isUnset($request->sourceId)) {
+            $query['SourceId'] = $request->sourceId;
         }
-
-        if (null !== $request->targetId) {
-            @$query['TargetId'] = $request->targetId;
+        if (!Utils::isUnset($request->targetId)) {
+            $query['TargetId'] = $request->targetId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CopyGtmConfig',
@@ -1853,15 +1580,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Copies the configurations of a Global Traffic Manager (GTM) instance.
+     * @summary Copies the configurations of a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param CopyGtmConfigRequest $request CopyGtmConfigRequest
      *
-     * @param request - CopyGtmConfigRequest
-     *
-     * @returns CopyGtmConfigResponse
-     *
-     * @param CopyGtmConfigRequest $request
-     *
-     * @return CopyGtmConfigResponse
+     * @return CopyGtmConfigResponse CopyGtmConfigResponse
      */
     public function copyGtmConfig($request)
     {
@@ -1871,78 +1594,60 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Creates an address.
+     * @summary Creates an address.
+     *  *
+     * @param CreateCloudGtmAddressRequest $tmpReq  CreateCloudGtmAddressRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - CreateCloudGtmAddressRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateCloudGtmAddressResponse
-     *
-     * @param CreateCloudGtmAddressRequest $tmpReq
-     * @param RuntimeOptions               $runtime
-     *
-     * @return CreateCloudGtmAddressResponse
+     * @return CreateCloudGtmAddressResponse CreateCloudGtmAddressResponse
      */
     public function createCloudGtmAddressWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new CreateCloudGtmAddressShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->healthTasks) {
-            $request->healthTasksShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->healthTasks, 'HealthTasks', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->healthTasks)) {
+            $request->healthTasksShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->healthTasks, 'HealthTasks', 'json');
         }
-
         $query = [];
-        if (null !== $request->acceptLanguage) {
-            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
         }
-
-        if (null !== $request->address) {
-            @$query['Address'] = $request->address;
+        if (!Utils::isUnset($request->address)) {
+            $query['Address'] = $request->address;
         }
-
-        if (null !== $request->attributeInfo) {
-            @$query['AttributeInfo'] = $request->attributeInfo;
+        if (!Utils::isUnset($request->attributeInfo)) {
+            $query['AttributeInfo'] = $request->attributeInfo;
         }
-
-        if (null !== $request->availableMode) {
-            @$query['AvailableMode'] = $request->availableMode;
+        if (!Utils::isUnset($request->availableMode)) {
+            $query['AvailableMode'] = $request->availableMode;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->enableStatus) {
-            @$query['EnableStatus'] = $request->enableStatus;
+        if (!Utils::isUnset($request->enableStatus)) {
+            $query['EnableStatus'] = $request->enableStatus;
         }
-
-        if (null !== $request->healthJudgement) {
-            @$query['HealthJudgement'] = $request->healthJudgement;
+        if (!Utils::isUnset($request->healthJudgement)) {
+            $query['HealthJudgement'] = $request->healthJudgement;
         }
-
-        if (null !== $request->healthTasksShrink) {
-            @$query['HealthTasks'] = $request->healthTasksShrink;
+        if (!Utils::isUnset($request->healthTasksShrink)) {
+            $query['HealthTasks'] = $request->healthTasksShrink;
         }
-
-        if (null !== $request->manualAvailableStatus) {
-            @$query['ManualAvailableStatus'] = $request->manualAvailableStatus;
+        if (!Utils::isUnset($request->manualAvailableStatus)) {
+            $query['ManualAvailableStatus'] = $request->manualAvailableStatus;
         }
-
-        if (null !== $request->name) {
-            @$query['Name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
         }
-
-        if (null !== $request->remark) {
-            @$query['Remark'] = $request->remark;
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
         }
-
-        if (null !== $request->type) {
-            @$query['Type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateCloudGtmAddress',
@@ -1960,15 +1665,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Creates an address.
+     * @summary Creates an address.
+     *  *
+     * @param CreateCloudGtmAddressRequest $request CreateCloudGtmAddressRequest
      *
-     * @param request - CreateCloudGtmAddressRequest
-     *
-     * @returns CreateCloudGtmAddressResponse
-     *
-     * @param CreateCloudGtmAddressRequest $request
-     *
-     * @return CreateCloudGtmAddressResponse
+     * @return CreateCloudGtmAddressResponse CreateCloudGtmAddressResponse
      */
     public function createCloudGtmAddress($request)
     {
@@ -1978,52 +1679,40 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Creates an address pool.
+     * @summary Creates an address pool.
+     *  *
+     * @param CreateCloudGtmAddressPoolRequest $request CreateCloudGtmAddressPoolRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateCloudGtmAddressPoolRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateCloudGtmAddressPoolResponse
-     *
-     * @param CreateCloudGtmAddressPoolRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return CreateCloudGtmAddressPoolResponse
+     * @return CreateCloudGtmAddressPoolResponse CreateCloudGtmAddressPoolResponse
      */
     public function createCloudGtmAddressPoolWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->acceptLanguage) {
-            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
         }
-
-        if (null !== $request->addressPoolName) {
-            @$query['AddressPoolName'] = $request->addressPoolName;
+        if (!Utils::isUnset($request->addressPoolName)) {
+            $query['AddressPoolName'] = $request->addressPoolName;
         }
-
-        if (null !== $request->addressPoolType) {
-            @$query['AddressPoolType'] = $request->addressPoolType;
+        if (!Utils::isUnset($request->addressPoolType)) {
+            $query['AddressPoolType'] = $request->addressPoolType;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->enableStatus) {
-            @$query['EnableStatus'] = $request->enableStatus;
+        if (!Utils::isUnset($request->enableStatus)) {
+            $query['EnableStatus'] = $request->enableStatus;
         }
-
-        if (null !== $request->healthJudgement) {
-            @$query['HealthJudgement'] = $request->healthJudgement;
+        if (!Utils::isUnset($request->healthJudgement)) {
+            $query['HealthJudgement'] = $request->healthJudgement;
         }
-
-        if (null !== $request->remark) {
-            @$query['Remark'] = $request->remark;
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateCloudGtmAddressPool',
@@ -2041,15 +1730,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Creates an address pool.
+     * @summary Creates an address pool.
+     *  *
+     * @param CreateCloudGtmAddressPoolRequest $request CreateCloudGtmAddressPoolRequest
      *
-     * @param request - CreateCloudGtmAddressPoolRequest
-     *
-     * @returns CreateCloudGtmAddressPoolResponse
-     *
-     * @param CreateCloudGtmAddressPoolRequest $request
-     *
-     * @return CreateCloudGtmAddressPoolResponse
+     * @return CreateCloudGtmAddressPoolResponse CreateCloudGtmAddressPoolResponse
      */
     public function createCloudGtmAddressPool($request)
     {
@@ -2059,62 +1744,47 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param request - CreateCloudGtmInstanceConfigRequest
-     * @param runtime - runtime options for this request RuntimeOptions
+     * @param CreateCloudGtmInstanceConfigRequest $request CreateCloudGtmInstanceConfigRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @returns CreateCloudGtmInstanceConfigResponse
-     *
-     * @param CreateCloudGtmInstanceConfigRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return CreateCloudGtmInstanceConfigResponse
+     * @return CreateCloudGtmInstanceConfigResponse CreateCloudGtmInstanceConfigResponse
      */
     public function createCloudGtmInstanceConfigWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->acceptLanguage) {
-            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->enableStatus) {
-            @$query['EnableStatus'] = $request->enableStatus;
+        if (!Utils::isUnset($request->enableStatus)) {
+            $query['EnableStatus'] = $request->enableStatus;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->remark) {
-            @$query['Remark'] = $request->remark;
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
         }
-
-        if (null !== $request->scheduleHostname) {
-            @$query['ScheduleHostname'] = $request->scheduleHostname;
+        if (!Utils::isUnset($request->scheduleHostname)) {
+            $query['ScheduleHostname'] = $request->scheduleHostname;
         }
-
-        if (null !== $request->scheduleRrType) {
-            @$query['ScheduleRrType'] = $request->scheduleRrType;
+        if (!Utils::isUnset($request->scheduleRrType)) {
+            $query['ScheduleRrType'] = $request->scheduleRrType;
         }
-
-        if (null !== $request->scheduleZoneMode) {
-            @$query['ScheduleZoneMode'] = $request->scheduleZoneMode;
+        if (!Utils::isUnset($request->scheduleZoneMode)) {
+            $query['ScheduleZoneMode'] = $request->scheduleZoneMode;
         }
-
-        if (null !== $request->scheduleZoneName) {
-            @$query['ScheduleZoneName'] = $request->scheduleZoneName;
+        if (!Utils::isUnset($request->scheduleZoneName)) {
+            $query['ScheduleZoneName'] = $request->scheduleZoneName;
         }
-
-        if (null !== $request->ttl) {
-            @$query['Ttl'] = $request->ttl;
+        if (!Utils::isUnset($request->ttl)) {
+            $query['Ttl'] = $request->ttl;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateCloudGtmInstanceConfig',
@@ -2132,13 +1802,9 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param request - CreateCloudGtmInstanceConfigRequest
+     * @param CreateCloudGtmInstanceConfigRequest $request CreateCloudGtmInstanceConfigRequest
      *
-     * @returns CreateCloudGtmInstanceConfigResponse
-     *
-     * @param CreateCloudGtmInstanceConfigRequest $request
-     *
-     * @return CreateCloudGtmInstanceConfigResponse
+     * @return CreateCloudGtmInstanceConfigResponse CreateCloudGtmInstanceConfigResponse
      */
     public function createCloudGtmInstanceConfig($request)
     {
@@ -2148,74 +1814,57 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Creates a health check template.
+     * @summary Creates a health check template.
+     *  *
+     * @param CreateCloudGtmMonitorTemplateRequest $tmpReq  CreateCloudGtmMonitorTemplateRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - CreateCloudGtmMonitorTemplateRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateCloudGtmMonitorTemplateResponse
-     *
-     * @param CreateCloudGtmMonitorTemplateRequest $tmpReq
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return CreateCloudGtmMonitorTemplateResponse
+     * @return CreateCloudGtmMonitorTemplateResponse CreateCloudGtmMonitorTemplateResponse
      */
     public function createCloudGtmMonitorTemplateWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new CreateCloudGtmMonitorTemplateShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->ispCityNodes) {
-            $request->ispCityNodesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ispCityNodes, 'IspCityNodes', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->ispCityNodes)) {
+            $request->ispCityNodesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ispCityNodes, 'IspCityNodes', 'json');
         }
-
         $query = [];
-        if (null !== $request->acceptLanguage) {
-            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->evaluationCount) {
-            @$query['EvaluationCount'] = $request->evaluationCount;
+        if (!Utils::isUnset($request->evaluationCount)) {
+            $query['EvaluationCount'] = $request->evaluationCount;
         }
-
-        if (null !== $request->extendInfo) {
-            @$query['ExtendInfo'] = $request->extendInfo;
+        if (!Utils::isUnset($request->extendInfo)) {
+            $query['ExtendInfo'] = $request->extendInfo;
         }
-
-        if (null !== $request->failureRate) {
-            @$query['FailureRate'] = $request->failureRate;
+        if (!Utils::isUnset($request->failureRate)) {
+            $query['FailureRate'] = $request->failureRate;
         }
-
-        if (null !== $request->interval) {
-            @$query['Interval'] = $request->interval;
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
         }
-
-        if (null !== $request->ipVersion) {
-            @$query['IpVersion'] = $request->ipVersion;
+        if (!Utils::isUnset($request->ipVersion)) {
+            $query['IpVersion'] = $request->ipVersion;
         }
-
-        if (null !== $request->ispCityNodesShrink) {
-            @$query['IspCityNodes'] = $request->ispCityNodesShrink;
+        if (!Utils::isUnset($request->ispCityNodesShrink)) {
+            $query['IspCityNodes'] = $request->ispCityNodesShrink;
         }
-
-        if (null !== $request->name) {
-            @$query['Name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
         }
-
-        if (null !== $request->protocol) {
-            @$query['Protocol'] = $request->protocol;
+        if (!Utils::isUnset($request->protocol)) {
+            $query['Protocol'] = $request->protocol;
         }
-
-        if (null !== $request->timeout) {
-            @$query['Timeout'] = $request->timeout;
+        if (!Utils::isUnset($request->timeout)) {
+            $query['Timeout'] = $request->timeout;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateCloudGtmMonitorTemplate',
@@ -2233,15 +1882,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Creates a health check template.
+     * @summary Creates a health check template.
+     *  *
+     * @param CreateCloudGtmMonitorTemplateRequest $request CreateCloudGtmMonitorTemplateRequest
      *
-     * @param request - CreateCloudGtmMonitorTemplateRequest
-     *
-     * @returns CreateCloudGtmMonitorTemplateResponse
-     *
-     * @param CreateCloudGtmMonitorTemplateRequest $request
-     *
-     * @return CreateCloudGtmMonitorTemplateResponse
+     * @return CreateCloudGtmMonitorTemplateResponse CreateCloudGtmMonitorTemplateResponse
      */
     public function createCloudGtmMonitorTemplate($request)
     {
@@ -2251,32 +1896,25 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 创建公共DNS AppKey.
+     * @summary 创建公共DNS AppKey
+     *  *
+     * @param CreatePdnsAppKeyRequest $request CreatePdnsAppKeyRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreatePdnsAppKeyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreatePdnsAppKeyResponse
-     *
-     * @param CreatePdnsAppKeyRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return CreatePdnsAppKeyResponse
+     * @return CreatePdnsAppKeyResponse CreatePdnsAppKeyResponse
      */
     public function createPdnsAppKeyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->remark) {
-            @$query['Remark'] = $request->remark;
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreatePdnsAppKey',
@@ -2294,15 +1932,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 创建公共DNS AppKey.
+     * @summary 创建公共DNS AppKey
+     *  *
+     * @param CreatePdnsAppKeyRequest $request CreatePdnsAppKeyRequest
      *
-     * @param request - CreatePdnsAppKeyRequest
-     *
-     * @returns CreatePdnsAppKeyResponse
-     *
-     * @param CreatePdnsAppKeyRequest $request
-     *
-     * @return CreatePdnsAppKeyResponse
+     * @return CreatePdnsAppKeyResponse CreatePdnsAppKeyResponse
      */
     public function createPdnsAppKey($request)
     {
@@ -2312,40 +1946,31 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 创建公共DNS Udp Ip地址段.
+     * @summary 创建公共DNS Udp Ip地址段
+     *  *
+     * @param CreatePdnsUdpIpSegmentRequest $request CreatePdnsUdpIpSegmentRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreatePdnsUdpIpSegmentRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreatePdnsUdpIpSegmentResponse
-     *
-     * @param CreatePdnsUdpIpSegmentRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return CreatePdnsUdpIpSegmentResponse
+     * @return CreatePdnsUdpIpSegmentResponse CreatePdnsUdpIpSegmentResponse
      */
     public function createPdnsUdpIpSegmentWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->ip) {
-            @$query['Ip'] = $request->ip;
+        if (!Utils::isUnset($request->ip)) {
+            $query['Ip'] = $request->ip;
         }
-
-        if (null !== $request->ipToken) {
-            @$query['IpToken'] = $request->ipToken;
+        if (!Utils::isUnset($request->ipToken)) {
+            $query['IpToken'] = $request->ipToken;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->name) {
-            @$query['Name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreatePdnsUdpIpSegment',
@@ -2363,15 +1988,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 创建公共DNS Udp Ip地址段.
+     * @summary 创建公共DNS Udp Ip地址段
+     *  *
+     * @param CreatePdnsUdpIpSegmentRequest $request CreatePdnsUdpIpSegmentRequest
      *
-     * @param request - CreatePdnsUdpIpSegmentRequest
-     *
-     * @returns CreatePdnsUdpIpSegmentResponse
-     *
-     * @param CreatePdnsUdpIpSegmentRequest $request
-     *
-     * @return CreatePdnsUdpIpSegmentResponse
+     * @return CreatePdnsUdpIpSegmentResponse CreatePdnsUdpIpSegmentResponse
      */
     public function createPdnsUdpIpSegment($request)
     {
@@ -2381,36 +2002,28 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Deletes an address.
+     * @summary Deletes an address.
+     *  *
+     * @param DeleteCloudGtmAddressRequest $request DeleteCloudGtmAddressRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteCloudGtmAddressRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteCloudGtmAddressResponse
-     *
-     * @param DeleteCloudGtmAddressRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DeleteCloudGtmAddressResponse
+     * @return DeleteCloudGtmAddressResponse DeleteCloudGtmAddressResponse
      */
     public function deleteCloudGtmAddressWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->acceptLanguage) {
-            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
         }
-
-        if (null !== $request->addressId) {
-            @$query['AddressId'] = $request->addressId;
+        if (!Utils::isUnset($request->addressId)) {
+            $query['AddressId'] = $request->addressId;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteCloudGtmAddress',
@@ -2428,15 +2041,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Deletes an address.
+     * @summary Deletes an address.
+     *  *
+     * @param DeleteCloudGtmAddressRequest $request DeleteCloudGtmAddressRequest
      *
-     * @param request - DeleteCloudGtmAddressRequest
-     *
-     * @returns DeleteCloudGtmAddressResponse
-     *
-     * @param DeleteCloudGtmAddressRequest $request
-     *
-     * @return DeleteCloudGtmAddressResponse
+     * @return DeleteCloudGtmAddressResponse DeleteCloudGtmAddressResponse
      */
     public function deleteCloudGtmAddress($request)
     {
@@ -2446,36 +2055,28 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Deletes an address pool.
+     * @summary Deletes an address pool.
+     *  *
+     * @param DeleteCloudGtmAddressPoolRequest $request DeleteCloudGtmAddressPoolRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteCloudGtmAddressPoolRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteCloudGtmAddressPoolResponse
-     *
-     * @param DeleteCloudGtmAddressPoolRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DeleteCloudGtmAddressPoolResponse
+     * @return DeleteCloudGtmAddressPoolResponse DeleteCloudGtmAddressPoolResponse
      */
     public function deleteCloudGtmAddressPoolWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->acceptLanguage) {
-            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
         }
-
-        if (null !== $request->addressPoolId) {
-            @$query['AddressPoolId'] = $request->addressPoolId;
+        if (!Utils::isUnset($request->addressPoolId)) {
+            $query['AddressPoolId'] = $request->addressPoolId;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteCloudGtmAddressPool',
@@ -2493,15 +2094,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Deletes an address pool.
+     * @summary Deletes an address pool.
+     *  *
+     * @param DeleteCloudGtmAddressPoolRequest $request DeleteCloudGtmAddressPoolRequest
      *
-     * @param request - DeleteCloudGtmAddressPoolRequest
-     *
-     * @returns DeleteCloudGtmAddressPoolResponse
-     *
-     * @param DeleteCloudGtmAddressPoolRequest $request
-     *
-     * @return DeleteCloudGtmAddressPoolResponse
+     * @return DeleteCloudGtmAddressPoolResponse DeleteCloudGtmAddressPoolResponse
      */
     public function deleteCloudGtmAddressPool($request)
     {
@@ -2511,40 +2108,31 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Deletes an access domain name that is configured for a Global Traffic Manager (GTM) 3.0 instance.
+     * @summary Deletes an access domain name that is configured for a Global Traffic Manager (GTM) 3.0 instance.
+     *  *
+     * @param DeleteCloudGtmInstanceConfigRequest $request DeleteCloudGtmInstanceConfigRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteCloudGtmInstanceConfigRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteCloudGtmInstanceConfigResponse
-     *
-     * @param DeleteCloudGtmInstanceConfigRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return DeleteCloudGtmInstanceConfigResponse
+     * @return DeleteCloudGtmInstanceConfigResponse DeleteCloudGtmInstanceConfigResponse
      */
     public function deleteCloudGtmInstanceConfigWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->acceptLanguage) {
-            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->configId) {
-            @$query['ConfigId'] = $request->configId;
+        if (!Utils::isUnset($request->configId)) {
+            $query['ConfigId'] = $request->configId;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteCloudGtmInstanceConfig',
@@ -2562,15 +2150,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Deletes an access domain name that is configured for a Global Traffic Manager (GTM) 3.0 instance.
+     * @summary Deletes an access domain name that is configured for a Global Traffic Manager (GTM) 3.0 instance.
+     *  *
+     * @param DeleteCloudGtmInstanceConfigRequest $request DeleteCloudGtmInstanceConfigRequest
      *
-     * @param request - DeleteCloudGtmInstanceConfigRequest
-     *
-     * @returns DeleteCloudGtmInstanceConfigResponse
-     *
-     * @param DeleteCloudGtmInstanceConfigRequest $request
-     *
-     * @return DeleteCloudGtmInstanceConfigResponse
+     * @return DeleteCloudGtmInstanceConfigResponse DeleteCloudGtmInstanceConfigResponse
      */
     public function deleteCloudGtmInstanceConfig($request)
     {
@@ -2580,36 +2164,28 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Deletes a health check template.
+     * @summary Deletes a health check template.
+     *  *
+     * @param DeleteCloudGtmMonitorTemplateRequest $request DeleteCloudGtmMonitorTemplateRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteCloudGtmMonitorTemplateRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteCloudGtmMonitorTemplateResponse
-     *
-     * @param DeleteCloudGtmMonitorTemplateRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return DeleteCloudGtmMonitorTemplateResponse
+     * @return DeleteCloudGtmMonitorTemplateResponse DeleteCloudGtmMonitorTemplateResponse
      */
     public function deleteCloudGtmMonitorTemplateWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->acceptLanguage) {
-            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->templateId) {
-            @$query['TemplateId'] = $request->templateId;
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteCloudGtmMonitorTemplate',
@@ -2627,15 +2203,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Deletes a health check template.
+     * @summary Deletes a health check template.
+     *  *
+     * @param DeleteCloudGtmMonitorTemplateRequest $request DeleteCloudGtmMonitorTemplateRequest
      *
-     * @param request - DeleteCloudGtmMonitorTemplateRequest
-     *
-     * @returns DeleteCloudGtmMonitorTemplateResponse
-     *
-     * @param DeleteCloudGtmMonitorTemplateRequest $request
-     *
-     * @return DeleteCloudGtmMonitorTemplateResponse
+     * @return DeleteCloudGtmMonitorTemplateResponse DeleteCloudGtmMonitorTemplateResponse
      */
     public function deleteCloudGtmMonitorTemplate($request)
     {
@@ -2645,32 +2217,25 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Deletes custom lines at a time by using the unique IDs.
+     * @summary Deletes custom lines at a time by using the unique IDs.
+     *  *
+     * @param DeleteCustomLinesRequest $request DeleteCustomLinesRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteCustomLinesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteCustomLinesResponse
-     *
-     * @param DeleteCustomLinesRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return DeleteCustomLinesResponse
+     * @return DeleteCustomLinesResponse DeleteCustomLinesResponse
      */
     public function deleteCustomLinesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->lineIds) {
-            @$query['LineIds'] = $request->lineIds;
+        if (!Utils::isUnset($request->lineIds)) {
+            $query['LineIds'] = $request->lineIds;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteCustomLines',
@@ -2688,15 +2253,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Deletes custom lines at a time by using the unique IDs.
+     * @summary Deletes custom lines at a time by using the unique IDs.
+     *  *
+     * @param DeleteCustomLinesRequest $request DeleteCustomLinesRequest
      *
-     * @param request - DeleteCustomLinesRequest
-     *
-     * @returns DeleteCustomLinesResponse
-     *
-     * @param DeleteCustomLinesRequest $request
-     *
-     * @return DeleteCustomLinesResponse
+     * @return DeleteCustomLinesResponse DeleteCustomLinesResponse
      */
     public function deleteCustomLines($request)
     {
@@ -2706,32 +2267,25 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Deletes a specified cache-accelerated domain name.
+     * @summary Deletes a specified cache-accelerated domain name.
+     *  *
+     * @param DeleteDnsCacheDomainRequest $request DeleteDnsCacheDomainRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteDnsCacheDomainRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteDnsCacheDomainResponse
-     *
-     * @param DeleteDnsCacheDomainRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DeleteDnsCacheDomainResponse
+     * @return DeleteDnsCacheDomainResponse DeleteDnsCacheDomainResponse
      */
     public function deleteDnsCacheDomainWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->domainName) {
-            @$query['DomainName'] = $request->domainName;
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteDnsCacheDomain',
@@ -2749,15 +2303,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Deletes a specified cache-accelerated domain name.
+     * @summary Deletes a specified cache-accelerated domain name.
+     *  *
+     * @param DeleteDnsCacheDomainRequest $request DeleteDnsCacheDomainRequest
      *
-     * @param request - DeleteDnsCacheDomainRequest
-     *
-     * @returns DeleteDnsCacheDomainResponse
-     *
-     * @param DeleteDnsCacheDomainRequest $request
-     *
-     * @return DeleteDnsCacheDomainResponse
+     * @return DeleteDnsCacheDomainResponse DeleteDnsCacheDomainResponse
      */
     public function deleteDnsCacheDomain($request)
     {
@@ -2767,30 +2317,23 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param request - DeleteDnsGtmAccessStrategyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
+     * @param DeleteDnsGtmAccessStrategyRequest $request DeleteDnsGtmAccessStrategyRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @returns DeleteDnsGtmAccessStrategyResponse
-     *
-     * @param DeleteDnsGtmAccessStrategyRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return DeleteDnsGtmAccessStrategyResponse
+     * @return DeleteDnsGtmAccessStrategyResponse DeleteDnsGtmAccessStrategyResponse
      */
     public function deleteDnsGtmAccessStrategyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->strategyId) {
-            @$query['StrategyId'] = $request->strategyId;
+        if (!Utils::isUnset($request->strategyId)) {
+            $query['StrategyId'] = $request->strategyId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteDnsGtmAccessStrategy',
@@ -2808,13 +2351,9 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param request - DeleteDnsGtmAccessStrategyRequest
+     * @param DeleteDnsGtmAccessStrategyRequest $request DeleteDnsGtmAccessStrategyRequest
      *
-     * @returns DeleteDnsGtmAccessStrategyResponse
-     *
-     * @param DeleteDnsGtmAccessStrategyRequest $request
-     *
-     * @return DeleteDnsGtmAccessStrategyResponse
+     * @return DeleteDnsGtmAccessStrategyResponse DeleteDnsGtmAccessStrategyResponse
      */
     public function deleteDnsGtmAccessStrategy($request)
     {
@@ -2824,30 +2363,23 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param request - DeleteDnsGtmAddressPoolRequest
-     * @param runtime - runtime options for this request RuntimeOptions
+     * @param DeleteDnsGtmAddressPoolRequest $request DeleteDnsGtmAddressPoolRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @returns DeleteDnsGtmAddressPoolResponse
-     *
-     * @param DeleteDnsGtmAddressPoolRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DeleteDnsGtmAddressPoolResponse
+     * @return DeleteDnsGtmAddressPoolResponse DeleteDnsGtmAddressPoolResponse
      */
     public function deleteDnsGtmAddressPoolWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->addrPoolId) {
-            @$query['AddrPoolId'] = $request->addrPoolId;
+        if (!Utils::isUnset($request->addrPoolId)) {
+            $query['AddrPoolId'] = $request->addrPoolId;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteDnsGtmAddressPool',
@@ -2865,13 +2397,9 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param request - DeleteDnsGtmAddressPoolRequest
+     * @param DeleteDnsGtmAddressPoolRequest $request DeleteDnsGtmAddressPoolRequest
      *
-     * @returns DeleteDnsGtmAddressPoolResponse
-     *
-     * @param DeleteDnsGtmAddressPoolRequest $request
-     *
-     * @return DeleteDnsGtmAddressPoolResponse
+     * @return DeleteDnsGtmAddressPoolResponse DeleteDnsGtmAddressPoolResponse
      */
     public function deleteDnsGtmAddressPool($request)
     {
@@ -2881,32 +2409,25 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Deletes a domain name based on the specified parameters.
+     * @summary Deletes a domain name based on the specified parameters.
+     *  *
+     * @param DeleteDomainRequest $request DeleteDomainRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteDomainRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteDomainResponse
-     *
-     * @param DeleteDomainRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return DeleteDomainResponse
+     * @return DeleteDomainResponse DeleteDomainResponse
      */
     public function deleteDomainWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->domainName) {
-            @$query['DomainName'] = $request->domainName;
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteDomain',
@@ -2924,15 +2445,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Deletes a domain name based on the specified parameters.
+     * @summary Deletes a domain name based on the specified parameters.
+     *  *
+     * @param DeleteDomainRequest $request DeleteDomainRequest
      *
-     * @param request - DeleteDomainRequest
-     *
-     * @returns DeleteDomainResponse
-     *
-     * @param DeleteDomainRequest $request
-     *
-     * @return DeleteDomainResponse
+     * @return DeleteDomainResponse DeleteDomainResponse
      */
     public function deleteDomain($request)
     {
@@ -2942,35 +2459,27 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Deletes a domain name group. After you delete the domain name group, the domain names in the group are moved to the default group.
+     * @summary Deletes a domain name group. After you delete the domain name group, the domain names in the group are moved to the default group.
+     *  *
+     * @description >  The default group cannot be deleted.
+     *  *
+     * @param DeleteDomainGroupRequest $request DeleteDomainGroupRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * >  The default group cannot be deleted.
-     *
-     * @param request - DeleteDomainGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteDomainGroupResponse
-     *
-     * @param DeleteDomainGroupRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return DeleteDomainGroupResponse
+     * @return DeleteDomainGroupResponse DeleteDomainGroupResponse
      */
     public function deleteDomainGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteDomainGroup',
@@ -2988,18 +2497,13 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Deletes a domain name group. After you delete the domain name group, the domain names in the group are moved to the default group.
+     * @summary Deletes a domain name group. After you delete the domain name group, the domain names in the group are moved to the default group.
+     *  *
+     * @description >  The default group cannot be deleted.
+     *  *
+     * @param DeleteDomainGroupRequest $request DeleteDomainGroupRequest
      *
-     * @remarks
-     * >  The default group cannot be deleted.
-     *
-     * @param request - DeleteDomainGroupRequest
-     *
-     * @returns DeleteDomainGroupResponse
-     *
-     * @param DeleteDomainGroupRequest $request
-     *
-     * @return DeleteDomainGroupResponse
+     * @return DeleteDomainGroupResponse DeleteDomainGroupResponse
      */
     public function deleteDomainGroup($request)
     {
@@ -3009,36 +2513,28 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Deletes an Alibaba Cloud DNS (DNS) record based on the specified parameters.
+     * @summary Deletes an Alibaba Cloud DNS (DNS) record based on the specified parameters.
+     *  *
+     * @param DeleteDomainRecordRequest $request DeleteDomainRecordRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteDomainRecordRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteDomainRecordResponse
-     *
-     * @param DeleteDomainRecordRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DeleteDomainRecordResponse
+     * @return DeleteDomainRecordResponse DeleteDomainRecordResponse
      */
     public function deleteDomainRecordWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->recordId) {
-            @$query['RecordId'] = $request->recordId;
+        if (!Utils::isUnset($request->recordId)) {
+            $query['RecordId'] = $request->recordId;
         }
-
-        if (null !== $request->userClientIp) {
-            @$query['UserClientIp'] = $request->userClientIp;
+        if (!Utils::isUnset($request->userClientIp)) {
+            $query['UserClientIp'] = $request->userClientIp;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteDomainRecord',
@@ -3056,15 +2552,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Deletes an Alibaba Cloud DNS (DNS) record based on the specified parameters.
+     * @summary Deletes an Alibaba Cloud DNS (DNS) record based on the specified parameters.
+     *  *
+     * @param DeleteDomainRecordRequest $request DeleteDomainRecordRequest
      *
-     * @param request - DeleteDomainRecordRequest
-     *
-     * @returns DeleteDomainRecordResponse
-     *
-     * @param DeleteDomainRecordRequest $request
-     *
-     * @return DeleteDomainRecordResponse
+     * @return DeleteDomainRecordResponse DeleteDomainRecordResponse
      */
     public function deleteDomainRecord($request)
     {
@@ -3074,30 +2566,23 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param request - DeleteGtmAccessStrategyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
+     * @param DeleteGtmAccessStrategyRequest $request DeleteGtmAccessStrategyRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @returns DeleteGtmAccessStrategyResponse
-     *
-     * @param DeleteGtmAccessStrategyRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DeleteGtmAccessStrategyResponse
+     * @return DeleteGtmAccessStrategyResponse DeleteGtmAccessStrategyResponse
      */
     public function deleteGtmAccessStrategyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->strategyId) {
-            @$query['StrategyId'] = $request->strategyId;
+        if (!Utils::isUnset($request->strategyId)) {
+            $query['StrategyId'] = $request->strategyId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteGtmAccessStrategy',
@@ -3115,13 +2600,9 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param request - DeleteGtmAccessStrategyRequest
+     * @param DeleteGtmAccessStrategyRequest $request DeleteGtmAccessStrategyRequest
      *
-     * @returns DeleteGtmAccessStrategyResponse
-     *
-     * @param DeleteGtmAccessStrategyRequest $request
-     *
-     * @return DeleteGtmAccessStrategyResponse
+     * @return DeleteGtmAccessStrategyResponse DeleteGtmAccessStrategyResponse
      */
     public function deleteGtmAccessStrategy($request)
     {
@@ -3131,30 +2612,23 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param request - DeleteGtmAddressPoolRequest
-     * @param runtime - runtime options for this request RuntimeOptions
+     * @param DeleteGtmAddressPoolRequest $request DeleteGtmAddressPoolRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @returns DeleteGtmAddressPoolResponse
-     *
-     * @param DeleteGtmAddressPoolRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DeleteGtmAddressPoolResponse
+     * @return DeleteGtmAddressPoolResponse DeleteGtmAddressPoolResponse
      */
     public function deleteGtmAddressPoolWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->addrPoolId) {
-            @$query['AddrPoolId'] = $request->addrPoolId;
+        if (!Utils::isUnset($request->addrPoolId)) {
+            $query['AddrPoolId'] = $request->addrPoolId;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteGtmAddressPool',
@@ -3172,13 +2646,9 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param request - DeleteGtmAddressPoolRequest
+     * @param DeleteGtmAddressPoolRequest $request DeleteGtmAddressPoolRequest
      *
-     * @returns DeleteGtmAddressPoolResponse
-     *
-     * @param DeleteGtmAddressPoolRequest $request
-     *
-     * @return DeleteGtmAddressPoolResponse
+     * @return DeleteGtmAddressPoolResponse DeleteGtmAddressPoolResponse
      */
     public function deleteGtmAddressPool($request)
     {
@@ -3188,30 +2658,23 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param request - DeleteGtmRecoveryPlanRequest
-     * @param runtime - runtime options for this request RuntimeOptions
+     * @param DeleteGtmRecoveryPlanRequest $request DeleteGtmRecoveryPlanRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @returns DeleteGtmRecoveryPlanResponse
-     *
-     * @param DeleteGtmRecoveryPlanRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DeleteGtmRecoveryPlanResponse
+     * @return DeleteGtmRecoveryPlanResponse DeleteGtmRecoveryPlanResponse
      */
     public function deleteGtmRecoveryPlanWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->recoveryPlanId) {
-            @$query['RecoveryPlanId'] = $request->recoveryPlanId;
+        if (!Utils::isUnset($request->recoveryPlanId)) {
+            $query['RecoveryPlanId'] = $request->recoveryPlanId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteGtmRecoveryPlan',
@@ -3229,13 +2692,9 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param request - DeleteGtmRecoveryPlanRequest
+     * @param DeleteGtmRecoveryPlanRequest $request DeleteGtmRecoveryPlanRequest
      *
-     * @returns DeleteGtmRecoveryPlanResponse
-     *
-     * @param DeleteGtmRecoveryPlanRequest $request
-     *
-     * @return DeleteGtmRecoveryPlanResponse
+     * @return DeleteGtmRecoveryPlanResponse DeleteGtmRecoveryPlanResponse
      */
     public function deleteGtmRecoveryPlan($request)
     {
@@ -3245,47 +2704,36 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Deletes the DNS records that are corresponding to a hostname based on the specified parameters.
+     * @summary Deletes the DNS records that are corresponding to a hostname based on the specified parameters.
+     *  *
+     * @description If the DNS records to be deleted contain locked DNS records, the locked DNS records will not be deleted.
+     *  *
+     * @param DeleteSubDomainRecordsRequest $request DeleteSubDomainRecordsRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * If the DNS records to be deleted contain locked DNS records, the locked DNS records will not be deleted.
-     *
-     * @param request - DeleteSubDomainRecordsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteSubDomainRecordsResponse
-     *
-     * @param DeleteSubDomainRecordsRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return DeleteSubDomainRecordsResponse
+     * @return DeleteSubDomainRecordsResponse DeleteSubDomainRecordsResponse
      */
     public function deleteSubDomainRecordsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->domainName) {
-            @$query['DomainName'] = $request->domainName;
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->RR) {
-            @$query['RR'] = $request->RR;
+        if (!Utils::isUnset($request->RR)) {
+            $query['RR'] = $request->RR;
         }
-
-        if (null !== $request->type) {
-            @$query['Type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
         }
-
-        if (null !== $request->userClientIp) {
-            @$query['UserClientIp'] = $request->userClientIp;
+        if (!Utils::isUnset($request->userClientIp)) {
+            $query['UserClientIp'] = $request->userClientIp;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteSubDomainRecords',
@@ -3303,18 +2751,13 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Deletes the DNS records that are corresponding to a hostname based on the specified parameters.
+     * @summary Deletes the DNS records that are corresponding to a hostname based on the specified parameters.
+     *  *
+     * @description If the DNS records to be deleted contain locked DNS records, the locked DNS records will not be deleted.
+     *  *
+     * @param DeleteSubDomainRecordsRequest $request DeleteSubDomainRecordsRequest
      *
-     * @remarks
-     * If the DNS records to be deleted contain locked DNS records, the locked DNS records will not be deleted.
-     *
-     * @param request - DeleteSubDomainRecordsRequest
-     *
-     * @returns DeleteSubDomainRecordsResponse
-     *
-     * @param DeleteSubDomainRecordsRequest $request
-     *
-     * @return DeleteSubDomainRecordsResponse
+     * @return DeleteSubDomainRecordsResponse DeleteSubDomainRecordsResponse
      */
     public function deleteSubDomainRecords($request)
     {
@@ -3324,36 +2767,28 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the execution result of a batch operation task based on the task ID. If you do not specify task ID, the execution result of the last batch operation task is returned.
+     * @summary Queries the execution result of a batch operation task based on the task ID. If you do not specify task ID, the execution result of the last batch operation task is returned.
+     *  *
+     * @param DescribeBatchResultCountRequest $request DescribeBatchResultCountRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeBatchResultCountRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeBatchResultCountResponse
-     *
-     * @param DescribeBatchResultCountRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return DescribeBatchResultCountResponse
+     * @return DescribeBatchResultCountResponse DescribeBatchResultCountResponse
      */
     public function describeBatchResultCountWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->batchType) {
-            @$query['BatchType'] = $request->batchType;
+        if (!Utils::isUnset($request->batchType)) {
+            $query['BatchType'] = $request->batchType;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->taskId) {
-            @$query['TaskId'] = $request->taskId;
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeBatchResultCount',
@@ -3371,15 +2806,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the execution result of a batch operation task based on the task ID. If you do not specify task ID, the execution result of the last batch operation task is returned.
+     * @summary Queries the execution result of a batch operation task based on the task ID. If you do not specify task ID, the execution result of the last batch operation task is returned.
+     *  *
+     * @param DescribeBatchResultCountRequest $request DescribeBatchResultCountRequest
      *
-     * @param request - DescribeBatchResultCountRequest
-     *
-     * @returns DescribeBatchResultCountResponse
-     *
-     * @param DescribeBatchResultCountRequest $request
-     *
-     * @return DescribeBatchResultCountResponse
+     * @return DescribeBatchResultCountResponse DescribeBatchResultCountResponse
      */
     public function describeBatchResultCount($request)
     {
@@ -3389,51 +2820,39 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the detailed results of a batch operation task.
+     * @summary Queries the detailed results of a batch operation task.
+     *  *
+     * @description Before you call this operation, make sure that the batch operation task is complete.
+     *  *
+     * @param DescribeBatchResultDetailRequest $request DescribeBatchResultDetailRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * Before you call this operation, make sure that the batch operation task is complete.
-     *
-     * @param request - DescribeBatchResultDetailRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeBatchResultDetailResponse
-     *
-     * @param DescribeBatchResultDetailRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DescribeBatchResultDetailResponse
+     * @return DescribeBatchResultDetailResponse DescribeBatchResultDetailResponse
      */
     public function describeBatchResultDetailWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->batchType) {
-            @$query['BatchType'] = $request->batchType;
+        if (!Utils::isUnset($request->batchType)) {
+            $query['BatchType'] = $request->batchType;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->status) {
-            @$query['Status'] = $request->status;
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
         }
-
-        if (null !== $request->taskId) {
-            @$query['TaskId'] = $request->taskId;
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeBatchResultDetail',
@@ -3451,18 +2870,13 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the detailed results of a batch operation task.
+     * @summary Queries the detailed results of a batch operation task.
+     *  *
+     * @description Before you call this operation, make sure that the batch operation task is complete.
+     *  *
+     * @param DescribeBatchResultDetailRequest $request DescribeBatchResultDetailRequest
      *
-     * @remarks
-     * Before you call this operation, make sure that the batch operation task is complete.
-     *
-     * @param request - DescribeBatchResultDetailRequest
-     *
-     * @returns DescribeBatchResultDetailResponse
-     *
-     * @param DescribeBatchResultDetailRequest $request
-     *
-     * @return DescribeBatchResultDetailResponse
+     * @return DescribeBatchResultDetailResponse DescribeBatchResultDetailResponse
      */
     public function describeBatchResultDetail($request)
     {
@@ -3472,36 +2886,28 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the configurations of an address.
+     * @summary Queries the configurations of an address.
+     *  *
+     * @param DescribeCloudGtmAddressRequest $request DescribeCloudGtmAddressRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeCloudGtmAddressRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeCloudGtmAddressResponse
-     *
-     * @param DescribeCloudGtmAddressRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DescribeCloudGtmAddressResponse
+     * @return DescribeCloudGtmAddressResponse DescribeCloudGtmAddressResponse
      */
     public function describeCloudGtmAddressWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->acceptLanguage) {
-            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
         }
-
-        if (null !== $request->addressId) {
-            @$query['AddressId'] = $request->addressId;
+        if (!Utils::isUnset($request->addressId)) {
+            $query['AddressId'] = $request->addressId;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeCloudGtmAddress',
@@ -3519,15 +2925,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the configurations of an address.
+     * @summary Queries the configurations of an address.
+     *  *
+     * @param DescribeCloudGtmAddressRequest $request DescribeCloudGtmAddressRequest
      *
-     * @param request - DescribeCloudGtmAddressRequest
-     *
-     * @returns DescribeCloudGtmAddressResponse
-     *
-     * @param DescribeCloudGtmAddressRequest $request
-     *
-     * @return DescribeCloudGtmAddressResponse
+     * @return DescribeCloudGtmAddressResponse DescribeCloudGtmAddressResponse
      */
     public function describeCloudGtmAddress($request)
     {
@@ -3537,36 +2939,28 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the configurations of an address pool.
+     * @summary Queries the configurations of an address pool.
+     *  *
+     * @param DescribeCloudGtmAddressPoolRequest $request DescribeCloudGtmAddressPoolRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeCloudGtmAddressPoolRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeCloudGtmAddressPoolResponse
-     *
-     * @param DescribeCloudGtmAddressPoolRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return DescribeCloudGtmAddressPoolResponse
+     * @return DescribeCloudGtmAddressPoolResponse DescribeCloudGtmAddressPoolResponse
      */
     public function describeCloudGtmAddressPoolWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->acceptLanguage) {
-            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
         }
-
-        if (null !== $request->addressPoolId) {
-            @$query['AddressPoolId'] = $request->addressPoolId;
+        if (!Utils::isUnset($request->addressPoolId)) {
+            $query['AddressPoolId'] = $request->addressPoolId;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeCloudGtmAddressPool',
@@ -3584,15 +2978,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the configurations of an address pool.
+     * @summary Queries the configurations of an address pool.
+     *  *
+     * @param DescribeCloudGtmAddressPoolRequest $request DescribeCloudGtmAddressPoolRequest
      *
-     * @param request - DescribeCloudGtmAddressPoolRequest
-     *
-     * @returns DescribeCloudGtmAddressPoolResponse
-     *
-     * @param DescribeCloudGtmAddressPoolRequest $request
-     *
-     * @return DescribeCloudGtmAddressPoolResponse
+     * @return DescribeCloudGtmAddressPoolResponse DescribeCloudGtmAddressPoolResponse
      */
     public function describeCloudGtmAddressPool($request)
     {
@@ -3602,36 +2992,28 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the information about the access domain names that reference an address pool.
+     * @summary Queries the information about the access domain names that reference an address pool.
+     *  *
+     * @param DescribeCloudGtmAddressPoolReferenceRequest $request DescribeCloudGtmAddressPoolReferenceRequest
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeCloudGtmAddressPoolReferenceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeCloudGtmAddressPoolReferenceResponse
-     *
-     * @param DescribeCloudGtmAddressPoolReferenceRequest $request
-     * @param RuntimeOptions                              $runtime
-     *
-     * @return DescribeCloudGtmAddressPoolReferenceResponse
+     * @return DescribeCloudGtmAddressPoolReferenceResponse DescribeCloudGtmAddressPoolReferenceResponse
      */
     public function describeCloudGtmAddressPoolReferenceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->acceptLanguage) {
-            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
         }
-
-        if (null !== $request->addressPoolId) {
-            @$query['AddressPoolId'] = $request->addressPoolId;
+        if (!Utils::isUnset($request->addressPoolId)) {
+            $query['AddressPoolId'] = $request->addressPoolId;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeCloudGtmAddressPoolReference',
@@ -3649,15 +3031,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the information about the access domain names that reference an address pool.
+     * @summary Queries the information about the access domain names that reference an address pool.
+     *  *
+     * @param DescribeCloudGtmAddressPoolReferenceRequest $request DescribeCloudGtmAddressPoolReferenceRequest
      *
-     * @param request - DescribeCloudGtmAddressPoolReferenceRequest
-     *
-     * @returns DescribeCloudGtmAddressPoolReferenceResponse
-     *
-     * @param DescribeCloudGtmAddressPoolReferenceRequest $request
-     *
-     * @return DescribeCloudGtmAddressPoolReferenceResponse
+     * @return DescribeCloudGtmAddressPoolReferenceResponse DescribeCloudGtmAddressPoolReferenceResponse
      */
     public function describeCloudGtmAddressPoolReference($request)
     {
@@ -3667,36 +3045,28 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the information about the address pools and Global Traffic Manager (GTM) 3.0 instances that reference an address.
+     * @summary Queries the information about the address pools and Global Traffic Manager (GTM) 3.0 instances that reference an address.
+     *  *
+     * @param DescribeCloudGtmAddressReferenceRequest $request DescribeCloudGtmAddressReferenceRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeCloudGtmAddressReferenceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeCloudGtmAddressReferenceResponse
-     *
-     * @param DescribeCloudGtmAddressReferenceRequest $request
-     * @param RuntimeOptions                          $runtime
-     *
-     * @return DescribeCloudGtmAddressReferenceResponse
+     * @return DescribeCloudGtmAddressReferenceResponse DescribeCloudGtmAddressReferenceResponse
      */
     public function describeCloudGtmAddressReferenceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->acceptLanguage) {
-            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
         }
-
-        if (null !== $request->addressId) {
-            @$query['AddressId'] = $request->addressId;
+        if (!Utils::isUnset($request->addressId)) {
+            $query['AddressId'] = $request->addressId;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeCloudGtmAddressReference',
@@ -3714,15 +3084,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the information about the address pools and Global Traffic Manager (GTM) 3.0 instances that reference an address.
+     * @summary Queries the information about the address pools and Global Traffic Manager (GTM) 3.0 instances that reference an address.
+     *  *
+     * @param DescribeCloudGtmAddressReferenceRequest $request DescribeCloudGtmAddressReferenceRequest
      *
-     * @param request - DescribeCloudGtmAddressReferenceRequest
-     *
-     * @returns DescribeCloudGtmAddressReferenceResponse
-     *
-     * @param DescribeCloudGtmAddressReferenceRequest $request
-     *
-     * @return DescribeCloudGtmAddressReferenceResponse
+     * @return DescribeCloudGtmAddressReferenceResponse DescribeCloudGtmAddressReferenceResponse
      */
     public function describeCloudGtmAddressReference($request)
     {
@@ -3732,30 +3098,23 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param request - DescribeCloudGtmGlobalAlertRequest
-     * @param runtime - runtime options for this request RuntimeOptions
+     * @param DescribeCloudGtmGlobalAlertRequest $request DescribeCloudGtmGlobalAlertRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @returns DescribeCloudGtmGlobalAlertResponse
-     *
-     * @param DescribeCloudGtmGlobalAlertRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return DescribeCloudGtmGlobalAlertResponse
+     * @return DescribeCloudGtmGlobalAlertResponse DescribeCloudGtmGlobalAlertResponse
      */
     public function describeCloudGtmGlobalAlertWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->acceptLanguage) {
-            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeCloudGtmGlobalAlert',
@@ -3773,13 +3132,9 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param request - DescribeCloudGtmGlobalAlertRequest
+     * @param DescribeCloudGtmGlobalAlertRequest $request DescribeCloudGtmGlobalAlertRequest
      *
-     * @returns DescribeCloudGtmGlobalAlertResponse
-     *
-     * @param DescribeCloudGtmGlobalAlertRequest $request
-     *
-     * @return DescribeCloudGtmGlobalAlertResponse
+     * @return DescribeCloudGtmGlobalAlertResponse DescribeCloudGtmGlobalAlertResponse
      */
     public function describeCloudGtmGlobalAlert($request)
     {
@@ -3789,38 +3144,29 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param request - DescribeCloudGtmInstanceConfigAlertRequest
-     * @param runtime - runtime options for this request RuntimeOptions
+     * @param DescribeCloudGtmInstanceConfigAlertRequest $request DescribeCloudGtmInstanceConfigAlertRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @returns DescribeCloudGtmInstanceConfigAlertResponse
-     *
-     * @param DescribeCloudGtmInstanceConfigAlertRequest $request
-     * @param RuntimeOptions                             $runtime
-     *
-     * @return DescribeCloudGtmInstanceConfigAlertResponse
+     * @return DescribeCloudGtmInstanceConfigAlertResponse DescribeCloudGtmInstanceConfigAlertResponse
      */
     public function describeCloudGtmInstanceConfigAlertWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->acceptLanguage) {
-            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->configId) {
-            @$query['ConfigId'] = $request->configId;
+        if (!Utils::isUnset($request->configId)) {
+            $query['ConfigId'] = $request->configId;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeCloudGtmInstanceConfigAlert',
@@ -3838,13 +3184,9 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param request - DescribeCloudGtmInstanceConfigAlertRequest
+     * @param DescribeCloudGtmInstanceConfigAlertRequest $request DescribeCloudGtmInstanceConfigAlertRequest
      *
-     * @returns DescribeCloudGtmInstanceConfigAlertResponse
-     *
-     * @param DescribeCloudGtmInstanceConfigAlertRequest $request
-     *
-     * @return DescribeCloudGtmInstanceConfigAlertResponse
+     * @return DescribeCloudGtmInstanceConfigAlertResponse DescribeCloudGtmInstanceConfigAlertResponse
      */
     public function describeCloudGtmInstanceConfigAlert($request)
     {
@@ -3854,40 +3196,31 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the complete configuration information about a Global Traffic Manager (GTM) instance.
+     * @summary Queries the complete configuration information about a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeCloudGtmInstanceConfigFullInfoRequest $request DescribeCloudGtmInstanceConfigFullInfoRequest
+     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeCloudGtmInstanceConfigFullInfoRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeCloudGtmInstanceConfigFullInfoResponse
-     *
-     * @param DescribeCloudGtmInstanceConfigFullInfoRequest $request
-     * @param RuntimeOptions                                $runtime
-     *
-     * @return DescribeCloudGtmInstanceConfigFullInfoResponse
+     * @return DescribeCloudGtmInstanceConfigFullInfoResponse DescribeCloudGtmInstanceConfigFullInfoResponse
      */
     public function describeCloudGtmInstanceConfigFullInfoWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->acceptLanguage) {
-            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->configId) {
-            @$query['ConfigId'] = $request->configId;
+        if (!Utils::isUnset($request->configId)) {
+            $query['ConfigId'] = $request->configId;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeCloudGtmInstanceConfigFullInfo',
@@ -3905,15 +3238,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the complete configuration information about a Global Traffic Manager (GTM) instance.
+     * @summary Queries the complete configuration information about a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeCloudGtmInstanceConfigFullInfoRequest $request DescribeCloudGtmInstanceConfigFullInfoRequest
      *
-     * @param request - DescribeCloudGtmInstanceConfigFullInfoRequest
-     *
-     * @returns DescribeCloudGtmInstanceConfigFullInfoResponse
-     *
-     * @param DescribeCloudGtmInstanceConfigFullInfoRequest $request
-     *
-     * @return DescribeCloudGtmInstanceConfigFullInfoResponse
+     * @return DescribeCloudGtmInstanceConfigFullInfoResponse DescribeCloudGtmInstanceConfigFullInfoResponse
      */
     public function describeCloudGtmInstanceConfigFullInfo($request)
     {
@@ -3923,32 +3252,25 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the configurations of a health check template.
+     * @summary Queries the configurations of a health check template.
+     *  *
+     * @param DescribeCloudGtmMonitorTemplateRequest $request DescribeCloudGtmMonitorTemplateRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeCloudGtmMonitorTemplateRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeCloudGtmMonitorTemplateResponse
-     *
-     * @param DescribeCloudGtmMonitorTemplateRequest $request
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return DescribeCloudGtmMonitorTemplateResponse
+     * @return DescribeCloudGtmMonitorTemplateResponse DescribeCloudGtmMonitorTemplateResponse
      */
     public function describeCloudGtmMonitorTemplateWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->acceptLanguage) {
-            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
         }
-
-        if (null !== $request->templateId) {
-            @$query['TemplateId'] = $request->templateId;
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeCloudGtmMonitorTemplate',
@@ -3966,15 +3288,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the configurations of a health check template.
+     * @summary Queries the configurations of a health check template.
+     *  *
+     * @param DescribeCloudGtmMonitorTemplateRequest $request DescribeCloudGtmMonitorTemplateRequest
      *
-     * @param request - DescribeCloudGtmMonitorTemplateRequest
-     *
-     * @returns DescribeCloudGtmMonitorTemplateResponse
-     *
-     * @param DescribeCloudGtmMonitorTemplateRequest $request
-     *
-     * @return DescribeCloudGtmMonitorTemplateResponse
+     * @return DescribeCloudGtmMonitorTemplateResponse DescribeCloudGtmMonitorTemplateResponse
      */
     public function describeCloudGtmMonitorTemplate($request)
     {
@@ -3984,26 +3302,20 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param request - DescribeCloudGtmSummaryRequest
-     * @param runtime - runtime options for this request RuntimeOptions
+     * @param DescribeCloudGtmSummaryRequest $request DescribeCloudGtmSummaryRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @returns DescribeCloudGtmSummaryResponse
-     *
-     * @param DescribeCloudGtmSummaryRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DescribeCloudGtmSummaryResponse
+     * @return DescribeCloudGtmSummaryResponse DescribeCloudGtmSummaryResponse
      */
     public function describeCloudGtmSummaryWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->acceptLanguage) {
-            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeCloudGtmSummary',
@@ -4021,13 +3333,9 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param request - DescribeCloudGtmSummaryRequest
+     * @param DescribeCloudGtmSummaryRequest $request DescribeCloudGtmSummaryRequest
      *
-     * @returns DescribeCloudGtmSummaryResponse
-     *
-     * @param DescribeCloudGtmSummaryRequest $request
-     *
-     * @return DescribeCloudGtmSummaryResponse
+     * @return DescribeCloudGtmSummaryResponse DescribeCloudGtmSummaryResponse
      */
     public function describeCloudGtmSummary($request)
     {
@@ -4037,14 +3345,9 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param request - DescribeCloudGtmSystemLinesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @returns DescribeCloudGtmSystemLinesResponse
-     *
-     * @param RuntimeOptions $runtime
-     *
-     * @return DescribeCloudGtmSystemLinesResponse
+     * @return DescribeCloudGtmSystemLinesResponse DescribeCloudGtmSystemLinesResponse
      */
     public function describeCloudGtmSystemLinesWithOptions($runtime)
     {
@@ -4065,9 +3368,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @returns DescribeCloudGtmSystemLinesResponse
-     *
-     * @return DescribeCloudGtmSystemLinesResponse
+     * @return DescribeCloudGtmSystemLinesResponse DescribeCloudGtmSystemLinesResponse
      */
     public function describeCloudGtmSystemLines()
     {
@@ -4077,32 +3378,25 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the details of a custom line by its unique ID.
+     * @summary Queries the details of a custom line by its unique ID.
+     *  *
+     * @param DescribeCustomLineRequest $request DescribeCustomLineRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeCustomLineRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeCustomLineResponse
-     *
-     * @param DescribeCustomLineRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DescribeCustomLineResponse
+     * @return DescribeCustomLineResponse DescribeCustomLineResponse
      */
     public function describeCustomLineWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->lineId) {
-            @$query['LineId'] = $request->lineId;
+        if (!Utils::isUnset($request->lineId)) {
+            $query['LineId'] = $request->lineId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeCustomLine',
@@ -4120,15 +3414,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the details of a custom line by its unique ID.
+     * @summary Queries the details of a custom line by its unique ID.
+     *  *
+     * @param DescribeCustomLineRequest $request DescribeCustomLineRequest
      *
-     * @param request - DescribeCustomLineRequest
-     *
-     * @returns DescribeCustomLineResponse
-     *
-     * @param DescribeCustomLineRequest $request
-     *
-     * @return DescribeCustomLineResponse
+     * @return DescribeCustomLineResponse DescribeCustomLineResponse
      */
     public function describeCustomLine($request)
     {
@@ -4138,40 +3428,31 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries custom lines by domain name.
+     * @summary Queries custom lines by domain name.
+     *  *
+     * @param DescribeCustomLinesRequest $request DescribeCustomLinesRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeCustomLinesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeCustomLinesResponse
-     *
-     * @param DescribeCustomLinesRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DescribeCustomLinesResponse
+     * @return DescribeCustomLinesResponse DescribeCustomLinesResponse
      */
     public function describeCustomLinesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->domainName) {
-            @$query['DomainName'] = $request->domainName;
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeCustomLines',
@@ -4189,15 +3470,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries custom lines by domain name.
+     * @summary Queries custom lines by domain name.
+     *  *
+     * @param DescribeCustomLinesRequest $request DescribeCustomLinesRequest
      *
-     * @param request - DescribeCustomLinesRequest
-     *
-     * @returns DescribeCustomLinesResponse
-     *
-     * @param DescribeCustomLinesRequest $request
-     *
-     * @return DescribeCustomLinesResponse
+     * @return DescribeCustomLinesResponse DescribeCustomLinesResponse
      */
     public function describeCustomLines($request)
     {
@@ -4207,48 +3484,37 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the subdomains for which weighted round-robin is enabled based on the specified parameters.
+     * @summary Queries the subdomains for which weighted round-robin is enabled based on the specified parameters.
+     *  *
+     * @param DescribeDNSSLBSubDomainsRequest $request DescribeDNSSLBSubDomainsRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDNSSLBSubDomainsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDNSSLBSubDomainsResponse
-     *
-     * @param DescribeDNSSLBSubDomainsRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return DescribeDNSSLBSubDomainsResponse
+     * @return DescribeDNSSLBSubDomainsResponse DescribeDNSSLBSubDomainsResponse
      */
     public function describeDNSSLBSubDomainsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->domainName) {
-            @$query['DomainName'] = $request->domainName;
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->rr) {
-            @$query['Rr'] = $request->rr;
+        if (!Utils::isUnset($request->rr)) {
+            $query['Rr'] = $request->rr;
         }
-
-        if (null !== $request->userClientIp) {
-            @$query['UserClientIp'] = $request->userClientIp;
+        if (!Utils::isUnset($request->userClientIp)) {
+            $query['UserClientIp'] = $request->userClientIp;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDNSSLBSubDomains',
@@ -4266,15 +3532,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the subdomains for which weighted round-robin is enabled based on the specified parameters.
+     * @summary Queries the subdomains for which weighted round-robin is enabled based on the specified parameters.
+     *  *
+     * @param DescribeDNSSLBSubDomainsRequest $request DescribeDNSSLBSubDomainsRequest
      *
-     * @param request - DescribeDNSSLBSubDomainsRequest
-     *
-     * @returns DescribeDNSSLBSubDomainsResponse
-     *
-     * @param DescribeDNSSLBSubDomainsRequest $request
-     *
-     * @return DescribeDNSSLBSubDomainsResponse
+     * @return DescribeDNSSLBSubDomainsResponse DescribeDNSSLBSubDomainsResponse
      */
     public function describeDNSSLBSubDomains($request)
     {
@@ -4284,40 +3546,31 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 查询代理域名.
+     * @summary 查询代理域名
+     *  *
+     * @param DescribeDnsCacheDomainsRequest $request DescribeDnsCacheDomainsRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDnsCacheDomainsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDnsCacheDomainsResponse
-     *
-     * @param DescribeDnsCacheDomainsRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DescribeDnsCacheDomainsResponse
+     * @return DescribeDnsCacheDomainsResponse DescribeDnsCacheDomainsResponse
      */
     public function describeDnsCacheDomainsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->keyword) {
-            @$query['Keyword'] = $request->keyword;
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDnsCacheDomains',
@@ -4335,15 +3588,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 查询代理域名.
+     * @summary 查询代理域名
+     *  *
+     * @param DescribeDnsCacheDomainsRequest $request DescribeDnsCacheDomainsRequest
      *
-     * @param request - DescribeDnsCacheDomainsRequest
-     *
-     * @returns DescribeDnsCacheDomainsResponse
-     *
-     * @param DescribeDnsCacheDomainsRequest $request
-     *
-     * @return DescribeDnsCacheDomainsResponse
+     * @return DescribeDnsCacheDomainsResponse DescribeDnsCacheDomainsResponse
      */
     public function describeDnsCacheDomains($request)
     {
@@ -4353,44 +3602,34 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries access policies of a Global Traffic Manager (GTM) instance.
+     * @summary Queries access policies of a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeDnsGtmAccessStrategiesRequest $request DescribeDnsGtmAccessStrategiesRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDnsGtmAccessStrategiesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDnsGtmAccessStrategiesResponse
-     *
-     * @param DescribeDnsGtmAccessStrategiesRequest $request
-     * @param RuntimeOptions                        $runtime
-     *
-     * @return DescribeDnsGtmAccessStrategiesResponse
+     * @return DescribeDnsGtmAccessStrategiesResponse DescribeDnsGtmAccessStrategiesResponse
      */
     public function describeDnsGtmAccessStrategiesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->strategyMode) {
-            @$query['StrategyMode'] = $request->strategyMode;
+        if (!Utils::isUnset($request->strategyMode)) {
+            $query['StrategyMode'] = $request->strategyMode;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDnsGtmAccessStrategies',
@@ -4408,15 +3647,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries access policies of a Global Traffic Manager (GTM) instance.
+     * @summary Queries access policies of a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeDnsGtmAccessStrategiesRequest $request DescribeDnsGtmAccessStrategiesRequest
      *
-     * @param request - DescribeDnsGtmAccessStrategiesRequest
-     *
-     * @returns DescribeDnsGtmAccessStrategiesResponse
-     *
-     * @param DescribeDnsGtmAccessStrategiesRequest $request
-     *
-     * @return DescribeDnsGtmAccessStrategiesResponse
+     * @return DescribeDnsGtmAccessStrategiesResponse DescribeDnsGtmAccessStrategiesResponse
      */
     public function describeDnsGtmAccessStrategies($request)
     {
@@ -4426,32 +3661,25 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries detailed information about an access policy of a Global Traffic Manager (GTM) instance.
+     * @summary Queries detailed information about an access policy of a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeDnsGtmAccessStrategyRequest $request DescribeDnsGtmAccessStrategyRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDnsGtmAccessStrategyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDnsGtmAccessStrategyResponse
-     *
-     * @param DescribeDnsGtmAccessStrategyRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return DescribeDnsGtmAccessStrategyResponse
+     * @return DescribeDnsGtmAccessStrategyResponse DescribeDnsGtmAccessStrategyResponse
      */
     public function describeDnsGtmAccessStrategyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->strategyId) {
-            @$query['StrategyId'] = $request->strategyId;
+        if (!Utils::isUnset($request->strategyId)) {
+            $query['StrategyId'] = $request->strategyId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDnsGtmAccessStrategy',
@@ -4469,15 +3697,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries detailed information about an access policy of a Global Traffic Manager (GTM) instance.
+     * @summary Queries detailed information about an access policy of a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeDnsGtmAccessStrategyRequest $request DescribeDnsGtmAccessStrategyRequest
      *
-     * @param request - DescribeDnsGtmAccessStrategyRequest
-     *
-     * @returns DescribeDnsGtmAccessStrategyResponse
-     *
-     * @param DescribeDnsGtmAccessStrategyRequest $request
-     *
-     * @return DescribeDnsGtmAccessStrategyResponse
+     * @return DescribeDnsGtmAccessStrategyResponse DescribeDnsGtmAccessStrategyResponse
      */
     public function describeDnsGtmAccessStrategy($request)
     {
@@ -4487,36 +3711,28 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the available configurations of an access policy of a Global Traffic Manager (GTM) instance.
+     * @summary Queries the available configurations of an access policy of a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeDnsGtmAccessStrategyAvailableConfigRequest $request DescribeDnsGtmAccessStrategyAvailableConfigRequest
+     * @param RuntimeOptions                                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDnsGtmAccessStrategyAvailableConfigRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDnsGtmAccessStrategyAvailableConfigResponse
-     *
-     * @param DescribeDnsGtmAccessStrategyAvailableConfigRequest $request
-     * @param RuntimeOptions                                     $runtime
-     *
-     * @return DescribeDnsGtmAccessStrategyAvailableConfigResponse
+     * @return DescribeDnsGtmAccessStrategyAvailableConfigResponse DescribeDnsGtmAccessStrategyAvailableConfigResponse
      */
     public function describeDnsGtmAccessStrategyAvailableConfigWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->strategyMode) {
-            @$query['StrategyMode'] = $request->strategyMode;
+        if (!Utils::isUnset($request->strategyMode)) {
+            $query['StrategyMode'] = $request->strategyMode;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDnsGtmAccessStrategyAvailableConfig',
@@ -4534,15 +3750,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the available configurations of an access policy of a Global Traffic Manager (GTM) instance.
+     * @summary Queries the available configurations of an access policy of a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeDnsGtmAccessStrategyAvailableConfigRequest $request DescribeDnsGtmAccessStrategyAvailableConfigRequest
      *
-     * @param request - DescribeDnsGtmAccessStrategyAvailableConfigRequest
-     *
-     * @returns DescribeDnsGtmAccessStrategyAvailableConfigResponse
-     *
-     * @param DescribeDnsGtmAccessStrategyAvailableConfigRequest $request
-     *
-     * @return DescribeDnsGtmAccessStrategyAvailableConfigResponse
+     * @return DescribeDnsGtmAccessStrategyAvailableConfigResponse DescribeDnsGtmAccessStrategyAvailableConfigResponse
      */
     public function describeDnsGtmAccessStrategyAvailableConfig($request)
     {
@@ -4552,36 +3764,28 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the source regions of addresses.
+     * @summary Queries the source regions of addresses.
+     *  *
+     * @param DescribeDnsGtmAddrAttributeInfoRequest $request DescribeDnsGtmAddrAttributeInfoRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDnsGtmAddrAttributeInfoRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDnsGtmAddrAttributeInfoResponse
-     *
-     * @param DescribeDnsGtmAddrAttributeInfoRequest $request
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return DescribeDnsGtmAddrAttributeInfoResponse
+     * @return DescribeDnsGtmAddrAttributeInfoResponse DescribeDnsGtmAddrAttributeInfoResponse
      */
     public function describeDnsGtmAddrAttributeInfoWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->addrs) {
-            @$query['Addrs'] = $request->addrs;
+        if (!Utils::isUnset($request->addrs)) {
+            $query['Addrs'] = $request->addrs;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->type) {
-            @$query['Type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDnsGtmAddrAttributeInfo',
@@ -4599,15 +3803,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the source regions of addresses.
+     * @summary Queries the source regions of addresses.
+     *  *
+     * @param DescribeDnsGtmAddrAttributeInfoRequest $request DescribeDnsGtmAddrAttributeInfoRequest
      *
-     * @param request - DescribeDnsGtmAddrAttributeInfoRequest
-     *
-     * @returns DescribeDnsGtmAddrAttributeInfoResponse
-     *
-     * @param DescribeDnsGtmAddrAttributeInfoRequest $request
-     *
-     * @return DescribeDnsGtmAddrAttributeInfoResponse
+     * @return DescribeDnsGtmAddrAttributeInfoResponse DescribeDnsGtmAddrAttributeInfoResponse
      */
     public function describeDnsGtmAddrAttributeInfo($request)
     {
@@ -4617,32 +3817,25 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the available configurations of an address pool of a Global Traffic Manager (GTM) instance.
+     * @summary Queries the available configurations of an address pool of a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeDnsGtmAddressPoolAvailableConfigRequest $request DescribeDnsGtmAddressPoolAvailableConfigRequest
+     * @param RuntimeOptions                                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDnsGtmAddressPoolAvailableConfigRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDnsGtmAddressPoolAvailableConfigResponse
-     *
-     * @param DescribeDnsGtmAddressPoolAvailableConfigRequest $request
-     * @param RuntimeOptions                                  $runtime
-     *
-     * @return DescribeDnsGtmAddressPoolAvailableConfigResponse
+     * @return DescribeDnsGtmAddressPoolAvailableConfigResponse DescribeDnsGtmAddressPoolAvailableConfigResponse
      */
     public function describeDnsGtmAddressPoolAvailableConfigWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDnsGtmAddressPoolAvailableConfig',
@@ -4660,15 +3853,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the available configurations of an address pool of a Global Traffic Manager (GTM) instance.
+     * @summary Queries the available configurations of an address pool of a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeDnsGtmAddressPoolAvailableConfigRequest $request DescribeDnsGtmAddressPoolAvailableConfigRequest
      *
-     * @param request - DescribeDnsGtmAddressPoolAvailableConfigRequest
-     *
-     * @returns DescribeDnsGtmAddressPoolAvailableConfigResponse
-     *
-     * @param DescribeDnsGtmAddressPoolAvailableConfigRequest $request
-     *
-     * @return DescribeDnsGtmAddressPoolAvailableConfigResponse
+     * @return DescribeDnsGtmAddressPoolAvailableConfigResponse DescribeDnsGtmAddressPoolAvailableConfigResponse
      */
     public function describeDnsGtmAddressPoolAvailableConfig($request)
     {
@@ -4678,26 +3867,20 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param request - DescribeDnsGtmAvailableAlertGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
+     * @param DescribeDnsGtmAvailableAlertGroupRequest $request DescribeDnsGtmAvailableAlertGroupRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @returns DescribeDnsGtmAvailableAlertGroupResponse
-     *
-     * @param DescribeDnsGtmAvailableAlertGroupRequest $request
-     * @param RuntimeOptions                           $runtime
-     *
-     * @return DescribeDnsGtmAvailableAlertGroupResponse
+     * @return DescribeDnsGtmAvailableAlertGroupResponse DescribeDnsGtmAvailableAlertGroupResponse
      */
     public function describeDnsGtmAvailableAlertGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDnsGtmAvailableAlertGroup',
@@ -4715,13 +3898,9 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param request - DescribeDnsGtmAvailableAlertGroupRequest
+     * @param DescribeDnsGtmAvailableAlertGroupRequest $request DescribeDnsGtmAvailableAlertGroupRequest
      *
-     * @returns DescribeDnsGtmAvailableAlertGroupResponse
-     *
-     * @param DescribeDnsGtmAvailableAlertGroupRequest $request
-     *
-     * @return DescribeDnsGtmAvailableAlertGroupResponse
+     * @return DescribeDnsGtmAvailableAlertGroupResponse DescribeDnsGtmAvailableAlertGroupResponse
      */
     public function describeDnsGtmAvailableAlertGroup($request)
     {
@@ -4731,32 +3910,25 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries detailed information about a Global Traffic Manager (GTM) instance.
+     * @summary Queries detailed information about a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeDnsGtmInstanceRequest $request DescribeDnsGtmInstanceRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDnsGtmInstanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDnsGtmInstanceResponse
-     *
-     * @param DescribeDnsGtmInstanceRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return DescribeDnsGtmInstanceResponse
+     * @return DescribeDnsGtmInstanceResponse DescribeDnsGtmInstanceResponse
      */
     public function describeDnsGtmInstanceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDnsGtmInstance',
@@ -4774,15 +3946,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries detailed information about a Global Traffic Manager (GTM) instance.
+     * @summary Queries detailed information about a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeDnsGtmInstanceRequest $request DescribeDnsGtmInstanceRequest
      *
-     * @param request - DescribeDnsGtmInstanceRequest
-     *
-     * @returns DescribeDnsGtmInstanceResponse
-     *
-     * @param DescribeDnsGtmInstanceRequest $request
-     *
-     * @return DescribeDnsGtmInstanceResponse
+     * @return DescribeDnsGtmInstanceResponse DescribeDnsGtmInstanceResponse
      */
     public function describeDnsGtmInstance($request)
     {
@@ -4792,32 +3960,25 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries detailed information about an address pool of a Global Traffic Manager (GTM) instance.
+     * @summary Queries detailed information about an address pool of a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeDnsGtmInstanceAddressPoolRequest $request DescribeDnsGtmInstanceAddressPoolRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDnsGtmInstanceAddressPoolRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDnsGtmInstanceAddressPoolResponse
-     *
-     * @param DescribeDnsGtmInstanceAddressPoolRequest $request
-     * @param RuntimeOptions                           $runtime
-     *
-     * @return DescribeDnsGtmInstanceAddressPoolResponse
+     * @return DescribeDnsGtmInstanceAddressPoolResponse DescribeDnsGtmInstanceAddressPoolResponse
      */
     public function describeDnsGtmInstanceAddressPoolWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->addrPoolId) {
-            @$query['AddrPoolId'] = $request->addrPoolId;
+        if (!Utils::isUnset($request->addrPoolId)) {
+            $query['AddrPoolId'] = $request->addrPoolId;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDnsGtmInstanceAddressPool',
@@ -4835,15 +3996,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries detailed information about an address pool of a Global Traffic Manager (GTM) instance.
+     * @summary Queries detailed information about an address pool of a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeDnsGtmInstanceAddressPoolRequest $request DescribeDnsGtmInstanceAddressPoolRequest
      *
-     * @param request - DescribeDnsGtmInstanceAddressPoolRequest
-     *
-     * @returns DescribeDnsGtmInstanceAddressPoolResponse
-     *
-     * @param DescribeDnsGtmInstanceAddressPoolRequest $request
-     *
-     * @return DescribeDnsGtmInstanceAddressPoolResponse
+     * @return DescribeDnsGtmInstanceAddressPoolResponse DescribeDnsGtmInstanceAddressPoolResponse
      */
     public function describeDnsGtmInstanceAddressPool($request)
     {
@@ -4853,40 +4010,31 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the address pools of a Global Traffic Manager (GTM) instance.
+     * @summary Queries the address pools of a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeDnsGtmInstanceAddressPoolsRequest $request DescribeDnsGtmInstanceAddressPoolsRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDnsGtmInstanceAddressPoolsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDnsGtmInstanceAddressPoolsResponse
-     *
-     * @param DescribeDnsGtmInstanceAddressPoolsRequest $request
-     * @param RuntimeOptions                            $runtime
-     *
-     * @return DescribeDnsGtmInstanceAddressPoolsResponse
+     * @return DescribeDnsGtmInstanceAddressPoolsResponse DescribeDnsGtmInstanceAddressPoolsResponse
      */
     public function describeDnsGtmInstanceAddressPoolsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDnsGtmInstanceAddressPools',
@@ -4904,15 +4052,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the address pools of a Global Traffic Manager (GTM) instance.
+     * @summary Queries the address pools of a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeDnsGtmInstanceAddressPoolsRequest $request DescribeDnsGtmInstanceAddressPoolsRequest
      *
-     * @param request - DescribeDnsGtmInstanceAddressPoolsRequest
-     *
-     * @returns DescribeDnsGtmInstanceAddressPoolsResponse
-     *
-     * @param DescribeDnsGtmInstanceAddressPoolsRequest $request
-     *
-     * @return DescribeDnsGtmInstanceAddressPoolsResponse
+     * @return DescribeDnsGtmInstanceAddressPoolsResponse DescribeDnsGtmInstanceAddressPoolsResponse
      */
     public function describeDnsGtmInstanceAddressPools($request)
     {
@@ -4922,32 +4066,25 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the status of a Global Traffic Manager (GTM) instance.
+     * @summary Queries the status of a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeDnsGtmInstanceStatusRequest $request DescribeDnsGtmInstanceStatusRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDnsGtmInstanceStatusRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDnsGtmInstanceStatusResponse
-     *
-     * @param DescribeDnsGtmInstanceStatusRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return DescribeDnsGtmInstanceStatusResponse
+     * @return DescribeDnsGtmInstanceStatusResponse DescribeDnsGtmInstanceStatusResponse
      */
     public function describeDnsGtmInstanceStatusWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDnsGtmInstanceStatus',
@@ -4965,15 +4102,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the status of a Global Traffic Manager (GTM) instance.
+     * @summary Queries the status of a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeDnsGtmInstanceStatusRequest $request DescribeDnsGtmInstanceStatusRequest
      *
-     * @param request - DescribeDnsGtmInstanceStatusRequest
-     *
-     * @returns DescribeDnsGtmInstanceStatusResponse
-     *
-     * @param DescribeDnsGtmInstanceStatusRequest $request
-     *
-     * @return DescribeDnsGtmInstanceStatusResponse
+     * @return DescribeDnsGtmInstanceStatusResponse DescribeDnsGtmInstanceStatusResponse
      */
     public function describeDnsGtmInstanceStatus($request)
     {
@@ -4983,32 +4116,25 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the CNAME domain name assigned by the system for a Global Traffic Manager (GTM) instance.
+     * @summary Queries the CNAME domain name assigned by the system for a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeDnsGtmInstanceSystemCnameRequest $request DescribeDnsGtmInstanceSystemCnameRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDnsGtmInstanceSystemCnameRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDnsGtmInstanceSystemCnameResponse
-     *
-     * @param DescribeDnsGtmInstanceSystemCnameRequest $request
-     * @param RuntimeOptions                           $runtime
-     *
-     * @return DescribeDnsGtmInstanceSystemCnameResponse
+     * @return DescribeDnsGtmInstanceSystemCnameResponse DescribeDnsGtmInstanceSystemCnameResponse
      */
     public function describeDnsGtmInstanceSystemCnameWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDnsGtmInstanceSystemCname',
@@ -5026,15 +4152,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the CNAME domain name assigned by the system for a Global Traffic Manager (GTM) instance.
+     * @summary Queries the CNAME domain name assigned by the system for a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeDnsGtmInstanceSystemCnameRequest $request DescribeDnsGtmInstanceSystemCnameRequest
      *
-     * @param request - DescribeDnsGtmInstanceSystemCnameRequest
-     *
-     * @returns DescribeDnsGtmInstanceSystemCnameResponse
-     *
-     * @param DescribeDnsGtmInstanceSystemCnameRequest $request
-     *
-     * @return DescribeDnsGtmInstanceSystemCnameResponse
+     * @return DescribeDnsGtmInstanceSystemCnameResponse DescribeDnsGtmInstanceSystemCnameResponse
      */
     public function describeDnsGtmInstanceSystemCname($request)
     {
@@ -5044,44 +4166,34 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries a list of instances.
+     * @summary Queries a list of instances.
+     *  *
+     * @param DescribeDnsGtmInstancesRequest $request DescribeDnsGtmInstancesRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDnsGtmInstancesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDnsGtmInstancesResponse
-     *
-     * @param DescribeDnsGtmInstancesRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DescribeDnsGtmInstancesResponse
+     * @return DescribeDnsGtmInstancesResponse DescribeDnsGtmInstancesResponse
      */
     public function describeDnsGtmInstancesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->keyword) {
-            @$query['Keyword'] = $request->keyword;
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDnsGtmInstances',
@@ -5099,15 +4211,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries a list of instances.
+     * @summary Queries a list of instances.
+     *  *
+     * @param DescribeDnsGtmInstancesRequest $request DescribeDnsGtmInstancesRequest
      *
-     * @param request - DescribeDnsGtmInstancesRequest
-     *
-     * @returns DescribeDnsGtmInstancesResponse
-     *
-     * @param DescribeDnsGtmInstancesRequest $request
-     *
-     * @return DescribeDnsGtmInstancesResponse
+     * @return DescribeDnsGtmInstancesResponse DescribeDnsGtmInstancesResponse
      */
     public function describeDnsGtmInstances($request)
     {
@@ -5117,52 +4225,40 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries operation logs of a Global Traffic Manager (GTM) instance.
+     * @summary Queries operation logs of a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeDnsGtmLogsRequest $request DescribeDnsGtmLogsRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDnsGtmLogsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDnsGtmLogsResponse
-     *
-     * @param DescribeDnsGtmLogsRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DescribeDnsGtmLogsResponse
+     * @return DescribeDnsGtmLogsResponse DescribeDnsGtmLogsResponse
      */
     public function describeDnsGtmLogsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->endTimestamp) {
-            @$query['EndTimestamp'] = $request->endTimestamp;
+        if (!Utils::isUnset($request->endTimestamp)) {
+            $query['EndTimestamp'] = $request->endTimestamp;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->keyword) {
-            @$query['Keyword'] = $request->keyword;
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->startTimestamp) {
-            @$query['StartTimestamp'] = $request->startTimestamp;
+        if (!Utils::isUnset($request->startTimestamp)) {
+            $query['StartTimestamp'] = $request->startTimestamp;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDnsGtmLogs',
@@ -5180,15 +4276,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries operation logs of a Global Traffic Manager (GTM) instance.
+     * @summary Queries operation logs of a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeDnsGtmLogsRequest $request DescribeDnsGtmLogsRequest
      *
-     * @param request - DescribeDnsGtmLogsRequest
-     *
-     * @returns DescribeDnsGtmLogsResponse
-     *
-     * @param DescribeDnsGtmLogsRequest $request
-     *
-     * @return DescribeDnsGtmLogsResponse
+     * @return DescribeDnsGtmLogsResponse DescribeDnsGtmLogsResponse
      */
     public function describeDnsGtmLogs($request)
     {
@@ -5198,28 +4290,22 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the configuration items that can be set for a health check task.
+     * @summary Queries the configuration items that can be set for a health check task.
+     *  *
+     * @param DescribeDnsGtmMonitorAvailableConfigRequest $request DescribeDnsGtmMonitorAvailableConfigRequest
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDnsGtmMonitorAvailableConfigRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDnsGtmMonitorAvailableConfigResponse
-     *
-     * @param DescribeDnsGtmMonitorAvailableConfigRequest $request
-     * @param RuntimeOptions                              $runtime
-     *
-     * @return DescribeDnsGtmMonitorAvailableConfigResponse
+     * @return DescribeDnsGtmMonitorAvailableConfigResponse DescribeDnsGtmMonitorAvailableConfigResponse
      */
     public function describeDnsGtmMonitorAvailableConfigWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDnsGtmMonitorAvailableConfig',
@@ -5237,15 +4323,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the configuration items that can be set for a health check task.
+     * @summary Queries the configuration items that can be set for a health check task.
+     *  *
+     * @param DescribeDnsGtmMonitorAvailableConfigRequest $request DescribeDnsGtmMonitorAvailableConfigRequest
      *
-     * @param request - DescribeDnsGtmMonitorAvailableConfigRequest
-     *
-     * @returns DescribeDnsGtmMonitorAvailableConfigResponse
-     *
-     * @param DescribeDnsGtmMonitorAvailableConfigRequest $request
-     *
-     * @return DescribeDnsGtmMonitorAvailableConfigResponse
+     * @return DescribeDnsGtmMonitorAvailableConfigResponse DescribeDnsGtmMonitorAvailableConfigResponse
      */
     public function describeDnsGtmMonitorAvailableConfig($request)
     {
@@ -5255,32 +4337,25 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the health check configuration of an address pool.
+     * @summary Queries the health check configuration of an address pool.
+     *  *
+     * @param DescribeDnsGtmMonitorConfigRequest $request DescribeDnsGtmMonitorConfigRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDnsGtmMonitorConfigRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDnsGtmMonitorConfigResponse
-     *
-     * @param DescribeDnsGtmMonitorConfigRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return DescribeDnsGtmMonitorConfigResponse
+     * @return DescribeDnsGtmMonitorConfigResponse DescribeDnsGtmMonitorConfigResponse
      */
     public function describeDnsGtmMonitorConfigWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->monitorConfigId) {
-            @$query['MonitorConfigId'] = $request->monitorConfigId;
+        if (!Utils::isUnset($request->monitorConfigId)) {
+            $query['MonitorConfigId'] = $request->monitorConfigId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDnsGtmMonitorConfig',
@@ -5298,15 +4373,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the health check configuration of an address pool.
+     * @summary Queries the health check configuration of an address pool.
+     *  *
+     * @param DescribeDnsGtmMonitorConfigRequest $request DescribeDnsGtmMonitorConfigRequest
      *
-     * @param request - DescribeDnsGtmMonitorConfigRequest
-     *
-     * @returns DescribeDnsGtmMonitorConfigResponse
-     *
-     * @param DescribeDnsGtmMonitorConfigRequest $request
-     *
-     * @return DescribeDnsGtmMonitorConfigResponse
+     * @return DescribeDnsGtmMonitorConfigResponse DescribeDnsGtmMonitorConfigResponse
      */
     public function describeDnsGtmMonitorConfig($request)
     {
@@ -5316,36 +4387,28 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the details about a paid Alibaba Cloud DNS instance based on the instance ID.
+     * @summary Queries the details about a paid Alibaba Cloud DNS instance based on the instance ID.
+     *  *
+     * @param DescribeDnsProductInstanceRequest $request DescribeDnsProductInstanceRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDnsProductInstanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDnsProductInstanceResponse
-     *
-     * @param DescribeDnsProductInstanceRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return DescribeDnsProductInstanceResponse
+     * @return DescribeDnsProductInstanceResponse DescribeDnsProductInstanceResponse
      */
     public function describeDnsProductInstanceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->userClientIp) {
-            @$query['UserClientIp'] = $request->userClientIp;
+        if (!Utils::isUnset($request->userClientIp)) {
+            $query['UserClientIp'] = $request->userClientIp;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDnsProductInstance',
@@ -5363,15 +4426,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the details about a paid Alibaba Cloud DNS instance based on the instance ID.
+     * @summary Queries the details about a paid Alibaba Cloud DNS instance based on the instance ID.
+     *  *
+     * @param DescribeDnsProductInstanceRequest $request DescribeDnsProductInstanceRequest
      *
-     * @param request - DescribeDnsProductInstanceRequest
-     *
-     * @returns DescribeDnsProductInstanceResponse
-     *
-     * @param DescribeDnsProductInstanceRequest $request
-     *
-     * @return DescribeDnsProductInstanceResponse
+     * @return DescribeDnsProductInstanceResponse DescribeDnsProductInstanceResponse
      */
     public function describeDnsProductInstance($request)
     {
@@ -5381,59 +4440,45 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Calls the DescribeDnsProductInstances operation to query the list of paid Alibaba Cloud DNS instances based on input parameters.
+     * @summary Calls the DescribeDnsProductInstances operation to query the list of paid Alibaba Cloud DNS instances based on input parameters.
+     *  *
+     * @description >  If the response parameters of an Alibaba Cloud DNS instance do not contain domain names, no domain names are bound to the instance.
+     *  *
+     * @param DescribeDnsProductInstancesRequest $request DescribeDnsProductInstancesRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * >  If the response parameters of an Alibaba Cloud DNS instance do not contain domain names, no domain names are bound to the instance.
-     *
-     * @param request - DescribeDnsProductInstancesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDnsProductInstancesResponse
-     *
-     * @param DescribeDnsProductInstancesRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return DescribeDnsProductInstancesResponse
+     * @return DescribeDnsProductInstancesResponse DescribeDnsProductInstancesResponse
      */
     public function describeDnsProductInstancesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->direction) {
-            @$query['Direction'] = $request->direction;
+        if (!Utils::isUnset($request->direction)) {
+            $query['Direction'] = $request->direction;
         }
-
-        if (null !== $request->domainType) {
-            @$query['DomainType'] = $request->domainType;
+        if (!Utils::isUnset($request->domainType)) {
+            $query['DomainType'] = $request->domainType;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->orderBy) {
-            @$query['OrderBy'] = $request->orderBy;
+        if (!Utils::isUnset($request->orderBy)) {
+            $query['OrderBy'] = $request->orderBy;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->userClientIp) {
-            @$query['UserClientIp'] = $request->userClientIp;
+        if (!Utils::isUnset($request->userClientIp)) {
+            $query['UserClientIp'] = $request->userClientIp;
         }
-
-        if (null !== $request->versionCode) {
-            @$query['VersionCode'] = $request->versionCode;
+        if (!Utils::isUnset($request->versionCode)) {
+            $query['VersionCode'] = $request->versionCode;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDnsProductInstances',
@@ -5451,18 +4496,13 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Calls the DescribeDnsProductInstances operation to query the list of paid Alibaba Cloud DNS instances based on input parameters.
+     * @summary Calls the DescribeDnsProductInstances operation to query the list of paid Alibaba Cloud DNS instances based on input parameters.
+     *  *
+     * @description >  If the response parameters of an Alibaba Cloud DNS instance do not contain domain names, no domain names are bound to the instance.
+     *  *
+     * @param DescribeDnsProductInstancesRequest $request DescribeDnsProductInstancesRequest
      *
-     * @remarks
-     * >  If the response parameters of an Alibaba Cloud DNS instance do not contain domain names, no domain names are bound to the instance.
-     *
-     * @param request - DescribeDnsProductInstancesRequest
-     *
-     * @returns DescribeDnsProductInstancesResponse
-     *
-     * @param DescribeDnsProductInstancesRequest $request
-     *
-     * @return DescribeDnsProductInstancesResponse
+     * @return DescribeDnsProductInstancesResponse DescribeDnsProductInstancesResponse
      */
     public function describeDnsProductInstances($request)
     {
@@ -5472,34 +4512,26 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param request - DescribeDohAccountStatisticsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
+     * @param DescribeDohAccountStatisticsRequest $request DescribeDohAccountStatisticsRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @returns DescribeDohAccountStatisticsResponse
-     *
-     * @param DescribeDohAccountStatisticsRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return DescribeDohAccountStatisticsResponse
+     * @return DescribeDohAccountStatisticsResponse DescribeDohAccountStatisticsResponse
      */
     public function describeDohAccountStatisticsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->endDate) {
-            @$query['EndDate'] = $request->endDate;
+        if (!Utils::isUnset($request->endDate)) {
+            $query['EndDate'] = $request->endDate;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->startDate) {
-            @$query['StartDate'] = $request->startDate;
+        if (!Utils::isUnset($request->startDate)) {
+            $query['StartDate'] = $request->startDate;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDohAccountStatistics',
@@ -5517,13 +4549,9 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param request - DescribeDohAccountStatisticsRequest
+     * @param DescribeDohAccountStatisticsRequest $request DescribeDohAccountStatisticsRequest
      *
-     * @returns DescribeDohAccountStatisticsResponse
-     *
-     * @param DescribeDohAccountStatisticsRequest $request
-     *
-     * @return DescribeDohAccountStatisticsResponse
+     * @return DescribeDohAccountStatisticsResponse DescribeDohAccountStatisticsResponse
      */
     public function describeDohAccountStatistics($request)
     {
@@ -5533,40 +4561,31 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 查询DOH域名请求量数据.
+     * @summary 查询DOH域名请求量数据
+     *  *
+     * @param DescribeDohDomainStatisticsRequest $request DescribeDohDomainStatisticsRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDohDomainStatisticsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDohDomainStatisticsResponse
-     *
-     * @param DescribeDohDomainStatisticsRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return DescribeDohDomainStatisticsResponse
+     * @return DescribeDohDomainStatisticsResponse DescribeDohDomainStatisticsResponse
      */
     public function describeDohDomainStatisticsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->domainName) {
-            @$query['DomainName'] = $request->domainName;
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
         }
-
-        if (null !== $request->endDate) {
-            @$query['EndDate'] = $request->endDate;
+        if (!Utils::isUnset($request->endDate)) {
+            $query['EndDate'] = $request->endDate;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->startDate) {
-            @$query['StartDate'] = $request->startDate;
+        if (!Utils::isUnset($request->startDate)) {
+            $query['StartDate'] = $request->startDate;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDohDomainStatistics',
@@ -5584,15 +4603,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 查询DOH域名请求量数据.
+     * @summary 查询DOH域名请求量数据
+     *  *
+     * @param DescribeDohDomainStatisticsRequest $request DescribeDohDomainStatisticsRequest
      *
-     * @param request - DescribeDohDomainStatisticsRequest
-     *
-     * @returns DescribeDohDomainStatisticsResponse
-     *
-     * @param DescribeDohDomainStatisticsRequest $request
-     *
-     * @return DescribeDohDomainStatisticsResponse
+     * @return DescribeDohDomainStatisticsResponse DescribeDohDomainStatisticsResponse
      */
     public function describeDohDomainStatistics($request)
     {
@@ -5602,46 +4617,35 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param request - DescribeDohDomainStatisticsSummaryRequest
-     * @param runtime - runtime options for this request RuntimeOptions
+     * @param DescribeDohDomainStatisticsSummaryRequest $request DescribeDohDomainStatisticsSummaryRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @returns DescribeDohDomainStatisticsSummaryResponse
-     *
-     * @param DescribeDohDomainStatisticsSummaryRequest $request
-     * @param RuntimeOptions                            $runtime
-     *
-     * @return DescribeDohDomainStatisticsSummaryResponse
+     * @return DescribeDohDomainStatisticsSummaryResponse DescribeDohDomainStatisticsSummaryResponse
      */
     public function describeDohDomainStatisticsSummaryWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->domainName) {
-            @$query['DomainName'] = $request->domainName;
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
         }
-
-        if (null !== $request->endDate) {
-            @$query['EndDate'] = $request->endDate;
+        if (!Utils::isUnset($request->endDate)) {
+            $query['EndDate'] = $request->endDate;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->startDate) {
-            @$query['StartDate'] = $request->startDate;
+        if (!Utils::isUnset($request->startDate)) {
+            $query['StartDate'] = $request->startDate;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDohDomainStatisticsSummary',
@@ -5659,13 +4663,9 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param request - DescribeDohDomainStatisticsSummaryRequest
+     * @param DescribeDohDomainStatisticsSummaryRequest $request DescribeDohDomainStatisticsSummaryRequest
      *
-     * @returns DescribeDohDomainStatisticsSummaryResponse
-     *
-     * @param DescribeDohDomainStatisticsSummaryRequest $request
-     *
-     * @return DescribeDohDomainStatisticsSummaryResponse
+     * @return DescribeDohDomainStatisticsSummaryResponse DescribeDohDomainStatisticsSummaryResponse
      */
     public function describeDohDomainStatisticsSummary($request)
     {
@@ -5675,38 +4675,29 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param request - DescribeDohSubDomainStatisticsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
+     * @param DescribeDohSubDomainStatisticsRequest $request DescribeDohSubDomainStatisticsRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @returns DescribeDohSubDomainStatisticsResponse
-     *
-     * @param DescribeDohSubDomainStatisticsRequest $request
-     * @param RuntimeOptions                        $runtime
-     *
-     * @return DescribeDohSubDomainStatisticsResponse
+     * @return DescribeDohSubDomainStatisticsResponse DescribeDohSubDomainStatisticsResponse
      */
     public function describeDohSubDomainStatisticsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->endDate) {
-            @$query['EndDate'] = $request->endDate;
+        if (!Utils::isUnset($request->endDate)) {
+            $query['EndDate'] = $request->endDate;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->startDate) {
-            @$query['StartDate'] = $request->startDate;
+        if (!Utils::isUnset($request->startDate)) {
+            $query['StartDate'] = $request->startDate;
         }
-
-        if (null !== $request->subDomain) {
-            @$query['SubDomain'] = $request->subDomain;
+        if (!Utils::isUnset($request->subDomain)) {
+            $query['SubDomain'] = $request->subDomain;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDohSubDomainStatistics',
@@ -5724,13 +4715,9 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param request - DescribeDohSubDomainStatisticsRequest
+     * @param DescribeDohSubDomainStatisticsRequest $request DescribeDohSubDomainStatisticsRequest
      *
-     * @returns DescribeDohSubDomainStatisticsResponse
-     *
-     * @param DescribeDohSubDomainStatisticsRequest $request
-     *
-     * @return DescribeDohSubDomainStatisticsResponse
+     * @return DescribeDohSubDomainStatisticsResponse DescribeDohSubDomainStatisticsResponse
      */
     public function describeDohSubDomainStatistics($request)
     {
@@ -5740,50 +4727,38 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param request - DescribeDohSubDomainStatisticsSummaryRequest
-     * @param runtime - runtime options for this request RuntimeOptions
+     * @param DescribeDohSubDomainStatisticsSummaryRequest $request DescribeDohSubDomainStatisticsSummaryRequest
+     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
      *
-     * @returns DescribeDohSubDomainStatisticsSummaryResponse
-     *
-     * @param DescribeDohSubDomainStatisticsSummaryRequest $request
-     * @param RuntimeOptions                               $runtime
-     *
-     * @return DescribeDohSubDomainStatisticsSummaryResponse
+     * @return DescribeDohSubDomainStatisticsSummaryResponse DescribeDohSubDomainStatisticsSummaryResponse
      */
     public function describeDohSubDomainStatisticsSummaryWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->domainName) {
-            @$query['DomainName'] = $request->domainName;
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
         }
-
-        if (null !== $request->endDate) {
-            @$query['EndDate'] = $request->endDate;
+        if (!Utils::isUnset($request->endDate)) {
+            $query['EndDate'] = $request->endDate;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->startDate) {
-            @$query['StartDate'] = $request->startDate;
+        if (!Utils::isUnset($request->startDate)) {
+            $query['StartDate'] = $request->startDate;
         }
-
-        if (null !== $request->subDomain) {
-            @$query['SubDomain'] = $request->subDomain;
+        if (!Utils::isUnset($request->subDomain)) {
+            $query['SubDomain'] = $request->subDomain;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDohSubDomainStatisticsSummary',
@@ -5801,13 +4776,9 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param request - DescribeDohSubDomainStatisticsSummaryRequest
+     * @param DescribeDohSubDomainStatisticsSummaryRequest $request DescribeDohSubDomainStatisticsSummaryRequest
      *
-     * @returns DescribeDohSubDomainStatisticsSummaryResponse
-     *
-     * @param DescribeDohSubDomainStatisticsSummaryRequest $request
-     *
-     * @return DescribeDohSubDomainStatisticsSummaryResponse
+     * @return DescribeDohSubDomainStatisticsSummaryResponse DescribeDohSubDomainStatisticsSummaryResponse
      */
     public function describeDohSubDomainStatisticsSummary($request)
     {
@@ -5817,36 +4788,28 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the numbers of accessed domains and subdomains by using DNS over HTTPS (DoH).
+     * @summary Queries the numbers of accessed domains and subdomains by using DNS over HTTPS (DoH).
+     *  *
+     * @param DescribeDohUserInfoRequest $request DescribeDohUserInfoRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDohUserInfoRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDohUserInfoResponse
-     *
-     * @param DescribeDohUserInfoRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DescribeDohUserInfoResponse
+     * @return DescribeDohUserInfoResponse DescribeDohUserInfoResponse
      */
     public function describeDohUserInfoWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->endDate) {
-            @$query['EndDate'] = $request->endDate;
+        if (!Utils::isUnset($request->endDate)) {
+            $query['EndDate'] = $request->endDate;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->startDate) {
-            @$query['StartDate'] = $request->startDate;
+        if (!Utils::isUnset($request->startDate)) {
+            $query['StartDate'] = $request->startDate;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDohUserInfo',
@@ -5864,15 +4827,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the numbers of accessed domains and subdomains by using DNS over HTTPS (DoH).
+     * @summary Queries the numbers of accessed domains and subdomains by using DNS over HTTPS (DoH).
+     *  *
+     * @param DescribeDohUserInfoRequest $request DescribeDohUserInfoRequest
      *
-     * @param request - DescribeDohUserInfoRequest
-     *
-     * @returns DescribeDohUserInfoResponse
-     *
-     * @param DescribeDohUserInfoRequest $request
-     *
-     * @return DescribeDohUserInfoResponse
+     * @return DescribeDohUserInfoResponse DescribeDohUserInfoResponse
      */
     public function describeDohUserInfo($request)
     {
@@ -5882,32 +4841,25 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the Domain Name System Security Extensions (DNSSEC) configurations of a domain name based on the specified parameters.
+     * @summary Queries the Domain Name System Security Extensions (DNSSEC) configurations of a domain name based on the specified parameters.
+     *  *
+     * @param DescribeDomainDnssecInfoRequest $request DescribeDomainDnssecInfoRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDomainDnssecInfoRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDomainDnssecInfoResponse
-     *
-     * @param DescribeDomainDnssecInfoRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return DescribeDomainDnssecInfoResponse
+     * @return DescribeDomainDnssecInfoResponse DescribeDomainDnssecInfoResponse
      */
     public function describeDomainDnssecInfoWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->domainName) {
-            @$query['DomainName'] = $request->domainName;
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDomainDnssecInfo',
@@ -5925,15 +4877,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the Domain Name System Security Extensions (DNSSEC) configurations of a domain name based on the specified parameters.
+     * @summary Queries the Domain Name System Security Extensions (DNSSEC) configurations of a domain name based on the specified parameters.
+     *  *
+     * @param DescribeDomainDnssecInfoRequest $request DescribeDomainDnssecInfoRequest
      *
-     * @param request - DescribeDomainDnssecInfoRequest
-     *
-     * @returns DescribeDomainDnssecInfoResponse
-     *
-     * @param DescribeDomainDnssecInfoRequest $request
-     *
-     * @return DescribeDomainDnssecInfoResponse
+     * @return DescribeDomainDnssecInfoResponse DescribeDomainDnssecInfoResponse
      */
     public function describeDomainDnssecInfo($request)
     {
@@ -5943,40 +4891,31 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries all domain name groups based on the specified parameters.
+     * @summary Queries all domain name groups based on the specified parameters.
+     *  *
+     * @param DescribeDomainGroupsRequest $request DescribeDomainGroupsRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDomainGroupsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDomainGroupsResponse
-     *
-     * @param DescribeDomainGroupsRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DescribeDomainGroupsResponse
+     * @return DescribeDomainGroupsResponse DescribeDomainGroupsResponse
      */
     public function describeDomainGroupsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->keyWord) {
-            @$query['KeyWord'] = $request->keyWord;
+        if (!Utils::isUnset($request->keyWord)) {
+            $query['KeyWord'] = $request->keyWord;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDomainGroups',
@@ -5994,15 +4933,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries all domain name groups based on the specified parameters.
+     * @summary Queries all domain name groups based on the specified parameters.
+     *  *
+     * @param DescribeDomainGroupsRequest $request DescribeDomainGroupsRequest
      *
-     * @param request - DescribeDomainGroupsRequest
-     *
-     * @returns DescribeDomainGroupsResponse
-     *
-     * @param DescribeDomainGroupsRequest $request
-     *
-     * @return DescribeDomainGroupsResponse
+     * @return DescribeDomainGroupsResponse DescribeDomainGroupsResponse
      */
     public function describeDomainGroups($request)
     {
@@ -6012,39 +4947,30 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the information about a domain name based on specified parameters.
+     * @summary Queries the information about a domain name based on specified parameters.
+     *  *
+     * @description In this example, the domain name is bound to an instance of Alibaba Cloud DNS Enterprise Ultimate Edition. For more information about valid Domain Name System (DNS) request lines, see the return values of the RecordLines parameter.
+     *  *
+     * @param DescribeDomainInfoRequest $request DescribeDomainInfoRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * In this example, the domain name is bound to an instance of Alibaba Cloud DNS Enterprise Ultimate Edition. For more information about valid Domain Name System (DNS) request lines, see the return values of the RecordLines parameter.
-     *
-     * @param request - DescribeDomainInfoRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDomainInfoResponse
-     *
-     * @param DescribeDomainInfoRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DescribeDomainInfoResponse
+     * @return DescribeDomainInfoResponse DescribeDomainInfoResponse
      */
     public function describeDomainInfoWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->domainName) {
-            @$query['DomainName'] = $request->domainName;
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->needDetailAttributes) {
-            @$query['NeedDetailAttributes'] = $request->needDetailAttributes;
+        if (!Utils::isUnset($request->needDetailAttributes)) {
+            $query['NeedDetailAttributes'] = $request->needDetailAttributes;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDomainInfo',
@@ -6062,18 +4988,13 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the information about a domain name based on specified parameters.
+     * @summary Queries the information about a domain name based on specified parameters.
+     *  *
+     * @description In this example, the domain name is bound to an instance of Alibaba Cloud DNS Enterprise Ultimate Edition. For more information about valid Domain Name System (DNS) request lines, see the return values of the RecordLines parameter.
+     *  *
+     * @param DescribeDomainInfoRequest $request DescribeDomainInfoRequest
      *
-     * @remarks
-     * In this example, the domain name is bound to an instance of Alibaba Cloud DNS Enterprise Ultimate Edition. For more information about valid Domain Name System (DNS) request lines, see the return values of the RecordLines parameter.
-     *
-     * @param request - DescribeDomainInfoRequest
-     *
-     * @returns DescribeDomainInfoResponse
-     *
-     * @param DescribeDomainInfoRequest $request
-     *
-     * @return DescribeDomainInfoResponse
+     * @return DescribeDomainInfoResponse DescribeDomainInfoResponse
      */
     public function describeDomainInfo($request)
     {
@@ -6083,56 +5004,43 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the operation logs of domain names based on the specified parameters.
+     * @summary Queries the operation logs of domain names based on the specified parameters.
+     *  *
+     * @param DescribeDomainLogsRequest $request DescribeDomainLogsRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDomainLogsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDomainLogsResponse
-     *
-     * @param DescribeDomainLogsRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DescribeDomainLogsResponse
+     * @return DescribeDomainLogsResponse DescribeDomainLogsResponse
      */
     public function describeDomainLogsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->keyWord) {
-            @$query['KeyWord'] = $request->keyWord;
+        if (!Utils::isUnset($request->keyWord)) {
+            $query['KeyWord'] = $request->keyWord;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->startDate) {
-            @$query['StartDate'] = $request->startDate;
+        if (!Utils::isUnset($request->startDate)) {
+            $query['StartDate'] = $request->startDate;
         }
-
-        if (null !== $request->type) {
-            @$query['Type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
         }
-
-        if (null !== $request->endDate) {
-            @$query['endDate'] = $request->endDate;
+        if (!Utils::isUnset($request->endDate)) {
+            $query['endDate'] = $request->endDate;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDomainLogs',
@@ -6150,15 +5058,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the operation logs of domain names based on the specified parameters.
+     * @summary Queries the operation logs of domain names based on the specified parameters.
+     *  *
+     * @param DescribeDomainLogsRequest $request DescribeDomainLogsRequest
      *
-     * @param request - DescribeDomainLogsRequest
-     *
-     * @returns DescribeDomainLogsResponse
-     *
-     * @param DescribeDomainLogsRequest $request
-     *
-     * @return DescribeDomainLogsResponse
+     * @return DescribeDomainLogsResponse DescribeDomainLogsResponse
      */
     public function describeDomainLogs($request)
     {
@@ -6168,35 +5072,27 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the name servers configured for a specified domain name and checks whether all the name servers are Alibaba Cloud Domain Name System (DNS) servers.
+     * @summary Queries the name servers configured for a specified domain name and checks whether all the name servers are Alibaba Cloud Domain Name System (DNS) servers.
+     *  *
+     * @description >  You can call this operation to query the authoritative servers of a domain name registry to obtain the name servers for a domain name. If the domain name is in an invalid state, such as serverHold or clientHold, an error may be returned.
+     *  *
+     * @param DescribeDomainNsRequest $request DescribeDomainNsRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * >  You can call this operation to query the authoritative servers of a domain name registry to obtain the name servers for a domain name. If the domain name is in an invalid state, such as serverHold or clientHold, an error may be returned.
-     *
-     * @param request - DescribeDomainNsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDomainNsResponse
-     *
-     * @param DescribeDomainNsRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return DescribeDomainNsResponse
+     * @return DescribeDomainNsResponse DescribeDomainNsResponse
      */
     public function describeDomainNsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->domainName) {
-            @$query['DomainName'] = $request->domainName;
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDomainNs',
@@ -6214,18 +5110,13 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the name servers configured for a specified domain name and checks whether all the name servers are Alibaba Cloud Domain Name System (DNS) servers.
+     * @summary Queries the name servers configured for a specified domain name and checks whether all the name servers are Alibaba Cloud Domain Name System (DNS) servers.
+     *  *
+     * @description >  You can call this operation to query the authoritative servers of a domain name registry to obtain the name servers for a domain name. If the domain name is in an invalid state, such as serverHold or clientHold, an error may be returned.
+     *  *
+     * @param DescribeDomainNsRequest $request DescribeDomainNsRequest
      *
-     * @remarks
-     * >  You can call this operation to query the authoritative servers of a domain name registry to obtain the name servers for a domain name. If the domain name is in an invalid state, such as serverHold or clientHold, an error may be returned.
-     *
-     * @param request - DescribeDomainNsRequest
-     *
-     * @returns DescribeDomainNsResponse
-     *
-     * @param DescribeDomainNsRequest $request
-     *
-     * @return DescribeDomainNsResponse
+     * @return DescribeDomainNsResponse DescribeDomainNsResponse
      */
     public function describeDomainNs($request)
     {
@@ -6235,40 +5126,31 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the information about a Domain Name System (DNS) record by the ID of the DNS record.
-     *
-     * @remarks
-     * ## Debugging
+     * @summary Queries the information about a Domain Name System (DNS) record by the ID of the DNS record.
+     *  *
+     * @description ## Debugging
      * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Alidns\\&api=DescribeDomainRecordInfo\\&type=RPC\\&version=2015-01-09)
+     *  *
+     * @param DescribeDomainRecordInfoRequest $request DescribeDomainRecordInfoRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDomainRecordInfoRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDomainRecordInfoResponse
-     *
-     * @param DescribeDomainRecordInfoRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return DescribeDomainRecordInfoResponse
+     * @return DescribeDomainRecordInfoResponse DescribeDomainRecordInfoResponse
      */
     public function describeDomainRecordInfoWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->recordId) {
-            @$query['RecordId'] = $request->recordId;
+        if (!Utils::isUnset($request->recordId)) {
+            $query['RecordId'] = $request->recordId;
         }
-
-        if (null !== $request->userClientIp) {
-            @$query['UserClientIp'] = $request->userClientIp;
+        if (!Utils::isUnset($request->userClientIp)) {
+            $query['UserClientIp'] = $request->userClientIp;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDomainRecordInfo',
@@ -6286,19 +5168,14 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the information about a Domain Name System (DNS) record by the ID of the DNS record.
-     *
-     * @remarks
-     * ## Debugging
+     * @summary Queries the information about a Domain Name System (DNS) record by the ID of the DNS record.
+     *  *
+     * @description ## Debugging
      * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Alidns\\&api=DescribeDomainRecordInfo\\&type=RPC\\&version=2015-01-09)
+     *  *
+     * @param DescribeDomainRecordInfoRequest $request DescribeDomainRecordInfoRequest
      *
-     * @param request - DescribeDomainRecordInfoRequest
-     *
-     * @returns DescribeDomainRecordInfoResponse
-     *
-     * @param DescribeDomainRecordInfoRequest $request
-     *
-     * @return DescribeDomainRecordInfoResponse
+     * @return DescribeDomainRecordInfoResponse DescribeDomainRecordInfoResponse
      */
     public function describeDomainRecordInfo($request)
     {
@@ -6308,90 +5185,69 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries all Domain Name System (DNS) records of the specified primary domain names based on the specified parameters.
-     *
-     * @remarks
-     *   You can specify DomainName, PageNumber, and PageSize to query the DNS records of the specified domain names.
+     * @summary Queries all Domain Name System (DNS) records of the specified primary domain names based on the specified parameters.
+     *  *
+     * @description *   You can specify DomainName, PageNumber, and PageSize to query the DNS records of the specified domain names.
      * *   You can also specify RRKeyWord, TypeKeyWord, or ValueKeyWord to query the DNS records that contain the specified keyword.
      * *   By default, the DNS records are sorted in reverse chronological order based on the time when they were added.
      * *   You can specify GroupId to query the DNS records of the specified domain names based on the group ID. You can query the DNS records of all domain names and the domain names in the default group.
+     *  *
+     * @param DescribeDomainRecordsRequest $request DescribeDomainRecordsRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDomainRecordsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDomainRecordsResponse
-     *
-     * @param DescribeDomainRecordsRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DescribeDomainRecordsResponse
+     * @return DescribeDomainRecordsResponse DescribeDomainRecordsResponse
      */
     public function describeDomainRecordsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->direction) {
-            @$query['Direction'] = $request->direction;
+        if (!Utils::isUnset($request->direction)) {
+            $query['Direction'] = $request->direction;
         }
-
-        if (null !== $request->domainName) {
-            @$query['DomainName'] = $request->domainName;
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->keyWord) {
-            @$query['KeyWord'] = $request->keyWord;
+        if (!Utils::isUnset($request->keyWord)) {
+            $query['KeyWord'] = $request->keyWord;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->line) {
-            @$query['Line'] = $request->line;
+        if (!Utils::isUnset($request->line)) {
+            $query['Line'] = $request->line;
         }
-
-        if (null !== $request->orderBy) {
-            @$query['OrderBy'] = $request->orderBy;
+        if (!Utils::isUnset($request->orderBy)) {
+            $query['OrderBy'] = $request->orderBy;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->RRKeyWord) {
-            @$query['RRKeyWord'] = $request->RRKeyWord;
+        if (!Utils::isUnset($request->RRKeyWord)) {
+            $query['RRKeyWord'] = $request->RRKeyWord;
         }
-
-        if (null !== $request->searchMode) {
-            @$query['SearchMode'] = $request->searchMode;
+        if (!Utils::isUnset($request->searchMode)) {
+            $query['SearchMode'] = $request->searchMode;
         }
-
-        if (null !== $request->status) {
-            @$query['Status'] = $request->status;
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
         }
-
-        if (null !== $request->type) {
-            @$query['Type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
         }
-
-        if (null !== $request->typeKeyWord) {
-            @$query['TypeKeyWord'] = $request->typeKeyWord;
+        if (!Utils::isUnset($request->typeKeyWord)) {
+            $query['TypeKeyWord'] = $request->typeKeyWord;
         }
-
-        if (null !== $request->valueKeyWord) {
-            @$query['ValueKeyWord'] = $request->valueKeyWord;
+        if (!Utils::isUnset($request->valueKeyWord)) {
+            $query['ValueKeyWord'] = $request->valueKeyWord;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDomainRecords',
@@ -6409,21 +5265,16 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries all Domain Name System (DNS) records of the specified primary domain names based on the specified parameters.
-     *
-     * @remarks
-     *   You can specify DomainName, PageNumber, and PageSize to query the DNS records of the specified domain names.
+     * @summary Queries all Domain Name System (DNS) records of the specified primary domain names based on the specified parameters.
+     *  *
+     * @description *   You can specify DomainName, PageNumber, and PageSize to query the DNS records of the specified domain names.
      * *   You can also specify RRKeyWord, TypeKeyWord, or ValueKeyWord to query the DNS records that contain the specified keyword.
      * *   By default, the DNS records are sorted in reverse chronological order based on the time when they were added.
      * *   You can specify GroupId to query the DNS records of the specified domain names based on the group ID. You can query the DNS records of all domain names and the domain names in the default group.
+     *  *
+     * @param DescribeDomainRecordsRequest $request DescribeDomainRecordsRequest
      *
-     * @param request - DescribeDomainRecordsRequest
-     *
-     * @returns DescribeDomainRecordsResponse
-     *
-     * @param DescribeDomainRecordsRequest $request
-     *
-     * @return DescribeDomainRecordsResponse
+     * @return DescribeDomainRecordsResponse DescribeDomainRecordsResponse
      */
     public function describeDomainRecords($request)
     {
@@ -6433,60 +5284,46 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the resolution requests of all paid domain names within your account.
+     * @summary Queries the resolution requests of all paid domain names within your account.
+     *  *
+     * @param DescribeDomainResolveStatisticsSummaryRequest $request DescribeDomainResolveStatisticsSummaryRequest
+     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDomainResolveStatisticsSummaryRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDomainResolveStatisticsSummaryResponse
-     *
-     * @param DescribeDomainResolveStatisticsSummaryRequest $request
-     * @param RuntimeOptions                                $runtime
-     *
-     * @return DescribeDomainResolveStatisticsSummaryResponse
+     * @return DescribeDomainResolveStatisticsSummaryResponse DescribeDomainResolveStatisticsSummaryResponse
      */
     public function describeDomainResolveStatisticsSummaryWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->direction) {
-            @$query['Direction'] = $request->direction;
+        if (!Utils::isUnset($request->direction)) {
+            $query['Direction'] = $request->direction;
         }
-
-        if (null !== $request->endDate) {
-            @$query['EndDate'] = $request->endDate;
+        if (!Utils::isUnset($request->endDate)) {
+            $query['EndDate'] = $request->endDate;
         }
-
-        if (null !== $request->keyword) {
-            @$query['Keyword'] = $request->keyword;
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->searchMode) {
-            @$query['SearchMode'] = $request->searchMode;
+        if (!Utils::isUnset($request->searchMode)) {
+            $query['SearchMode'] = $request->searchMode;
         }
-
-        if (null !== $request->startDate) {
-            @$query['StartDate'] = $request->startDate;
+        if (!Utils::isUnset($request->startDate)) {
+            $query['StartDate'] = $request->startDate;
         }
-
-        if (null !== $request->threshold) {
-            @$query['Threshold'] = $request->threshold;
+        if (!Utils::isUnset($request->threshold)) {
+            $query['Threshold'] = $request->threshold;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDomainResolveStatisticsSummary',
@@ -6504,15 +5341,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the resolution requests of all paid domain names within your account.
+     * @summary Queries the resolution requests of all paid domain names within your account.
+     *  *
+     * @param DescribeDomainResolveStatisticsSummaryRequest $request DescribeDomainResolveStatisticsSummaryRequest
      *
-     * @param request - DescribeDomainResolveStatisticsSummaryRequest
-     *
-     * @returns DescribeDomainResolveStatisticsSummaryResponse
-     *
-     * @param DescribeDomainResolveStatisticsSummaryRequest $request
-     *
-     * @return DescribeDomainResolveStatisticsSummaryResponse
+     * @return DescribeDomainResolveStatisticsSummaryResponse DescribeDomainResolveStatisticsSummaryResponse
      */
     public function describeDomainResolveStatisticsSummary($request)
     {
@@ -6522,47 +5355,36 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the real-time statistics on the Domain Name System (DNS) requests for a primary domain name.
+     * @summary Queries the real-time statistics on the Domain Name System (DNS) requests for a primary domain name.
+     *  *
+     * @description Real-time data is collected per hour.
+     *  *
+     * @param DescribeDomainStatisticsRequest $request DescribeDomainStatisticsRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * Real-time data is collected per hour.
-     *
-     * @param request - DescribeDomainStatisticsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDomainStatisticsResponse
-     *
-     * @param DescribeDomainStatisticsRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return DescribeDomainStatisticsResponse
+     * @return DescribeDomainStatisticsResponse DescribeDomainStatisticsResponse
      */
     public function describeDomainStatisticsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->domainName) {
-            @$query['DomainName'] = $request->domainName;
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
         }
-
-        if (null !== $request->domainType) {
-            @$query['DomainType'] = $request->domainType;
+        if (!Utils::isUnset($request->domainType)) {
+            $query['DomainType'] = $request->domainType;
         }
-
-        if (null !== $request->endDate) {
-            @$query['EndDate'] = $request->endDate;
+        if (!Utils::isUnset($request->endDate)) {
+            $query['EndDate'] = $request->endDate;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->startDate) {
-            @$query['StartDate'] = $request->startDate;
+        if (!Utils::isUnset($request->startDate)) {
+            $query['StartDate'] = $request->startDate;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDomainStatistics',
@@ -6580,18 +5402,13 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the real-time statistics on the Domain Name System (DNS) requests for a primary domain name.
+     * @summary Queries the real-time statistics on the Domain Name System (DNS) requests for a primary domain name.
+     *  *
+     * @description Real-time data is collected per hour.
+     *  *
+     * @param DescribeDomainStatisticsRequest $request DescribeDomainStatisticsRequest
      *
-     * @remarks
-     * Real-time data is collected per hour.
-     *
-     * @param request - DescribeDomainStatisticsRequest
-     *
-     * @returns DescribeDomainStatisticsResponse
-     *
-     * @param DescribeDomainStatisticsRequest $request
-     *
-     * @return DescribeDomainStatisticsResponse
+     * @return DescribeDomainStatisticsResponse DescribeDomainStatisticsResponse
      */
     public function describeDomainStatistics($request)
     {
@@ -6601,56 +5418,43 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Calls the DescribeDomainStatisticsSummary operation to obtain the query volume of all paid domain names under your account.
+     * @summary Calls the DescribeDomainStatisticsSummary operation to obtain the query volume of all paid domain names under your account.
+     *  *
+     * @param DescribeDomainStatisticsSummaryRequest $request DescribeDomainStatisticsSummaryRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDomainStatisticsSummaryRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDomainStatisticsSummaryResponse
-     *
-     * @param DescribeDomainStatisticsSummaryRequest $request
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return DescribeDomainStatisticsSummaryResponse
+     * @return DescribeDomainStatisticsSummaryResponse DescribeDomainStatisticsSummaryResponse
      */
     public function describeDomainStatisticsSummaryWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->endDate) {
-            @$query['EndDate'] = $request->endDate;
+        if (!Utils::isUnset($request->endDate)) {
+            $query['EndDate'] = $request->endDate;
         }
-
-        if (null !== $request->keyword) {
-            @$query['Keyword'] = $request->keyword;
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->searchMode) {
-            @$query['SearchMode'] = $request->searchMode;
+        if (!Utils::isUnset($request->searchMode)) {
+            $query['SearchMode'] = $request->searchMode;
         }
-
-        if (null !== $request->startDate) {
-            @$query['StartDate'] = $request->startDate;
+        if (!Utils::isUnset($request->startDate)) {
+            $query['StartDate'] = $request->startDate;
         }
-
-        if (null !== $request->threshold) {
-            @$query['Threshold'] = $request->threshold;
+        if (!Utils::isUnset($request->threshold)) {
+            $query['Threshold'] = $request->threshold;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDomainStatisticsSummary',
@@ -6668,15 +5472,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Calls the DescribeDomainStatisticsSummary operation to obtain the query volume of all paid domain names under your account.
+     * @summary Calls the DescribeDomainStatisticsSummary operation to obtain the query volume of all paid domain names under your account.
+     *  *
+     * @param DescribeDomainStatisticsSummaryRequest $request DescribeDomainStatisticsSummaryRequest
      *
-     * @param request - DescribeDomainStatisticsSummaryRequest
-     *
-     * @returns DescribeDomainStatisticsSummaryResponse
-     *
-     * @param DescribeDomainStatisticsSummaryRequest $request
-     *
-     * @return DescribeDomainStatisticsSummaryResponse
+     * @return DescribeDomainStatisticsSummaryResponse DescribeDomainStatisticsSummaryResponse
      */
     public function describeDomainStatisticsSummary($request)
     {
@@ -6686,62 +5486,48 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Calls the DescribeDomains operation to query domain names of a user based on input parameters.
-     *
-     * @remarks
-     *   You can specify the PageNumber and PageSize parameters to query domain names.
+     * @summary Calls the DescribeDomains operation to query domain names of a user based on input parameters.
+     *  *
+     * @description *   You can specify the PageNumber and PageSize parameters to query domain names.
      * *   You can specify the KeyWord parameter to query domain names that contain the specified keyword.
      * *   By default, the domain names in a list are sorted in descending order of the time they were added.
      * *   You can specify the GroupId parameter. If you do not specify this parameter, all domain names are queried by default.
+     *  *
+     * @param DescribeDomainsRequest $request DescribeDomainsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDomainsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDomainsResponse
-     *
-     * @param DescribeDomainsRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return DescribeDomainsResponse
+     * @return DescribeDomainsResponse DescribeDomainsResponse
      */
     public function describeDomainsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->keyWord) {
-            @$query['KeyWord'] = $request->keyWord;
+        if (!Utils::isUnset($request->keyWord)) {
+            $query['KeyWord'] = $request->keyWord;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->searchMode) {
-            @$query['SearchMode'] = $request->searchMode;
+        if (!Utils::isUnset($request->searchMode)) {
+            $query['SearchMode'] = $request->searchMode;
         }
-
-        if (null !== $request->starmark) {
-            @$query['Starmark'] = $request->starmark;
+        if (!Utils::isUnset($request->starmark)) {
+            $query['Starmark'] = $request->starmark;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDomains',
@@ -6759,21 +5545,16 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Calls the DescribeDomains operation to query domain names of a user based on input parameters.
-     *
-     * @remarks
-     *   You can specify the PageNumber and PageSize parameters to query domain names.
+     * @summary Calls the DescribeDomains operation to query domain names of a user based on input parameters.
+     *  *
+     * @description *   You can specify the PageNumber and PageSize parameters to query domain names.
      * *   You can specify the KeyWord parameter to query domain names that contain the specified keyword.
      * *   By default, the domain names in a list are sorted in descending order of the time they were added.
      * *   You can specify the GroupId parameter. If you do not specify this parameter, all domain names are queried by default.
+     *  *
+     * @param DescribeDomainsRequest $request DescribeDomainsRequest
      *
-     * @param request - DescribeDomainsRequest
-     *
-     * @returns DescribeDomainsResponse
-     *
-     * @param DescribeDomainsRequest $request
-     *
-     * @return DescribeDomainsResponse
+     * @return DescribeDomainsResponse DescribeDomainsResponse
      */
     public function describeDomains($request)
     {
@@ -6783,40 +5564,31 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the access policies of a Global Traffic Manager (GTM) instance.
+     * @summary You can call this operation to query the access policies of a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeGtmAccessStrategiesRequest $request DescribeGtmAccessStrategiesRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeGtmAccessStrategiesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeGtmAccessStrategiesResponse
-     *
-     * @param DescribeGtmAccessStrategiesRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return DescribeGtmAccessStrategiesResponse
+     * @return DescribeGtmAccessStrategiesResponse DescribeGtmAccessStrategiesResponse
      */
     public function describeGtmAccessStrategiesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeGtmAccessStrategies',
@@ -6834,15 +5606,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the access policies of a Global Traffic Manager (GTM) instance.
+     * @summary You can call this operation to query the access policies of a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeGtmAccessStrategiesRequest $request DescribeGtmAccessStrategiesRequest
      *
-     * @param request - DescribeGtmAccessStrategiesRequest
-     *
-     * @returns DescribeGtmAccessStrategiesResponse
-     *
-     * @param DescribeGtmAccessStrategiesRequest $request
-     *
-     * @return DescribeGtmAccessStrategiesResponse
+     * @return DescribeGtmAccessStrategiesResponse DescribeGtmAccessStrategiesResponse
      */
     public function describeGtmAccessStrategies($request)
     {
@@ -6852,32 +5620,25 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the details about an access policy of a Global Traffic Manager (GTM) instance based on the policy ID.
+     * @summary You can call this operation to query the details about an access policy of a Global Traffic Manager (GTM) instance based on the policy ID.
+     *  *
+     * @param DescribeGtmAccessStrategyRequest $request DescribeGtmAccessStrategyRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeGtmAccessStrategyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeGtmAccessStrategyResponse
-     *
-     * @param DescribeGtmAccessStrategyRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DescribeGtmAccessStrategyResponse
+     * @return DescribeGtmAccessStrategyResponse DescribeGtmAccessStrategyResponse
      */
     public function describeGtmAccessStrategyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->strategyId) {
-            @$query['StrategyId'] = $request->strategyId;
+        if (!Utils::isUnset($request->strategyId)) {
+            $query['StrategyId'] = $request->strategyId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeGtmAccessStrategy',
@@ -6895,15 +5656,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the details about an access policy of a Global Traffic Manager (GTM) instance based on the policy ID.
+     * @summary You can call this operation to query the details about an access policy of a Global Traffic Manager (GTM) instance based on the policy ID.
+     *  *
+     * @param DescribeGtmAccessStrategyRequest $request DescribeGtmAccessStrategyRequest
      *
-     * @param request - DescribeGtmAccessStrategyRequest
-     *
-     * @returns DescribeGtmAccessStrategyResponse
-     *
-     * @param DescribeGtmAccessStrategyRequest $request
-     *
-     * @return DescribeGtmAccessStrategyResponse
+     * @return DescribeGtmAccessStrategyResponse DescribeGtmAccessStrategyResponse
      */
     public function describeGtmAccessStrategy($request)
     {
@@ -6913,32 +5670,25 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the configuration items that can be set for an access policy.
+     * @summary Queries the configuration items that can be set for an access policy.
+     *  *
+     * @param DescribeGtmAccessStrategyAvailableConfigRequest $request DescribeGtmAccessStrategyAvailableConfigRequest
+     * @param RuntimeOptions                                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeGtmAccessStrategyAvailableConfigRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeGtmAccessStrategyAvailableConfigResponse
-     *
-     * @param DescribeGtmAccessStrategyAvailableConfigRequest $request
-     * @param RuntimeOptions                                  $runtime
-     *
-     * @return DescribeGtmAccessStrategyAvailableConfigResponse
+     * @return DescribeGtmAccessStrategyAvailableConfigResponse DescribeGtmAccessStrategyAvailableConfigResponse
      */
     public function describeGtmAccessStrategyAvailableConfigWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeGtmAccessStrategyAvailableConfig',
@@ -6956,15 +5706,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the configuration items that can be set for an access policy.
+     * @summary Queries the configuration items that can be set for an access policy.
+     *  *
+     * @param DescribeGtmAccessStrategyAvailableConfigRequest $request DescribeGtmAccessStrategyAvailableConfigRequest
      *
-     * @param request - DescribeGtmAccessStrategyAvailableConfigRequest
-     *
-     * @returns DescribeGtmAccessStrategyAvailableConfigResponse
-     *
-     * @param DescribeGtmAccessStrategyAvailableConfigRequest $request
-     *
-     * @return DescribeGtmAccessStrategyAvailableConfigResponse
+     * @return DescribeGtmAccessStrategyAvailableConfigResponse DescribeGtmAccessStrategyAvailableConfigResponse
      */
     public function describeGtmAccessStrategyAvailableConfig($request)
     {
@@ -6974,26 +5720,20 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param request - DescribeGtmAvailableAlertGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
+     * @param DescribeGtmAvailableAlertGroupRequest $request DescribeGtmAvailableAlertGroupRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @returns DescribeGtmAvailableAlertGroupResponse
-     *
-     * @param DescribeGtmAvailableAlertGroupRequest $request
-     * @param RuntimeOptions                        $runtime
-     *
-     * @return DescribeGtmAvailableAlertGroupResponse
+     * @return DescribeGtmAvailableAlertGroupResponse DescribeGtmAvailableAlertGroupResponse
      */
     public function describeGtmAvailableAlertGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeGtmAvailableAlertGroup',
@@ -7011,13 +5751,9 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param request - DescribeGtmAvailableAlertGroupRequest
+     * @param DescribeGtmAvailableAlertGroupRequest $request DescribeGtmAvailableAlertGroupRequest
      *
-     * @returns DescribeGtmAvailableAlertGroupResponse
-     *
-     * @param DescribeGtmAvailableAlertGroupRequest $request
-     *
-     * @return DescribeGtmAvailableAlertGroupResponse
+     * @return DescribeGtmAvailableAlertGroupResponse DescribeGtmAvailableAlertGroupResponse
      */
     public function describeGtmAvailableAlertGroup($request)
     {
@@ -7027,36 +5763,28 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the details about a Global Traffic Manager (GTM) instance.
+     * @summary Queries the details about a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeGtmInstanceRequest $request DescribeGtmInstanceRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeGtmInstanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeGtmInstanceResponse
-     *
-     * @param DescribeGtmInstanceRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DescribeGtmInstanceResponse
+     * @return DescribeGtmInstanceResponse DescribeGtmInstanceResponse
      */
     public function describeGtmInstanceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->needDetailAttributes) {
-            @$query['NeedDetailAttributes'] = $request->needDetailAttributes;
+        if (!Utils::isUnset($request->needDetailAttributes)) {
+            $query['NeedDetailAttributes'] = $request->needDetailAttributes;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeGtmInstance',
@@ -7074,15 +5802,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the details about a Global Traffic Manager (GTM) instance.
+     * @summary Queries the details about a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeGtmInstanceRequest $request DescribeGtmInstanceRequest
      *
-     * @param request - DescribeGtmInstanceRequest
-     *
-     * @returns DescribeGtmInstanceResponse
-     *
-     * @param DescribeGtmInstanceRequest $request
-     *
-     * @return DescribeGtmInstanceResponse
+     * @return DescribeGtmInstanceResponse DescribeGtmInstanceResponse
      */
     public function describeGtmInstance($request)
     {
@@ -7092,32 +5816,25 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the details about an address pool of a Global Traffic Manager (GTM) instance.
+     * @summary You can call this operation to query the details about an address pool of a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeGtmInstanceAddressPoolRequest $request DescribeGtmInstanceAddressPoolRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeGtmInstanceAddressPoolRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeGtmInstanceAddressPoolResponse
-     *
-     * @param DescribeGtmInstanceAddressPoolRequest $request
-     * @param RuntimeOptions                        $runtime
-     *
-     * @return DescribeGtmInstanceAddressPoolResponse
+     * @return DescribeGtmInstanceAddressPoolResponse DescribeGtmInstanceAddressPoolResponse
      */
     public function describeGtmInstanceAddressPoolWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->addrPoolId) {
-            @$query['AddrPoolId'] = $request->addrPoolId;
+        if (!Utils::isUnset($request->addrPoolId)) {
+            $query['AddrPoolId'] = $request->addrPoolId;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeGtmInstanceAddressPool',
@@ -7135,15 +5852,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the details about an address pool of a Global Traffic Manager (GTM) instance.
+     * @summary You can call this operation to query the details about an address pool of a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeGtmInstanceAddressPoolRequest $request DescribeGtmInstanceAddressPoolRequest
      *
-     * @param request - DescribeGtmInstanceAddressPoolRequest
-     *
-     * @returns DescribeGtmInstanceAddressPoolResponse
-     *
-     * @param DescribeGtmInstanceAddressPoolRequest $request
-     *
-     * @return DescribeGtmInstanceAddressPoolResponse
+     * @return DescribeGtmInstanceAddressPoolResponse DescribeGtmInstanceAddressPoolResponse
      */
     public function describeGtmInstanceAddressPool($request)
     {
@@ -7153,40 +5866,31 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the address pools of a Global Traffic Manager (GTM) instance.
+     * @summary You can call this operation to query the address pools of a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeGtmInstanceAddressPoolsRequest $request DescribeGtmInstanceAddressPoolsRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeGtmInstanceAddressPoolsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeGtmInstanceAddressPoolsResponse
-     *
-     * @param DescribeGtmInstanceAddressPoolsRequest $request
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return DescribeGtmInstanceAddressPoolsResponse
+     * @return DescribeGtmInstanceAddressPoolsResponse DescribeGtmInstanceAddressPoolsResponse
      */
     public function describeGtmInstanceAddressPoolsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeGtmInstanceAddressPools',
@@ -7204,15 +5908,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the address pools of a Global Traffic Manager (GTM) instance.
+     * @summary You can call this operation to query the address pools of a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeGtmInstanceAddressPoolsRequest $request DescribeGtmInstanceAddressPoolsRequest
      *
-     * @param request - DescribeGtmInstanceAddressPoolsRequest
-     *
-     * @returns DescribeGtmInstanceAddressPoolsResponse
-     *
-     * @param DescribeGtmInstanceAddressPoolsRequest $request
-     *
-     * @return DescribeGtmInstanceAddressPoolsResponse
+     * @return DescribeGtmInstanceAddressPoolsResponse DescribeGtmInstanceAddressPoolsResponse
      */
     public function describeGtmInstanceAddressPools($request)
     {
@@ -7222,32 +5922,25 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the status of a Global Traffic Manager (GTM) instance.
+     * @summary Queries the status of a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeGtmInstanceStatusRequest $request DescribeGtmInstanceStatusRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeGtmInstanceStatusRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeGtmInstanceStatusResponse
-     *
-     * @param DescribeGtmInstanceStatusRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DescribeGtmInstanceStatusResponse
+     * @return DescribeGtmInstanceStatusResponse DescribeGtmInstanceStatusResponse
      */
     public function describeGtmInstanceStatusWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeGtmInstanceStatus',
@@ -7265,15 +5958,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the status of a Global Traffic Manager (GTM) instance.
+     * @summary Queries the status of a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeGtmInstanceStatusRequest $request DescribeGtmInstanceStatusRequest
      *
-     * @param request - DescribeGtmInstanceStatusRequest
-     *
-     * @returns DescribeGtmInstanceStatusResponse
-     *
-     * @param DescribeGtmInstanceStatusRequest $request
-     *
-     * @return DescribeGtmInstanceStatusResponse
+     * @return DescribeGtmInstanceStatusResponse DescribeGtmInstanceStatusResponse
      */
     public function describeGtmInstanceStatus($request)
     {
@@ -7283,30 +5972,23 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param request - DescribeGtmInstanceSystemCnameRequest
-     * @param runtime - runtime options for this request RuntimeOptions
+     * @param DescribeGtmInstanceSystemCnameRequest $request DescribeGtmInstanceSystemCnameRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @returns DescribeGtmInstanceSystemCnameResponse
-     *
-     * @param DescribeGtmInstanceSystemCnameRequest $request
-     * @param RuntimeOptions                        $runtime
-     *
-     * @return DescribeGtmInstanceSystemCnameResponse
+     * @return DescribeGtmInstanceSystemCnameResponse DescribeGtmInstanceSystemCnameResponse
      */
     public function describeGtmInstanceSystemCnameWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeGtmInstanceSystemCname',
@@ -7324,13 +6006,9 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param request - DescribeGtmInstanceSystemCnameRequest
+     * @param DescribeGtmInstanceSystemCnameRequest $request DescribeGtmInstanceSystemCnameRequest
      *
-     * @returns DescribeGtmInstanceSystemCnameResponse
-     *
-     * @param DescribeGtmInstanceSystemCnameRequest $request
-     *
-     * @return DescribeGtmInstanceSystemCnameResponse
+     * @return DescribeGtmInstanceSystemCnameResponse DescribeGtmInstanceSystemCnameResponse
      */
     public function describeGtmInstanceSystemCname($request)
     {
@@ -7340,48 +6018,37 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the Global Traffic Manager (GTM) instances under your account.
+     * @summary Queries the Global Traffic Manager (GTM) instances under your account.
+     *  *
+     * @param DescribeGtmInstancesRequest $request DescribeGtmInstancesRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeGtmInstancesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeGtmInstancesResponse
-     *
-     * @param DescribeGtmInstancesRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DescribeGtmInstancesResponse
+     * @return DescribeGtmInstancesResponse DescribeGtmInstancesResponse
      */
     public function describeGtmInstancesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->keyword) {
-            @$query['Keyword'] = $request->keyword;
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->needDetailAttributes) {
-            @$query['NeedDetailAttributes'] = $request->needDetailAttributes;
+        if (!Utils::isUnset($request->needDetailAttributes)) {
+            $query['NeedDetailAttributes'] = $request->needDetailAttributes;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeGtmInstances',
@@ -7399,15 +6066,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the Global Traffic Manager (GTM) instances under your account.
+     * @summary Queries the Global Traffic Manager (GTM) instances under your account.
+     *  *
+     * @param DescribeGtmInstancesRequest $request DescribeGtmInstancesRequest
      *
-     * @param request - DescribeGtmInstancesRequest
-     *
-     * @returns DescribeGtmInstancesResponse
-     *
-     * @param DescribeGtmInstancesRequest $request
-     *
-     * @return DescribeGtmInstancesResponse
+     * @return DescribeGtmInstancesResponse DescribeGtmInstancesResponse
      */
     public function describeGtmInstances($request)
     {
@@ -7417,52 +6080,40 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query logs of a Global Traffic Manager (GTM) instance.
+     * @summary You can call this operation to query logs of a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeGtmLogsRequest $request DescribeGtmLogsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeGtmLogsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeGtmLogsResponse
-     *
-     * @param DescribeGtmLogsRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return DescribeGtmLogsResponse
+     * @return DescribeGtmLogsResponse DescribeGtmLogsResponse
      */
     public function describeGtmLogsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->endTimestamp) {
-            @$query['EndTimestamp'] = $request->endTimestamp;
+        if (!Utils::isUnset($request->endTimestamp)) {
+            $query['EndTimestamp'] = $request->endTimestamp;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->keyword) {
-            @$query['Keyword'] = $request->keyword;
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->startTimestamp) {
-            @$query['StartTimestamp'] = $request->startTimestamp;
+        if (!Utils::isUnset($request->startTimestamp)) {
+            $query['StartTimestamp'] = $request->startTimestamp;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeGtmLogs',
@@ -7480,15 +6131,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query logs of a Global Traffic Manager (GTM) instance.
+     * @summary You can call this operation to query logs of a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeGtmLogsRequest $request DescribeGtmLogsRequest
      *
-     * @param request - DescribeGtmLogsRequest
-     *
-     * @returns DescribeGtmLogsResponse
-     *
-     * @param DescribeGtmLogsRequest $request
-     *
-     * @return DescribeGtmLogsResponse
+     * @return DescribeGtmLogsResponse DescribeGtmLogsResponse
      */
     public function describeGtmLogs($request)
     {
@@ -7498,28 +6145,22 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries available monitored nodes.
+     * @summary Queries available monitored nodes.
+     *  *
+     * @param DescribeGtmMonitorAvailableConfigRequest $request DescribeGtmMonitorAvailableConfigRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeGtmMonitorAvailableConfigRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeGtmMonitorAvailableConfigResponse
-     *
-     * @param DescribeGtmMonitorAvailableConfigRequest $request
-     * @param RuntimeOptions                           $runtime
-     *
-     * @return DescribeGtmMonitorAvailableConfigResponse
+     * @return DescribeGtmMonitorAvailableConfigResponse DescribeGtmMonitorAvailableConfigResponse
      */
     public function describeGtmMonitorAvailableConfigWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeGtmMonitorAvailableConfig',
@@ -7537,15 +6178,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries available monitored nodes.
+     * @summary Queries available monitored nodes.
+     *  *
+     * @param DescribeGtmMonitorAvailableConfigRequest $request DescribeGtmMonitorAvailableConfigRequest
      *
-     * @param request - DescribeGtmMonitorAvailableConfigRequest
-     *
-     * @returns DescribeGtmMonitorAvailableConfigResponse
-     *
-     * @param DescribeGtmMonitorAvailableConfigRequest $request
-     *
-     * @return DescribeGtmMonitorAvailableConfigResponse
+     * @return DescribeGtmMonitorAvailableConfigResponse DescribeGtmMonitorAvailableConfigResponse
      */
     public function describeGtmMonitorAvailableConfig($request)
     {
@@ -7555,32 +6192,25 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the health check configuration of an address pool of a Global Traffic Manager (GTM) instance.
+     * @summary Queries the health check configuration of an address pool of a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeGtmMonitorConfigRequest $request DescribeGtmMonitorConfigRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeGtmMonitorConfigRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeGtmMonitorConfigResponse
-     *
-     * @param DescribeGtmMonitorConfigRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return DescribeGtmMonitorConfigResponse
+     * @return DescribeGtmMonitorConfigResponse DescribeGtmMonitorConfigResponse
      */
     public function describeGtmMonitorConfigWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->monitorConfigId) {
-            @$query['MonitorConfigId'] = $request->monitorConfigId;
+        if (!Utils::isUnset($request->monitorConfigId)) {
+            $query['MonitorConfigId'] = $request->monitorConfigId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeGtmMonitorConfig',
@@ -7598,15 +6228,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the health check configuration of an address pool of a Global Traffic Manager (GTM) instance.
+     * @summary Queries the health check configuration of an address pool of a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeGtmMonitorConfigRequest $request DescribeGtmMonitorConfigRequest
      *
-     * @param request - DescribeGtmMonitorConfigRequest
-     *
-     * @returns DescribeGtmMonitorConfigResponse
-     *
-     * @param DescribeGtmMonitorConfigRequest $request
-     *
-     * @return DescribeGtmMonitorConfigResponse
+     * @return DescribeGtmMonitorConfigResponse DescribeGtmMonitorConfigResponse
      */
     public function describeGtmMonitorConfig($request)
     {
@@ -7616,32 +6242,25 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the details of a disaster recovery plan.
+     * @summary Queries the details of a disaster recovery plan.
+     *  *
+     * @param DescribeGtmRecoveryPlanRequest $request DescribeGtmRecoveryPlanRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeGtmRecoveryPlanRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeGtmRecoveryPlanResponse
-     *
-     * @param DescribeGtmRecoveryPlanRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DescribeGtmRecoveryPlanResponse
+     * @return DescribeGtmRecoveryPlanResponse DescribeGtmRecoveryPlanResponse
      */
     public function describeGtmRecoveryPlanWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->recoveryPlanId) {
-            @$query['RecoveryPlanId'] = $request->recoveryPlanId;
+        if (!Utils::isUnset($request->recoveryPlanId)) {
+            $query['RecoveryPlanId'] = $request->recoveryPlanId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeGtmRecoveryPlan',
@@ -7659,15 +6278,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the details of a disaster recovery plan.
+     * @summary Queries the details of a disaster recovery plan.
+     *  *
+     * @param DescribeGtmRecoveryPlanRequest $request DescribeGtmRecoveryPlanRequest
      *
-     * @param request - DescribeGtmRecoveryPlanRequest
-     *
-     * @returns DescribeGtmRecoveryPlanResponse
-     *
-     * @param DescribeGtmRecoveryPlanRequest $request
-     *
-     * @return DescribeGtmRecoveryPlanResponse
+     * @return DescribeGtmRecoveryPlanResponse DescribeGtmRecoveryPlanResponse
      */
     public function describeGtmRecoveryPlan($request)
     {
@@ -7677,28 +6292,22 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the configuration items that can be set for a disaster recovery plan.
+     * @summary Queries the configuration items that can be set for a disaster recovery plan.
+     *  *
+     * @param DescribeGtmRecoveryPlanAvailableConfigRequest $request DescribeGtmRecoveryPlanAvailableConfigRequest
+     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeGtmRecoveryPlanAvailableConfigRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeGtmRecoveryPlanAvailableConfigResponse
-     *
-     * @param DescribeGtmRecoveryPlanAvailableConfigRequest $request
-     * @param RuntimeOptions                                $runtime
-     *
-     * @return DescribeGtmRecoveryPlanAvailableConfigResponse
+     * @return DescribeGtmRecoveryPlanAvailableConfigResponse DescribeGtmRecoveryPlanAvailableConfigResponse
      */
     public function describeGtmRecoveryPlanAvailableConfigWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeGtmRecoveryPlanAvailableConfig',
@@ -7716,15 +6325,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the configuration items that can be set for a disaster recovery plan.
+     * @summary Queries the configuration items that can be set for a disaster recovery plan.
+     *  *
+     * @param DescribeGtmRecoveryPlanAvailableConfigRequest $request DescribeGtmRecoveryPlanAvailableConfigRequest
      *
-     * @param request - DescribeGtmRecoveryPlanAvailableConfigRequest
-     *
-     * @returns DescribeGtmRecoveryPlanAvailableConfigResponse
-     *
-     * @param DescribeGtmRecoveryPlanAvailableConfigRequest $request
-     *
-     * @return DescribeGtmRecoveryPlanAvailableConfigResponse
+     * @return DescribeGtmRecoveryPlanAvailableConfigResponse DescribeGtmRecoveryPlanAvailableConfigResponse
      */
     public function describeGtmRecoveryPlanAvailableConfig($request)
     {
@@ -7734,40 +6339,31 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the disaster recovery plans for a Global Traffic Manager (GTM) instance.
+     * @summary Queries the disaster recovery plans for a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeGtmRecoveryPlansRequest $request DescribeGtmRecoveryPlansRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeGtmRecoveryPlansRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeGtmRecoveryPlansResponse
-     *
-     * @param DescribeGtmRecoveryPlansRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return DescribeGtmRecoveryPlansResponse
+     * @return DescribeGtmRecoveryPlansResponse DescribeGtmRecoveryPlansResponse
      */
     public function describeGtmRecoveryPlansWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->keyword) {
-            @$query['Keyword'] = $request->keyword;
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeGtmRecoveryPlans',
@@ -7785,15 +6381,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the disaster recovery plans for a Global Traffic Manager (GTM) instance.
+     * @summary Queries the disaster recovery plans for a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeGtmRecoveryPlansRequest $request DescribeGtmRecoveryPlansRequest
      *
-     * @param request - DescribeGtmRecoveryPlansRequest
-     *
-     * @returns DescribeGtmRecoveryPlansResponse
-     *
-     * @param DescribeGtmRecoveryPlansRequest $request
-     *
-     * @return DescribeGtmRecoveryPlansResponse
+     * @return DescribeGtmRecoveryPlansResponse DescribeGtmRecoveryPlansResponse
      */
     public function describeGtmRecoveryPlans($request)
     {
@@ -7803,40 +6395,31 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the domain names that are bound to an Alibaba Cloud DNS instance.
+     * @summary Queries the domain names that are bound to an Alibaba Cloud DNS instance.
+     *  *
+     * @param DescribeInstanceDomainsRequest $request DescribeInstanceDomainsRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeInstanceDomainsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeInstanceDomainsResponse
-     *
-     * @param DescribeInstanceDomainsRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DescribeInstanceDomainsResponse
+     * @return DescribeInstanceDomainsResponse DescribeInstanceDomainsResponse
      */
     public function describeInstanceDomainsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeInstanceDomains',
@@ -7854,15 +6437,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the domain names that are bound to an Alibaba Cloud DNS instance.
+     * @summary Queries the domain names that are bound to an Alibaba Cloud DNS instance.
+     *  *
+     * @param DescribeInstanceDomainsRequest $request DescribeInstanceDomainsRequest
      *
-     * @param request - DescribeInstanceDomainsRequest
-     *
-     * @returns DescribeInstanceDomainsResponse
-     *
-     * @param DescribeInstanceDomainsRequest $request
-     *
-     * @return DescribeInstanceDomainsResponse
+     * @return DescribeInstanceDomainsResponse DescribeInstanceDomainsResponse
      */
     public function describeInstanceDomains($request)
     {
@@ -7872,64 +6451,49 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 查询解析日志.
+     * @summary 查询解析日志
+     *  *
+     * @param DescribeInternetDnsLogsRequest $request DescribeInternetDnsLogsRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeInternetDnsLogsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeInternetDnsLogsResponse
-     *
-     * @param DescribeInternetDnsLogsRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DescribeInternetDnsLogsResponse
+     * @return DescribeInternetDnsLogsResponse DescribeInternetDnsLogsResponse
      */
     public function describeInternetDnsLogsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountId) {
-            @$query['AccountId'] = $request->accountId;
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
         }
-
-        if (null !== $request->domainName) {
-            @$query['DomainName'] = $request->domainName;
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
         }
-
-        if (null !== $request->endTimestamp) {
-            @$query['EndTimestamp'] = $request->endTimestamp;
+        if (!Utils::isUnset($request->endTimestamp)) {
+            $query['EndTimestamp'] = $request->endTimestamp;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->module) {
-            @$query['Module'] = $request->module;
+        if (!Utils::isUnset($request->module)) {
+            $query['Module'] = $request->module;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->queryCondition) {
-            @$query['QueryCondition'] = $request->queryCondition;
+        if (!Utils::isUnset($request->queryCondition)) {
+            $query['QueryCondition'] = $request->queryCondition;
         }
-
-        if (null !== $request->recursionProtocolType) {
-            @$query['RecursionProtocolType'] = $request->recursionProtocolType;
+        if (!Utils::isUnset($request->recursionProtocolType)) {
+            $query['RecursionProtocolType'] = $request->recursionProtocolType;
         }
-
-        if (null !== $request->startTimestamp) {
-            @$query['StartTimestamp'] = $request->startTimestamp;
+        if (!Utils::isUnset($request->startTimestamp)) {
+            $query['StartTimestamp'] = $request->startTimestamp;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeInternetDnsLogs',
@@ -7947,15 +6511,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 查询解析日志.
+     * @summary 查询解析日志
+     *  *
+     * @param DescribeInternetDnsLogsRequest $request DescribeInternetDnsLogsRequest
      *
-     * @param request - DescribeInternetDnsLogsRequest
-     *
-     * @returns DescribeInternetDnsLogsResponse
-     *
-     * @param DescribeInternetDnsLogsRequest $request
-     *
-     * @return DescribeInternetDnsLogsResponse
+     * @return DescribeInternetDnsLogsResponse DescribeInternetDnsLogsResponse
      */
     public function describeInternetDnsLogs($request)
     {
@@ -7965,56 +6525,43 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 获取缓存刷新套餐包列表.
+     * @summary 获取缓存刷新套餐包列表
+     *  *
+     * @param DescribeIspFlushCacheInstancesRequest $request DescribeIspFlushCacheInstancesRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeIspFlushCacheInstancesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeIspFlushCacheInstancesResponse
-     *
-     * @param DescribeIspFlushCacheInstancesRequest $request
-     * @param RuntimeOptions                        $runtime
-     *
-     * @return DescribeIspFlushCacheInstancesResponse
+     * @return DescribeIspFlushCacheInstancesResponse DescribeIspFlushCacheInstancesResponse
      */
     public function describeIspFlushCacheInstancesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->direction) {
-            @$query['Direction'] = $request->direction;
+        if (!Utils::isUnset($request->direction)) {
+            $query['Direction'] = $request->direction;
         }
-
-        if (null !== $request->isp) {
-            @$query['Isp'] = $request->isp;
+        if (!Utils::isUnset($request->isp)) {
+            $query['Isp'] = $request->isp;
         }
-
-        if (null !== $request->keyword) {
-            @$query['Keyword'] = $request->keyword;
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->orderBy) {
-            @$query['OrderBy'] = $request->orderBy;
+        if (!Utils::isUnset($request->orderBy)) {
+            $query['OrderBy'] = $request->orderBy;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->type) {
-            @$query['Type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeIspFlushCacheInstances',
@@ -8032,15 +6579,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 获取缓存刷新套餐包列表.
+     * @summary 获取缓存刷新套餐包列表
+     *  *
+     * @param DescribeIspFlushCacheInstancesRequest $request DescribeIspFlushCacheInstancesRequest
      *
-     * @param request - DescribeIspFlushCacheInstancesRequest
-     *
-     * @returns DescribeIspFlushCacheInstancesResponse
-     *
-     * @param DescribeIspFlushCacheInstancesRequest $request
-     *
-     * @return DescribeIspFlushCacheInstancesResponse
+     * @return DescribeIspFlushCacheInstancesResponse DescribeIspFlushCacheInstancesResponse
      */
     public function describeIspFlushCacheInstances($request)
     {
@@ -8050,28 +6593,22 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 获取剩余可缓存刷新次数.
+     * @summary 获取剩余可缓存刷新次数
+     *  *
+     * @param DescribeIspFlushCacheRemainQuotaRequest $request DescribeIspFlushCacheRemainQuotaRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeIspFlushCacheRemainQuotaRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeIspFlushCacheRemainQuotaResponse
-     *
-     * @param DescribeIspFlushCacheRemainQuotaRequest $request
-     * @param RuntimeOptions                          $runtime
-     *
-     * @return DescribeIspFlushCacheRemainQuotaResponse
+     * @return DescribeIspFlushCacheRemainQuotaResponse DescribeIspFlushCacheRemainQuotaResponse
      */
     public function describeIspFlushCacheRemainQuotaWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeIspFlushCacheRemainQuota',
@@ -8089,15 +6626,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 获取剩余可缓存刷新次数.
+     * @summary 获取剩余可缓存刷新次数
+     *  *
+     * @param DescribeIspFlushCacheRemainQuotaRequest $request DescribeIspFlushCacheRemainQuotaRequest
      *
-     * @param request - DescribeIspFlushCacheRemainQuotaRequest
-     *
-     * @returns DescribeIspFlushCacheRemainQuotaResponse
-     *
-     * @param DescribeIspFlushCacheRemainQuotaRequest $request
-     *
-     * @return DescribeIspFlushCacheRemainQuotaResponse
+     * @return DescribeIspFlushCacheRemainQuotaResponse DescribeIspFlushCacheRemainQuotaResponse
      */
     public function describeIspFlushCacheRemainQuota($request)
     {
@@ -8107,32 +6640,25 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 获取缓存刷新任务详情.
+     * @summary 获取缓存刷新任务详情
+     *  *
+     * @param DescribeIspFlushCacheTaskRequest $request DescribeIspFlushCacheTaskRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeIspFlushCacheTaskRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeIspFlushCacheTaskResponse
-     *
-     * @param DescribeIspFlushCacheTaskRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DescribeIspFlushCacheTaskResponse
+     * @return DescribeIspFlushCacheTaskResponse DescribeIspFlushCacheTaskResponse
      */
     public function describeIspFlushCacheTaskWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->taskId) {
-            @$query['TaskId'] = $request->taskId;
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeIspFlushCacheTask',
@@ -8150,15 +6676,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 获取缓存刷新任务详情.
+     * @summary 获取缓存刷新任务详情
+     *  *
+     * @param DescribeIspFlushCacheTaskRequest $request DescribeIspFlushCacheTaskRequest
      *
-     * @param request - DescribeIspFlushCacheTaskRequest
-     *
-     * @returns DescribeIspFlushCacheTaskResponse
-     *
-     * @param DescribeIspFlushCacheTaskRequest $request
-     *
-     * @return DescribeIspFlushCacheTaskResponse
+     * @return DescribeIspFlushCacheTaskResponse DescribeIspFlushCacheTaskResponse
      */
     public function describeIspFlushCacheTask($request)
     {
@@ -8168,56 +6690,43 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 获取缓存刷新任务列表.
+     * @summary 获取缓存刷新任务列表
+     *  *
+     * @param DescribeIspFlushCacheTasksRequest $request DescribeIspFlushCacheTasksRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeIspFlushCacheTasksRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeIspFlushCacheTasksResponse
-     *
-     * @param DescribeIspFlushCacheTasksRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return DescribeIspFlushCacheTasksResponse
+     * @return DescribeIspFlushCacheTasksResponse DescribeIspFlushCacheTasksResponse
      */
     public function describeIspFlushCacheTasksWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->direction) {
-            @$query['Direction'] = $request->direction;
+        if (!Utils::isUnset($request->direction)) {
+            $query['Direction'] = $request->direction;
         }
-
-        if (null !== $request->domainName) {
-            @$query['DomainName'] = $request->domainName;
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->isp) {
-            @$query['Isp'] = $request->isp;
+        if (!Utils::isUnset($request->isp)) {
+            $query['Isp'] = $request->isp;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->orderBy) {
-            @$query['OrderBy'] = $request->orderBy;
+        if (!Utils::isUnset($request->orderBy)) {
+            $query['OrderBy'] = $request->orderBy;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeIspFlushCacheTasks',
@@ -8235,15 +6744,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 获取缓存刷新任务列表.
+     * @summary 获取缓存刷新任务列表
+     *  *
+     * @param DescribeIspFlushCacheTasksRequest $request DescribeIspFlushCacheTasksRequest
      *
-     * @param request - DescribeIspFlushCacheTasksRequest
-     *
-     * @returns DescribeIspFlushCacheTasksResponse
-     *
-     * @param DescribeIspFlushCacheTasksRequest $request
-     *
-     * @return DescribeIspFlushCacheTasksResponse
+     * @return DescribeIspFlushCacheTasksResponse DescribeIspFlushCacheTasksResponse
      */
     public function describeIspFlushCacheTasks($request)
     {
@@ -8253,36 +6758,28 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 获取公共DNS用户数据概览.
+     * @summary 获取公共DNS用户数据概览
+     *  *
+     * @param DescribePdnsAccountSummaryRequest $request DescribePdnsAccountSummaryRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribePdnsAccountSummaryRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribePdnsAccountSummaryResponse
-     *
-     * @param DescribePdnsAccountSummaryRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return DescribePdnsAccountSummaryResponse
+     * @return DescribePdnsAccountSummaryResponse DescribePdnsAccountSummaryResponse
      */
     public function describePdnsAccountSummaryWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->endDate) {
-            @$query['EndDate'] = $request->endDate;
+        if (!Utils::isUnset($request->endDate)) {
+            $query['EndDate'] = $request->endDate;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->startDate) {
-            @$query['StartDate'] = $request->startDate;
+        if (!Utils::isUnset($request->startDate)) {
+            $query['StartDate'] = $request->startDate;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribePdnsAccountSummary',
@@ -8300,15 +6797,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 获取公共DNS用户数据概览.
+     * @summary 获取公共DNS用户数据概览
+     *  *
+     * @param DescribePdnsAccountSummaryRequest $request DescribePdnsAccountSummaryRequest
      *
-     * @param request - DescribePdnsAccountSummaryRequest
-     *
-     * @returns DescribePdnsAccountSummaryResponse
-     *
-     * @param DescribePdnsAccountSummaryRequest $request
-     *
-     * @return DescribePdnsAccountSummaryResponse
+     * @return DescribePdnsAccountSummaryResponse DescribePdnsAccountSummaryResponse
      */
     public function describePdnsAccountSummary($request)
     {
@@ -8318,36 +6811,28 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 获取公共DNS AppKey 详情.
+     * @summary 获取公共DNS AppKey 详情
+     *  *
+     * @param DescribePdnsAppKeyRequest $request DescribePdnsAppKeyRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribePdnsAppKeyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribePdnsAppKeyResponse
-     *
-     * @param DescribePdnsAppKeyRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DescribePdnsAppKeyResponse
+     * @return DescribePdnsAppKeyResponse DescribePdnsAppKeyResponse
      */
     public function describePdnsAppKeyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->appKeyId) {
-            @$query['AppKeyId'] = $request->appKeyId;
+        if (!Utils::isUnset($request->appKeyId)) {
+            $query['AppKeyId'] = $request->appKeyId;
         }
-
-        if (null !== $request->authCode) {
-            @$query['AuthCode'] = $request->authCode;
+        if (!Utils::isUnset($request->authCode)) {
+            $query['AuthCode'] = $request->authCode;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribePdnsAppKey',
@@ -8365,15 +6850,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 获取公共DNS AppKey 详情.
+     * @summary 获取公共DNS AppKey 详情
+     *  *
+     * @param DescribePdnsAppKeyRequest $request DescribePdnsAppKeyRequest
      *
-     * @param request - DescribePdnsAppKeyRequest
-     *
-     * @returns DescribePdnsAppKeyResponse
-     *
-     * @param DescribePdnsAppKeyRequest $request
-     *
-     * @return DescribePdnsAppKeyResponse
+     * @return DescribePdnsAppKeyResponse DescribePdnsAppKeyResponse
      */
     public function describePdnsAppKey($request)
     {
@@ -8383,28 +6864,22 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 获取公共DNS AppKey 列表.
+     * @summary 获取公共DNS AppKey 列表
+     *  *
+     * @param DescribePdnsAppKeysRequest $request DescribePdnsAppKeysRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribePdnsAppKeysRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribePdnsAppKeysResponse
-     *
-     * @param DescribePdnsAppKeysRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DescribePdnsAppKeysResponse
+     * @return DescribePdnsAppKeysResponse DescribePdnsAppKeysResponse
      */
     public function describePdnsAppKeysWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribePdnsAppKeys',
@@ -8422,15 +6897,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 获取公共DNS AppKey 列表.
+     * @summary 获取公共DNS AppKey 列表
+     *  *
+     * @param DescribePdnsAppKeysRequest $request DescribePdnsAppKeysRequest
      *
-     * @param request - DescribePdnsAppKeysRequest
-     *
-     * @returns DescribePdnsAppKeysResponse
-     *
-     * @param DescribePdnsAppKeysRequest $request
-     *
-     * @return DescribePdnsAppKeysResponse
+     * @return DescribePdnsAppKeysResponse DescribePdnsAppKeysResponse
      */
     public function describePdnsAppKeys($request)
     {
@@ -8440,56 +6911,43 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 获取公共DNS 操作日志列表.
+     * @summary 获取公共DNS 操作日志列表
+     *  *
+     * @param DescribePdnsOperateLogsRequest $request DescribePdnsOperateLogsRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribePdnsOperateLogsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribePdnsOperateLogsResponse
-     *
-     * @param DescribePdnsOperateLogsRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DescribePdnsOperateLogsResponse
+     * @return DescribePdnsOperateLogsResponse DescribePdnsOperateLogsResponse
      */
     public function describePdnsOperateLogsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->actionType) {
-            @$query['ActionType'] = $request->actionType;
+        if (!Utils::isUnset($request->actionType)) {
+            $query['ActionType'] = $request->actionType;
         }
-
-        if (null !== $request->endDate) {
-            @$query['EndDate'] = $request->endDate;
+        if (!Utils::isUnset($request->endDate)) {
+            $query['EndDate'] = $request->endDate;
         }
-
-        if (null !== $request->keyword) {
-            @$query['Keyword'] = $request->keyword;
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->resourceType) {
-            @$query['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
         }
-
-        if (null !== $request->startDate) {
-            @$query['StartDate'] = $request->startDate;
+        if (!Utils::isUnset($request->startDate)) {
+            $query['StartDate'] = $request->startDate;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribePdnsOperateLogs',
@@ -8507,15 +6965,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 获取公共DNS 操作日志列表.
+     * @summary 获取公共DNS 操作日志列表
+     *  *
+     * @param DescribePdnsOperateLogsRequest $request DescribePdnsOperateLogsRequest
      *
-     * @param request - DescribePdnsOperateLogsRequest
-     *
-     * @returns DescribePdnsOperateLogsResponse
-     *
-     * @param DescribePdnsOperateLogsRequest $request
-     *
-     * @return DescribePdnsOperateLogsResponse
+     * @return DescribePdnsOperateLogsResponse DescribePdnsOperateLogsResponse
      */
     public function describePdnsOperateLogs($request)
     {
@@ -8525,48 +6979,37 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the statistics on requests for Alibaba Cloud Public DNS.
+     * @summary Queries the statistics on requests for Alibaba Cloud Public DNS.
+     *  *
+     * @param DescribePdnsRequestStatisticRequest $request DescribePdnsRequestStatisticRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribePdnsRequestStatisticRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribePdnsRequestStatisticResponse
-     *
-     * @param DescribePdnsRequestStatisticRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return DescribePdnsRequestStatisticResponse
+     * @return DescribePdnsRequestStatisticResponse DescribePdnsRequestStatisticResponse
      */
     public function describePdnsRequestStatisticWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->domainName) {
-            @$query['DomainName'] = $request->domainName;
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
         }
-
-        if (null !== $request->endDate) {
-            @$query['EndDate'] = $request->endDate;
+        if (!Utils::isUnset($request->endDate)) {
+            $query['EndDate'] = $request->endDate;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->startDate) {
-            @$query['StartDate'] = $request->startDate;
+        if (!Utils::isUnset($request->startDate)) {
+            $query['StartDate'] = $request->startDate;
         }
-
-        if (null !== $request->subDomain) {
-            @$query['SubDomain'] = $request->subDomain;
+        if (!Utils::isUnset($request->subDomain)) {
+            $query['SubDomain'] = $request->subDomain;
         }
-
-        if (null !== $request->type) {
-            @$query['Type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribePdnsRequestStatistic',
@@ -8584,15 +7027,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the statistics on requests for Alibaba Cloud Public DNS.
+     * @summary Queries the statistics on requests for Alibaba Cloud Public DNS.
+     *  *
+     * @param DescribePdnsRequestStatisticRequest $request DescribePdnsRequestStatisticRequest
      *
-     * @param request - DescribePdnsRequestStatisticRequest
-     *
-     * @returns DescribePdnsRequestStatisticResponse
-     *
-     * @param DescribePdnsRequestStatisticRequest $request
-     *
-     * @return DescribePdnsRequestStatisticResponse
+     * @return DescribePdnsRequestStatisticResponse DescribePdnsRequestStatisticResponse
      */
     public function describePdnsRequestStatistic($request)
     {
@@ -8602,56 +7041,43 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries a list of statistics on requests for Alibaba Cloud Public DNS.
+     * @summary Queries a list of statistics on requests for Alibaba Cloud Public DNS.
+     *  *
+     * @param DescribePdnsRequestStatisticsRequest $request DescribePdnsRequestStatisticsRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribePdnsRequestStatisticsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribePdnsRequestStatisticsResponse
-     *
-     * @param DescribePdnsRequestStatisticsRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return DescribePdnsRequestStatisticsResponse
+     * @return DescribePdnsRequestStatisticsResponse DescribePdnsRequestStatisticsResponse
      */
     public function describePdnsRequestStatisticsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->domainName) {
-            @$query['DomainName'] = $request->domainName;
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
         }
-
-        if (null !== $request->endDate) {
-            @$query['EndDate'] = $request->endDate;
+        if (!Utils::isUnset($request->endDate)) {
+            $query['EndDate'] = $request->endDate;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->startDate) {
-            @$query['StartDate'] = $request->startDate;
+        if (!Utils::isUnset($request->startDate)) {
+            $query['StartDate'] = $request->startDate;
         }
-
-        if (null !== $request->subDomain) {
-            @$query['SubDomain'] = $request->subDomain;
+        if (!Utils::isUnset($request->subDomain)) {
+            $query['SubDomain'] = $request->subDomain;
         }
-
-        if (null !== $request->type) {
-            @$query['Type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribePdnsRequestStatistics',
@@ -8669,15 +7095,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries a list of statistics on requests for Alibaba Cloud Public DNS.
+     * @summary Queries a list of statistics on requests for Alibaba Cloud Public DNS.
+     *  *
+     * @param DescribePdnsRequestStatisticsRequest $request DescribePdnsRequestStatisticsRequest
      *
-     * @param request - DescribePdnsRequestStatisticsRequest
-     *
-     * @returns DescribePdnsRequestStatisticsResponse
-     *
-     * @param DescribePdnsRequestStatisticsRequest $request
-     *
-     * @return DescribePdnsRequestStatisticsResponse
+     * @return DescribePdnsRequestStatisticsResponse DescribePdnsRequestStatisticsResponse
      */
     public function describePdnsRequestStatistics($request)
     {
@@ -8687,60 +7109,46 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 获取公共DNS 威胁日志列表.
+     * @summary 获取公共DNS 威胁日志列表
+     *  *
+     * @param DescribePdnsThreatLogsRequest $request DescribePdnsThreatLogsRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribePdnsThreatLogsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribePdnsThreatLogsResponse
-     *
-     * @param DescribePdnsThreatLogsRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return DescribePdnsThreatLogsResponse
+     * @return DescribePdnsThreatLogsResponse DescribePdnsThreatLogsResponse
      */
     public function describePdnsThreatLogsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->endDate) {
-            @$query['EndDate'] = $request->endDate;
+        if (!Utils::isUnset($request->endDate)) {
+            $query['EndDate'] = $request->endDate;
         }
-
-        if (null !== $request->keyword) {
-            @$query['Keyword'] = $request->keyword;
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->startDate) {
-            @$query['StartDate'] = $request->startDate;
+        if (!Utils::isUnset($request->startDate)) {
+            $query['StartDate'] = $request->startDate;
         }
-
-        if (null !== $request->threatLevel) {
-            @$query['ThreatLevel'] = $request->threatLevel;
+        if (!Utils::isUnset($request->threatLevel)) {
+            $query['ThreatLevel'] = $request->threatLevel;
         }
-
-        if (null !== $request->threatSourceIp) {
-            @$query['ThreatSourceIp'] = $request->threatSourceIp;
+        if (!Utils::isUnset($request->threatSourceIp)) {
+            $query['ThreatSourceIp'] = $request->threatSourceIp;
         }
-
-        if (null !== $request->threatType) {
-            @$query['ThreatType'] = $request->threatType;
+        if (!Utils::isUnset($request->threatType)) {
+            $query['ThreatType'] = $request->threatType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribePdnsThreatLogs',
@@ -8758,15 +7166,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 获取公共DNS 威胁日志列表.
+     * @summary 获取公共DNS 威胁日志列表
+     *  *
+     * @param DescribePdnsThreatLogsRequest $request DescribePdnsThreatLogsRequest
      *
-     * @param request - DescribePdnsThreatLogsRequest
-     *
-     * @returns DescribePdnsThreatLogsResponse
-     *
-     * @param DescribePdnsThreatLogsRequest $request
-     *
-     * @return DescribePdnsThreatLogsResponse
+     * @return DescribePdnsThreatLogsResponse DescribePdnsThreatLogsResponse
      */
     public function describePdnsThreatLogs($request)
     {
@@ -8776,40 +7180,31 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 获取公共DNS 威胁统计
+     * @summary 获取公共DNS 威胁统计
+     *  *
+     * @param DescribePdnsThreatStatisticRequest $request DescribePdnsThreatStatisticRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribePdnsThreatStatisticRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribePdnsThreatStatisticResponse
-     *
-     * @param DescribePdnsThreatStatisticRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return DescribePdnsThreatStatisticResponse
+     * @return DescribePdnsThreatStatisticResponse DescribePdnsThreatStatisticResponse
      */
     public function describePdnsThreatStatisticWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->endDate) {
-            @$query['EndDate'] = $request->endDate;
+        if (!Utils::isUnset($request->endDate)) {
+            $query['EndDate'] = $request->endDate;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->startDate) {
-            @$query['StartDate'] = $request->startDate;
+        if (!Utils::isUnset($request->startDate)) {
+            $query['StartDate'] = $request->startDate;
         }
-
-        if (null !== $request->threatSourceIp) {
-            @$query['ThreatSourceIp'] = $request->threatSourceIp;
+        if (!Utils::isUnset($request->threatSourceIp)) {
+            $query['ThreatSourceIp'] = $request->threatSourceIp;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribePdnsThreatStatistic',
@@ -8827,15 +7222,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 获取公共DNS 威胁统计
+     * @summary 获取公共DNS 威胁统计
+     *  *
+     * @param DescribePdnsThreatStatisticRequest $request DescribePdnsThreatStatisticRequest
      *
-     * @param request - DescribePdnsThreatStatisticRequest
-     *
-     * @returns DescribePdnsThreatStatisticResponse
-     *
-     * @param DescribePdnsThreatStatisticRequest $request
-     *
-     * @return DescribePdnsThreatStatisticResponse
+     * @return DescribePdnsThreatStatisticResponse DescribePdnsThreatStatisticResponse
      */
     public function describePdnsThreatStatistic($request)
     {
@@ -8845,76 +7236,58 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 获取公共DNS 威胁统计列表.
+     * @summary 获取公共DNS 威胁统计列表
+     *  *
+     * @param DescribePdnsThreatStatisticsRequest $request DescribePdnsThreatStatisticsRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribePdnsThreatStatisticsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribePdnsThreatStatisticsResponse
-     *
-     * @param DescribePdnsThreatStatisticsRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return DescribePdnsThreatStatisticsResponse
+     * @return DescribePdnsThreatStatisticsResponse DescribePdnsThreatStatisticsResponse
      */
     public function describePdnsThreatStatisticsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->direction) {
-            @$query['Direction'] = $request->direction;
+        if (!Utils::isUnset($request->direction)) {
+            $query['Direction'] = $request->direction;
         }
-
-        if (null !== $request->domainName) {
-            @$query['DomainName'] = $request->domainName;
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
         }
-
-        if (null !== $request->endDate) {
-            @$query['EndDate'] = $request->endDate;
+        if (!Utils::isUnset($request->endDate)) {
+            $query['EndDate'] = $request->endDate;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->orderBy) {
-            @$query['OrderBy'] = $request->orderBy;
+        if (!Utils::isUnset($request->orderBy)) {
+            $query['OrderBy'] = $request->orderBy;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->startDate) {
-            @$query['StartDate'] = $request->startDate;
+        if (!Utils::isUnset($request->startDate)) {
+            $query['StartDate'] = $request->startDate;
         }
-
-        if (null !== $request->subDomain) {
-            @$query['SubDomain'] = $request->subDomain;
+        if (!Utils::isUnset($request->subDomain)) {
+            $query['SubDomain'] = $request->subDomain;
         }
-
-        if (null !== $request->threatLevel) {
-            @$query['ThreatLevel'] = $request->threatLevel;
+        if (!Utils::isUnset($request->threatLevel)) {
+            $query['ThreatLevel'] = $request->threatLevel;
         }
-
-        if (null !== $request->threatSourceIp) {
-            @$query['ThreatSourceIp'] = $request->threatSourceIp;
+        if (!Utils::isUnset($request->threatSourceIp)) {
+            $query['ThreatSourceIp'] = $request->threatSourceIp;
         }
-
-        if (null !== $request->threatType) {
-            @$query['ThreatType'] = $request->threatType;
+        if (!Utils::isUnset($request->threatType)) {
+            $query['ThreatType'] = $request->threatType;
         }
-
-        if (null !== $request->type) {
-            @$query['Type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribePdnsThreatStatistics',
@@ -8932,15 +7305,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 获取公共DNS 威胁统计列表.
+     * @summary 获取公共DNS 威胁统计列表
+     *  *
+     * @param DescribePdnsThreatStatisticsRequest $request DescribePdnsThreatStatisticsRequest
      *
-     * @param request - DescribePdnsThreatStatisticsRequest
-     *
-     * @returns DescribePdnsThreatStatisticsResponse
-     *
-     * @param DescribePdnsThreatStatisticsRequest $request
-     *
-     * @return DescribePdnsThreatStatisticsResponse
+     * @return DescribePdnsThreatStatisticsResponse DescribePdnsThreatStatisticsResponse
      */
     public function describePdnsThreatStatistics($request)
     {
@@ -8950,36 +7319,28 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 获取公共DNS Udp IP段列表.
+     * @summary 获取公共DNS Udp IP段列表
+     *  *
+     * @param DescribePdnsUdpIpSegmentsRequest $request DescribePdnsUdpIpSegmentsRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribePdnsUdpIpSegmentsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribePdnsUdpIpSegmentsResponse
-     *
-     * @param DescribePdnsUdpIpSegmentsRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DescribePdnsUdpIpSegmentsResponse
+     * @return DescribePdnsUdpIpSegmentsResponse DescribePdnsUdpIpSegmentsResponse
      */
     public function describePdnsUdpIpSegmentsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribePdnsUdpIpSegments',
@@ -8997,15 +7358,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 获取公共DNS Udp IP段列表.
+     * @summary 获取公共DNS Udp IP段列表
+     *  *
+     * @param DescribePdnsUdpIpSegmentsRequest $request DescribePdnsUdpIpSegmentsRequest
      *
-     * @param request - DescribePdnsUdpIpSegmentsRequest
-     *
-     * @returns DescribePdnsUdpIpSegmentsResponse
-     *
-     * @param DescribePdnsUdpIpSegmentsRequest $request
-     *
-     * @return DescribePdnsUdpIpSegmentsResponse
+     * @return DescribePdnsUdpIpSegmentsResponse DescribePdnsUdpIpSegmentsResponse
      */
     public function describePdnsUdpIpSegments($request)
     {
@@ -9015,28 +7372,22 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the information about users in Alibaba Cloud Public DNS.
+     * @summary Queries the information about users in Alibaba Cloud Public DNS.
+     *  *
+     * @param DescribePdnsUserInfoRequest $request DescribePdnsUserInfoRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribePdnsUserInfoRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribePdnsUserInfoResponse
-     *
-     * @param DescribePdnsUserInfoRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DescribePdnsUserInfoResponse
+     * @return DescribePdnsUserInfoResponse DescribePdnsUserInfoResponse
      */
     public function describePdnsUserInfoWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribePdnsUserInfo',
@@ -9054,15 +7405,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the information about users in Alibaba Cloud Public DNS.
+     * @summary Queries the information about users in Alibaba Cloud Public DNS.
+     *  *
+     * @param DescribePdnsUserInfoRequest $request DescribePdnsUserInfoRequest
      *
-     * @param request - DescribePdnsUserInfoRequest
-     *
-     * @returns DescribePdnsUserInfoResponse
-     *
-     * @param DescribePdnsUserInfoRequest $request
-     *
-     * @return DescribePdnsUserInfoResponse
+     * @return DescribePdnsUserInfoResponse DescribePdnsUserInfoResponse
      */
     public function describePdnsUserInfo($request)
     {
@@ -9072,56 +7419,43 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the operation logs of a domain name based on the specified parameters.
+     * @summary Queries the operation logs of a domain name based on the specified parameters.
+     *  *
+     * @param DescribeRecordLogsRequest $request DescribeRecordLogsRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeRecordLogsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeRecordLogsResponse
-     *
-     * @param DescribeRecordLogsRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DescribeRecordLogsResponse
+     * @return DescribeRecordLogsResponse DescribeRecordLogsResponse
      */
     public function describeRecordLogsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->domainName) {
-            @$query['DomainName'] = $request->domainName;
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
         }
-
-        if (null !== $request->keyWord) {
-            @$query['KeyWord'] = $request->keyWord;
+        if (!Utils::isUnset($request->keyWord)) {
+            $query['KeyWord'] = $request->keyWord;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->startDate) {
-            @$query['StartDate'] = $request->startDate;
+        if (!Utils::isUnset($request->startDate)) {
+            $query['StartDate'] = $request->startDate;
         }
-
-        if (null !== $request->userClientIp) {
-            @$query['UserClientIp'] = $request->userClientIp;
+        if (!Utils::isUnset($request->userClientIp)) {
+            $query['UserClientIp'] = $request->userClientIp;
         }
-
-        if (null !== $request->endDate) {
-            @$query['endDate'] = $request->endDate;
+        if (!Utils::isUnset($request->endDate)) {
+            $query['endDate'] = $request->endDate;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeRecordLogs',
@@ -9139,15 +7473,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the operation logs of a domain name based on the specified parameters.
+     * @summary Queries the operation logs of a domain name based on the specified parameters.
+     *  *
+     * @param DescribeRecordLogsRequest $request DescribeRecordLogsRequest
      *
-     * @param request - DescribeRecordLogsRequest
-     *
-     * @returns DescribeRecordLogsResponse
-     *
-     * @param DescribeRecordLogsRequest $request
-     *
-     * @return DescribeRecordLogsResponse
+     * @return DescribeRecordLogsResponse DescribeRecordLogsResponse
      */
     public function describeRecordLogs($request)
     {
@@ -9157,68 +7487,52 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the number of resolution requests for all subdomain names of a specified domain name.
+     * @summary Queries the number of resolution requests for all subdomain names of a specified domain name.
+     *  *
+     * @param DescribeRecordResolveStatisticsSummaryRequest $request DescribeRecordResolveStatisticsSummaryRequest
+     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeRecordResolveStatisticsSummaryRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeRecordResolveStatisticsSummaryResponse
-     *
-     * @param DescribeRecordResolveStatisticsSummaryRequest $request
-     * @param RuntimeOptions                                $runtime
-     *
-     * @return DescribeRecordResolveStatisticsSummaryResponse
+     * @return DescribeRecordResolveStatisticsSummaryResponse DescribeRecordResolveStatisticsSummaryResponse
      */
     public function describeRecordResolveStatisticsSummaryWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->direction) {
-            @$query['Direction'] = $request->direction;
+        if (!Utils::isUnset($request->direction)) {
+            $query['Direction'] = $request->direction;
         }
-
-        if (null !== $request->domainName) {
-            @$query['DomainName'] = $request->domainName;
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
         }
-
-        if (null !== $request->domainType) {
-            @$query['DomainType'] = $request->domainType;
+        if (!Utils::isUnset($request->domainType)) {
+            $query['DomainType'] = $request->domainType;
         }
-
-        if (null !== $request->endDate) {
-            @$query['EndDate'] = $request->endDate;
+        if (!Utils::isUnset($request->endDate)) {
+            $query['EndDate'] = $request->endDate;
         }
-
-        if (null !== $request->keyword) {
-            @$query['Keyword'] = $request->keyword;
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->searchMode) {
-            @$query['SearchMode'] = $request->searchMode;
+        if (!Utils::isUnset($request->searchMode)) {
+            $query['SearchMode'] = $request->searchMode;
         }
-
-        if (null !== $request->startDate) {
-            @$query['StartDate'] = $request->startDate;
+        if (!Utils::isUnset($request->startDate)) {
+            $query['StartDate'] = $request->startDate;
         }
-
-        if (null !== $request->threshold) {
-            @$query['Threshold'] = $request->threshold;
+        if (!Utils::isUnset($request->threshold)) {
+            $query['Threshold'] = $request->threshold;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeRecordResolveStatisticsSummary',
@@ -9236,15 +7550,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the number of resolution requests for all subdomain names of a specified domain name.
+     * @summary Queries the number of resolution requests for all subdomain names of a specified domain name.
+     *  *
+     * @param DescribeRecordResolveStatisticsSummaryRequest $request DescribeRecordResolveStatisticsSummaryRequest
      *
-     * @param request - DescribeRecordResolveStatisticsSummaryRequest
-     *
-     * @returns DescribeRecordResolveStatisticsSummaryResponse
-     *
-     * @param DescribeRecordResolveStatisticsSummaryRequest $request
-     *
-     * @return DescribeRecordResolveStatisticsSummaryResponse
+     * @return DescribeRecordResolveStatisticsSummaryResponse DescribeRecordResolveStatisticsSummaryResponse
      */
     public function describeRecordResolveStatisticsSummary($request)
     {
@@ -9254,51 +7564,39 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the real-time statistics on the Domain Name System (DNS) requests for a subdomain name.
+     * @summary Queries the real-time statistics on the Domain Name System (DNS) requests for a subdomain name.
+     *  *
+     * @description Real-time data is collected per hour.
+     *  *
+     * @param DescribeRecordStatisticsRequest $request DescribeRecordStatisticsRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * Real-time data is collected per hour.
-     *
-     * @param request - DescribeRecordStatisticsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeRecordStatisticsResponse
-     *
-     * @param DescribeRecordStatisticsRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return DescribeRecordStatisticsResponse
+     * @return DescribeRecordStatisticsResponse DescribeRecordStatisticsResponse
      */
     public function describeRecordStatisticsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->domainName) {
-            @$query['DomainName'] = $request->domainName;
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
         }
-
-        if (null !== $request->domainType) {
-            @$query['DomainType'] = $request->domainType;
+        if (!Utils::isUnset($request->domainType)) {
+            $query['DomainType'] = $request->domainType;
         }
-
-        if (null !== $request->endDate) {
-            @$query['EndDate'] = $request->endDate;
+        if (!Utils::isUnset($request->endDate)) {
+            $query['EndDate'] = $request->endDate;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->rr) {
-            @$query['Rr'] = $request->rr;
+        if (!Utils::isUnset($request->rr)) {
+            $query['Rr'] = $request->rr;
         }
-
-        if (null !== $request->startDate) {
-            @$query['StartDate'] = $request->startDate;
+        if (!Utils::isUnset($request->startDate)) {
+            $query['StartDate'] = $request->startDate;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeRecordStatistics',
@@ -9316,18 +7614,13 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the real-time statistics on the Domain Name System (DNS) requests for a subdomain name.
+     * @summary Queries the real-time statistics on the Domain Name System (DNS) requests for a subdomain name.
+     *  *
+     * @description Real-time data is collected per hour.
+     *  *
+     * @param DescribeRecordStatisticsRequest $request DescribeRecordStatisticsRequest
      *
-     * @remarks
-     * Real-time data is collected per hour.
-     *
-     * @param request - DescribeRecordStatisticsRequest
-     *
-     * @returns DescribeRecordStatisticsResponse
-     *
-     * @param DescribeRecordStatisticsRequest $request
-     *
-     * @return DescribeRecordStatisticsResponse
+     * @return DescribeRecordStatisticsResponse DescribeRecordStatisticsResponse
      */
     public function describeRecordStatistics($request)
     {
@@ -9337,64 +7630,49 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the number of Domain Name System (DNS) requests for all subdomain names of a specified domain name.
+     * @summary Queries the number of Domain Name System (DNS) requests for all subdomain names of a specified domain name.
+     *  *
+     * @param DescribeRecordStatisticsSummaryRequest $request DescribeRecordStatisticsSummaryRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeRecordStatisticsSummaryRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeRecordStatisticsSummaryResponse
-     *
-     * @param DescribeRecordStatisticsSummaryRequest $request
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return DescribeRecordStatisticsSummaryResponse
+     * @return DescribeRecordStatisticsSummaryResponse DescribeRecordStatisticsSummaryResponse
      */
     public function describeRecordStatisticsSummaryWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->domainName) {
-            @$query['DomainName'] = $request->domainName;
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
         }
-
-        if (null !== $request->domainType) {
-            @$query['DomainType'] = $request->domainType;
+        if (!Utils::isUnset($request->domainType)) {
+            $query['DomainType'] = $request->domainType;
         }
-
-        if (null !== $request->endDate) {
-            @$query['EndDate'] = $request->endDate;
+        if (!Utils::isUnset($request->endDate)) {
+            $query['EndDate'] = $request->endDate;
         }
-
-        if (null !== $request->keyword) {
-            @$query['Keyword'] = $request->keyword;
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->searchMode) {
-            @$query['SearchMode'] = $request->searchMode;
+        if (!Utils::isUnset($request->searchMode)) {
+            $query['SearchMode'] = $request->searchMode;
         }
-
-        if (null !== $request->startDate) {
-            @$query['StartDate'] = $request->startDate;
+        if (!Utils::isUnset($request->startDate)) {
+            $query['StartDate'] = $request->startDate;
         }
-
-        if (null !== $request->threshold) {
-            @$query['Threshold'] = $request->threshold;
+        if (!Utils::isUnset($request->threshold)) {
+            $query['Threshold'] = $request->threshold;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeRecordStatisticsSummary',
@@ -9412,15 +7690,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the number of Domain Name System (DNS) requests for all subdomain names of a specified domain name.
+     * @summary Queries the number of Domain Name System (DNS) requests for all subdomain names of a specified domain name.
+     *  *
+     * @param DescribeRecordStatisticsSummaryRequest $request DescribeRecordStatisticsSummaryRequest
      *
-     * @param request - DescribeRecordStatisticsSummaryRequest
-     *
-     * @returns DescribeRecordStatisticsSummaryResponse
-     *
-     * @param DescribeRecordStatisticsSummaryRequest $request
-     *
-     * @return DescribeRecordStatisticsSummaryResponse
+     * @return DescribeRecordStatisticsSummaryResponse DescribeRecordStatisticsSummaryResponse
      */
     public function describeRecordStatisticsSummary($request)
     {
@@ -9430,56 +7704,43 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries all Domain Name System (DNS) records of a subdomain name based on the specified parameters.
+     * @summary Queries all Domain Name System (DNS) records of a subdomain name based on the specified parameters.
+     *  *
+     * @param DescribeSubDomainRecordsRequest $request DescribeSubDomainRecordsRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeSubDomainRecordsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeSubDomainRecordsResponse
-     *
-     * @param DescribeSubDomainRecordsRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return DescribeSubDomainRecordsResponse
+     * @return DescribeSubDomainRecordsResponse DescribeSubDomainRecordsResponse
      */
     public function describeSubDomainRecordsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->domainName) {
-            @$query['DomainName'] = $request->domainName;
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->line) {
-            @$query['Line'] = $request->line;
+        if (!Utils::isUnset($request->line)) {
+            $query['Line'] = $request->line;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->subDomain) {
-            @$query['SubDomain'] = $request->subDomain;
+        if (!Utils::isUnset($request->subDomain)) {
+            $query['SubDomain'] = $request->subDomain;
         }
-
-        if (null !== $request->type) {
-            @$query['Type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
         }
-
-        if (null !== $request->userClientIp) {
-            @$query['UserClientIp'] = $request->userClientIp;
+        if (!Utils::isUnset($request->userClientIp)) {
+            $query['UserClientIp'] = $request->userClientIp;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeSubDomainRecords',
@@ -9497,15 +7758,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries all Domain Name System (DNS) records of a subdomain name based on the specified parameters.
+     * @summary Queries all Domain Name System (DNS) records of a subdomain name based on the specified parameters.
+     *  *
+     * @param DescribeSubDomainRecordsRequest $request DescribeSubDomainRecordsRequest
      *
-     * @param request - DescribeSubDomainRecordsRequest
-     *
-     * @returns DescribeSubDomainRecordsResponse
-     *
-     * @param DescribeSubDomainRecordsRequest $request
-     *
-     * @return DescribeSubDomainRecordsResponse
+     * @return DescribeSubDomainRecordsResponse DescribeSubDomainRecordsResponse
      */
     public function describeSubDomainRecords($request)
     {
@@ -9515,36 +7772,28 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 查询支持的所有线路.
+     * @summary 查询支持的所有线路
+     *  *
+     * @param DescribeSupportLinesRequest $request DescribeSupportLinesRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeSupportLinesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeSupportLinesResponse
-     *
-     * @param DescribeSupportLinesRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DescribeSupportLinesResponse
+     * @return DescribeSupportLinesResponse DescribeSupportLinesResponse
      */
     public function describeSupportLinesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->domainName) {
-            @$query['DomainName'] = $request->domainName;
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->userClientIp) {
-            @$query['UserClientIp'] = $request->userClientIp;
+        if (!Utils::isUnset($request->userClientIp)) {
+            $query['UserClientIp'] = $request->userClientIp;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeSupportLines',
@@ -9562,15 +7811,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 查询支持的所有线路.
+     * @summary 查询支持的所有线路
+     *  *
+     * @param DescribeSupportLinesRequest $request DescribeSupportLinesRequest
      *
-     * @param request - DescribeSupportLinesRequest
-     *
-     * @returns DescribeSupportLinesResponse
-     *
-     * @param DescribeSupportLinesRequest $request
-     *
-     * @return DescribeSupportLinesResponse
+     * @return DescribeSupportLinesResponse DescribeSupportLinesResponse
      */
     public function describeSupportLines($request)
     {
@@ -9580,40 +7825,31 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries existing tags.
+     * @summary Queries existing tags.
+     *  *
+     * @param DescribeTagsRequest $request DescribeTagsRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeTagsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeTagsResponse
-     *
-     * @param DescribeTagsRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return DescribeTagsResponse
+     * @return DescribeTagsResponse DescribeTagsResponse
      */
     public function describeTagsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->resourceType) {
-            @$query['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeTags',
@@ -9631,15 +7867,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries existing tags.
+     * @summary Queries existing tags.
+     *  *
+     * @param DescribeTagsRequest $request DescribeTagsRequest
      *
-     * @param request - DescribeTagsRequest
-     *
-     * @returns DescribeTagsResponse
-     *
-     * @param DescribeTagsRequest $request
-     *
-     * @return DescribeTagsResponse
+     * @return DescribeTagsResponse DescribeTagsResponse
      */
     public function describeTags($request)
     {
@@ -9649,52 +7881,40 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the domain names that were transferred between the current account and another account based on the specified parameters.
+     * @summary Queries the domain names that were transferred between the current account and another account based on the specified parameters.
+     *  *
+     * @param DescribeTransferDomainsRequest $request DescribeTransferDomainsRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeTransferDomainsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeTransferDomainsResponse
-     *
-     * @param DescribeTransferDomainsRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DescribeTransferDomainsResponse
+     * @return DescribeTransferDomainsResponse DescribeTransferDomainsResponse
      */
     public function describeTransferDomainsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->domainName) {
-            @$query['DomainName'] = $request->domainName;
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
         }
-
-        if (null !== $request->fromUserId) {
-            @$query['FromUserId'] = $request->fromUserId;
+        if (!Utils::isUnset($request->fromUserId)) {
+            $query['FromUserId'] = $request->fromUserId;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->targetUserId) {
-            @$query['TargetUserId'] = $request->targetUserId;
+        if (!Utils::isUnset($request->targetUserId)) {
+            $query['TargetUserId'] = $request->targetUserId;
         }
-
-        if (null !== $request->transferType) {
-            @$query['TransferType'] = $request->transferType;
+        if (!Utils::isUnset($request->transferType)) {
+            $query['TransferType'] = $request->transferType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeTransferDomains',
@@ -9712,15 +7932,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the domain names that were transferred between the current account and another account based on the specified parameters.
+     * @summary Queries the domain names that were transferred between the current account and another account based on the specified parameters.
+     *  *
+     * @param DescribeTransferDomainsRequest $request DescribeTransferDomainsRequest
      *
-     * @param request - DescribeTransferDomainsRequest
-     *
-     * @returns DescribeTransferDomainsResponse
-     *
-     * @param DescribeTransferDomainsRequest $request
-     *
-     * @return DescribeTransferDomainsResponse
+     * @return DescribeTransferDomainsResponse DescribeTransferDomainsResponse
      */
     public function describeTransferDomains($request)
     {
@@ -9730,32 +7946,25 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Executes a disaster recovery plan.
+     * @summary Executes a disaster recovery plan.
+     *  *
+     * @param ExecuteGtmRecoveryPlanRequest $request ExecuteGtmRecoveryPlanRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ExecuteGtmRecoveryPlanRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ExecuteGtmRecoveryPlanResponse
-     *
-     * @param ExecuteGtmRecoveryPlanRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return ExecuteGtmRecoveryPlanResponse
+     * @return ExecuteGtmRecoveryPlanResponse ExecuteGtmRecoveryPlanResponse
      */
     public function executeGtmRecoveryPlanWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->recoveryPlanId) {
-            @$query['RecoveryPlanId'] = $request->recoveryPlanId;
+        if (!Utils::isUnset($request->recoveryPlanId)) {
+            $query['RecoveryPlanId'] = $request->recoveryPlanId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ExecuteGtmRecoveryPlan',
@@ -9773,15 +7982,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Executes a disaster recovery plan.
+     * @summary Executes a disaster recovery plan.
+     *  *
+     * @param ExecuteGtmRecoveryPlanRequest $request ExecuteGtmRecoveryPlanRequest
      *
-     * @param request - ExecuteGtmRecoveryPlanRequest
-     *
-     * @returns ExecuteGtmRecoveryPlanResponse
-     *
-     * @param ExecuteGtmRecoveryPlanRequest $request
-     *
-     * @return ExecuteGtmRecoveryPlanResponse
+     * @return ExecuteGtmRecoveryPlanResponse ExecuteGtmRecoveryPlanResponse
      */
     public function executeGtmRecoveryPlan($request)
     {
@@ -9791,36 +7996,28 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries a primary domain name based on the specified parameters.
-     *
-     * @remarks
-     * For more information about the difference between primary domain names and subdomain names, see
+     * @summary Queries a primary domain name based on the specified parameters.
+     *  *
+     * @description For more information about the difference between primary domain names and subdomain names, see
      * [Subdomain levels](https://www.alibabacloud.com/help/zh/faq-detail/39803.htm). For example, if you enter `www.abc.com`, abc.com is obtained.
+     *  *
+     * @param GetMainDomainNameRequest $request GetMainDomainNameRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetMainDomainNameRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetMainDomainNameResponse
-     *
-     * @param GetMainDomainNameRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return GetMainDomainNameResponse
+     * @return GetMainDomainNameResponse GetMainDomainNameResponse
      */
     public function getMainDomainNameWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->inputString) {
-            @$query['InputString'] = $request->inputString;
+        if (!Utils::isUnset($request->inputString)) {
+            $query['InputString'] = $request->inputString;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetMainDomainName',
@@ -9838,19 +8035,14 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries a primary domain name based on the specified parameters.
-     *
-     * @remarks
-     * For more information about the difference between primary domain names and subdomain names, see
+     * @summary Queries a primary domain name based on the specified parameters.
+     *  *
+     * @description For more information about the difference between primary domain names and subdomain names, see
      * [Subdomain levels](https://www.alibabacloud.com/help/zh/faq-detail/39803.htm). For example, if you enter `www.abc.com`, abc.com is obtained.
+     *  *
+     * @param GetMainDomainNameRequest $request GetMainDomainNameRequest
      *
-     * @param request - GetMainDomainNameRequest
-     *
-     * @returns GetMainDomainNameResponse
-     *
-     * @param GetMainDomainNameRequest $request
-     *
-     * @return GetMainDomainNameResponse
+     * @return GetMainDomainNameResponse GetMainDomainNameResponse
      */
     public function getMainDomainName($request)
     {
@@ -9860,36 +8052,28 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Generates a text (TXT) record. TXT records are used to retrieve domain names and subdomain names, enable the subdomain name verification feature, and perform batch retrievals.
+     * @summary Generates a text (TXT) record. TXT records are used to retrieve domain names and subdomain names, enable the subdomain name verification feature, and perform batch retrievals.
+     *  *
+     * @param GetTxtRecordForVerifyRequest $request GetTxtRecordForVerifyRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetTxtRecordForVerifyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetTxtRecordForVerifyResponse
-     *
-     * @param GetTxtRecordForVerifyRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return GetTxtRecordForVerifyResponse
+     * @return GetTxtRecordForVerifyResponse GetTxtRecordForVerifyResponse
      */
     public function getTxtRecordForVerifyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->domainName) {
-            @$query['DomainName'] = $request->domainName;
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->type) {
-            @$query['Type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetTxtRecordForVerify',
@@ -9907,15 +8091,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Generates a text (TXT) record. TXT records are used to retrieve domain names and subdomain names, enable the subdomain name verification feature, and perform batch retrievals.
+     * @summary Generates a text (TXT) record. TXT records are used to retrieve domain names and subdomain names, enable the subdomain name verification feature, and perform batch retrievals.
+     *  *
+     * @param GetTxtRecordForVerifyRequest $request GetTxtRecordForVerifyRequest
      *
-     * @param request - GetTxtRecordForVerifyRequest
-     *
-     * @returns GetTxtRecordForVerifyResponse
-     *
-     * @param GetTxtRecordForVerifyRequest $request
-     *
-     * @return GetTxtRecordForVerifyResponse
+     * @return GetTxtRecordForVerifyResponse GetTxtRecordForVerifyResponse
      */
     public function getTxtRecordForVerify($request)
     {
@@ -9925,56 +8105,43 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries a list of address pools.
+     * @summary Queries a list of address pools.
+     *  *
+     * @param ListCloudGtmAddressPoolsRequest $request ListCloudGtmAddressPoolsRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListCloudGtmAddressPoolsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListCloudGtmAddressPoolsResponse
-     *
-     * @param ListCloudGtmAddressPoolsRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return ListCloudGtmAddressPoolsResponse
+     * @return ListCloudGtmAddressPoolsResponse ListCloudGtmAddressPoolsResponse
      */
     public function listCloudGtmAddressPoolsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->acceptLanguage) {
-            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
         }
-
-        if (null !== $request->addressPoolName) {
-            @$query['AddressPoolName'] = $request->addressPoolName;
+        if (!Utils::isUnset($request->addressPoolName)) {
+            $query['AddressPoolName'] = $request->addressPoolName;
         }
-
-        if (null !== $request->addressPoolType) {
-            @$query['AddressPoolType'] = $request->addressPoolType;
+        if (!Utils::isUnset($request->addressPoolType)) {
+            $query['AddressPoolType'] = $request->addressPoolType;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->enableStatus) {
-            @$query['EnableStatus'] = $request->enableStatus;
+        if (!Utils::isUnset($request->enableStatus)) {
+            $query['EnableStatus'] = $request->enableStatus;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->remark) {
-            @$query['Remark'] = $request->remark;
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListCloudGtmAddressPools',
@@ -9992,15 +8159,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries a list of address pools.
+     * @summary Queries a list of address pools.
+     *  *
+     * @param ListCloudGtmAddressPoolsRequest $request ListCloudGtmAddressPoolsRequest
      *
-     * @param request - ListCloudGtmAddressPoolsRequest
-     *
-     * @returns ListCloudGtmAddressPoolsResponse
-     *
-     * @param ListCloudGtmAddressPoolsRequest $request
-     *
-     * @return ListCloudGtmAddressPoolsResponse
+     * @return ListCloudGtmAddressPoolsResponse ListCloudGtmAddressPoolsResponse
      */
     public function listCloudGtmAddressPools($request)
     {
@@ -10010,68 +8173,52 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries a list of addresses.
+     * @summary Queries a list of addresses.
+     *  *
+     * @param ListCloudGtmAddressesRequest $request ListCloudGtmAddressesRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListCloudGtmAddressesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListCloudGtmAddressesResponse
-     *
-     * @param ListCloudGtmAddressesRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return ListCloudGtmAddressesResponse
+     * @return ListCloudGtmAddressesResponse ListCloudGtmAddressesResponse
      */
     public function listCloudGtmAddressesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->acceptLanguage) {
-            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
         }
-
-        if (null !== $request->address) {
-            @$query['Address'] = $request->address;
+        if (!Utils::isUnset($request->address)) {
+            $query['Address'] = $request->address;
         }
-
-        if (null !== $request->addressId) {
-            @$query['AddressId'] = $request->addressId;
+        if (!Utils::isUnset($request->addressId)) {
+            $query['AddressId'] = $request->addressId;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->enableStatus) {
-            @$query['EnableStatus'] = $request->enableStatus;
+        if (!Utils::isUnset($request->enableStatus)) {
+            $query['EnableStatus'] = $request->enableStatus;
         }
-
-        if (null !== $request->healthStatus) {
-            @$query['HealthStatus'] = $request->healthStatus;
+        if (!Utils::isUnset($request->healthStatus)) {
+            $query['HealthStatus'] = $request->healthStatus;
         }
-
-        if (null !== $request->monitorTemplateId) {
-            @$query['MonitorTemplateId'] = $request->monitorTemplateId;
+        if (!Utils::isUnset($request->monitorTemplateId)) {
+            $query['MonitorTemplateId'] = $request->monitorTemplateId;
         }
-
-        if (null !== $request->name) {
-            @$query['Name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->type) {
-            @$query['Type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListCloudGtmAddresses',
@@ -10089,15 +8236,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries a list of addresses.
+     * @summary Queries a list of addresses.
+     *  *
+     * @param ListCloudGtmAddressesRequest $request ListCloudGtmAddressesRequest
      *
-     * @param request - ListCloudGtmAddressesRequest
-     *
-     * @returns ListCloudGtmAddressesResponse
-     *
-     * @param ListCloudGtmAddressesRequest $request
-     *
-     * @return ListCloudGtmAddressesResponse
+     * @return ListCloudGtmAddressesResponse ListCloudGtmAddressesResponse
      */
     public function listCloudGtmAddresses($request)
     {
@@ -10107,54 +8250,41 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param request - ListCloudGtmAlertLogsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
+     * @param ListCloudGtmAlertLogsRequest $request ListCloudGtmAlertLogsRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @returns ListCloudGtmAlertLogsResponse
-     *
-     * @param ListCloudGtmAlertLogsRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return ListCloudGtmAlertLogsResponse
+     * @return ListCloudGtmAlertLogsResponse ListCloudGtmAlertLogsResponse
      */
     public function listCloudGtmAlertLogsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->actionType) {
-            @$query['ActionType'] = $request->actionType;
+        if (!Utils::isUnset($request->actionType)) {
+            $query['ActionType'] = $request->actionType;
         }
-
-        if (null !== $request->endTimestamp) {
-            @$query['EndTimestamp'] = $request->endTimestamp;
+        if (!Utils::isUnset($request->endTimestamp)) {
+            $query['EndTimestamp'] = $request->endTimestamp;
         }
-
-        if (null !== $request->entityType) {
-            @$query['EntityType'] = $request->entityType;
+        if (!Utils::isUnset($request->entityType)) {
+            $query['EntityType'] = $request->entityType;
         }
-
-        if (null !== $request->keyword) {
-            @$query['Keyword'] = $request->keyword;
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->startTimestamp) {
-            @$query['StartTimestamp'] = $request->startTimestamp;
+        if (!Utils::isUnset($request->startTimestamp)) {
+            $query['StartTimestamp'] = $request->startTimestamp;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListCloudGtmAlertLogs',
@@ -10172,13 +8302,9 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param request - ListCloudGtmAlertLogsRequest
+     * @param ListCloudGtmAlertLogsRequest $request ListCloudGtmAlertLogsRequest
      *
-     * @returns ListCloudGtmAlertLogsResponse
-     *
-     * @param ListCloudGtmAlertLogsRequest $request
-     *
-     * @return ListCloudGtmAlertLogsResponse
+     * @return ListCloudGtmAlertLogsResponse ListCloudGtmAlertLogsResponse
      */
     public function listCloudGtmAlertLogs($request)
     {
@@ -10188,26 +8314,20 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param request - ListCloudGtmAvailableAlertGroupsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
+     * @param ListCloudGtmAvailableAlertGroupsRequest $request ListCloudGtmAvailableAlertGroupsRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @returns ListCloudGtmAvailableAlertGroupsResponse
-     *
-     * @param ListCloudGtmAvailableAlertGroupsRequest $request
-     * @param RuntimeOptions                          $runtime
-     *
-     * @return ListCloudGtmAvailableAlertGroupsResponse
+     * @return ListCloudGtmAvailableAlertGroupsResponse ListCloudGtmAvailableAlertGroupsResponse
      */
     public function listCloudGtmAvailableAlertGroupsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->acceptLanguage) {
-            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListCloudGtmAvailableAlertGroups',
@@ -10225,13 +8345,9 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param request - ListCloudGtmAvailableAlertGroupsRequest
+     * @param ListCloudGtmAvailableAlertGroupsRequest $request ListCloudGtmAvailableAlertGroupsRequest
      *
-     * @returns ListCloudGtmAvailableAlertGroupsResponse
-     *
-     * @param ListCloudGtmAvailableAlertGroupsRequest $request
-     *
-     * @return ListCloudGtmAvailableAlertGroupsResponse
+     * @return ListCloudGtmAvailableAlertGroupsResponse ListCloudGtmAvailableAlertGroupsResponse
      */
     public function listCloudGtmAvailableAlertGroups($request)
     {
@@ -10241,60 +8357,46 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the configurations of a Global Traffic Manager (GTM) instance, including the information about access domain names and address pools.
+     * @summary Queries the configurations of a Global Traffic Manager (GTM) instance, including the information about access domain names and address pools.
+     *  *
+     * @param ListCloudGtmInstanceConfigsRequest $request ListCloudGtmInstanceConfigsRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListCloudGtmInstanceConfigsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListCloudGtmInstanceConfigsResponse
-     *
-     * @param ListCloudGtmInstanceConfigsRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return ListCloudGtmInstanceConfigsResponse
+     * @return ListCloudGtmInstanceConfigsResponse ListCloudGtmInstanceConfigsResponse
      */
     public function listCloudGtmInstanceConfigsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->acceptLanguage) {
-            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->enableStatus) {
-            @$query['EnableStatus'] = $request->enableStatus;
+        if (!Utils::isUnset($request->enableStatus)) {
+            $query['EnableStatus'] = $request->enableStatus;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->remark) {
-            @$query['Remark'] = $request->remark;
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
         }
-
-        if (null !== $request->scheduleDomainName) {
-            @$query['ScheduleDomainName'] = $request->scheduleDomainName;
+        if (!Utils::isUnset($request->scheduleDomainName)) {
+            $query['ScheduleDomainName'] = $request->scheduleDomainName;
         }
-
-        if (null !== $request->scheduleZoneName) {
-            @$query['ScheduleZoneName'] = $request->scheduleZoneName;
+        if (!Utils::isUnset($request->scheduleZoneName)) {
+            $query['ScheduleZoneName'] = $request->scheduleZoneName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListCloudGtmInstanceConfigs',
@@ -10312,15 +8414,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the configurations of a Global Traffic Manager (GTM) instance, including the information about access domain names and address pools.
+     * @summary Queries the configurations of a Global Traffic Manager (GTM) instance, including the information about access domain names and address pools.
+     *  *
+     * @param ListCloudGtmInstanceConfigsRequest $request ListCloudGtmInstanceConfigsRequest
      *
-     * @param request - ListCloudGtmInstanceConfigsRequest
-     *
-     * @returns ListCloudGtmInstanceConfigsResponse
-     *
-     * @param ListCloudGtmInstanceConfigsRequest $request
-     *
-     * @return ListCloudGtmInstanceConfigsResponse
+     * @return ListCloudGtmInstanceConfigsResponse ListCloudGtmInstanceConfigsResponse
      */
     public function listCloudGtmInstanceConfigs($request)
     {
@@ -10330,48 +8428,37 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries a list of Global Traffic Manager (GTM) 3.0 instances.
+     * @summary Queries a list of Global Traffic Manager (GTM) 3.0 instances.
+     *  *
+     * @param ListCloudGtmInstancesRequest $request ListCloudGtmInstancesRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListCloudGtmInstancesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListCloudGtmInstancesResponse
-     *
-     * @param ListCloudGtmInstancesRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return ListCloudGtmInstancesResponse
+     * @return ListCloudGtmInstancesResponse ListCloudGtmInstancesResponse
      */
     public function listCloudGtmInstancesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->acceptLanguage) {
-            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->instanceName) {
-            @$query['InstanceName'] = $request->instanceName;
+        if (!Utils::isUnset($request->instanceName)) {
+            $query['InstanceName'] = $request->instanceName;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListCloudGtmInstances',
@@ -10389,15 +8476,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries a list of Global Traffic Manager (GTM) 3.0 instances.
+     * @summary Queries a list of Global Traffic Manager (GTM) 3.0 instances.
+     *  *
+     * @param ListCloudGtmInstancesRequest $request ListCloudGtmInstancesRequest
      *
-     * @param request - ListCloudGtmInstancesRequest
-     *
-     * @returns ListCloudGtmInstancesResponse
-     *
-     * @param ListCloudGtmInstancesRequest $request
-     *
-     * @return ListCloudGtmInstancesResponse
+     * @return ListCloudGtmInstancesResponse ListCloudGtmInstancesResponse
      */
     public function listCloudGtmInstances($request)
     {
@@ -10407,28 +8490,22 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries a list of health check nodes.
+     * @summary Queries a list of health check nodes.
+     *  *
+     * @param ListCloudGtmMonitorNodesRequest $request ListCloudGtmMonitorNodesRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListCloudGtmMonitorNodesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListCloudGtmMonitorNodesResponse
-     *
-     * @param ListCloudGtmMonitorNodesRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return ListCloudGtmMonitorNodesResponse
+     * @return ListCloudGtmMonitorNodesResponse ListCloudGtmMonitorNodesResponse
      */
     public function listCloudGtmMonitorNodesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->acceptLanguage) {
-            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListCloudGtmMonitorNodes',
@@ -10446,15 +8523,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries a list of health check nodes.
+     * @summary Queries a list of health check nodes.
+     *  *
+     * @param ListCloudGtmMonitorNodesRequest $request ListCloudGtmMonitorNodesRequest
      *
-     * @param request - ListCloudGtmMonitorNodesRequest
-     *
-     * @returns ListCloudGtmMonitorNodesResponse
-     *
-     * @param ListCloudGtmMonitorNodesRequest $request
-     *
-     * @return ListCloudGtmMonitorNodesResponse
+     * @return ListCloudGtmMonitorNodesResponse ListCloudGtmMonitorNodesResponse
      */
     public function listCloudGtmMonitorNodes($request)
     {
@@ -10464,48 +8537,37 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries a list of health check templates.
+     * @summary Queries a list of health check templates.
+     *  *
+     * @param ListCloudGtmMonitorTemplatesRequest $request ListCloudGtmMonitorTemplatesRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListCloudGtmMonitorTemplatesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListCloudGtmMonitorTemplatesResponse
-     *
-     * @param ListCloudGtmMonitorTemplatesRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return ListCloudGtmMonitorTemplatesResponse
+     * @return ListCloudGtmMonitorTemplatesResponse ListCloudGtmMonitorTemplatesResponse
      */
     public function listCloudGtmMonitorTemplatesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->acceptLanguage) {
-            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
         }
-
-        if (null !== $request->ipVersion) {
-            @$query['IpVersion'] = $request->ipVersion;
+        if (!Utils::isUnset($request->ipVersion)) {
+            $query['IpVersion'] = $request->ipVersion;
         }
-
-        if (null !== $request->name) {
-            @$query['Name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->protocol) {
-            @$query['Protocol'] = $request->protocol;
+        if (!Utils::isUnset($request->protocol)) {
+            $query['Protocol'] = $request->protocol;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListCloudGtmMonitorTemplates',
@@ -10523,15 +8585,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries a list of health check templates.
+     * @summary Queries a list of health check templates.
+     *  *
+     * @param ListCloudGtmMonitorTemplatesRequest $request ListCloudGtmMonitorTemplatesRequest
      *
-     * @param request - ListCloudGtmMonitorTemplatesRequest
-     *
-     * @returns ListCloudGtmMonitorTemplatesResponse
-     *
-     * @param ListCloudGtmMonitorTemplatesRequest $request
-     *
-     * @return ListCloudGtmMonitorTemplatesResponse
+     * @return ListCloudGtmMonitorTemplatesResponse ListCloudGtmMonitorTemplatesResponse
      */
     public function listCloudGtmMonitorTemplates($request)
     {
@@ -10541,50 +8599,39 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries resources by tag.
-     *
-     * @remarks
-     *   Set ResourceId.N or Tag.N that consists of Tag.N.Key and Tag.N.Value in the request to specify the object to be queried.
+     * @summary Queries resources by tag.
+     *  *
+     * @description *   Set ResourceId.N or Tag.N that consists of Tag.N.Key and Tag.N.Value in the request to specify the object to be queried.
      * *   Tag.N is a resource tag that consists of a key-value pair. If you set only Tag.N.Key, all tag values that are assigned to the specified key are returned. If you set only Tag.N.Value, an error message is returned.
      * *   If you set both Tag.N and ResourceId.N to filter tags, ResourceId.N must match all specified key-value pairs.
      * *   If you specify multiple key-value pairs, resources that contain these key-value pairs are returned.
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListTagResourcesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListTagResourcesResponse
-     *
-     * @param ListTagResourcesRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->nextToken) {
-            @$query['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
         }
-
-        if (null !== $request->resourceId) {
-            @$query['ResourceId'] = $request->resourceId;
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
         }
-
-        if (null !== $request->resourceType) {
-            @$query['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListTagResources',
@@ -10602,21 +8649,16 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries resources by tag.
-     *
-     * @remarks
-     *   Set ResourceId.N or Tag.N that consists of Tag.N.Key and Tag.N.Value in the request to specify the object to be queried.
+     * @summary Queries resources by tag.
+     *  *
+     * @description *   Set ResourceId.N or Tag.N that consists of Tag.N.Key and Tag.N.Value in the request to specify the object to be queried.
      * *   Tag.N is a resource tag that consists of a key-value pair. If you set only Tag.N.Key, all tag values that are assigned to the specified key are returned. If you set only Tag.N.Value, an error message is returned.
      * *   If you set both Tag.N and ResourceId.N to filter tags, ResourceId.N must match all specified key-value pairs.
      * *   If you specify multiple key-value pairs, resources that contain these key-value pairs are returned.
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
-     * @param request - ListTagResourcesRequest
-     *
-     * @returns ListTagResourcesResponse
-     *
-     * @param ListTagResourcesRequest $request
-     *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -10626,40 +8668,31 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Changes the names of DNS servers bound to a domain name from DNS server names provided by a third-party service provider to DNS server names provided by Alibaba Cloud DNS.
-     *
-     * @remarks
-     * If the operation succeeds, the names of DNS servers change to those of Alibaba Cloud DNS servers (ending with hichina.com).
+     * @summary Changes the names of DNS servers bound to a domain name from DNS server names provided by a third-party service provider to DNS server names provided by Alibaba Cloud DNS.
+     *  *
+     * @description If the operation succeeds, the names of DNS servers change to those of Alibaba Cloud DNS servers (ending with hichina.com).
      * >  **Before you call this operation, make sure that your domain name has been registered with Alibaba Cloud and the DNS servers in use are not Alibaba Cloud DNS servers.
+     *  *
+     * @param ModifyHichinaDomainDNSRequest $request ModifyHichinaDomainDNSRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyHichinaDomainDNSRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyHichinaDomainDNSResponse
-     *
-     * @param ModifyHichinaDomainDNSRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return ModifyHichinaDomainDNSResponse
+     * @return ModifyHichinaDomainDNSResponse ModifyHichinaDomainDNSResponse
      */
     public function modifyHichinaDomainDNSWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->domainName) {
-            @$query['DomainName'] = $request->domainName;
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->userClientIp) {
-            @$query['UserClientIp'] = $request->userClientIp;
+        if (!Utils::isUnset($request->userClientIp)) {
+            $query['UserClientIp'] = $request->userClientIp;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyHichinaDomainDNS',
@@ -10677,19 +8710,14 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Changes the names of DNS servers bound to a domain name from DNS server names provided by a third-party service provider to DNS server names provided by Alibaba Cloud DNS.
-     *
-     * @remarks
-     * If the operation succeeds, the names of DNS servers change to those of Alibaba Cloud DNS servers (ending with hichina.com).
+     * @summary Changes the names of DNS servers bound to a domain name from DNS server names provided by a third-party service provider to DNS server names provided by Alibaba Cloud DNS.
+     *  *
+     * @description If the operation succeeds, the names of DNS servers change to those of Alibaba Cloud DNS servers (ending with hichina.com).
      * >  **Before you call this operation, make sure that your domain name has been registered with Alibaba Cloud and the DNS servers in use are not Alibaba Cloud DNS servers.
+     *  *
+     * @param ModifyHichinaDomainDNSRequest $request ModifyHichinaDomainDNSRequest
      *
-     * @param request - ModifyHichinaDomainDNSRequest
-     *
-     * @returns ModifyHichinaDomainDNSResponse
-     *
-     * @param ModifyHichinaDomainDNSRequest $request
-     *
-     * @return ModifyHichinaDomainDNSResponse
+     * @return ModifyHichinaDomainDNSResponse ModifyHichinaDomainDNSResponse
      */
     public function modifyHichinaDomainDNS($request)
     {
@@ -10699,36 +8727,28 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Moves a domain name to another resource group.
+     * @summary Moves a domain name to another resource group.
+     *  *
+     * @param MoveDomainResourceGroupRequest $request MoveDomainResourceGroupRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - MoveDomainResourceGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns MoveDomainResourceGroupResponse
-     *
-     * @param MoveDomainResourceGroupRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return MoveDomainResourceGroupResponse
+     * @return MoveDomainResourceGroupResponse MoveDomainResourceGroupResponse
      */
     public function moveDomainResourceGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->newResourceGroupId) {
-            @$query['NewResourceGroupId'] = $request->newResourceGroupId;
+        if (!Utils::isUnset($request->newResourceGroupId)) {
+            $query['NewResourceGroupId'] = $request->newResourceGroupId;
         }
-
-        if (null !== $request->resourceId) {
-            @$query['ResourceId'] = $request->resourceId;
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'MoveDomainResourceGroup',
@@ -10746,15 +8766,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Moves a domain name to another resource group.
+     * @summary Moves a domain name to another resource group.
+     *  *
+     * @param MoveDomainResourceGroupRequest $request MoveDomainResourceGroupRequest
      *
-     * @param request - MoveDomainResourceGroupRequest
-     *
-     * @returns MoveDomainResourceGroupResponse
-     *
-     * @param MoveDomainResourceGroupRequest $request
-     *
-     * @return MoveDomainResourceGroupResponse
+     * @return MoveDomainResourceGroupResponse MoveDomainResourceGroupResponse
      */
     public function moveDomainResourceGroup($request)
     {
@@ -10764,34 +8780,26 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param request - MoveGtmResourceGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
+     * @param MoveGtmResourceGroupRequest $request MoveGtmResourceGroupRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @returns MoveGtmResourceGroupResponse
-     *
-     * @param MoveGtmResourceGroupRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return MoveGtmResourceGroupResponse
+     * @return MoveGtmResourceGroupResponse MoveGtmResourceGroupResponse
      */
     public function moveGtmResourceGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->newResourceGroupId) {
-            @$query['NewResourceGroupId'] = $request->newResourceGroupId;
+        if (!Utils::isUnset($request->newResourceGroupId)) {
+            $query['NewResourceGroupId'] = $request->newResourceGroupId;
         }
-
-        if (null !== $request->resourceId) {
-            @$query['ResourceId'] = $request->resourceId;
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'MoveGtmResourceGroup',
@@ -10809,13 +8817,9 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param request - MoveGtmResourceGroupRequest
+     * @param MoveGtmResourceGroupRequest $request MoveGtmResourceGroupRequest
      *
-     * @returns MoveGtmResourceGroupResponse
-     *
-     * @param MoveGtmResourceGroupRequest $request
-     *
-     * @return MoveGtmResourceGroupResponse
+     * @return MoveGtmResourceGroupResponse MoveGtmResourceGroupResponse
      */
     public function moveGtmResourceGroup($request)
     {
@@ -10825,39 +8829,30 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Adds or deletes domain names and Domain Name System (DNS) records in batches.
+     * @summary Adds or deletes domain names and Domain Name System (DNS) records in batches.
+     *  *
+     * @description Scenario: You need to execute a large number of tasks related to DNS resolution and you do not have high requirements for efficiency.
+     *  *
+     * @param OperateBatchDomainRequest $request OperateBatchDomainRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * Scenario: You need to execute a large number of tasks related to DNS resolution and you do not have high requirements for efficiency.
-     *
-     * @param request - OperateBatchDomainRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns OperateBatchDomainResponse
-     *
-     * @param OperateBatchDomainRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return OperateBatchDomainResponse
+     * @return OperateBatchDomainResponse OperateBatchDomainResponse
      */
     public function operateBatchDomainWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->domainRecordInfo) {
-            @$query['DomainRecordInfo'] = $request->domainRecordInfo;
+        if (!Utils::isUnset($request->domainRecordInfo)) {
+            $query['DomainRecordInfo'] = $request->domainRecordInfo;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->type) {
-            @$query['Type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'OperateBatchDomain',
@@ -10875,18 +8870,13 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Adds or deletes domain names and Domain Name System (DNS) records in batches.
+     * @summary Adds or deletes domain names and Domain Name System (DNS) records in batches.
+     *  *
+     * @description Scenario: You need to execute a large number of tasks related to DNS resolution and you do not have high requirements for efficiency.
+     *  *
+     * @param OperateBatchDomainRequest $request OperateBatchDomainRequest
      *
-     * @remarks
-     * Scenario: You need to execute a large number of tasks related to DNS resolution and you do not have high requirements for efficiency.
-     *
-     * @param request - OperateBatchDomainRequest
-     *
-     * @returns OperateBatchDomainResponse
-     *
-     * @param OperateBatchDomainRequest $request
-     *
-     * @return OperateBatchDomainResponse
+     * @return OperateBatchDomainResponse OperateBatchDomainResponse
      */
     public function operateBatchDomain($request)
     {
@@ -10896,32 +8886,25 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 暂停公共DNS服务
+     * @summary 暂停公共DNS服务
+     *  *
+     * @param PausePdnsServiceRequest $request PausePdnsServiceRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - PausePdnsServiceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns PausePdnsServiceResponse
-     *
-     * @param PausePdnsServiceRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return PausePdnsServiceResponse
+     * @return PausePdnsServiceResponse PausePdnsServiceResponse
      */
     public function pausePdnsServiceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->serviceType) {
-            @$query['ServiceType'] = $request->serviceType;
+        if (!Utils::isUnset($request->serviceType)) {
+            $query['ServiceType'] = $request->serviceType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'PausePdnsService',
@@ -10939,15 +8922,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 暂停公共DNS服务
+     * @summary 暂停公共DNS服务
+     *  *
+     * @param PausePdnsServiceRequest $request PausePdnsServiceRequest
      *
-     * @param request - PausePdnsServiceRequest
-     *
-     * @returns PausePdnsServiceResponse
-     *
-     * @param PausePdnsServiceRequest $request
-     *
-     * @return PausePdnsServiceResponse
+     * @return PausePdnsServiceResponse PausePdnsServiceResponse
      */
     public function pausePdnsService($request)
     {
@@ -10957,40 +8936,31 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * You can call this operation to preview a disaster recovery plan of a Global Traffic Manager (GTM) instance.
+     * @summary You can call this operation to preview a disaster recovery plan of a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param PreviewGtmRecoveryPlanRequest $request PreviewGtmRecoveryPlanRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - PreviewGtmRecoveryPlanRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns PreviewGtmRecoveryPlanResponse
-     *
-     * @param PreviewGtmRecoveryPlanRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return PreviewGtmRecoveryPlanResponse
+     * @return PreviewGtmRecoveryPlanResponse PreviewGtmRecoveryPlanResponse
      */
     public function previewGtmRecoveryPlanWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->recoveryPlanId) {
-            @$query['RecoveryPlanId'] = $request->recoveryPlanId;
+        if (!Utils::isUnset($request->recoveryPlanId)) {
+            $query['RecoveryPlanId'] = $request->recoveryPlanId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'PreviewGtmRecoveryPlan',
@@ -11008,15 +8978,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * You can call this operation to preview a disaster recovery plan of a Global Traffic Manager (GTM) instance.
+     * @summary You can call this operation to preview a disaster recovery plan of a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param PreviewGtmRecoveryPlanRequest $request PreviewGtmRecoveryPlanRequest
      *
-     * @param request - PreviewGtmRecoveryPlanRequest
-     *
-     * @returns PreviewGtmRecoveryPlanResponse
-     *
-     * @param PreviewGtmRecoveryPlanRequest $request
-     *
-     * @return PreviewGtmRecoveryPlanResponse
+     * @return PreviewGtmRecoveryPlanResponse PreviewGtmRecoveryPlanResponse
      */
     public function previewGtmRecoveryPlan($request)
     {
@@ -11026,32 +8992,25 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 删除公共DNS AppKey.
+     * @summary 删除公共DNS AppKey
+     *  *
+     * @param RemovePdnsAppKeyRequest $request RemovePdnsAppKeyRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - RemovePdnsAppKeyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns RemovePdnsAppKeyResponse
-     *
-     * @param RemovePdnsAppKeyRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return RemovePdnsAppKeyResponse
+     * @return RemovePdnsAppKeyResponse RemovePdnsAppKeyResponse
      */
     public function removePdnsAppKeyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->appKeyId) {
-            @$query['AppKeyId'] = $request->appKeyId;
+        if (!Utils::isUnset($request->appKeyId)) {
+            $query['AppKeyId'] = $request->appKeyId;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'RemovePdnsAppKey',
@@ -11069,15 +9028,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 删除公共DNS AppKey.
+     * @summary 删除公共DNS AppKey
+     *  *
+     * @param RemovePdnsAppKeyRequest $request RemovePdnsAppKeyRequest
      *
-     * @param request - RemovePdnsAppKeyRequest
-     *
-     * @returns RemovePdnsAppKeyResponse
-     *
-     * @param RemovePdnsAppKeyRequest $request
-     *
-     * @return RemovePdnsAppKeyResponse
+     * @return RemovePdnsAppKeyResponse RemovePdnsAppKeyResponse
      */
     public function removePdnsAppKey($request)
     {
@@ -11087,32 +9042,25 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 删除公共DNS Udp Ip地址段.
+     * @summary 删除公共DNS Udp Ip地址段
+     *  *
+     * @param RemovePdnsUdpIpSegmentRequest $request RemovePdnsUdpIpSegmentRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - RemovePdnsUdpIpSegmentRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns RemovePdnsUdpIpSegmentResponse
-     *
-     * @param RemovePdnsUdpIpSegmentRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return RemovePdnsUdpIpSegmentResponse
+     * @return RemovePdnsUdpIpSegmentResponse RemovePdnsUdpIpSegmentResponse
      */
     public function removePdnsUdpIpSegmentWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->ip) {
-            @$query['Ip'] = $request->ip;
+        if (!Utils::isUnset($request->ip)) {
+            $query['Ip'] = $request->ip;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'RemovePdnsUdpIpSegment',
@@ -11130,15 +9078,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 删除公共DNS Udp Ip地址段.
+     * @summary 删除公共DNS Udp Ip地址段
+     *  *
+     * @param RemovePdnsUdpIpSegmentRequest $request RemovePdnsUdpIpSegmentRequest
      *
-     * @param request - RemovePdnsUdpIpSegmentRequest
-     *
-     * @returns RemovePdnsUdpIpSegmentResponse
-     *
-     * @param RemovePdnsUdpIpSegmentRequest $request
-     *
-     * @return RemovePdnsUdpIpSegmentResponse
+     * @return RemovePdnsUdpIpSegmentResponse RemovePdnsUdpIpSegmentResponse
      */
     public function removePdnsUdpIpSegment($request)
     {
@@ -11148,46 +9092,36 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Replaces the addresses referenced by an address pool.
+     * @summary Replaces the addresses referenced by an address pool.
+     *  *
+     * @param ReplaceCloudGtmAddressPoolAddressRequest $tmpReq  ReplaceCloudGtmAddressPoolAddressRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - ReplaceCloudGtmAddressPoolAddressRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ReplaceCloudGtmAddressPoolAddressResponse
-     *
-     * @param ReplaceCloudGtmAddressPoolAddressRequest $tmpReq
-     * @param RuntimeOptions                           $runtime
-     *
-     * @return ReplaceCloudGtmAddressPoolAddressResponse
+     * @return ReplaceCloudGtmAddressPoolAddressResponse ReplaceCloudGtmAddressPoolAddressResponse
      */
     public function replaceCloudGtmAddressPoolAddressWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new ReplaceCloudGtmAddressPoolAddressShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->addresses) {
-            $request->addressesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->addresses, 'Addresses', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->addresses)) {
+            $request->addressesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->addresses, 'Addresses', 'json');
         }
-
         $query = [];
-        if (null !== $request->acceptLanguage) {
-            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
         }
-
-        if (null !== $request->addressPoolId) {
-            @$query['AddressPoolId'] = $request->addressPoolId;
+        if (!Utils::isUnset($request->addressPoolId)) {
+            $query['AddressPoolId'] = $request->addressPoolId;
         }
-
-        if (null !== $request->addressesShrink) {
-            @$query['Addresses'] = $request->addressesShrink;
+        if (!Utils::isUnset($request->addressesShrink)) {
+            $query['Addresses'] = $request->addressesShrink;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ReplaceCloudGtmAddressPoolAddress',
@@ -11205,15 +9139,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Replaces the addresses referenced by an address pool.
+     * @summary Replaces the addresses referenced by an address pool.
+     *  *
+     * @param ReplaceCloudGtmAddressPoolAddressRequest $request ReplaceCloudGtmAddressPoolAddressRequest
      *
-     * @param request - ReplaceCloudGtmAddressPoolAddressRequest
-     *
-     * @returns ReplaceCloudGtmAddressPoolAddressResponse
-     *
-     * @param ReplaceCloudGtmAddressPoolAddressRequest $request
-     *
-     * @return ReplaceCloudGtmAddressPoolAddressResponse
+     * @return ReplaceCloudGtmAddressPoolAddressResponse ReplaceCloudGtmAddressPoolAddressResponse
      */
     public function replaceCloudGtmAddressPoolAddress($request)
     {
@@ -11223,50 +9153,39 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Replaces address pools that are associated with a Global Traffic Manager (GTM) 3.0 instance with new address pools.
+     * @summary Replaces address pools that are associated with a Global Traffic Manager (GTM) 3.0 instance with new address pools.
+     *  *
+     * @param ReplaceCloudGtmInstanceConfigAddressPoolRequest $tmpReq  ReplaceCloudGtmInstanceConfigAddressPoolRequest
+     * @param RuntimeOptions                                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - ReplaceCloudGtmInstanceConfigAddressPoolRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ReplaceCloudGtmInstanceConfigAddressPoolResponse
-     *
-     * @param ReplaceCloudGtmInstanceConfigAddressPoolRequest $tmpReq
-     * @param RuntimeOptions                                  $runtime
-     *
-     * @return ReplaceCloudGtmInstanceConfigAddressPoolResponse
+     * @return ReplaceCloudGtmInstanceConfigAddressPoolResponse ReplaceCloudGtmInstanceConfigAddressPoolResponse
      */
     public function replaceCloudGtmInstanceConfigAddressPoolWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new ReplaceCloudGtmInstanceConfigAddressPoolShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->addressPools) {
-            $request->addressPoolsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->addressPools, 'AddressPools', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->addressPools)) {
+            $request->addressPoolsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->addressPools, 'AddressPools', 'json');
         }
-
         $query = [];
-        if (null !== $request->acceptLanguage) {
-            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
         }
-
-        if (null !== $request->addressPoolsShrink) {
-            @$query['AddressPools'] = $request->addressPoolsShrink;
+        if (!Utils::isUnset($request->addressPoolsShrink)) {
+            $query['AddressPools'] = $request->addressPoolsShrink;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->configId) {
-            @$query['ConfigId'] = $request->configId;
+        if (!Utils::isUnset($request->configId)) {
+            $query['ConfigId'] = $request->configId;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ReplaceCloudGtmInstanceConfigAddressPool',
@@ -11284,15 +9203,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Replaces address pools that are associated with a Global Traffic Manager (GTM) 3.0 instance with new address pools.
+     * @summary Replaces address pools that are associated with a Global Traffic Manager (GTM) 3.0 instance with new address pools.
+     *  *
+     * @param ReplaceCloudGtmInstanceConfigAddressPoolRequest $request ReplaceCloudGtmInstanceConfigAddressPoolRequest
      *
-     * @param request - ReplaceCloudGtmInstanceConfigAddressPoolRequest
-     *
-     * @returns ReplaceCloudGtmInstanceConfigAddressPoolResponse
-     *
-     * @param ReplaceCloudGtmInstanceConfigAddressPoolRequest $request
-     *
-     * @return ReplaceCloudGtmInstanceConfigAddressPoolResponse
+     * @return ReplaceCloudGtmInstanceConfigAddressPoolResponse ReplaceCloudGtmInstanceConfigAddressPoolResponse
      */
     public function replaceCloudGtmInstanceConfigAddressPool($request)
     {
@@ -11302,32 +9217,25 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 恢复公共DNS服务
+     * @summary 恢复公共DNS服务
+     *  *
+     * @param ResumePdnsServiceRequest $request ResumePdnsServiceRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ResumePdnsServiceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ResumePdnsServiceResponse
-     *
-     * @param ResumePdnsServiceRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return ResumePdnsServiceResponse
+     * @return ResumePdnsServiceResponse ResumePdnsServiceResponse
      */
     public function resumePdnsServiceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->serviceType) {
-            @$query['ServiceType'] = $request->serviceType;
+        if (!Utils::isUnset($request->serviceType)) {
+            $query['ServiceType'] = $request->serviceType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ResumePdnsService',
@@ -11345,15 +9253,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 恢复公共DNS服务
+     * @summary 恢复公共DNS服务
+     *  *
+     * @param ResumePdnsServiceRequest $request ResumePdnsServiceRequest
      *
-     * @param request - ResumePdnsServiceRequest
-     *
-     * @returns ResumePdnsServiceResponse
-     *
-     * @param ResumePdnsServiceRequest $request
-     *
-     * @return ResumePdnsServiceResponse
+     * @return ResumePdnsServiceResponse ResumePdnsServiceResponse
      */
     public function resumePdnsService($request)
     {
@@ -11363,35 +9267,27 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Retrieves a domain name.
+     * @summary Retrieves a domain name.
+     *  *
+     * @description To retrieve a domain name, you must verify a text (TXT) record. Therefore, before you call this API operation to retrieve a domain name, call the [GetTxtRecordForVerify](https://www.alibabacloud.com/help/en/alibaba-cloud-dns/latest/generating-a-txt-record) operation to generate a TXT record.
+     *  *
+     * @param RetrieveDomainRequest $request RetrieveDomainRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * To retrieve a domain name, you must verify a text (TXT) record. Therefore, before you call this API operation to retrieve a domain name, call the [GetTxtRecordForVerify](https://www.alibabacloud.com/help/en/alibaba-cloud-dns/latest/generating-a-txt-record) operation to generate a TXT record.
-     *
-     * @param request - RetrieveDomainRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns RetrieveDomainResponse
-     *
-     * @param RetrieveDomainRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return RetrieveDomainResponse
+     * @return RetrieveDomainResponse RetrieveDomainResponse
      */
     public function retrieveDomainWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->domainName) {
-            @$query['DomainName'] = $request->domainName;
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'RetrieveDomain',
@@ -11409,18 +9305,13 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Retrieves a domain name.
+     * @summary Retrieves a domain name.
+     *  *
+     * @description To retrieve a domain name, you must verify a text (TXT) record. Therefore, before you call this API operation to retrieve a domain name, call the [GetTxtRecordForVerify](https://www.alibabacloud.com/help/en/alibaba-cloud-dns/latest/generating-a-txt-record) operation to generate a TXT record.
+     *  *
+     * @param RetrieveDomainRequest $request RetrieveDomainRequest
      *
-     * @remarks
-     * To retrieve a domain name, you must verify a text (TXT) record. Therefore, before you call this API operation to retrieve a domain name, call the [GetTxtRecordForVerify](https://www.alibabacloud.com/help/en/alibaba-cloud-dns/latest/generating-a-txt-record) operation to generate a TXT record.
-     *
-     * @param request - RetrieveDomainRequest
-     *
-     * @returns RetrieveDomainResponse
-     *
-     * @param RetrieveDomainRequest $request
-     *
-     * @return RetrieveDomainResponse
+     * @return RetrieveDomainResponse RetrieveDomainResponse
      */
     public function retrieveDomain($request)
     {
@@ -11430,32 +9321,25 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Rolls back a disaster recovery plan.
+     * @summary Rolls back a disaster recovery plan.
+     *  *
+     * @param RollbackGtmRecoveryPlanRequest $request RollbackGtmRecoveryPlanRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - RollbackGtmRecoveryPlanRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns RollbackGtmRecoveryPlanResponse
-     *
-     * @param RollbackGtmRecoveryPlanRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return RollbackGtmRecoveryPlanResponse
+     * @return RollbackGtmRecoveryPlanResponse RollbackGtmRecoveryPlanResponse
      */
     public function rollbackGtmRecoveryPlanWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->recoveryPlanId) {
-            @$query['RecoveryPlanId'] = $request->recoveryPlanId;
+        if (!Utils::isUnset($request->recoveryPlanId)) {
+            $query['RecoveryPlanId'] = $request->recoveryPlanId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'RollbackGtmRecoveryPlan',
@@ -11473,15 +9357,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Rolls back a disaster recovery plan.
+     * @summary Rolls back a disaster recovery plan.
+     *  *
+     * @param RollbackGtmRecoveryPlanRequest $request RollbackGtmRecoveryPlanRequest
      *
-     * @param request - RollbackGtmRecoveryPlanRequest
-     *
-     * @returns RollbackGtmRecoveryPlanResponse
-     *
-     * @param RollbackGtmRecoveryPlanRequest $request
-     *
-     * @return RollbackGtmRecoveryPlanResponse
+     * @return RollbackGtmRecoveryPlanResponse RollbackGtmRecoveryPlanResponse
      */
     public function rollbackGtmRecoveryPlan($request)
     {
@@ -11491,64 +9371,49 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries a list of address pools.
+     * @summary Queries a list of address pools.
+     *  *
+     * @param SearchCloudGtmAddressPoolsRequest $request SearchCloudGtmAddressPoolsRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - SearchCloudGtmAddressPoolsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns SearchCloudGtmAddressPoolsResponse
-     *
-     * @param SearchCloudGtmAddressPoolsRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return SearchCloudGtmAddressPoolsResponse
+     * @return SearchCloudGtmAddressPoolsResponse SearchCloudGtmAddressPoolsResponse
      */
     public function searchCloudGtmAddressPoolsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->acceptLanguage) {
-            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
         }
-
-        if (null !== $request->addressPoolName) {
-            @$query['AddressPoolName'] = $request->addressPoolName;
+        if (!Utils::isUnset($request->addressPoolName)) {
+            $query['AddressPoolName'] = $request->addressPoolName;
         }
-
-        if (null !== $request->addressPoolType) {
-            @$query['AddressPoolType'] = $request->addressPoolType;
+        if (!Utils::isUnset($request->addressPoolType)) {
+            $query['AddressPoolType'] = $request->addressPoolType;
         }
-
-        if (null !== $request->availableStatus) {
-            @$query['AvailableStatus'] = $request->availableStatus;
+        if (!Utils::isUnset($request->availableStatus)) {
+            $query['AvailableStatus'] = $request->availableStatus;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->enableStatus) {
-            @$query['EnableStatus'] = $request->enableStatus;
+        if (!Utils::isUnset($request->enableStatus)) {
+            $query['EnableStatus'] = $request->enableStatus;
         }
-
-        if (null !== $request->healthStatus) {
-            @$query['HealthStatus'] = $request->healthStatus;
+        if (!Utils::isUnset($request->healthStatus)) {
+            $query['HealthStatus'] = $request->healthStatus;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->remark) {
-            @$query['Remark'] = $request->remark;
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'SearchCloudGtmAddressPools',
@@ -11566,15 +9431,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries a list of address pools.
+     * @summary Queries a list of address pools.
+     *  *
+     * @param SearchCloudGtmAddressPoolsRequest $request SearchCloudGtmAddressPoolsRequest
      *
-     * @param request - SearchCloudGtmAddressPoolsRequest
-     *
-     * @returns SearchCloudGtmAddressPoolsResponse
-     *
-     * @param SearchCloudGtmAddressPoolsRequest $request
-     *
-     * @return SearchCloudGtmAddressPoolsResponse
+     * @return SearchCloudGtmAddressPoolsResponse SearchCloudGtmAddressPoolsResponse
      */
     public function searchCloudGtmAddressPools($request)
     {
@@ -11584,80 +9445,61 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries a list of addresses based on address names, descriptions, health check templates referenced by the addresses, or address IDs.
+     * @summary Queries a list of addresses based on address names, descriptions, health check templates referenced by the addresses, or address IDs.
+     *  *
+     * @param SearchCloudGtmAddressesRequest $request SearchCloudGtmAddressesRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - SearchCloudGtmAddressesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns SearchCloudGtmAddressesResponse
-     *
-     * @param SearchCloudGtmAddressesRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return SearchCloudGtmAddressesResponse
+     * @return SearchCloudGtmAddressesResponse SearchCloudGtmAddressesResponse
      */
     public function searchCloudGtmAddressesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->acceptLanguage) {
-            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
         }
-
-        if (null !== $request->address) {
-            @$query['Address'] = $request->address;
+        if (!Utils::isUnset($request->address)) {
+            $query['Address'] = $request->address;
         }
-
-        if (null !== $request->addressId) {
-            @$query['AddressId'] = $request->addressId;
+        if (!Utils::isUnset($request->addressId)) {
+            $query['AddressId'] = $request->addressId;
         }
-
-        if (null !== $request->availableStatus) {
-            @$query['AvailableStatus'] = $request->availableStatus;
+        if (!Utils::isUnset($request->availableStatus)) {
+            $query['AvailableStatus'] = $request->availableStatus;
         }
-
-        if (null !== $request->enableStatus) {
-            @$query['EnableStatus'] = $request->enableStatus;
+        if (!Utils::isUnset($request->enableStatus)) {
+            $query['EnableStatus'] = $request->enableStatus;
         }
-
-        if (null !== $request->healthStatus) {
-            @$query['HealthStatus'] = $request->healthStatus;
+        if (!Utils::isUnset($request->healthStatus)) {
+            $query['HealthStatus'] = $request->healthStatus;
         }
-
-        if (null !== $request->monitorTemplateName) {
-            @$query['MonitorTemplateName'] = $request->monitorTemplateName;
+        if (!Utils::isUnset($request->monitorTemplateName)) {
+            $query['MonitorTemplateName'] = $request->monitorTemplateName;
         }
-
-        if (null !== $request->nameSearchCondition) {
-            @$query['NameSearchCondition'] = $request->nameSearchCondition;
+        if (!Utils::isUnset($request->nameSearchCondition)) {
+            $query['NameSearchCondition'] = $request->nameSearchCondition;
         }
-
-        if (null !== $request->names) {
-            @$query['Names'] = $request->names;
+        if (!Utils::isUnset($request->names)) {
+            $query['Names'] = $request->names;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->remarkSearchCondition) {
-            @$query['RemarkSearchCondition'] = $request->remarkSearchCondition;
+        if (!Utils::isUnset($request->remarkSearchCondition)) {
+            $query['RemarkSearchCondition'] = $request->remarkSearchCondition;
         }
-
-        if (null !== $request->remarks) {
-            @$query['Remarks'] = $request->remarks;
+        if (!Utils::isUnset($request->remarks)) {
+            $query['Remarks'] = $request->remarks;
         }
-
-        if (null !== $request->type) {
-            @$query['Type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'SearchCloudGtmAddresses',
@@ -11675,15 +9517,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries a list of addresses based on address names, descriptions, health check templates referenced by the addresses, or address IDs.
+     * @summary Queries a list of addresses based on address names, descriptions, health check templates referenced by the addresses, or address IDs.
+     *  *
+     * @param SearchCloudGtmAddressesRequest $request SearchCloudGtmAddressesRequest
      *
-     * @param request - SearchCloudGtmAddressesRequest
-     *
-     * @returns SearchCloudGtmAddressesResponse
-     *
-     * @param SearchCloudGtmAddressesRequest $request
-     *
-     * @return SearchCloudGtmAddressesResponse
+     * @return SearchCloudGtmAddressesResponse SearchCloudGtmAddressesResponse
      */
     public function searchCloudGtmAddresses($request)
     {
@@ -11693,68 +9531,52 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the configurations of an access domain name.
+     * @summary Queries the configurations of an access domain name.
+     *  *
+     * @param SearchCloudGtmInstanceConfigsRequest $request SearchCloudGtmInstanceConfigsRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - SearchCloudGtmInstanceConfigsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns SearchCloudGtmInstanceConfigsResponse
-     *
-     * @param SearchCloudGtmInstanceConfigsRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return SearchCloudGtmInstanceConfigsResponse
+     * @return SearchCloudGtmInstanceConfigsResponse SearchCloudGtmInstanceConfigsResponse
      */
     public function searchCloudGtmInstanceConfigsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->acceptLanguage) {
-            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
         }
-
-        if (null !== $request->availableStatus) {
-            @$query['AvailableStatus'] = $request->availableStatus;
+        if (!Utils::isUnset($request->availableStatus)) {
+            $query['AvailableStatus'] = $request->availableStatus;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->enableStatus) {
-            @$query['EnableStatus'] = $request->enableStatus;
+        if (!Utils::isUnset($request->enableStatus)) {
+            $query['EnableStatus'] = $request->enableStatus;
         }
-
-        if (null !== $request->healthStatus) {
-            @$query['HealthStatus'] = $request->healthStatus;
+        if (!Utils::isUnset($request->healthStatus)) {
+            $query['HealthStatus'] = $request->healthStatus;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->remark) {
-            @$query['Remark'] = $request->remark;
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
         }
-
-        if (null !== $request->scheduleDomainName) {
-            @$query['ScheduleDomainName'] = $request->scheduleDomainName;
+        if (!Utils::isUnset($request->scheduleDomainName)) {
+            $query['ScheduleDomainName'] = $request->scheduleDomainName;
         }
-
-        if (null !== $request->scheduleZoneName) {
-            @$query['ScheduleZoneName'] = $request->scheduleZoneName;
+        if (!Utils::isUnset($request->scheduleZoneName)) {
+            $query['ScheduleZoneName'] = $request->scheduleZoneName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'SearchCloudGtmInstanceConfigs',
@@ -11772,15 +9594,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the configurations of an access domain name.
+     * @summary Queries the configurations of an access domain name.
+     *  *
+     * @param SearchCloudGtmInstanceConfigsRequest $request SearchCloudGtmInstanceConfigsRequest
      *
-     * @param request - SearchCloudGtmInstanceConfigsRequest
-     *
-     * @returns SearchCloudGtmInstanceConfigsResponse
-     *
-     * @param SearchCloudGtmInstanceConfigsRequest $request
-     *
-     * @return SearchCloudGtmInstanceConfigsResponse
+     * @return SearchCloudGtmInstanceConfigsResponse SearchCloudGtmInstanceConfigsResponse
      */
     public function searchCloudGtmInstanceConfigs($request)
     {
@@ -11790,48 +9608,37 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries a list of instances.
+     * @summary Queries a list of instances.
+     *  *
+     * @param SearchCloudGtmInstancesRequest $request SearchCloudGtmInstancesRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - SearchCloudGtmInstancesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns SearchCloudGtmInstancesResponse
-     *
-     * @param SearchCloudGtmInstancesRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return SearchCloudGtmInstancesResponse
+     * @return SearchCloudGtmInstancesResponse SearchCloudGtmInstancesResponse
      */
     public function searchCloudGtmInstancesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->acceptLanguage) {
-            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->instanceName) {
-            @$query['InstanceName'] = $request->instanceName;
+        if (!Utils::isUnset($request->instanceName)) {
+            $query['InstanceName'] = $request->instanceName;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'SearchCloudGtmInstances',
@@ -11849,15 +9656,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries a list of instances.
+     * @summary Queries a list of instances.
+     *  *
+     * @param SearchCloudGtmInstancesRequest $request SearchCloudGtmInstancesRequest
      *
-     * @param request - SearchCloudGtmInstancesRequest
-     *
-     * @returns SearchCloudGtmInstancesResponse
-     *
-     * @param SearchCloudGtmInstancesRequest $request
-     *
-     * @return SearchCloudGtmInstancesResponse
+     * @return SearchCloudGtmInstancesResponse SearchCloudGtmInstancesResponse
      */
     public function searchCloudGtmInstances($request)
     {
@@ -11867,48 +9670,37 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the list of health check templates.
+     * @summary Queries the list of health check templates.
+     *  *
+     * @param SearchCloudGtmMonitorTemplatesRequest $request SearchCloudGtmMonitorTemplatesRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - SearchCloudGtmMonitorTemplatesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns SearchCloudGtmMonitorTemplatesResponse
-     *
-     * @param SearchCloudGtmMonitorTemplatesRequest $request
-     * @param RuntimeOptions                        $runtime
-     *
-     * @return SearchCloudGtmMonitorTemplatesResponse
+     * @return SearchCloudGtmMonitorTemplatesResponse SearchCloudGtmMonitorTemplatesResponse
      */
     public function searchCloudGtmMonitorTemplatesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->acceptLanguage) {
-            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
         }
-
-        if (null !== $request->ipVersion) {
-            @$query['IpVersion'] = $request->ipVersion;
+        if (!Utils::isUnset($request->ipVersion)) {
+            $query['IpVersion'] = $request->ipVersion;
         }
-
-        if (null !== $request->name) {
-            @$query['Name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->protocol) {
-            @$query['Protocol'] = $request->protocol;
+        if (!Utils::isUnset($request->protocol)) {
+            $query['Protocol'] = $request->protocol;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'SearchCloudGtmMonitorTemplates',
@@ -11926,15 +9718,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the list of health check templates.
+     * @summary Queries the list of health check templates.
+     *  *
+     * @param SearchCloudGtmMonitorTemplatesRequest $request SearchCloudGtmMonitorTemplatesRequest
      *
-     * @param request - SearchCloudGtmMonitorTemplatesRequest
-     *
-     * @returns SearchCloudGtmMonitorTemplatesResponse
-     *
-     * @param SearchCloudGtmMonitorTemplatesRequest $request
-     *
-     * @return SearchCloudGtmMonitorTemplatesResponse
+     * @return SearchCloudGtmMonitorTemplatesResponse SearchCloudGtmMonitorTemplatesResponse
      */
     public function searchCloudGtmMonitorTemplates($request)
     {
@@ -11944,52 +9732,40 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Enables or disables weighted round-robin based on the specified parameters.
+     * @summary Enables or disables weighted round-robin based on the specified parameters.
+     *  *
+     * @param SetDNSSLBStatusRequest $request SetDNSSLBStatusRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - SetDNSSLBStatusRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns SetDNSSLBStatusResponse
-     *
-     * @param SetDNSSLBStatusRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return SetDNSSLBStatusResponse
+     * @return SetDNSSLBStatusResponse SetDNSSLBStatusResponse
      */
     public function setDNSSLBStatusWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->domainName) {
-            @$query['DomainName'] = $request->domainName;
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->line) {
-            @$query['Line'] = $request->line;
+        if (!Utils::isUnset($request->line)) {
+            $query['Line'] = $request->line;
         }
-
-        if (null !== $request->open) {
-            @$query['Open'] = $request->open;
+        if (!Utils::isUnset($request->open)) {
+            $query['Open'] = $request->open;
         }
-
-        if (null !== $request->subDomain) {
-            @$query['SubDomain'] = $request->subDomain;
+        if (!Utils::isUnset($request->subDomain)) {
+            $query['SubDomain'] = $request->subDomain;
         }
-
-        if (null !== $request->type) {
-            @$query['Type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
         }
-
-        if (null !== $request->userClientIp) {
-            @$query['UserClientIp'] = $request->userClientIp;
+        if (!Utils::isUnset($request->userClientIp)) {
+            $query['UserClientIp'] = $request->userClientIp;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'SetDNSSLBStatus',
@@ -12007,15 +9783,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Enables or disables weighted round-robin based on the specified parameters.
+     * @summary Enables or disables weighted round-robin based on the specified parameters.
+     *  *
+     * @param SetDNSSLBStatusRequest $request SetDNSSLBStatusRequest
      *
-     * @param request - SetDNSSLBStatusRequest
-     *
-     * @returns SetDNSSLBStatusResponse
-     *
-     * @param SetDNSSLBStatusRequest $request
-     *
-     * @return SetDNSSLBStatusResponse
+     * @return SetDNSSLBStatusResponse SetDNSSLBStatusResponse
      */
     public function setDNSSLBStatus($request)
     {
@@ -12025,38 +9797,30 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies an access policy.
+     * @summary Modifies an access policy.
+     *  *
+     * @description ****
+     *  *
+     * @param SetDnsGtmAccessModeRequest $request SetDnsGtmAccessModeRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     *
-     * @param request - SetDnsGtmAccessModeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns SetDnsGtmAccessModeResponse
-     *
-     * @param SetDnsGtmAccessModeRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return SetDnsGtmAccessModeResponse
+     * @return SetDnsGtmAccessModeResponse SetDnsGtmAccessModeResponse
      */
     public function setDnsGtmAccessModeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accessMode) {
-            @$query['AccessMode'] = $request->accessMode;
+        if (!Utils::isUnset($request->accessMode)) {
+            $query['AccessMode'] = $request->accessMode;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->strategyId) {
-            @$query['StrategyId'] = $request->strategyId;
+        if (!Utils::isUnset($request->strategyId)) {
+            $query['StrategyId'] = $request->strategyId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'SetDnsGtmAccessMode',
@@ -12074,17 +9838,13 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies an access policy.
+     * @summary Modifies an access policy.
+     *  *
+     * @description ****
+     *  *
+     * @param SetDnsGtmAccessModeRequest $request SetDnsGtmAccessModeRequest
      *
-     * @remarks
-     *
-     * @param request - SetDnsGtmAccessModeRequest
-     *
-     * @returns SetDnsGtmAccessModeResponse
-     *
-     * @param SetDnsGtmAccessModeRequest $request
-     *
-     * @return SetDnsGtmAccessModeResponse
+     * @return SetDnsGtmAccessModeResponse SetDnsGtmAccessModeResponse
      */
     public function setDnsGtmAccessMode($request)
     {
@@ -12094,36 +9854,28 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Specifies the health check status of an address pool.
+     * @summary Specifies the health check status of an address pool.
+     *  *
+     * @param SetDnsGtmMonitorStatusRequest $request SetDnsGtmMonitorStatusRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - SetDnsGtmMonitorStatusRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns SetDnsGtmMonitorStatusResponse
-     *
-     * @param SetDnsGtmMonitorStatusRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return SetDnsGtmMonitorStatusResponse
+     * @return SetDnsGtmMonitorStatusResponse SetDnsGtmMonitorStatusResponse
      */
     public function setDnsGtmMonitorStatusWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->monitorConfigId) {
-            @$query['MonitorConfigId'] = $request->monitorConfigId;
+        if (!Utils::isUnset($request->monitorConfigId)) {
+            $query['MonitorConfigId'] = $request->monitorConfigId;
         }
-
-        if (null !== $request->status) {
-            @$query['Status'] = $request->status;
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'SetDnsGtmMonitorStatus',
@@ -12141,15 +9893,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Specifies the health check status of an address pool.
+     * @summary Specifies the health check status of an address pool.
+     *  *
+     * @param SetDnsGtmMonitorStatusRequest $request SetDnsGtmMonitorStatusRequest
      *
-     * @param request - SetDnsGtmMonitorStatusRequest
-     *
-     * @returns SetDnsGtmMonitorStatusResponse
-     *
-     * @param SetDnsGtmMonitorStatusRequest $request
-     *
-     * @return SetDnsGtmMonitorStatusResponse
+     * @return SetDnsGtmMonitorStatusResponse SetDnsGtmMonitorStatusResponse
      */
     public function setDnsGtmMonitorStatus($request)
     {
@@ -12159,36 +9907,28 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Enables or disables the Domain Name System Security Extensions (DNSSEC) for a domain name. This feature is available only for the users of the paid editions of Alibaba Cloud DNS.
+     * @summary Enables or disables the Domain Name System Security Extensions (DNSSEC) for a domain name. This feature is available only for the users of the paid editions of Alibaba Cloud DNS.
+     *  *
+     * @param SetDomainDnssecStatusRequest $request SetDomainDnssecStatusRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - SetDomainDnssecStatusRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns SetDomainDnssecStatusResponse
-     *
-     * @param SetDomainDnssecStatusRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return SetDomainDnssecStatusResponse
+     * @return SetDomainDnssecStatusResponse SetDomainDnssecStatusResponse
      */
     public function setDomainDnssecStatusWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->domainName) {
-            @$query['DomainName'] = $request->domainName;
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->status) {
-            @$query['Status'] = $request->status;
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'SetDomainDnssecStatus',
@@ -12206,15 +9946,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Enables or disables the Domain Name System Security Extensions (DNSSEC) for a domain name. This feature is available only for the users of the paid editions of Alibaba Cloud DNS.
+     * @summary Enables or disables the Domain Name System Security Extensions (DNSSEC) for a domain name. This feature is available only for the users of the paid editions of Alibaba Cloud DNS.
+     *  *
+     * @param SetDomainDnssecStatusRequest $request SetDomainDnssecStatusRequest
      *
-     * @param request - SetDomainDnssecStatusRequest
-     *
-     * @returns SetDomainDnssecStatusResponse
-     *
-     * @param SetDomainDnssecStatusRequest $request
-     *
-     * @return SetDomainDnssecStatusResponse
+     * @return SetDomainDnssecStatusResponse SetDomainDnssecStatusResponse
      */
     public function setDomainDnssecStatus($request)
     {
@@ -12224,40 +9960,31 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Specifies the status of an Alibaba Cloud DNS (DNS) record based on the specified parameters.
+     * @summary Specifies the status of an Alibaba Cloud DNS (DNS) record based on the specified parameters.
+     *  *
+     * @param SetDomainRecordStatusRequest $request SetDomainRecordStatusRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - SetDomainRecordStatusRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns SetDomainRecordStatusResponse
-     *
-     * @param SetDomainRecordStatusRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return SetDomainRecordStatusResponse
+     * @return SetDomainRecordStatusResponse SetDomainRecordStatusResponse
      */
     public function setDomainRecordStatusWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->recordId) {
-            @$query['RecordId'] = $request->recordId;
+        if (!Utils::isUnset($request->recordId)) {
+            $query['RecordId'] = $request->recordId;
         }
-
-        if (null !== $request->status) {
-            @$query['Status'] = $request->status;
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
         }
-
-        if (null !== $request->userClientIp) {
-            @$query['UserClientIp'] = $request->userClientIp;
+        if (!Utils::isUnset($request->userClientIp)) {
+            $query['UserClientIp'] = $request->userClientIp;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'SetDomainRecordStatus',
@@ -12275,15 +10002,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Specifies the status of an Alibaba Cloud DNS (DNS) record based on the specified parameters.
+     * @summary Specifies the status of an Alibaba Cloud DNS (DNS) record based on the specified parameters.
+     *  *
+     * @param SetDomainRecordStatusRequest $request SetDomainRecordStatusRequest
      *
-     * @param request - SetDomainRecordStatusRequest
-     *
-     * @returns SetDomainRecordStatusResponse
-     *
-     * @param SetDomainRecordStatusRequest $request
-     *
-     * @return SetDomainRecordStatusResponse
+     * @return SetDomainRecordStatusResponse SetDomainRecordStatusResponse
      */
     public function setDomainRecordStatus($request)
     {
@@ -12293,36 +10016,28 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies a policy for switchover between address pool sets.
+     * @summary Modifies a policy for switchover between address pool sets.
+     *  *
+     * @param SetGtmAccessModeRequest $request SetGtmAccessModeRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - SetGtmAccessModeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns SetGtmAccessModeResponse
-     *
-     * @param SetGtmAccessModeRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return SetGtmAccessModeResponse
+     * @return SetGtmAccessModeResponse SetGtmAccessModeResponse
      */
     public function setGtmAccessModeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accessMode) {
-            @$query['AccessMode'] = $request->accessMode;
+        if (!Utils::isUnset($request->accessMode)) {
+            $query['AccessMode'] = $request->accessMode;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->strategyId) {
-            @$query['StrategyId'] = $request->strategyId;
+        if (!Utils::isUnset($request->strategyId)) {
+            $query['StrategyId'] = $request->strategyId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'SetGtmAccessMode',
@@ -12340,15 +10055,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies a policy for switchover between address pool sets.
+     * @summary Modifies a policy for switchover between address pool sets.
+     *  *
+     * @param SetGtmAccessModeRequest $request SetGtmAccessModeRequest
      *
-     * @param request - SetGtmAccessModeRequest
-     *
-     * @returns SetGtmAccessModeResponse
-     *
-     * @param SetGtmAccessModeRequest $request
-     *
-     * @return SetGtmAccessModeResponse
+     * @return SetGtmAccessModeResponse SetGtmAccessModeResponse
      */
     public function setGtmAccessMode($request)
     {
@@ -12358,34 +10069,26 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param request - SetGtmMonitorStatusRequest
-     * @param runtime - runtime options for this request RuntimeOptions
+     * @param SetGtmMonitorStatusRequest $request SetGtmMonitorStatusRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @returns SetGtmMonitorStatusResponse
-     *
-     * @param SetGtmMonitorStatusRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return SetGtmMonitorStatusResponse
+     * @return SetGtmMonitorStatusResponse SetGtmMonitorStatusResponse
      */
     public function setGtmMonitorStatusWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->monitorConfigId) {
-            @$query['MonitorConfigId'] = $request->monitorConfigId;
+        if (!Utils::isUnset($request->monitorConfigId)) {
+            $query['MonitorConfigId'] = $request->monitorConfigId;
         }
-
-        if (null !== $request->status) {
-            @$query['Status'] = $request->status;
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'SetGtmMonitorStatus',
@@ -12403,13 +10106,9 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param request - SetGtmMonitorStatusRequest
+     * @param SetGtmMonitorStatusRequest $request SetGtmMonitorStatusRequest
      *
-     * @returns SetGtmMonitorStatusResponse
-     *
-     * @param SetGtmMonitorStatusRequest $request
-     *
-     * @return SetGtmMonitorStatusResponse
+     * @return SetGtmMonitorStatusResponse SetGtmMonitorStatusResponse
      */
     public function setGtmMonitorStatus($request)
     {
@@ -12419,40 +10118,31 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 提交缓存刷新任务
+     * @summary 提交缓存刷新任务
+     *  *
+     * @param SubmitIspFlushCacheTaskRequest $request SubmitIspFlushCacheTaskRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - SubmitIspFlushCacheTaskRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns SubmitIspFlushCacheTaskResponse
-     *
-     * @param SubmitIspFlushCacheTaskRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return SubmitIspFlushCacheTaskResponse
+     * @return SubmitIspFlushCacheTaskResponse SubmitIspFlushCacheTaskResponse
      */
     public function submitIspFlushCacheTaskWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->domainName) {
-            @$query['DomainName'] = $request->domainName;
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
         }
-
-        if (null !== $request->isp) {
-            @$query['Isp'] = $request->isp;
+        if (!Utils::isUnset($request->isp)) {
+            $query['Isp'] = $request->isp;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'SubmitIspFlushCacheTask',
@@ -12470,15 +10160,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 提交缓存刷新任务
+     * @summary 提交缓存刷新任务
+     *  *
+     * @param SubmitIspFlushCacheTaskRequest $request SubmitIspFlushCacheTaskRequest
      *
-     * @param request - SubmitIspFlushCacheTaskRequest
-     *
-     * @returns SubmitIspFlushCacheTaskResponse
-     *
-     * @param SubmitIspFlushCacheTaskRequest $request
-     *
-     * @return SubmitIspFlushCacheTaskResponse
+     * @return SubmitIspFlushCacheTaskResponse SubmitIspFlushCacheTaskResponse
      */
     public function submitIspFlushCacheTask($request)
     {
@@ -12488,36 +10174,28 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Changes the access policy type for a Global Traffic Manager (GTM) instance.
+     * @summary Changes the access policy type for a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param SwitchDnsGtmInstanceStrategyModeRequest $request SwitchDnsGtmInstanceStrategyModeRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - SwitchDnsGtmInstanceStrategyModeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns SwitchDnsGtmInstanceStrategyModeResponse
-     *
-     * @param SwitchDnsGtmInstanceStrategyModeRequest $request
-     * @param RuntimeOptions                          $runtime
-     *
-     * @return SwitchDnsGtmInstanceStrategyModeResponse
+     * @return SwitchDnsGtmInstanceStrategyModeResponse SwitchDnsGtmInstanceStrategyModeResponse
      */
     public function switchDnsGtmInstanceStrategyModeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->strategyMode) {
-            @$query['StrategyMode'] = $request->strategyMode;
+        if (!Utils::isUnset($request->strategyMode)) {
+            $query['StrategyMode'] = $request->strategyMode;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'SwitchDnsGtmInstanceStrategyMode',
@@ -12535,15 +10213,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Changes the access policy type for a Global Traffic Manager (GTM) instance.
+     * @summary Changes the access policy type for a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param SwitchDnsGtmInstanceStrategyModeRequest $request SwitchDnsGtmInstanceStrategyModeRequest
      *
-     * @param request - SwitchDnsGtmInstanceStrategyModeRequest
-     *
-     * @returns SwitchDnsGtmInstanceStrategyModeResponse
-     *
-     * @param SwitchDnsGtmInstanceStrategyModeRequest $request
-     *
-     * @return SwitchDnsGtmInstanceStrategyModeResponse
+     * @return SwitchDnsGtmInstanceStrategyModeResponse SwitchDnsGtmInstanceStrategyModeResponse
      */
     public function switchDnsGtmInstanceStrategyMode($request)
     {
@@ -12553,40 +10227,31 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Adds and modifies a tag for a resource.
+     * @summary Adds and modifies a tag for a resource.
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - TagResourcesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns TagResourcesResponse
-     *
-     * @param TagResourcesRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->resourceId) {
-            @$query['ResourceId'] = $request->resourceId;
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
         }
-
-        if (null !== $request->resourceType) {
-            @$query['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'TagResources',
@@ -12604,15 +10269,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Adds and modifies a tag for a resource.
+     * @summary Adds and modifies a tag for a resource.
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
      *
-     * @param request - TagResourcesRequest
-     *
-     * @returns TagResourcesResponse
-     *
-     * @param TagResourcesRequest $request
-     *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -12622,40 +10283,31 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Transfers multiple domain names from the current account to another account at a time.
+     * @summary Transfers multiple domain names from the current account to another account at a time.
+     *  *
+     * @param TransferDomainRequest $request TransferDomainRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - TransferDomainRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns TransferDomainResponse
-     *
-     * @param TransferDomainRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return TransferDomainResponse
+     * @return TransferDomainResponse TransferDomainResponse
      */
     public function transferDomainWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->domainNames) {
-            @$query['DomainNames'] = $request->domainNames;
+        if (!Utils::isUnset($request->domainNames)) {
+            $query['DomainNames'] = $request->domainNames;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->remark) {
-            @$query['Remark'] = $request->remark;
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
         }
-
-        if (null !== $request->targetUserId) {
-            @$query['TargetUserId'] = $request->targetUserId;
+        if (!Utils::isUnset($request->targetUserId)) {
+            $query['TargetUserId'] = $request->targetUserId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'TransferDomain',
@@ -12673,15 +10325,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Transfers multiple domain names from the current account to another account at a time.
+     * @summary Transfers multiple domain names from the current account to another account at a time.
+     *  *
+     * @param TransferDomainRequest $request TransferDomainRequest
      *
-     * @param request - TransferDomainRequest
-     *
-     * @returns TransferDomainResponse
-     *
-     * @param TransferDomainRequest $request
-     *
-     * @return TransferDomainResponse
+     * @return TransferDomainResponse TransferDomainResponse
      */
     public function transferDomain($request)
     {
@@ -12691,40 +10339,31 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Unbinds one or more domain names from a paid Alibaba Cloud DNS instance based on the instance ID.
-     *
-     * @remarks
-     * A paid Alibaba Cloud DNS instance whose ID starts with dns is an instance of the new version. You can call an API operation to bind multiple domain names to the instance. If the upper limit is exceeded, an error message is returned.\\
+     * @summary Unbinds one or more domain names from a paid Alibaba Cloud DNS instance based on the instance ID.
+     *  *
+     * @description A paid Alibaba Cloud DNS instance whose ID starts with dns is an instance of the new version. You can call an API operation to bind multiple domain names to the instance. If the upper limit is exceeded, an error message is returned.\\
      * A paid Alibaba Cloud DNS instance whose ID does not start with dns is an instance of the old version. You can call an API operation to bind only one domain name to the instance. However, if the instance that you want to bind to the desired domain name is already bound to a domain name, you can call this operation to unbind the original domain name from the instance and then bind the desired domain name to the instance.
+     *  *
+     * @param UnbindInstanceDomainsRequest $request UnbindInstanceDomainsRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UnbindInstanceDomainsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UnbindInstanceDomainsResponse
-     *
-     * @param UnbindInstanceDomainsRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return UnbindInstanceDomainsResponse
+     * @return UnbindInstanceDomainsResponse UnbindInstanceDomainsResponse
      */
     public function unbindInstanceDomainsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->domainNames) {
-            @$query['DomainNames'] = $request->domainNames;
+        if (!Utils::isUnset($request->domainNames)) {
+            $query['DomainNames'] = $request->domainNames;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UnbindInstanceDomains',
@@ -12742,19 +10381,14 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Unbinds one or more domain names from a paid Alibaba Cloud DNS instance based on the instance ID.
-     *
-     * @remarks
-     * A paid Alibaba Cloud DNS instance whose ID starts with dns is an instance of the new version. You can call an API operation to bind multiple domain names to the instance. If the upper limit is exceeded, an error message is returned.\\
+     * @summary Unbinds one or more domain names from a paid Alibaba Cloud DNS instance based on the instance ID.
+     *  *
+     * @description A paid Alibaba Cloud DNS instance whose ID starts with dns is an instance of the new version. You can call an API operation to bind multiple domain names to the instance. If the upper limit is exceeded, an error message is returned.\\
      * A paid Alibaba Cloud DNS instance whose ID does not start with dns is an instance of the old version. You can call an API operation to bind only one domain name to the instance. However, if the instance that you want to bind to the desired domain name is already bound to a domain name, you can call this operation to unbind the original domain name from the instance and then bind the desired domain name to the instance.
+     *  *
+     * @param UnbindInstanceDomainsRequest $request UnbindInstanceDomainsRequest
      *
-     * @param request - UnbindInstanceDomainsRequest
-     *
-     * @returns UnbindInstanceDomainsResponse
-     *
-     * @param UnbindInstanceDomainsRequest $request
-     *
-     * @return UnbindInstanceDomainsResponse
+     * @return UnbindInstanceDomainsResponse UnbindInstanceDomainsResponse
      */
     public function unbindInstanceDomains($request)
     {
@@ -12764,44 +10398,34 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Removes tags from resources.
+     * @summary Removes tags from resources.
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UntagResourcesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UntagResourcesResponse
-     *
-     * @param UntagResourcesRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResourcesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->all) {
-            @$query['All'] = $request->all;
+        if (!Utils::isUnset($request->all)) {
+            $query['All'] = $request->all;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->resourceId) {
-            @$query['ResourceId'] = $request->resourceId;
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
         }
-
-        if (null !== $request->resourceType) {
-            @$query['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
         }
-
-        if (null !== $request->tagKey) {
-            @$query['TagKey'] = $request->tagKey;
+        if (!Utils::isUnset($request->tagKey)) {
+            $query['TagKey'] = $request->tagKey;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UntagResources',
@@ -12819,15 +10443,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Removes tags from resources.
+     * @summary Removes tags from resources.
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
      *
-     * @param request - UntagResourcesRequest
-     *
-     * @returns UntagResourcesResponse
-     *
-     * @param UntagResourcesRequest $request
-     *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResources($request)
     {
@@ -12837,36 +10457,28 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 修改 AppKey 状态
+     * @summary 修改 AppKey 状态
+     *  *
+     * @param UpdateAppKeyStateRequest $request UpdateAppKeyStateRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateAppKeyStateRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateAppKeyStateResponse
-     *
-     * @param UpdateAppKeyStateRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return UpdateAppKeyStateResponse
+     * @return UpdateAppKeyStateResponse UpdateAppKeyStateResponse
      */
     public function updateAppKeyStateWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->appKeyId) {
-            @$query['AppKeyId'] = $request->appKeyId;
+        if (!Utils::isUnset($request->appKeyId)) {
+            $query['AppKeyId'] = $request->appKeyId;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->state) {
-            @$query['State'] = $request->state;
+        if (!Utils::isUnset($request->state)) {
+            $query['State'] = $request->state;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateAppKeyState',
@@ -12884,15 +10496,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 修改 AppKey 状态
+     * @summary 修改 AppKey 状态
+     *  *
+     * @param UpdateAppKeyStateRequest $request UpdateAppKeyStateRequest
      *
-     * @param request - UpdateAppKeyStateRequest
-     *
-     * @returns UpdateAppKeyStateResponse
-     *
-     * @param UpdateAppKeyStateRequest $request
-     *
-     * @return UpdateAppKeyStateResponse
+     * @return UpdateAppKeyStateResponse UpdateAppKeyStateResponse
      */
     public function updateAppKeyState($request)
     {
@@ -12902,62 +10510,48 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the condition for determining the health status of a specified address.
+     * @summary Modifies the condition for determining the health status of a specified address.
+     *  *
+     * @param UpdateCloudGtmAddressRequest $tmpReq  UpdateCloudGtmAddressRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - UpdateCloudGtmAddressRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateCloudGtmAddressResponse
-     *
-     * @param UpdateCloudGtmAddressRequest $tmpReq
-     * @param RuntimeOptions               $runtime
-     *
-     * @return UpdateCloudGtmAddressResponse
+     * @return UpdateCloudGtmAddressResponse UpdateCloudGtmAddressResponse
      */
     public function updateCloudGtmAddressWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new UpdateCloudGtmAddressShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->healthTasks) {
-            $request->healthTasksShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->healthTasks, 'HealthTasks', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->healthTasks)) {
+            $request->healthTasksShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->healthTasks, 'HealthTasks', 'json');
         }
-
         $query = [];
-        if (null !== $request->acceptLanguage) {
-            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
         }
-
-        if (null !== $request->address) {
-            @$query['Address'] = $request->address;
+        if (!Utils::isUnset($request->address)) {
+            $query['Address'] = $request->address;
         }
-
-        if (null !== $request->addressId) {
-            @$query['AddressId'] = $request->addressId;
+        if (!Utils::isUnset($request->addressId)) {
+            $query['AddressId'] = $request->addressId;
         }
-
-        if (null !== $request->attributeInfo) {
-            @$query['AttributeInfo'] = $request->attributeInfo;
+        if (!Utils::isUnset($request->attributeInfo)) {
+            $query['AttributeInfo'] = $request->attributeInfo;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->healthJudgement) {
-            @$query['HealthJudgement'] = $request->healthJudgement;
+        if (!Utils::isUnset($request->healthJudgement)) {
+            $query['HealthJudgement'] = $request->healthJudgement;
         }
-
-        if (null !== $request->healthTasksShrink) {
-            @$query['HealthTasks'] = $request->healthTasksShrink;
+        if (!Utils::isUnset($request->healthTasksShrink)) {
+            $query['HealthTasks'] = $request->healthTasksShrink;
         }
-
-        if (null !== $request->name) {
-            @$query['Name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateCloudGtmAddress',
@@ -12975,15 +10569,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the condition for determining the health status of a specified address.
+     * @summary Modifies the condition for determining the health status of a specified address.
+     *  *
+     * @param UpdateCloudGtmAddressRequest $request UpdateCloudGtmAddressRequest
      *
-     * @param request - UpdateCloudGtmAddressRequest
-     *
-     * @returns UpdateCloudGtmAddressResponse
-     *
-     * @param UpdateCloudGtmAddressRequest $request
-     *
-     * @return UpdateCloudGtmAddressResponse
+     * @return UpdateCloudGtmAddressResponse UpdateCloudGtmAddressResponse
      */
     public function updateCloudGtmAddress($request)
     {
@@ -12993,44 +10583,34 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the enabling status of an address.
-     *
-     * @remarks
-     *   If an address is **enabled** and the health status of the address is **Normal**, the availability status of the address is **Available**.
+     * @summary Modifies the enabling status of an address.
+     *  *
+     * @description *   If an address is **enabled** and the health status of the address is **Normal**, the availability status of the address is **Available**.
      * *   If an address is **disabled** or the health status of the address is **Abnormal**, the availability status of the address is **Unavailable**.
+     *  *
+     * @param UpdateCloudGtmAddressEnableStatusRequest $request UpdateCloudGtmAddressEnableStatusRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateCloudGtmAddressEnableStatusRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateCloudGtmAddressEnableStatusResponse
-     *
-     * @param UpdateCloudGtmAddressEnableStatusRequest $request
-     * @param RuntimeOptions                           $runtime
-     *
-     * @return UpdateCloudGtmAddressEnableStatusResponse
+     * @return UpdateCloudGtmAddressEnableStatusResponse UpdateCloudGtmAddressEnableStatusResponse
      */
     public function updateCloudGtmAddressEnableStatusWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->acceptLanguage) {
-            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
         }
-
-        if (null !== $request->addressId) {
-            @$query['AddressId'] = $request->addressId;
+        if (!Utils::isUnset($request->addressId)) {
+            $query['AddressId'] = $request->addressId;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->enableStatus) {
-            @$query['EnableStatus'] = $request->enableStatus;
+        if (!Utils::isUnset($request->enableStatus)) {
+            $query['EnableStatus'] = $request->enableStatus;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateCloudGtmAddressEnableStatus',
@@ -13048,19 +10628,14 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the enabling status of an address.
-     *
-     * @remarks
-     *   If an address is **enabled** and the health status of the address is **Normal**, the availability status of the address is **Available**.
+     * @summary Modifies the enabling status of an address.
+     *  *
+     * @description *   If an address is **enabled** and the health status of the address is **Normal**, the availability status of the address is **Available**.
      * *   If an address is **disabled** or the health status of the address is **Abnormal**, the availability status of the address is **Unavailable**.
+     *  *
+     * @param UpdateCloudGtmAddressEnableStatusRequest $request UpdateCloudGtmAddressEnableStatusRequest
      *
-     * @param request - UpdateCloudGtmAddressEnableStatusRequest
-     *
-     * @returns UpdateCloudGtmAddressEnableStatusResponse
-     *
-     * @param UpdateCloudGtmAddressEnableStatusRequest $request
-     *
-     * @return UpdateCloudGtmAddressEnableStatusResponse
+     * @return UpdateCloudGtmAddressEnableStatusResponse UpdateCloudGtmAddressEnableStatusResponse
      */
     public function updateCloudGtmAddressEnableStatus($request)
     {
@@ -13070,44 +10645,34 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the failover mode that is used when address exceptions are identified.
+     * @summary Modifies the failover mode that is used when address exceptions are identified.
+     *  *
+     * @param UpdateCloudGtmAddressManualAvailableStatusRequest $request UpdateCloudGtmAddressManualAvailableStatusRequest
+     * @param RuntimeOptions                                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateCloudGtmAddressManualAvailableStatusRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateCloudGtmAddressManualAvailableStatusResponse
-     *
-     * @param UpdateCloudGtmAddressManualAvailableStatusRequest $request
-     * @param RuntimeOptions                                    $runtime
-     *
-     * @return UpdateCloudGtmAddressManualAvailableStatusResponse
+     * @return UpdateCloudGtmAddressManualAvailableStatusResponse UpdateCloudGtmAddressManualAvailableStatusResponse
      */
     public function updateCloudGtmAddressManualAvailableStatusWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->acceptLanguage) {
-            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
         }
-
-        if (null !== $request->addressId) {
-            @$query['AddressId'] = $request->addressId;
+        if (!Utils::isUnset($request->addressId)) {
+            $query['AddressId'] = $request->addressId;
         }
-
-        if (null !== $request->availableMode) {
-            @$query['AvailableMode'] = $request->availableMode;
+        if (!Utils::isUnset($request->availableMode)) {
+            $query['AvailableMode'] = $request->availableMode;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->manualAvailableStatus) {
-            @$query['ManualAvailableStatus'] = $request->manualAvailableStatus;
+        if (!Utils::isUnset($request->manualAvailableStatus)) {
+            $query['ManualAvailableStatus'] = $request->manualAvailableStatus;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateCloudGtmAddressManualAvailableStatus',
@@ -13125,15 +10690,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the failover mode that is used when address exceptions are identified.
+     * @summary Modifies the failover mode that is used when address exceptions are identified.
+     *  *
+     * @param UpdateCloudGtmAddressManualAvailableStatusRequest $request UpdateCloudGtmAddressManualAvailableStatusRequest
      *
-     * @param request - UpdateCloudGtmAddressManualAvailableStatusRequest
-     *
-     * @returns UpdateCloudGtmAddressManualAvailableStatusResponse
-     *
-     * @param UpdateCloudGtmAddressManualAvailableStatusRequest $request
-     *
-     * @return UpdateCloudGtmAddressManualAvailableStatusResponse
+     * @return UpdateCloudGtmAddressManualAvailableStatusResponse UpdateCloudGtmAddressManualAvailableStatusResponse
      */
     public function updateCloudGtmAddressManualAvailableStatus($request)
     {
@@ -13143,44 +10704,34 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the basic configurations of an address pool.
+     * @summary Modifies the basic configurations of an address pool.
+     *  *
+     * @param UpdateCloudGtmAddressPoolBasicConfigRequest $request UpdateCloudGtmAddressPoolBasicConfigRequest
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateCloudGtmAddressPoolBasicConfigRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateCloudGtmAddressPoolBasicConfigResponse
-     *
-     * @param UpdateCloudGtmAddressPoolBasicConfigRequest $request
-     * @param RuntimeOptions                              $runtime
-     *
-     * @return UpdateCloudGtmAddressPoolBasicConfigResponse
+     * @return UpdateCloudGtmAddressPoolBasicConfigResponse UpdateCloudGtmAddressPoolBasicConfigResponse
      */
     public function updateCloudGtmAddressPoolBasicConfigWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->acceptLanguage) {
-            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
         }
-
-        if (null !== $request->addressPoolId) {
-            @$query['AddressPoolId'] = $request->addressPoolId;
+        if (!Utils::isUnset($request->addressPoolId)) {
+            $query['AddressPoolId'] = $request->addressPoolId;
         }
-
-        if (null !== $request->addressPoolName) {
-            @$query['AddressPoolName'] = $request->addressPoolName;
+        if (!Utils::isUnset($request->addressPoolName)) {
+            $query['AddressPoolName'] = $request->addressPoolName;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->healthJudgement) {
-            @$query['HealthJudgement'] = $request->healthJudgement;
+        if (!Utils::isUnset($request->healthJudgement)) {
+            $query['HealthJudgement'] = $request->healthJudgement;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateCloudGtmAddressPoolBasicConfig',
@@ -13198,15 +10749,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the basic configurations of an address pool.
+     * @summary Modifies the basic configurations of an address pool.
+     *  *
+     * @param UpdateCloudGtmAddressPoolBasicConfigRequest $request UpdateCloudGtmAddressPoolBasicConfigRequest
      *
-     * @param request - UpdateCloudGtmAddressPoolBasicConfigRequest
-     *
-     * @returns UpdateCloudGtmAddressPoolBasicConfigResponse
-     *
-     * @param UpdateCloudGtmAddressPoolBasicConfigRequest $request
-     *
-     * @return UpdateCloudGtmAddressPoolBasicConfigResponse
+     * @return UpdateCloudGtmAddressPoolBasicConfigResponse UpdateCloudGtmAddressPoolBasicConfigResponse
      */
     public function updateCloudGtmAddressPoolBasicConfig($request)
     {
@@ -13216,44 +10763,34 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the enabling status of an address pool.
-     *
-     * @remarks
-     *   If an address pool is **enabled** and the health status of the address pool is **Normal**, the availability status of the address pool is **Available**.
+     * @summary Modifies the enabling status of an address pool.
+     *  *
+     * @description *   If an address pool is **enabled** and the health status of the address pool is **Normal**, the availability status of the address pool is **Available**.
      * *   If an address pool is **disabled** or the health status of the address pool is **Abnormal**, the availability status of the address pool is **unavailable**.
+     *  *
+     * @param UpdateCloudGtmAddressPoolEnableStatusRequest $request UpdateCloudGtmAddressPoolEnableStatusRequest
+     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateCloudGtmAddressPoolEnableStatusRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateCloudGtmAddressPoolEnableStatusResponse
-     *
-     * @param UpdateCloudGtmAddressPoolEnableStatusRequest $request
-     * @param RuntimeOptions                               $runtime
-     *
-     * @return UpdateCloudGtmAddressPoolEnableStatusResponse
+     * @return UpdateCloudGtmAddressPoolEnableStatusResponse UpdateCloudGtmAddressPoolEnableStatusResponse
      */
     public function updateCloudGtmAddressPoolEnableStatusWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->acceptLanguage) {
-            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
         }
-
-        if (null !== $request->addressPoolId) {
-            @$query['AddressPoolId'] = $request->addressPoolId;
+        if (!Utils::isUnset($request->addressPoolId)) {
+            $query['AddressPoolId'] = $request->addressPoolId;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->enableStatus) {
-            @$query['EnableStatus'] = $request->enableStatus;
+        if (!Utils::isUnset($request->enableStatus)) {
+            $query['EnableStatus'] = $request->enableStatus;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateCloudGtmAddressPoolEnableStatus',
@@ -13271,19 +10808,14 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the enabling status of an address pool.
-     *
-     * @remarks
-     *   If an address pool is **enabled** and the health status of the address pool is **Normal**, the availability status of the address pool is **Available**.
+     * @summary Modifies the enabling status of an address pool.
+     *  *
+     * @description *   If an address pool is **enabled** and the health status of the address pool is **Normal**, the availability status of the address pool is **Available**.
      * *   If an address pool is **disabled** or the health status of the address pool is **Abnormal**, the availability status of the address pool is **unavailable**.
+     *  *
+     * @param UpdateCloudGtmAddressPoolEnableStatusRequest $request UpdateCloudGtmAddressPoolEnableStatusRequest
      *
-     * @param request - UpdateCloudGtmAddressPoolEnableStatusRequest
-     *
-     * @returns UpdateCloudGtmAddressPoolEnableStatusResponse
-     *
-     * @param UpdateCloudGtmAddressPoolEnableStatusRequest $request
-     *
-     * @return UpdateCloudGtmAddressPoolEnableStatusResponse
+     * @return UpdateCloudGtmAddressPoolEnableStatusResponse UpdateCloudGtmAddressPoolEnableStatusResponse
      */
     public function updateCloudGtmAddressPoolEnableStatus($request)
     {
@@ -13293,44 +10825,34 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the load balancing policy of an address pool.
+     * @summary Modifies the load balancing policy of an address pool.
+     *  *
+     * @param UpdateCloudGtmAddressPoolLbStrategyRequest $request UpdateCloudGtmAddressPoolLbStrategyRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateCloudGtmAddressPoolLbStrategyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateCloudGtmAddressPoolLbStrategyResponse
-     *
-     * @param UpdateCloudGtmAddressPoolLbStrategyRequest $request
-     * @param RuntimeOptions                             $runtime
-     *
-     * @return UpdateCloudGtmAddressPoolLbStrategyResponse
+     * @return UpdateCloudGtmAddressPoolLbStrategyResponse UpdateCloudGtmAddressPoolLbStrategyResponse
      */
     public function updateCloudGtmAddressPoolLbStrategyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->acceptLanguage) {
-            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
         }
-
-        if (null !== $request->addressLbStrategy) {
-            @$query['AddressLbStrategy'] = $request->addressLbStrategy;
+        if (!Utils::isUnset($request->addressLbStrategy)) {
+            $query['AddressLbStrategy'] = $request->addressLbStrategy;
         }
-
-        if (null !== $request->addressPoolId) {
-            @$query['AddressPoolId'] = $request->addressPoolId;
+        if (!Utils::isUnset($request->addressPoolId)) {
+            $query['AddressPoolId'] = $request->addressPoolId;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->sequenceLbStrategyMode) {
-            @$query['SequenceLbStrategyMode'] = $request->sequenceLbStrategyMode;
+        if (!Utils::isUnset($request->sequenceLbStrategyMode)) {
+            $query['SequenceLbStrategyMode'] = $request->sequenceLbStrategyMode;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateCloudGtmAddressPoolLbStrategy',
@@ -13348,15 +10870,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the load balancing policy of an address pool.
+     * @summary Modifies the load balancing policy of an address pool.
+     *  *
+     * @param UpdateCloudGtmAddressPoolLbStrategyRequest $request UpdateCloudGtmAddressPoolLbStrategyRequest
      *
-     * @param request - UpdateCloudGtmAddressPoolLbStrategyRequest
-     *
-     * @returns UpdateCloudGtmAddressPoolLbStrategyResponse
-     *
-     * @param UpdateCloudGtmAddressPoolLbStrategyRequest $request
-     *
-     * @return UpdateCloudGtmAddressPoolLbStrategyResponse
+     * @return UpdateCloudGtmAddressPoolLbStrategyResponse UpdateCloudGtmAddressPoolLbStrategyResponse
      */
     public function updateCloudGtmAddressPoolLbStrategy($request)
     {
@@ -13366,40 +10884,31 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the remarks of an address pool.
+     * @summary Modifies the remarks of an address pool.
+     *  *
+     * @param UpdateCloudGtmAddressPoolRemarkRequest $request UpdateCloudGtmAddressPoolRemarkRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateCloudGtmAddressPoolRemarkRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateCloudGtmAddressPoolRemarkResponse
-     *
-     * @param UpdateCloudGtmAddressPoolRemarkRequest $request
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return UpdateCloudGtmAddressPoolRemarkResponse
+     * @return UpdateCloudGtmAddressPoolRemarkResponse UpdateCloudGtmAddressPoolRemarkResponse
      */
     public function updateCloudGtmAddressPoolRemarkWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->acceptLanguage) {
-            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
         }
-
-        if (null !== $request->addressPoolId) {
-            @$query['AddressPoolId'] = $request->addressPoolId;
+        if (!Utils::isUnset($request->addressPoolId)) {
+            $query['AddressPoolId'] = $request->addressPoolId;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->remark) {
-            @$query['Remark'] = $request->remark;
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateCloudGtmAddressPoolRemark',
@@ -13417,15 +10926,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the remarks of an address pool.
+     * @summary Modifies the remarks of an address pool.
+     *  *
+     * @param UpdateCloudGtmAddressPoolRemarkRequest $request UpdateCloudGtmAddressPoolRemarkRequest
      *
-     * @param request - UpdateCloudGtmAddressPoolRemarkRequest
-     *
-     * @returns UpdateCloudGtmAddressPoolRemarkResponse
-     *
-     * @param UpdateCloudGtmAddressPoolRemarkRequest $request
-     *
-     * @return UpdateCloudGtmAddressPoolRemarkResponse
+     * @return UpdateCloudGtmAddressPoolRemarkResponse UpdateCloudGtmAddressPoolRemarkResponse
      */
     public function updateCloudGtmAddressPoolRemark($request)
     {
@@ -13435,40 +10940,31 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the remarks of an address.
+     * @summary Modifies the remarks of an address.
+     *  *
+     * @param UpdateCloudGtmAddressRemarkRequest $request UpdateCloudGtmAddressRemarkRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateCloudGtmAddressRemarkRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateCloudGtmAddressRemarkResponse
-     *
-     * @param UpdateCloudGtmAddressRemarkRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return UpdateCloudGtmAddressRemarkResponse
+     * @return UpdateCloudGtmAddressRemarkResponse UpdateCloudGtmAddressRemarkResponse
      */
     public function updateCloudGtmAddressRemarkWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->acceptLanguage) {
-            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
         }
-
-        if (null !== $request->addressId) {
-            @$query['AddressId'] = $request->addressId;
+        if (!Utils::isUnset($request->addressId)) {
+            $query['AddressId'] = $request->addressId;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->remark) {
-            @$query['Remark'] = $request->remark;
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateCloudGtmAddressRemark',
@@ -13486,15 +10982,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the remarks of an address.
+     * @summary Modifies the remarks of an address.
+     *  *
+     * @param UpdateCloudGtmAddressRemarkRequest $request UpdateCloudGtmAddressRemarkRequest
      *
-     * @param request - UpdateCloudGtmAddressRemarkRequest
-     *
-     * @returns UpdateCloudGtmAddressRemarkResponse
-     *
-     * @param UpdateCloudGtmAddressRemarkRequest $request
-     *
-     * @return UpdateCloudGtmAddressRemarkResponse
+     * @return UpdateCloudGtmAddressRemarkResponse UpdateCloudGtmAddressRemarkResponse
      */
     public function updateCloudGtmAddressRemark($request)
     {
@@ -13504,48 +10996,37 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param tmpReq - UpdateCloudGtmGlobalAlertRequest
-     * @param runtime - runtime options for this request RuntimeOptions
+     * @param UpdateCloudGtmGlobalAlertRequest $tmpReq  UpdateCloudGtmGlobalAlertRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @returns UpdateCloudGtmGlobalAlertResponse
-     *
-     * @param UpdateCloudGtmGlobalAlertRequest $tmpReq
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return UpdateCloudGtmGlobalAlertResponse
+     * @return UpdateCloudGtmGlobalAlertResponse UpdateCloudGtmGlobalAlertResponse
      */
     public function updateCloudGtmGlobalAlertWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new UpdateCloudGtmGlobalAlertShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->alertConfig) {
-            $request->alertConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->alertConfig, 'AlertConfig', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->alertConfig)) {
+            $request->alertConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->alertConfig, 'AlertConfig', 'json');
         }
-
-        if (null !== $tmpReq->alertGroup) {
-            $request->alertGroupShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->alertGroup, 'AlertGroup', 'json');
+        if (!Utils::isUnset($tmpReq->alertGroup)) {
+            $request->alertGroupShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->alertGroup, 'AlertGroup', 'json');
         }
-
         $query = [];
-        if (null !== $request->acceptLanguage) {
-            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
         }
-
-        if (null !== $request->alertConfigShrink) {
-            @$query['AlertConfig'] = $request->alertConfigShrink;
+        if (!Utils::isUnset($request->alertConfigShrink)) {
+            $query['AlertConfig'] = $request->alertConfigShrink;
         }
-
-        if (null !== $request->alertGroupShrink) {
-            @$query['AlertGroup'] = $request->alertGroupShrink;
+        if (!Utils::isUnset($request->alertGroupShrink)) {
+            $query['AlertGroup'] = $request->alertGroupShrink;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateCloudGtmGlobalAlert',
@@ -13563,13 +11044,9 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param request - UpdateCloudGtmGlobalAlertRequest
+     * @param UpdateCloudGtmGlobalAlertRequest $request UpdateCloudGtmGlobalAlertRequest
      *
-     * @returns UpdateCloudGtmGlobalAlertResponse
-     *
-     * @param UpdateCloudGtmGlobalAlertRequest $request
-     *
-     * @return UpdateCloudGtmGlobalAlertResponse
+     * @return UpdateCloudGtmGlobalAlertResponse UpdateCloudGtmGlobalAlertResponse
      */
     public function updateCloudGtmGlobalAlert($request)
     {
@@ -13579,60 +11056,46 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param tmpReq - UpdateCloudGtmInstanceConfigAlertRequest
-     * @param runtime - runtime options for this request RuntimeOptions
+     * @param UpdateCloudGtmInstanceConfigAlertRequest $tmpReq  UpdateCloudGtmInstanceConfigAlertRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @returns UpdateCloudGtmInstanceConfigAlertResponse
-     *
-     * @param UpdateCloudGtmInstanceConfigAlertRequest $tmpReq
-     * @param RuntimeOptions                           $runtime
-     *
-     * @return UpdateCloudGtmInstanceConfigAlertResponse
+     * @return UpdateCloudGtmInstanceConfigAlertResponse UpdateCloudGtmInstanceConfigAlertResponse
      */
     public function updateCloudGtmInstanceConfigAlertWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new UpdateCloudGtmInstanceConfigAlertShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->alertConfig) {
-            $request->alertConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->alertConfig, 'AlertConfig', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->alertConfig)) {
+            $request->alertConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->alertConfig, 'AlertConfig', 'json');
         }
-
-        if (null !== $tmpReq->alertGroup) {
-            $request->alertGroupShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->alertGroup, 'AlertGroup', 'json');
+        if (!Utils::isUnset($tmpReq->alertGroup)) {
+            $request->alertGroupShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->alertGroup, 'AlertGroup', 'json');
         }
-
         $query = [];
-        if (null !== $request->acceptLanguage) {
-            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
         }
-
-        if (null !== $request->alertConfigShrink) {
-            @$query['AlertConfig'] = $request->alertConfigShrink;
+        if (!Utils::isUnset($request->alertConfigShrink)) {
+            $query['AlertConfig'] = $request->alertConfigShrink;
         }
-
-        if (null !== $request->alertGroupShrink) {
-            @$query['AlertGroup'] = $request->alertGroupShrink;
+        if (!Utils::isUnset($request->alertGroupShrink)) {
+            $query['AlertGroup'] = $request->alertGroupShrink;
         }
-
-        if (null !== $request->alertMode) {
-            @$query['AlertMode'] = $request->alertMode;
+        if (!Utils::isUnset($request->alertMode)) {
+            $query['AlertMode'] = $request->alertMode;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->configId) {
-            @$query['ConfigId'] = $request->configId;
+        if (!Utils::isUnset($request->configId)) {
+            $query['ConfigId'] = $request->configId;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateCloudGtmInstanceConfigAlert',
@@ -13650,13 +11113,9 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param request - UpdateCloudGtmInstanceConfigAlertRequest
+     * @param UpdateCloudGtmInstanceConfigAlertRequest $request UpdateCloudGtmInstanceConfigAlertRequest
      *
-     * @returns UpdateCloudGtmInstanceConfigAlertResponse
-     *
-     * @param UpdateCloudGtmInstanceConfigAlertRequest $request
-     *
-     * @return UpdateCloudGtmInstanceConfigAlertResponse
+     * @return UpdateCloudGtmInstanceConfigAlertResponse UpdateCloudGtmInstanceConfigAlertResponse
      */
     public function updateCloudGtmInstanceConfigAlert($request)
     {
@@ -13666,52 +11125,40 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Updates the global time-to-live (TTL) configuration of a GTM 3.0 instance.
+     * @summary Updates the global time-to-live (TTL) configuration of a GTM 3.0 instance.
+     *  *
+     * @param UpdateCloudGtmInstanceConfigBasicRequest $request UpdateCloudGtmInstanceConfigBasicRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateCloudGtmInstanceConfigBasicRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateCloudGtmInstanceConfigBasicResponse
-     *
-     * @param UpdateCloudGtmInstanceConfigBasicRequest $request
-     * @param RuntimeOptions                           $runtime
-     *
-     * @return UpdateCloudGtmInstanceConfigBasicResponse
+     * @return UpdateCloudGtmInstanceConfigBasicResponse UpdateCloudGtmInstanceConfigBasicResponse
      */
     public function updateCloudGtmInstanceConfigBasicWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->acceptLanguage) {
-            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->configId) {
-            @$query['ConfigId'] = $request->configId;
+        if (!Utils::isUnset($request->configId)) {
+            $query['ConfigId'] = $request->configId;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->scheduleHostname) {
-            @$query['ScheduleHostname'] = $request->scheduleHostname;
+        if (!Utils::isUnset($request->scheduleHostname)) {
+            $query['ScheduleHostname'] = $request->scheduleHostname;
         }
-
-        if (null !== $request->scheduleZoneName) {
-            @$query['ScheduleZoneName'] = $request->scheduleZoneName;
+        if (!Utils::isUnset($request->scheduleZoneName)) {
+            $query['ScheduleZoneName'] = $request->scheduleZoneName;
         }
-
-        if (null !== $request->ttl) {
-            @$query['Ttl'] = $request->ttl;
+        if (!Utils::isUnset($request->ttl)) {
+            $query['Ttl'] = $request->ttl;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateCloudGtmInstanceConfigBasic',
@@ -13729,15 +11176,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Updates the global time-to-live (TTL) configuration of a GTM 3.0 instance.
+     * @summary Updates the global time-to-live (TTL) configuration of a GTM 3.0 instance.
+     *  *
+     * @param UpdateCloudGtmInstanceConfigBasicRequest $request UpdateCloudGtmInstanceConfigBasicRequest
      *
-     * @param request - UpdateCloudGtmInstanceConfigBasicRequest
-     *
-     * @returns UpdateCloudGtmInstanceConfigBasicResponse
-     *
-     * @param UpdateCloudGtmInstanceConfigBasicRequest $request
-     *
-     * @return UpdateCloudGtmInstanceConfigBasicResponse
+     * @return UpdateCloudGtmInstanceConfigBasicResponse UpdateCloudGtmInstanceConfigBasicResponse
      */
     public function updateCloudGtmInstanceConfigBasic($request)
     {
@@ -13747,48 +11190,37 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the enabling status of an access domain name.
-     *
-     * @remarks
-     *   If an access domain name is **enabled** and the health state is **normal**, the access domain name is deemed **available**.
+     * @summary Modifies the enabling status of an access domain name.
+     *  *
+     * @description *   If an access domain name is **enabled** and the health state is **normal**, the access domain name is deemed **available**.
      * *   If an access domain name is **disabled** or the health state is **abnormal**, the access domain name is deemed **unavailable**.
+     *  *
+     * @param UpdateCloudGtmInstanceConfigEnableStatusRequest $request UpdateCloudGtmInstanceConfigEnableStatusRequest
+     * @param RuntimeOptions                                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateCloudGtmInstanceConfigEnableStatusRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateCloudGtmInstanceConfigEnableStatusResponse
-     *
-     * @param UpdateCloudGtmInstanceConfigEnableStatusRequest $request
-     * @param RuntimeOptions                                  $runtime
-     *
-     * @return UpdateCloudGtmInstanceConfigEnableStatusResponse
+     * @return UpdateCloudGtmInstanceConfigEnableStatusResponse UpdateCloudGtmInstanceConfigEnableStatusResponse
      */
     public function updateCloudGtmInstanceConfigEnableStatusWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->acceptLanguage) {
-            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->configId) {
-            @$query['ConfigId'] = $request->configId;
+        if (!Utils::isUnset($request->configId)) {
+            $query['ConfigId'] = $request->configId;
         }
-
-        if (null !== $request->enableStatus) {
-            @$query['EnableStatus'] = $request->enableStatus;
+        if (!Utils::isUnset($request->enableStatus)) {
+            $query['EnableStatus'] = $request->enableStatus;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateCloudGtmInstanceConfigEnableStatus',
@@ -13806,19 +11238,14 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the enabling status of an access domain name.
-     *
-     * @remarks
-     *   If an access domain name is **enabled** and the health state is **normal**, the access domain name is deemed **available**.
+     * @summary Modifies the enabling status of an access domain name.
+     *  *
+     * @description *   If an access domain name is **enabled** and the health state is **normal**, the access domain name is deemed **available**.
      * *   If an access domain name is **disabled** or the health state is **abnormal**, the access domain name is deemed **unavailable**.
+     *  *
+     * @param UpdateCloudGtmInstanceConfigEnableStatusRequest $request UpdateCloudGtmInstanceConfigEnableStatusRequest
      *
-     * @param request - UpdateCloudGtmInstanceConfigEnableStatusRequest
-     *
-     * @returns UpdateCloudGtmInstanceConfigEnableStatusResponse
-     *
-     * @param UpdateCloudGtmInstanceConfigEnableStatusRequest $request
-     *
-     * @return UpdateCloudGtmInstanceConfigEnableStatusResponse
+     * @return UpdateCloudGtmInstanceConfigEnableStatusResponse UpdateCloudGtmInstanceConfigEnableStatusResponse
      */
     public function updateCloudGtmInstanceConfigEnableStatus($request)
     {
@@ -13828,48 +11255,37 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the load balancing policy of a Global Traffic Manager (GTM) 3.0 instance.
+     * @summary Modifies the load balancing policy of a Global Traffic Manager (GTM) 3.0 instance.
+     *  *
+     * @param UpdateCloudGtmInstanceConfigLbStrategyRequest $request UpdateCloudGtmInstanceConfigLbStrategyRequest
+     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateCloudGtmInstanceConfigLbStrategyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateCloudGtmInstanceConfigLbStrategyResponse
-     *
-     * @param UpdateCloudGtmInstanceConfigLbStrategyRequest $request
-     * @param RuntimeOptions                                $runtime
-     *
-     * @return UpdateCloudGtmInstanceConfigLbStrategyResponse
+     * @return UpdateCloudGtmInstanceConfigLbStrategyResponse UpdateCloudGtmInstanceConfigLbStrategyResponse
      */
     public function updateCloudGtmInstanceConfigLbStrategyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->acceptLanguage) {
-            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
         }
-
-        if (null !== $request->addressPoolLbStrategy) {
-            @$query['AddressPoolLbStrategy'] = $request->addressPoolLbStrategy;
+        if (!Utils::isUnset($request->addressPoolLbStrategy)) {
+            $query['AddressPoolLbStrategy'] = $request->addressPoolLbStrategy;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->configId) {
-            @$query['ConfigId'] = $request->configId;
+        if (!Utils::isUnset($request->configId)) {
+            $query['ConfigId'] = $request->configId;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->sequenceLbStrategyMode) {
-            @$query['SequenceLbStrategyMode'] = $request->sequenceLbStrategyMode;
+        if (!Utils::isUnset($request->sequenceLbStrategyMode)) {
+            $query['SequenceLbStrategyMode'] = $request->sequenceLbStrategyMode;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateCloudGtmInstanceConfigLbStrategy',
@@ -13887,15 +11303,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the load balancing policy of a Global Traffic Manager (GTM) 3.0 instance.
+     * @summary Modifies the load balancing policy of a Global Traffic Manager (GTM) 3.0 instance.
+     *  *
+     * @param UpdateCloudGtmInstanceConfigLbStrategyRequest $request UpdateCloudGtmInstanceConfigLbStrategyRequest
      *
-     * @param request - UpdateCloudGtmInstanceConfigLbStrategyRequest
-     *
-     * @returns UpdateCloudGtmInstanceConfigLbStrategyResponse
-     *
-     * @param UpdateCloudGtmInstanceConfigLbStrategyRequest $request
-     *
-     * @return UpdateCloudGtmInstanceConfigLbStrategyResponse
+     * @return UpdateCloudGtmInstanceConfigLbStrategyResponse UpdateCloudGtmInstanceConfigLbStrategyResponse
      */
     public function updateCloudGtmInstanceConfigLbStrategy($request)
     {
@@ -13905,44 +11317,34 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the description of a Global Traffic Manager (GTM) 3.0 instance.
+     * @summary Modifies the description of a Global Traffic Manager (GTM) 3.0 instance.
+     *  *
+     * @param UpdateCloudGtmInstanceConfigRemarkRequest $request UpdateCloudGtmInstanceConfigRemarkRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateCloudGtmInstanceConfigRemarkRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateCloudGtmInstanceConfigRemarkResponse
-     *
-     * @param UpdateCloudGtmInstanceConfigRemarkRequest $request
-     * @param RuntimeOptions                            $runtime
-     *
-     * @return UpdateCloudGtmInstanceConfigRemarkResponse
+     * @return UpdateCloudGtmInstanceConfigRemarkResponse UpdateCloudGtmInstanceConfigRemarkResponse
      */
     public function updateCloudGtmInstanceConfigRemarkWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->acceptLanguage) {
-            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->configId) {
-            @$query['ConfigId'] = $request->configId;
+        if (!Utils::isUnset($request->configId)) {
+            $query['ConfigId'] = $request->configId;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->remark) {
-            @$query['Remark'] = $request->remark;
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateCloudGtmInstanceConfigRemark',
@@ -13960,15 +11362,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the description of a Global Traffic Manager (GTM) 3.0 instance.
+     * @summary Modifies the description of a Global Traffic Manager (GTM) 3.0 instance.
+     *  *
+     * @param UpdateCloudGtmInstanceConfigRemarkRequest $request UpdateCloudGtmInstanceConfigRemarkRequest
      *
-     * @param request - UpdateCloudGtmInstanceConfigRemarkRequest
-     *
-     * @returns UpdateCloudGtmInstanceConfigRemarkResponse
-     *
-     * @param UpdateCloudGtmInstanceConfigRemarkRequest $request
-     *
-     * @return UpdateCloudGtmInstanceConfigRemarkResponse
+     * @return UpdateCloudGtmInstanceConfigRemarkResponse UpdateCloudGtmInstanceConfigRemarkResponse
      */
     public function updateCloudGtmInstanceConfigRemark($request)
     {
@@ -13978,38 +11376,29 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param request - UpdateCloudGtmInstanceNameRequest
-     * @param runtime - runtime options for this request RuntimeOptions
+     * @param UpdateCloudGtmInstanceNameRequest $request UpdateCloudGtmInstanceNameRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @returns UpdateCloudGtmInstanceNameResponse
-     *
-     * @param UpdateCloudGtmInstanceNameRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return UpdateCloudGtmInstanceNameResponse
+     * @return UpdateCloudGtmInstanceNameResponse UpdateCloudGtmInstanceNameResponse
      */
     public function updateCloudGtmInstanceNameWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->acceptLanguage) {
-            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->instanceName) {
-            @$query['InstanceName'] = $request->instanceName;
+        if (!Utils::isUnset($request->instanceName)) {
+            $query['InstanceName'] = $request->instanceName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateCloudGtmInstanceName',
@@ -14027,13 +11416,9 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param request - UpdateCloudGtmInstanceNameRequest
+     * @param UpdateCloudGtmInstanceNameRequest $request UpdateCloudGtmInstanceNameRequest
      *
-     * @returns UpdateCloudGtmInstanceNameResponse
-     *
-     * @param UpdateCloudGtmInstanceNameRequest $request
-     *
-     * @return UpdateCloudGtmInstanceNameResponse
+     * @return UpdateCloudGtmInstanceNameResponse UpdateCloudGtmInstanceNameResponse
      */
     public function updateCloudGtmInstanceName($request)
     {
@@ -14043,70 +11428,54 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the information about a health check template.
+     * @summary Modifies the information about a health check template.
+     *  *
+     * @param UpdateCloudGtmMonitorTemplateRequest $tmpReq  UpdateCloudGtmMonitorTemplateRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - UpdateCloudGtmMonitorTemplateRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateCloudGtmMonitorTemplateResponse
-     *
-     * @param UpdateCloudGtmMonitorTemplateRequest $tmpReq
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return UpdateCloudGtmMonitorTemplateResponse
+     * @return UpdateCloudGtmMonitorTemplateResponse UpdateCloudGtmMonitorTemplateResponse
      */
     public function updateCloudGtmMonitorTemplateWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new UpdateCloudGtmMonitorTemplateShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->ispCityNodes) {
-            $request->ispCityNodesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ispCityNodes, 'IspCityNodes', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->ispCityNodes)) {
+            $request->ispCityNodesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ispCityNodes, 'IspCityNodes', 'json');
         }
-
         $query = [];
-        if (null !== $request->acceptLanguage) {
-            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->evaluationCount) {
-            @$query['EvaluationCount'] = $request->evaluationCount;
+        if (!Utils::isUnset($request->evaluationCount)) {
+            $query['EvaluationCount'] = $request->evaluationCount;
         }
-
-        if (null !== $request->extendInfo) {
-            @$query['ExtendInfo'] = $request->extendInfo;
+        if (!Utils::isUnset($request->extendInfo)) {
+            $query['ExtendInfo'] = $request->extendInfo;
         }
-
-        if (null !== $request->failureRate) {
-            @$query['FailureRate'] = $request->failureRate;
+        if (!Utils::isUnset($request->failureRate)) {
+            $query['FailureRate'] = $request->failureRate;
         }
-
-        if (null !== $request->interval) {
-            @$query['Interval'] = $request->interval;
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
         }
-
-        if (null !== $request->ispCityNodesShrink) {
-            @$query['IspCityNodes'] = $request->ispCityNodesShrink;
+        if (!Utils::isUnset($request->ispCityNodesShrink)) {
+            $query['IspCityNodes'] = $request->ispCityNodesShrink;
         }
-
-        if (null !== $request->name) {
-            @$query['Name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
         }
-
-        if (null !== $request->templateId) {
-            @$query['TemplateId'] = $request->templateId;
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
         }
-
-        if (null !== $request->timeout) {
-            @$query['Timeout'] = $request->timeout;
+        if (!Utils::isUnset($request->timeout)) {
+            $query['Timeout'] = $request->timeout;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateCloudGtmMonitorTemplate',
@@ -14124,15 +11493,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the information about a health check template.
+     * @summary Modifies the information about a health check template.
+     *  *
+     * @param UpdateCloudGtmMonitorTemplateRequest $request UpdateCloudGtmMonitorTemplateRequest
      *
-     * @param request - UpdateCloudGtmMonitorTemplateRequest
-     *
-     * @returns UpdateCloudGtmMonitorTemplateResponse
-     *
-     * @param UpdateCloudGtmMonitorTemplateRequest $request
-     *
-     * @return UpdateCloudGtmMonitorTemplateResponse
+     * @return UpdateCloudGtmMonitorTemplateResponse UpdateCloudGtmMonitorTemplateResponse
      */
     public function updateCloudGtmMonitorTemplate($request)
     {
@@ -14142,38 +11507,29 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param request - UpdateCloudGtmMonitorTemplateRemarkRequest
-     * @param runtime - runtime options for this request RuntimeOptions
+     * @param UpdateCloudGtmMonitorTemplateRemarkRequest $request UpdateCloudGtmMonitorTemplateRemarkRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @returns UpdateCloudGtmMonitorTemplateRemarkResponse
-     *
-     * @param UpdateCloudGtmMonitorTemplateRemarkRequest $request
-     * @param RuntimeOptions                             $runtime
-     *
-     * @return UpdateCloudGtmMonitorTemplateRemarkResponse
+     * @return UpdateCloudGtmMonitorTemplateRemarkResponse UpdateCloudGtmMonitorTemplateRemarkResponse
      */
     public function updateCloudGtmMonitorTemplateRemarkWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->acceptLanguage) {
-            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->remark) {
-            @$query['Remark'] = $request->remark;
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
         }
-
-        if (null !== $request->templateId) {
-            @$query['TemplateId'] = $request->templateId;
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateCloudGtmMonitorTemplateRemark',
@@ -14191,13 +11547,9 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param request - UpdateCloudGtmMonitorTemplateRemarkRequest
+     * @param UpdateCloudGtmMonitorTemplateRemarkRequest $request UpdateCloudGtmMonitorTemplateRemarkRequest
      *
-     * @returns UpdateCloudGtmMonitorTemplateRemarkResponse
-     *
-     * @param UpdateCloudGtmMonitorTemplateRemarkRequest $request
-     *
-     * @return UpdateCloudGtmMonitorTemplateRemarkResponse
+     * @return UpdateCloudGtmMonitorTemplateRemarkResponse UpdateCloudGtmMonitorTemplateRemarkResponse
      */
     public function updateCloudGtmMonitorTemplateRemark($request)
     {
@@ -14207,44 +11559,34 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies a custom line with its unique ID.
-     *
-     * @remarks
-     * In each CIDR block, the end IP address must be greater than or equal to the start IP address.\\
+     * @summary Modifies a custom line with its unique ID.
+     *  *
+     * @description In each CIDR block, the end IP address must be greater than or equal to the start IP address.\\
      * The CIDR blocks that are specified for all custom lines of a domain name cannot be overlapped.
+     *  *
+     * @param UpdateCustomLineRequest $request UpdateCustomLineRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateCustomLineRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateCustomLineResponse
-     *
-     * @param UpdateCustomLineRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return UpdateCustomLineResponse
+     * @return UpdateCustomLineResponse UpdateCustomLineResponse
      */
     public function updateCustomLineWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->ipSegment) {
-            @$query['IpSegment'] = $request->ipSegment;
+        if (!Utils::isUnset($request->ipSegment)) {
+            $query['IpSegment'] = $request->ipSegment;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->lineId) {
-            @$query['LineId'] = $request->lineId;
+        if (!Utils::isUnset($request->lineId)) {
+            $query['LineId'] = $request->lineId;
         }
-
-        if (null !== $request->lineName) {
-            @$query['LineName'] = $request->lineName;
+        if (!Utils::isUnset($request->lineName)) {
+            $query['LineName'] = $request->lineName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateCustomLine',
@@ -14262,19 +11604,14 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies a custom line with its unique ID.
-     *
-     * @remarks
-     * In each CIDR block, the end IP address must be greater than or equal to the start IP address.\\
+     * @summary Modifies a custom line with its unique ID.
+     *  *
+     * @description In each CIDR block, the end IP address must be greater than or equal to the start IP address.\\
      * The CIDR blocks that are specified for all custom lines of a domain name cannot be overlapped.
+     *  *
+     * @param UpdateCustomLineRequest $request UpdateCustomLineRequest
      *
-     * @param request - UpdateCustomLineRequest
-     *
-     * @returns UpdateCustomLineResponse
-     *
-     * @param UpdateCustomLineRequest $request
-     *
-     * @return UpdateCustomLineResponse
+     * @return UpdateCustomLineResponse UpdateCustomLineResponse
      */
     public function updateCustomLine($request)
     {
@@ -14284,40 +11621,31 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the weight of a Domain Name System (DNS) record based on the specified parameters.
+     * @summary Modifies the weight of a Domain Name System (DNS) record based on the specified parameters.
+     *  *
+     * @param UpdateDNSSLBWeightRequest $request UpdateDNSSLBWeightRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateDNSSLBWeightRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateDNSSLBWeightResponse
-     *
-     * @param UpdateDNSSLBWeightRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return UpdateDNSSLBWeightResponse
+     * @return UpdateDNSSLBWeightResponse UpdateDNSSLBWeightResponse
      */
     public function updateDNSSLBWeightWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->recordId) {
-            @$query['RecordId'] = $request->recordId;
+        if (!Utils::isUnset($request->recordId)) {
+            $query['RecordId'] = $request->recordId;
         }
-
-        if (null !== $request->userClientIp) {
-            @$query['UserClientIp'] = $request->userClientIp;
+        if (!Utils::isUnset($request->userClientIp)) {
+            $query['UserClientIp'] = $request->userClientIp;
         }
-
-        if (null !== $request->weight) {
-            @$query['Weight'] = $request->weight;
+        if (!Utils::isUnset($request->weight)) {
+            $query['Weight'] = $request->weight;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateDNSSLBWeight',
@@ -14335,15 +11663,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the weight of a Domain Name System (DNS) record based on the specified parameters.
+     * @summary Modifies the weight of a Domain Name System (DNS) record based on the specified parameters.
+     *  *
+     * @param UpdateDNSSLBWeightRequest $request UpdateDNSSLBWeightRequest
      *
-     * @param request - UpdateDNSSLBWeightRequest
-     *
-     * @returns UpdateDNSSLBWeightResponse
-     *
-     * @param UpdateDNSSLBWeightRequest $request
-     *
-     * @return UpdateDNSSLBWeightResponse
+     * @return UpdateDNSSLBWeightResponse UpdateDNSSLBWeightResponse
      */
     public function updateDNSSLBWeight($request)
     {
@@ -14353,56 +11677,43 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Updates the cache-accelerated domain name based on the specified parameters.
+     * @summary Updates the cache-accelerated domain name based on the specified parameters.
+     *  *
+     * @param UpdateDnsCacheDomainRequest $request UpdateDnsCacheDomainRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateDnsCacheDomainRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateDnsCacheDomainResponse
-     *
-     * @param UpdateDnsCacheDomainRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return UpdateDnsCacheDomainResponse
+     * @return UpdateDnsCacheDomainResponse UpdateDnsCacheDomainResponse
      */
     public function updateDnsCacheDomainWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->cacheTtlMax) {
-            @$query['CacheTtlMax'] = $request->cacheTtlMax;
+        if (!Utils::isUnset($request->cacheTtlMax)) {
+            $query['CacheTtlMax'] = $request->cacheTtlMax;
         }
-
-        if (null !== $request->cacheTtlMin) {
-            @$query['CacheTtlMin'] = $request->cacheTtlMin;
+        if (!Utils::isUnset($request->cacheTtlMin)) {
+            $query['CacheTtlMin'] = $request->cacheTtlMin;
         }
-
-        if (null !== $request->domainName) {
-            @$query['DomainName'] = $request->domainName;
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->sourceDnsServer) {
-            @$query['SourceDnsServer'] = $request->sourceDnsServer;
+        if (!Utils::isUnset($request->sourceDnsServer)) {
+            $query['SourceDnsServer'] = $request->sourceDnsServer;
         }
-
-        if (null !== $request->sourceEdns) {
-            @$query['SourceEdns'] = $request->sourceEdns;
+        if (!Utils::isUnset($request->sourceEdns)) {
+            $query['SourceEdns'] = $request->sourceEdns;
         }
-
-        if (null !== $request->sourceProtocol) {
-            @$query['SourceProtocol'] = $request->sourceProtocol;
+        if (!Utils::isUnset($request->sourceProtocol)) {
+            $query['SourceProtocol'] = $request->sourceProtocol;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateDnsCacheDomain',
@@ -14420,15 +11731,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Updates the cache-accelerated domain name based on the specified parameters.
+     * @summary Updates the cache-accelerated domain name based on the specified parameters.
+     *  *
+     * @param UpdateDnsCacheDomainRequest $request UpdateDnsCacheDomainRequest
      *
-     * @param request - UpdateDnsCacheDomainRequest
-     *
-     * @returns UpdateDnsCacheDomainResponse
-     *
-     * @param UpdateDnsCacheDomainRequest $request
-     *
-     * @return UpdateDnsCacheDomainResponse
+     * @return UpdateDnsCacheDomainResponse UpdateDnsCacheDomainResponse
      */
     public function updateDnsCacheDomain($request)
     {
@@ -14438,36 +11745,28 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Updates the remarks for the cache-accelerated domain name of the destination domain name.
+     * @summary Updates the remarks for the cache-accelerated domain name of the destination domain name.
+     *  *
+     * @param UpdateDnsCacheDomainRemarkRequest $request UpdateDnsCacheDomainRemarkRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateDnsCacheDomainRemarkRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateDnsCacheDomainRemarkResponse
-     *
-     * @param UpdateDnsCacheDomainRemarkRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return UpdateDnsCacheDomainRemarkResponse
+     * @return UpdateDnsCacheDomainRemarkResponse UpdateDnsCacheDomainRemarkResponse
      */
     public function updateDnsCacheDomainRemarkWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->domainName) {
-            @$query['DomainName'] = $request->domainName;
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->remark) {
-            @$query['Remark'] = $request->remark;
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateDnsCacheDomainRemark',
@@ -14485,15 +11784,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Updates the remarks for the cache-accelerated domain name of the destination domain name.
+     * @summary Updates the remarks for the cache-accelerated domain name of the destination domain name.
+     *  *
+     * @param UpdateDnsCacheDomainRemarkRequest $request UpdateDnsCacheDomainRemarkRequest
      *
-     * @param request - UpdateDnsCacheDomainRemarkRequest
-     *
-     * @returns UpdateDnsCacheDomainRemarkResponse
-     *
-     * @param UpdateDnsCacheDomainRemarkRequest $request
-     *
-     * @return UpdateDnsCacheDomainRemarkResponse
+     * @return UpdateDnsCacheDomainRemarkResponse UpdateDnsCacheDomainRemarkResponse
      */
     public function updateDnsCacheDomainRemark($request)
     {
@@ -14503,92 +11798,70 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies an access policy.
+     * @summary Modifies an access policy.
+     *  *
+     * @param UpdateDnsGtmAccessStrategyRequest $request UpdateDnsGtmAccessStrategyRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateDnsGtmAccessStrategyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateDnsGtmAccessStrategyResponse
-     *
-     * @param UpdateDnsGtmAccessStrategyRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return UpdateDnsGtmAccessStrategyResponse
+     * @return UpdateDnsGtmAccessStrategyResponse UpdateDnsGtmAccessStrategyResponse
      */
     public function updateDnsGtmAccessStrategyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accessMode) {
-            @$query['AccessMode'] = $request->accessMode;
+        if (!Utils::isUnset($request->accessMode)) {
+            $query['AccessMode'] = $request->accessMode;
         }
-
-        if (null !== $request->defaultAddrPool) {
-            @$query['DefaultAddrPool'] = $request->defaultAddrPool;
+        if (!Utils::isUnset($request->defaultAddrPool)) {
+            $query['DefaultAddrPool'] = $request->defaultAddrPool;
         }
-
-        if (null !== $request->defaultAddrPoolType) {
-            @$query['DefaultAddrPoolType'] = $request->defaultAddrPoolType;
+        if (!Utils::isUnset($request->defaultAddrPoolType)) {
+            $query['DefaultAddrPoolType'] = $request->defaultAddrPoolType;
         }
-
-        if (null !== $request->defaultLatencyOptimization) {
-            @$query['DefaultLatencyOptimization'] = $request->defaultLatencyOptimization;
+        if (!Utils::isUnset($request->defaultLatencyOptimization)) {
+            $query['DefaultLatencyOptimization'] = $request->defaultLatencyOptimization;
         }
-
-        if (null !== $request->defaultLbaStrategy) {
-            @$query['DefaultLbaStrategy'] = $request->defaultLbaStrategy;
+        if (!Utils::isUnset($request->defaultLbaStrategy)) {
+            $query['DefaultLbaStrategy'] = $request->defaultLbaStrategy;
         }
-
-        if (null !== $request->defaultMaxReturnAddrNum) {
-            @$query['DefaultMaxReturnAddrNum'] = $request->defaultMaxReturnAddrNum;
+        if (!Utils::isUnset($request->defaultMaxReturnAddrNum)) {
+            $query['DefaultMaxReturnAddrNum'] = $request->defaultMaxReturnAddrNum;
         }
-
-        if (null !== $request->defaultMinAvailableAddrNum) {
-            @$query['DefaultMinAvailableAddrNum'] = $request->defaultMinAvailableAddrNum;
+        if (!Utils::isUnset($request->defaultMinAvailableAddrNum)) {
+            $query['DefaultMinAvailableAddrNum'] = $request->defaultMinAvailableAddrNum;
         }
-
-        if (null !== $request->failoverAddrPool) {
-            @$query['FailoverAddrPool'] = $request->failoverAddrPool;
+        if (!Utils::isUnset($request->failoverAddrPool)) {
+            $query['FailoverAddrPool'] = $request->failoverAddrPool;
         }
-
-        if (null !== $request->failoverAddrPoolType) {
-            @$query['FailoverAddrPoolType'] = $request->failoverAddrPoolType;
+        if (!Utils::isUnset($request->failoverAddrPoolType)) {
+            $query['FailoverAddrPoolType'] = $request->failoverAddrPoolType;
         }
-
-        if (null !== $request->failoverLatencyOptimization) {
-            @$query['FailoverLatencyOptimization'] = $request->failoverLatencyOptimization;
+        if (!Utils::isUnset($request->failoverLatencyOptimization)) {
+            $query['FailoverLatencyOptimization'] = $request->failoverLatencyOptimization;
         }
-
-        if (null !== $request->failoverLbaStrategy) {
-            @$query['FailoverLbaStrategy'] = $request->failoverLbaStrategy;
+        if (!Utils::isUnset($request->failoverLbaStrategy)) {
+            $query['FailoverLbaStrategy'] = $request->failoverLbaStrategy;
         }
-
-        if (null !== $request->failoverMaxReturnAddrNum) {
-            @$query['FailoverMaxReturnAddrNum'] = $request->failoverMaxReturnAddrNum;
+        if (!Utils::isUnset($request->failoverMaxReturnAddrNum)) {
+            $query['FailoverMaxReturnAddrNum'] = $request->failoverMaxReturnAddrNum;
         }
-
-        if (null !== $request->failoverMinAvailableAddrNum) {
-            @$query['FailoverMinAvailableAddrNum'] = $request->failoverMinAvailableAddrNum;
+        if (!Utils::isUnset($request->failoverMinAvailableAddrNum)) {
+            $query['FailoverMinAvailableAddrNum'] = $request->failoverMinAvailableAddrNum;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->lines) {
-            @$query['Lines'] = $request->lines;
+        if (!Utils::isUnset($request->lines)) {
+            $query['Lines'] = $request->lines;
         }
-
-        if (null !== $request->strategyId) {
-            @$query['StrategyId'] = $request->strategyId;
+        if (!Utils::isUnset($request->strategyId)) {
+            $query['StrategyId'] = $request->strategyId;
         }
-
-        if (null !== $request->strategyName) {
-            @$query['StrategyName'] = $request->strategyName;
+        if (!Utils::isUnset($request->strategyName)) {
+            $query['StrategyName'] = $request->strategyName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateDnsGtmAccessStrategy',
@@ -14606,15 +11879,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies an access policy.
+     * @summary Modifies an access policy.
+     *  *
+     * @param UpdateDnsGtmAccessStrategyRequest $request UpdateDnsGtmAccessStrategyRequest
      *
-     * @param request - UpdateDnsGtmAccessStrategyRequest
-     *
-     * @returns UpdateDnsGtmAccessStrategyResponse
-     *
-     * @param UpdateDnsGtmAccessStrategyRequest $request
-     *
-     * @return UpdateDnsGtmAccessStrategyResponse
+     * @return UpdateDnsGtmAccessStrategyResponse UpdateDnsGtmAccessStrategyResponse
      */
     public function updateDnsGtmAccessStrategy($request)
     {
@@ -14624,44 +11893,34 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies an address pool.
+     * @summary Modifies an address pool.
+     *  *
+     * @param UpdateDnsGtmAddressPoolRequest $request UpdateDnsGtmAddressPoolRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateDnsGtmAddressPoolRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateDnsGtmAddressPoolResponse
-     *
-     * @param UpdateDnsGtmAddressPoolRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return UpdateDnsGtmAddressPoolResponse
+     * @return UpdateDnsGtmAddressPoolResponse UpdateDnsGtmAddressPoolResponse
      */
     public function updateDnsGtmAddressPoolWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->addr) {
-            @$query['Addr'] = $request->addr;
+        if (!Utils::isUnset($request->addr)) {
+            $query['Addr'] = $request->addr;
         }
-
-        if (null !== $request->addrPoolId) {
-            @$query['AddrPoolId'] = $request->addrPoolId;
+        if (!Utils::isUnset($request->addrPoolId)) {
+            $query['AddrPoolId'] = $request->addrPoolId;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->lbaStrategy) {
-            @$query['LbaStrategy'] = $request->lbaStrategy;
+        if (!Utils::isUnset($request->lbaStrategy)) {
+            $query['LbaStrategy'] = $request->lbaStrategy;
         }
-
-        if (null !== $request->name) {
-            @$query['Name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateDnsGtmAddressPool',
@@ -14679,15 +11938,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies an address pool.
+     * @summary Modifies an address pool.
+     *  *
+     * @param UpdateDnsGtmAddressPoolRequest $request UpdateDnsGtmAddressPoolRequest
      *
-     * @param request - UpdateDnsGtmAddressPoolRequest
-     *
-     * @returns UpdateDnsGtmAddressPoolResponse
-     *
-     * @param UpdateDnsGtmAddressPoolRequest $request
-     *
-     * @return UpdateDnsGtmAddressPoolResponse
+     * @return UpdateDnsGtmAddressPoolResponse UpdateDnsGtmAddressPoolResponse
      */
     public function updateDnsGtmAddressPool($request)
     {
@@ -14697,72 +11952,55 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the configurations of a Global Traffic Manager (GTM) instance.
+     * @summary Modifies the configurations of a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param UpdateDnsGtmInstanceGlobalConfigRequest $request UpdateDnsGtmInstanceGlobalConfigRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateDnsGtmInstanceGlobalConfigRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateDnsGtmInstanceGlobalConfigResponse
-     *
-     * @param UpdateDnsGtmInstanceGlobalConfigRequest $request
-     * @param RuntimeOptions                          $runtime
-     *
-     * @return UpdateDnsGtmInstanceGlobalConfigResponse
+     * @return UpdateDnsGtmInstanceGlobalConfigResponse UpdateDnsGtmInstanceGlobalConfigResponse
      */
     public function updateDnsGtmInstanceGlobalConfigWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->alertConfig) {
-            @$query['AlertConfig'] = $request->alertConfig;
+        if (!Utils::isUnset($request->alertConfig)) {
+            $query['AlertConfig'] = $request->alertConfig;
         }
-
-        if (null !== $request->alertGroup) {
-            @$query['AlertGroup'] = $request->alertGroup;
+        if (!Utils::isUnset($request->alertGroup)) {
+            $query['AlertGroup'] = $request->alertGroup;
         }
-
-        if (null !== $request->cnameType) {
-            @$query['CnameType'] = $request->cnameType;
+        if (!Utils::isUnset($request->cnameType)) {
+            $query['CnameType'] = $request->cnameType;
         }
-
-        if (null !== $request->forceUpdate) {
-            @$query['ForceUpdate'] = $request->forceUpdate;
+        if (!Utils::isUnset($request->forceUpdate)) {
+            $query['ForceUpdate'] = $request->forceUpdate;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->instanceName) {
-            @$query['InstanceName'] = $request->instanceName;
+        if (!Utils::isUnset($request->instanceName)) {
+            $query['InstanceName'] = $request->instanceName;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->publicCnameMode) {
-            @$query['PublicCnameMode'] = $request->publicCnameMode;
+        if (!Utils::isUnset($request->publicCnameMode)) {
+            $query['PublicCnameMode'] = $request->publicCnameMode;
         }
-
-        if (null !== $request->publicRr) {
-            @$query['PublicRr'] = $request->publicRr;
+        if (!Utils::isUnset($request->publicRr)) {
+            $query['PublicRr'] = $request->publicRr;
         }
-
-        if (null !== $request->publicUserDomainName) {
-            @$query['PublicUserDomainName'] = $request->publicUserDomainName;
+        if (!Utils::isUnset($request->publicUserDomainName)) {
+            $query['PublicUserDomainName'] = $request->publicUserDomainName;
         }
-
-        if (null !== $request->publicZoneName) {
-            @$query['PublicZoneName'] = $request->publicZoneName;
+        if (!Utils::isUnset($request->publicZoneName)) {
+            $query['PublicZoneName'] = $request->publicZoneName;
         }
-
-        if (null !== $request->ttl) {
-            @$query['Ttl'] = $request->ttl;
+        if (!Utils::isUnset($request->ttl)) {
+            $query['Ttl'] = $request->ttl;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateDnsGtmInstanceGlobalConfig',
@@ -14780,15 +12018,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the configurations of a Global Traffic Manager (GTM) instance.
+     * @summary Modifies the configurations of a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param UpdateDnsGtmInstanceGlobalConfigRequest $request UpdateDnsGtmInstanceGlobalConfigRequest
      *
-     * @param request - UpdateDnsGtmInstanceGlobalConfigRequest
-     *
-     * @returns UpdateDnsGtmInstanceGlobalConfigResponse
-     *
-     * @param UpdateDnsGtmInstanceGlobalConfigRequest $request
-     *
-     * @return UpdateDnsGtmInstanceGlobalConfigResponse
+     * @return UpdateDnsGtmInstanceGlobalConfigResponse UpdateDnsGtmInstanceGlobalConfigResponse
      */
     public function updateDnsGtmInstanceGlobalConfig($request)
     {
@@ -14798,56 +12032,43 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies a health check task.
+     * @summary Modifies a health check task.
+     *  *
+     * @param UpdateDnsGtmMonitorRequest $request UpdateDnsGtmMonitorRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateDnsGtmMonitorRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateDnsGtmMonitorResponse
-     *
-     * @param UpdateDnsGtmMonitorRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return UpdateDnsGtmMonitorResponse
+     * @return UpdateDnsGtmMonitorResponse UpdateDnsGtmMonitorResponse
      */
     public function updateDnsGtmMonitorWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->evaluationCount) {
-            @$query['EvaluationCount'] = $request->evaluationCount;
+        if (!Utils::isUnset($request->evaluationCount)) {
+            $query['EvaluationCount'] = $request->evaluationCount;
         }
-
-        if (null !== $request->interval) {
-            @$query['Interval'] = $request->interval;
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
         }
-
-        if (null !== $request->ispCityNode) {
-            @$query['IspCityNode'] = $request->ispCityNode;
+        if (!Utils::isUnset($request->ispCityNode)) {
+            $query['IspCityNode'] = $request->ispCityNode;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->monitorConfigId) {
-            @$query['MonitorConfigId'] = $request->monitorConfigId;
+        if (!Utils::isUnset($request->monitorConfigId)) {
+            $query['MonitorConfigId'] = $request->monitorConfigId;
         }
-
-        if (null !== $request->monitorExtendInfo) {
-            @$query['MonitorExtendInfo'] = $request->monitorExtendInfo;
+        if (!Utils::isUnset($request->monitorExtendInfo)) {
+            $query['MonitorExtendInfo'] = $request->monitorExtendInfo;
         }
-
-        if (null !== $request->protocolType) {
-            @$query['ProtocolType'] = $request->protocolType;
+        if (!Utils::isUnset($request->protocolType)) {
+            $query['ProtocolType'] = $request->protocolType;
         }
-
-        if (null !== $request->timeout) {
-            @$query['Timeout'] = $request->timeout;
+        if (!Utils::isUnset($request->timeout)) {
+            $query['Timeout'] = $request->timeout;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateDnsGtmMonitor',
@@ -14865,15 +12086,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies a health check task.
+     * @summary Modifies a health check task.
+     *  *
+     * @param UpdateDnsGtmMonitorRequest $request UpdateDnsGtmMonitorRequest
      *
-     * @param request - UpdateDnsGtmMonitorRequest
-     *
-     * @returns UpdateDnsGtmMonitorResponse
-     *
-     * @param UpdateDnsGtmMonitorRequest $request
-     *
-     * @return UpdateDnsGtmMonitorResponse
+     * @return UpdateDnsGtmMonitorResponse UpdateDnsGtmMonitorResponse
      */
     public function updateDnsGtmMonitor($request)
     {
@@ -14883,39 +12100,30 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the name of a domain name group based on the specified parameters.
+     * @summary Modifies the name of a domain name group based on the specified parameters.
+     *  *
+     * @description Modifies the name of an existing domain name group.
+     *  *
+     * @param UpdateDomainGroupRequest $request UpdateDomainGroupRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * Modifies the name of an existing domain name group.
-     *
-     * @param request - UpdateDomainGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateDomainGroupResponse
-     *
-     * @param UpdateDomainGroupRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return UpdateDomainGroupResponse
+     * @return UpdateDomainGroupResponse UpdateDomainGroupResponse
      */
     public function updateDomainGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->groupName) {
-            @$query['GroupName'] = $request->groupName;
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateDomainGroup',
@@ -14933,18 +12141,13 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the name of a domain name group based on the specified parameters.
+     * @summary Modifies the name of a domain name group based on the specified parameters.
+     *  *
+     * @description Modifies the name of an existing domain name group.
+     *  *
+     * @param UpdateDomainGroupRequest $request UpdateDomainGroupRequest
      *
-     * @remarks
-     * Modifies the name of an existing domain name group.
-     *
-     * @param request - UpdateDomainGroupRequest
-     *
-     * @returns UpdateDomainGroupResponse
-     *
-     * @param UpdateDomainGroupRequest $request
-     *
-     * @return UpdateDomainGroupResponse
+     * @return UpdateDomainGroupResponse UpdateDomainGroupResponse
      */
     public function updateDomainGroup($request)
     {
@@ -14954,60 +12157,46 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies a Domain Name System (DNS) record based on the specified parameters.
+     * @summary Modifies a Domain Name System (DNS) record based on the specified parameters.
+     *  *
+     * @param UpdateDomainRecordRequest $request UpdateDomainRecordRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateDomainRecordRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateDomainRecordResponse
-     *
-     * @param UpdateDomainRecordRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return UpdateDomainRecordResponse
+     * @return UpdateDomainRecordResponse UpdateDomainRecordResponse
      */
     public function updateDomainRecordWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->line) {
-            @$query['Line'] = $request->line;
+        if (!Utils::isUnset($request->line)) {
+            $query['Line'] = $request->line;
         }
-
-        if (null !== $request->priority) {
-            @$query['Priority'] = $request->priority;
+        if (!Utils::isUnset($request->priority)) {
+            $query['Priority'] = $request->priority;
         }
-
-        if (null !== $request->RR) {
-            @$query['RR'] = $request->RR;
+        if (!Utils::isUnset($request->RR)) {
+            $query['RR'] = $request->RR;
         }
-
-        if (null !== $request->recordId) {
-            @$query['RecordId'] = $request->recordId;
+        if (!Utils::isUnset($request->recordId)) {
+            $query['RecordId'] = $request->recordId;
         }
-
-        if (null !== $request->TTL) {
-            @$query['TTL'] = $request->TTL;
+        if (!Utils::isUnset($request->TTL)) {
+            $query['TTL'] = $request->TTL;
         }
-
-        if (null !== $request->type) {
-            @$query['Type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
         }
-
-        if (null !== $request->userClientIp) {
-            @$query['UserClientIp'] = $request->userClientIp;
+        if (!Utils::isUnset($request->userClientIp)) {
+            $query['UserClientIp'] = $request->userClientIp;
         }
-
-        if (null !== $request->value) {
-            @$query['Value'] = $request->value;
+        if (!Utils::isUnset($request->value)) {
+            $query['Value'] = $request->value;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateDomainRecord',
@@ -15025,15 +12214,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies a Domain Name System (DNS) record based on the specified parameters.
+     * @summary Modifies a Domain Name System (DNS) record based on the specified parameters.
+     *  *
+     * @param UpdateDomainRecordRequest $request UpdateDomainRecordRequest
      *
-     * @param request - UpdateDomainRecordRequest
-     *
-     * @returns UpdateDomainRecordResponse
-     *
-     * @param UpdateDomainRecordRequest $request
-     *
-     * @return UpdateDomainRecordResponse
+     * @return UpdateDomainRecordResponse UpdateDomainRecordResponse
      */
     public function updateDomainRecord($request)
     {
@@ -15043,40 +12228,31 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the description of a Domain Name System (DNS) record based on the specified parameters.
+     * @summary Modifies the description of a Domain Name System (DNS) record based on the specified parameters.
+     *  *
+     * @param UpdateDomainRecordRemarkRequest $request UpdateDomainRecordRemarkRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateDomainRecordRemarkRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateDomainRecordRemarkResponse
-     *
-     * @param UpdateDomainRecordRemarkRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return UpdateDomainRecordRemarkResponse
+     * @return UpdateDomainRecordRemarkResponse UpdateDomainRecordRemarkResponse
      */
     public function updateDomainRecordRemarkWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->recordId) {
-            @$query['RecordId'] = $request->recordId;
+        if (!Utils::isUnset($request->recordId)) {
+            $query['RecordId'] = $request->recordId;
         }
-
-        if (null !== $request->remark) {
-            @$query['Remark'] = $request->remark;
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
         }
-
-        if (null !== $request->userClientIp) {
-            @$query['UserClientIp'] = $request->userClientIp;
+        if (!Utils::isUnset($request->userClientIp)) {
+            $query['UserClientIp'] = $request->userClientIp;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateDomainRecordRemark',
@@ -15094,15 +12270,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the description of a Domain Name System (DNS) record based on the specified parameters.
+     * @summary Modifies the description of a Domain Name System (DNS) record based on the specified parameters.
+     *  *
+     * @param UpdateDomainRecordRemarkRequest $request UpdateDomainRecordRemarkRequest
      *
-     * @param request - UpdateDomainRecordRemarkRequest
-     *
-     * @returns UpdateDomainRecordRemarkResponse
-     *
-     * @param UpdateDomainRecordRemarkRequest $request
-     *
-     * @return UpdateDomainRecordRemarkResponse
+     * @return UpdateDomainRecordRemarkResponse UpdateDomainRecordRemarkResponse
      */
     public function updateDomainRecordRemark($request)
     {
@@ -15112,36 +12284,28 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the description of a domain name based on the specified parameters.
+     * @summary Modifies the description of a domain name based on the specified parameters.
+     *  *
+     * @param UpdateDomainRemarkRequest $request UpdateDomainRemarkRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateDomainRemarkRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateDomainRemarkResponse
-     *
-     * @param UpdateDomainRemarkRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return UpdateDomainRemarkResponse
+     * @return UpdateDomainRemarkResponse UpdateDomainRemarkResponse
      */
     public function updateDomainRemarkWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->domainName) {
-            @$query['DomainName'] = $request->domainName;
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->remark) {
-            @$query['Remark'] = $request->remark;
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateDomainRemark',
@@ -15159,15 +12323,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the description of a domain name based on the specified parameters.
+     * @summary Modifies the description of a domain name based on the specified parameters.
+     *  *
+     * @param UpdateDomainRemarkRequest $request UpdateDomainRemarkRequest
      *
-     * @param request - UpdateDomainRemarkRequest
-     *
-     * @returns UpdateDomainRemarkResponse
-     *
-     * @param UpdateDomainRemarkRequest $request
-     *
-     * @return UpdateDomainRemarkResponse
+     * @return UpdateDomainRemarkResponse UpdateDomainRemarkResponse
      */
     public function updateDomainRemark($request)
     {
@@ -15177,46 +12337,35 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param request - UpdateGtmAccessStrategyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
+     * @param UpdateGtmAccessStrategyRequest $request UpdateGtmAccessStrategyRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @returns UpdateGtmAccessStrategyResponse
-     *
-     * @param UpdateGtmAccessStrategyRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return UpdateGtmAccessStrategyResponse
+     * @return UpdateGtmAccessStrategyResponse UpdateGtmAccessStrategyResponse
      */
     public function updateGtmAccessStrategyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accessLines) {
-            @$query['AccessLines'] = $request->accessLines;
+        if (!Utils::isUnset($request->accessLines)) {
+            $query['AccessLines'] = $request->accessLines;
         }
-
-        if (null !== $request->defaultAddrPoolId) {
-            @$query['DefaultAddrPoolId'] = $request->defaultAddrPoolId;
+        if (!Utils::isUnset($request->defaultAddrPoolId)) {
+            $query['DefaultAddrPoolId'] = $request->defaultAddrPoolId;
         }
-
-        if (null !== $request->failoverAddrPoolId) {
-            @$query['FailoverAddrPoolId'] = $request->failoverAddrPoolId;
+        if (!Utils::isUnset($request->failoverAddrPoolId)) {
+            $query['FailoverAddrPoolId'] = $request->failoverAddrPoolId;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->strategyId) {
-            @$query['StrategyId'] = $request->strategyId;
+        if (!Utils::isUnset($request->strategyId)) {
+            $query['StrategyId'] = $request->strategyId;
         }
-
-        if (null !== $request->strategyName) {
-            @$query['StrategyName'] = $request->strategyName;
+        if (!Utils::isUnset($request->strategyName)) {
+            $query['StrategyName'] = $request->strategyName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateGtmAccessStrategy',
@@ -15234,13 +12383,9 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param request - UpdateGtmAccessStrategyRequest
+     * @param UpdateGtmAccessStrategyRequest $request UpdateGtmAccessStrategyRequest
      *
-     * @returns UpdateGtmAccessStrategyResponse
-     *
-     * @param UpdateGtmAccessStrategyRequest $request
-     *
-     * @return UpdateGtmAccessStrategyResponse
+     * @return UpdateGtmAccessStrategyResponse UpdateGtmAccessStrategyResponse
      */
     public function updateGtmAccessStrategy($request)
     {
@@ -15250,46 +12395,35 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param request - UpdateGtmAddressPoolRequest
-     * @param runtime - runtime options for this request RuntimeOptions
+     * @param UpdateGtmAddressPoolRequest $request UpdateGtmAddressPoolRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @returns UpdateGtmAddressPoolResponse
-     *
-     * @param UpdateGtmAddressPoolRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return UpdateGtmAddressPoolResponse
+     * @return UpdateGtmAddressPoolResponse UpdateGtmAddressPoolResponse
      */
     public function updateGtmAddressPoolWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->addr) {
-            @$query['Addr'] = $request->addr;
+        if (!Utils::isUnset($request->addr)) {
+            $query['Addr'] = $request->addr;
         }
-
-        if (null !== $request->addrPoolId) {
-            @$query['AddrPoolId'] = $request->addrPoolId;
+        if (!Utils::isUnset($request->addrPoolId)) {
+            $query['AddrPoolId'] = $request->addrPoolId;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->minAvailableAddrNum) {
-            @$query['MinAvailableAddrNum'] = $request->minAvailableAddrNum;
+        if (!Utils::isUnset($request->minAvailableAddrNum)) {
+            $query['MinAvailableAddrNum'] = $request->minAvailableAddrNum;
         }
-
-        if (null !== $request->name) {
-            @$query['Name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
         }
-
-        if (null !== $request->type) {
-            @$query['Type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateGtmAddressPool',
@@ -15307,13 +12441,9 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param request - UpdateGtmAddressPoolRequest
+     * @param UpdateGtmAddressPoolRequest $request UpdateGtmAddressPoolRequest
      *
-     * @returns UpdateGtmAddressPoolResponse
-     *
-     * @param UpdateGtmAddressPoolRequest $request
-     *
-     * @return UpdateGtmAddressPoolResponse
+     * @return UpdateGtmAddressPoolResponse UpdateGtmAddressPoolResponse
      */
     public function updateGtmAddressPool($request)
     {
@@ -15323,60 +12453,46 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the configurations of a Global Traffic Manager (GTM) instance based on the specified parameters.
+     * @summary Modifies the configurations of a Global Traffic Manager (GTM) instance based on the specified parameters.
+     *  *
+     * @param UpdateGtmInstanceGlobalConfigRequest $request UpdateGtmInstanceGlobalConfigRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateGtmInstanceGlobalConfigRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateGtmInstanceGlobalConfigResponse
-     *
-     * @param UpdateGtmInstanceGlobalConfigRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return UpdateGtmInstanceGlobalConfigResponse
+     * @return UpdateGtmInstanceGlobalConfigResponse UpdateGtmInstanceGlobalConfigResponse
      */
     public function updateGtmInstanceGlobalConfigWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->alertGroup) {
-            @$query['AlertGroup'] = $request->alertGroup;
+        if (!Utils::isUnset($request->alertGroup)) {
+            $query['AlertGroup'] = $request->alertGroup;
         }
-
-        if (null !== $request->cnameCustomDomainName) {
-            @$query['CnameCustomDomainName'] = $request->cnameCustomDomainName;
+        if (!Utils::isUnset($request->cnameCustomDomainName)) {
+            $query['CnameCustomDomainName'] = $request->cnameCustomDomainName;
         }
-
-        if (null !== $request->cnameMode) {
-            @$query['CnameMode'] = $request->cnameMode;
+        if (!Utils::isUnset($request->cnameMode)) {
+            $query['CnameMode'] = $request->cnameMode;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->instanceName) {
-            @$query['InstanceName'] = $request->instanceName;
+        if (!Utils::isUnset($request->instanceName)) {
+            $query['InstanceName'] = $request->instanceName;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->lbaStrategy) {
-            @$query['LbaStrategy'] = $request->lbaStrategy;
+        if (!Utils::isUnset($request->lbaStrategy)) {
+            $query['LbaStrategy'] = $request->lbaStrategy;
         }
-
-        if (null !== $request->ttl) {
-            @$query['Ttl'] = $request->ttl;
+        if (!Utils::isUnset($request->ttl)) {
+            $query['Ttl'] = $request->ttl;
         }
-
-        if (null !== $request->userDomainName) {
-            @$query['UserDomainName'] = $request->userDomainName;
+        if (!Utils::isUnset($request->userDomainName)) {
+            $query['UserDomainName'] = $request->userDomainName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateGtmInstanceGlobalConfig',
@@ -15394,15 +12510,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the configurations of a Global Traffic Manager (GTM) instance based on the specified parameters.
+     * @summary Modifies the configurations of a Global Traffic Manager (GTM) instance based on the specified parameters.
+     *  *
+     * @param UpdateGtmInstanceGlobalConfigRequest $request UpdateGtmInstanceGlobalConfigRequest
      *
-     * @param request - UpdateGtmInstanceGlobalConfigRequest
-     *
-     * @returns UpdateGtmInstanceGlobalConfigResponse
-     *
-     * @param UpdateGtmInstanceGlobalConfigRequest $request
-     *
-     * @return UpdateGtmInstanceGlobalConfigResponse
+     * @return UpdateGtmInstanceGlobalConfigResponse UpdateGtmInstanceGlobalConfigResponse
      */
     public function updateGtmInstanceGlobalConfig($request)
     {
@@ -15412,56 +12524,43 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the health check configuration for an address pool of a Global Traffic Manager (GTM) instance.
+     * @summary Modifies the health check configuration for an address pool of a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param UpdateGtmMonitorRequest $request UpdateGtmMonitorRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateGtmMonitorRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateGtmMonitorResponse
-     *
-     * @param UpdateGtmMonitorRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return UpdateGtmMonitorResponse
+     * @return UpdateGtmMonitorResponse UpdateGtmMonitorResponse
      */
     public function updateGtmMonitorWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->evaluationCount) {
-            @$query['EvaluationCount'] = $request->evaluationCount;
+        if (!Utils::isUnset($request->evaluationCount)) {
+            $query['EvaluationCount'] = $request->evaluationCount;
         }
-
-        if (null !== $request->interval) {
-            @$query['Interval'] = $request->interval;
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
         }
-
-        if (null !== $request->ispCityNode) {
-            @$query['IspCityNode'] = $request->ispCityNode;
+        if (!Utils::isUnset($request->ispCityNode)) {
+            $query['IspCityNode'] = $request->ispCityNode;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->monitorConfigId) {
-            @$query['MonitorConfigId'] = $request->monitorConfigId;
+        if (!Utils::isUnset($request->monitorConfigId)) {
+            $query['MonitorConfigId'] = $request->monitorConfigId;
         }
-
-        if (null !== $request->monitorExtendInfo) {
-            @$query['MonitorExtendInfo'] = $request->monitorExtendInfo;
+        if (!Utils::isUnset($request->monitorExtendInfo)) {
+            $query['MonitorExtendInfo'] = $request->monitorExtendInfo;
         }
-
-        if (null !== $request->protocolType) {
-            @$query['ProtocolType'] = $request->protocolType;
+        if (!Utils::isUnset($request->protocolType)) {
+            $query['ProtocolType'] = $request->protocolType;
         }
-
-        if (null !== $request->timeout) {
-            @$query['Timeout'] = $request->timeout;
+        if (!Utils::isUnset($request->timeout)) {
+            $query['Timeout'] = $request->timeout;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateGtmMonitor',
@@ -15479,15 +12578,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the health check configuration for an address pool of a Global Traffic Manager (GTM) instance.
+     * @summary Modifies the health check configuration for an address pool of a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param UpdateGtmMonitorRequest $request UpdateGtmMonitorRequest
      *
-     * @param request - UpdateGtmMonitorRequest
-     *
-     * @returns UpdateGtmMonitorResponse
-     *
-     * @param UpdateGtmMonitorRequest $request
-     *
-     * @return UpdateGtmMonitorResponse
+     * @return UpdateGtmMonitorResponse UpdateGtmMonitorResponse
      */
     public function updateGtmMonitor($request)
     {
@@ -15497,44 +12592,34 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies a disaster recovery plan.
+     * @summary Modifies a disaster recovery plan.
+     *  *
+     * @param UpdateGtmRecoveryPlanRequest $request UpdateGtmRecoveryPlanRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateGtmRecoveryPlanRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateGtmRecoveryPlanResponse
-     *
-     * @param UpdateGtmRecoveryPlanRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return UpdateGtmRecoveryPlanResponse
+     * @return UpdateGtmRecoveryPlanResponse UpdateGtmRecoveryPlanResponse
      */
     public function updateGtmRecoveryPlanWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->faultAddrPool) {
-            @$query['FaultAddrPool'] = $request->faultAddrPool;
+        if (!Utils::isUnset($request->faultAddrPool)) {
+            $query['FaultAddrPool'] = $request->faultAddrPool;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->name) {
-            @$query['Name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
         }
-
-        if (null !== $request->recoveryPlanId) {
-            @$query['RecoveryPlanId'] = $request->recoveryPlanId;
+        if (!Utils::isUnset($request->recoveryPlanId)) {
+            $query['RecoveryPlanId'] = $request->recoveryPlanId;
         }
-
-        if (null !== $request->remark) {
-            @$query['Remark'] = $request->remark;
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateGtmRecoveryPlan',
@@ -15552,15 +12637,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies a disaster recovery plan.
+     * @summary Modifies a disaster recovery plan.
+     *  *
+     * @param UpdateGtmRecoveryPlanRequest $request UpdateGtmRecoveryPlanRequest
      *
-     * @param request - UpdateGtmRecoveryPlanRequest
-     *
-     * @returns UpdateGtmRecoveryPlanResponse
-     *
-     * @param UpdateGtmRecoveryPlanRequest $request
-     *
-     * @return UpdateGtmRecoveryPlanResponse
+     * @return UpdateGtmRecoveryPlanResponse UpdateGtmRecoveryPlanResponse
      */
     public function updateGtmRecoveryPlan($request)
     {
@@ -15570,36 +12651,28 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 修改缓存刷新套餐包配置.
+     * @summary 修改缓存刷新套餐包配置
+     *  *
+     * @param UpdateIspFlushCacheInstanceConfigRequest $request UpdateIspFlushCacheInstanceConfigRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateIspFlushCacheInstanceConfigRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateIspFlushCacheInstanceConfigResponse
-     *
-     * @param UpdateIspFlushCacheInstanceConfigRequest $request
-     * @param RuntimeOptions                           $runtime
-     *
-     * @return UpdateIspFlushCacheInstanceConfigResponse
+     * @return UpdateIspFlushCacheInstanceConfigResponse UpdateIspFlushCacheInstanceConfigResponse
      */
     public function updateIspFlushCacheInstanceConfigWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->instanceName) {
-            @$query['InstanceName'] = $request->instanceName;
+        if (!Utils::isUnset($request->instanceName)) {
+            $query['InstanceName'] = $request->instanceName;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateIspFlushCacheInstanceConfig',
@@ -15617,15 +12690,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 修改缓存刷新套餐包配置.
+     * @summary 修改缓存刷新套餐包配置
+     *  *
+     * @param UpdateIspFlushCacheInstanceConfigRequest $request UpdateIspFlushCacheInstanceConfigRequest
      *
-     * @param request - UpdateIspFlushCacheInstanceConfigRequest
-     *
-     * @returns UpdateIspFlushCacheInstanceConfigResponse
-     *
-     * @param UpdateIspFlushCacheInstanceConfigRequest $request
-     *
-     * @return UpdateIspFlushCacheInstanceConfigResponse
+     * @return UpdateIspFlushCacheInstanceConfigResponse UpdateIspFlushCacheInstanceConfigResponse
      */
     public function updateIspFlushCacheInstanceConfig($request)
     {
@@ -15635,48 +12704,37 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 检查实例主机名是否可添加.
+     * @summary 检查实例主机名是否可添加
+     *  *
+     * @param ValidateDnsGtmCnameRrCanUseRequest $request ValidateDnsGtmCnameRrCanUseRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ValidateDnsGtmCnameRrCanUseRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ValidateDnsGtmCnameRrCanUseResponse
-     *
-     * @param ValidateDnsGtmCnameRrCanUseRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return ValidateDnsGtmCnameRrCanUseResponse
+     * @return ValidateDnsGtmCnameRrCanUseResponse ValidateDnsGtmCnameRrCanUseResponse
      */
     public function validateDnsGtmCnameRrCanUseWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->cnameMode) {
-            @$query['CnameMode'] = $request->cnameMode;
+        if (!Utils::isUnset($request->cnameMode)) {
+            $query['CnameMode'] = $request->cnameMode;
         }
-
-        if (null !== $request->cnameRr) {
-            @$query['CnameRr'] = $request->cnameRr;
+        if (!Utils::isUnset($request->cnameRr)) {
+            $query['CnameRr'] = $request->cnameRr;
         }
-
-        if (null !== $request->cnameType) {
-            @$query['CnameType'] = $request->cnameType;
+        if (!Utils::isUnset($request->cnameType)) {
+            $query['CnameType'] = $request->cnameType;
         }
-
-        if (null !== $request->cnameZone) {
-            @$query['CnameZone'] = $request->cnameZone;
+        if (!Utils::isUnset($request->cnameZone)) {
+            $query['CnameZone'] = $request->cnameZone;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ValidateDnsGtmCnameRrCanUse',
@@ -15694,15 +12752,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 检查实例主机名是否可添加.
+     * @summary 检查实例主机名是否可添加
+     *  *
+     * @param ValidateDnsGtmCnameRrCanUseRequest $request ValidateDnsGtmCnameRrCanUseRequest
      *
-     * @param request - ValidateDnsGtmCnameRrCanUseRequest
-     *
-     * @returns ValidateDnsGtmCnameRrCanUseResponse
-     *
-     * @param ValidateDnsGtmCnameRrCanUseRequest $request
-     *
-     * @return ValidateDnsGtmCnameRrCanUseResponse
+     * @return ValidateDnsGtmCnameRrCanUseResponse ValidateDnsGtmCnameRrCanUseResponse
      */
     public function validateDnsGtmCnameRrCanUse($request)
     {
@@ -15712,36 +12766,28 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 验证公共DNS Udp Ip地址段.
+     * @summary 验证公共DNS Udp Ip地址段
+     *  *
+     * @param ValidatePdnsUdpIpSegmentRequest $request ValidatePdnsUdpIpSegmentRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ValidatePdnsUdpIpSegmentRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ValidatePdnsUdpIpSegmentResponse
-     *
-     * @param ValidatePdnsUdpIpSegmentRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return ValidatePdnsUdpIpSegmentResponse
+     * @return ValidatePdnsUdpIpSegmentResponse ValidatePdnsUdpIpSegmentResponse
      */
     public function validatePdnsUdpIpSegmentWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->ip) {
-            @$query['Ip'] = $request->ip;
+        if (!Utils::isUnset($request->ip)) {
+            $query['Ip'] = $request->ip;
         }
-
-        if (null !== $request->ipToken) {
-            @$query['IpToken'] = $request->ipToken;
+        if (!Utils::isUnset($request->ipToken)) {
+            $query['IpToken'] = $request->ipToken;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ValidatePdnsUdpIpSegment',
@@ -15759,15 +12805,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 验证公共DNS Udp Ip地址段.
+     * @summary 验证公共DNS Udp Ip地址段
+     *  *
+     * @param ValidatePdnsUdpIpSegmentRequest $request ValidatePdnsUdpIpSegmentRequest
      *
-     * @param request - ValidatePdnsUdpIpSegmentRequest
-     *
-     * @returns ValidatePdnsUdpIpSegmentResponse
-     *
-     * @param ValidatePdnsUdpIpSegmentRequest $request
-     *
-     * @return ValidatePdnsUdpIpSegmentResponse
+     * @return ValidatePdnsUdpIpSegmentResponse ValidatePdnsUdpIpSegmentResponse
      */
     public function validatePdnsUdpIpSegment($request)
     {

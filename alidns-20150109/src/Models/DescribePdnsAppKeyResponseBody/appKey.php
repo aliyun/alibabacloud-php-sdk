@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models\DescribePdnsAppKeyResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class appKey extends Model
 {
@@ -46,34 +46,26 @@ class appKey extends Model
         'state' => 'State',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appKeyId) {
             $res['AppKeyId'] = $this->appKeyId;
         }
-
         if (null !== $this->appKeySecret) {
             $res['AppKeySecret'] = $this->appKeySecret;
         }
-
         if (null !== $this->createDate) {
             $res['CreateDate'] = $this->createDate;
         }
-
         if (null !== $this->createTimestamp) {
             $res['CreateTimestamp'] = $this->createTimestamp;
         }
-
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
         }
-
         if (null !== $this->state) {
             $res['State'] = $this->state;
         }
@@ -81,34 +73,29 @@ class appKey extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return appKey
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppKeyId'])) {
             $model->appKeyId = $map['AppKeyId'];
         }
-
         if (isset($map['AppKeySecret'])) {
             $model->appKeySecret = $map['AppKeySecret'];
         }
-
         if (isset($map['CreateDate'])) {
             $model->createDate = $map['CreateDate'];
         }
-
         if (isset($map['CreateTimestamp'])) {
             $model->createTimestamp = $map['CreateTimestamp'];
         }
-
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
         }
-
         if (isset($map['State'])) {
             $model->state = $map['State'];
         }

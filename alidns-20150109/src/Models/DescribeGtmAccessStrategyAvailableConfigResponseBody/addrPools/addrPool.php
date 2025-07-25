@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeGtmAccessStrategyAvailableConfigResponseBody\addrPools;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class addrPool extends Model
 {
     /**
+     * @description The ID of the address pool.
+     *
+     * @example hra0ix
+     *
      * @var string
      */
     public $addrPoolId;
 
     /**
+     * @description The name of the address pool.
+     *
+     * @example test
+     *
      * @var string
      */
     public $addrPoolName;
@@ -22,18 +30,14 @@ class addrPool extends Model
         'addrPoolName' => 'AddrPoolName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->addrPoolId) {
             $res['AddrPoolId'] = $this->addrPoolId;
         }
-
         if (null !== $this->addrPoolName) {
             $res['AddrPoolName'] = $this->addrPoolName;
         }
@@ -41,18 +45,17 @@ class addrPool extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return addrPool
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AddrPoolId'])) {
             $model->addrPoolId = $map['AddrPoolId'];
         }
-
         if (isset($map['AddrPoolName'])) {
             $model->addrPoolName = $map['AddrPoolName'];
         }

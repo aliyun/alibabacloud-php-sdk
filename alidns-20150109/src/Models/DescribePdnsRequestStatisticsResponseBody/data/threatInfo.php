@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models\DescribePdnsRequestStatisticsResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class threatInfo extends Model
 {
     /**
+     * @description The current version does not support this parameter.
+     *
+     * @example -
+     *
      * @var string
      */
     public $threatLevel;
 
     /**
+     * @description The current version does not support this parameter.
+     *
+     * @example -
+     *
      * @var string
      */
     public $threatType;
@@ -22,18 +30,14 @@ class threatInfo extends Model
         'threatType' => 'ThreatType',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->threatLevel) {
             $res['ThreatLevel'] = $this->threatLevel;
         }
-
         if (null !== $this->threatType) {
             $res['ThreatType'] = $this->threatType;
         }
@@ -41,18 +45,17 @@ class threatInfo extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return threatInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ThreatLevel'])) {
             $model->threatLevel = $map['ThreatLevel'];
         }
-
         if (isset($map['ThreatType'])) {
             $model->threatType = $map['ThreatType'];
         }

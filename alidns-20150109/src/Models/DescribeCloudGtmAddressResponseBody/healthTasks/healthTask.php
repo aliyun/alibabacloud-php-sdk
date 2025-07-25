@@ -4,26 +4,46 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeCloudGtmAddressResponseBody\healthTasks;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class healthTask extends Model
 {
     /**
+     * @description The state of the health check task. Valid values:
+     *
+     *   ok: The task is normal.
+     *   alert: An alert is triggered.
+     *   no_data: No data is available. In most cases, the health check task is newly created and no data is collected.
+     *
+     * @example ok
+     *
      * @var string
      */
     public $monitorStatus;
 
     /**
+     * @description The target service port for health checks. When the Ping protocol is selected for health checks, configuration of the service port is not supported.
+     *
+     * @example 80
+     *
      * @var int
      */
     public $port;
 
     /**
+     * @description The ID of the health check template associated with the address.
+     *
+     * @example mtp-89518052425100**80
+     *
      * @var string
      */
     public $templateId;
 
     /**
+     * @description The name of the health check template.
+     *
+     * @example Ping-IPv4
+     *
      * @var string
      */
     public $templateName;
@@ -34,26 +54,20 @@ class healthTask extends Model
         'templateName' => 'TemplateName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->monitorStatus) {
             $res['MonitorStatus'] = $this->monitorStatus;
         }
-
         if (null !== $this->port) {
             $res['Port'] = $this->port;
         }
-
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
-
         if (null !== $this->templateName) {
             $res['TemplateName'] = $this->templateName;
         }
@@ -61,26 +75,23 @@ class healthTask extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return healthTask
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MonitorStatus'])) {
             $model->monitorStatus = $map['MonitorStatus'];
         }
-
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
         }
-
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }
-
         if (isset($map['TemplateName'])) {
             $model->templateName = $map['TemplateName'];
         }
