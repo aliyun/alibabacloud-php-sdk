@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\VpcIpam\V20230228\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteIpamResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 30A20EE2-6223-5D0F-BF49-D7C78F206063
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class DeleteIpamResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class DeleteIpamResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteIpamResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

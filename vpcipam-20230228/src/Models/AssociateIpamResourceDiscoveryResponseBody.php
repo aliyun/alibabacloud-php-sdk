@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\VpcIpam\V20230228\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class AssociateIpamResourceDiscoveryResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example E897D16A-50EB-543F-B002-C5A26AB818FF
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class AssociateIpamResourceDiscoveryResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class AssociateIpamResourceDiscoveryResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return AssociateIpamResourceDiscoveryResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

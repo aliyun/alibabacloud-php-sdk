@@ -4,11 +4,18 @@
 
 namespace AlibabaCloud\SDK\VpcIpam\V20230228\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UntagResourcesRequest extends Model
 {
     /**
+     * @description Specifies whether to remove all tags from the specified resource. Valid values:
+     *
+     *   **true**
+     *   **false** (default)
+     *
+     * @example false
+     *
      * @var bool
      */
     public $all;
@@ -24,11 +31,21 @@ class UntagResourcesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the resource.
+     *
+     * This parameter is required.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The resource IDs.
+     *
+     * This parameter is required.
+     *
      * @var string[]
      */
     public $resourceId;
@@ -44,11 +61,23 @@ class UntagResourcesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The resource type. Valid values:
+     *
+     *   **IPAM**
+     *   **IPAMSCOPE**
+     *   **IPAMPOOL**
+     *
+     * This parameter is required.
+     *
+     * @example IPAM
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description The keys of the tags that you want to remove from the resource.
+     *
      * @var string[]
      */
     public $tagKey;
@@ -64,128 +93,79 @@ class UntagResourcesRequest extends Model
         'tagKey' => 'TagKey',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->resourceId)) {
-            Model::validateArray($this->resourceId);
-        }
-        if (\is_array($this->tagKey)) {
-            Model::validateArray($this->tagKey);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->all) {
             $res['All'] = $this->all;
         }
-
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
-
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->resourceId) {
-            if (\is_array($this->resourceId)) {
-                $res['ResourceId'] = [];
-                $n1 = 0;
-                foreach ($this->resourceId as $item1) {
-                    $res['ResourceId'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['ResourceId'] = $this->resourceId;
         }
-
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
-
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
-
         if (null !== $this->tagKey) {
-            if (\is_array($this->tagKey)) {
-                $res['TagKey'] = [];
-                $n1 = 0;
-                foreach ($this->tagKey as $item1) {
-                    $res['TagKey'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['TagKey'] = $this->tagKey;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UntagResourcesRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['All'])) {
             $model->all = $map['All'];
         }
-
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
-
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['ResourceId'])) {
             if (!empty($map['ResourceId'])) {
-                $model->resourceId = [];
-                $n1 = 0;
-                foreach ($map['ResourceId'] as $item1) {
-                    $model->resourceId[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->resourceId = $map['ResourceId'];
             }
         }
-
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
-
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }
-
         if (isset($map['TagKey'])) {
             if (!empty($map['TagKey'])) {
-                $model->tagKey = [];
-                $n1 = 0;
-                foreach ($map['TagKey'] as $item1) {
-                    $model->tagKey[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->tagKey = $map['TagKey'];
             }
         }
 
