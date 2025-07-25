@@ -14,9 +14,14 @@ use AlibabaCloud\SDK\Brainindustrial\V20200920\Models\AicsOpenApiInvokeShrinkReq
 use AlibabaCloud\SDK\Brainindustrial\V20200920\Models\CreateEssOptJobRequest;
 use AlibabaCloud\SDK\Brainindustrial\V20200920\Models\CreateEssOptJobResponse;
 use AlibabaCloud\SDK\Brainindustrial\V20200920\Models\CreateEssOptJobShrinkRequest;
+use AlibabaCloud\SDK\Brainindustrial\V20200920\Models\CreateLoadForecastByFileUrlJobRequest;
+use AlibabaCloud\SDK\Brainindustrial\V20200920\Models\CreateLoadForecastByFileUrlJobResponse;
 use AlibabaCloud\SDK\Brainindustrial\V20200920\Models\CreateLoadForecastJobRequest;
 use AlibabaCloud\SDK\Brainindustrial\V20200920\Models\CreateLoadForecastJobResponse;
 use AlibabaCloud\SDK\Brainindustrial\V20200920\Models\CreateLoadForecastJobShrinkRequest;
+use AlibabaCloud\SDK\Brainindustrial\V20200920\Models\CreatePowerForecastByFileUrlJobRequest;
+use AlibabaCloud\SDK\Brainindustrial\V20200920\Models\CreatePowerForecastByFileUrlJobResponse;
+use AlibabaCloud\SDK\Brainindustrial\V20200920\Models\CreatePowerForecastByFileUrlJobShrinkRequest;
 use AlibabaCloud\SDK\Brainindustrial\V20200920\Models\CreatePowerForecastJobRequest;
 use AlibabaCloud\SDK\Brainindustrial\V20200920\Models\CreatePowerForecastJobResponse;
 use AlibabaCloud\SDK\Brainindustrial\V20200920\Models\CreatePowerForecastJobShrinkRequest;
@@ -282,6 +287,83 @@ class Brainindustrial extends OpenApiClient
     }
 
     /**
+     * @summary 创建用电负荷预测任务，历史数据来自文件url
+     *  *
+     * @param CreateLoadForecastByFileUrlJobRequest $request CreateLoadForecastByFileUrlJobRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateLoadForecastByFileUrlJobResponse CreateLoadForecastByFileUrlJobResponse
+     */
+    public function createLoadForecastByFileUrlJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->businessKey)) {
+            $body['BusinessKey'] = $request->businessKey;
+        }
+        if (!Utils::isUnset($request->deviceType)) {
+            $body['DeviceType'] = $request->deviceType;
+        }
+        if (!Utils::isUnset($request->duration)) {
+            $body['Duration'] = $request->duration;
+        }
+        if (!Utils::isUnset($request->freq)) {
+            $body['Freq'] = $request->freq;
+        }
+        if (!Utils::isUnset($request->historyUrl)) {
+            $body['HistoryUrl'] = $request->historyUrl;
+        }
+        if (!Utils::isUnset($request->modelVersion)) {
+            $body['ModelVersion'] = $request->modelVersion;
+        }
+        if (!Utils::isUnset($request->runDate)) {
+            $body['RunDate'] = $request->runDate;
+        }
+        if (!Utils::isUnset($request->systemType)) {
+            $body['SystemType'] = $request->systemType;
+        }
+        if (!Utils::isUnset($request->timeColumn)) {
+            $body['TimeColumn'] = $request->timeColumn;
+        }
+        if (!Utils::isUnset($request->timeZone)) {
+            $body['TimeZone'] = $request->timeZone;
+        }
+        if (!Utils::isUnset($request->valueColumn)) {
+            $body['ValueColumn'] = $request->valueColumn;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateLoadForecastByFileUrlJob',
+            'version' => '2020-09-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateLoadForecastByFileUrlJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建用电负荷预测任务，历史数据来自文件url
+     *  *
+     * @param CreateLoadForecastByFileUrlJobRequest $request CreateLoadForecastByFileUrlJobRequest
+     *
+     * @return CreateLoadForecastByFileUrlJobResponse CreateLoadForecastByFileUrlJobResponse
+     */
+    public function createLoadForecastByFileUrlJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createLoadForecastByFileUrlJobWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 创建用电负荷预测任务
      *  *
      * @param CreateLoadForecastJobRequest $tmpReq  CreateLoadForecastJobRequest
@@ -355,6 +437,91 @@ class Brainindustrial extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createLoadForecastJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 创建发电功率预测任务，历史数据来自文件url
+     *  *
+     * @param CreatePowerForecastByFileUrlJobRequest $tmpReq  CreatePowerForecastByFileUrlJobRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreatePowerForecastByFileUrlJobResponse CreatePowerForecastByFileUrlJobResponse
+     */
+    public function createPowerForecastByFileUrlJobWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreatePowerForecastByFileUrlJobShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->location)) {
+            $request->locationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->location, 'Location', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->businessKey)) {
+            $body['BusinessKey'] = $request->businessKey;
+        }
+        if (!Utils::isUnset($request->deviceType)) {
+            $body['DeviceType'] = $request->deviceType;
+        }
+        if (!Utils::isUnset($request->duration)) {
+            $body['Duration'] = $request->duration;
+        }
+        if (!Utils::isUnset($request->freq)) {
+            $body['Freq'] = $request->freq;
+        }
+        if (!Utils::isUnset($request->historyUrl)) {
+            $body['HistoryUrl'] = $request->historyUrl;
+        }
+        if (!Utils::isUnset($request->locationShrink)) {
+            $body['Location'] = $request->locationShrink;
+        }
+        if (!Utils::isUnset($request->modelVersion)) {
+            $body['ModelVersion'] = $request->modelVersion;
+        }
+        if (!Utils::isUnset($request->runDate)) {
+            $body['RunDate'] = $request->runDate;
+        }
+        if (!Utils::isUnset($request->systemType)) {
+            $body['SystemType'] = $request->systemType;
+        }
+        if (!Utils::isUnset($request->timeColumn)) {
+            $body['TimeColumn'] = $request->timeColumn;
+        }
+        if (!Utils::isUnset($request->timeZone)) {
+            $body['TimeZone'] = $request->timeZone;
+        }
+        if (!Utils::isUnset($request->valueColumn)) {
+            $body['ValueColumn'] = $request->valueColumn;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreatePowerForecastByFileUrlJob',
+            'version' => '2020-09-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreatePowerForecastByFileUrlJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建发电功率预测任务，历史数据来自文件url
+     *  *
+     * @param CreatePowerForecastByFileUrlJobRequest $request CreatePowerForecastByFileUrlJobRequest
+     *
+     * @return CreatePowerForecastByFileUrlJobResponse CreatePowerForecastByFileUrlJobResponse
+     */
+    public function createPowerForecastByFileUrlJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createPowerForecastByFileUrlJobWithOptions($request, $runtime);
     }
 
     /**
