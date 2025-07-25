@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteAlgorithmVersionResponseBody extends Model
 {
     /**
+     * @example F082BD0D-21E1-5F9B-81A0-AB07485B03CD
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +18,9 @@ class DeleteAlgorithmVersionResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +30,11 @@ class DeleteAlgorithmVersionResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteAlgorithmVersionResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class BindingPolicy extends Model
 {
@@ -19,6 +19,8 @@ class BindingPolicy extends Model
     public $includeNodes;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $nodeSpecCount;
@@ -28,42 +30,17 @@ class BindingPolicy extends Model
         'nodeSpecCount' => 'NodeSpecCount',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->excludeNodes)) {
-            Model::validateArray($this->excludeNodes);
-        }
-        if (\is_array($this->includeNodes)) {
-            Model::validateArray($this->includeNodes);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->excludeNodes) {
-            if (\is_array($this->excludeNodes)) {
-                $res['ExcludeNodes'] = [];
-                $n1 = 0;
-                foreach ($this->excludeNodes as $item1) {
-                    $res['ExcludeNodes'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['ExcludeNodes'] = $this->excludeNodes;
         }
-
         if (null !== $this->includeNodes) {
-            if (\is_array($this->includeNodes)) {
-                $res['IncludeNodes'] = [];
-                $n1 = 0;
-                foreach ($this->includeNodes as $item1) {
-                    $res['IncludeNodes'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['IncludeNodes'] = $this->includeNodes;
         }
-
         if (null !== $this->nodeSpecCount) {
             $res['NodeSpecCount'] = $this->nodeSpecCount;
         }
@@ -71,36 +48,24 @@ class BindingPolicy extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return BindingPolicy
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExcludeNodes'])) {
             if (!empty($map['ExcludeNodes'])) {
-                $model->excludeNodes = [];
-                $n1 = 0;
-                foreach ($map['ExcludeNodes'] as $item1) {
-                    $model->excludeNodes[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->excludeNodes = $map['ExcludeNodes'];
             }
         }
-
         if (isset($map['IncludeNodes'])) {
             if (!empty($map['IncludeNodes'])) {
-                $model->includeNodes = [];
-                $n1 = 0;
-                foreach ($map['IncludeNodes'] as $item1) {
-                    $model->includeNodes[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->includeNodes = $map['IncludeNodes'];
             }
         }
-
         if (isset($map['NodeSpecCount'])) {
             $model->nodeSpecCount = $map['NodeSpecCount'];
         }

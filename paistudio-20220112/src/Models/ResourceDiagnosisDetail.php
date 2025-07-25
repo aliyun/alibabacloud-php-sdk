@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ResourceDiagnosisDetail extends Model
 {
@@ -40,102 +40,55 @@ class ResourceDiagnosisDetail extends Model
         'workloadIds' => 'WorkloadIds',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->exceedResources)) {
-            Model::validateArray($this->exceedResources);
-        }
-        if (null !== $this->limit) {
-            $this->limit->validate();
-        }
-        if (null !== $this->used) {
-            $this->used->validate();
-        }
-        if (\is_array($this->workloadIds)) {
-            Model::validateArray($this->workloadIds);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->exceedResources) {
-            if (\is_array($this->exceedResources)) {
-                $res['ExceedResources'] = [];
-                $n1 = 0;
-                foreach ($this->exceedResources as $item1) {
-                    $res['ExceedResources'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['ExceedResources'] = $this->exceedResources;
         }
-
         if (null !== $this->limit) {
-            $res['Limit'] = null !== $this->limit ? $this->limit->toArray($noStream) : $this->limit;
+            $res['Limit'] = null !== $this->limit ? $this->limit->toMap() : null;
         }
-
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-
         if (null !== $this->used) {
-            $res['Used'] = null !== $this->used ? $this->used->toArray($noStream) : $this->used;
+            $res['Used'] = null !== $this->used ? $this->used->toMap() : null;
         }
-
         if (null !== $this->workloadIds) {
-            if (\is_array($this->workloadIds)) {
-                $res['WorkloadIds'] = [];
-                $n1 = 0;
-                foreach ($this->workloadIds as $item1) {
-                    $res['WorkloadIds'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['WorkloadIds'] = $this->workloadIds;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ResourceDiagnosisDetail
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExceedResources'])) {
             if (!empty($map['ExceedResources'])) {
-                $model->exceedResources = [];
-                $n1 = 0;
-                foreach ($map['ExceedResources'] as $item1) {
-                    $model->exceedResources[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->exceedResources = $map['ExceedResources'];
             }
         }
-
         if (isset($map['Limit'])) {
             $model->limit = ResourceAmount::fromMap($map['Limit']);
         }
-
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-
         if (isset($map['Used'])) {
             $model->used = ResourceAmount::fromMap($map['Used']);
         }
-
         if (isset($map['WorkloadIds'])) {
             if (!empty($map['WorkloadIds'])) {
-                $model->workloadIds = [];
-                $n1 = 0;
-                foreach ($map['WorkloadIds'] as $item1) {
-                    $model->workloadIds[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->workloadIds = $map['WorkloadIds'];
             }
         }
 

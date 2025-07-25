@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetTrainingJobResponseBody\latestProgress;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class remainingTime extends Model
 {
     /**
+     * @example 2023-07-04T13:20:18Z
+     *
      * @var string
      */
     public $timestamp;
 
     /**
+     * @example 3600
+     *
      * @var int
      */
     public $value;
@@ -22,18 +26,14 @@ class remainingTime extends Model
         'value' => 'Value',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->timestamp) {
             $res['Timestamp'] = $this->timestamp;
         }
-
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -41,18 +41,17 @@ class remainingTime extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return remainingTime
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Timestamp'])) {
             $model->timestamp = $map['Timestamp'];
         }
-
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

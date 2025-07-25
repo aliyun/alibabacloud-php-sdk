@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class WorkloadDetails extends Model
 {
@@ -34,65 +34,44 @@ class WorkloadDetails extends Model
         'summary' => 'Summary',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->DLC) {
-            $this->DLC->validate();
-        }
-        if (null !== $this->DSW) {
-            $this->DSW->validate();
-        }
-        if (null !== $this->EAS) {
-            $this->EAS->validate();
-        }
-        if (null !== $this->summary) {
-            $this->summary->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->DLC) {
-            $res['DLC'] = null !== $this->DLC ? $this->DLC->toArray($noStream) : $this->DLC;
+            $res['DLC'] = null !== $this->DLC ? $this->DLC->toMap() : null;
         }
-
         if (null !== $this->DSW) {
-            $res['DSW'] = null !== $this->DSW ? $this->DSW->toArray($noStream) : $this->DSW;
+            $res['DSW'] = null !== $this->DSW ? $this->DSW->toMap() : null;
         }
-
         if (null !== $this->EAS) {
-            $res['EAS'] = null !== $this->EAS ? $this->EAS->toArray($noStream) : $this->EAS;
+            $res['EAS'] = null !== $this->EAS ? $this->EAS->toMap() : null;
         }
-
         if (null !== $this->summary) {
-            $res['Summary'] = null !== $this->summary ? $this->summary->toArray($noStream) : $this->summary;
+            $res['Summary'] = null !== $this->summary ? $this->summary->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return WorkloadDetails
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DLC'])) {
             $model->DLC = QuotaJob::fromMap($map['DLC']);
         }
-
         if (isset($map['DSW'])) {
             $model->DSW = QuotaJob::fromMap($map['DSW']);
         }
-
         if (isset($map['EAS'])) {
             $model->EAS = QuotaJob::fromMap($map['EAS']);
         }
-
         if (isset($map['Summary'])) {
             $model->summary = QuotaJob::fromMap($map['Summary']);
         }

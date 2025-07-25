@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class OversoldUsageConfig extends Model
 {
@@ -22,18 +22,14 @@ class OversoldUsageConfig extends Model
         'disabledBy' => 'DisabledBy',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->disabled) {
             $res['Disabled'] = $this->disabled;
         }
-
         if (null !== $this->disabledBy) {
             $res['DisabledBy'] = $this->disabledBy;
         }
@@ -41,18 +37,17 @@ class OversoldUsageConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return OversoldUsageConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Disabled'])) {
             $model->disabled = $map['Disabled'];
         }
-
         if (isset($map['DisabledBy'])) {
             $model->disabledBy = $map['DisabledBy'];
         }

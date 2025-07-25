@@ -4,16 +4,22 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ScaleQuotaResponseBody extends Model
 {
     /**
+     * @description Quota Id
+     *
+     * @example quotamtl37ge7gkvdz
+     *
      * @var string
      */
     public $quotaId;
 
     /**
+     * @example F2D0392B-D749-5C48-A98A-3FAE5C9444A6
+     *
      * @var string
      */
     public $requestId;
@@ -22,18 +28,14 @@ class ScaleQuotaResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->quotaId) {
             $res['QuotaId'] = $this->quotaId;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -41,18 +43,17 @@ class ScaleQuotaResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ScaleQuotaResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['QuotaId'])) {
             $model->quotaId = $map['QuotaId'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class Location extends Model
 {
@@ -22,52 +22,34 @@ class Location extends Model
         'locationValue' => 'LocationValue',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->locationValue)) {
-            Model::validateArray($this->locationValue);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->locationType) {
             $res['LocationType'] = $this->locationType;
         }
-
         if (null !== $this->locationValue) {
-            if (\is_array($this->locationValue)) {
-                $res['LocationValue'] = [];
-                foreach ($this->locationValue as $key1 => $value1) {
-                    $res['LocationValue'][$key1] = $value1;
-                }
-            }
+            $res['LocationValue'] = $this->locationValue;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return Location
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LocationType'])) {
             $model->locationType = $map['LocationType'];
         }
-
         if (isset($map['LocationValue'])) {
-            if (!empty($map['LocationValue'])) {
-                $model->locationValue = [];
-                foreach ($map['LocationValue'] as $key1 => $value1) {
-                    $model->locationValue[$key1] = $value1;
-                }
-            }
+            $model->locationValue = $map['LocationValue'];
         }
 
         return $model;

@@ -4,21 +4,31 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ConditionExpression extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example SupportedMachineTypes
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example in
+     *
      * @var string
      */
     public $operator;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $values;
@@ -28,63 +38,41 @@ class ConditionExpression extends Model
         'values' => 'Values',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->values)) {
-            Model::validateArray($this->values);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
-
         if (null !== $this->operator) {
             $res['Operator'] = $this->operator;
         }
-
         if (null !== $this->values) {
-            if (\is_array($this->values)) {
-                $res['Values'] = [];
-                $n1 = 0;
-                foreach ($this->values as $item1) {
-                    $res['Values'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['Values'] = $this->values;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ConditionExpression
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
-
         if (isset($map['Operator'])) {
             $model->operator = $map['Operator'];
         }
-
         if (isset($map['Values'])) {
             if (!empty($map['Values'])) {
-                $model->values = [];
-                $n1 = 0;
-                foreach ($map['Values'] as $item1) {
-                    $model->values[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->values = $map['Values'];
             }
         }
 

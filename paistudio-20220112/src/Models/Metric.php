@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class Metric extends Model
 {
     /**
+     * @example rg17tmvwiokhzaxg
+     *
      * @var int
      */
     public $time;
 
     /**
+     * @example 23000
+     *
      * @var string
      */
     public $value;
@@ -22,18 +26,14 @@ class Metric extends Model
         'value' => 'Value',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->time) {
             $res['Time'] = $this->time;
         }
-
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -41,18 +41,17 @@ class Metric extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return Metric
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Time'])) {
             $model->time = $map['Time'];
         }
-
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

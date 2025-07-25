@@ -4,12 +4,14 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models\AlgorithmSpec;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\AlgorithmSpec\computeResource\policy;
+use AlibabaCloud\Tea\Model;
 
 class computeResource extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var policy
      */
     public $policy;
@@ -17,29 +19,23 @@ class computeResource extends Model
         'policy' => 'Policy',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->policy) {
-            $this->policy->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->policy) {
-            $res['Policy'] = null !== $this->policy ? $this->policy->toArray($noStream) : $this->policy;
+            $res['Policy'] = null !== $this->policy ? $this->policy->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return computeResource
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

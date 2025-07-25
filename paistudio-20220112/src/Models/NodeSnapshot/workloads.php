@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models\NodeSnapshot;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class workloads extends Model
 {
@@ -28,22 +28,17 @@ class workloads extends Model
         'workloadType' => 'WorkloadType',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->workloadId) {
             $res['WorkloadId'] = $this->workloadId;
         }
-
         if (null !== $this->workloadType) {
             $res['WorkloadType'] = $this->workloadType;
         }
@@ -51,22 +46,20 @@ class workloads extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return workloads
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['WorkloadId'])) {
             $model->workloadId = $map['WorkloadId'];
         }
-
         if (isset($map['WorkloadType'])) {
             $model->workloadType = $map['WorkloadType'];
         }

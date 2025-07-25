@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListTrainingJobsResponseBody\trainingJobs;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class experimentConfig extends Model
 {
     /**
+     * @example exp-ds9aefia90v
+     *
      * @var string
      */
     public $experimentId;
 
     /**
+     * @example large_language_model
+     *
      * @var string
      */
     public $experimentName;
@@ -22,18 +26,14 @@ class experimentConfig extends Model
         'experimentName' => 'ExperimentName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->experimentId) {
             $res['ExperimentId'] = $this->experimentId;
         }
-
         if (null !== $this->experimentName) {
             $res['ExperimentName'] = $this->experimentName;
         }
@@ -41,18 +41,17 @@ class experimentConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return experimentConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExperimentId'])) {
             $model->experimentId = $map['ExperimentId'];
         }
-
         if (isset($map['ExperimentName'])) {
             $model->experimentName = $map['ExperimentName'];
         }

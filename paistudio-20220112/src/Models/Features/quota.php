@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models\Features;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class quota extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isEnabled;
@@ -16,12 +18,9 @@ class quota extends Model
         'isEnabled' => 'IsEnabled',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->isEnabled) {
@@ -31,11 +30,11 @@ class quota extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return quota
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

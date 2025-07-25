@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ResourceGroup extends Model
 {
@@ -24,6 +24,8 @@ class ResourceGroup extends Model
     public $gmtModifiedTime;
 
     /**
+     * @example RG1
+     *
      * @var string
      */
     public $name;
@@ -34,6 +36,8 @@ class ResourceGroup extends Model
     public $nodeCount;
 
     /**
+     * @example rg17tmvwiokhzaxg
+     *
      * @var string
      */
     public $resourceGroupID;
@@ -44,6 +48,8 @@ class ResourceGroup extends Model
     public $userVpc;
 
     /**
+     * @example 23000
+     *
      * @var string
      */
     public $workspaceID;
@@ -58,45 +64,32 @@ class ResourceGroup extends Model
         'workspaceID' => 'WorkspaceID',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->userVpc) {
-            $this->userVpc->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->creatorID) {
             $res['CreatorID'] = $this->creatorID;
         }
-
         if (null !== $this->gmtCreatedTime) {
             $res['GmtCreatedTime'] = $this->gmtCreatedTime;
         }
-
         if (null !== $this->gmtModifiedTime) {
             $res['GmtModifiedTime'] = $this->gmtModifiedTime;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->nodeCount) {
             $res['NodeCount'] = $this->nodeCount;
         }
-
         if (null !== $this->resourceGroupID) {
             $res['ResourceGroupID'] = $this->resourceGroupID;
         }
-
         if (null !== $this->userVpc) {
-            $res['UserVpc'] = null !== $this->userVpc ? $this->userVpc->toArray($noStream) : $this->userVpc;
+            $res['UserVpc'] = null !== $this->userVpc ? $this->userVpc->toMap() : null;
         }
-
         if (null !== $this->workspaceID) {
             $res['WorkspaceID'] = $this->workspaceID;
         }
@@ -104,42 +97,35 @@ class ResourceGroup extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ResourceGroup
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreatorID'])) {
             $model->creatorID = $map['CreatorID'];
         }
-
         if (isset($map['GmtCreatedTime'])) {
             $model->gmtCreatedTime = $map['GmtCreatedTime'];
         }
-
         if (isset($map['GmtModifiedTime'])) {
             $model->gmtModifiedTime = $map['GmtModifiedTime'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['NodeCount'])) {
             $model->nodeCount = $map['NodeCount'];
         }
-
         if (isset($map['ResourceGroupID'])) {
             $model->resourceGroupID = $map['ResourceGroupID'];
         }
-
         if (isset($map['UserVpc'])) {
             $model->userVpc = UserVpc::fromMap($map['UserVpc']);
         }
-
         if (isset($map['WorkspaceID'])) {
             $model->workspaceID = $map['WorkspaceID'];
         }

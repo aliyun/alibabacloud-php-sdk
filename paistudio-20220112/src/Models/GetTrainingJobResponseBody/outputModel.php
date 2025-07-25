@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetTrainingJobResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class outputModel extends Model
 {
     /**
+     * @example model
+     *
      * @var string
      */
     public $outputChannelName;
 
     /**
+     * @example oss://test-bucket.oss-cn-hangzhou-internal.aliyuncs.com/path/to/model/output/
+     *
      * @var string
      */
     public $uri;
@@ -22,18 +26,14 @@ class outputModel extends Model
         'uri' => 'Uri',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->outputChannelName) {
             $res['OutputChannelName'] = $this->outputChannelName;
         }
-
         if (null !== $this->uri) {
             $res['Uri'] = $this->uri;
         }
@@ -41,18 +41,17 @@ class outputModel extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return outputModel
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OutputChannelName'])) {
             $model->outputChannelName = $map['OutputChannelName'];
         }
-
         if (isset($map['Uri'])) {
             $model->uri = $map['Uri'];
         }

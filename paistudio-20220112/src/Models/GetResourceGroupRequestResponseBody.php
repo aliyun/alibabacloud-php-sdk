@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetResourceGroupRequestResponseBody extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $requestCPU;
 
     /**
+     * @example 8
+     *
      * @var int
      */
     public $requestGPU;
@@ -24,6 +28,8 @@ class GetResourceGroupRequestResponseBody extends Model
     public $requestGPUInfos;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $requestMemory;
@@ -34,36 +40,26 @@ class GetResourceGroupRequestResponseBody extends Model
         'requestMemory' => 'requestMemory',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->requestGPUInfos)) {
-            Model::validateArray($this->requestGPUInfos);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestCPU) {
             $res['requestCPU'] = $this->requestCPU;
         }
-
         if (null !== $this->requestGPU) {
             $res['requestGPU'] = $this->requestGPU;
         }
-
         if (null !== $this->requestGPUInfos) {
-            if (\is_array($this->requestGPUInfos)) {
-                $res['requestGPUInfos'] = [];
-                $n1 = 0;
-                foreach ($this->requestGPUInfos as $item1) {
-                    $res['requestGPUInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['requestGPUInfos'] = [];
+            if (null !== $this->requestGPUInfos && \is_array($this->requestGPUInfos)) {
+                $n = 0;
+                foreach ($this->requestGPUInfos as $item) {
+                    $res['requestGPUInfos'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->requestMemory) {
             $res['requestMemory'] = $this->requestMemory;
         }
@@ -71,33 +67,29 @@ class GetResourceGroupRequestResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetResourceGroupRequestResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['requestCPU'])) {
             $model->requestCPU = $map['requestCPU'];
         }
-
         if (isset($map['requestGPU'])) {
             $model->requestGPU = $map['requestGPU'];
         }
-
         if (isset($map['requestGPUInfos'])) {
             if (!empty($map['requestGPUInfos'])) {
                 $model->requestGPUInfos = [];
-                $n1 = 0;
-                foreach ($map['requestGPUInfos'] as $item1) {
-                    $model->requestGPUInfos[$n1] = GPUInfo::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['requestGPUInfos'] as $item) {
+                    $model->requestGPUInfos[$n++] = null !== $item ? GPUInfo::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['requestMemory'])) {
             $model->requestMemory = $map['requestMemory'];
         }

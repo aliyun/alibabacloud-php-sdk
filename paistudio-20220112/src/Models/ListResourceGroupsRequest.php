@@ -4,31 +4,46 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListResourceGroupsRequest extends Model
 {
     /**
+     * @example Ecs
+     *
      * @var string
      */
     public $computingResourceProvider;
 
     /**
+     * @var bool
+     */
+    public $hasResource;
+
+    /**
+     * @example rgf0zhfqn1d4ity2
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example desc
+     *
      * @var string
      */
     public $order;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
@@ -39,26 +54,35 @@ class ListResourceGroupsRequest extends Model
     public $resourceGroupIDs;
 
     /**
+     * @example Lingjun
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $showAll;
 
     /**
+     * @example DisplayName
+     *
      * @var string
      */
     public $sortBy;
 
     /**
+     * @example Creating
+     *
      * @var string
      */
     public $status;
     protected $_name = [
         'computingResourceProvider' => 'ComputingResourceProvider',
+        'hasResource' => 'HasResource',
         'name' => 'Name',
         'order' => 'Order',
         'pageNumber' => 'PageNumber',
@@ -70,50 +94,41 @@ class ListResourceGroupsRequest extends Model
         'status' => 'Status',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->computingResourceProvider) {
             $res['ComputingResourceProvider'] = $this->computingResourceProvider;
         }
-
+        if (null !== $this->hasResource) {
+            $res['HasResource'] = $this->hasResource;
+        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->order) {
             $res['Order'] = $this->order;
         }
-
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
-
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-
         if (null !== $this->resourceGroupIDs) {
             $res['ResourceGroupIDs'] = $this->resourceGroupIDs;
         }
-
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
-
         if (null !== $this->showAll) {
             $res['ShowAll'] = $this->showAll;
         }
-
         if (null !== $this->sortBy) {
             $res['SortBy'] = $this->sortBy;
         }
-
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -121,50 +136,44 @@ class ListResourceGroupsRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListResourceGroupsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ComputingResourceProvider'])) {
             $model->computingResourceProvider = $map['ComputingResourceProvider'];
         }
-
+        if (isset($map['HasResource'])) {
+            $model->hasResource = $map['HasResource'];
+        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['Order'])) {
             $model->order = $map['Order'];
         }
-
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
-
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-
         if (isset($map['ResourceGroupIDs'])) {
             $model->resourceGroupIDs = $map['ResourceGroupIDs'];
         }
-
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }
-
         if (isset($map['ShowAll'])) {
             $model->showAll = $map['ShowAll'];
         }
-
         if (isset($map['SortBy'])) {
             $model->sortBy = $map['SortBy'];
         }
-
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

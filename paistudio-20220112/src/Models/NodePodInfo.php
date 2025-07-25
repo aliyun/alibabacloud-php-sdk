@@ -4,26 +4,34 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class NodePodInfo extends Model
 {
     /**
+     * @example Running
+     *
      * @var string
      */
     public $phase;
 
     /**
+     * @example 192.168.2.2
+     *
      * @var string
      */
     public $podIP;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $podName;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $podNamespace;
@@ -34,11 +42,15 @@ class NodePodInfo extends Model
     public $resourceSpec;
 
     /**
+     * @example dlc19de9s6vn3acr
+     *
      * @var string
      */
     public $workloadId;
 
     /**
+     * @example dlc
+     *
      * @var string
      */
     public $workloadType;
@@ -52,41 +64,29 @@ class NodePodInfo extends Model
         'workloadType' => 'WorkloadType',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->resourceSpec) {
-            $this->resourceSpec->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->phase) {
             $res['Phase'] = $this->phase;
         }
-
         if (null !== $this->podIP) {
             $res['PodIP'] = $this->podIP;
         }
-
         if (null !== $this->podName) {
             $res['PodName'] = $this->podName;
         }
-
         if (null !== $this->podNamespace) {
             $res['PodNamespace'] = $this->podNamespace;
         }
-
         if (null !== $this->resourceSpec) {
-            $res['ResourceSpec'] = null !== $this->resourceSpec ? $this->resourceSpec->toArray($noStream) : $this->resourceSpec;
+            $res['ResourceSpec'] = null !== $this->resourceSpec ? $this->resourceSpec->toMap() : null;
         }
-
         if (null !== $this->workloadId) {
             $res['WorkloadId'] = $this->workloadId;
         }
-
         if (null !== $this->workloadType) {
             $res['WorkloadType'] = $this->workloadType;
         }
@@ -94,38 +94,32 @@ class NodePodInfo extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return NodePodInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Phase'])) {
             $model->phase = $map['Phase'];
         }
-
         if (isset($map['PodIP'])) {
             $model->podIP = $map['PodIP'];
         }
-
         if (isset($map['PodName'])) {
             $model->podName = $map['PodName'];
         }
-
         if (isset($map['PodNamespace'])) {
             $model->podNamespace = $map['PodNamespace'];
         }
-
         if (isset($map['ResourceSpec'])) {
             $model->resourceSpec = ResourceAmount::fromMap($map['ResourceSpec']);
         }
-
         if (isset($map['WorkloadId'])) {
             $model->workloadId = $map['WorkloadId'];
         }
-
         if (isset($map['WorkloadType'])) {
             $model->workloadType = $map['WorkloadType'];
         }

@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CheckInstanceWebTerminalResponseBody extends Model
 {
     /**
+     * @example F2D0392B-D749-5C48-A98A-3FAE5C9444A6
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +18,9 @@ class CheckInstanceWebTerminalResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +30,11 @@ class CheckInstanceWebTerminalResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CheckInstanceWebTerminalResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
