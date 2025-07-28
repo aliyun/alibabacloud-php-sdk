@@ -6,36 +6,40 @@ namespace AlibabaCloud\SDK\Tablestore\V20201209\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CheckInstancePolicyResponseBody extends Model
+class CreateVCUInstanceResponseBody extends Model
 {
     /**
-     * @description The HTTP status code.
-     *
-     * @example OK
+     * @example 200
      *
      * @var string
      */
     public $code;
 
     /**
-     * @description The response message.
+     * @example instance-test
      *
-     * @example Verification passed.
+     * @var string
+     */
+    public $instanceName;
+
+    /**
+     * @example success
      *
      * @var string
      */
     public $message;
 
     /**
-     * @description The request ID, which can be used to troubleshoot issues.
+     * @description request id
      *
-     * @example 757E172A-F94B-5E78-8A23-D9068E42F2E9
+     * @example 39871ED2-62C0-578F-A32E-B88072D5582F
      *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'code' => 'Code',
+        'instanceName' => 'InstanceName',
         'message' => 'Message',
         'requestId' => 'RequestId',
     ];
@@ -47,6 +51,9 @@ class CheckInstancePolicyResponseBody extends Model
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
+        }
+        if (null !== $this->instanceName) {
+            $res['InstanceName'] = $this->instanceName;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -61,13 +68,16 @@ class CheckInstancePolicyResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return CheckInstancePolicyResponseBody
+     * @return CreateVCUInstanceResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
+        }
+        if (isset($map['InstanceName'])) {
+            $model->instanceName = $map['InstanceName'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];

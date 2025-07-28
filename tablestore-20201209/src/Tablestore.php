@@ -4,13 +4,16 @@
 
 namespace AlibabaCloud\SDK\Tablestore\V20201209;
 
-use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\ChangeResourceGroupRequest;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\ChangeResourceGroupResponse;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\CheckInstancePolicyRequest;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\CheckInstancePolicyResponse;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\CreateInstanceRequest;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\CreateInstanceResponse;
+use AlibabaCloud\SDK\Tablestore\V20201209\Models\CreateVCUInstanceRequest;
+use AlibabaCloud\SDK\Tablestore\V20201209\Models\CreateVCUInstanceResponse;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\DeleteInstancePolicyRequest;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\DeleteInstancePolicyResponse;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\DeleteInstanceRequest;
@@ -35,10 +38,11 @@ use AlibabaCloud\SDK\Tablestore\V20201209\Models\UpdateInstancePolicyRequest;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\UpdateInstancePolicyResponse;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\UpdateInstanceRequest;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\UpdateInstanceResponse;
+use AlibabaCloud\Tea\Utils\Utils;
+use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
-use Darabonba\OpenApi\Utils;
 
 class Tablestore extends OpenApiClient
 {
@@ -63,74 +67,60 @@ class Tablestore extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (null !== $endpoint) {
+        if (!Utils::empty_($endpoint)) {
             return $endpoint;
         }
-
-        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
+        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
             return @$endpointMap[$regionId];
         }
 
-        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * Changes the resource group to which an instance belongs.
+     * @summary Changes the resource group to which an instance belongs.
+     *  *
+     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
+     * @param string[]                   $headers map
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ChangeResourceGroupRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ChangeResourceGroupResponse
-     *
-     * @param ChangeResourceGroupRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
-     *
-     * @return ChangeResourceGroupResponse
+     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
      */
     public function changeResourceGroupWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->newResourceGroupId) {
-            @$body['NewResourceGroupId'] = $request->newResourceGroupId;
+        if (!Utils::isUnset($request->newResourceGroupId)) {
+            $body['NewResourceGroupId'] = $request->newResourceGroupId;
         }
-
-        if (null !== $request->resourceId) {
-            @$body['ResourceId'] = $request->resourceId;
+        if (!Utils::isUnset($request->resourceId)) {
+            $body['ResourceId'] = $request->resourceId;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ChangeResourceGroup',
-            'version'     => '2020-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/openapi/changeresourcegroup',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ChangeResourceGroup',
+            'version' => '2020-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/openapi/changeresourcegroup',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ChangeResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Changes the resource group to which an instance belongs.
+     * @summary Changes the resource group to which an instance belongs.
+     *  *
+     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
      *
-     * @param request - ChangeResourceGroupRequest
-     * @returns ChangeResourceGroupResponse
-     *
-     * @param ChangeResourceGroupRequest $request
-     *
-     * @return ChangeResourceGroupResponse
+     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
      */
     public function changeResourceGroup($request)
     {
@@ -141,62 +131,49 @@ class Tablestore extends OpenApiClient
     }
 
     /**
-     * Checks the validity of a Resource Access Management (RAM) policy for an instance.
+     * @summary Checks the validity of a Resource Access Management (RAM) policy for an instance.
+     *  *
+     * @param CheckInstancePolicyRequest $request CheckInstancePolicyRequest
+     * @param string[]                   $headers map
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CheckInstancePolicyRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CheckInstancePolicyResponse
-     *
-     * @param CheckInstancePolicyRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
-     *
-     * @return CheckInstancePolicyResponse
+     * @return CheckInstancePolicyResponse CheckInstancePolicyResponse
      */
     public function checkInstancePolicyWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->instanceName) {
-            @$body['InstanceName'] = $request->instanceName;
+        if (!Utils::isUnset($request->instanceName)) {
+            $body['InstanceName'] = $request->instanceName;
         }
-
-        if (null !== $request->policy) {
-            @$body['Policy'] = $request->policy;
+        if (!Utils::isUnset($request->policy)) {
+            $body['Policy'] = $request->policy;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CheckInstancePolicy',
-            'version'     => '2020-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/openapi/checkinstancepolicy',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CheckInstancePolicy',
+            'version' => '2020-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/openapi/checkinstancepolicy',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CheckInstancePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CheckInstancePolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return CheckInstancePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Checks the validity of a Resource Access Management (RAM) policy for an instance.
+     * @summary Checks the validity of a Resource Access Management (RAM) policy for an instance.
+     *  *
+     * @param CheckInstancePolicyRequest $request CheckInstancePolicyRequest
      *
-     * @param request - CheckInstancePolicyRequest
-     * @returns CheckInstancePolicyResponse
-     *
-     * @param CheckInstancePolicyRequest $request
-     *
-     * @return CheckInstancePolicyResponse
+     * @return CheckInstancePolicyResponse CheckInstancePolicyResponse
      */
     public function checkInstancePolicy($request)
     {
@@ -207,104 +184,81 @@ class Tablestore extends OpenApiClient
     }
 
     /**
-     * Creates an instance.
-     *
-     * @remarks
-     *   **Before you call this operation, you must understand the billing and pricing of Tablestore. For more information, see [Billing overview](https://help.aliyun.com/document_detail/27291.html).**
+     * @summary Creates an instance.
+     *  *
+     * @description *   **Before you call this operation, you must understand the billing and pricing of Tablestore. For more information, see [Billing overview](https://help.aliyun.com/document_detail/27291.html).**
      * *   Each Alibaba Cloud account can create up to 10 instances. The name of an instance must be unique within the region in which the instance resides.
      * *   After you create an instance, you cannot change the type of the instance. Proceed with caution.
+     *  *
+     * @param CreateInstanceRequest $request CreateInstanceRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateInstanceRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateInstanceResponse
-     *
-     * @param CreateInstanceRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
-     *
-     * @return CreateInstanceResponse
+     * @return CreateInstanceResponse CreateInstanceResponse
      */
     public function createInstanceWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->clusterType) {
-            @$body['ClusterType'] = $request->clusterType;
+        if (!Utils::isUnset($request->clusterType)) {
+            $body['ClusterType'] = $request->clusterType;
         }
-
-        if (null !== $request->disableReplication) {
-            @$body['DisableReplication'] = $request->disableReplication;
+        if (!Utils::isUnset($request->disableReplication)) {
+            $body['DisableReplication'] = $request->disableReplication;
         }
-
-        if (null !== $request->instanceDescription) {
-            @$body['InstanceDescription'] = $request->instanceDescription;
+        if (!Utils::isUnset($request->instanceDescription)) {
+            $body['InstanceDescription'] = $request->instanceDescription;
         }
-
-        if (null !== $request->instanceName) {
-            @$body['InstanceName'] = $request->instanceName;
+        if (!Utils::isUnset($request->instanceName)) {
+            $body['InstanceName'] = $request->instanceName;
         }
-
-        if (null !== $request->network) {
-            @$body['Network'] = $request->network;
+        if (!Utils::isUnset($request->network)) {
+            $body['Network'] = $request->network;
         }
-
-        if (null !== $request->networkSourceACL) {
-            @$body['NetworkSourceACL'] = $request->networkSourceACL;
+        if (!Utils::isUnset($request->networkSourceACL)) {
+            $body['NetworkSourceACL'] = $request->networkSourceACL;
         }
-
-        if (null !== $request->networkTypeACL) {
-            @$body['NetworkTypeACL'] = $request->networkTypeACL;
+        if (!Utils::isUnset($request->networkTypeACL)) {
+            $body['NetworkTypeACL'] = $request->networkTypeACL;
         }
-
-        if (null !== $request->policy) {
-            @$body['Policy'] = $request->policy;
+        if (!Utils::isUnset($request->policy)) {
+            $body['Policy'] = $request->policy;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$body['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $body['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->tags) {
-            @$body['Tags'] = $request->tags;
+        if (!Utils::isUnset($request->tags)) {
+            $body['Tags'] = $request->tags;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateInstance',
-            'version'     => '2020-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/openapi/createinstance',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateInstance',
+            'version' => '2020-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/openapi/createinstance',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Creates an instance.
-     *
-     * @remarks
-     *   **Before you call this operation, you must understand the billing and pricing of Tablestore. For more information, see [Billing overview](https://help.aliyun.com/document_detail/27291.html).**
+     * @summary Creates an instance.
+     *  *
+     * @description *   **Before you call this operation, you must understand the billing and pricing of Tablestore. For more information, see [Billing overview](https://help.aliyun.com/document_detail/27291.html).**
      * *   Each Alibaba Cloud account can create up to 10 instances. The name of an instance must be unique within the region in which the instance resides.
      * *   After you create an instance, you cannot change the type of the instance. Proceed with caution.
+     *  *
+     * @param CreateInstanceRequest $request CreateInstanceRequest
      *
-     * @param request - CreateInstanceRequest
-     * @returns CreateInstanceResponse
-     *
-     * @param CreateInstanceRequest $request
-     *
-     * @return CreateInstanceResponse
+     * @return CreateInstanceResponse CreateInstanceResponse
      */
     public function createInstance($request)
     {
@@ -315,68 +269,134 @@ class Tablestore extends OpenApiClient
     }
 
     /**
-     * Deletes an instance.
+     * @summary 创建VCU实例
+     *  *
+     * @param CreateVCUInstanceRequest $request CreateVCUInstanceRequest
+     * @param string[]                 $headers map
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     *   Before you delete an instance, make sure that all data tables and time series tables in the instance are deleted and virtual private clouds (VPCs) are unbound from the instance.
-     * *   To prevent conflicts, do not create an instance that has the same name as the instance that is being deleted.
-     * *   After an instance is deleted, the instance becomes unavailable and the tables, table data, and related indexes in the instance cannot be recovered. Proceed with caution.
-     *
-     * @param request - DeleteInstanceRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteInstanceResponse
-     *
-     * @param DeleteInstanceRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
-     *
-     * @return DeleteInstanceResponse
+     * @return CreateVCUInstanceResponse CreateVCUInstanceResponse
      */
-    public function deleteInstanceWithOptions($request, $headers, $runtime)
+    public function createVCUInstanceWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->instanceName) {
-            @$body['InstanceName'] = $request->instanceName;
+        if (!Utils::isUnset($request->aliasName)) {
+            $body['AliasName'] = $request->aliasName;
         }
-
+        if (!Utils::isUnset($request->autoRenewPeriodInMonth)) {
+            $body['AutoRenewPeriodInMonth'] = $request->autoRenewPeriodInMonth;
+        }
+        if (!Utils::isUnset($request->clusterType)) {
+            $body['ClusterType'] = $request->clusterType;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $body['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->enableAutoRenew)) {
+            $body['EnableAutoRenew'] = $request->enableAutoRenew;
+        }
+        if (!Utils::isUnset($request->enableElasticVCU)) {
+            $body['EnableElasticVCU'] = $request->enableElasticVCU;
+        }
+        if (!Utils::isUnset($request->instanceDescription)) {
+            $body['InstanceDescription'] = $request->instanceDescription;
+        }
+        if (!Utils::isUnset($request->periodInMonth)) {
+            $body['PeriodInMonth'] = $request->periodInMonth;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $body['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $body['Tags'] = $request->tags;
+        }
+        if (!Utils::isUnset($request->VCU)) {
+            $body['VCU'] = $request->VCU;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteInstance',
-            'version'     => '2020-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/openapi/deleteinstance',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateVCUInstance',
+            'version' => '2020-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/openapi/createvcuinstance',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateVCUInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Deletes an instance.
+     * @summary 创建VCU实例
+     *  *
+     * @param CreateVCUInstanceRequest $request CreateVCUInstanceRequest
      *
-     * @remarks
-     *   Before you delete an instance, make sure that all data tables and time series tables in the instance are deleted and virtual private clouds (VPCs) are unbound from the instance.
+     * @return CreateVCUInstanceResponse CreateVCUInstanceResponse
+     */
+    public function createVCUInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createVCUInstanceWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary Deletes an instance.
+     *  *
+     * @description *   Before you delete an instance, make sure that all data tables and time series tables in the instance are deleted and virtual private clouds (VPCs) are unbound from the instance.
      * *   To prevent conflicts, do not create an instance that has the same name as the instance that is being deleted.
      * *   After an instance is deleted, the instance becomes unavailable and the tables, table data, and related indexes in the instance cannot be recovered. Proceed with caution.
+     *  *
+     * @param DeleteInstanceRequest $request DeleteInstanceRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteInstanceRequest
-     * @returns DeleteInstanceResponse
+     * @return DeleteInstanceResponse DeleteInstanceResponse
+     */
+    public function deleteInstanceWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->instanceName)) {
+            $body['InstanceName'] = $request->instanceName;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteInstance',
+            'version' => '2020-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/openapi/deleteinstance',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Deletes an instance.
+     *  *
+     * @description *   Before you delete an instance, make sure that all data tables and time series tables in the instance are deleted and virtual private clouds (VPCs) are unbound from the instance.
+     * *   To prevent conflicts, do not create an instance that has the same name as the instance that is being deleted.
+     * *   After an instance is deleted, the instance becomes unavailable and the tables, table data, and related indexes in the instance cannot be recovered. Proceed with caution.
+     *  *
+     * @param DeleteInstanceRequest $request DeleteInstanceRequest
      *
-     * @param DeleteInstanceRequest $request
-     *
-     * @return DeleteInstanceResponse
+     * @return DeleteInstanceResponse DeleteInstanceResponse
      */
     public function deleteInstance($request)
     {
@@ -387,70 +407,55 @@ class Tablestore extends OpenApiClient
     }
 
     /**
-     * Deletes a Resource Access Management (RAM) policy of an instance.
-     *
-     * @remarks
-     *   You cannot recover a deleted instance policy. Proceed with caution.
+     * @summary Deletes a Resource Access Management (RAM) policy of an instance.
+     *  *
+     * @description *   You cannot recover a deleted instance policy. Proceed with caution.
      * *   After you delete an instance policy, the access control that is specified by the instance policy becomes invalid. Make sure that your instance is in a secure environment.
+     *  *
+     * @param DeleteInstancePolicyRequest $request DeleteInstancePolicyRequest
+     * @param string[]                    $headers map
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteInstancePolicyRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteInstancePolicyResponse
-     *
-     * @param DeleteInstancePolicyRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DeleteInstancePolicyResponse
+     * @return DeleteInstancePolicyResponse DeleteInstancePolicyResponse
      */
     public function deleteInstancePolicyWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->instanceName) {
-            @$body['InstanceName'] = $request->instanceName;
+        if (!Utils::isUnset($request->instanceName)) {
+            $body['InstanceName'] = $request->instanceName;
         }
-
-        if (null !== $request->policyVersion) {
-            @$body['PolicyVersion'] = $request->policyVersion;
+        if (!Utils::isUnset($request->policyVersion)) {
+            $body['PolicyVersion'] = $request->policyVersion;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteInstancePolicy',
-            'version'     => '2020-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/openapi/deleteinstancepolicy',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteInstancePolicy',
+            'version' => '2020-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/openapi/deleteinstancepolicy',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteInstancePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteInstancePolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteInstancePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Deletes a Resource Access Management (RAM) policy of an instance.
-     *
-     * @remarks
-     *   You cannot recover a deleted instance policy. Proceed with caution.
+     * @summary Deletes a Resource Access Management (RAM) policy of an instance.
+     *  *
+     * @description *   You cannot recover a deleted instance policy. Proceed with caution.
      * *   After you delete an instance policy, the access control that is specified by the instance policy becomes invalid. Make sure that your instance is in a secure environment.
+     *  *
+     * @param DeleteInstancePolicyRequest $request DeleteInstancePolicyRequest
      *
-     * @param request - DeleteInstancePolicyRequest
-     * @returns DeleteInstancePolicyResponse
-     *
-     * @param DeleteInstancePolicyRequest $request
-     *
-     * @return DeleteInstancePolicyResponse
+     * @return DeleteInstancePolicyResponse DeleteInstancePolicyResponse
      */
     public function deleteInstancePolicy($request)
     {
@@ -461,58 +466,46 @@ class Tablestore extends OpenApiClient
     }
 
     /**
-     * Queries supported regions.
+     * @summary Queries supported regions.
+     *  *
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeRegionsRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeRegionsResponse
-     *
-     * @param DescribeRegionsRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
-     *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRegions',
-            'version'     => '2020-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/region/DescribeRegions',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DescribeRegions',
+            'version' => '2020-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/region/DescribeRegions',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeRegionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries supported regions.
+     * @summary Queries supported regions.
+     *  *
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
      *
-     * @param request - DescribeRegionsRequest
-     * @returns DescribeRegionsResponse
-     *
-     * @param DescribeRegionsRequest $request
-     *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegions($request)
     {
@@ -523,58 +516,46 @@ class Tablestore extends OpenApiClient
     }
 
     /**
-     * Queries instance information.
+     * @summary Queries instance information.
+     *  *
+     * @param GetInstanceRequest $request GetInstanceRequest
+     * @param string[]           $headers map
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetInstanceRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns GetInstanceResponse
-     *
-     * @param GetInstanceRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
-     *
-     * @return GetInstanceResponse
+     * @return GetInstanceResponse GetInstanceResponse
      */
     public function getInstanceWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceName) {
-            @$query['InstanceName'] = $request->instanceName;
+        if (!Utils::isUnset($request->instanceName)) {
+            $query['InstanceName'] = $request->instanceName;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetInstance',
-            'version'     => '2020-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/openapi/getinstance',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetInstance',
+            'version' => '2020-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/openapi/getinstance',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries instance information.
+     * @summary Queries instance information.
+     *  *
+     * @param GetInstanceRequest $request GetInstanceRequest
      *
-     * @param request - GetInstanceRequest
-     * @returns GetInstanceResponse
-     *
-     * @param GetInstanceRequest $request
-     *
-     * @return GetInstanceResponse
+     * @return GetInstanceResponse GetInstanceResponse
      */
     public function getInstance($request)
     {
@@ -585,92 +566,72 @@ class Tablestore extends OpenApiClient
     }
 
     /**
-     * Queries instances.
+     * @summary Queries instances.
+     *  *
+     * @param ListInstancesRequest $tmpReq  ListInstancesRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - ListInstancesRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ListInstancesResponse
-     *
-     * @param ListInstancesRequest $tmpReq
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
-     *
-     * @return ListInstancesResponse
+     * @return ListInstancesResponse ListInstancesResponse
      */
     public function listInstancesWithOptions($tmpReq, $headers, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new ListInstancesShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->instanceNameList) {
-            $request->instanceNameListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->instanceNameList, 'InstanceNameList', 'simple');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->instanceNameList)) {
+            $request->instanceNameListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->instanceNameList, 'InstanceNameList', 'simple');
         }
-
-        if (null !== $tmpReq->tag) {
-            $request->tagShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
+        if (!Utils::isUnset($tmpReq->tag)) {
+            $request->tagShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
         }
-
         $query = [];
-        if (null !== $request->instanceName) {
-            @$query['InstanceName'] = $request->instanceName;
+        if (!Utils::isUnset($request->instanceName)) {
+            $query['InstanceName'] = $request->instanceName;
         }
-
-        if (null !== $request->instanceNameListShrink) {
-            @$query['InstanceNameList'] = $request->instanceNameListShrink;
+        if (!Utils::isUnset($request->instanceNameListShrink)) {
+            $query['InstanceNameList'] = $request->instanceNameListShrink;
         }
-
-        if (null !== $request->maxResults) {
-            @$query['MaxResults'] = $request->maxResults;
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
         }
-
-        if (null !== $request->nextToken) {
-            @$query['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->status) {
-            @$query['Status'] = $request->status;
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
         }
-
-        if (null !== $request->tagShrink) {
-            @$query['Tag'] = $request->tagShrink;
+        if (!Utils::isUnset($request->tagShrink)) {
+            $query['Tag'] = $request->tagShrink;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListInstances',
-            'version'     => '2020-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/openapi/listinstances',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListInstances',
+            'version' => '2020-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/openapi/listinstances',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries instances.
+     * @summary Queries instances.
+     *  *
+     * @param ListInstancesRequest $request ListInstancesRequest
      *
-     * @param request - ListInstancesRequest
-     * @returns ListInstancesResponse
-     *
-     * @param ListInstancesRequest $request
-     *
-     * @return ListInstancesResponse
+     * @return ListInstancesResponse ListInstancesResponse
      */
     public function listInstances($request)
     {
@@ -681,84 +642,66 @@ class Tablestore extends OpenApiClient
     }
 
     /**
-     * Queries tagged resources.
+     * @summary Queries tagged resources.
+     *  *
+     * @param ListTagResourcesRequest $tmpReq  ListTagResourcesRequest
+     * @param string[]                $headers map
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - ListTagResourcesRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ListTagResourcesResponse
-     *
-     * @param ListTagResourcesRequest $tmpReq
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
-     *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($tmpReq, $headers, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new ListTagResourcesShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->resourceIds) {
-            $request->resourceIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->resourceIds, 'ResourceIds', 'simple');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->resourceIds)) {
+            $request->resourceIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceIds, 'ResourceIds', 'simple');
         }
-
-        if (null !== $tmpReq->tags) {
-            $request->tagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        if (!Utils::isUnset($tmpReq->tags)) {
+            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
         }
-
         $query = [];
-        if (null !== $request->maxResults) {
-            @$query['MaxResults'] = $request->maxResults;
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
         }
-
-        if (null !== $request->nextToken) {
-            @$query['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
         }
-
-        if (null !== $request->resourceIdsShrink) {
-            @$query['ResourceIds'] = $request->resourceIdsShrink;
+        if (!Utils::isUnset($request->resourceIdsShrink)) {
+            $query['ResourceIds'] = $request->resourceIdsShrink;
         }
-
-        if (null !== $request->resourceType) {
-            @$query['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
         }
-
-        if (null !== $request->tagsShrink) {
-            @$query['Tags'] = $request->tagsShrink;
+        if (!Utils::isUnset($request->tagsShrink)) {
+            $query['Tags'] = $request->tagsShrink;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTagResources',
-            'version'     => '2020-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/openapi/listtagresources',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListTagResources',
+            'version' => '2020-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/openapi/listtagresources',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries tagged resources.
+     * @summary Queries tagged resources.
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
-     * @param request - ListTagResourcesRequest
-     * @returns ListTagResourcesResponse
-     *
-     * @param ListTagResourcesRequest $request
-     *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -769,66 +712,52 @@ class Tablestore extends OpenApiClient
     }
 
     /**
-     * Adds tags to instances.
+     * @summary Adds tags to instances.
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
+     * @param string[]            $headers map
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - TagResourcesRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns TagResourcesResponse
-     *
-     * @param TagResourcesRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
-     *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->resourceIds) {
-            @$body['ResourceIds'] = $request->resourceIds;
+        if (!Utils::isUnset($request->resourceIds)) {
+            $body['ResourceIds'] = $request->resourceIds;
         }
-
-        if (null !== $request->resourceType) {
-            @$body['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $body['ResourceType'] = $request->resourceType;
         }
-
-        if (null !== $request->tags) {
-            @$body['Tags'] = $request->tags;
+        if (!Utils::isUnset($request->tags)) {
+            $body['Tags'] = $request->tags;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'TagResources',
-            'version'     => '2020-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/openapi/tagresources',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'TagResources',
+            'version' => '2020-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/openapi/tagresources',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return TagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Adds tags to instances.
+     * @summary Adds tags to instances.
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
      *
-     * @param request - TagResourcesRequest
-     * @returns TagResourcesResponse
-     *
-     * @param TagResourcesRequest $request
-     *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -839,76 +768,59 @@ class Tablestore extends OpenApiClient
     }
 
     /**
-     * Removes tags from resources.
+     * @summary Removes tags from resources.
+     *  *
+     * @description Removing tags from resources helps simplify resource management, optimize system performance, and mitigate potential security vulnerabilities. After a tag is removed from a resource, the system automatically deletes the tag if the tag is not added to other resources.
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * Removing tags from resources helps simplify resource management, optimize system performance, and mitigate potential security vulnerabilities. After a tag is removed from a resource, the system automatically deletes the tag if the tag is not added to other resources.
-     *
-     * @param request - UntagResourcesRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns UntagResourcesResponse
-     *
-     * @param UntagResourcesRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
-     *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResourcesWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->all) {
-            @$body['All'] = $request->all;
+        if (!Utils::isUnset($request->all)) {
+            $body['All'] = $request->all;
         }
-
-        if (null !== $request->resourceIds) {
-            @$body['ResourceIds'] = $request->resourceIds;
+        if (!Utils::isUnset($request->resourceIds)) {
+            $body['ResourceIds'] = $request->resourceIds;
         }
-
-        if (null !== $request->resourceType) {
-            @$body['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $body['ResourceType'] = $request->resourceType;
         }
-
-        if (null !== $request->tagKeys) {
-            @$body['TagKeys'] = $request->tagKeys;
+        if (!Utils::isUnset($request->tagKeys)) {
+            $body['TagKeys'] = $request->tagKeys;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UntagResources',
-            'version'     => '2020-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/openapi/untagresources',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UntagResources',
+            'version' => '2020-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/openapi/untagresources',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UntagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Removes tags from resources.
+     * @summary Removes tags from resources.
+     *  *
+     * @description Removing tags from resources helps simplify resource management, optimize system performance, and mitigate potential security vulnerabilities. After a tag is removed from a resource, the system automatically deletes the tag if the tag is not added to other resources.
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
      *
-     * @remarks
-     * Removing tags from resources helps simplify resource management, optimize system performance, and mitigate potential security vulnerabilities. After a tag is removed from a resource, the system automatically deletes the tag if the tag is not added to other resources.
-     *
-     * @param request - UntagResourcesRequest
-     * @returns UntagResourcesResponse
-     *
-     * @param UntagResourcesRequest $request
-     *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResources($request)
     {
@@ -919,78 +831,61 @@ class Tablestore extends OpenApiClient
     }
 
     /**
-     * Updates instance information.
+     * @summary Updates instance information.
+     *  *
+     * @param UpdateInstanceRequest $request UpdateInstanceRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateInstanceRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns UpdateInstanceResponse
-     *
-     * @param UpdateInstanceRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
-     *
-     * @return UpdateInstanceResponse
+     * @return UpdateInstanceResponse UpdateInstanceResponse
      */
     public function updateInstanceWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->aliasName) {
-            @$body['AliasName'] = $request->aliasName;
+        if (!Utils::isUnset($request->aliasName)) {
+            $body['AliasName'] = $request->aliasName;
         }
-
-        if (null !== $request->instanceDescription) {
-            @$body['InstanceDescription'] = $request->instanceDescription;
+        if (!Utils::isUnset($request->instanceDescription)) {
+            $body['InstanceDescription'] = $request->instanceDescription;
         }
-
-        if (null !== $request->instanceName) {
-            @$body['InstanceName'] = $request->instanceName;
+        if (!Utils::isUnset($request->instanceName)) {
+            $body['InstanceName'] = $request->instanceName;
         }
-
-        if (null !== $request->network) {
-            @$body['Network'] = $request->network;
+        if (!Utils::isUnset($request->network)) {
+            $body['Network'] = $request->network;
         }
-
-        if (null !== $request->networkSourceACL) {
-            @$body['NetworkSourceACL'] = $request->networkSourceACL;
+        if (!Utils::isUnset($request->networkSourceACL)) {
+            $body['NetworkSourceACL'] = $request->networkSourceACL;
         }
-
-        if (null !== $request->networkTypeACL) {
-            @$body['NetworkTypeACL'] = $request->networkTypeACL;
+        if (!Utils::isUnset($request->networkTypeACL)) {
+            $body['NetworkTypeACL'] = $request->networkTypeACL;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateInstance',
-            'version'     => '2020-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/openapi/updateinstance',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateInstance',
+            'version' => '2020-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/openapi/updateinstance',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Updates instance information.
+     * @summary Updates instance information.
+     *  *
+     * @param UpdateInstanceRequest $request UpdateInstanceRequest
      *
-     * @param request - UpdateInstanceRequest
-     * @returns UpdateInstanceResponse
-     *
-     * @param UpdateInstanceRequest $request
-     *
-     * @return UpdateInstanceResponse
+     * @return UpdateInstanceResponse UpdateInstanceResponse
      */
     public function updateInstance($request)
     {
@@ -1001,72 +896,57 @@ class Tablestore extends OpenApiClient
     }
 
     /**
-     * Modifies the upper limit for the VCUs of an instance in VCU mode (formerly reserved mode).
-     *
-     * @remarks
-     *   **Before you call this operation, you must understand the billing and pricing of Tablestore. For more information, see [Billing overview](https://help.aliyun.com/document_detail/27291.html).**
+     * @summary Modifies the upper limit for the VCUs of an instance in VCU mode (formerly reserved mode).
+     *  *
+     * @description *   **Before you call this operation, you must understand the billing and pricing of Tablestore. For more information, see [Billing overview](https://help.aliyun.com/document_detail/27291.html).**
      * *   After you enable scalability for an instance, the default upper limit for the VCUs of the instance is the sum of the scalability and the reserved VCUs.
      * *   To use more computing resources when your business grows, you can modify the upper limit for the VCUs of your instance. The new upper limit for the VCUs of your instance immediately takes effect.
+     *  *
+     * @param UpdateInstanceElasticVCUUpperLimitRequest $request UpdateInstanceElasticVCUUpperLimitRequest
+     * @param string[]                                  $headers map
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateInstanceElasticVCUUpperLimitRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns UpdateInstanceElasticVCUUpperLimitResponse
-     *
-     * @param UpdateInstanceElasticVCUUpperLimitRequest $request
-     * @param string[]                                  $headers
-     * @param RuntimeOptions                            $runtime
-     *
-     * @return UpdateInstanceElasticVCUUpperLimitResponse
+     * @return UpdateInstanceElasticVCUUpperLimitResponse UpdateInstanceElasticVCUUpperLimitResponse
      */
     public function updateInstanceElasticVCUUpperLimitWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->elasticVCUUpperLimit) {
-            @$body['ElasticVCUUpperLimit'] = $request->elasticVCUUpperLimit;
+        if (!Utils::isUnset($request->elasticVCUUpperLimit)) {
+            $body['ElasticVCUUpperLimit'] = $request->elasticVCUUpperLimit;
         }
-
-        if (null !== $request->instanceName) {
-            @$body['InstanceName'] = $request->instanceName;
+        if (!Utils::isUnset($request->instanceName)) {
+            $body['InstanceName'] = $request->instanceName;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateInstanceElasticVCUUpperLimit',
-            'version'     => '2020-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/openapi/updateinstanceelasticvcuupperlimit',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateInstanceElasticVCUUpperLimit',
+            'version' => '2020-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/openapi/updateinstanceelasticvcuupperlimit',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateInstanceElasticVCUUpperLimitResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateInstanceElasticVCUUpperLimitResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateInstanceElasticVCUUpperLimitResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Modifies the upper limit for the VCUs of an instance in VCU mode (formerly reserved mode).
-     *
-     * @remarks
-     *   **Before you call this operation, you must understand the billing and pricing of Tablestore. For more information, see [Billing overview](https://help.aliyun.com/document_detail/27291.html).**
+     * @summary Modifies the upper limit for the VCUs of an instance in VCU mode (formerly reserved mode).
+     *  *
+     * @description *   **Before you call this operation, you must understand the billing and pricing of Tablestore. For more information, see [Billing overview](https://help.aliyun.com/document_detail/27291.html).**
      * *   After you enable scalability for an instance, the default upper limit for the VCUs of the instance is the sum of the scalability and the reserved VCUs.
      * *   To use more computing resources when your business grows, you can modify the upper limit for the VCUs of your instance. The new upper limit for the VCUs of your instance immediately takes effect.
+     *  *
+     * @param UpdateInstanceElasticVCUUpperLimitRequest $request UpdateInstanceElasticVCUUpperLimitRequest
      *
-     * @param request - UpdateInstanceElasticVCUUpperLimitRequest
-     * @returns UpdateInstanceElasticVCUUpperLimitResponse
-     *
-     * @param UpdateInstanceElasticVCUUpperLimitRequest $request
-     *
-     * @return UpdateInstanceElasticVCUUpperLimitResponse
+     * @return UpdateInstanceElasticVCUUpperLimitResponse UpdateInstanceElasticVCUUpperLimitResponse
      */
     public function updateInstanceElasticVCUUpperLimit($request)
     {
@@ -1077,66 +957,52 @@ class Tablestore extends OpenApiClient
     }
 
     /**
-     * Modifies a Resource Access Management (RAM) policy for an instance.
+     * @summary Modifies a Resource Access Management (RAM) policy for an instance.
+     *  *
+     * @param UpdateInstancePolicyRequest $request UpdateInstancePolicyRequest
+     * @param string[]                    $headers map
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateInstancePolicyRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns UpdateInstancePolicyResponse
-     *
-     * @param UpdateInstancePolicyRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
-     *
-     * @return UpdateInstancePolicyResponse
+     * @return UpdateInstancePolicyResponse UpdateInstancePolicyResponse
      */
     public function updateInstancePolicyWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->instanceName) {
-            @$body['InstanceName'] = $request->instanceName;
+        if (!Utils::isUnset($request->instanceName)) {
+            $body['InstanceName'] = $request->instanceName;
         }
-
-        if (null !== $request->policy) {
-            @$body['Policy'] = $request->policy;
+        if (!Utils::isUnset($request->policy)) {
+            $body['Policy'] = $request->policy;
         }
-
-        if (null !== $request->policyVersion) {
-            @$body['PolicyVersion'] = $request->policyVersion;
+        if (!Utils::isUnset($request->policyVersion)) {
+            $body['PolicyVersion'] = $request->policyVersion;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateInstancePolicy',
-            'version'     => '2020-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/openapi/updateinstancepolicy',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateInstancePolicy',
+            'version' => '2020-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/openapi/updateinstancepolicy',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateInstancePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateInstancePolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateInstancePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Modifies a Resource Access Management (RAM) policy for an instance.
+     * @summary Modifies a Resource Access Management (RAM) policy for an instance.
+     *  *
+     * @param UpdateInstancePolicyRequest $request UpdateInstancePolicyRequest
      *
-     * @param request - UpdateInstancePolicyRequest
-     * @returns UpdateInstancePolicyResponse
-     *
-     * @param UpdateInstancePolicyRequest $request
-     *
-     * @return UpdateInstancePolicyResponse
+     * @return UpdateInstancePolicyResponse UpdateInstancePolicyResponse
      */
     public function updateInstancePolicy($request)
     {

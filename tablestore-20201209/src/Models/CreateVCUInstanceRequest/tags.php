@@ -2,25 +2,25 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Tablestore\V20201209\Models\ListTagResourcesRequest;
+namespace AlibabaCloud\SDK\Tablestore\V20201209\Models\CreateVCUInstanceRequest;
 
 use AlibabaCloud\Tea\Model;
 
 class tags extends Model
 {
     /**
-     * @description The tag key.
+     * @description This parameter is required.
      *
-     * @example Owner
+     * @example created
      *
      * @var string
      */
     public $key;
 
     /**
-     * @description The tag value.
+     * @description This parameter is required.
      *
-     * @example Tester
+     * @example 0woauavextilfqr61
      *
      * @var string
      */

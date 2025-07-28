@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\Tablestore\V20201209\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetInstanceRequest extends Model
 {
     /**
+     * @description The name of the instance.
+     *
+     * This parameter is required.
+     *
+     * @example instance-test
+     *
      * @var string
      */
     public $instanceName;
@@ -16,12 +22,9 @@ class GetInstanceRequest extends Model
         'instanceName' => 'InstanceName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceName) {
@@ -31,11 +34,11 @@ class GetInstanceRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetInstanceRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Tablestore\V20201209\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ChangeResourceGroupResponseBody extends Model
 {
     /**
+     * @description The request ID, which can be used to troubleshoot issues.
+     *
+     * @example 39871ED2-62C0-578F-A32E-B88072D5582F
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class ChangeResourceGroupResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class ChangeResourceGroupResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ChangeResourceGroupResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

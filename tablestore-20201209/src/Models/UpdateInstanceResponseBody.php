@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Tablestore\V20201209\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateInstanceResponseBody extends Model
 {
     /**
+     * @description The request ID, which can be used to troubleshoot issues.
+     *
+     * @example 3104C83E-6E82-57FB-BB88-8C64CCFDEF89
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class UpdateInstanceResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class UpdateInstanceResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateInstanceResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
