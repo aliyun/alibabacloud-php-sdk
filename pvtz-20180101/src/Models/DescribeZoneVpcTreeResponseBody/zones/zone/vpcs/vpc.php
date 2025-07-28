@@ -4,31 +4,54 @@
 
 namespace AlibabaCloud\SDK\Pvtz\V20180101\Models\DescribeZoneVpcTreeResponseBody\zones\zone\vpcs;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class vpc extends Model
 {
     /**
+     * @description The region ID of the VPC.
+     *
+     * @example cn-heyuan
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The name of the region to which the VPC belongs.
+     *
+     * @example China (Heyuan)
+     *
      * @var string
      */
     public $regionName;
 
     /**
+     * @description The VPC ID. The unique ID of the VPC.
+     *
+     * @example vpc-f8zvrvr1payllgz38****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @description The VPC name.
+     *
+     * @example demo-vpc
+     *
      * @var string
      */
     public $vpcName;
 
     /**
+     * @description The VPC type. Valid values:
+     *
+     *   STANDARD: standard VPC
+     *   EDS: Elastic Desktop Service (EDS) workspace VPC
+     *
+     * @example STANDARD
+     *
      * @var string
      */
     public $vpcType;
@@ -40,30 +63,23 @@ class vpc extends Model
         'vpcType' => 'VpcType',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->regionName) {
             $res['RegionName'] = $this->regionName;
         }
-
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
-
         if (null !== $this->vpcName) {
             $res['VpcName'] = $this->vpcName;
         }
-
         if (null !== $this->vpcType) {
             $res['VpcType'] = $this->vpcType;
         }
@@ -71,30 +87,26 @@ class vpc extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return vpc
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['RegionName'])) {
             $model->regionName = $map['RegionName'];
         }
-
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }
-
         if (isset($map['VpcName'])) {
             $model->vpcName = $map['VpcName'];
         }
-
         if (isset($map['VpcType'])) {
             $model->vpcType = $map['VpcType'];
         }

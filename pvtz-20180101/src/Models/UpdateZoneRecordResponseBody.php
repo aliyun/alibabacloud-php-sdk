@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Pvtz\V20180101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateZoneRecordResponseBody extends Model
 {
     /**
+     * @description The ID of the DNS record.
+     *
+     * @example 172223****
+     *
      * @var int
      */
     public $recordId;
 
     /**
+     * @description The request ID.
+     *
+     * @example 250E2C38-D0AD-4518-851D-1C1055805F82
+     *
      * @var string
      */
     public $requestId;
@@ -22,18 +30,14 @@ class UpdateZoneRecordResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->recordId) {
             $res['RecordId'] = $this->recordId;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -41,18 +45,17 @@ class UpdateZoneRecordResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateZoneRecordResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RecordId'])) {
             $model->recordId = $map['RecordId'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,16 +4,31 @@
 
 namespace AlibabaCloud\SDK\Pvtz\V20180101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteUserVpcAuthorizationRequest extends Model
 {
     /**
+     * @description The authorization scope. Valid values:
+     *
+     *   NORMAL: general authorization
+     *   NORMAL: cloud service-related authorization
+     *
+     * Default value: NORMAL.
+     *
+     * @example NORMAL
+     *
      * @var string
      */
     public $authType;
 
     /**
+     * @description The ID of the Alibaba Cloud account.
+     *
+     * This parameter is required.
+     *
+     * @example 141339776561****
+     *
      * @var int
      */
     public $authorizedUserId;
@@ -22,18 +37,14 @@ class DeleteUserVpcAuthorizationRequest extends Model
         'authorizedUserId' => 'AuthorizedUserId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->authType) {
             $res['AuthType'] = $this->authType;
         }
-
         if (null !== $this->authorizedUserId) {
             $res['AuthorizedUserId'] = $this->authorizedUserId;
         }
@@ -41,18 +52,17 @@ class DeleteUserVpcAuthorizationRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteUserVpcAuthorizationRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AuthType'])) {
             $model->authType = $map['AuthType'];
         }
-
         if (isset($map['AuthorizedUserId'])) {
             $model->authorizedUserId = $map['AuthorizedUserId'];
         }

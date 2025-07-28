@@ -4,31 +4,51 @@
 
 namespace AlibabaCloud\SDK\Pvtz\V20180101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class AddCustomLineRequest extends Model
 {
     /**
+     * @description This parameter is not available. You can ignore it.
+     *
+     * @example INTRANET
+     *
      * @var string
      */
     public $dnsCategory;
 
     /**
+     * @description The IPv4 CIDR blocks.
+     *
+     * This parameter is required.
+     *
      * @var string[]
      */
     public $ipv4s;
 
     /**
+     * @description The language.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The name of the custom line.
+     *
+     * This parameter is required.
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description This parameter is not available. You can ignore it.
+     *
+     * @example GLOBAL
+     *
      * @var string
      */
     public $shareScope;
@@ -40,40 +60,23 @@ class AddCustomLineRequest extends Model
         'shareScope' => 'ShareScope',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->ipv4s)) {
-            Model::validateArray($this->ipv4s);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dnsCategory) {
             $res['DnsCategory'] = $this->dnsCategory;
         }
-
         if (null !== $this->ipv4s) {
-            if (\is_array($this->ipv4s)) {
-                $res['Ipv4s'] = [];
-                $n1 = 0;
-                foreach ($this->ipv4s as $item1) {
-                    $res['Ipv4s'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['Ipv4s'] = $this->ipv4s;
         }
-
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->shareScope) {
             $res['ShareScope'] = $this->shareScope;
         }
@@ -81,37 +84,28 @@ class AddCustomLineRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return AddCustomLineRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DnsCategory'])) {
             $model->dnsCategory = $map['DnsCategory'];
         }
-
         if (isset($map['Ipv4s'])) {
             if (!empty($map['Ipv4s'])) {
-                $model->ipv4s = [];
-                $n1 = 0;
-                foreach ($map['Ipv4s'] as $item1) {
-                    $model->ipv4s[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->ipv4s = $map['Ipv4s'];
             }
         }
-
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['ShareScope'])) {
             $model->shareScope = $map['ShareScope'];
         }

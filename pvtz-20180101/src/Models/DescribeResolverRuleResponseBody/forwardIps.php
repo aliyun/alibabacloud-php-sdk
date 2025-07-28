@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Pvtz\V20180101\Models\DescribeResolverRuleResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class forwardIps extends Model
 {
     /**
+     * @description The destination IP address.
+     *
+     * @example 172.16.XX.XX
+     *
      * @var string
      */
     public $ip;
 
     /**
+     * @description The port number.
+     *
+     * @example 8080
+     *
      * @var int
      */
     public $port;
@@ -22,18 +30,14 @@ class forwardIps extends Model
         'port' => 'Port',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->ip) {
             $res['Ip'] = $this->ip;
         }
-
         if (null !== $this->port) {
             $res['Port'] = $this->port;
         }
@@ -41,18 +45,17 @@ class forwardIps extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return forwardIps
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Ip'])) {
             $model->ip = $map['Ip'];
         }
-
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
         }

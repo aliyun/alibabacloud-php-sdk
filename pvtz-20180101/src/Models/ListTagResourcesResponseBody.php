@@ -4,22 +4,32 @@
 
 namespace AlibabaCloud\SDK\Pvtz\V20180101\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Pvtz\V20180101\Models\ListTagResourcesResponseBody\tagResources;
+use AlibabaCloud\Tea\Model;
 
 class ListTagResourcesResponseBody extends Model
 {
     /**
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+     *
+     * @example 23423****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The request ID.
+     *
+     * @example 75446CC1-FC9A-4595-8D96-089D73D7A63D
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The tags added to the resources.
+     *
      * @var tagResources[]
      */
     public $tagResources;
@@ -29,32 +39,23 @@ class ListTagResourcesResponseBody extends Model
         'tagResources' => 'TagResources',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->tagResources)) {
-            Model::validateArray($this->tagResources);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->tagResources) {
-            if (\is_array($this->tagResources)) {
-                $res['TagResources'] = [];
-                $n1 = 0;
-                foreach ($this->tagResources as $item1) {
-                    $res['TagResources'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['TagResources'] = [];
+            if (null !== $this->tagResources && \is_array($this->tagResources)) {
+                $n = 0;
+                foreach ($this->tagResources as $item) {
+                    $res['TagResources'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -62,29 +63,26 @@ class ListTagResourcesResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListTagResourcesResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['TagResources'])) {
             if (!empty($map['TagResources'])) {
                 $model->tagResources = [];
-                $n1 = 0;
-                foreach ($map['TagResources'] as $item1) {
-                    $model->tagResources[$n1] = tagResources::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['TagResources'] as $item) {
+                    $model->tagResources[$n++] = null !== $item ? tagResources::fromMap($item) : $item;
                 }
             }
         }

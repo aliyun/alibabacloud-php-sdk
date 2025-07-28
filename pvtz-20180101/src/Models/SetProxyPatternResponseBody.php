@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Pvtz\V20180101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class SetProxyPatternResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example C6F1D541-E7A6-447A-A2B5-9F7A20B2A8FB
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The global ID of the zone.
+     *
+     * @example df2d03865266bd9842306db586d3****
+     *
      * @var string
      */
     public $zoneId;
@@ -22,18 +30,14 @@ class SetProxyPatternResponseBody extends Model
         'zoneId' => 'ZoneId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
@@ -41,18 +45,17 @@ class SetProxyPatternResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return SetProxyPatternResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
         }

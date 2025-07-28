@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Pvtz\V20180101\Models\DescribeZoneInfoResponseBody\bindEdgeDnsClusters;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class edgeDnsCluster extends Model
 {
@@ -28,22 +28,17 @@ class edgeDnsCluster extends Model
         'clusterUserId' => 'ClusterUserId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
-
         if (null !== $this->clusterName) {
             $res['ClusterName'] = $this->clusterName;
         }
-
         if (null !== $this->clusterUserId) {
             $res['ClusterUserId'] = $this->clusterUserId;
         }
@@ -51,22 +46,20 @@ class edgeDnsCluster extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return edgeDnsCluster
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
-
         if (isset($map['ClusterName'])) {
             $model->clusterName = $map['ClusterName'];
         }
-
         if (isset($map['ClusterUserId'])) {
             $model->clusterUserId = $map['ClusterUserId'];
         }

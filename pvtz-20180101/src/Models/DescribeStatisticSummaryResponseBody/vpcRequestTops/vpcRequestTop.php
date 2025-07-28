@@ -4,36 +4,63 @@
 
 namespace AlibabaCloud\SDK\Pvtz\V20180101\Models\DescribeStatisticSummaryResponseBody\vpcRequestTops;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class vpcRequestTop extends Model
 {
     /**
+     * @description The region ID.
+     *
+     * @example cn-beijing
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The name of the region.
+     *
+     * @example 华北 2
+     *
      * @var string
      */
     public $regionName;
 
     /**
+     * @description The number of DNS requests on the previous day.
+     *
+     * @example 2254
+     *
      * @var int
      */
     public $requestCount;
 
     /**
+     * @description The tunnel ID.
+     *
+     * @example tun-7h33lkqfuhgnyy****
+     *
      * @var string
      */
     public $tunnelId;
 
     /**
+     * @description The VPC ID.
+     *
+     * @example vpc-f8zvrvr1payllgz38****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @description The VPC type. Valid values:
+     *
+     *   STANDARD: standard VPC
+     *   EDS: Elastic Desktop Service (EDS) workspace VPC
+     *
+     * @example STANDARD
+     *
      * @var string
      */
     public $vpcType;
@@ -46,34 +73,26 @@ class vpcRequestTop extends Model
         'vpcType' => 'VpcType',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->regionName) {
             $res['RegionName'] = $this->regionName;
         }
-
         if (null !== $this->requestCount) {
             $res['RequestCount'] = $this->requestCount;
         }
-
         if (null !== $this->tunnelId) {
             $res['TunnelId'] = $this->tunnelId;
         }
-
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
-
         if (null !== $this->vpcType) {
             $res['VpcType'] = $this->vpcType;
         }
@@ -81,34 +100,29 @@ class vpcRequestTop extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return vpcRequestTop
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['RegionName'])) {
             $model->regionName = $map['RegionName'];
         }
-
         if (isset($map['RequestCount'])) {
             $model->requestCount = $map['RequestCount'];
         }
-
         if (isset($map['TunnelId'])) {
             $model->tunnelId = $map['TunnelId'];
         }
-
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }
-
         if (isset($map['VpcType'])) {
             $model->vpcType = $map['VpcType'];
         }

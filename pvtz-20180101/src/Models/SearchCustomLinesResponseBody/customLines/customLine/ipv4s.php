@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Pvtz\V20180101\Models\SearchCustomLinesResponseBody\customLines\customLine;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ipv4s extends Model
 {
@@ -16,47 +16,29 @@ class ipv4s extends Model
         'ipv4' => 'Ipv4',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->ipv4)) {
-            Model::validateArray($this->ipv4);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->ipv4) {
-            if (\is_array($this->ipv4)) {
-                $res['Ipv4'] = [];
-                $n1 = 0;
-                foreach ($this->ipv4 as $item1) {
-                    $res['Ipv4'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['Ipv4'] = $this->ipv4;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ipv4s
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Ipv4'])) {
             if (!empty($map['Ipv4'])) {
-                $model->ipv4 = [];
-                $n1 = 0;
-                foreach ($map['Ipv4'] as $item1) {
-                    $model->ipv4[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->ipv4 = $map['Ipv4'];
             }
         }
 

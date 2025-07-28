@@ -4,16 +4,31 @@
 
 namespace AlibabaCloud\SDK\Pvtz\V20180101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeZoneInfoRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English.
+     *
+     * Default value: **en**.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The zone ID. This ID uniquely identifies the zone.
+     *
+     * This parameter is required.
+     *
+     * @example df2d03865266bd9842306db586d3****
+     *
      * @var string
      */
     public $zoneId;
@@ -22,18 +37,14 @@ class DescribeZoneInfoRequest extends Model
         'zoneId' => 'ZoneId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
-
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
@@ -41,18 +52,17 @@ class DescribeZoneInfoRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeZoneInfoRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
-
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
         }

@@ -4,16 +4,27 @@
 
 namespace AlibabaCloud\SDK\Pvtz\V20180101\Models\DescribeResolverAvailableZonesResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class availableZones extends Model
 {
     /**
+     * @description The zone ID.
+     *
+     * @example cn-zhangjiakou-a
+     *
      * @var string
      */
     public $azId;
 
     /**
+     * @description The state of resources in the zone. Valid values:
+     *
+     *   NORMAL: The resources are in the normal state.
+     *   SOLD_OUT: The resources are sold out.
+     *
+     * @example NORMAL
+     *
      * @var string
      */
     public $status;
@@ -22,18 +33,14 @@ class availableZones extends Model
         'status' => 'Status',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->azId) {
             $res['AzId'] = $this->azId;
         }
-
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -41,18 +48,17 @@ class availableZones extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return availableZones
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AzId'])) {
             $model->azId = $map['AzId'];
         }
-
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

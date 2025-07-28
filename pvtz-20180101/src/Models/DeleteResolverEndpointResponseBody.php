@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Pvtz\V20180101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteResolverEndpointResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 35134B4A-CEC0-43C8-AAD4-BA54AE3268B5
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class DeleteResolverEndpointResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class DeleteResolverEndpointResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteResolverEndpointResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

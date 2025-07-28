@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Pvtz\V20180101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteZoneResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example E246E023-F2EB-4034-83F7-B13FCF31459C
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The zone ID. This ID uniquely identifies the zone.
+     *
+     * @example 0e41496f12da01311d314f17b801****
+     *
      * @var string
      */
     public $zoneId;
@@ -22,18 +30,14 @@ class DeleteZoneResponseBody extends Model
         'zoneId' => 'ZoneId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
@@ -41,18 +45,17 @@ class DeleteZoneResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteZoneResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
         }

@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\Pvtz\V20180101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeZoneRecordRequest extends Model
 {
     /**
+     * @description The ID of the DNS record.
+     *
+     * This parameter is required.
+     *
+     * @example 5808
+     *
      * @var int
      */
     public $recordId;
@@ -16,12 +22,9 @@ class DescribeZoneRecordRequest extends Model
         'recordId' => 'RecordId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->recordId) {
@@ -31,11 +34,11 @@ class DescribeZoneRecordRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeZoneRecordRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

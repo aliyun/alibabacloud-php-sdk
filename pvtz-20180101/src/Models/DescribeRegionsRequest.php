@@ -4,36 +4,81 @@
 
 namespace AlibabaCloud\SDK\Pvtz\V20180101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeRegionsRequest extends Model
 {
     /**
+     * @description The supported language. Valid values:
+     *
+     *   zh-CN: Chinese
+     *   en-US: English
+     *
+     * Default value: en-US.
+     *
+     * >  AcceptLanguage has a higher priority than Lang.
+     *
+     * @example en-US
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The ID of the Alibaba Cloud account to which the permissions on the resources are granted.
+     *
+     * @example 141339776561****
+     *
      * @var int
      */
     public $authorizedUserId;
 
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
+     * Default value: **en**.
+     *
+     * >  Lang has a lower priority than AcceptLanguage.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The scenario. Valid values:
+     *
+     *   AUTH: the built-in authoritative module
+     *   FWD: the forward module
+     *   RA: the traffic analysis module
+     *
+     * @example AUTH
+     *
      * @var string
      */
     public $scene;
 
     /**
+     * @description The IP address of the client.
+     *
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $userClientIp;
 
     /**
+     * @description The VPC type. Valid values:
+     *
+     *   STANDARD: standard VPC
+     *   EDS: Elastic Desktop Service (EDS) workspace VPC
+     *
+     * @example STANDARD
+     *
      * @var string
      */
     public $vpcType;
@@ -46,34 +91,26 @@ class DescribeRegionsRequest extends Model
         'vpcType' => 'VpcType',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
         }
-
         if (null !== $this->authorizedUserId) {
             $res['AuthorizedUserId'] = $this->authorizedUserId;
         }
-
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
-
         if (null !== $this->scene) {
             $res['Scene'] = $this->scene;
         }
-
         if (null !== $this->userClientIp) {
             $res['UserClientIp'] = $this->userClientIp;
         }
-
         if (null !== $this->vpcType) {
             $res['VpcType'] = $this->vpcType;
         }
@@ -81,34 +118,29 @@ class DescribeRegionsRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeRegionsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
         }
-
         if (isset($map['AuthorizedUserId'])) {
             $model->authorizedUserId = $map['AuthorizedUserId'];
         }
-
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
-
         if (isset($map['Scene'])) {
             $model->scene = $map['Scene'];
         }
-
         if (isset($map['UserClientIp'])) {
             $model->userClientIp = $map['UserClientIp'];
         }
-
         if (isset($map['VpcType'])) {
             $model->vpcType = $map['VpcType'];
         }

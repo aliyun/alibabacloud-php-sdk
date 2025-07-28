@@ -4,21 +4,37 @@
 
 namespace AlibabaCloud\SDK\Pvtz\V20180101\Models\DescribeStatisticSummaryResponseBody\zoneRequestTops;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class zoneRequestTop extends Model
 {
     /**
+     * @description The business type. Valid values:
+     *
+     *   AUTH_ZONE: authoritative zone
+     *   RESOLVER_RULE: forwarding rule
+     *   INBOUND: inbound endpoint
+     *
+     * @example AUTH_ZONE
+     *
      * @var string
      */
     public $bizType;
 
     /**
+     * @description The number of DNS requests on the previous day.
+     *
+     * @example 2251
+     *
      * @var int
      */
     public $requestCount;
 
     /**
+     * @description The zone name.
+     *
+     * @example test.com
+     *
      * @var string
      */
     public $zoneName;
@@ -28,22 +44,17 @@ class zoneRequestTop extends Model
         'zoneName' => 'ZoneName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->bizType) {
             $res['BizType'] = $this->bizType;
         }
-
         if (null !== $this->requestCount) {
             $res['RequestCount'] = $this->requestCount;
         }
-
         if (null !== $this->zoneName) {
             $res['ZoneName'] = $this->zoneName;
         }
@@ -51,22 +62,20 @@ class zoneRequestTop extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return zoneRequestTop
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BizType'])) {
             $model->bizType = $map['BizType'];
         }
-
         if (isset($map['RequestCount'])) {
             $model->requestCount = $map['RequestCount'];
         }
-
         if (isset($map['ZoneName'])) {
             $model->zoneName = $map['ZoneName'];
         }
