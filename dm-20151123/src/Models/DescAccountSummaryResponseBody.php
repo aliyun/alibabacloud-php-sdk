@@ -54,6 +54,11 @@ class DescAccountSummaryResponseBody extends Model
     public $enableTimes;
 
     /**
+     * @var string
+     */
+    public $ipChannelType;
+
+    /**
      * @description Number of sending addresses
      *
      * @example 0
@@ -179,6 +184,7 @@ class DescAccountSummaryResponseBody extends Model
         'dayuStatus' => 'DayuStatus',
         'domains' => 'Domains',
         'enableTimes' => 'EnableTimes',
+        'ipChannelType' => 'IpChannelType',
         'mailAddresses' => 'MailAddresses',
         'maxQuotaLevel' => 'MaxQuotaLevel',
         'monthQuota' => 'MonthQuota',
@@ -213,6 +219,9 @@ class DescAccountSummaryResponseBody extends Model
         }
         if (null !== $this->enableTimes) {
             $res['EnableTimes'] = $this->enableTimes;
+        }
+        if (null !== $this->ipChannelType) {
+            $res['IpChannelType'] = $this->ipChannelType;
         }
         if (null !== $this->mailAddresses) {
             $res['MailAddresses'] = $this->mailAddresses;
@@ -279,6 +288,9 @@ class DescAccountSummaryResponseBody extends Model
         }
         if (isset($map['EnableTimes'])) {
             $model->enableTimes = $map['EnableTimes'];
+        }
+        if (isset($map['IpChannelType'])) {
+            $model->ipChannelType = $map['IpChannelType'];
         }
         if (isset($map['MailAddresses'])) {
             $model->mailAddresses = $map['MailAddresses'];

@@ -72,6 +72,8 @@ use AlibabaCloud\SDK\Dm\V20151123\Models\GetTrackListByMailFromAndTagNameRespons
 use AlibabaCloud\SDK\Dm\V20151123\Models\GetTrackListRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\GetTrackListResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\GetUserResponse;
+use AlibabaCloud\SDK\Dm\V20151123\Models\ListBlockSendingRequest;
+use AlibabaCloud\SDK\Dm\V20151123\Models\ListBlockSendingResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\ListUserSuppressionRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\ListUserSuppressionResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\ModifyMailAddressRequest;
@@ -2166,6 +2168,71 @@ class Dm extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getUserWithOptions($runtime);
+    }
+
+    /**
+     * @summary 获取发信的黑名单列表
+     *  *
+     * @param ListBlockSendingRequest $request ListBlockSendingRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListBlockSendingResponse ListBlockSendingResponse
+     */
+    public function listBlockSendingWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->beginTime)) {
+            $query['BeginTime'] = $request->beginTime;
+        }
+        if (!Utils::isUnset($request->blockEmail)) {
+            $query['BlockEmail'] = $request->blockEmail;
+        }
+        if (!Utils::isUnset($request->blockType)) {
+            $query['BlockType'] = $request->blockType;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->senderEmail)) {
+            $query['SenderEmail'] = $request->senderEmail;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListBlockSending',
+            'version' => '2015-11-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListBlockSendingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取发信的黑名单列表
+     *  *
+     * @param ListBlockSendingRequest $request ListBlockSendingRequest
+     *
+     * @return ListBlockSendingResponse ListBlockSendingResponse
+     */
+    public function listBlockSending($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listBlockSendingWithOptions($request, $runtime);
     }
 
     /**
