@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Yunjian\V20211217\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class AcceptFulfillmentDecisionResponseBody extends Model
 {
@@ -34,26 +34,20 @@ class AcceptFulfillmentDecisionResponseBody extends Model
         'success' => 'Success',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->data) {
             $res['Data'] = $this->data;
         }
-
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
-
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
-
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -61,26 +55,23 @@ class AcceptFulfillmentDecisionResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return AcceptFulfillmentDecisionResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Data'])) {
             $model->data = $map['Data'];
         }
-
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
-
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
-
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

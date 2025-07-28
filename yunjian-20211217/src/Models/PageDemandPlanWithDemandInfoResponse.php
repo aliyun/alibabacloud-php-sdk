@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Yunjian\V20211217\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class SaveUrgentDemandItemResponse extends Model
+class PageDemandPlanWithDemandInfoResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class SaveUrgentDemandItemResponse extends Model
     public $statusCode;
 
     /**
-     * @var SaveUrgentDemandItemResponseBody
+     * @var PageDemandPlanWithDemandInfoResponseBody
      */
     public $body;
     protected $_name = [
@@ -49,7 +49,7 @@ class SaveUrgentDemandItemResponse extends Model
     /**
      * @param array $map
      *
-     * @return SaveUrgentDemandItemResponse
+     * @return PageDemandPlanWithDemandInfoResponse
      */
     public static function fromMap($map = [])
     {
@@ -61,7 +61,7 @@ class SaveUrgentDemandItemResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = SaveUrgentDemandItemResponseBody::fromMap($map['body']);
+            $model->body = PageDemandPlanWithDemandInfoResponseBody::fromMap($map['body']);
         }
 
         return $model;

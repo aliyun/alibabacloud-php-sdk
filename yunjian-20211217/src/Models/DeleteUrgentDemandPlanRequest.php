@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Yunjian\V20211217\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteUrgentDemandPlanRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 111111
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 222111
+     *
      * @var string
      */
     public $modifier;
@@ -22,18 +30,14 @@ class DeleteUrgentDemandPlanRequest extends Model
         'modifier' => 'modifier',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->id) {
             $res['id'] = $this->id;
         }
-
         if (null !== $this->modifier) {
             $res['modifier'] = $this->modifier;
         }
@@ -41,18 +45,17 @@ class DeleteUrgentDemandPlanRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteUrgentDemandPlanRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['id'])) {
             $model->id = $map['id'];
         }
-
         if (isset($map['modifier'])) {
             $model->modifier = $map['modifier'];
         }

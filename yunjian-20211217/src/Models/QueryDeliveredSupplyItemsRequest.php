@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Yunjian\V20211217\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class QueryDeliveredSupplyItemsRequest extends Model
 {
@@ -22,18 +22,14 @@ class QueryDeliveredSupplyItemsRequest extends Model
         'commodityTypeCode' => 'commodityTypeCode',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->accountId) {
             $res['accountId'] = $this->accountId;
         }
-
         if (null !== $this->commodityTypeCode) {
             $res['commodityTypeCode'] = $this->commodityTypeCode;
         }
@@ -41,18 +37,17 @@ class QueryDeliveredSupplyItemsRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return QueryDeliveredSupplyItemsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['accountId'])) {
             $model->accountId = $map['accountId'];
         }
-
         if (isset($map['commodityTypeCode'])) {
             $model->commodityTypeCode = $map['commodityTypeCode'];
         }

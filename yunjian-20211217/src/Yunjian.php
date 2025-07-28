@@ -4,7 +4,8 @@
 
 namespace AlibabaCloud\SDK\Yunjian\V20211217;
 
-use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Yunjian\V20211217\Models\AcceptFulfillmentDecisionRequest;
 use AlibabaCloud\SDK\Yunjian\V20211217\Models\AcceptFulfillmentDecisionResponse;
 use AlibabaCloud\SDK\Yunjian\V20211217\Models\CreateDemandPlanHeaders;
@@ -31,6 +32,9 @@ use AlibabaCloud\SDK\Yunjian\V20211217\Models\GetUrgentDemandPlanDetailResponse;
 use AlibabaCloud\SDK\Yunjian\V20211217\Models\GetUrgentDemandPlanListHeaders;
 use AlibabaCloud\SDK\Yunjian\V20211217\Models\GetUrgentDemandPlanListRequest;
 use AlibabaCloud\SDK\Yunjian\V20211217\Models\GetUrgentDemandPlanListResponse;
+use AlibabaCloud\SDK\Yunjian\V20211217\Models\PageDemandPlanWithDemandInfoHeaders;
+use AlibabaCloud\SDK\Yunjian\V20211217\Models\PageDemandPlanWithDemandInfoRequest;
+use AlibabaCloud\SDK\Yunjian\V20211217\Models\PageDemandPlanWithDemandInfoResponse;
 use AlibabaCloud\SDK\Yunjian\V20211217\Models\PushResourcePlanHeaders;
 use AlibabaCloud\SDK\Yunjian\V20211217\Models\PushResourcePlanRequest;
 use AlibabaCloud\SDK\Yunjian\V20211217\Models\PushResourcePlanResponse;
@@ -44,10 +48,11 @@ use AlibabaCloud\SDK\Yunjian\V20211217\Models\SaveUrgentDemandItemResponse;
 use AlibabaCloud\SDK\Yunjian\V20211217\Models\SubmitUrgentDemandPlanHeaders;
 use AlibabaCloud\SDK\Yunjian\V20211217\Models\SubmitUrgentDemandPlanRequest;
 use AlibabaCloud\SDK\Yunjian\V20211217\Models\SubmitUrgentDemandPlanResponse;
+use AlibabaCloud\Tea\Utils\Utils;
+use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
-use Darabonba\OpenApi\Utils;
 
 class Yunjian extends OpenApiClient
 {
@@ -72,80 +77,63 @@ class Yunjian extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (null !== $endpoint) {
+        if (!Utils::empty_($endpoint)) {
             return $endpoint;
         }
-
-        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
+        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
             return @$endpointMap[$regionId];
         }
 
-        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @param request - CreateDemandPlanRequest
-     * @param headers - CreateDemandPlanHeaders
-     * @param runtime - runtime options for this request RuntimeOptions
+     * @param CreateDemandPlanRequest $request CreateDemandPlanRequest
+     * @param CreateDemandPlanHeaders $headers CreateDemandPlanHeaders
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @returns CreateDemandPlanResponse
-     *
-     * @param CreateDemandPlanRequest $request
-     * @param CreateDemandPlanHeaders $headers
-     * @param RuntimeOptions          $runtime
-     *
-     * @return CreateDemandPlanResponse
+     * @return CreateDemandPlanResponse CreateDemandPlanResponse
      */
     public function createDemandPlanWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->userId) {
-            @$query['userId'] = $request->userId;
+        if (!Utils::isUnset($request->userId)) {
+            $query['userId'] = $request->userId;
         }
-
         $body = [];
-        if (null !== $request->accountId) {
-            @$body['accountId'] = $request->accountId;
+        if (!Utils::isUnset($request->accountId)) {
+            $body['accountId'] = $request->accountId;
         }
-
-        if (null !== $request->description) {
-            @$body['description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $body['description'] = $request->description;
         }
-
-        if (null !== $request->name) {
-            @$body['name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $body['name'] = $request->name;
         }
-
-        if (null !== $request->period) {
-            @$body['period'] = $request->period;
+        if (!Utils::isUnset($request->period)) {
+            $body['period'] = $request->period;
         }
-
-        if (null !== $request->source) {
-            @$body['source'] = $request->source;
+        if (!Utils::isUnset($request->source)) {
+            $body['source'] = $request->source;
         }
-
-        if (null !== $request->targetCid) {
-            @$body['targetCid'] = $request->targetCid;
+        if (!Utils::isUnset($request->targetCid)) {
+            $body['targetCid'] = $request->targetCid;
         }
-
-        if (null !== $request->type) {
-            @$body['type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $body['type'] = $request->type;
         }
-
         $realHeaders = [];
-        if (null !== $headers->commonHeaders) {
+        if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
         }
-
-        if (null !== $headers->yunUserId) {
-            @$realHeaders['Yun-User-Id'] = '' . $headers->yunUserId;
+        if (!Utils::isUnset($headers->yunUserId)) {
+            $realHeaders['Yun-User-Id'] = Utils::toJSONString($headers->yunUserId);
         }
-
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateDemandPlan',
@@ -163,13 +151,9 @@ class Yunjian extends OpenApiClient
     }
 
     /**
-     * @param request - CreateDemandPlanRequest
+     * @param CreateDemandPlanRequest $request CreateDemandPlanRequest
      *
-     * @returns CreateDemandPlanResponse
-     *
-     * @param CreateDemandPlanRequest $request
-     *
-     * @return CreateDemandPlanResponse
+     * @return CreateDemandPlanResponse CreateDemandPlanResponse
      */
     public function createDemandPlan($request)
     {
@@ -180,66 +164,51 @@ class Yunjian extends OpenApiClient
     }
 
     /**
-     * 创建plan2.0版本.
+     * @summary 创建plan2.0版本
+     *  *
+     * @param CreateDemandPlanV2Request $request CreateDemandPlanV2Request
+     * @param CreateDemandPlanV2Headers $headers CreateDemandPlanV2Headers
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateDemandPlanV2Request
-     * @param headers - CreateDemandPlanV2Headers
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateDemandPlanV2Response
-     *
-     * @param CreateDemandPlanV2Request $request
-     * @param CreateDemandPlanV2Headers $headers
-     * @param RuntimeOptions            $runtime
-     *
-     * @return CreateDemandPlanV2Response
+     * @return CreateDemandPlanV2Response CreateDemandPlanV2Response
      */
     public function createDemandPlanV2WithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->userId) {
-            @$query['userId'] = $request->userId;
+        if (!Utils::isUnset($request->userId)) {
+            $query['userId'] = $request->userId;
         }
-
         $body = [];
-        if (null !== $request->accountId) {
-            @$body['accountId'] = $request->accountId;
+        if (!Utils::isUnset($request->accountId)) {
+            $body['accountId'] = $request->accountId;
         }
-
-        if (null !== $request->description) {
-            @$body['description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $body['description'] = $request->description;
         }
-
-        if (null !== $request->name) {
-            @$body['name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $body['name'] = $request->name;
         }
-
-        if (null !== $request->productType) {
-            @$body['productType'] = $request->productType;
+        if (!Utils::isUnset($request->productType)) {
+            $body['productType'] = $request->productType;
         }
-
-        if (null !== $request->targetCid) {
-            @$body['targetCid'] = $request->targetCid;
+        if (!Utils::isUnset($request->targetCid)) {
+            $body['targetCid'] = $request->targetCid;
         }
-
-        if (null !== $request->type) {
-            @$body['type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $body['type'] = $request->type;
         }
-
         $realHeaders = [];
-        if (null !== $headers->commonHeaders) {
+        if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
         }
-
-        if (null !== $headers->yunUserId) {
-            @$realHeaders['Yun-User-Id'] = '' . $headers->yunUserId;
+        if (!Utils::isUnset($headers->yunUserId)) {
+            $realHeaders['Yun-User-Id'] = Utils::toJSONString($headers->yunUserId);
         }
-
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateDemandPlanV2',
@@ -257,15 +226,11 @@ class Yunjian extends OpenApiClient
     }
 
     /**
-     * 创建plan2.0版本.
+     * @summary 创建plan2.0版本
+     *  *
+     * @param CreateDemandPlanV2Request $request CreateDemandPlanV2Request
      *
-     * @param request - CreateDemandPlanV2Request
-     *
-     * @returns CreateDemandPlanV2Response
-     *
-     * @param CreateDemandPlanV2Request $request
-     *
-     * @return CreateDemandPlanV2Response
+     * @return CreateDemandPlanV2Response CreateDemandPlanV2Response
      */
     public function createDemandPlanV2($request)
     {
@@ -276,44 +241,34 @@ class Yunjian extends OpenApiClient
     }
 
     /**
-     * 紧急需求单ite 删除.
+     * @summary 紧急需求单ite 删除
+     *  *
+     * @param DeleteUrgentDemandItemRequest $request DeleteUrgentDemandItemRequest
+     * @param DeleteUrgentDemandItemHeaders $headers DeleteUrgentDemandItemHeaders
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteUrgentDemandItemRequest
-     * @param headers - DeleteUrgentDemandItemHeaders
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteUrgentDemandItemResponse
-     *
-     * @param DeleteUrgentDemandItemRequest $request
-     * @param DeleteUrgentDemandItemHeaders $headers
-     * @param RuntimeOptions                $runtime
-     *
-     * @return DeleteUrgentDemandItemResponse
+     * @return DeleteUrgentDemandItemResponse DeleteUrgentDemandItemResponse
      */
     public function deleteUrgentDemandItemWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->id) {
-            @$query['id'] = $request->id;
+        if (!Utils::isUnset($request->id)) {
+            $query['id'] = $request->id;
         }
-
-        if (null !== $request->modifier) {
-            @$query['modifier'] = $request->modifier;
+        if (!Utils::isUnset($request->modifier)) {
+            $query['modifier'] = $request->modifier;
         }
-
         $realHeaders = [];
-        if (null !== $headers->commonHeaders) {
+        if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
         }
-
-        if (null !== $headers->yunUserId) {
-            @$realHeaders['Yun-User-Id'] = '' . $headers->yunUserId;
+        if (!Utils::isUnset($headers->yunUserId)) {
+            $realHeaders['Yun-User-Id'] = Utils::toJSONString($headers->yunUserId);
         }
-
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteUrgentDemandItem',
@@ -331,15 +286,11 @@ class Yunjian extends OpenApiClient
     }
 
     /**
-     * 紧急需求单ite 删除.
+     * @summary 紧急需求单ite 删除
+     *  *
+     * @param DeleteUrgentDemandItemRequest $request DeleteUrgentDemandItemRequest
      *
-     * @param request - DeleteUrgentDemandItemRequest
-     *
-     * @returns DeleteUrgentDemandItemResponse
-     *
-     * @param DeleteUrgentDemandItemRequest $request
-     *
-     * @return DeleteUrgentDemandItemResponse
+     * @return DeleteUrgentDemandItemResponse DeleteUrgentDemandItemResponse
      */
     public function deleteUrgentDemandItem($request)
     {
@@ -350,44 +301,34 @@ class Yunjian extends OpenApiClient
     }
 
     /**
-     * 紧急需求单plan删除.
+     * @summary 紧急需求单plan删除
+     *  *
+     * @param DeleteUrgentDemandPlanRequest $request DeleteUrgentDemandPlanRequest
+     * @param DeleteUrgentDemandPlanHeaders $headers DeleteUrgentDemandPlanHeaders
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteUrgentDemandPlanRequest
-     * @param headers - DeleteUrgentDemandPlanHeaders
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteUrgentDemandPlanResponse
-     *
-     * @param DeleteUrgentDemandPlanRequest $request
-     * @param DeleteUrgentDemandPlanHeaders $headers
-     * @param RuntimeOptions                $runtime
-     *
-     * @return DeleteUrgentDemandPlanResponse
+     * @return DeleteUrgentDemandPlanResponse DeleteUrgentDemandPlanResponse
      */
     public function deleteUrgentDemandPlanWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->id) {
-            @$query['id'] = $request->id;
+        if (!Utils::isUnset($request->id)) {
+            $query['id'] = $request->id;
         }
-
-        if (null !== $request->modifier) {
-            @$query['modifier'] = $request->modifier;
+        if (!Utils::isUnset($request->modifier)) {
+            $query['modifier'] = $request->modifier;
         }
-
         $realHeaders = [];
-        if (null !== $headers->commonHeaders) {
+        if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
         }
-
-        if (null !== $headers->yunUserId) {
-            @$realHeaders['Yun-User-Id'] = '' . $headers->yunUserId;
+        if (!Utils::isUnset($headers->yunUserId)) {
+            $realHeaders['Yun-User-Id'] = Utils::toJSONString($headers->yunUserId);
         }
-
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteUrgentDemandPlan',
@@ -405,15 +346,11 @@ class Yunjian extends OpenApiClient
     }
 
     /**
-     * 紧急需求单plan删除.
+     * @summary 紧急需求单plan删除
+     *  *
+     * @param DeleteUrgentDemandPlanRequest $request DeleteUrgentDemandPlanRequest
      *
-     * @param request - DeleteUrgentDemandPlanRequest
-     *
-     * @returns DeleteUrgentDemandPlanResponse
-     *
-     * @param DeleteUrgentDemandPlanRequest $request
-     *
-     * @return DeleteUrgentDemandPlanResponse
+     * @return DeleteUrgentDemandPlanResponse DeleteUrgentDemandPlanResponse
      */
     public function deleteUrgentDemandPlan($request)
     {
@@ -424,52 +361,40 @@ class Yunjian extends OpenApiClient
     }
 
     /**
-     * 交付信息同步.
+     * @summary 交付信息同步
+     *  *
+     * @param DeliveryItemDetailSynRequest $request DeliveryItemDetailSynRequest
+     * @param DeliveryItemDetailSynHeaders $headers DeliveryItemDetailSynHeaders
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeliveryItemDetailSynRequest
-     * @param headers - DeliveryItemDetailSynHeaders
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeliveryItemDetailSynResponse
-     *
-     * @param DeliveryItemDetailSynRequest $request
-     * @param DeliveryItemDetailSynHeaders $headers
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DeliveryItemDetailSynResponse
+     * @return DeliveryItemDetailSynResponse DeliveryItemDetailSynResponse
      */
     public function deliveryItemDetailSynWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->channel) {
-            @$body['channel'] = $request->channel;
+        if (!Utils::isUnset($request->channel)) {
+            $body['channel'] = $request->channel;
         }
-
-        if (null !== $request->deliveryItemDetailDTOS) {
-            @$body['deliveryItemDetailDTOS'] = $request->deliveryItemDetailDTOS;
+        if (!Utils::isUnset($request->deliveryItemDetailDTOS)) {
+            $body['deliveryItemDetailDTOS'] = $request->deliveryItemDetailDTOS;
         }
-
-        if (null !== $request->deliveryItemId) {
-            @$body['deliveryItemId'] = $request->deliveryItemId;
+        if (!Utils::isUnset($request->deliveryItemId)) {
+            $body['deliveryItemId'] = $request->deliveryItemId;
         }
-
-        if (null !== $request->deliveryPlanId) {
-            @$body['deliveryPlanId'] = $request->deliveryPlanId;
+        if (!Utils::isUnset($request->deliveryPlanId)) {
+            $body['deliveryPlanId'] = $request->deliveryPlanId;
         }
-
         $realHeaders = [];
-        if (null !== $headers->commonHeaders) {
+        if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
         }
-
-        if (null !== $headers->yunUserId) {
-            @$realHeaders['Yun-User-Id'] = '' . $headers->yunUserId;
+        if (!Utils::isUnset($headers->yunUserId)) {
+            $realHeaders['Yun-User-Id'] = Utils::toJSONString($headers->yunUserId);
         }
-
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DeliveryItemDetailSyn',
@@ -487,15 +412,11 @@ class Yunjian extends OpenApiClient
     }
 
     /**
-     * 交付信息同步.
+     * @summary 交付信息同步
+     *  *
+     * @param DeliveryItemDetailSynRequest $request DeliveryItemDetailSynRequest
      *
-     * @param request - DeliveryItemDetailSynRequest
-     *
-     * @returns DeliveryItemDetailSynResponse
-     *
-     * @param DeliveryItemDetailSynRequest $request
-     *
-     * @return DeliveryItemDetailSynResponse
+     * @return DeliveryItemDetailSynResponse DeliveryItemDetailSynResponse
      */
     public function deliveryItemDetailSyn($request)
     {
@@ -506,64 +427,49 @@ class Yunjian extends OpenApiClient
     }
 
     /**
-     * 查询报备单中报备项列表.
+     * @summary 查询报备单中报备项列表
+     *  *
+     * @param GetUrgentDemandItemListRequest $request GetUrgentDemandItemListRequest
+     * @param GetUrgentDemandItemListHeaders $headers GetUrgentDemandItemListHeaders
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetUrgentDemandItemListRequest
-     * @param headers - GetUrgentDemandItemListHeaders
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetUrgentDemandItemListResponse
-     *
-     * @param GetUrgentDemandItemListRequest $request
-     * @param GetUrgentDemandItemListHeaders $headers
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return GetUrgentDemandItemListResponse
+     * @return GetUrgentDemandItemListResponse GetUrgentDemandItemListResponse
      */
     public function getUrgentDemandItemListWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->commodityCode) {
-            @$body['commodityCode'] = $request->commodityCode;
+        if (!Utils::isUnset($request->commodityCode)) {
+            $body['commodityCode'] = $request->commodityCode;
         }
-
-        if (null !== $request->commodityTypeCode) {
-            @$body['commodityTypeCode'] = $request->commodityTypeCode;
+        if (!Utils::isUnset($request->commodityTypeCode)) {
+            $body['commodityTypeCode'] = $request->commodityTypeCode;
         }
-
-        if (null !== $request->current) {
-            @$body['current'] = $request->current;
+        if (!Utils::isUnset($request->current)) {
+            $body['current'] = $request->current;
         }
-
-        if (null !== $request->planId) {
-            @$body['planId'] = $request->planId;
+        if (!Utils::isUnset($request->planId)) {
+            $body['planId'] = $request->planId;
         }
-
-        if (null !== $request->region) {
-            @$body['region'] = $request->region;
+        if (!Utils::isUnset($request->region)) {
+            $body['region'] = $request->region;
         }
-
-        if (null !== $request->size) {
-            @$body['size'] = $request->size;
+        if (!Utils::isUnset($request->size)) {
+            $body['size'] = $request->size;
         }
-
-        if (null !== $request->zone) {
-            @$body['zone'] = $request->zone;
+        if (!Utils::isUnset($request->zone)) {
+            $body['zone'] = $request->zone;
         }
-
         $realHeaders = [];
-        if (null !== $headers->commonHeaders) {
+        if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
         }
-
-        if (null !== $headers->yunUserId) {
-            @$realHeaders['Yun-User-Id'] = '' . $headers->yunUserId;
+        if (!Utils::isUnset($headers->yunUserId)) {
+            $realHeaders['Yun-User-Id'] = Utils::toJSONString($headers->yunUserId);
         }
-
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetUrgentDemandItemList',
@@ -581,15 +487,11 @@ class Yunjian extends OpenApiClient
     }
 
     /**
-     * 查询报备单中报备项列表.
+     * @summary 查询报备单中报备项列表
+     *  *
+     * @param GetUrgentDemandItemListRequest $request GetUrgentDemandItemListRequest
      *
-     * @param request - GetUrgentDemandItemListRequest
-     *
-     * @returns GetUrgentDemandItemListResponse
-     *
-     * @param GetUrgentDemandItemListRequest $request
-     *
-     * @return GetUrgentDemandItemListResponse
+     * @return GetUrgentDemandItemListResponse GetUrgentDemandItemListResponse
      */
     public function getUrgentDemandItemList($request)
     {
@@ -600,40 +502,31 @@ class Yunjian extends OpenApiClient
     }
 
     /**
-     * getUrgentDemandPlanDetail.
+     * @summary getUrgentDemandPlanDetail
+     *  *
+     * @param GetUrgentDemandPlanDetailRequest $request GetUrgentDemandPlanDetailRequest
+     * @param GetUrgentDemandPlanDetailHeaders $headers GetUrgentDemandPlanDetailHeaders
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetUrgentDemandPlanDetailRequest
-     * @param headers - GetUrgentDemandPlanDetailHeaders
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetUrgentDemandPlanDetailResponse
-     *
-     * @param GetUrgentDemandPlanDetailRequest $request
-     * @param GetUrgentDemandPlanDetailHeaders $headers
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return GetUrgentDemandPlanDetailResponse
+     * @return GetUrgentDemandPlanDetailResponse GetUrgentDemandPlanDetailResponse
      */
     public function getUrgentDemandPlanDetailWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->planId) {
-            @$body['planId'] = $request->planId;
+        if (!Utils::isUnset($request->planId)) {
+            $body['planId'] = $request->planId;
         }
-
         $realHeaders = [];
-        if (null !== $headers->commonHeaders) {
+        if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
         }
-
-        if (null !== $headers->yunUserId) {
-            @$realHeaders['Yun-User-Id'] = '' . $headers->yunUserId;
+        if (!Utils::isUnset($headers->yunUserId)) {
+            $realHeaders['Yun-User-Id'] = Utils::toJSONString($headers->yunUserId);
         }
-
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetUrgentDemandPlanDetail',
@@ -651,15 +544,11 @@ class Yunjian extends OpenApiClient
     }
 
     /**
-     * getUrgentDemandPlanDetail.
+     * @summary getUrgentDemandPlanDetail
+     *  *
+     * @param GetUrgentDemandPlanDetailRequest $request GetUrgentDemandPlanDetailRequest
      *
-     * @param request - GetUrgentDemandPlanDetailRequest
-     *
-     * @returns GetUrgentDemandPlanDetailResponse
-     *
-     * @param GetUrgentDemandPlanDetailRequest $request
-     *
-     * @return GetUrgentDemandPlanDetailResponse
+     * @return GetUrgentDemandPlanDetailResponse GetUrgentDemandPlanDetailResponse
      */
     public function getUrgentDemandPlanDetail($request)
     {
@@ -670,56 +559,43 @@ class Yunjian extends OpenApiClient
     }
 
     /**
-     * 查询报备单列表.
+     * @summary 查询报备单列表
+     *  *
+     * @param GetUrgentDemandPlanListRequest $request GetUrgentDemandPlanListRequest
+     * @param GetUrgentDemandPlanListHeaders $headers GetUrgentDemandPlanListHeaders
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetUrgentDemandPlanListRequest
-     * @param headers - GetUrgentDemandPlanListHeaders
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetUrgentDemandPlanListResponse
-     *
-     * @param GetUrgentDemandPlanListRequest $request
-     * @param GetUrgentDemandPlanListHeaders $headers
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return GetUrgentDemandPlanListResponse
+     * @return GetUrgentDemandPlanListResponse GetUrgentDemandPlanListResponse
      */
     public function getUrgentDemandPlanListWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->current) {
-            @$body['current'] = $request->current;
+        if (!Utils::isUnset($request->current)) {
+            $body['current'] = $request->current;
         }
-
-        if (null !== $request->period) {
-            @$body['period'] = $request->period;
+        if (!Utils::isUnset($request->period)) {
+            $body['period'] = $request->period;
         }
-
-        if (null !== $request->planType) {
-            @$body['planType'] = $request->planType;
+        if (!Utils::isUnset($request->planType)) {
+            $body['planType'] = $request->planType;
         }
-
-        if (null !== $request->size) {
-            @$body['size'] = $request->size;
+        if (!Utils::isUnset($request->size)) {
+            $body['size'] = $request->size;
         }
-
-        if (null !== $request->userId) {
-            @$body['userId'] = $request->userId;
+        if (!Utils::isUnset($request->userId)) {
+            $body['userId'] = $request->userId;
         }
-
         $realHeaders = [];
-        if (null !== $headers->commonHeaders) {
+        if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
         }
-
-        if (null !== $headers->yunUserId) {
-            @$realHeaders['Yun-User-Id'] = '' . $headers->yunUserId;
+        if (!Utils::isUnset($headers->yunUserId)) {
+            $realHeaders['Yun-User-Id'] = Utils::toJSONString($headers->yunUserId);
         }
-
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetUrgentDemandPlanList',
@@ -737,15 +613,11 @@ class Yunjian extends OpenApiClient
     }
 
     /**
-     * 查询报备单列表.
+     * @summary 查询报备单列表
+     *  *
+     * @param GetUrgentDemandPlanListRequest $request GetUrgentDemandPlanListRequest
      *
-     * @param request - GetUrgentDemandPlanListRequest
-     *
-     * @returns GetUrgentDemandPlanListResponse
-     *
-     * @param GetUrgentDemandPlanListRequest $request
-     *
-     * @return GetUrgentDemandPlanListResponse
+     * @return GetUrgentDemandPlanListResponse GetUrgentDemandPlanListResponse
      */
     public function getUrgentDemandPlanList($request)
     {
@@ -756,64 +628,139 @@ class Yunjian extends OpenApiClient
     }
 
     /**
-     * ecs资源方案.
+     * @summary 报备列表查询
+     *  *
+     * @param PageDemandPlanWithDemandInfoRequest $request PageDemandPlanWithDemandInfoRequest
+     * @param PageDemandPlanWithDemandInfoHeaders $headers PageDemandPlanWithDemandInfoHeaders
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - PushResourcePlanRequest
-     * @param headers - PushResourcePlanHeaders
-     * @param runtime - runtime options for this request RuntimeOptions
+     * @return PageDemandPlanWithDemandInfoResponse PageDemandPlanWithDemandInfoResponse
+     */
+    public function pageDemandPlanWithDemandInfoWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->approvalStatus)) {
+            $body['approvalStatus'] = $request->approvalStatus;
+        }
+        if (!Utils::isUnset($request->createTimeEnd)) {
+            $body['createTimeEnd'] = $request->createTimeEnd;
+        }
+        if (!Utils::isUnset($request->createTimeStart)) {
+            $body['createTimeStart'] = $request->createTimeStart;
+        }
+        if (!Utils::isUnset($request->creatorStaffId)) {
+            $body['creatorStaffId'] = $request->creatorStaffId;
+        }
+        if (!Utils::isUnset($request->demandDeliveryStatus)) {
+            $body['demandDeliveryStatus'] = $request->demandDeliveryStatus;
+        }
+        if (!Utils::isUnset($request->demandId)) {
+            $body['demandId'] = $request->demandId;
+        }
+        if (!Utils::isUnset($request->demandPlanId)) {
+            $body['demandPlanId'] = $request->demandPlanId;
+        }
+        if (!Utils::isUnset($request->demandPlanStatus)) {
+            $body['demandPlanStatus'] = $request->demandPlanStatus;
+        }
+        if (!Utils::isUnset($request->operator)) {
+            $body['operator'] = $request->operator;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $body['pageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['pageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->roCode)) {
+            $body['roCode'] = $request->roCode;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->yunUserId)) {
+            $realHeaders['Yun-User-Id'] = Utils::toJSONString($headers->yunUserId);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'PageDemandPlanWithDemandInfo',
+            'version' => '2021-12-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/demand/getDemandPlanList',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return PageDemandPlanWithDemandInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 报备列表查询
+     *  *
+     * @param PageDemandPlanWithDemandInfoRequest $request PageDemandPlanWithDemandInfoRequest
      *
-     * @returns PushResourcePlanResponse
+     * @return PageDemandPlanWithDemandInfoResponse PageDemandPlanWithDemandInfoResponse
+     */
+    public function pageDemandPlanWithDemandInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new PageDemandPlanWithDemandInfoHeaders([]);
+
+        return $this->pageDemandPlanWithDemandInfoWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary ecs资源方案
+     *  *
+     * @param PushResourcePlanRequest $request PushResourcePlanRequest
+     * @param PushResourcePlanHeaders $headers PushResourcePlanHeaders
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param PushResourcePlanRequest $request
-     * @param PushResourcePlanHeaders $headers
-     * @param RuntimeOptions          $runtime
-     *
-     * @return PushResourcePlanResponse
+     * @return PushResourcePlanResponse PushResourcePlanResponse
      */
     public function pushResourcePlanWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->bufferCnt) {
-            @$body['bufferCnt'] = $request->bufferCnt;
+        if (!Utils::isUnset($request->bufferCnt)) {
+            $body['bufferCnt'] = $request->bufferCnt;
         }
-
-        if (null !== $request->demandCount) {
-            @$body['demandCount'] = $request->demandCount;
+        if (!Utils::isUnset($request->demandCount)) {
+            $body['demandCount'] = $request->demandCount;
         }
-
-        if (null !== $request->demandId) {
-            @$body['demandId'] = $request->demandId;
+        if (!Utils::isUnset($request->demandId)) {
+            $body['demandId'] = $request->demandId;
         }
-
-        if (null !== $request->methodList) {
-            @$body['methodList'] = $request->methodList;
+        if (!Utils::isUnset($request->methodList)) {
+            $body['methodList'] = $request->methodList;
         }
-
-        if (null !== $request->requestId) {
-            @$body['requestId'] = $request->requestId;
+        if (!Utils::isUnset($request->requestId)) {
+            $body['requestId'] = $request->requestId;
         }
-
-        if (null !== $request->requireCnt) {
-            @$body['requireCnt'] = $request->requireCnt;
+        if (!Utils::isUnset($request->requireCnt)) {
+            $body['requireCnt'] = $request->requireCnt;
         }
-
-        if (null !== $request->subDemandId) {
-            @$body['subDemandId'] = $request->subDemandId;
+        if (!Utils::isUnset($request->subDemandId)) {
+            $body['subDemandId'] = $request->subDemandId;
         }
-
         $realHeaders = [];
-        if (null !== $headers->commonHeaders) {
+        if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
         }
-
-        if (null !== $headers->yunUserId) {
-            @$realHeaders['Yun-User-Id'] = '' . $headers->yunUserId;
+        if (!Utils::isUnset($headers->yunUserId)) {
+            $realHeaders['Yun-User-Id'] = Utils::toJSONString($headers->yunUserId);
         }
-
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'PushResourcePlan',
@@ -831,15 +778,11 @@ class Yunjian extends OpenApiClient
     }
 
     /**
-     * ecs资源方案.
+     * @summary ecs资源方案
+     *  *
+     * @param PushResourcePlanRequest $request PushResourcePlanRequest
      *
-     * @param request - PushResourcePlanRequest
-     *
-     * @returns PushResourcePlanResponse
-     *
-     * @param PushResourcePlanRequest $request
-     *
-     * @return PushResourcePlanResponse
+     * @return PushResourcePlanResponse PushResourcePlanResponse
      */
     public function pushResourcePlan($request)
     {
@@ -850,35 +793,27 @@ class Yunjian extends OpenApiClient
     }
 
     /**
-     * 查询accountId下所有存在交付状态（包括部分）的报备数据, 以及开通数据情况.
+     * @summary 查询accountId下所有存在交付状态（包括部分）的报备数据, 以及开通数据情况
+     *  *
+     * @param QueryDeliveredSupplyItemsRequest $request QueryDeliveredSupplyItemsRequest
+     * @param string[]                         $headers map
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - QueryDeliveredSupplyItemsRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns QueryDeliveredSupplyItemsResponse
-     *
-     * @param QueryDeliveredSupplyItemsRequest $request
-     * @param string[]                         $headers
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return QueryDeliveredSupplyItemsResponse
+     * @return QueryDeliveredSupplyItemsResponse QueryDeliveredSupplyItemsResponse
      */
     public function queryDeliveredSupplyItemsWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountId) {
-            @$query['accountId'] = $request->accountId;
+        if (!Utils::isUnset($request->accountId)) {
+            $query['accountId'] = $request->accountId;
         }
-
-        if (null !== $request->commodityTypeCode) {
-            @$query['commodityTypeCode'] = $request->commodityTypeCode;
+        if (!Utils::isUnset($request->commodityTypeCode)) {
+            $query['commodityTypeCode'] = $request->commodityTypeCode;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryDeliveredSupplyItems',
@@ -896,15 +831,11 @@ class Yunjian extends OpenApiClient
     }
 
     /**
-     * 查询accountId下所有存在交付状态（包括部分）的报备数据, 以及开通数据情况.
+     * @summary 查询accountId下所有存在交付状态（包括部分）的报备数据, 以及开通数据情况
+     *  *
+     * @param QueryDeliveredSupplyItemsRequest $request QueryDeliveredSupplyItemsRequest
      *
-     * @param request - QueryDeliveredSupplyItemsRequest
-     *
-     * @returns QueryDeliveredSupplyItemsResponse
-     *
-     * @param QueryDeliveredSupplyItemsRequest $request
-     *
-     * @return QueryDeliveredSupplyItemsResponse
+     * @return QueryDeliveredSupplyItemsResponse QueryDeliveredSupplyItemsResponse
      */
     public function queryDeliveredSupplyItems($request)
     {
@@ -915,39 +846,30 @@ class Yunjian extends OpenApiClient
     }
 
     /**
-     * 查询账单预算数据.
+     * @summary 查询账单预算数据
+     *  *
+     * @param QueryPeriodBudgetBillRequest $request QueryPeriodBudgetBillRequest
+     * @param string[]                     $headers map
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - QueryPeriodBudgetBillRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns QueryPeriodBudgetBillResponse
-     *
-     * @param QueryPeriodBudgetBillRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
-     *
-     * @return QueryPeriodBudgetBillResponse
+     * @return QueryPeriodBudgetBillResponse QueryPeriodBudgetBillResponse
      */
     public function queryPeriodBudgetBillWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->objectIds) {
-            @$query['objectIds'] = $request->objectIds;
+        if (!Utils::isUnset($request->objectIds)) {
+            $query['objectIds'] = $request->objectIds;
         }
-
-        if (null !== $request->objectType) {
-            @$query['objectType'] = $request->objectType;
+        if (!Utils::isUnset($request->objectType)) {
+            $query['objectType'] = $request->objectType;
         }
-
-        if (null !== $request->period) {
-            @$query['period'] = $request->period;
+        if (!Utils::isUnset($request->period)) {
+            $query['period'] = $request->period;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryPeriodBudgetBill',
@@ -965,15 +887,11 @@ class Yunjian extends OpenApiClient
     }
 
     /**
-     * 查询账单预算数据.
+     * @summary 查询账单预算数据
+     *  *
+     * @param QueryPeriodBudgetBillRequest $request QueryPeriodBudgetBillRequest
      *
-     * @param request - QueryPeriodBudgetBillRequest
-     *
-     * @returns QueryPeriodBudgetBillResponse
-     *
-     * @param QueryPeriodBudgetBillRequest $request
-     *
-     * @return QueryPeriodBudgetBillResponse
+     * @return QueryPeriodBudgetBillResponse QueryPeriodBudgetBillResponse
      */
     public function queryPeriodBudgetBill($request)
     {
@@ -984,88 +902,67 @@ class Yunjian extends OpenApiClient
     }
 
     /**
-     * 紧急需求单item新增.
+     * @summary 紧急需求单item新增
+     *  *
+     * @param SaveUrgentDemandItemRequest $request SaveUrgentDemandItemRequest
+     * @param SaveUrgentDemandItemHeaders $headers SaveUrgentDemandItemHeaders
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - SaveUrgentDemandItemRequest
-     * @param headers - SaveUrgentDemandItemHeaders
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns SaveUrgentDemandItemResponse
-     *
-     * @param SaveUrgentDemandItemRequest $request
-     * @param SaveUrgentDemandItemHeaders $headers
-     * @param RuntimeOptions              $runtime
-     *
-     * @return SaveUrgentDemandItemResponse
+     * @return SaveUrgentDemandItemResponse SaveUrgentDemandItemResponse
      */
     public function saveUrgentDemandItemWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->accountId) {
-            @$body['accountId'] = $request->accountId;
+        if (!Utils::isUnset($request->accountId)) {
+            $body['accountId'] = $request->accountId;
         }
-
-        if (null !== $request->creator) {
-            @$body['creator'] = $request->creator;
+        if (!Utils::isUnset($request->creator)) {
+            $body['creator'] = $request->creator;
         }
-
-        if (null !== $request->effectTime) {
-            @$body['effectTime'] = $request->effectTime;
+        if (!Utils::isUnset($request->effectTime)) {
+            $body['effectTime'] = $request->effectTime;
         }
-
-        if (null !== $request->modifier) {
-            @$body['modifier'] = $request->modifier;
+        if (!Utils::isUnset($request->modifier)) {
+            $body['modifier'] = $request->modifier;
         }
-
-        if (null !== $request->networkType) {
-            @$body['networkType'] = $request->networkType;
+        if (!Utils::isUnset($request->networkType)) {
+            $body['networkType'] = $request->networkType;
         }
-
-        if (null !== $request->payDuration) {
-            @$body['payDuration'] = $request->payDuration;
+        if (!Utils::isUnset($request->payDuration)) {
+            $body['payDuration'] = $request->payDuration;
         }
-
-        if (null !== $request->payDurationUnit) {
-            @$body['payDurationUnit'] = $request->payDurationUnit;
+        if (!Utils::isUnset($request->payDurationUnit)) {
+            $body['payDurationUnit'] = $request->payDurationUnit;
         }
-
-        if (null !== $request->payType) {
-            @$body['payType'] = $request->payType;
+        if (!Utils::isUnset($request->payType)) {
+            $body['payType'] = $request->payType;
         }
-
-        if (null !== $request->planId) {
-            @$body['planId'] = $request->planId;
+        if (!Utils::isUnset($request->planId)) {
+            $body['planId'] = $request->planId;
         }
-
-        if (null !== $request->region) {
-            @$body['region'] = $request->region;
+        if (!Utils::isUnset($request->region)) {
+            $body['region'] = $request->region;
         }
-
-        if (null !== $request->urgentDemandEbsRequest) {
-            @$body['urgentDemandEbsRequest'] = $request->urgentDemandEbsRequest;
+        if (!Utils::isUnset($request->urgentDemandEbsRequest)) {
+            $body['urgentDemandEbsRequest'] = $request->urgentDemandEbsRequest;
         }
-
-        if (null !== $request->urgentDemandEcsRequest) {
-            @$body['urgentDemandEcsRequest'] = $request->urgentDemandEcsRequest;
+        if (!Utils::isUnset($request->urgentDemandEcsRequest)) {
+            $body['urgentDemandEcsRequest'] = $request->urgentDemandEcsRequest;
         }
-
-        if (null !== $request->zone) {
-            @$body['zone'] = $request->zone;
+        if (!Utils::isUnset($request->zone)) {
+            $body['zone'] = $request->zone;
         }
-
         $realHeaders = [];
-        if (null !== $headers->commonHeaders) {
+        if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
         }
-
-        if (null !== $headers->yunUserId) {
-            @$realHeaders['Yun-User-Id'] = '' . $headers->yunUserId;
+        if (!Utils::isUnset($headers->yunUserId)) {
+            $realHeaders['Yun-User-Id'] = Utils::toJSONString($headers->yunUserId);
         }
-
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'SaveUrgentDemandItem',
@@ -1083,15 +980,11 @@ class Yunjian extends OpenApiClient
     }
 
     /**
-     * 紧急需求单item新增.
+     * @summary 紧急需求单item新增
+     *  *
+     * @param SaveUrgentDemandItemRequest $request SaveUrgentDemandItemRequest
      *
-     * @param request - SaveUrgentDemandItemRequest
-     *
-     * @returns SaveUrgentDemandItemResponse
-     *
-     * @param SaveUrgentDemandItemRequest $request
-     *
-     * @return SaveUrgentDemandItemResponse
+     * @return SaveUrgentDemandItemResponse SaveUrgentDemandItemResponse
      */
     public function saveUrgentDemandItem($request)
     {
@@ -1102,44 +995,34 @@ class Yunjian extends OpenApiClient
     }
 
     /**
-     * submitUrgentDemandPlan.
+     * @summary submitUrgentDemandPlan
+     *  *
+     * @param SubmitUrgentDemandPlanRequest $request SubmitUrgentDemandPlanRequest
+     * @param SubmitUrgentDemandPlanHeaders $headers SubmitUrgentDemandPlanHeaders
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - SubmitUrgentDemandPlanRequest
-     * @param headers - SubmitUrgentDemandPlanHeaders
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns SubmitUrgentDemandPlanResponse
-     *
-     * @param SubmitUrgentDemandPlanRequest $request
-     * @param SubmitUrgentDemandPlanHeaders $headers
-     * @param RuntimeOptions                $runtime
-     *
-     * @return SubmitUrgentDemandPlanResponse
+     * @return SubmitUrgentDemandPlanResponse SubmitUrgentDemandPlanResponse
      */
     public function submitUrgentDemandPlanWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->planId) {
-            @$query['planId'] = $request->planId;
+        if (!Utils::isUnset($request->planId)) {
+            $query['planId'] = $request->planId;
         }
-
-        if (null !== $request->userId) {
-            @$query['userId'] = $request->userId;
+        if (!Utils::isUnset($request->userId)) {
+            $query['userId'] = $request->userId;
         }
-
         $realHeaders = [];
-        if (null !== $headers->commonHeaders) {
+        if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
         }
-
-        if (null !== $headers->yunUserId) {
-            @$realHeaders['Yun-User-Id'] = '' . $headers->yunUserId;
+        if (!Utils::isUnset($headers->yunUserId)) {
+            $realHeaders['Yun-User-Id'] = Utils::toJSONString($headers->yunUserId);
         }
-
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'SubmitUrgentDemandPlan',
@@ -1157,15 +1040,11 @@ class Yunjian extends OpenApiClient
     }
 
     /**
-     * submitUrgentDemandPlan.
+     * @summary submitUrgentDemandPlan
+     *  *
+     * @param SubmitUrgentDemandPlanRequest $request SubmitUrgentDemandPlanRequest
      *
-     * @param request - SubmitUrgentDemandPlanRequest
-     *
-     * @returns SubmitUrgentDemandPlanResponse
-     *
-     * @param SubmitUrgentDemandPlanRequest $request
-     *
-     * @return SubmitUrgentDemandPlanResponse
+     * @return SubmitUrgentDemandPlanResponse SubmitUrgentDemandPlanResponse
      */
     public function submitUrgentDemandPlan($request)
     {
@@ -1176,39 +1055,30 @@ class Yunjian extends OpenApiClient
     }
 
     /**
-     * 云产品交付决策反馈回调.
+     * @summary 云产品交付决策反馈回调
+     *  *
+     * @param AcceptFulfillmentDecisionRequest $request AcceptFulfillmentDecisionRequest
+     * @param string[]                         $headers map
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - AcceptFulfillmentDecisionRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns AcceptFulfillmentDecisionResponse
-     *
-     * @param AcceptFulfillmentDecisionRequest $request
-     * @param string[]                         $headers
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return AcceptFulfillmentDecisionResponse
+     * @return AcceptFulfillmentDecisionResponse AcceptFulfillmentDecisionResponse
      */
     public function acceptFulfillmentDecisionWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->decisionConclusion) {
-            @$body['DecisionConclusion'] = $request->decisionConclusion;
+        if (!Utils::isUnset($request->decisionConclusion)) {
+            $body['DecisionConclusion'] = $request->decisionConclusion;
         }
-
-        if (null !== $request->decisionType) {
-            @$body['DecisionType'] = $request->decisionType;
+        if (!Utils::isUnset($request->decisionType)) {
+            $body['DecisionType'] = $request->decisionType;
         }
-
-        if (null !== $request->orderId) {
-            @$body['OrderId'] = $request->orderId;
+        if (!Utils::isUnset($request->orderId)) {
+            $body['OrderId'] = $request->orderId;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'acceptFulfillmentDecision',
@@ -1226,15 +1096,11 @@ class Yunjian extends OpenApiClient
     }
 
     /**
-     * 云产品交付决策反馈回调.
+     * @summary 云产品交付决策反馈回调
+     *  *
+     * @param AcceptFulfillmentDecisionRequest $request AcceptFulfillmentDecisionRequest
      *
-     * @param request - AcceptFulfillmentDecisionRequest
-     *
-     * @returns AcceptFulfillmentDecisionResponse
-     *
-     * @param AcceptFulfillmentDecisionRequest $request
-     *
-     * @return AcceptFulfillmentDecisionResponse
+     * @return AcceptFulfillmentDecisionResponse AcceptFulfillmentDecisionResponse
      */
     public function acceptFulfillmentDecision($request)
     {

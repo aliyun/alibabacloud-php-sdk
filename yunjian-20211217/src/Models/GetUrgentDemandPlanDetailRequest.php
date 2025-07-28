@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Yunjian\V20211217\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetUrgentDemandPlanDetailRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 111223
+     *
      * @var string
      */
     public $planId;
@@ -16,12 +20,9 @@ class GetUrgentDemandPlanDetailRequest extends Model
         'planId' => 'planId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->planId) {
@@ -31,11 +32,11 @@ class GetUrgentDemandPlanDetailRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetUrgentDemandPlanDetailRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

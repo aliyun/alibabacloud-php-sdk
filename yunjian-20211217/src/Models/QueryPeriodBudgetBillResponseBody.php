@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Yunjian\V20211217\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Yunjian\V20211217\Models\QueryPeriodBudgetBillResponseBody\periodBudgetBillDTOS;
+use AlibabaCloud\Tea\Model;
 
 class QueryPeriodBudgetBillResponseBody extends Model
 {
@@ -17,23 +17,17 @@ class QueryPeriodBudgetBillResponseBody extends Model
         'periodBudgetBillDTOS' => 'periodBudgetBillDTOS',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->periodBudgetBillDTOS)) {
-            Model::validateArray($this->periodBudgetBillDTOS);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->periodBudgetBillDTOS) {
-            if (\is_array($this->periodBudgetBillDTOS)) {
-                $res['periodBudgetBillDTOS'] = [];
-                $n1 = 0;
-                foreach ($this->periodBudgetBillDTOS as $item1) {
-                    $res['periodBudgetBillDTOS'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['periodBudgetBillDTOS'] = [];
+            if (null !== $this->periodBudgetBillDTOS && \is_array($this->periodBudgetBillDTOS)) {
+                $n = 0;
+                foreach ($this->periodBudgetBillDTOS as $item) {
+                    $res['periodBudgetBillDTOS'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +35,20 @@ class QueryPeriodBudgetBillResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return QueryPeriodBudgetBillResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['periodBudgetBillDTOS'])) {
             if (!empty($map['periodBudgetBillDTOS'])) {
                 $model->periodBudgetBillDTOS = [];
-                $n1 = 0;
-                foreach ($map['periodBudgetBillDTOS'] as $item1) {
-                    $model->periodBudgetBillDTOS[$n1++] = periodBudgetBillDTOS::fromMap($item1);
+                $n = 0;
+                foreach ($map['periodBudgetBillDTOS'] as $item) {
+                    $model->periodBudgetBillDTOS[$n++] = null !== $item ? periodBudgetBillDTOS::fromMap($item) : $item;
                 }
             }
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Yunjian\V20211217\Models\DeliveryItemDetailSynRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class deliveryItemDetailDTOS extends Model
 {
@@ -100,70 +100,53 @@ class deliveryItemDetailDTOS extends Model
         'totalOrderId' => 'totalOrderId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->actualSupplyTime) {
             $res['actualSupplyTime'] = $this->actualSupplyTime;
         }
-
         if (null !== $this->amount) {
             $res['amount'] = $this->amount;
         }
-
         if (null !== $this->comment) {
             $res['comment'] = $this->comment;
         }
-
         if (null !== $this->deliveredAmount) {
             $res['deliveredAmount'] = $this->deliveredAmount;
         }
-
         if (null !== $this->deliveryItemId) {
             $res['deliveryItemId'] = $this->deliveryItemId;
         }
-
         if (null !== $this->deliveryPlanId) {
             $res['deliveryPlanId'] = $this->deliveryPlanId;
         }
-
         if (null !== $this->lastSupplyTime) {
             $res['lastSupplyTime'] = $this->lastSupplyTime;
         }
-
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
-
         if (null !== $this->subDemandSupplyPerformerName) {
             $res['subDemandSupplyPerformerName'] = $this->subDemandSupplyPerformerName;
         }
-
         if (null !== $this->subDemandSupplyPerformerUid) {
             $res['subDemandSupplyPerformerUid'] = $this->subDemandSupplyPerformerUid;
         }
-
         if (null !== $this->subDemandSupplyPmName) {
             $res['subDemandSupplyPmName'] = $this->subDemandSupplyPmName;
         }
-
         if (null !== $this->subDemandSupplyPmUid) {
             $res['subDemandSupplyPmUid'] = $this->subDemandSupplyPmUid;
         }
-
         if (null !== $this->subOrderId) {
             $res['subOrderId'] = $this->subOrderId;
         }
-
         if (null !== $this->supplyStatus) {
             $res['supplyStatus'] = $this->supplyStatus;
         }
-
         if (null !== $this->totalOrderId) {
             $res['totalOrderId'] = $this->totalOrderId;
         }
@@ -171,70 +154,56 @@ class deliveryItemDetailDTOS extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return deliveryItemDetailDTOS
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['actualSupplyTime'])) {
             $model->actualSupplyTime = $map['actualSupplyTime'];
         }
-
         if (isset($map['amount'])) {
             $model->amount = $map['amount'];
         }
-
         if (isset($map['comment'])) {
             $model->comment = $map['comment'];
         }
-
         if (isset($map['deliveredAmount'])) {
             $model->deliveredAmount = $map['deliveredAmount'];
         }
-
         if (isset($map['deliveryItemId'])) {
             $model->deliveryItemId = $map['deliveryItemId'];
         }
-
         if (isset($map['deliveryPlanId'])) {
             $model->deliveryPlanId = $map['deliveryPlanId'];
         }
-
         if (isset($map['lastSupplyTime'])) {
             $model->lastSupplyTime = $map['lastSupplyTime'];
         }
-
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }
-
         if (isset($map['subDemandSupplyPerformerName'])) {
             $model->subDemandSupplyPerformerName = $map['subDemandSupplyPerformerName'];
         }
-
         if (isset($map['subDemandSupplyPerformerUid'])) {
             $model->subDemandSupplyPerformerUid = $map['subDemandSupplyPerformerUid'];
         }
-
         if (isset($map['subDemandSupplyPmName'])) {
             $model->subDemandSupplyPmName = $map['subDemandSupplyPmName'];
         }
-
         if (isset($map['subDemandSupplyPmUid'])) {
             $model->subDemandSupplyPmUid = $map['subDemandSupplyPmUid'];
         }
-
         if (isset($map['subOrderId'])) {
             $model->subOrderId = $map['subOrderId'];
         }
-
         if (isset($map['supplyStatus'])) {
             $model->supplyStatus = $map['supplyStatus'];
         }
-
         if (isset($map['totalOrderId'])) {
             $model->totalOrderId = $map['totalOrderId'];
         }

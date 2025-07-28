@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Yunjian\V20211217\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetUrgentDemandItemListRequest extends Model
 {
@@ -14,11 +14,15 @@ class GetUrgentDemandItemListRequest extends Model
     public $commodityCode;
 
     /**
+     * @example ecs/yundisk
+     *
      * @var string
      */
     public $commodityTypeCode;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $current;
@@ -34,6 +38,8 @@ class GetUrgentDemandItemListRequest extends Model
     public $region;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $size;
@@ -52,38 +58,29 @@ class GetUrgentDemandItemListRequest extends Model
         'zone' => 'zone',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->commodityCode) {
             $res['commodityCode'] = $this->commodityCode;
         }
-
         if (null !== $this->commodityTypeCode) {
             $res['commodityTypeCode'] = $this->commodityTypeCode;
         }
-
         if (null !== $this->current) {
             $res['current'] = $this->current;
         }
-
         if (null !== $this->planId) {
             $res['planId'] = $this->planId;
         }
-
         if (null !== $this->region) {
             $res['region'] = $this->region;
         }
-
         if (null !== $this->size) {
             $res['size'] = $this->size;
         }
-
         if (null !== $this->zone) {
             $res['zone'] = $this->zone;
         }
@@ -91,38 +88,32 @@ class GetUrgentDemandItemListRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetUrgentDemandItemListRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['commodityCode'])) {
             $model->commodityCode = $map['commodityCode'];
         }
-
         if (isset($map['commodityTypeCode'])) {
             $model->commodityTypeCode = $map['commodityTypeCode'];
         }
-
         if (isset($map['current'])) {
             $model->current = $map['current'];
         }
-
         if (isset($map['planId'])) {
             $model->planId = $map['planId'];
         }
-
         if (isset($map['region'])) {
             $model->region = $map['region'];
         }
-
         if (isset($map['size'])) {
             $model->size = $map['size'];
         }
-
         if (isset($map['zone'])) {
             $model->zone = $map['zone'];
         }

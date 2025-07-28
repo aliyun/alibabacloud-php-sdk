@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Yunjian\V20211217\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class QueryPeriodBudgetBillRequest extends Model
 {
@@ -28,22 +28,17 @@ class QueryPeriodBudgetBillRequest extends Model
         'period' => 'period',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->objectIds) {
             $res['objectIds'] = $this->objectIds;
         }
-
         if (null !== $this->objectType) {
             $res['objectType'] = $this->objectType;
         }
-
         if (null !== $this->period) {
             $res['period'] = $this->period;
         }
@@ -51,22 +46,20 @@ class QueryPeriodBudgetBillRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return QueryPeriodBudgetBillRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['objectIds'])) {
             $model->objectIds = $map['objectIds'];
         }
-
         if (isset($map['objectType'])) {
             $model->objectType = $map['objectType'];
         }
-
         if (isset($map['period'])) {
             $model->period = $map['period'];
         }

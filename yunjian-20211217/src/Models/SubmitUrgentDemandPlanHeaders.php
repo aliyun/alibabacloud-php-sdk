@@ -4,44 +4,32 @@
 
 namespace AlibabaCloud\SDK\Yunjian\V20211217\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class SubmitUrgentDemandPlanHeaders extends Model
 {
-    /**
-     * @var string[]
-     */
     public $commonHeaders;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 262940
+     *
      * @var string
      */
     public $yunUserId;
     protected $_name = [
-        'commonHeaders' => 'commonHeaders',
         'yunUserId' => 'Yun-User-Id',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->commonHeaders)) {
-            Model::validateArray($this->commonHeaders);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->commonHeaders) {
-            if (\is_array($this->commonHeaders)) {
-                $res['commonHeaders'] = [];
-                foreach ($this->commonHeaders as $key1 => $value1) {
-                    $res['commonHeaders'][$key1] = $value1;
-                }
-            }
+            $res['commonHeaders'] = $this->commonHeaders;
         }
-
         if (null !== $this->yunUserId) {
             $res['Yun-User-Id'] = $this->yunUserId;
         }
@@ -49,23 +37,17 @@ class SubmitUrgentDemandPlanHeaders extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return SubmitUrgentDemandPlanHeaders
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['commonHeaders'])) {
-            if (!empty($map['commonHeaders'])) {
-                $model->commonHeaders = [];
-                foreach ($map['commonHeaders'] as $key1 => $value1) {
-                    $model->commonHeaders[$key1] = $value1;
-                }
-            }
+            $model->commonHeaders = $map['commonHeaders'];
         }
-
         if (isset($map['Yun-User-Id'])) {
             $model->yunUserId = $map['Yun-User-Id'];
         }

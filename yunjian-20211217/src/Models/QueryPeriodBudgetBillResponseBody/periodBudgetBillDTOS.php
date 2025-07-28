@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Yunjian\V20211217\Models\QueryPeriodBudgetBillResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class periodBudgetBillDTOS extends Model
 {
@@ -34,26 +34,20 @@ class periodBudgetBillDTOS extends Model
         'month' => 'month',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->bill) {
             $res['bill'] = $this->bill;
         }
-
         if (null !== $this->budget) {
             $res['budget'] = $this->budget;
         }
-
         if (null !== $this->lastYearBill) {
             $res['lastYearBill'] = $this->lastYearBill;
         }
-
         if (null !== $this->month) {
             $res['month'] = $this->month;
         }
@@ -61,26 +55,23 @@ class periodBudgetBillDTOS extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return periodBudgetBillDTOS
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['bill'])) {
             $model->bill = $map['bill'];
         }
-
         if (isset($map['budget'])) {
             $model->budget = $map['budget'];
         }
-
         if (isset($map['lastYearBill'])) {
             $model->lastYearBill = $map['lastYearBill'];
         }
-
         if (isset($map['month'])) {
             $model->month = $map['month'];
         }

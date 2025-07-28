@@ -6,14 +6,12 @@ namespace AlibabaCloud\SDK\Yunjian\V20211217\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetUrgentDemandPlanDetailHeaders extends Model
+class PageDemandPlanWithDemandInfoHeaders extends Model
 {
     public $commonHeaders;
 
     /**
      * @description This parameter is required.
-     *
-     * @example 262940
      *
      * @var string
      */
@@ -40,7 +38,7 @@ class GetUrgentDemandPlanDetailHeaders extends Model
     /**
      * @param array $map
      *
-     * @return GetUrgentDemandPlanDetailHeaders
+     * @return PageDemandPlanWithDemandInfoHeaders
      */
     public static function fromMap($map = [])
     {

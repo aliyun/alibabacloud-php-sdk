@@ -4,39 +4,28 @@
 
 namespace AlibabaCloud\SDK\Yunjian\V20211217\Models;
 
+use AlibabaCloud\SDK\Yunjian\V20211217\Models\PageDemandPlanWithDemandInfoResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class PushResourcePlanResponseBody extends Model
+class PageDemandPlanWithDemandInfoResponseBody extends Model
 {
     /**
-     * @var int
-     */
-    public $code;
-
-    /**
-     * @var bool
+     * @var data
      */
     public $data;
 
     /**
      * @var string
      */
-    public $message;
-
-    /**
-     * @var bool
-     */
-    public $success;
+    public $requestId;
 
     /**
      * @var string
      */
     public $traceId;
     protected $_name = [
-        'code' => 'code',
         'data' => 'data',
-        'message' => 'message',
-        'success' => 'success',
+        'requestId' => 'requestId',
         'traceId' => 'traceId',
     ];
 
@@ -45,17 +34,11 @@ class PushResourcePlanResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->code) {
-            $res['code'] = $this->code;
-        }
         if (null !== $this->data) {
-            $res['data'] = $this->data;
+            $res['data'] = null !== $this->data ? $this->data->toMap() : null;
         }
-        if (null !== $this->message) {
-            $res['message'] = $this->message;
-        }
-        if (null !== $this->success) {
-            $res['success'] = $this->success;
+        if (null !== $this->requestId) {
+            $res['requestId'] = $this->requestId;
         }
         if (null !== $this->traceId) {
             $res['traceId'] = $this->traceId;
@@ -67,22 +50,16 @@ class PushResourcePlanResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return PushResourcePlanResponseBody
+     * @return PageDemandPlanWithDemandInfoResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['code'])) {
-            $model->code = $map['code'];
-        }
         if (isset($map['data'])) {
-            $model->data = $map['data'];
+            $model->data = data::fromMap($map['data']);
         }
-        if (isset($map['message'])) {
-            $model->message = $map['message'];
-        }
-        if (isset($map['success'])) {
-            $model->success = $map['success'];
+        if (isset($map['requestId'])) {
+            $model->requestId = $map['requestId'];
         }
         if (isset($map['traceId'])) {
             $model->traceId = $map['traceId'];
