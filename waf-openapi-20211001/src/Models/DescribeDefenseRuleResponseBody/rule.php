@@ -39,6 +39,11 @@ class rule extends Model
     public $defenseScene;
 
     /**
+     * @var string
+     */
+    public $defenseType;
+
+    /**
      * @description The most recent time when the protection rule was modified.
      *
      * @example 1665196746000
@@ -94,6 +99,7 @@ class rule extends Model
         'config' => 'Config',
         'defenseOrigin' => 'DefenseOrigin',
         'defenseScene' => 'DefenseScene',
+        'defenseType' => 'DefenseType',
         'gmtModified' => 'GmtModified',
         'resource' => 'Resource',
         'ruleId' => 'RuleId',
@@ -115,6 +121,9 @@ class rule extends Model
         }
         if (null !== $this->defenseScene) {
             $res['DefenseScene'] = $this->defenseScene;
+        }
+        if (null !== $this->defenseType) {
+            $res['DefenseType'] = $this->defenseType;
         }
         if (null !== $this->gmtModified) {
             $res['GmtModified'] = $this->gmtModified;
@@ -154,6 +163,9 @@ class rule extends Model
         }
         if (isset($map['DefenseScene'])) {
             $model->defenseScene = $map['DefenseScene'];
+        }
+        if (isset($map['DefenseType'])) {
+            $model->defenseType = $map['DefenseType'];
         }
         if (isset($map['GmtModified'])) {
             $model->gmtModified = $map['GmtModified'];

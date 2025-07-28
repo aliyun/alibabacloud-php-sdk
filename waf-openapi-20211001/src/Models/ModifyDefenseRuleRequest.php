@@ -11,8 +11,6 @@ class ModifyDefenseRuleRequest extends Model
     /**
      * @description The scenario in which you want to use the protection rule. For more information, see the description of the **DefenseScene** parameter in the [CreateDefenseRule](~~CreateDefenseRule~~) topic.
      *
-     * This parameter is required.
-     *
      * @example waf_group
      *
      * @var string

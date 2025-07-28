@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ModifyDefenseRuleStatusRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $defenseType;
+
+    /**
      * @description The ID of the Web Application Firewall (WAF) instance.
      *
      * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to obtain the ID of the WAF instance.
@@ -70,14 +75,13 @@ class ModifyDefenseRuleStatusRequest extends Model
     /**
      * @description The ID of the protection rule template to which the protection rule whose status you want to change belongs.
      *
-     * This parameter is required.
-     *
      * @example 7239
      *
      * @var int
      */
     public $templateId;
     protected $_name = [
+        'defenseType' => 'DefenseType',
         'instanceId' => 'InstanceId',
         'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
@@ -91,6 +95,9 @@ class ModifyDefenseRuleStatusRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->defenseType) {
+            $res['DefenseType'] = $this->defenseType;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -121,6 +128,9 @@ class ModifyDefenseRuleStatusRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DefenseType'])) {
+            $model->defenseType = $map['DefenseType'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

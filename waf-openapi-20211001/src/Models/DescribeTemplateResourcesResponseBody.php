@@ -37,12 +37,18 @@ class DescribeTemplateResourcesResponseBody extends Model
     /**
      * @var int
      */
+    public $templateId;
+
+    /**
+     * @var int
+     */
     public $totalCount;
     protected $_name = [
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
         'requestId' => 'RequestId',
         'resources' => 'Resources',
+        'templateId' => 'TemplateId',
         'totalCount' => 'TotalCount',
     ];
 
@@ -62,6 +68,9 @@ class DescribeTemplateResourcesResponseBody extends Model
         }
         if (null !== $this->resources) {
             $res['Resources'] = $this->resources;
+        }
+        if (null !== $this->templateId) {
+            $res['TemplateId'] = $this->templateId;
         }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
@@ -91,6 +100,9 @@ class DescribeTemplateResourcesResponseBody extends Model
             if (!empty($map['Resources'])) {
                 $model->resources = $map['Resources'];
             }
+        }
+        if (isset($map['TemplateId'])) {
+            $model->templateId = $map['TemplateId'];
         }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];

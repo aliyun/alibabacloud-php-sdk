@@ -10320,6 +10320,9 @@ class Wafopenapi extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->defenseType)) {
+            $query['DefenseType'] = $request->defenseType;
+        }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }

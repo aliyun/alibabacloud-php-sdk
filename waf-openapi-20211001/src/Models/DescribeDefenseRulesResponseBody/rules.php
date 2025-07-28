@@ -60,6 +60,11 @@ class rules extends Model
     /**
      * @var string
      */
+    public $defenseType;
+
+    /**
+     * @var string
+     */
     public $description;
 
     /**
@@ -139,6 +144,7 @@ class rules extends Model
         'config' => 'Config',
         'defenseOrigin' => 'DefenseOrigin',
         'defenseScene' => 'DefenseScene',
+        'defenseType' => 'DefenseType',
         'description' => 'Description',
         'detailRuleIds' => 'DetailRuleIds',
         'externalInfo' => 'ExternalInfo',
@@ -168,6 +174,9 @@ class rules extends Model
         }
         if (null !== $this->defenseScene) {
             $res['DefenseScene'] = $this->defenseScene;
+        }
+        if (null !== $this->defenseType) {
+            $res['DefenseType'] = $this->defenseType;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -225,6 +234,9 @@ class rules extends Model
         }
         if (isset($map['DefenseScene'])) {
             $model->defenseScene = $map['DefenseScene'];
+        }
+        if (isset($map['DefenseType'])) {
+            $model->defenseType = $map['DefenseType'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
