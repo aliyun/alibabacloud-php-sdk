@@ -65,12 +65,18 @@ class lifecycle extends Model
      * @var string
      */
     public $gmtEndTime;
+
+    /**
+     * @var string
+     */
+    public $lifecycleId;
     protected $_name = [
         'status' => 'Status',
         'reasonCode' => 'ReasonCode',
         'reasonMessage' => 'ReasonMessage',
         'gmtCreateTime' => 'GmtCreateTime',
         'gmtEndTime' => 'GmtEndTime',
+        'lifecycleId' => 'LifecycleId',
     ];
 
     public function validate() {}
@@ -92,6 +98,9 @@ class lifecycle extends Model
         }
         if (null !== $this->gmtEndTime) {
             $res['GmtEndTime'] = $this->gmtEndTime;
+        }
+        if (null !== $this->lifecycleId) {
+            $res['LifecycleId'] = $this->lifecycleId;
         }
 
         return $res;
@@ -119,6 +128,9 @@ class lifecycle extends Model
         }
         if (isset($map['GmtEndTime'])) {
             $model->gmtEndTime = $map['GmtEndTime'];
+        }
+        if (isset($map['LifecycleId'])) {
+            $model->lifecycleId = $map['LifecycleId'];
         }
 
         return $model;
