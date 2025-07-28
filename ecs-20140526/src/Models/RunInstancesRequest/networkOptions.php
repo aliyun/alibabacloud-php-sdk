@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class networkOptions extends Model
 {
     /**
+     * @var string
+     */
+    public $bandwidthWeighting;
+
+    /**
      * @description Specifies whether to enable the Jumbo Frames feature for the instance. Valid values:
      *
      *   false: does not enable the Jumbo Frames feature for the instance. The maximum transmission unit (MTU) value of all ENIs on the instance is set to 1500.
@@ -29,6 +34,7 @@ class networkOptions extends Model
      */
     public $enableNetworkEncryption;
     protected $_name = [
+        'bandwidthWeighting' => 'BandwidthWeighting',
         'enableJumboFrame' => 'EnableJumboFrame',
         'enableNetworkEncryption' => 'EnableNetworkEncryption',
     ];
@@ -38,6 +44,9 @@ class networkOptions extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->bandwidthWeighting) {
+            $res['BandwidthWeighting'] = $this->bandwidthWeighting;
+        }
         if (null !== $this->enableJumboFrame) {
             $res['EnableJumboFrame'] = $this->enableJumboFrame;
         }
@@ -56,6 +65,9 @@ class networkOptions extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BandwidthWeighting'])) {
+            $model->bandwidthWeighting = $map['BandwidthWeighting'];
+        }
         if (isset($map['EnableJumboFrame'])) {
             $model->enableJumboFrame = $map['EnableJumboFrame'];
         }

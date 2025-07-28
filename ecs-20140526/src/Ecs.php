@@ -229,6 +229,8 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeAutoProvisioningGroupInstances
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeAutoProvisioningGroupInstancesResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeAutoProvisioningGroupsRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeAutoProvisioningGroupsResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeAutoSnapshotPolicyAssociationsRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeAutoSnapshotPolicyAssociationsResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeAutoSnapshotPolicyExRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeAutoSnapshotPolicyExResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeAvailableResourceRequest;
@@ -577,6 +579,8 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyInstanceMaintenanceAttributesReq
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyInstanceMaintenanceAttributesResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyInstanceMetadataOptionsRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyInstanceMetadataOptionsResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyInstanceNetworkOptionsRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyInstanceNetworkOptionsResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyInstanceNetworkSpecRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyInstanceNetworkSpecResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyInstanceSpecRequest;
@@ -2669,6 +2673,9 @@ class Ecs extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->autoSnapshotPolicyId)) {
+            $query['autoSnapshotPolicyId'] = $request->autoSnapshotPolicyId;
         }
         if (!Utils::isUnset($request->diskIds)) {
             $query['diskIds'] = $request->diskIds;
@@ -10727,6 +10734,77 @@ class Ecs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeAutoProvisioningGroupsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询自动快照策略的关联关系
+     *  *
+     * @param DescribeAutoSnapshotPolicyAssociationsRequest $request DescribeAutoSnapshotPolicyAssociationsRequest
+     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeAutoSnapshotPolicyAssociationsResponse DescribeAutoSnapshotPolicyAssociationsResponse
+     */
+    public function describeAutoSnapshotPolicyAssociationsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->autoSnapshotPolicyId)) {
+            $query['AutoSnapshotPolicyId'] = $request->autoSnapshotPolicyId;
+        }
+        if (!Utils::isUnset($request->diskId)) {
+            $query['DiskId'] = $request->diskId;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeAutoSnapshotPolicyAssociations',
+            'version' => '2014-05-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeAutoSnapshotPolicyAssociationsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询自动快照策略的关联关系
+     *  *
+     * @param DescribeAutoSnapshotPolicyAssociationsRequest $request DescribeAutoSnapshotPolicyAssociationsRequest
+     *
+     * @return DescribeAutoSnapshotPolicyAssociationsResponse DescribeAutoSnapshotPolicyAssociationsResponse
+     */
+    public function describeAutoSnapshotPolicyAssociations($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAutoSnapshotPolicyAssociationsWithOptions($request, $runtime);
     }
 
     /**
@@ -25606,6 +25684,65 @@ class Ecs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyInstanceMetadataOptionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 修改实例网络选项
+     *  *
+     * @param ModifyInstanceNetworkOptionsRequest $request ModifyInstanceNetworkOptionsRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyInstanceNetworkOptionsResponse ModifyInstanceNetworkOptionsResponse
+     */
+    public function modifyInstanceNetworkOptionsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bandwidthWeighting)) {
+            $query['BandwidthWeighting'] = $request->bandwidthWeighting;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyInstanceNetworkOptions',
+            'version' => '2014-05-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyInstanceNetworkOptionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 修改实例网络选项
+     *  *
+     * @param ModifyInstanceNetworkOptionsRequest $request ModifyInstanceNetworkOptionsRequest
+     *
+     * @return ModifyInstanceNetworkOptionsResponse ModifyInstanceNetworkOptionsResponse
+     */
+    public function modifyInstanceNetworkOptions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyInstanceNetworkOptionsWithOptions($request, $runtime);
     }
 
     /**

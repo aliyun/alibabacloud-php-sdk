@@ -36,6 +36,11 @@ class CancelAutoSnapshotPolicyRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @var string
+     */
+    public $autoSnapshotPolicyId;
+
+    /**
      * @description The IDs of the disks for which you want to disable the automatic snapshot policy. To disable the automatic snapshot policy for multiple disks, you can set this parameter to a JSON array that consists of multiple disk IDs, such as ["dxxxxxxxxx", "dyyyyyyyyy", … "dzzzzzzzzz"]. Separate the disk IDs with commas (,).
      *
      * This parameter is required.
@@ -60,6 +65,7 @@ class CancelAutoSnapshotPolicyRequest extends Model
         'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
+        'autoSnapshotPolicyId' => 'autoSnapshotPolicyId',
         'diskIds' => 'diskIds',
         'regionId' => 'regionId',
     ];
@@ -77,6 +83,9 @@ class CancelAutoSnapshotPolicyRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->autoSnapshotPolicyId) {
+            $res['autoSnapshotPolicyId'] = $this->autoSnapshotPolicyId;
         }
         if (null !== $this->diskIds) {
             $res['diskIds'] = $this->diskIds;
@@ -104,6 +113,9 @@ class CancelAutoSnapshotPolicyRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['autoSnapshotPolicyId'])) {
+            $model->autoSnapshotPolicyId = $map['autoSnapshotPolicyId'];
         }
         if (isset($map['diskIds'])) {
             $model->diskIds = $map['diskIds'];
