@@ -173,6 +173,11 @@ class DescribeDesktopsRequest extends Model
     public $imageId;
 
     /**
+     * @var bool
+     */
+    public $includeAutoSnapshotPolicy;
+
+    /**
      * @description The flag that is used to manage the cloud desktops.
      *
      * @example NoFlag
@@ -391,6 +396,7 @@ class DescribeDesktopsRequest extends Model
         'gpuInstanceGroupId' => 'GpuInstanceGroupId',
         'groupId' => 'GroupId',
         'imageId' => 'ImageId',
+        'includeAutoSnapshotPolicy' => 'IncludeAutoSnapshotPolicy',
         'managementFlag' => 'ManagementFlag',
         'maxResults' => 'MaxResults',
         'multiResource' => 'MultiResource',
@@ -465,6 +471,9 @@ class DescribeDesktopsRequest extends Model
         }
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
+        }
+        if (null !== $this->includeAutoSnapshotPolicy) {
+            $res['IncludeAutoSnapshotPolicy'] = $this->includeAutoSnapshotPolicy;
         }
         if (null !== $this->managementFlag) {
             $res['ManagementFlag'] = $this->managementFlag;
@@ -601,6 +610,9 @@ class DescribeDesktopsRequest extends Model
             if (!empty($map['ImageId'])) {
                 $model->imageId = $map['ImageId'];
             }
+        }
+        if (isset($map['IncludeAutoSnapshotPolicy'])) {
+            $model->includeAutoSnapshotPolicy = $map['IncludeAutoSnapshotPolicy'];
         }
         if (isset($map['ManagementFlag'])) {
             $model->managementFlag = $map['ManagementFlag'];

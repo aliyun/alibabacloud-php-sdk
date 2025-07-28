@@ -8267,6 +8267,9 @@ class Ecd extends OpenApiClient
         if (!Utils::isUnset($request->imageId)) {
             $query['ImageId'] = $request->imageId;
         }
+        if (!Utils::isUnset($request->includeAutoSnapshotPolicy)) {
+            $query['IncludeAutoSnapshotPolicy'] = $request->includeAutoSnapshotPolicy;
+        }
         if (!Utils::isUnset($request->managementFlag)) {
             $query['ManagementFlag'] = $request->managementFlag;
         }
