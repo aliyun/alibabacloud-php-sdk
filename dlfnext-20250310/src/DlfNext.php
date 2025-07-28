@@ -48,6 +48,8 @@ use AlibabaCloud\SDK\DlfNext\V20250310\Models\GrantRoleToUsersRequest;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\GrantRoleToUsersResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListCatalogsRequest;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListCatalogsResponse;
+use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListDatabaseDetailsRequest;
+use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListDatabaseDetailsResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListDatabasesRequest;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListDatabasesResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListPartitionSummariesRequest;
@@ -1460,6 +1462,64 @@ class DlfNext extends OpenApiClient
         $headers = [];
 
         return $this->listCatalogsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 查看数据库列表
+     *  *
+     * @param string                     $catalogId
+     * @param ListDatabaseDetailsRequest $request   ListDatabaseDetailsRequest
+     * @param string[]                   $headers   map
+     * @param RuntimeOptions             $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return ListDatabaseDetailsResponse ListDatabaseDetailsResponse
+     */
+    public function listDatabaseDetailsWithOptions($catalogId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->databaseNamePattern)) {
+            $query['databaseNamePattern'] = $request->databaseNamePattern;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['maxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->pageToken)) {
+            $query['pageToken'] = $request->pageToken;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListDatabaseDetails',
+            'version' => '2025-03-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dlf/v1/' . OpenApiUtilClient::getEncodeParam($catalogId) . '/database-details',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListDatabaseDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查看数据库列表
+     *  *
+     * @param string                     $catalogId
+     * @param ListDatabaseDetailsRequest $request   ListDatabaseDetailsRequest
+     *
+     * @return ListDatabaseDetailsResponse ListDatabaseDetailsResponse
+     */
+    public function listDatabaseDetails($catalogId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listDatabaseDetailsWithOptions($catalogId, $request, $headers, $runtime);
     }
 
     /**
