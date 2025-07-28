@@ -2,6 +2,10 @@
 - Update API GetLifecycle: add response parameters Body.Lifecycle.$.$.LifecycleId.
 
 
+2025-07-28 Version: 1.6.2
+- Update API GetLifecycle: add response parameters Body.Lifecycle.$.$.LifecycleId.
+
+
 2025-07-23 Version: 1.6.1
 - Update API GetLifecycle: add response parameters Body.Lifecycle.$.$.GmtEndTime.
 
