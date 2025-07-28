@@ -35,6 +35,9 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreatePolicyGroupResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreatePolicyGroupShrinkRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateScreenshotRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateScreenshotResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateSystemPropertyTemplateRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateSystemPropertyTemplateResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateSystemPropertyTemplateShrinkRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DeleteAndroidInstanceGroupRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DeleteAndroidInstanceGroupResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DeleteAppsRequest;
@@ -50,6 +53,8 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\DeleteKeyPairsRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DeleteKeyPairsResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DeletePolicyGroupRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DeletePolicyGroupResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\DeleteSystemPropertyTemplatesRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\DeleteSystemPropertyTemplatesResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeAndroidInstanceGroupsRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeAndroidInstanceGroupsResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeAndroidInstancesRequest;
@@ -74,6 +79,8 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeSpecRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeSpecResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeSystemPropertyTemplatesRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeSystemPropertyTemplatesResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeTasksRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeTasksResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DetachKeyPairRequest;
@@ -92,6 +99,8 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\FetchFileRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\FetchFileResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\GenerateCoordinationCodeRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\GenerateCoordinationCodeResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\GetInstancePropertiesRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\GetInstancePropertiesResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ImportKeyPairRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ImportKeyPairResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\InstallAppRequest;
@@ -116,6 +125,9 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifyKeyPairNameResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifyPolicyGroupRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifyPolicyGroupResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifyPolicyGroupShrinkRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifySystemPropertyTemplateRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifySystemPropertyTemplateResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifySystemPropertyTemplateShrinkRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\OperateAppRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\OperateAppResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\RebootAndroidInstancesInGroupRequest;
@@ -132,6 +144,8 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\RunCommandRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\RunCommandResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\SendFileRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\SendFileResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\SendSystemPropertyTemplateRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\SendSystemPropertyTemplateResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\SetAdbSecureRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\SetAdbSecureResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\StartAndroidInstanceRequest;
@@ -856,6 +870,9 @@ class Edsaic extends OpenApiClient
         if (!Utils::isUnset($request->upBandwidthLimit)) {
             $query['UpBandwidthLimit'] = $request->upBandwidthLimit;
         }
+        if (!Utils::isUnset($request->useTemplate)) {
+            $query['UseTemplate'] = $request->useTemplate;
+        }
         if (!Utils::isUnset($request->vSwitchId)) {
             $query['VSwitchId'] = $request->vSwitchId;
         }
@@ -1145,6 +1162,67 @@ class Edsaic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createScreenshotWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 创建系统属性模板
+     *  *
+     * @param CreateSystemPropertyTemplateRequest $tmpReq  CreateSystemPropertyTemplateRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateSystemPropertyTemplateResponse CreateSystemPropertyTemplateResponse
+     */
+    public function createSystemPropertyTemplateWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateSystemPropertyTemplateShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->systemPropertyInfo)) {
+            $request->systemPropertyInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->systemPropertyInfo, 'SystemPropertyInfo', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->enableAuto)) {
+            $query['EnableAuto'] = $request->enableAuto;
+        }
+        if (!Utils::isUnset($request->filePath)) {
+            $query['FilePath'] = $request->filePath;
+        }
+        if (!Utils::isUnset($request->systemPropertyInfoShrink)) {
+            $query['SystemPropertyInfo'] = $request->systemPropertyInfoShrink;
+        }
+        if (!Utils::isUnset($request->templateName)) {
+            $query['TemplateName'] = $request->templateName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateSystemPropertyTemplate',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateSystemPropertyTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建系统属性模板
+     *  *
+     * @param CreateSystemPropertyTemplateRequest $request CreateSystemPropertyTemplateRequest
+     *
+     * @return CreateSystemPropertyTemplateResponse CreateSystemPropertyTemplateResponse
+     */
+    public function createSystemPropertyTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSystemPropertyTemplateWithOptions($request, $runtime);
     }
 
     /**
@@ -1499,6 +1577,53 @@ class Edsaic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deletePolicyGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除系统属性模板
+     *  *
+     * @param DeleteSystemPropertyTemplatesRequest $request DeleteSystemPropertyTemplatesRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteSystemPropertyTemplatesResponse DeleteSystemPropertyTemplatesResponse
+     */
+    public function deleteSystemPropertyTemplatesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->templateIds)) {
+            $query['TemplateIds'] = $request->templateIds;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteSystemPropertyTemplates',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteSystemPropertyTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除系统属性模板
+     *  *
+     * @param DeleteSystemPropertyTemplatesRequest $request DeleteSystemPropertyTemplatesRequest
+     *
+     * @return DeleteSystemPropertyTemplatesResponse DeleteSystemPropertyTemplatesResponse
+     */
+    public function deleteSystemPropertyTemplates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteSystemPropertyTemplatesWithOptions($request, $runtime);
     }
 
     /**
@@ -2318,6 +2443,62 @@ class Edsaic extends OpenApiClient
     }
 
     /**
+     * @summary 查询系统属性模板
+     *  *
+     * @param DescribeSystemPropertyTemplatesRequest $request DescribeSystemPropertyTemplatesRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeSystemPropertyTemplatesResponse DescribeSystemPropertyTemplatesResponse
+     */
+    public function describeSystemPropertyTemplatesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->templateIds)) {
+            $query['TemplateIds'] = $request->templateIds;
+        }
+        if (!Utils::isUnset($request->templateName)) {
+            $query['TemplateName'] = $request->templateName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeSystemPropertyTemplates',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeSystemPropertyTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询系统属性模板
+     *  *
+     * @param DescribeSystemPropertyTemplatesRequest $request DescribeSystemPropertyTemplatesRequest
+     *
+     * @return DescribeSystemPropertyTemplatesResponse DescribeSystemPropertyTemplatesResponse
+     */
+    public function describeSystemPropertyTemplates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSystemPropertyTemplatesWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries tasks created for a cloud phone instance.
      *  *
      * @description *   You can call the DescribeTasks operation to query the tasks created for one or more cloud phone instances.
@@ -2854,6 +3035,53 @@ class Edsaic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->generateCoordinationCodeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取属性模板信息
+     *  *
+     * @param GetInstancePropertiesRequest $request GetInstancePropertiesRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetInstancePropertiesResponse GetInstancePropertiesResponse
+     */
+    public function getInstancePropertiesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetInstanceProperties',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetInstancePropertiesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取属性模板信息
+     *  *
+     * @param GetInstancePropertiesRequest $request GetInstancePropertiesRequest
+     *
+     * @return GetInstancePropertiesResponse GetInstancePropertiesResponse
+     */
+    public function getInstanceProperties($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getInstancePropertiesWithOptions($request, $runtime);
     }
 
     /**
@@ -3500,6 +3728,70 @@ class Edsaic extends OpenApiClient
     }
 
     /**
+     * @summary 修改属性模板
+     *  *
+     * @param ModifySystemPropertyTemplateRequest $tmpReq  ModifySystemPropertyTemplateRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifySystemPropertyTemplateResponse ModifySystemPropertyTemplateResponse
+     */
+    public function modifySystemPropertyTemplateWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ModifySystemPropertyTemplateShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->systemPropertyInfo)) {
+            $request->systemPropertyInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->systemPropertyInfo, 'SystemPropertyInfo', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->enableAuto)) {
+            $query['EnableAuto'] = $request->enableAuto;
+        }
+        if (!Utils::isUnset($request->filePath)) {
+            $query['FilePath'] = $request->filePath;
+        }
+        if (!Utils::isUnset($request->systemPropertyInfoShrink)) {
+            $query['SystemPropertyInfo'] = $request->systemPropertyInfoShrink;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->templateName)) {
+            $query['TemplateName'] = $request->templateName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifySystemPropertyTemplate',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifySystemPropertyTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 修改属性模板
+     *  *
+     * @param ModifySystemPropertyTemplateRequest $request ModifySystemPropertyTemplateRequest
+     *
+     * @return ModifySystemPropertyTemplateResponse ModifySystemPropertyTemplateResponse
+     */
+    public function modifySystemPropertyTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifySystemPropertyTemplateWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Operates apps in a cloud phone, such as opening, closing, and reopening apps.
      *  *
      * @description This operation runs asynchronously. To check the operation result, visit the Task Center. To retrieve task details, call the [DescribeTasks](~~DescribeTasks~~) operation.
@@ -3973,6 +4265,61 @@ class Edsaic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->sendFileWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 发送属性模板
+     *  *
+     * @param SendSystemPropertyTemplateRequest $request SendSystemPropertyTemplateRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SendSystemPropertyTemplateResponse SendSystemPropertyTemplateResponse
+     */
+    public function sendSystemPropertyTemplateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->templateIds)) {
+            $query['TemplateIds'] = $request->templateIds;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->androidInstanceIds)) {
+            $body['AndroidInstanceIds'] = $request->androidInstanceIds;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SendSystemPropertyTemplate',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SendSystemPropertyTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 发送属性模板
+     *  *
+     * @param SendSystemPropertyTemplateRequest $request SendSystemPropertyTemplateRequest
+     *
+     * @return SendSystemPropertyTemplateResponse SendSystemPropertyTemplateResponse
+     */
+    public function sendSystemPropertyTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->sendSystemPropertyTemplateWithOptions($request, $runtime);
     }
 
     /**

@@ -239,6 +239,11 @@ class CreateCloudPhoneNodeRequest extends Model
     public $upBandwidthLimit;
 
     /**
+     * @var string
+     */
+    public $useTemplate;
+
+    /**
      * @description The vSwitch ID.
      *
      * @example vsw-2zeekryyc1q3sm72l****
@@ -273,6 +278,7 @@ class CreateCloudPhoneNodeRequest extends Model
         'streamMode' => 'StreamMode',
         'tag' => 'Tag',
         'upBandwidthLimit' => 'UpBandwidthLimit',
+        'useTemplate' => 'UseTemplate',
         'vSwitchId' => 'VSwitchId',
     ];
 
@@ -364,6 +370,9 @@ class CreateCloudPhoneNodeRequest extends Model
         }
         if (null !== $this->upBandwidthLimit) {
             $res['UpBandwidthLimit'] = $this->upBandwidthLimit;
+        }
+        if (null !== $this->useTemplate) {
+            $res['UseTemplate'] = $this->useTemplate;
         }
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
@@ -463,6 +472,9 @@ class CreateCloudPhoneNodeRequest extends Model
         }
         if (isset($map['UpBandwidthLimit'])) {
             $model->upBandwidthLimit = $map['UpBandwidthLimit'];
+        }
+        if (isset($map['UseTemplate'])) {
+            $model->useTemplate = $map['UseTemplate'];
         }
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
