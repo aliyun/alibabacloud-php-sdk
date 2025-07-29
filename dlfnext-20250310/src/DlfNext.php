@@ -30,6 +30,7 @@ use AlibabaCloud\SDK\DlfNext\V20250310\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\DropCatalogResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\DropDatabaseResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\DropTableResponse;
+use AlibabaCloud\SDK\DlfNext\V20250310\Models\GetCatalogByIdResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\GetCatalogResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\GetCatalogSummaryResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\GetCatalogSummaryTrendRequest;
@@ -881,6 +882,50 @@ class DlfNext extends OpenApiClient
         $headers = [];
 
         return $this->getCatalogWithOptions($catalog, $headers, $runtime);
+    }
+
+    /**
+     * @summary 查看数据湖Catalog
+     *  *
+     * @param string         $id
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetCatalogByIdResponse GetCatalogByIdResponse
+     */
+    public function getCatalogByIdWithOptions($id, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetCatalogById',
+            'version' => '2025-03-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dlf/v1/catalogs/id/' . OpenApiUtilClient::getEncodeParam($id) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetCatalogByIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查看数据湖Catalog
+     *  *
+     * @param string $id
+     *
+     * @return GetCatalogByIdResponse GetCatalogByIdResponse
+     */
+    public function getCatalogById($id)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getCatalogByIdWithOptions($id, $headers, $runtime);
     }
 
     /**
