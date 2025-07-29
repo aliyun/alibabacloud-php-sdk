@@ -90,6 +90,16 @@ class data extends Model
     public $medium;
 
     /**
+     * @var int
+     */
+    public $notFixed;
+
+    /**
+     * @var int
+     */
+    public $systemFixed;
+
+    /**
      * @description The number of events to be confirmed.
      *
      * @example 10
@@ -106,6 +116,11 @@ class data extends Model
      * @var int
      */
     public $toBeFixed;
+
+    /**
+     * @var int
+     */
+    public $toBeVerified;
 
     /**
      * @description The number of new high-risk events today.
@@ -161,8 +176,11 @@ class data extends Model
         'ignore' => 'Ignore',
         'low' => 'Low',
         'medium' => 'Medium',
+        'notFixed' => 'NotFixed',
+        'systemFixed' => 'SystemFixed',
         'toBeConfirmed' => 'ToBeConfirmed',
         'toBeFixed' => 'ToBeFixed',
+        'toBeVerified' => 'ToBeVerified',
         'todayHigh' => 'TodayHigh',
         'todayLow' => 'TodayLow',
         'todayMedium' => 'TodayMedium',
@@ -202,11 +220,20 @@ class data extends Model
         if (null !== $this->medium) {
             $res['Medium'] = $this->medium;
         }
+        if (null !== $this->notFixed) {
+            $res['NotFixed'] = $this->notFixed;
+        }
+        if (null !== $this->systemFixed) {
+            $res['SystemFixed'] = $this->systemFixed;
+        }
         if (null !== $this->toBeConfirmed) {
             $res['ToBeConfirmed'] = $this->toBeConfirmed;
         }
         if (null !== $this->toBeFixed) {
             $res['ToBeFixed'] = $this->toBeFixed;
+        }
+        if (null !== $this->toBeVerified) {
+            $res['ToBeVerified'] = $this->toBeVerified;
         }
         if (null !== $this->todayHigh) {
             $res['TodayHigh'] = $this->todayHigh;
@@ -262,11 +289,20 @@ class data extends Model
         if (isset($map['Medium'])) {
             $model->medium = $map['Medium'];
         }
+        if (isset($map['NotFixed'])) {
+            $model->notFixed = $map['NotFixed'];
+        }
+        if (isset($map['SystemFixed'])) {
+            $model->systemFixed = $map['SystemFixed'];
+        }
         if (isset($map['ToBeConfirmed'])) {
             $model->toBeConfirmed = $map['ToBeConfirmed'];
         }
         if (isset($map['ToBeFixed'])) {
             $model->toBeFixed = $map['ToBeFixed'];
+        }
+        if (isset($map['ToBeVerified'])) {
+            $model->toBeVerified = $map['ToBeVerified'];
         }
         if (isset($map['TodayHigh'])) {
             $model->todayHigh = $map['TodayHigh'];

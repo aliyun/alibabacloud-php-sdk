@@ -20,6 +20,11 @@ class DescribeApisecStatisticsRequest extends Model
     public $clusterId;
 
     /**
+     * @var int
+     */
+    public $endTime;
+
+    /**
      * @description The region in which the Web Application Firewall (WAF) instance is deployed. Valid values:
      *
      * **cn-hangzhou**: Chinese mainland
@@ -55,6 +60,11 @@ class DescribeApisecStatisticsRequest extends Model
     public $resourceManagerResourceGroupId;
 
     /**
+     * @var int
+     */
+    public $startTime;
+
+    /**
      * @description The type of the statistics. Valid values:
      *
      *   **risk**: risk-related statistics.
@@ -65,12 +75,20 @@ class DescribeApisecStatisticsRequest extends Model
      * @var string
      */
     public $type;
+
+    /**
+     * @var string[]
+     */
+    public $userStatusList;
     protected $_name = [
         'clusterId' => 'ClusterId',
+        'endTime' => 'EndTime',
         'instanceId' => 'InstanceId',
         'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
+        'startTime' => 'StartTime',
         'type' => 'Type',
+        'userStatusList' => 'UserStatusList',
     ];
 
     public function validate() {}
@@ -81,6 +99,9 @@ class DescribeApisecStatisticsRequest extends Model
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -90,8 +111,14 @@ class DescribeApisecStatisticsRequest extends Model
         if (null !== $this->resourceManagerResourceGroupId) {
             $res['ResourceManagerResourceGroupId'] = $this->resourceManagerResourceGroupId;
         }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
+        }
+        if (null !== $this->userStatusList) {
+            $res['UserStatusList'] = $this->userStatusList;
         }
 
         return $res;
@@ -108,6 +135,9 @@ class DescribeApisecStatisticsRequest extends Model
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
@@ -117,8 +147,16 @@ class DescribeApisecStatisticsRequest extends Model
         if (isset($map['ResourceManagerResourceGroupId'])) {
             $model->resourceManagerResourceGroupId = $map['ResourceManagerResourceGroupId'];
         }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
+        }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
+        }
+        if (isset($map['UserStatusList'])) {
+            if (!empty($map['UserStatusList'])) {
+                $model->userStatusList = $map['UserStatusList'];
+            }
         }
 
         return $model;

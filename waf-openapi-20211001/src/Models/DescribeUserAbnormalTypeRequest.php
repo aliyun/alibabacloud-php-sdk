@@ -69,6 +69,11 @@ class DescribeUserAbnormalTypeRequest extends Model
      * @var int
      */
     public $startTime;
+
+    /**
+     * @var string[]
+     */
+    public $userStatusList;
     protected $_name = [
         'clusterId' => 'ClusterId',
         'endTime' => 'EndTime',
@@ -76,6 +81,7 @@ class DescribeUserAbnormalTypeRequest extends Model
         'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
         'startTime' => 'StartTime',
+        'userStatusList' => 'UserStatusList',
     ];
 
     public function validate() {}
@@ -100,6 +106,9 @@ class DescribeUserAbnormalTypeRequest extends Model
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->userStatusList) {
+            $res['UserStatusList'] = $this->userStatusList;
         }
 
         return $res;
@@ -130,6 +139,11 @@ class DescribeUserAbnormalTypeRequest extends Model
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['UserStatusList'])) {
+            if (!empty($map['UserStatusList'])) {
+                $model->userStatusList = $map['UserStatusList'];
+            }
         }
 
         return $model;

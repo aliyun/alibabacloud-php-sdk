@@ -3240,6 +3240,9 @@ class Wafopenapi extends OpenApiClient
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
         if (!Utils::isUnset($request->level)) {
             $query['Level'] = $request->level;
         }
@@ -3503,6 +3506,9 @@ class Wafopenapi extends OpenApiClient
         if (!Utils::isUnset($request->clusterId)) {
             $query['ClusterId'] = $request->clusterId;
         }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
@@ -3512,8 +3518,14 @@ class Wafopenapi extends OpenApiClient
         if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
             $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         if (!Utils::isUnset($request->type)) {
             $query['Type'] = $request->type;
+        }
+        if (!Utils::isUnset($request->userStatusList)) {
+            $query['UserStatusList'] = $request->userStatusList;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -8719,6 +8731,9 @@ class Wafopenapi extends OpenApiClient
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
         }
+        if (!Utils::isUnset($request->userStatusList)) {
+            $query['UserStatusList'] = $request->userStatusList;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -8966,6 +8981,9 @@ class Wafopenapi extends OpenApiClient
         }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->userStatusList)) {
+            $query['UserStatusList'] = $request->userStatusList;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

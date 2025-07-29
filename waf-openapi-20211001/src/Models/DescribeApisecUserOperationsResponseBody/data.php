@@ -50,6 +50,11 @@ class data extends Model
     public $objectId;
 
     /**
+     * @var string
+     */
+    public $operationSource;
+
+    /**
      * @description The time at which the operation was performed. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
      *
      * @example 1685072214
@@ -105,6 +110,7 @@ class data extends Model
         'fromStatus' => 'FromStatus',
         'note' => 'Note',
         'objectId' => 'ObjectId',
+        'operationSource' => 'OperationSource',
         'time' => 'Time',
         'toStatus' => 'ToStatus',
         'type' => 'Type',
@@ -124,6 +130,9 @@ class data extends Model
         }
         if (null !== $this->objectId) {
             $res['ObjectId'] = $this->objectId;
+        }
+        if (null !== $this->operationSource) {
+            $res['OperationSource'] = $this->operationSource;
         }
         if (null !== $this->time) {
             $res['Time'] = $this->time;
@@ -157,6 +166,9 @@ class data extends Model
         }
         if (isset($map['ObjectId'])) {
             $model->objectId = $map['ObjectId'];
+        }
+        if (isset($map['OperationSource'])) {
+            $model->operationSource = $map['OperationSource'];
         }
         if (isset($map['Time'])) {
             $model->time = $map['Time'];
