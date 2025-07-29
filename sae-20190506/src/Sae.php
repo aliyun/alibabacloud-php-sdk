@@ -809,6 +809,9 @@ class Sae extends OpenApiClient
         if (!Utils::isUnset($request->gpuConfig)) {
             $query['GpuConfig'] = $request->gpuConfig;
         }
+        if (!Utils::isUnset($request->html)) {
+            $query['Html'] = $request->html;
+        }
         if (!Utils::isUnset($request->imagePullSecrets)) {
             $query['ImagePullSecrets'] = $request->imagePullSecrets;
         }
@@ -2770,6 +2773,9 @@ class Sae extends OpenApiClient
         }
         if (!Utils::isUnset($request->gpuConfig)) {
             $query['GpuConfig'] = $request->gpuConfig;
+        }
+        if (!Utils::isUnset($request->html)) {
+            $query['Html'] = $request->html;
         }
         if (!Utils::isUnset($request->imagePullSecrets)) {
             $query['ImagePullSecrets'] = $request->imagePullSecrets;

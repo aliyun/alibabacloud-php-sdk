@@ -303,6 +303,11 @@ class CreateApplicationShrinkRequest extends Model
     public $gpuConfig;
 
     /**
+     * @var string
+     */
+    public $html;
+
+    /**
      * @description The ID of the corresponding Secret.
      *
      * @example 10
@@ -957,6 +962,7 @@ class CreateApplicationShrinkRequest extends Model
         'enableSidecarResourceIsolated' => 'EnableSidecarResourceIsolated',
         'envs' => 'Envs',
         'gpuConfig' => 'GpuConfig',
+        'html' => 'Html',
         'imagePullSecrets' => 'ImagePullSecrets',
         'imageUrl' => 'ImageUrl',
         'initContainersConfigShrink' => 'InitContainersConfig',
@@ -1091,6 +1097,9 @@ class CreateApplicationShrinkRequest extends Model
         }
         if (null !== $this->gpuConfig) {
             $res['GpuConfig'] = $this->gpuConfig;
+        }
+        if (null !== $this->html) {
+            $res['Html'] = $this->html;
         }
         if (null !== $this->imagePullSecrets) {
             $res['ImagePullSecrets'] = $this->imagePullSecrets;
@@ -1337,6 +1346,9 @@ class CreateApplicationShrinkRequest extends Model
         }
         if (isset($map['GpuConfig'])) {
             $model->gpuConfig = $map['GpuConfig'];
+        }
+        if (isset($map['Html'])) {
+            $model->html = $map['Html'];
         }
         if (isset($map['ImagePullSecrets'])) {
             $model->imagePullSecrets = $map['ImagePullSecrets'];

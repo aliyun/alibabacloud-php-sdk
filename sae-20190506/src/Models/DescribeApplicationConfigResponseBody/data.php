@@ -318,6 +318,11 @@ class data extends Model
     public $gpuType;
 
     /**
+     * @var string
+     */
+    public $html;
+
+    /**
      * @description The ID of the corresponding secret dictionary.
      *
      * @example 10
@@ -1020,6 +1025,7 @@ class data extends Model
         'envs' => 'Envs',
         'gpuCount' => 'GpuCount',
         'gpuType' => 'GpuType',
+        'html' => 'Html',
         'imagePullSecrets' => 'ImagePullSecrets',
         'imageUrl' => 'ImageUrl',
         'initContainersConfig' => 'InitContainersConfig',
@@ -1176,6 +1182,9 @@ class data extends Model
         }
         if (null !== $this->gpuType) {
             $res['GpuType'] = $this->gpuType;
+        }
+        if (null !== $this->html) {
+            $res['Html'] = $this->html;
         }
         if (null !== $this->imagePullSecrets) {
             $res['ImagePullSecrets'] = $this->imagePullSecrets;
@@ -1494,6 +1503,9 @@ class data extends Model
         }
         if (isset($map['GpuType'])) {
             $model->gpuType = $map['GpuType'];
+        }
+        if (isset($map['Html'])) {
+            $model->html = $map['Html'];
         }
         if (isset($map['ImagePullSecrets'])) {
             $model->imagePullSecrets = $map['ImagePullSecrets'];
