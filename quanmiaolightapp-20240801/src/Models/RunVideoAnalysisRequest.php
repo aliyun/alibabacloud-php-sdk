@@ -13,6 +13,11 @@ use AlibabaCloud\Tea\Model;
 class RunVideoAnalysisRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $autoRoleRecognitionVideoUrl;
+
+    /**
      * @var string[]
      */
     public $excludeGenerateOptions;
@@ -128,6 +133,7 @@ class RunVideoAnalysisRequest extends Model
      */
     public $videoUrl;
     protected $_name = [
+        'autoRoleRecognitionVideoUrl' => 'autoRoleRecognitionVideoUrl',
         'excludeGenerateOptions' => 'excludeGenerateOptions',
         'faceIdentitySimilarityMinScore' => 'faceIdentitySimilarityMinScore',
         'frameSampleMethod' => 'frameSampleMethod',
@@ -155,6 +161,9 @@ class RunVideoAnalysisRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->autoRoleRecognitionVideoUrl) {
+            $res['autoRoleRecognitionVideoUrl'] = $this->autoRoleRecognitionVideoUrl;
+        }
         if (null !== $this->excludeGenerateOptions) {
             $res['excludeGenerateOptions'] = $this->excludeGenerateOptions;
         }
@@ -239,6 +248,9 @@ class RunVideoAnalysisRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['autoRoleRecognitionVideoUrl'])) {
+            $model->autoRoleRecognitionVideoUrl = $map['autoRoleRecognitionVideoUrl'];
+        }
         if (isset($map['excludeGenerateOptions'])) {
             if (!empty($map['excludeGenerateOptions'])) {
                 $model->excludeGenerateOptions = $map['excludeGenerateOptions'];

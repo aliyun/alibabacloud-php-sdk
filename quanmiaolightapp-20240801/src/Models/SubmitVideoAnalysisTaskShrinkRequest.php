@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class SubmitVideoAnalysisTaskShrinkRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $autoRoleRecognitionVideoUrl;
+
+    /**
      * @example 1
      *
      * @var string
@@ -121,6 +126,7 @@ class SubmitVideoAnalysisTaskShrinkRequest extends Model
      */
     public $videoUrl;
     protected $_name = [
+        'autoRoleRecognitionVideoUrl' => 'autoRoleRecognitionVideoUrl',
         'deduplicationId' => 'deduplicationId',
         'excludeGenerateOptionsShrink' => 'excludeGenerateOptions',
         'faceIdentitySimilarityMinScore' => 'faceIdentitySimilarityMinScore',
@@ -147,6 +153,9 @@ class SubmitVideoAnalysisTaskShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->autoRoleRecognitionVideoUrl) {
+            $res['autoRoleRecognitionVideoUrl'] = $this->autoRoleRecognitionVideoUrl;
+        }
         if (null !== $this->deduplicationId) {
             $res['deduplicationId'] = $this->deduplicationId;
         }
@@ -216,6 +225,9 @@ class SubmitVideoAnalysisTaskShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['autoRoleRecognitionVideoUrl'])) {
+            $model->autoRoleRecognitionVideoUrl = $map['autoRoleRecognitionVideoUrl'];
+        }
         if (isset($map['deduplicationId'])) {
             $model->deduplicationId = $map['deduplicationId'];
         }

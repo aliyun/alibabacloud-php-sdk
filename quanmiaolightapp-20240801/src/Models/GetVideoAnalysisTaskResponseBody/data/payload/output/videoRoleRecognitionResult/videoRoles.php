@@ -2,9 +2,9 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunVideoAnalysisRequest;
+namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetVideoAnalysisTaskResponseBody\data\payload\output\videoRoleRecognitionResult;
 
-use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunVideoAnalysisRequest\videoRoles\timeIntervals;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetVideoAnalysisTaskResponseBody\data\payload\output\videoRoleRecognitionResult\videoRoles\timeIntervals;
 use AlibabaCloud\Tea\Model;
 
 class videoRoles extends Model
@@ -13,6 +13,11 @@ class videoRoles extends Model
      * @var bool
      */
     public $isAutoRecognition;
+
+    /**
+     * @var float
+     */
+    public $ratio;
 
     /**
      * @var string
@@ -28,17 +33,12 @@ class videoRoles extends Model
      * @var timeIntervals[]
      */
     public $timeIntervals;
-
-    /**
-     * @var string[]
-     */
-    public $urls;
     protected $_name = [
         'isAutoRecognition' => 'isAutoRecognition',
+        'ratio' => 'ratio',
         'roleInfo' => 'roleInfo',
         'roleName' => 'roleName',
         'timeIntervals' => 'timeIntervals',
-        'urls' => 'urls',
     ];
 
     public function validate() {}
@@ -48,6 +48,9 @@ class videoRoles extends Model
         $res = [];
         if (null !== $this->isAutoRecognition) {
             $res['isAutoRecognition'] = $this->isAutoRecognition;
+        }
+        if (null !== $this->ratio) {
+            $res['ratio'] = $this->ratio;
         }
         if (null !== $this->roleInfo) {
             $res['roleInfo'] = $this->roleInfo;
@@ -64,9 +67,6 @@ class videoRoles extends Model
                 }
             }
         }
-        if (null !== $this->urls) {
-            $res['urls'] = $this->urls;
-        }
 
         return $res;
     }
@@ -82,6 +82,9 @@ class videoRoles extends Model
         if (isset($map['isAutoRecognition'])) {
             $model->isAutoRecognition = $map['isAutoRecognition'];
         }
+        if (isset($map['ratio'])) {
+            $model->ratio = $map['ratio'];
+        }
         if (isset($map['roleInfo'])) {
             $model->roleInfo = $map['roleInfo'];
         }
@@ -95,11 +98,6 @@ class videoRoles extends Model
                 foreach ($map['timeIntervals'] as $item) {
                     $model->timeIntervals[$n++] = null !== $item ? timeIntervals::fromMap($item) : $item;
                 }
-            }
-        }
-        if (isset($map['urls'])) {
-            if (!empty($map['urls'])) {
-                $model->urls = $map['urls'];
             }
         }
 

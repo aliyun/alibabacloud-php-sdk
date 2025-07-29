@@ -1805,6 +1805,9 @@ class QuanMiaoLightApp extends OpenApiClient
             $request->videoRolesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->videoRoles, 'videoRoles', 'json');
         }
         $body = [];
+        if (!Utils::isUnset($request->autoRoleRecognitionVideoUrl)) {
+            $body['autoRoleRecognitionVideoUrl'] = $request->autoRoleRecognitionVideoUrl;
+        }
         if (!Utils::isUnset($request->excludeGenerateOptionsShrink)) {
             $body['excludeGenerateOptions'] = $request->excludeGenerateOptionsShrink;
         }
@@ -2186,6 +2189,9 @@ class QuanMiaoLightApp extends OpenApiClient
             $request->videoRolesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->videoRoles, 'videoRoles', 'json');
         }
         $body = [];
+        if (!Utils::isUnset($request->autoRoleRecognitionVideoUrl)) {
+            $body['autoRoleRecognitionVideoUrl'] = $request->autoRoleRecognitionVideoUrl;
+        }
         if (!Utils::isUnset($request->deduplicationId)) {
             $body['deduplicationId'] = $request->deduplicationId;
         }

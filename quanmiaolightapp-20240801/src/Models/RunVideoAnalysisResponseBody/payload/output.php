@@ -9,6 +9,7 @@ use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunVideoAnalysisResponseB
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunVideoAnalysisResponseBody\payload\output\videoGenerateResult;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunVideoAnalysisResponseBody\payload\output\videoGenerateResults;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunVideoAnalysisResponseBody\payload\output\videoMindMappingGenerateResult;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunVideoAnalysisResponseBody\payload\output\videoRoleRecognitionResult;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunVideoAnalysisResponseBody\payload\output\videoShotSnapshotResult;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunVideoAnalysisResponseBody\payload\output\videoTitleGenerateResult;
 use AlibabaCloud\Tea\Model;
@@ -48,6 +49,11 @@ class output extends Model
     public $videoMindMappingGenerateResult;
 
     /**
+     * @var videoRoleRecognitionResult
+     */
+    public $videoRoleRecognitionResult;
+
+    /**
      * @var videoShotSnapshotResult
      */
     public $videoShotSnapshotResult;
@@ -63,6 +69,7 @@ class output extends Model
         'videoGenerateResult' => 'videoGenerateResult',
         'videoGenerateResults' => 'videoGenerateResults',
         'videoMindMappingGenerateResult' => 'videoMindMappingGenerateResult',
+        'videoRoleRecognitionResult' => 'videoRoleRecognitionResult',
         'videoShotSnapshotResult' => 'videoShotSnapshotResult',
         'videoTitleGenerateResult' => 'videoTitleGenerateResult',
     ];
@@ -95,6 +102,9 @@ class output extends Model
         }
         if (null !== $this->videoMindMappingGenerateResult) {
             $res['videoMindMappingGenerateResult'] = null !== $this->videoMindMappingGenerateResult ? $this->videoMindMappingGenerateResult->toMap() : null;
+        }
+        if (null !== $this->videoRoleRecognitionResult) {
+            $res['videoRoleRecognitionResult'] = null !== $this->videoRoleRecognitionResult ? $this->videoRoleRecognitionResult->toMap() : null;
         }
         if (null !== $this->videoShotSnapshotResult) {
             $res['videoShotSnapshotResult'] = null !== $this->videoShotSnapshotResult ? $this->videoShotSnapshotResult->toMap() : null;
@@ -137,6 +147,9 @@ class output extends Model
         }
         if (isset($map['videoMindMappingGenerateResult'])) {
             $model->videoMindMappingGenerateResult = videoMindMappingGenerateResult::fromMap($map['videoMindMappingGenerateResult']);
+        }
+        if (isset($map['videoRoleRecognitionResult'])) {
+            $model->videoRoleRecognitionResult = videoRoleRecognitionResult::fromMap($map['videoRoleRecognitionResult']);
         }
         if (isset($map['videoShotSnapshotResult'])) {
             $model->videoShotSnapshotResult = videoShotSnapshotResult::fromMap($map['videoShotSnapshotResult']);
