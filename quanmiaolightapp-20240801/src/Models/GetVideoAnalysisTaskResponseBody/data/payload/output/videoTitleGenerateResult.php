@@ -4,17 +4,21 @@
 
 namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetVideoAnalysisTaskResponseBody\data\payload\output;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetVideoAnalysisTaskResponseBody\data\payload\output\videoTitleGenerateResult\usage;
+use AlibabaCloud\Tea\Model;
 
 class videoTitleGenerateResult extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $generateFinished;
 
     /**
+     * @example xxxx
+     *
      * @var string
      */
     public $text;
@@ -29,48 +33,38 @@ class videoTitleGenerateResult extends Model
         'usage' => 'usage',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->usage) {
-            $this->usage->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->generateFinished) {
             $res['generateFinished'] = $this->generateFinished;
         }
-
         if (null !== $this->text) {
             $res['text'] = $this->text;
         }
-
         if (null !== $this->usage) {
-            $res['usage'] = null !== $this->usage ? $this->usage->toArray($noStream) : $this->usage;
+            $res['usage'] = null !== $this->usage ? $this->usage->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return videoTitleGenerateResult
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['generateFinished'])) {
             $model->generateFinished = $map['generateFinished'];
         }
-
         if (isset($map['text'])) {
             $model->text = $map['text'];
         }
-
         if (isset($map['usage'])) {
             $model->usage = usage::fromMap($map['usage']);
         }

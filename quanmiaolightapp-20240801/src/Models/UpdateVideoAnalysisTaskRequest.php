@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateVideoAnalysisTaskRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example xxxx
+     *
      * @var string
      */
     public $taskId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example CANCELED
+     *
      * @var string
      */
     public $taskStatus;
@@ -22,18 +30,14 @@ class UpdateVideoAnalysisTaskRequest extends Model
         'taskStatus' => 'taskStatus',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->taskId) {
             $res['taskId'] = $this->taskId;
         }
-
         if (null !== $this->taskStatus) {
             $res['taskStatus'] = $this->taskStatus;
         }
@@ -41,18 +45,17 @@ class UpdateVideoAnalysisTaskRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateVideoAnalysisTaskRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['taskId'])) {
             $model->taskId = $map['taskId'];
         }
-
         if (isset($map['taskStatus'])) {
             $model->taskStatus = $map['taskStatus'];
         }

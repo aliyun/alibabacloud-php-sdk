@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\HotNewsRecommendResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class news extends Model
 {
     /**
+     * @example xx
+     *
      * @var string
      */
     public $content;
@@ -19,6 +21,8 @@ class news extends Model
     public $imageUrls;
 
     /**
+     * @example 2024-09-10 15:32:00
+     *
      * @var string
      */
     public $pubTime;
@@ -34,11 +38,15 @@ class news extends Model
     public $source;
 
     /**
+     * @example xx
+     *
      * @var string
      */
     public $title;
 
     /**
+     * @example http://xxx
+     *
      * @var string
      */
     public $url;
@@ -52,48 +60,29 @@ class news extends Model
         'url' => 'url',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->imageUrls)) {
-            Model::validateArray($this->imageUrls);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->content) {
             $res['content'] = $this->content;
         }
-
         if (null !== $this->imageUrls) {
-            if (\is_array($this->imageUrls)) {
-                $res['imageUrls'] = [];
-                $n1 = 0;
-                foreach ($this->imageUrls as $item1) {
-                    $res['imageUrls'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['imageUrls'] = $this->imageUrls;
         }
-
         if (null !== $this->pubTime) {
             $res['pubTime'] = $this->pubTime;
         }
-
         if (null !== $this->searchSource) {
             $res['searchSource'] = $this->searchSource;
         }
-
         if (null !== $this->source) {
             $res['source'] = $this->source;
         }
-
         if (null !== $this->title) {
             $res['title'] = $this->title;
         }
-
         if (null !== $this->url) {
             $res['url'] = $this->url;
         }
@@ -101,45 +90,34 @@ class news extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return news
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['content'])) {
             $model->content = $map['content'];
         }
-
         if (isset($map['imageUrls'])) {
             if (!empty($map['imageUrls'])) {
-                $model->imageUrls = [];
-                $n1 = 0;
-                foreach ($map['imageUrls'] as $item1) {
-                    $model->imageUrls[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->imageUrls = $map['imageUrls'];
             }
         }
-
         if (isset($map['pubTime'])) {
             $model->pubTime = $map['pubTime'];
         }
-
         if (isset($map['searchSource'])) {
             $model->searchSource = $map['searchSource'];
         }
-
         if (isset($map['source'])) {
             $model->source = $map['source'];
         }
-
         if (isset($map['title'])) {
             $model->title = $map['title'];
         }
-
         if (isset($map['url'])) {
             $model->url = $map['url'];
         }

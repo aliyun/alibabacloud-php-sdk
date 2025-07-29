@@ -1,3 +1,10 @@
+2025-07-29 Version: 2.8.0
+- Support API GetEssayCorrectionTask.
+- Support API RunEssayCorrection.
+- Support API RunOcrParse.
+- Support API SubmitEssayCorrectionTask.
+
+
 2025-07-02 Version: 2.8.0
 - Support API GetEssayCorrectionTask.
 - Support API RunEssayCorrection.

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetEnterpriseVocAnalysisTaskResponseBody\data\statisticsOverview\filterDimensionStatistics;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class tagValueCountStatistic extends Model
 {
@@ -14,6 +14,8 @@ class tagValueCountStatistic extends Model
     public $tagName;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $valueCount;
@@ -22,18 +24,14 @@ class tagValueCountStatistic extends Model
         'valueCount' => 'valueCount',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->tagName) {
             $res['tagName'] = $this->tagName;
         }
-
         if (null !== $this->valueCount) {
             $res['valueCount'] = $this->valueCount;
         }
@@ -41,18 +39,17 @@ class tagValueCountStatistic extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return tagValueCountStatistic
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['tagName'])) {
             $model->tagName = $map['tagName'];
         }
-
         if (isset($map['valueCount'])) {
             $model->valueCount = $map['valueCount'];
         }

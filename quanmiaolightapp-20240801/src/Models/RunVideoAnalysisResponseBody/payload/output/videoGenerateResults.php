@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunVideoAnalysisResponseBody\payload\output;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunVideoAnalysisResponseBody\payload\output\videoGenerateResults\usage;
+use AlibabaCloud\Tea\Model;
 
 class videoGenerateResults extends Model
 {
@@ -47,72 +47,56 @@ class videoGenerateResults extends Model
         'usage' => 'usage',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->usage) {
-            $this->usage->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->generateFinished) {
             $res['generateFinished'] = $this->generateFinished;
         }
-
         if (null !== $this->index) {
             $res['index'] = $this->index;
         }
-
         if (null !== $this->modelId) {
             $res['modelId'] = $this->modelId;
         }
-
         if (null !== $this->reasonText) {
             $res['reasonText'] = $this->reasonText;
         }
-
         if (null !== $this->text) {
             $res['text'] = $this->text;
         }
-
         if (null !== $this->usage) {
-            $res['usage'] = null !== $this->usage ? $this->usage->toArray($noStream) : $this->usage;
+            $res['usage'] = null !== $this->usage ? $this->usage->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return videoGenerateResults
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['generateFinished'])) {
             $model->generateFinished = $map['generateFinished'];
         }
-
         if (isset($map['index'])) {
             $model->index = $map['index'];
         }
-
         if (isset($map['modelId'])) {
             $model->modelId = $map['modelId'];
         }
-
         if (isset($map['reasonText'])) {
             $model->reasonText = $map['reasonText'];
         }
-
         if (isset($map['text'])) {
             $model->text = $map['text'];
         }
-
         if (isset($map['usage'])) {
             $model->usage = usage::fromMap($map['usage']);
         }

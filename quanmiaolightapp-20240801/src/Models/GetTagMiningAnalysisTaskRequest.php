@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetTagMiningAnalysisTaskRequest extends Model
 {
     /**
+     * @example a3d1c2ac-f086-4a21-9069-f5631542f5a2
+     *
      * @var string
      */
     public $taskId;
@@ -16,12 +18,9 @@ class GetTagMiningAnalysisTaskRequest extends Model
         'taskId' => 'taskId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->taskId) {
@@ -31,11 +30,11 @@ class GetTagMiningAnalysisTaskRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetTagMiningAnalysisTaskRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

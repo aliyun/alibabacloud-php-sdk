@@ -4,21 +4,29 @@
 
 namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListAnalysisTagDetailByTaskIdRequest extends Model
 {
     /**
+     * @example 20
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example JlroP3CjgQh5PQDlH3ArzADkBTPZgVqo+64jhZRglNq0mEYoV5SlGb/Juvo8CdfYE9rlwEr2pIJQwdaYotak9g==
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example a3d1c2ac-f086-4a21-9069-f5631542f5a2
+     *
      * @var string
      */
     public $taskId;
@@ -28,22 +36,17 @@ class ListAnalysisTagDetailByTaskIdRequest extends Model
         'taskId' => 'taskId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->maxResults) {
             $res['maxResults'] = $this->maxResults;
         }
-
         if (null !== $this->nextToken) {
             $res['nextToken'] = $this->nextToken;
         }
-
         if (null !== $this->taskId) {
             $res['taskId'] = $this->taskId;
         }
@@ -51,22 +54,20 @@ class ListAnalysisTagDetailByTaskIdRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListAnalysisTagDetailByTaskIdRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['maxResults'])) {
             $model->maxResults = $map['maxResults'];
         }
-
         if (isset($map['nextToken'])) {
             $model->nextToken = $map['nextToken'];
         }
-
         if (isset($map['taskId'])) {
             $model->taskId = $map['taskId'];
         }

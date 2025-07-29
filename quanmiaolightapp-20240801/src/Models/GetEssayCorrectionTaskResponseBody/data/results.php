@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetEssayCorrectionTaskResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class results extends Model
 {
     /**
+     * @description xxx
+     *
+     * @example 1
+     *
      * @var string
      */
     public $customId;
@@ -19,6 +23,8 @@ class results extends Model
     public $result;
 
     /**
+     * @example 58
+     *
      * @var int
      */
     public $score;
@@ -28,22 +34,17 @@ class results extends Model
         'score' => 'score',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->customId) {
             $res['customId'] = $this->customId;
         }
-
         if (null !== $this->result) {
             $res['result'] = $this->result;
         }
-
         if (null !== $this->score) {
             $res['score'] = $this->score;
         }
@@ -51,22 +52,20 @@ class results extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return results
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['customId'])) {
             $model->customId = $map['customId'];
         }
-
         if (isset($map['result'])) {
             $model->result = $map['result'];
         }
-
         if (isset($map['score'])) {
             $model->score = $map['score'];
         }

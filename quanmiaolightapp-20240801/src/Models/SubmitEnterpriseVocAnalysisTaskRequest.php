@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\SubmitEnterpriseVocAnalysisTaskRequest\contents;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\SubmitEnterpriseVocAnalysisTaskRequest\filterTags;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\SubmitEnterpriseVocAnalysisTaskRequest\tags;
+use AlibabaCloud\Tea\Model;
 
 class SubmitEnterpriseVocAnalysisTaskRequest extends Model
 {
@@ -27,6 +27,8 @@ class SubmitEnterpriseVocAnalysisTaskRequest extends Model
     public $extraInfo;
 
     /**
+     * @example oss://default/aimiaobi-service-prod/aimiaobi/temp/public/government_service_experience_feedback_summary.txt
+     *
      * @var string
      */
     public $fileKey;
@@ -37,6 +39,8 @@ class SubmitEnterpriseVocAnalysisTaskRequest extends Model
     public $filterTags;
 
     /**
+     * @example qwen-max
+     *
      * @var string
      */
     public $modelId;
@@ -62,6 +66,8 @@ class SubmitEnterpriseVocAnalysisTaskRequest extends Model
     public $taskDescription;
 
     /**
+     * @example http://www.example.com/xxxx.txt
+     *
      * @var string
      */
     public $url;
@@ -79,84 +85,59 @@ class SubmitEnterpriseVocAnalysisTaskRequest extends Model
         'url' => 'url',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->contents)) {
-            Model::validateArray($this->contents);
-        }
-        if (\is_array($this->filterTags)) {
-            Model::validateArray($this->filterTags);
-        }
-        if (\is_array($this->tags)) {
-            Model::validateArray($this->tags);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->apiKey) {
             $res['apiKey'] = $this->apiKey;
         }
-
         if (null !== $this->contents) {
-            if (\is_array($this->contents)) {
-                $res['contents'] = [];
-                $n1 = 0;
-                foreach ($this->contents as $item1) {
-                    $res['contents'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['contents'] = [];
+            if (null !== $this->contents && \is_array($this->contents)) {
+                $n = 0;
+                foreach ($this->contents as $item) {
+                    $res['contents'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->extraInfo) {
             $res['extraInfo'] = $this->extraInfo;
         }
-
         if (null !== $this->fileKey) {
             $res['fileKey'] = $this->fileKey;
         }
-
         if (null !== $this->filterTags) {
-            if (\is_array($this->filterTags)) {
-                $res['filterTags'] = [];
-                $n1 = 0;
-                foreach ($this->filterTags as $item1) {
-                    $res['filterTags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['filterTags'] = [];
+            if (null !== $this->filterTags && \is_array($this->filterTags)) {
+                $n = 0;
+                foreach ($this->filterTags as $item) {
+                    $res['filterTags'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->modelId) {
             $res['modelId'] = $this->modelId;
         }
-
         if (null !== $this->outputFormat) {
             $res['outputFormat'] = $this->outputFormat;
         }
-
         if (null !== $this->sourceTrace) {
             $res['sourceTrace'] = $this->sourceTrace;
         }
-
         if (null !== $this->tags) {
-            if (\is_array($this->tags)) {
-                $res['tags'] = [];
-                $n1 = 0;
-                foreach ($this->tags as $item1) {
-                    $res['tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['tags'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->taskDescription) {
             $res['taskDescription'] = $this->taskDescription;
         }
-
         if (null !== $this->url) {
             $res['url'] = $this->url;
         }
@@ -164,75 +145,62 @@ class SubmitEnterpriseVocAnalysisTaskRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return SubmitEnterpriseVocAnalysisTaskRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['apiKey'])) {
             $model->apiKey = $map['apiKey'];
         }
-
         if (isset($map['contents'])) {
             if (!empty($map['contents'])) {
                 $model->contents = [];
-                $n1 = 0;
-                foreach ($map['contents'] as $item1) {
-                    $model->contents[$n1] = contents::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['contents'] as $item) {
+                    $model->contents[$n++] = null !== $item ? contents::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['extraInfo'])) {
             $model->extraInfo = $map['extraInfo'];
         }
-
         if (isset($map['fileKey'])) {
             $model->fileKey = $map['fileKey'];
         }
-
         if (isset($map['filterTags'])) {
             if (!empty($map['filterTags'])) {
                 $model->filterTags = [];
-                $n1 = 0;
-                foreach ($map['filterTags'] as $item1) {
-                    $model->filterTags[$n1] = filterTags::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['filterTags'] as $item) {
+                    $model->filterTags[$n++] = null !== $item ? filterTags::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['modelId'])) {
             $model->modelId = $map['modelId'];
         }
-
         if (isset($map['outputFormat'])) {
             $model->outputFormat = $map['outputFormat'];
         }
-
         if (isset($map['sourceTrace'])) {
             $model->sourceTrace = $map['sourceTrace'];
         }
-
         if (isset($map['tags'])) {
             if (!empty($map['tags'])) {
                 $model->tags = [];
-                $n1 = 0;
-                foreach ($map['tags'] as $item1) {
-                    $model->tags[$n1] = tags::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['taskDescription'])) {
             $model->taskDescription = $map['taskDescription'];
         }
-
         if (isset($map['url'])) {
             $model->url = $map['url'];
         }

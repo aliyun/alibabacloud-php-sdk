@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunEnterpriseVocAnalysisResponseBody\header;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunEnterpriseVocAnalysisResponseBody\payload;
+use AlibabaCloud\Tea\Model;
 
 class RunEnterpriseVocAnalysisResponseBody extends Model
 {
@@ -21,6 +21,10 @@ class RunEnterpriseVocAnalysisResponseBody extends Model
     public $payload;
 
     /**
+     * @description Id of the request
+     *
+     * @example 49483FFC-0CB9-5163-8D3E-234E276E6DA8
+     *
      * @var string
      */
     public $requestId;
@@ -30,28 +34,17 @@ class RunEnterpriseVocAnalysisResponseBody extends Model
         'requestId' => 'requestId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->header) {
-            $this->header->validate();
-        }
-        if (null !== $this->payload) {
-            $this->payload->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->header) {
-            $res['header'] = null !== $this->header ? $this->header->toArray($noStream) : $this->header;
+            $res['header'] = null !== $this->header ? $this->header->toMap() : null;
         }
-
         if (null !== $this->payload) {
-            $res['payload'] = null !== $this->payload ? $this->payload->toArray($noStream) : $this->payload;
+            $res['payload'] = null !== $this->payload ? $this->payload->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -59,22 +52,20 @@ class RunEnterpriseVocAnalysisResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return RunEnterpriseVocAnalysisResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['header'])) {
             $model->header = header::fromMap($map['header']);
         }
-
         if (isset($map['payload'])) {
             $model->payload = payload::fromMap($map['payload']);
         }
-
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }

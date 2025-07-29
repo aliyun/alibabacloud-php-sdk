@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\SubmitVideoAnalysisTaskRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class textProcessTasks extends Model
 {
@@ -28,22 +28,17 @@ class textProcessTasks extends Model
         'modelId' => 'modelId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->modelCustomPromptTemplate) {
             $res['modelCustomPromptTemplate'] = $this->modelCustomPromptTemplate;
         }
-
         if (null !== $this->modelCustomPromptTemplateId) {
             $res['modelCustomPromptTemplateId'] = $this->modelCustomPromptTemplateId;
         }
-
         if (null !== $this->modelId) {
             $res['modelId'] = $this->modelId;
         }
@@ -51,22 +46,20 @@ class textProcessTasks extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return textProcessTasks
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['modelCustomPromptTemplate'])) {
             $model->modelCustomPromptTemplate = $map['modelCustomPromptTemplate'];
         }
-
         if (isset($map['modelCustomPromptTemplateId'])) {
             $model->modelCustomPromptTemplateId = $map['modelCustomPromptTemplateId'];
         }
-
         if (isset($map['modelId'])) {
             $model->modelId = $map['modelId'];
         }

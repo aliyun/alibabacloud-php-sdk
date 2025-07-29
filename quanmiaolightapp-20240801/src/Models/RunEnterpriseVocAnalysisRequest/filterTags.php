@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunEnterpriseVocAnalysisRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class filterTags extends Model
 {
     /**
+     * @description 标签定义提示词
+     *
+     * @example 标签定义提示词
+     *
      * @var string
      */
     public $tagDefinePrompt;
 
     /**
+     * @description 标签名称
+     *
+     * @example 标签名称
+     *
      * @var string
      */
     public $tagName;
@@ -22,18 +30,14 @@ class filterTags extends Model
         'tagName' => 'tagName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->tagDefinePrompt) {
             $res['tagDefinePrompt'] = $this->tagDefinePrompt;
         }
-
         if (null !== $this->tagName) {
             $res['tagName'] = $this->tagName;
         }
@@ -41,18 +45,17 @@ class filterTags extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return filterTags
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['tagDefinePrompt'])) {
             $model->tagDefinePrompt = $map['tagDefinePrompt'];
         }
-
         if (isset($map['tagName'])) {
             $model->tagName = $map['tagName'];
         }

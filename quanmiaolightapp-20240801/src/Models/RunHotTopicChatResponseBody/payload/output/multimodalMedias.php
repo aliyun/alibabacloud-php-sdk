@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunHotTopicChatResponseBody\payload\output;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class multimodalMedias extends Model
 {
     /**
+     * @example http://xxxx
+     *
      * @var string
      */
     public $fileUrl;
 
     /**
+     * @example image
+     *
      * @var string
      */
     public $mediaType;
@@ -28,22 +32,17 @@ class multimodalMedias extends Model
         'sortScore' => 'sortScore',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->fileUrl) {
             $res['fileUrl'] = $this->fileUrl;
         }
-
         if (null !== $this->mediaType) {
             $res['mediaType'] = $this->mediaType;
         }
-
         if (null !== $this->sortScore) {
             $res['sortScore'] = $this->sortScore;
         }
@@ -51,22 +50,20 @@ class multimodalMedias extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return multimodalMedias
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['fileUrl'])) {
             $model->fileUrl = $map['fileUrl'];
         }
-
         if (isset($map['mediaType'])) {
             $model->mediaType = $map['mediaType'];
         }
-
         if (isset($map['sortScore'])) {
             $model->sortScore = $map['sortScore'];
         }

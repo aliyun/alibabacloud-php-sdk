@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunScriptRefineResponseBody\payload;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class output extends Model
 {
@@ -34,6 +34,8 @@ class output extends Model
     public $summary;
 
     /**
+     * @example xx
+     *
      * @var string
      */
     public $text;
@@ -46,49 +48,26 @@ class output extends Model
         'text' => 'text',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->content)) {
-            Model::validateArray($this->content);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->content) {
-            if (\is_array($this->content)) {
-                $res['content'] = [];
-                $n1 = 0;
-                foreach ($this->content as $item1) {
-                    if (\is_array($item1)) {
-                        $res['content'][$n1] = [];
-                        foreach ($item1 as $key2 => $value2) {
-                            $res['content'][$n1][$key2] = $value2;
-                        }
-                    }
-                    ++$n1;
-                }
-            }
+            $res['content'] = $this->content;
         }
-
         if (null !== $this->outline) {
             $res['outline'] = $this->outline;
         }
-
         if (null !== $this->role) {
             $res['role'] = $this->role;
         }
-
         if (null !== $this->scene) {
             $res['scene'] = $this->scene;
         }
-
         if (null !== $this->summary) {
             $res['summary'] = $this->summary;
         }
-
         if (null !== $this->text) {
             $res['text'] = $this->text;
         }
@@ -96,46 +75,31 @@ class output extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return output
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['content'])) {
             if (!empty($map['content'])) {
-                $model->content = [];
-                $n1 = 0;
-                foreach ($map['content'] as $item1) {
-                    if (!empty($item1)) {
-                        $model->content[$n1] = [];
-                        foreach ($item1 as $key2 => $value2) {
-                            $model->content[$n1][$key2] = $value2;
-                        }
-                    }
-                    ++$n1;
-                }
+                $model->content = $map['content'];
             }
         }
-
         if (isset($map['outline'])) {
             $model->outline = $map['outline'];
         }
-
         if (isset($map['role'])) {
             $model->role = $map['role'];
         }
-
         if (isset($map['scene'])) {
             $model->scene = $map['scene'];
         }
-
         if (isset($map['summary'])) {
             $model->summary = $map['summary'];
         }
-
         if (isset($map['text'])) {
             $model->text = $map['text'];
         }

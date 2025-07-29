@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class RunStyleWritingShrinkRequest extends Model
 {
@@ -46,34 +46,26 @@ class RunStyleWritingShrinkRequest extends Model
         'writingTheme' => 'writingTheme',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->learningSamplesShrink) {
             $res['learningSamples'] = $this->learningSamplesShrink;
         }
-
         if (null !== $this->processStage) {
             $res['processStage'] = $this->processStage;
         }
-
         if (null !== $this->referenceMaterialsShrink) {
             $res['referenceMaterials'] = $this->referenceMaterialsShrink;
         }
-
         if (null !== $this->styleFeature) {
             $res['styleFeature'] = $this->styleFeature;
         }
-
         if (null !== $this->useSearch) {
             $res['useSearch'] = $this->useSearch;
         }
-
         if (null !== $this->writingTheme) {
             $res['writingTheme'] = $this->writingTheme;
         }
@@ -81,34 +73,29 @@ class RunStyleWritingShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return RunStyleWritingShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['learningSamples'])) {
             $model->learningSamplesShrink = $map['learningSamples'];
         }
-
         if (isset($map['processStage'])) {
             $model->processStage = $map['processStage'];
         }
-
         if (isset($map['referenceMaterials'])) {
             $model->referenceMaterialsShrink = $map['referenceMaterials'];
         }
-
         if (isset($map['styleFeature'])) {
             $model->styleFeature = $map['styleFeature'];
         }
-
         if (isset($map['useSearch'])) {
             $model->useSearch = $map['useSearch'];
         }
-
         if (isset($map['writingTheme'])) {
             $model->writingTheme = $map['writingTheme'];
         }

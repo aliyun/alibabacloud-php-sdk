@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunScriptContinueResponseBody\header;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunScriptContinueResponseBody\payload;
+use AlibabaCloud\Tea\Model;
 
 class RunScriptContinueResponseBody extends Model
 {
@@ -30,51 +30,38 @@ class RunScriptContinueResponseBody extends Model
         'payload' => 'payload',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->header) {
-            $this->header->validate();
-        }
-        if (null !== $this->payload) {
-            $this->payload->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->end) {
             $res['end'] = $this->end;
         }
-
         if (null !== $this->header) {
-            $res['header'] = null !== $this->header ? $this->header->toArray($noStream) : $this->header;
+            $res['header'] = null !== $this->header ? $this->header->toMap() : null;
         }
-
         if (null !== $this->payload) {
-            $res['payload'] = null !== $this->payload ? $this->payload->toArray($noStream) : $this->payload;
+            $res['payload'] = null !== $this->payload ? $this->payload->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return RunScriptContinueResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['end'])) {
             $model->end = $map['end'];
         }
-
         if (isset($map['header'])) {
             $model->header = header::fromMap($map['header']);
         }
-
         if (isset($map['payload'])) {
             $model->payload = payload::fromMap($map['payload']);
         }

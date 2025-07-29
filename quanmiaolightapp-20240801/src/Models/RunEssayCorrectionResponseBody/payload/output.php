@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunEssayCorrectionResponseBody\payload;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class output extends Model
 {
     /**
+     * @example 50
+     *
      * @var int
      */
     public $score;
@@ -22,18 +24,14 @@ class output extends Model
         'text' => 'text',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->score) {
             $res['score'] = $this->score;
         }
-
         if (null !== $this->text) {
             $res['text'] = $this->text;
         }
@@ -41,18 +39,17 @@ class output extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return output
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['score'])) {
             $model->score = $map['score'];
         }
-
         if (isset($map['text'])) {
             $model->text = $map['text'];
         }

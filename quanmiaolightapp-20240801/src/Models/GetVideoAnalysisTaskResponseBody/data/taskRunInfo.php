@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetVideoAnalysisTaskResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class taskRunInfo extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $concurrentChargeEnable;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $responseTime;
@@ -22,18 +26,14 @@ class taskRunInfo extends Model
         'responseTime' => 'responseTime',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->concurrentChargeEnable) {
             $res['concurrentChargeEnable'] = $this->concurrentChargeEnable;
         }
-
         if (null !== $this->responseTime) {
             $res['responseTime'] = $this->responseTime;
         }
@@ -41,18 +41,17 @@ class taskRunInfo extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return taskRunInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['concurrentChargeEnable'])) {
             $model->concurrentChargeEnable = $map['concurrentChargeEnable'];
         }
-
         if (isset($map['responseTime'])) {
             $model->responseTime = $map['responseTime'];
         }

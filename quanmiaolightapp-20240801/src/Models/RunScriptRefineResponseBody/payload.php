@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunScriptRefineResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunScriptRefineResponseBody\payload\output;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunScriptRefineResponseBody\payload\usage;
+use AlibabaCloud\Tea\Model;
 
 class payload extends Model
 {
@@ -24,43 +24,32 @@ class payload extends Model
         'usage' => 'usage',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->output) {
-            $this->output->validate();
-        }
-        if (null !== $this->usage) {
-            $this->usage->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->output) {
-            $res['output'] = null !== $this->output ? $this->output->toArray($noStream) : $this->output;
+            $res['output'] = null !== $this->output ? $this->output->toMap() : null;
         }
-
         if (null !== $this->usage) {
-            $res['usage'] = null !== $this->usage ? $this->usage->toArray($noStream) : $this->usage;
+            $res['usage'] = null !== $this->usage ? $this->usage->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return payload
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['output'])) {
             $model->output = output::fromMap($map['output']);
         }
-
         if (isset($map['usage'])) {
             $model->usage = usage::fromMap($map['usage']);
         }

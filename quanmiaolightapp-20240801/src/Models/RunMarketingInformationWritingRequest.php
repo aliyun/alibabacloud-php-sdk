@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class RunMarketingInformationWritingRequest extends Model
 {
@@ -29,6 +29,9 @@ class RunMarketingInformationWritingRequest extends Model
     public $inputExample;
 
     /**
+     * @example qwen-max
+     * qwen-plus
+     *
      * @var string
      */
     public $modelId;
@@ -58,42 +61,32 @@ class RunMarketingInformationWritingRequest extends Model
         'writingType' => 'writingType',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->apiKey) {
             $res['apiKey'] = $this->apiKey;
         }
-
         if (null !== $this->customLimitation) {
             $res['customLimitation'] = $this->customLimitation;
         }
-
         if (null !== $this->customPrompt) {
             $res['customPrompt'] = $this->customPrompt;
         }
-
         if (null !== $this->inputExample) {
             $res['inputExample'] = $this->inputExample;
         }
-
         if (null !== $this->modelId) {
             $res['modelId'] = $this->modelId;
         }
-
         if (null !== $this->outputExample) {
             $res['outputExample'] = $this->outputExample;
         }
-
         if (null !== $this->sourceMaterial) {
             $res['sourceMaterial'] = $this->sourceMaterial;
         }
-
         if (null !== $this->writingType) {
             $res['writingType'] = $this->writingType;
         }
@@ -101,42 +94,35 @@ class RunMarketingInformationWritingRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return RunMarketingInformationWritingRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['apiKey'])) {
             $model->apiKey = $map['apiKey'];
         }
-
         if (isset($map['customLimitation'])) {
             $model->customLimitation = $map['customLimitation'];
         }
-
         if (isset($map['customPrompt'])) {
             $model->customPrompt = $map['customPrompt'];
         }
-
         if (isset($map['inputExample'])) {
             $model->inputExample = $map['inputExample'];
         }
-
         if (isset($map['modelId'])) {
             $model->modelId = $map['modelId'];
         }
-
         if (isset($map['outputExample'])) {
             $model->outputExample = $map['outputExample'];
         }
-
         if (isset($map['sourceMaterial'])) {
             $model->sourceMaterial = $map['sourceMaterial'];
         }
-
         if (isset($map['writingType'])) {
             $model->writingType = $map['writingType'];
         }

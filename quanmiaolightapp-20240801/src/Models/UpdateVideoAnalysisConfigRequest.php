@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateVideoAnalysisConfigRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $asyncConcurrency;
@@ -16,12 +20,9 @@ class UpdateVideoAnalysisConfigRequest extends Model
         'asyncConcurrency' => 'asyncConcurrency',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->asyncConcurrency) {
@@ -31,11 +32,11 @@ class UpdateVideoAnalysisConfigRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateVideoAnalysisConfigRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
