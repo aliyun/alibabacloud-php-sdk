@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Schedulerx2\V20190430\Models\CreateAppGroupResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description The job group ID.
+     *
+     * @example 6607
+     *
      * @var int
      */
     public $appGroupId;
 
     /**
+     * @description The AppKey for the application.
+     *
+     * @example adcExHZviL******
+     *
      * @var string
      */
     public $appKey;
@@ -22,18 +30,14 @@ class data extends Model
         'appKey' => 'AppKey',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appGroupId) {
             $res['AppGroupId'] = $this->appGroupId;
         }
-
         if (null !== $this->appKey) {
             $res['AppKey'] = $this->appKey;
         }
@@ -41,18 +45,17 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppGroupId'])) {
             $model->appGroupId = $map['AppGroupId'];
         }
-
         if (isset($map['AppKey'])) {
             $model->appKey = $map['AppKey'];
         }

@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Schedulerx2\V20190430\Models\ExecuteJobResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description The job instance ID.
+     *
+     * @example 11111111
+     *
      * @var int
      */
     public $jobInstanceId;
@@ -16,12 +20,9 @@ class data extends Model
         'jobInstanceId' => 'JobInstanceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->jobInstanceId) {
@@ -31,11 +32,11 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

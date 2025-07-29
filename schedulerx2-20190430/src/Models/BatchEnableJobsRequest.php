@@ -4,31 +4,57 @@
 
 namespace AlibabaCloud\SDK\Schedulerx2\V20190430\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class BatchEnableJobsRequest extends Model
 {
     /**
+     * @description The application ID. You can obtain the application ID on the **Application Management** page in the SchedulerX console.
+     *
+     * @example testSchedulerx.defaultGroup
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The job IDs. Multiple job IDs are separated with commas (,).
+     *
+     * This parameter is required.
+     *
+     * @example 99341
+     *
      * @var int[]
      */
     public $jobIdList;
 
     /**
+     * @description The ID of the namespace to which the job belongs. You can obtain the namespace ID on the **Namespace** page in the SchedulerX console.
+     *
+     * This parameter is required.
+     *
+     * @example adcfc35d-e2fe-4fe9-bbaa-20e90ffc****
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @description The source of the namespace. This parameter is required only for a special third party.
+     *
+     * @example schedulerx
+     *
      * @var string
      */
     public $namespaceSource;
 
     /**
+     * @description The ID of the region to which the job belongs.
+     *
+     * This parameter is required.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -40,39 +66,23 @@ class BatchEnableJobsRequest extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->jobIdList)) {
-            Model::validateArray($this->jobIdList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
-
         if (null !== $this->jobIdList) {
-            if (\is_array($this->jobIdList)) {
-                $res['JobIdList'] = [];
-                $n1 = 0;
-                foreach ($this->jobIdList as $item1) {
-                    $res['JobIdList'][$n1++] = $item1;
-                }
-            }
+            $res['JobIdList'] = $this->jobIdList;
         }
-
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
-
         if (null !== $this->namespaceSource) {
             $res['NamespaceSource'] = $this->namespaceSource;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -80,36 +90,28 @@ class BatchEnableJobsRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return BatchEnableJobsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
-
         if (isset($map['JobIdList'])) {
             if (!empty($map['JobIdList'])) {
-                $model->jobIdList = [];
-                $n1 = 0;
-                foreach ($map['JobIdList'] as $item1) {
-                    $model->jobIdList[$n1++] = $item1;
-                }
+                $model->jobIdList = $map['JobIdList'];
             }
         }
-
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }
-
         if (isset($map['NamespaceSource'])) {
             $model->namespaceSource = $map['NamespaceSource'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

@@ -4,12 +4,14 @@
 
 namespace AlibabaCloud\SDK\Schedulerx2\V20190430\Models\ListWorkflowInstanceResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\ListWorkflowInstanceResponseBody\data\wfInstanceInfos;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description The workflow instances.
+     *
      * @var wfInstanceInfos[]
      */
     public $wfInstanceInfos;
@@ -17,23 +19,17 @@ class data extends Model
         'wfInstanceInfos' => 'WfInstanceInfos',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->wfInstanceInfos)) {
-            Model::validateArray($this->wfInstanceInfos);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->wfInstanceInfos) {
-            if (\is_array($this->wfInstanceInfos)) {
-                $res['WfInstanceInfos'] = [];
-                $n1 = 0;
-                foreach ($this->wfInstanceInfos as $item1) {
-                    $res['WfInstanceInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['WfInstanceInfos'] = [];
+            if (null !== $this->wfInstanceInfos && \is_array($this->wfInstanceInfos)) {
+                $n = 0;
+                foreach ($this->wfInstanceInfos as $item) {
+                    $res['WfInstanceInfos'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +37,20 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['WfInstanceInfos'])) {
             if (!empty($map['WfInstanceInfos'])) {
                 $model->wfInstanceInfos = [];
-                $n1 = 0;
-                foreach ($map['WfInstanceInfos'] as $item1) {
-                    $model->wfInstanceInfos[$n1++] = wfInstanceInfos::fromMap($item1);
+                $n = 0;
+                foreach ($map['WfInstanceInfos'] as $item) {
+                    $model->wfInstanceInfos[$n++] = null !== $item ? wfInstanceInfos::fromMap($item) : $item;
                 }
             }
         }

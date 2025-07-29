@@ -4,26 +4,42 @@
 
 namespace AlibabaCloud\SDK\Schedulerx2\V20190430\Models\UpdateJobRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class contactInfo extends Model
 {
     /**
+     * @description The webhook URL of the DingTalk chatbot.[](https://open.dingtalk.com/document/org/application-types)
+     *
+     * @example https://oapi.dingtalk.com/robot/send?access_token=**********
+     *
      * @var string
      */
     public $ding;
 
     /**
+     * @description The email address of the alert contact.
+     *
+     * @example test***@***.com
+     *
      * @var string
      */
     public $userMail;
 
     /**
+     * @description The name of the alert contact.
+     *
+     * @example userA
+     *
      * @var string
      */
     public $userName;
 
     /**
+     * @description The mobile phone number of the alert contact.
+     *
+     * @example 1381111****
+     *
      * @var string
      */
     public $userPhone;
@@ -34,26 +50,20 @@ class contactInfo extends Model
         'userPhone' => 'UserPhone',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->ding) {
             $res['Ding'] = $this->ding;
         }
-
         if (null !== $this->userMail) {
             $res['UserMail'] = $this->userMail;
         }
-
         if (null !== $this->userName) {
             $res['UserName'] = $this->userName;
         }
-
         if (null !== $this->userPhone) {
             $res['UserPhone'] = $this->userPhone;
         }
@@ -61,26 +71,23 @@ class contactInfo extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return contactInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Ding'])) {
             $model->ding = $map['Ding'];
         }
-
         if (isset($map['UserMail'])) {
             $model->userMail = $map['UserMail'];
         }
-
         if (isset($map['UserName'])) {
             $model->userName = $map['UserName'];
         }
-
         if (isset($map['UserPhone'])) {
             $model->userPhone = $map['UserPhone'];
         }

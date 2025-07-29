@@ -4,7 +4,8 @@
 
 namespace AlibabaCloud\SDK\Schedulerx2\V20190430;
 
-use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\BatchDeleteJobsRequest;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\BatchDeleteJobsResponse;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\BatchDeleteRouteStrategyRequest;
@@ -79,6 +80,9 @@ use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\ListNamespacesRequest;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\ListNamespacesResponse;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\ListWorkflowInstanceRequest;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\ListWorkflowInstanceResponse;
+use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\ManageSchedulerxJobSyncRequest;
+use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\ManageSchedulerxJobSyncResponse;
+use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\ManageSchedulerxJobSyncShrinkRequest;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\ReadSchedulerxDesignateDetailRequest;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\ReadSchedulerxDesignateDetailResponse;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\ReadSchedulerxDesignateInfoRequest;
@@ -107,10 +111,11 @@ use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\UpdateWorkflowDagRequest;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\UpdateWorkflowDagResponse;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\UpdateWorkflowRequest;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\UpdateWorkflowResponse;
+use AlibabaCloud\Tea\Utils\Utils;
+use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
-use Darabonba\OpenApi\Utils;
 
 class Schedulerx2 extends OpenApiClient
 {
@@ -141,22 +146,20 @@ class Schedulerx2 extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (null !== $endpoint) {
+        if (!Utils::empty_($endpoint)) {
             return $endpoint;
         }
-
-        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
+        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
             return @$endpointMap[$regionId];
         }
 
-        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * Deletes multiple jobs at a time.
-     *
-     * @remarks
-     * Before you call this operation, you must add the following dependency to the pom.xml file:
+     * @summary Deletes multiple jobs at a time.
+     *  *
+     * @description Before you call this operation, you must add the following dependency to the pom.xml file:
      * ```xml
      * <dependency>
      *     <groupId>com.aliyun</groupId>
@@ -164,45 +167,35 @@ class Schedulerx2 extends OpenApiClient
      *     <version>1.0.4</version>
      * </dependency>
      * ```
+     *  *
+     * @param BatchDeleteJobsRequest $request BatchDeleteJobsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - BatchDeleteJobsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns BatchDeleteJobsResponse
-     *
-     * @param BatchDeleteJobsRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return BatchDeleteJobsResponse
+     * @return BatchDeleteJobsResponse BatchDeleteJobsResponse
      */
     public function batchDeleteJobsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->namespace) {
-            @$query['Namespace'] = $request->namespace;
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
         }
-
-        if (null !== $request->namespaceSource) {
-            @$query['NamespaceSource'] = $request->namespaceSource;
+        if (!Utils::isUnset($request->namespaceSource)) {
+            $query['NamespaceSource'] = $request->namespaceSource;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $body = [];
-        if (null !== $request->jobIdList) {
-            @$body['JobIdList'] = $request->jobIdList;
+        if (!Utils::isUnset($request->jobIdList)) {
+            $body['JobIdList'] = $request->jobIdList;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'BatchDeleteJobs',
@@ -220,10 +213,9 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Deletes multiple jobs at a time.
-     *
-     * @remarks
-     * Before you call this operation, you must add the following dependency to the pom.xml file:
+     * @summary Deletes multiple jobs at a time.
+     *  *
+     * @description Before you call this operation, you must add the following dependency to the pom.xml file:
      * ```xml
      * <dependency>
      *     <groupId>com.aliyun</groupId>
@@ -231,14 +223,10 @@ class Schedulerx2 extends OpenApiClient
      *     <version>1.0.4</version>
      * </dependency>
      * ```
+     *  *
+     * @param BatchDeleteJobsRequest $request BatchDeleteJobsRequest
      *
-     * @param request - BatchDeleteJobsRequest
-     *
-     * @returns BatchDeleteJobsResponse
-     *
-     * @param BatchDeleteJobsRequest $request
-     *
-     * @return BatchDeleteJobsResponse
+     * @return BatchDeleteJobsResponse BatchDeleteJobsResponse
      */
     public function batchDeleteJobs($request)
     {
@@ -248,42 +236,33 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * The additional information that is returned.
+     * @summary The additional information that is returned.
+     *  *
+     * @param BatchDeleteRouteStrategyRequest $request BatchDeleteRouteStrategyRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - BatchDeleteRouteStrategyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns BatchDeleteRouteStrategyResponse
-     *
-     * @param BatchDeleteRouteStrategyRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return BatchDeleteRouteStrategyResponse
+     * @return BatchDeleteRouteStrategyResponse BatchDeleteRouteStrategyResponse
      */
     public function batchDeleteRouteStrategyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->namespace) {
-            @$query['Namespace'] = $request->namespace;
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $body = [];
-        if (null !== $request->jobIdList) {
-            @$body['JobIdList'] = $request->jobIdList;
+        if (!Utils::isUnset($request->jobIdList)) {
+            $body['JobIdList'] = $request->jobIdList;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'BatchDeleteRouteStrategy',
@@ -301,15 +280,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * The additional information that is returned.
+     * @summary The additional information that is returned.
+     *  *
+     * @param BatchDeleteRouteStrategyRequest $request BatchDeleteRouteStrategyRequest
      *
-     * @param request - BatchDeleteRouteStrategyRequest
-     *
-     * @returns BatchDeleteRouteStrategyResponse
-     *
-     * @param BatchDeleteRouteStrategyRequest $request
-     *
-     * @return BatchDeleteRouteStrategyResponse
+     * @return BatchDeleteRouteStrategyResponse BatchDeleteRouteStrategyResponse
      */
     public function batchDeleteRouteStrategy($request)
     {
@@ -319,10 +294,9 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Disables multiple jobs at a time.
-     *
-     * @remarks
-     * Before you call this operation, you must add the following dependency to the pom.xml file:
+     * @summary Disables multiple jobs at a time.
+     *  *
+     * @description Before you call this operation, you must add the following dependency to the pom.xml file:
      * ```xml
      * <dependency>
      *     <groupId>com.aliyun</groupId>
@@ -330,45 +304,35 @@ class Schedulerx2 extends OpenApiClient
      *     <version>1.0.4</version>
      * </dependency>
      * ```
+     *  *
+     * @param BatchDisableJobsRequest $request BatchDisableJobsRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - BatchDisableJobsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns BatchDisableJobsResponse
-     *
-     * @param BatchDisableJobsRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return BatchDisableJobsResponse
+     * @return BatchDisableJobsResponse BatchDisableJobsResponse
      */
     public function batchDisableJobsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->namespace) {
-            @$query['Namespace'] = $request->namespace;
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
         }
-
-        if (null !== $request->namespaceSource) {
-            @$query['NamespaceSource'] = $request->namespaceSource;
+        if (!Utils::isUnset($request->namespaceSource)) {
+            $query['NamespaceSource'] = $request->namespaceSource;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $body = [];
-        if (null !== $request->jobIdList) {
-            @$body['JobIdList'] = $request->jobIdList;
+        if (!Utils::isUnset($request->jobIdList)) {
+            $body['JobIdList'] = $request->jobIdList;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'BatchDisableJobs',
@@ -386,10 +350,9 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Disables multiple jobs at a time.
-     *
-     * @remarks
-     * Before you call this operation, you must add the following dependency to the pom.xml file:
+     * @summary Disables multiple jobs at a time.
+     *  *
+     * @description Before you call this operation, you must add the following dependency to the pom.xml file:
      * ```xml
      * <dependency>
      *     <groupId>com.aliyun</groupId>
@@ -397,14 +360,10 @@ class Schedulerx2 extends OpenApiClient
      *     <version>1.0.4</version>
      * </dependency>
      * ```
+     *  *
+     * @param BatchDisableJobsRequest $request BatchDisableJobsRequest
      *
-     * @param request - BatchDisableJobsRequest
-     *
-     * @returns BatchDisableJobsResponse
-     *
-     * @param BatchDisableJobsRequest $request
-     *
-     * @return BatchDisableJobsResponse
+     * @return BatchDisableJobsResponse BatchDisableJobsResponse
      */
     public function batchDisableJobs($request)
     {
@@ -414,10 +373,9 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Enables multiple jobs at a time.
-     *
-     * @remarks
-     * Before you call this operation, you must add the following dependency to the pom.xml file:
+     * @summary Enables multiple jobs at a time.
+     *  *
+     * @description Before you call this operation, you must add the following dependency to the pom.xml file:
      * ```xml
      * <dependency>
      *     <groupId>com.aliyun</groupId>
@@ -425,45 +383,35 @@ class Schedulerx2 extends OpenApiClient
      *     <version>1.0.4</version>
      * </dependency>
      * ```
+     *  *
+     * @param BatchEnableJobsRequest $request BatchEnableJobsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - BatchEnableJobsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns BatchEnableJobsResponse
-     *
-     * @param BatchEnableJobsRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return BatchEnableJobsResponse
+     * @return BatchEnableJobsResponse BatchEnableJobsResponse
      */
     public function batchEnableJobsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->namespace) {
-            @$query['Namespace'] = $request->namespace;
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
         }
-
-        if (null !== $request->namespaceSource) {
-            @$query['NamespaceSource'] = $request->namespaceSource;
+        if (!Utils::isUnset($request->namespaceSource)) {
+            $query['NamespaceSource'] = $request->namespaceSource;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $body = [];
-        if (null !== $request->jobIdList) {
-            @$body['JobIdList'] = $request->jobIdList;
+        if (!Utils::isUnset($request->jobIdList)) {
+            $body['JobIdList'] = $request->jobIdList;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'BatchEnableJobs',
@@ -481,10 +429,9 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Enables multiple jobs at a time.
-     *
-     * @remarks
-     * Before you call this operation, you must add the following dependency to the pom.xml file:
+     * @summary Enables multiple jobs at a time.
+     *  *
+     * @description Before you call this operation, you must add the following dependency to the pom.xml file:
      * ```xml
      * <dependency>
      *     <groupId>com.aliyun</groupId>
@@ -492,14 +439,10 @@ class Schedulerx2 extends OpenApiClient
      *     <version>1.0.4</version>
      * </dependency>
      * ```
+     *  *
+     * @param BatchEnableJobsRequest $request BatchEnableJobsRequest
      *
-     * @param request - BatchEnableJobsRequest
-     *
-     * @returns BatchEnableJobsResponse
-     *
-     * @param BatchEnableJobsRequest $request
-     *
-     * @return BatchEnableJobsResponse
+     * @return BatchEnableJobsResponse BatchEnableJobsResponse
      */
     public function batchEnableJobs($request)
     {
@@ -509,24 +452,19 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Creates an application group. The AppKey is returned.
+     * @summary Creates an application group. The AppKey is returned.
+     *  *
+     * @param CreateAppGroupRequest $request CreateAppGroupRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateAppGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateAppGroupResponse
-     *
-     * @param CreateAppGroupRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return CreateAppGroupResponse
+     * @return CreateAppGroupResponse CreateAppGroupResponse
      */
     public function createAppGroupWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateAppGroup',
@@ -544,15 +482,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Creates an application group. The AppKey is returned.
+     * @summary Creates an application group. The AppKey is returned.
+     *  *
+     * @param CreateAppGroupRequest $request CreateAppGroupRequest
      *
-     * @param request - CreateAppGroupRequest
-     *
-     * @returns CreateAppGroupResponse
-     *
-     * @param CreateAppGroupRequest $request
-     *
-     * @return CreateAppGroupResponse
+     * @return CreateAppGroupResponse CreateAppGroupResponse
      */
     public function createAppGroup($request)
     {
@@ -562,174 +496,132 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Creates a job and obtains the job ID.
+     * @summary Creates a job and obtains the job ID.
+     *  *
+     * @param CreateJobRequest $request CreateJobRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateJobRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateJobResponse
-     *
-     * @param CreateJobRequest $request
-     * @param RuntimeOptions   $runtime
-     *
-     * @return CreateJobResponse
+     * @return CreateJobResponse CreateJobResponse
      */
     public function createJobWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->priority) {
-            @$query['Priority'] = $request->priority;
+        if (!Utils::isUnset($request->priority)) {
+            $query['Priority'] = $request->priority;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $body = [];
-        if (null !== $request->attemptInterval) {
-            @$body['AttemptInterval'] = $request->attemptInterval;
+        if (!Utils::isUnset($request->attemptInterval)) {
+            $body['AttemptInterval'] = $request->attemptInterval;
         }
-
-        if (null !== $request->calendar) {
-            @$body['Calendar'] = $request->calendar;
+        if (!Utils::isUnset($request->calendar)) {
+            $body['Calendar'] = $request->calendar;
         }
-
-        if (null !== $request->className) {
-            @$body['ClassName'] = $request->className;
+        if (!Utils::isUnset($request->className)) {
+            $body['ClassName'] = $request->className;
         }
-
-        if (null !== $request->consumerSize) {
-            @$body['ConsumerSize'] = $request->consumerSize;
+        if (!Utils::isUnset($request->consumerSize)) {
+            $body['ConsumerSize'] = $request->consumerSize;
         }
-
-        if (null !== $request->contactInfo) {
-            @$body['ContactInfo'] = $request->contactInfo;
+        if (!Utils::isUnset($request->contactInfo)) {
+            $body['ContactInfo'] = $request->contactInfo;
         }
-
-        if (null !== $request->content) {
-            @$body['Content'] = $request->content;
+        if (!Utils::isUnset($request->content)) {
+            $body['Content'] = $request->content;
         }
-
-        if (null !== $request->dataOffset) {
-            @$body['DataOffset'] = $request->dataOffset;
+        if (!Utils::isUnset($request->dataOffset)) {
+            $body['DataOffset'] = $request->dataOffset;
         }
-
-        if (null !== $request->description) {
-            @$body['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
         }
-
-        if (null !== $request->dispatcherSize) {
-            @$body['DispatcherSize'] = $request->dispatcherSize;
+        if (!Utils::isUnset($request->dispatcherSize)) {
+            $body['DispatcherSize'] = $request->dispatcherSize;
         }
-
-        if (null !== $request->executeMode) {
-            @$body['ExecuteMode'] = $request->executeMode;
+        if (!Utils::isUnset($request->executeMode)) {
+            $body['ExecuteMode'] = $request->executeMode;
         }
-
-        if (null !== $request->failEnable) {
-            @$body['FailEnable'] = $request->failEnable;
+        if (!Utils::isUnset($request->failEnable)) {
+            $body['FailEnable'] = $request->failEnable;
         }
-
-        if (null !== $request->failTimes) {
-            @$body['FailTimes'] = $request->failTimes;
+        if (!Utils::isUnset($request->failTimes)) {
+            $body['FailTimes'] = $request->failTimes;
         }
-
-        if (null !== $request->groupId) {
-            @$body['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $body['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->jobType) {
-            @$body['JobType'] = $request->jobType;
+        if (!Utils::isUnset($request->jobType)) {
+            $body['JobType'] = $request->jobType;
         }
-
-        if (null !== $request->maxAttempt) {
-            @$body['MaxAttempt'] = $request->maxAttempt;
+        if (!Utils::isUnset($request->maxAttempt)) {
+            $body['MaxAttempt'] = $request->maxAttempt;
         }
-
-        if (null !== $request->maxConcurrency) {
-            @$body['MaxConcurrency'] = $request->maxConcurrency;
+        if (!Utils::isUnset($request->maxConcurrency)) {
+            $body['MaxConcurrency'] = $request->maxConcurrency;
         }
-
-        if (null !== $request->missWorkerEnable) {
-            @$body['MissWorkerEnable'] = $request->missWorkerEnable;
+        if (!Utils::isUnset($request->missWorkerEnable)) {
+            $body['MissWorkerEnable'] = $request->missWorkerEnable;
         }
-
-        if (null !== $request->name) {
-            @$body['Name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
         }
-
-        if (null !== $request->namespace) {
-            @$body['Namespace'] = $request->namespace;
+        if (!Utils::isUnset($request->namespace_)) {
+            $body['Namespace'] = $request->namespace_;
         }
-
-        if (null !== $request->namespaceSource) {
-            @$body['NamespaceSource'] = $request->namespaceSource;
+        if (!Utils::isUnset($request->namespaceSource)) {
+            $body['NamespaceSource'] = $request->namespaceSource;
         }
-
-        if (null !== $request->pageSize) {
-            @$body['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->parameters) {
-            @$body['Parameters'] = $request->parameters;
+        if (!Utils::isUnset($request->parameters)) {
+            $body['Parameters'] = $request->parameters;
         }
-
-        if (null !== $request->queueSize) {
-            @$body['QueueSize'] = $request->queueSize;
+        if (!Utils::isUnset($request->queueSize)) {
+            $body['QueueSize'] = $request->queueSize;
         }
-
-        if (null !== $request->sendChannel) {
-            @$body['SendChannel'] = $request->sendChannel;
+        if (!Utils::isUnset($request->sendChannel)) {
+            $body['SendChannel'] = $request->sendChannel;
         }
-
-        if (null !== $request->status) {
-            @$body['Status'] = $request->status;
+        if (!Utils::isUnset($request->status)) {
+            $body['Status'] = $request->status;
         }
-
-        if (null !== $request->successNoticeEnable) {
-            @$body['SuccessNoticeEnable'] = $request->successNoticeEnable;
+        if (!Utils::isUnset($request->successNoticeEnable)) {
+            $body['SuccessNoticeEnable'] = $request->successNoticeEnable;
         }
-
-        if (null !== $request->taskAttemptInterval) {
-            @$body['TaskAttemptInterval'] = $request->taskAttemptInterval;
+        if (!Utils::isUnset($request->taskAttemptInterval)) {
+            $body['TaskAttemptInterval'] = $request->taskAttemptInterval;
         }
-
-        if (null !== $request->taskMaxAttempt) {
-            @$body['TaskMaxAttempt'] = $request->taskMaxAttempt;
+        if (!Utils::isUnset($request->taskMaxAttempt)) {
+            $body['TaskMaxAttempt'] = $request->taskMaxAttempt;
         }
-
-        if (null !== $request->timeExpression) {
-            @$body['TimeExpression'] = $request->timeExpression;
+        if (!Utils::isUnset($request->timeExpression)) {
+            $body['TimeExpression'] = $request->timeExpression;
         }
-
-        if (null !== $request->timeType) {
-            @$body['TimeType'] = $request->timeType;
+        if (!Utils::isUnset($request->timeType)) {
+            $body['TimeType'] = $request->timeType;
         }
-
-        if (null !== $request->timeout) {
-            @$body['Timeout'] = $request->timeout;
+        if (!Utils::isUnset($request->timeout)) {
+            $body['Timeout'] = $request->timeout;
         }
-
-        if (null !== $request->timeoutEnable) {
-            @$body['TimeoutEnable'] = $request->timeoutEnable;
+        if (!Utils::isUnset($request->timeoutEnable)) {
+            $body['TimeoutEnable'] = $request->timeoutEnable;
         }
-
-        if (null !== $request->timeoutKillEnable) {
-            @$body['TimeoutKillEnable'] = $request->timeoutKillEnable;
+        if (!Utils::isUnset($request->timeoutKillEnable)) {
+            $body['TimeoutKillEnable'] = $request->timeoutKillEnable;
         }
-
-        if (null !== $request->timezone) {
-            @$body['Timezone'] = $request->timezone;
+        if (!Utils::isUnset($request->timezone)) {
+            $body['Timezone'] = $request->timezone;
         }
-
-        if (null !== $request->XAttrs) {
-            @$body['XAttrs'] = $request->XAttrs;
+        if (!Utils::isUnset($request->XAttrs)) {
+            $body['XAttrs'] = $request->XAttrs;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateJob',
@@ -747,15 +639,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Creates a job and obtains the job ID.
+     * @summary Creates a job and obtains the job ID.
+     *  *
+     * @param CreateJobRequest $request CreateJobRequest
      *
-     * @param request - CreateJobRequest
-     *
-     * @returns CreateJobResponse
-     *
-     * @param CreateJobRequest $request
-     *
-     * @return CreateJobResponse
+     * @return CreateJobResponse CreateJobResponse
      */
     public function createJob($request)
     {
@@ -765,40 +653,31 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Creates a namespace.
+     * @summary Creates a namespace.
+     *  *
+     * @param CreateNamespaceRequest $request CreateNamespaceRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateNamespaceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateNamespaceResponse
-     *
-     * @param CreateNamespaceRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return CreateNamespaceResponse
+     * @return CreateNamespaceResponse CreateNamespaceResponse
      */
     public function createNamespaceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->name) {
-            @$query['Name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->uid) {
-            @$query['Uid'] = $request->uid;
+        if (!Utils::isUnset($request->uid)) {
+            $query['Uid'] = $request->uid;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateNamespace',
@@ -816,15 +695,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Creates a namespace.
+     * @summary Creates a namespace.
+     *  *
+     * @param CreateNamespaceRequest $request CreateNamespaceRequest
      *
-     * @param request - CreateNamespaceRequest
-     *
-     * @returns CreateNamespaceResponse
-     *
-     * @param CreateNamespaceRequest $request
-     *
-     * @return CreateNamespaceResponse
+     * @return CreateNamespaceResponse CreateNamespaceResponse
      */
     public function createNamespace($request)
     {
@@ -834,56 +709,43 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Creates a routing policy.
+     * @summary Creates a routing policy.
+     *  *
+     * @param CreateRouteStrategyRequest $request CreateRouteStrategyRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateRouteStrategyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateRouteStrategyResponse
-     *
-     * @param CreateRouteStrategyRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return CreateRouteStrategyResponse
+     * @return CreateRouteStrategyResponse CreateRouteStrategyResponse
      */
     public function createRouteStrategyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->jobId) {
-            @$query['JobId'] = $request->jobId;
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
         }
-
-        if (null !== $request->name) {
-            @$query['Name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
         }
-
-        if (null !== $request->namespace) {
-            @$query['Namespace'] = $request->namespace;
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->status) {
-            @$query['Status'] = $request->status;
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
         }
-
-        if (null !== $request->strategyContent) {
-            @$query['StrategyContent'] = $request->strategyContent;
+        if (!Utils::isUnset($request->strategyContent)) {
+            $query['StrategyContent'] = $request->strategyContent;
         }
-
-        if (null !== $request->type) {
-            @$query['Type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateRouteStrategy',
@@ -901,15 +763,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Creates a routing policy.
+     * @summary Creates a routing policy.
+     *  *
+     * @param CreateRouteStrategyRequest $request CreateRouteStrategyRequest
      *
-     * @param request - CreateRouteStrategyRequest
-     *
-     * @returns CreateRouteStrategyResponse
-     *
-     * @param CreateRouteStrategyRequest $request
-     *
-     * @return CreateRouteStrategyResponse
+     * @return CreateRouteStrategyResponse CreateRouteStrategyResponse
      */
     public function createRouteStrategy($request)
     {
@@ -919,64 +777,49 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Creates a workflow. By default, the created workflow is disabled. After you update the directed acyclic graph (DAG) of the workflow, you must manually or call the corresponding operation to enable the workflow. You can call this operation only in the professional edition.
+     * @summary Creates a workflow. By default, the created workflow is disabled. After you update the directed acyclic graph (DAG) of the workflow, you must manually or call the corresponding operation to enable the workflow. You can call this operation only in the professional edition.
+     *  *
+     * @param CreateWorkflowRequest $request CreateWorkflowRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateWorkflowRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateWorkflowResponse
-     *
-     * @param CreateWorkflowRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return CreateWorkflowResponse
+     * @return CreateWorkflowResponse CreateWorkflowResponse
      */
     public function createWorkflowWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->description) {
-            @$body['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
         }
-
-        if (null !== $request->groupId) {
-            @$body['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $body['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->maxConcurrency) {
-            @$body['MaxConcurrency'] = $request->maxConcurrency;
+        if (!Utils::isUnset($request->maxConcurrency)) {
+            $body['MaxConcurrency'] = $request->maxConcurrency;
         }
-
-        if (null !== $request->name) {
-            @$body['Name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
         }
-
-        if (null !== $request->namespace) {
-            @$body['Namespace'] = $request->namespace;
+        if (!Utils::isUnset($request->namespace_)) {
+            $body['Namespace'] = $request->namespace_;
         }
-
-        if (null !== $request->namespaceSource) {
-            @$body['NamespaceSource'] = $request->namespaceSource;
+        if (!Utils::isUnset($request->namespaceSource)) {
+            $body['NamespaceSource'] = $request->namespaceSource;
         }
-
-        if (null !== $request->regionId) {
-            @$body['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->timeExpression) {
-            @$body['TimeExpression'] = $request->timeExpression;
+        if (!Utils::isUnset($request->timeExpression)) {
+            $body['TimeExpression'] = $request->timeExpression;
         }
-
-        if (null !== $request->timeType) {
-            @$body['TimeType'] = $request->timeType;
+        if (!Utils::isUnset($request->timeType)) {
+            $body['TimeType'] = $request->timeType;
         }
-
-        if (null !== $request->timezone) {
-            @$body['Timezone'] = $request->timezone;
+        if (!Utils::isUnset($request->timezone)) {
+            $body['Timezone'] = $request->timezone;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateWorkflow',
@@ -994,15 +837,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Creates a workflow. By default, the created workflow is disabled. After you update the directed acyclic graph (DAG) of the workflow, you must manually or call the corresponding operation to enable the workflow. You can call this operation only in the professional edition.
+     * @summary Creates a workflow. By default, the created workflow is disabled. After you update the directed acyclic graph (DAG) of the workflow, you must manually or call the corresponding operation to enable the workflow. You can call this operation only in the professional edition.
+     *  *
+     * @param CreateWorkflowRequest $request CreateWorkflowRequest
      *
-     * @param request - CreateWorkflowRequest
-     *
-     * @returns CreateWorkflowResponse
-     *
-     * @param CreateWorkflowRequest $request
-     *
-     * @return CreateWorkflowResponse
+     * @return CreateWorkflowResponse CreateWorkflowResponse
      */
     public function createWorkflow($request)
     {
@@ -1012,40 +851,31 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * The additional information that is returned.
+     * @summary The additional information that is returned.
+     *  *
+     * @param DeleteAppGroupRequest $request DeleteAppGroupRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteAppGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteAppGroupResponse
-     *
-     * @param DeleteAppGroupRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return DeleteAppGroupResponse
+     * @return DeleteAppGroupResponse DeleteAppGroupResponse
      */
     public function deleteAppGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->deleteJobs) {
-            @$query['DeleteJobs'] = $request->deleteJobs;
+        if (!Utils::isUnset($request->deleteJobs)) {
+            $query['DeleteJobs'] = $request->deleteJobs;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->namespace) {
-            @$query['Namespace'] = $request->namespace;
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteAppGroup',
@@ -1063,15 +893,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * The additional information that is returned.
+     * @summary The additional information that is returned.
+     *  *
+     * @param DeleteAppGroupRequest $request DeleteAppGroupRequest
      *
-     * @param request - DeleteAppGroupRequest
-     *
-     * @returns DeleteAppGroupResponse
-     *
-     * @param DeleteAppGroupRequest $request
-     *
-     * @return DeleteAppGroupResponse
+     * @return DeleteAppGroupResponse DeleteAppGroupResponse
      */
     public function deleteAppGroup($request)
     {
@@ -1081,24 +907,19 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Deletes a specified job.
+     * @summary Deletes a specified job.
+     *  *
+     * @param DeleteJobRequest $request DeleteJobRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteJobRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteJobResponse
-     *
-     * @param DeleteJobRequest $request
-     * @param RuntimeOptions   $runtime
-     *
-     * @return DeleteJobResponse
+     * @return DeleteJobResponse DeleteJobResponse
      */
     public function deleteJobWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteJob',
@@ -1116,15 +937,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Deletes a specified job.
+     * @summary Deletes a specified job.
+     *  *
+     * @param DeleteJobRequest $request DeleteJobRequest
      *
-     * @param request - DeleteJobRequest
-     *
-     * @returns DeleteJobResponse
-     *
-     * @param DeleteJobRequest $request
-     *
-     * @return DeleteJobResponse
+     * @return DeleteJobResponse DeleteJobResponse
      */
     public function deleteJob($request)
     {
@@ -1134,32 +951,25 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * 删除命名空间.
+     * @summary 删除命名空间
+     *  *
+     * @param DeleteNamespaceRequest $request DeleteNamespaceRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteNamespaceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteNamespaceResponse
-     *
-     * @param DeleteNamespaceRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return DeleteNamespaceResponse
+     * @return DeleteNamespaceResponse DeleteNamespaceResponse
      */
     public function deleteNamespaceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->namespace) {
-            @$query['Namespace'] = $request->namespace;
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteNamespace',
@@ -1177,15 +987,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * 删除命名空间.
+     * @summary 删除命名空间
+     *  *
+     * @param DeleteNamespaceRequest $request DeleteNamespaceRequest
      *
-     * @param request - DeleteNamespaceRequest
-     *
-     * @returns DeleteNamespaceResponse
-     *
-     * @param DeleteNamespaceRequest $request
-     *
-     * @return DeleteNamespaceResponse
+     * @return DeleteNamespaceResponse DeleteNamespaceResponse
      */
     public function deleteNamespace($request)
     {
@@ -1195,40 +1001,31 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Deletes a routing policy.
+     * @summary Deletes a routing policy.
+     *  *
+     * @param DeleteRouteStrategyRequest $request DeleteRouteStrategyRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteRouteStrategyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteRouteStrategyResponse
-     *
-     * @param DeleteRouteStrategyRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DeleteRouteStrategyResponse
+     * @return DeleteRouteStrategyResponse DeleteRouteStrategyResponse
      */
     public function deleteRouteStrategyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->jobId) {
-            @$query['JobId'] = $request->jobId;
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
         }
-
-        if (null !== $request->namespace) {
-            @$query['Namespace'] = $request->namespace;
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteRouteStrategy',
@@ -1246,15 +1043,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Deletes a routing policy.
+     * @summary Deletes a routing policy.
+     *  *
+     * @param DeleteRouteStrategyRequest $request DeleteRouteStrategyRequest
      *
-     * @param request - DeleteRouteStrategyRequest
-     *
-     * @returns DeleteRouteStrategyResponse
-     *
-     * @param DeleteRouteStrategyRequest $request
-     *
-     * @return DeleteRouteStrategyResponse
+     * @return DeleteRouteStrategyResponse DeleteRouteStrategyResponse
      */
     public function deleteRouteStrategy($request)
     {
@@ -1264,24 +1057,19 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Deletes a workflow.
+     * @summary Deletes a workflow.
+     *  *
+     * @param DeleteWorkflowRequest $request DeleteWorkflowRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteWorkflowRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteWorkflowResponse
-     *
-     * @param DeleteWorkflowRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return DeleteWorkflowResponse
+     * @return DeleteWorkflowResponse DeleteWorkflowResponse
      */
     public function deleteWorkflowWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteWorkflow',
@@ -1299,15 +1087,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Deletes a workflow.
+     * @summary Deletes a workflow.
+     *  *
+     * @param DeleteWorkflowRequest $request DeleteWorkflowRequest
      *
-     * @param request - DeleteWorkflowRequest
-     *
-     * @returns DeleteWorkflowResponse
-     *
-     * @param DeleteWorkflowRequest $request
-     *
-     * @return DeleteWorkflowResponse
+     * @return DeleteWorkflowResponse DeleteWorkflowResponse
      */
     public function deleteWorkflow($request)
     {
@@ -1317,28 +1101,22 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Returns available regions.
+     * @summary Returns available regions.
+     *  *
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeRegionsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeRegionsResponse
-     *
-     * @param DescribeRegionsRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeRegions',
@@ -1356,15 +1134,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Returns available regions.
+     * @summary Returns available regions.
+     *  *
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
      *
-     * @param request - DescribeRegionsRequest
-     *
-     * @returns DescribeRegionsResponse
-     *
-     * @param DescribeRegionsRequest $request
-     *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegions($request)
     {
@@ -1374,24 +1148,19 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Designates machines.
+     * @summary Designates machines.
+     *  *
+     * @param DesignateWorkersRequest $request DesignateWorkersRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DesignateWorkersRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DesignateWorkersResponse
-     *
-     * @param DesignateWorkersRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return DesignateWorkersResponse
+     * @return DesignateWorkersResponse DesignateWorkersResponse
      */
     public function designateWorkersWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DesignateWorkers',
@@ -1409,15 +1178,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Designates machines.
+     * @summary Designates machines.
+     *  *
+     * @param DesignateWorkersRequest $request DesignateWorkersRequest
      *
-     * @param request - DesignateWorkersRequest
-     *
-     * @returns DesignateWorkersResponse
-     *
-     * @param DesignateWorkersRequest $request
-     *
-     * @return DesignateWorkersResponse
+     * @return DesignateWorkersResponse DesignateWorkersResponse
      */
     public function designateWorkers($request)
     {
@@ -1427,24 +1192,19 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Disables a job.
+     * @summary Disables a job.
+     *  *
+     * @param DisableJobRequest $request DisableJobRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DisableJobRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DisableJobResponse
-     *
-     * @param DisableJobRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return DisableJobResponse
+     * @return DisableJobResponse DisableJobResponse
      */
     public function disableJobWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DisableJob',
@@ -1462,15 +1222,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Disables a job.
+     * @summary Disables a job.
+     *  *
+     * @param DisableJobRequest $request DisableJobRequest
      *
-     * @param request - DisableJobRequest
-     *
-     * @returns DisableJobResponse
-     *
-     * @param DisableJobRequest $request
-     *
-     * @return DisableJobResponse
+     * @return DisableJobResponse DisableJobResponse
      */
     public function disableJob($request)
     {
@@ -1480,24 +1236,19 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Disables a specified workflow.
+     * @summary Disables a specified workflow.
+     *  *
+     * @param DisableWorkflowRequest $request DisableWorkflowRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DisableWorkflowRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DisableWorkflowResponse
-     *
-     * @param DisableWorkflowRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return DisableWorkflowResponse
+     * @return DisableWorkflowResponse DisableWorkflowResponse
      */
     public function disableWorkflowWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DisableWorkflow',
@@ -1515,15 +1266,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Disables a specified workflow.
+     * @summary Disables a specified workflow.
+     *  *
+     * @param DisableWorkflowRequest $request DisableWorkflowRequest
      *
-     * @param request - DisableWorkflowRequest
-     *
-     * @returns DisableWorkflowResponse
-     *
-     * @param DisableWorkflowRequest $request
-     *
-     * @return DisableWorkflowResponse
+     * @return DisableWorkflowResponse DisableWorkflowResponse
      */
     public function disableWorkflow($request)
     {
@@ -1533,24 +1280,19 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Enables a job.
+     * @summary Enables a job.
+     *  *
+     * @param EnableJobRequest $request EnableJobRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - EnableJobRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns EnableJobResponse
-     *
-     * @param EnableJobRequest $request
-     * @param RuntimeOptions   $runtime
-     *
-     * @return EnableJobResponse
+     * @return EnableJobResponse EnableJobResponse
      */
     public function enableJobWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'EnableJob',
@@ -1568,15 +1310,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Enables a job.
+     * @summary Enables a job.
+     *  *
+     * @param EnableJobRequest $request EnableJobRequest
      *
-     * @param request - EnableJobRequest
-     *
-     * @returns EnableJobResponse
-     *
-     * @param EnableJobRequest $request
-     *
-     * @return EnableJobResponse
+     * @return EnableJobResponse EnableJobResponse
      */
     public function enableJob($request)
     {
@@ -1586,24 +1324,19 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Enables a specified workflow.
+     * @summary Enables a specified workflow.
+     *  *
+     * @param EnableWorkflowRequest $request EnableWorkflowRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - EnableWorkflowRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns EnableWorkflowResponse
-     *
-     * @param EnableWorkflowRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return EnableWorkflowResponse
+     * @return EnableWorkflowResponse EnableWorkflowResponse
      */
     public function enableWorkflowWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'EnableWorkflow',
@@ -1621,15 +1354,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Enables a specified workflow.
+     * @summary Enables a specified workflow.
+     *  *
+     * @param EnableWorkflowRequest $request EnableWorkflowRequest
      *
-     * @param request - EnableWorkflowRequest
-     *
-     * @returns EnableWorkflowResponse
-     *
-     * @param EnableWorkflowRequest $request
-     *
-     * @return EnableWorkflowResponse
+     * @return EnableWorkflowResponse EnableWorkflowResponse
      */
     public function enableWorkflow($request)
     {
@@ -1639,27 +1368,21 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Triggers a job to immediately run once.
+     * @summary Triggers a job to immediately run once.
+     *  *
+     * @description > The combination of the `JobID` and `ScheduleTime` parameters serves as a unique index. Therefore, after the ExecuteJob operation is called to run a job once, a sleep for one second is required before the ExecuteJob operation is called to run the job again. Otherwise, the job may fail.
+     *  *
+     * @param ExecuteJobRequest $request ExecuteJobRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * > The combination of the `JobID` and `ScheduleTime` parameters serves as a unique index. Therefore, after the ExecuteJob operation is called to run a job once, a sleep for one second is required before the ExecuteJob operation is called to run the job again. Otherwise, the job may fail.
-     *
-     * @param request - ExecuteJobRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ExecuteJobResponse
-     *
-     * @param ExecuteJobRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return ExecuteJobResponse
+     * @return ExecuteJobResponse ExecuteJobResponse
      */
     public function executeJobWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ExecuteJob',
@@ -1677,18 +1400,13 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Triggers a job to immediately run once.
+     * @summary Triggers a job to immediately run once.
+     *  *
+     * @description > The combination of the `JobID` and `ScheduleTime` parameters serves as a unique index. Therefore, after the ExecuteJob operation is called to run a job once, a sleep for one second is required before the ExecuteJob operation is called to run the job again. Otherwise, the job may fail.
+     *  *
+     * @param ExecuteJobRequest $request ExecuteJobRequest
      *
-     * @remarks
-     * > The combination of the `JobID` and `ScheduleTime` parameters serves as a unique index. Therefore, after the ExecuteJob operation is called to run a job once, a sleep for one second is required before the ExecuteJob operation is called to run the job again. Otherwise, the job may fail.
-     *
-     * @param request - ExecuteJobRequest
-     *
-     * @returns ExecuteJobResponse
-     *
-     * @param ExecuteJobRequest $request
-     *
-     * @return ExecuteJobResponse
+     * @return ExecuteJobResponse ExecuteJobResponse
      */
     public function executeJob($request)
     {
@@ -1698,24 +1416,19 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Immediately triggers a workflow.
+     * @summary Immediately triggers a workflow.
+     *  *
+     * @param ExecuteWorkflowRequest $request ExecuteWorkflowRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ExecuteWorkflowRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ExecuteWorkflowResponse
-     *
-     * @param ExecuteWorkflowRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return ExecuteWorkflowResponse
+     * @return ExecuteWorkflowResponse ExecuteWorkflowResponse
      */
     public function executeWorkflowWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ExecuteWorkflow',
@@ -1733,15 +1446,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Immediately triggers a workflow.
+     * @summary Immediately triggers a workflow.
+     *  *
+     * @param ExecuteWorkflowRequest $request ExecuteWorkflowRequest
      *
-     * @param request - ExecuteWorkflowRequest
-     *
-     * @returns ExecuteWorkflowResponse
-     *
-     * @param ExecuteWorkflowRequest $request
-     *
-     * @return ExecuteWorkflowResponse
+     * @return ExecuteWorkflowResponse ExecuteWorkflowResponse
      */
     public function executeWorkflow($request)
     {
@@ -1751,36 +1460,28 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * The configuration of the alert. The value is a JSON string. For more information, see \\\\*\\\\*the additional information about response parameters below this table\\\\*\\\\*.
+     * @summary The configuration of the alert. The value is a JSON string. For more information, see \\\\*\\\\*the additional information about response parameters below this table\\\\*\\\\*.
+     *  *
+     * @param GetAppGroupRequest $request GetAppGroupRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetAppGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetAppGroupResponse
-     *
-     * @param GetAppGroupRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return GetAppGroupResponse
+     * @return GetAppGroupResponse GetAppGroupResponse
      */
     public function getAppGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->namespace) {
-            @$query['Namespace'] = $request->namespace;
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetAppGroup',
@@ -1798,15 +1499,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * The configuration of the alert. The value is a JSON string. For more information, see \\\\*\\\\*the additional information about response parameters below this table\\\\*\\\\*.
+     * @summary The configuration of the alert. The value is a JSON string. For more information, see \\\\*\\\\*the additional information about response parameters below this table\\\\*\\\\*.
+     *  *
+     * @param GetAppGroupRequest $request GetAppGroupRequest
      *
-     * @param request - GetAppGroupRequest
-     *
-     * @returns GetAppGroupResponse
-     *
-     * @param GetAppGroupRequest $request
-     *
-     * @return GetAppGroupResponse
+     * @return GetAppGroupResponse GetAppGroupResponse
      */
     public function getAppGroup($request)
     {
@@ -1816,24 +1513,19 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Queries the details of a job based on the job ID. In most cases, the obtained information is used to update jobs.
+     * @summary Queries the details of a job based on the job ID. In most cases, the obtained information is used to update jobs.
+     *  *
+     * @param GetJobInfoRequest $request GetJobInfoRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetJobInfoRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetJobInfoResponse
-     *
-     * @param GetJobInfoRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return GetJobInfoResponse
+     * @return GetJobInfoResponse GetJobInfoResponse
      */
     public function getJobInfoWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetJobInfo',
@@ -1851,15 +1543,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Queries the details of a job based on the job ID. In most cases, the obtained information is used to update jobs.
+     * @summary Queries the details of a job based on the job ID. In most cases, the obtained information is used to update jobs.
+     *  *
+     * @param GetJobInfoRequest $request GetJobInfoRequest
      *
-     * @param request - GetJobInfoRequest
-     *
-     * @returns GetJobInfoResponse
-     *
-     * @param GetJobInfoRequest $request
-     *
-     * @return GetJobInfoResponse
+     * @return GetJobInfoResponse GetJobInfoResponse
      */
     public function getJobInfo($request)
     {
@@ -1869,24 +1557,19 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Queries the information about a job instance. You can view the status and progress of the job instance.
+     * @summary Queries the information about a job instance. You can view the status and progress of the job instance.
+     *  *
+     * @param GetJobInstanceRequest $request GetJobInstanceRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetJobInstanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetJobInstanceResponse
-     *
-     * @param GetJobInstanceRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return GetJobInstanceResponse
+     * @return GetJobInstanceResponse GetJobInstanceResponse
      */
     public function getJobInstanceWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetJobInstance',
@@ -1904,15 +1587,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Queries the information about a job instance. You can view the status and progress of the job instance.
+     * @summary Queries the information about a job instance. You can view the status and progress of the job instance.
+     *  *
+     * @param GetJobInstanceRequest $request GetJobInstanceRequest
      *
-     * @param request - GetJobInstanceRequest
-     *
-     * @returns GetJobInstanceResponse
-     *
-     * @param GetJobInstanceRequest $request
-     *
-     * @return GetJobInstanceResponse
+     * @return GetJobInstanceResponse GetJobInstanceResponse
      */
     public function getJobInstance($request)
     {
@@ -1922,24 +1601,19 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Queries the most recent 10 execution instances of a job.
+     * @summary Queries the most recent 10 execution instances of a job.
+     *  *
+     * @param GetJobInstanceListRequest $request GetJobInstanceListRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetJobInstanceListRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetJobInstanceListResponse
-     *
-     * @param GetJobInstanceListRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return GetJobInstanceListResponse
+     * @return GetJobInstanceListResponse GetJobInstanceListResponse
      */
     public function getJobInstanceListWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetJobInstanceList',
@@ -1957,15 +1631,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Queries the most recent 10 execution instances of a job.
+     * @summary Queries the most recent 10 execution instances of a job.
+     *  *
+     * @param GetJobInstanceListRequest $request GetJobInstanceListRequest
      *
-     * @param request - GetJobInstanceListRequest
-     *
-     * @returns GetJobInstanceListResponse
-     *
-     * @param GetJobInstanceListRequest $request
-     *
-     * @return GetJobInstanceListResponse
+     * @return GetJobInstanceListResponse GetJobInstanceListResponse
      */
     public function getJobInstanceList($request)
     {
@@ -1975,24 +1645,19 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Queries the operational logs of a job. You can call this operation only in the professional edition.
+     * @summary Queries the operational logs of a job. You can call this operation only in the professional edition.
+     *  *
+     * @param GetLogRequest  $request GetLogRequest
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetLogRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetLogResponse
-     *
-     * @param GetLogRequest  $request
-     * @param RuntimeOptions $runtime
-     *
-     * @return GetLogResponse
+     * @return GetLogResponse GetLogResponse
      */
     public function getLogWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetLog',
@@ -2010,15 +1675,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Queries the operational logs of a job. You can call this operation only in the professional edition.
+     * @summary Queries the operational logs of a job. You can call this operation only in the professional edition.
+     *  *
+     * @param GetLogRequest $request GetLogRequest
      *
-     * @param request - GetLogRequest
-     *
-     * @returns GetLogResponse
-     *
-     * @param GetLogRequest $request
-     *
-     * @return GetLogResponse
+     * @return GetLogResponse GetLogResponse
      */
     public function getLog($request)
     {
@@ -2028,56 +1689,43 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * 查询概览数据信息.
+     * @summary 查询概览数据信息
+     *  *
+     * @param GetOverviewRequest $request GetOverviewRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetOverviewRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetOverviewResponse
-     *
-     * @param GetOverviewRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return GetOverviewResponse
+     * @return GetOverviewResponse GetOverviewResponse
      */
     public function getOverviewWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->metricType) {
-            @$query['MetricType'] = $request->metricType;
+        if (!Utils::isUnset($request->metricType)) {
+            $query['MetricType'] = $request->metricType;
         }
-
-        if (null !== $request->namespace) {
-            @$query['Namespace'] = $request->namespace;
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
         }
-
-        if (null !== $request->namespaceSource) {
-            @$query['NamespaceSource'] = $request->namespaceSource;
+        if (!Utils::isUnset($request->namespaceSource)) {
+            $query['NamespaceSource'] = $request->namespaceSource;
         }
-
-        if (null !== $request->operate) {
-            @$query['Operate'] = $request->operate;
+        if (!Utils::isUnset($request->operate)) {
+            $query['Operate'] = $request->operate;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetOverview',
@@ -2095,15 +1743,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * 查询概览数据信息.
+     * @summary 查询概览数据信息
+     *  *
+     * @param GetOverviewRequest $request GetOverviewRequest
      *
-     * @param request - GetOverviewRequest
-     *
-     * @returns GetOverviewResponse
-     *
-     * @param GetOverviewRequest $request
-     *
-     * @return GetOverviewResponse
+     * @return GetOverviewResponse GetOverviewResponse
      */
     public function getOverview($request)
     {
@@ -2113,24 +1757,19 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Obtains the information about a workflow.
+     * @summary Obtains the information about a workflow.
+     *  *
+     * @param GetWorkFlowRequest $request GetWorkFlowRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetWorkFlowRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetWorkFlowResponse
-     *
-     * @param GetWorkFlowRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return GetWorkFlowResponse
+     * @return GetWorkFlowResponse GetWorkFlowResponse
      */
     public function getWorkFlowWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetWorkFlow',
@@ -2148,15 +1787,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Obtains the information about a workflow.
+     * @summary Obtains the information about a workflow.
+     *  *
+     * @param GetWorkFlowRequest $request GetWorkFlowRequest
      *
-     * @param request - GetWorkFlowRequest
-     *
-     * @returns GetWorkFlowResponse
-     *
-     * @param GetWorkFlowRequest $request
-     *
-     * @return GetWorkFlowResponse
+     * @return GetWorkFlowResponse GetWorkFlowResponse
      */
     public function getWorkFlow($request)
     {
@@ -2166,24 +1801,19 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Obtains the list of workers that are connected to an application.
+     * @summary Obtains the list of workers that are connected to an application.
+     *  *
+     * @param GetWorkerListRequest $request GetWorkerListRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetWorkerListRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetWorkerListResponse
-     *
-     * @param GetWorkerListRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return GetWorkerListResponse
+     * @return GetWorkerListResponse GetWorkerListResponse
      */
     public function getWorkerListWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetWorkerList',
@@ -2201,15 +1831,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Obtains the list of workers that are connected to an application.
+     * @summary Obtains the list of workers that are connected to an application.
+     *  *
+     * @param GetWorkerListRequest $request GetWorkerListRequest
      *
-     * @param request - GetWorkerListRequest
-     *
-     * @returns GetWorkerListResponse
-     *
-     * @param GetWorkerListRequest $request
-     *
-     * @return GetWorkerListResponse
+     * @return GetWorkerListResponse GetWorkerListResponse
      */
     public function getWorkerList($request)
     {
@@ -2219,24 +1845,19 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Queries the details of a specified workflow instance, including the state of the workflow instance, the state of each job instance, and the dependencies between job instances. You can call this operation only in the professional edition.
+     * @summary Queries the details of a specified workflow instance, including the state of the workflow instance, the state of each job instance, and the dependencies between job instances. You can call this operation only in the professional edition.
+     *  *
+     * @param GetWorkflowInstanceRequest $request GetWorkflowInstanceRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetWorkflowInstanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetWorkflowInstanceResponse
-     *
-     * @param GetWorkflowInstanceRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return GetWorkflowInstanceResponse
+     * @return GetWorkflowInstanceResponse GetWorkflowInstanceResponse
      */
     public function getWorkflowInstanceWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetWorkflowInstance',
@@ -2254,15 +1875,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Queries the details of a specified workflow instance, including the state of the workflow instance, the state of each job instance, and the dependencies between job instances. You can call this operation only in the professional edition.
+     * @summary Queries the details of a specified workflow instance, including the state of the workflow instance, the state of each job instance, and the dependencies between job instances. You can call this operation only in the professional edition.
+     *  *
+     * @param GetWorkflowInstanceRequest $request GetWorkflowInstanceRequest
      *
-     * @param request - GetWorkflowInstanceRequest
-     *
-     * @returns GetWorkflowInstanceResponse
-     *
-     * @param GetWorkflowInstanceRequest $request
-     *
-     * @return GetWorkflowInstanceResponse
+     * @return GetWorkflowInstanceResponse GetWorkflowInstanceResponse
      */
     public function getWorkflowInstance($request)
     {
@@ -2272,52 +1889,40 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Grants permissions to an application group.
+     * @summary Grants permissions to an application group.
+     *  *
+     * @param GrantPermissionRequest $request GrantPermissionRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GrantPermissionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GrantPermissionResponse
-     *
-     * @param GrantPermissionRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return GrantPermissionResponse
+     * @return GrantPermissionResponse GrantPermissionResponse
      */
     public function grantPermissionWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->grantOption) {
-            @$query['GrantOption'] = $request->grantOption;
+        if (!Utils::isUnset($request->grantOption)) {
+            $query['GrantOption'] = $request->grantOption;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->namespace) {
-            @$query['Namespace'] = $request->namespace;
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
         }
-
-        if (null !== $request->namespaceSource) {
-            @$query['NamespaceSource'] = $request->namespaceSource;
+        if (!Utils::isUnset($request->namespaceSource)) {
+            $query['NamespaceSource'] = $request->namespaceSource;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->userId) {
-            @$query['UserId'] = $request->userId;
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
         }
-
-        if (null !== $request->userName) {
-            @$query['UserName'] = $request->userName;
+        if (!Utils::isUnset($request->userName)) {
+            $query['UserName'] = $request->userName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GrantPermission',
@@ -2335,15 +1940,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Grants permissions to an application group.
+     * @summary Grants permissions to an application group.
+     *  *
+     * @param GrantPermissionRequest $request GrantPermissionRequest
      *
-     * @param request - GrantPermissionRequest
-     *
-     * @returns GrantPermissionResponse
-     *
-     * @param GrantPermissionRequest $request
-     *
-     * @return GrantPermissionResponse
+     * @return GrantPermissionResponse GrantPermissionResponse
      */
     public function grantPermission($request)
     {
@@ -2353,10 +1954,9 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Queries a list of applications.
-     *
-     * @remarks
-     * Before you call this operation, you must add the following dependency to the pom.xml file:
+     * @summary Queries a list of applications.
+     *  *
+     * @description Before you call this operation, you must add the following dependency to the pom.xml file:
      * ```xml
      * <dependency>
      *     <groupId>com.aliyun</groupId>
@@ -2364,39 +1964,30 @@ class Schedulerx2 extends OpenApiClient
      *     <version>1.0.5</version>
      * </dependency>
      * ```
+     *  *
+     * @param ListGroupsRequest $request ListGroupsRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListGroupsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListGroupsResponse
-     *
-     * @param ListGroupsRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return ListGroupsResponse
+     * @return ListGroupsResponse ListGroupsResponse
      */
     public function listGroupsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->appGroupName) {
-            @$query['AppGroupName'] = $request->appGroupName;
+        if (!Utils::isUnset($request->appGroupName)) {
+            $query['AppGroupName'] = $request->appGroupName;
         }
-
-        if (null !== $request->namespace) {
-            @$query['Namespace'] = $request->namespace;
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
         }
-
-        if (null !== $request->namespaceSource) {
-            @$query['NamespaceSource'] = $request->namespaceSource;
+        if (!Utils::isUnset($request->namespaceSource)) {
+            $query['NamespaceSource'] = $request->namespaceSource;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListGroups',
@@ -2414,10 +2005,9 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Queries a list of applications.
-     *
-     * @remarks
-     * Before you call this operation, you must add the following dependency to the pom.xml file:
+     * @summary Queries a list of applications.
+     *  *
+     * @description Before you call this operation, you must add the following dependency to the pom.xml file:
      * ```xml
      * <dependency>
      *     <groupId>com.aliyun</groupId>
@@ -2425,14 +2015,10 @@ class Schedulerx2 extends OpenApiClient
      *     <version>1.0.5</version>
      * </dependency>
      * ```
+     *  *
+     * @param ListGroupsRequest $request ListGroupsRequest
      *
-     * @param request - ListGroupsRequest
-     *
-     * @returns ListGroupsResponse
-     *
-     * @param ListGroupsRequest $request
-     *
-     * @return ListGroupsResponse
+     * @return ListGroupsResponse ListGroupsResponse
      */
     public function listGroups($request)
     {
@@ -2442,44 +2028,34 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * 获取任务脚本历史列表.
+     * @summary 获取任务脚本历史列表
+     *  *
+     * @param ListJobScriptHistoryRequest $request ListJobScriptHistoryRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListJobScriptHistoryRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListJobScriptHistoryResponse
-     *
-     * @param ListJobScriptHistoryRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return ListJobScriptHistoryResponse
+     * @return ListJobScriptHistoryResponse ListJobScriptHistoryResponse
      */
     public function listJobScriptHistoryWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->jobId) {
-            @$query['JobId'] = $request->jobId;
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
         }
-
-        if (null !== $request->namespace) {
-            @$query['Namespace'] = $request->namespace;
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
         }
-
-        if (null !== $request->namespaceSource) {
-            @$query['NamespaceSource'] = $request->namespaceSource;
+        if (!Utils::isUnset($request->namespaceSource)) {
+            $query['NamespaceSource'] = $request->namespaceSource;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListJobScriptHistory',
@@ -2497,15 +2073,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * 获取任务脚本历史列表.
+     * @summary 获取任务脚本历史列表
+     *  *
+     * @param ListJobScriptHistoryRequest $request ListJobScriptHistoryRequest
      *
-     * @param request - ListJobScriptHistoryRequest
-     *
-     * @returns ListJobScriptHistoryResponse
-     *
-     * @param ListJobScriptHistoryRequest $request
-     *
-     * @return ListJobScriptHistoryResponse
+     * @return ListJobScriptHistoryResponse ListJobScriptHistoryResponse
      */
     public function listJobScriptHistory($request)
     {
@@ -2515,32 +2087,26 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Queries jobs.
-     *
-     * @remarks
-     * Before you call this operation, you must add the following dependency to the pom.xml file:
+     * @summary Queries jobs.
+     *  *
+     * @description Before you call this operation, you must add the following dependency to the pom.xml file:
      *     <dependency>
      *           <groupId>com.aliyun</groupId>
      *           <artifactId>aliyun-java-sdk-schedulerx2</artifactId>
      *           <version>1.0.5</version>
      *     </dependency>
+     *  *
+     * @param ListJobsRequest $request ListJobsRequest
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListJobsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListJobsResponse
-     *
-     * @param ListJobsRequest $request
-     * @param RuntimeOptions  $runtime
-     *
-     * @return ListJobsResponse
+     * @return ListJobsResponse ListJobsResponse
      */
     public function listJobsWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListJobs',
@@ -2558,23 +2124,18 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Queries jobs.
-     *
-     * @remarks
-     * Before you call this operation, you must add the following dependency to the pom.xml file:
+     * @summary Queries jobs.
+     *  *
+     * @description Before you call this operation, you must add the following dependency to the pom.xml file:
      *     <dependency>
      *           <groupId>com.aliyun</groupId>
      *           <artifactId>aliyun-java-sdk-schedulerx2</artifactId>
      *           <version>1.0.5</version>
      *     </dependency>
+     *  *
+     * @param ListJobsRequest $request ListJobsRequest
      *
-     * @param request - ListJobsRequest
-     *
-     * @returns ListJobsResponse
-     *
-     * @param ListJobsRequest $request
-     *
-     * @return ListJobsResponse
+     * @return ListJobsResponse ListJobsResponse
      */
     public function listJobs($request)
     {
@@ -2584,44 +2145,35 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Queries namespaces.
-     *
-     * @remarks
-     * Before you call this operation, you must add the following dependency to the pom.xml file:
+     * @summary Queries namespaces.
+     *  *
+     * @description Before you call this operation, you must add the following dependency to the pom.xml file:
      *     <dependency>
      *         <groupId>com.aliyun</groupId>
      *         <artifactId>aliyun-java-sdk-schedulerx2</artifactId>
      *         <version>1.0.5</version>
      *     </dependency>
+     *  *
+     * @param ListNamespacesRequest $request ListNamespacesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListNamespacesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListNamespacesResponse
-     *
-     * @param ListNamespacesRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return ListNamespacesResponse
+     * @return ListNamespacesResponse ListNamespacesResponse
      */
     public function listNamespacesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->namespace) {
-            @$query['Namespace'] = $request->namespace;
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
         }
-
-        if (null !== $request->namespaceName) {
-            @$query['NamespaceName'] = $request->namespaceName;
+        if (!Utils::isUnset($request->namespaceName)) {
+            $query['NamespaceName'] = $request->namespaceName;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListNamespaces',
@@ -2639,23 +2191,18 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Queries namespaces.
-     *
-     * @remarks
-     * Before you call this operation, you must add the following dependency to the pom.xml file:
+     * @summary Queries namespaces.
+     *  *
+     * @description Before you call this operation, you must add the following dependency to the pom.xml file:
      *     <dependency>
      *         <groupId>com.aliyun</groupId>
      *         <artifactId>aliyun-java-sdk-schedulerx2</artifactId>
      *         <version>1.0.5</version>
      *     </dependency>
+     *  *
+     * @param ListNamespacesRequest $request ListNamespacesRequest
      *
-     * @param request - ListNamespacesRequest
-     *
-     * @returns ListNamespacesResponse
-     *
-     * @param ListNamespacesRequest $request
-     *
-     * @return ListNamespacesResponse
+     * @return ListNamespacesResponse ListNamespacesResponse
      */
     public function listNamespaces($request)
     {
@@ -2665,24 +2212,19 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Queries the execution history of a workflow. You can call this operation only in the professional edition.
+     * @summary Queries the execution history of a workflow. You can call this operation only in the professional edition.
+     *  *
+     * @param ListWorkflowInstanceRequest $request ListWorkflowInstanceRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListWorkflowInstanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListWorkflowInstanceResponse
-     *
-     * @param ListWorkflowInstanceRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return ListWorkflowInstanceResponse
+     * @return ListWorkflowInstanceResponse ListWorkflowInstanceResponse
      */
     public function listWorkflowInstanceWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListWorkflowInstance',
@@ -2700,15 +2242,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Queries the execution history of a workflow. You can call this operation only in the professional edition.
+     * @summary Queries the execution history of a workflow. You can call this operation only in the professional edition.
+     *  *
+     * @param ListWorkflowInstanceRequest $request ListWorkflowInstanceRequest
      *
-     * @param request - ListWorkflowInstanceRequest
-     *
-     * @returns ListWorkflowInstanceResponse
-     *
-     * @param ListWorkflowInstanceRequest $request
-     *
-     * @return ListWorkflowInstanceResponse
+     * @return ListWorkflowInstanceResponse ListWorkflowInstanceResponse
      */
     public function listWorkflowInstance($request)
     {
@@ -2718,48 +2256,107 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * 获取机器详细信息.
+     * @summary 同步任务
+     *  *
+     * @param ManageSchedulerxJobSyncRequest $tmpReq  ManageSchedulerxJobSyncRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ReadSchedulerxDesignateDetailRequest
-     * @param runtime - runtime options for this request RuntimeOptions
+     * @return ManageSchedulerxJobSyncResponse ManageSchedulerxJobSyncResponse
+     */
+    public function manageSchedulerxJobSyncWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ManageSchedulerxJobSyncShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->jobIdList)) {
+            $request->jobIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->jobIdList, 'JobIdList', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->jobIdListShrink)) {
+            $body['JobIdList'] = $request->jobIdListShrink;
+        }
+        if (!Utils::isUnset($request->namespaceSource)) {
+            $body['NamespaceSource'] = $request->namespaceSource;
+        }
+        if (!Utils::isUnset($request->originalGroupId)) {
+            $body['OriginalGroupId'] = $request->originalGroupId;
+        }
+        if (!Utils::isUnset($request->originalNamespace)) {
+            $body['OriginalNamespace'] = $request->originalNamespace;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->targetGroupId)) {
+            $body['TargetGroupId'] = $request->targetGroupId;
+        }
+        if (!Utils::isUnset($request->targetNamespace)) {
+            $body['TargetNamespace'] = $request->targetNamespace;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ManageSchedulerxJobSync',
+            'version' => '2019-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ManageSchedulerxJobSyncResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 同步任务
+     *  *
+     * @param ManageSchedulerxJobSyncRequest $request ManageSchedulerxJobSyncRequest
      *
-     * @returns ReadSchedulerxDesignateDetailResponse
+     * @return ManageSchedulerxJobSyncResponse ManageSchedulerxJobSyncResponse
+     */
+    public function manageSchedulerxJobSync($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->manageSchedulerxJobSyncWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取机器详细信息
+     *  *
+     * @param ReadSchedulerxDesignateDetailRequest $request ReadSchedulerxDesignateDetailRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @param ReadSchedulerxDesignateDetailRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return ReadSchedulerxDesignateDetailResponse
+     * @return ReadSchedulerxDesignateDetailResponse ReadSchedulerxDesignateDetailResponse
      */
     public function readSchedulerxDesignateDetailWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->designateType) {
-            @$query['DesignateType'] = $request->designateType;
+        if (!Utils::isUnset($request->designateType)) {
+            $query['DesignateType'] = $request->designateType;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->jobId) {
-            @$query['JobId'] = $request->jobId;
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
         }
-
-        if (null !== $request->namespace) {
-            @$query['Namespace'] = $request->namespace;
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
         }
-
-        if (null !== $request->namespaceSource) {
-            @$query['NamespaceSource'] = $request->namespaceSource;
+        if (!Utils::isUnset($request->namespaceSource)) {
+            $query['NamespaceSource'] = $request->namespaceSource;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ReadSchedulerxDesignateDetail',
@@ -2777,15 +2374,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * 获取机器详细信息.
+     * @summary 获取机器详细信息
+     *  *
+     * @param ReadSchedulerxDesignateDetailRequest $request ReadSchedulerxDesignateDetailRequest
      *
-     * @param request - ReadSchedulerxDesignateDetailRequest
-     *
-     * @returns ReadSchedulerxDesignateDetailResponse
-     *
-     * @param ReadSchedulerxDesignateDetailRequest $request
-     *
-     * @return ReadSchedulerxDesignateDetailResponse
+     * @return ReadSchedulerxDesignateDetailResponse ReadSchedulerxDesignateDetailResponse
      */
     public function readSchedulerxDesignateDetail($request)
     {
@@ -2795,44 +2388,34 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * 获取指定机器基本信息.
+     * @summary 获取指定机器基本信息
+     *  *
+     * @param ReadSchedulerxDesignateInfoRequest $request ReadSchedulerxDesignateInfoRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ReadSchedulerxDesignateInfoRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ReadSchedulerxDesignateInfoResponse
-     *
-     * @param ReadSchedulerxDesignateInfoRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return ReadSchedulerxDesignateInfoResponse
+     * @return ReadSchedulerxDesignateInfoResponse ReadSchedulerxDesignateInfoResponse
      */
     public function readSchedulerxDesignateInfoWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->jobId) {
-            @$query['JobId'] = $request->jobId;
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
         }
-
-        if (null !== $request->namespace) {
-            @$query['Namespace'] = $request->namespace;
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
         }
-
-        if (null !== $request->namespaceSource) {
-            @$query['NamespaceSource'] = $request->namespaceSource;
+        if (!Utils::isUnset($request->namespaceSource)) {
+            $query['NamespaceSource'] = $request->namespaceSource;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ReadSchedulerxDesignateInfo',
@@ -2850,15 +2433,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * 获取指定机器基本信息.
+     * @summary 获取指定机器基本信息
+     *  *
+     * @param ReadSchedulerxDesignateInfoRequest $request ReadSchedulerxDesignateInfoRequest
      *
-     * @param request - ReadSchedulerxDesignateInfoRequest
-     *
-     * @returns ReadSchedulerxDesignateInfoResponse
-     *
-     * @param ReadSchedulerxDesignateInfoRequest $request
-     *
-     * @return ReadSchedulerxDesignateInfoResponse
+     * @return ReadSchedulerxDesignateInfoResponse ReadSchedulerxDesignateInfoResponse
      */
     public function readSchedulerxDesignateInfo($request)
     {
@@ -2868,56 +2447,43 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Reruns a job to obtain the historical data of the job. You can call this operation only in the professional edition.
+     * @summary Reruns a job to obtain the historical data of the job. You can call this operation only in the professional edition.
+     *  *
+     * @param RerunJobRequest $request RerunJobRequest
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - RerunJobRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns RerunJobResponse
-     *
-     * @param RerunJobRequest $request
-     * @param RuntimeOptions  $runtime
-     *
-     * @return RerunJobResponse
+     * @return RerunJobResponse RerunJobResponse
      */
     public function rerunJobWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->dataTime) {
-            @$body['DataTime'] = $request->dataTime;
+        if (!Utils::isUnset($request->dataTime)) {
+            $body['DataTime'] = $request->dataTime;
         }
-
-        if (null !== $request->endDate) {
-            @$body['EndDate'] = $request->endDate;
+        if (!Utils::isUnset($request->endDate)) {
+            $body['EndDate'] = $request->endDate;
         }
-
-        if (null !== $request->groupId) {
-            @$body['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $body['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->jobId) {
-            @$body['JobId'] = $request->jobId;
+        if (!Utils::isUnset($request->jobId)) {
+            $body['JobId'] = $request->jobId;
         }
-
-        if (null !== $request->namespace) {
-            @$body['Namespace'] = $request->namespace;
+        if (!Utils::isUnset($request->namespace_)) {
+            $body['Namespace'] = $request->namespace_;
         }
-
-        if (null !== $request->namespaceSource) {
-            @$body['NamespaceSource'] = $request->namespaceSource;
+        if (!Utils::isUnset($request->namespaceSource)) {
+            $body['NamespaceSource'] = $request->namespaceSource;
         }
-
-        if (null !== $request->regionId) {
-            @$body['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->startDate) {
-            @$body['StartDate'] = $request->startDate;
+        if (!Utils::isUnset($request->startDate)) {
+            $body['StartDate'] = $request->startDate;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'RerunJob',
@@ -2935,15 +2501,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Reruns a job to obtain the historical data of the job. You can call this operation only in the professional edition.
+     * @summary Reruns a job to obtain the historical data of the job. You can call this operation only in the professional edition.
+     *  *
+     * @param RerunJobRequest $request RerunJobRequest
      *
-     * @param request - RerunJobRequest
-     *
-     * @returns RerunJobResponse
-     *
-     * @param RerunJobRequest $request
-     *
-     * @return RerunJobResponse
+     * @return RerunJobResponse RerunJobResponse
      */
     public function rerunJob($request)
     {
@@ -2953,48 +2515,37 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Reruns a successful or failed job instance. You can call this operation only in the professional edition.
+     * @summary Reruns a successful or failed job instance. You can call this operation only in the professional edition.
+     *  *
+     * @param RetryJobInstanceRequest $request RetryJobInstanceRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - RetryJobInstanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns RetryJobInstanceResponse
-     *
-     * @param RetryJobInstanceRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return RetryJobInstanceResponse
+     * @return RetryJobInstanceResponse RetryJobInstanceResponse
      */
     public function retryJobInstanceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->jobId) {
-            @$query['JobId'] = $request->jobId;
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
         }
-
-        if (null !== $request->jobInstanceId) {
-            @$query['JobInstanceId'] = $request->jobInstanceId;
+        if (!Utils::isUnset($request->jobInstanceId)) {
+            $query['JobInstanceId'] = $request->jobInstanceId;
         }
-
-        if (null !== $request->namespace) {
-            @$query['Namespace'] = $request->namespace;
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
         }
-
-        if (null !== $request->namespaceSource) {
-            @$query['NamespaceSource'] = $request->namespaceSource;
+        if (!Utils::isUnset($request->namespaceSource)) {
+            $query['NamespaceSource'] = $request->namespaceSource;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'RetryJobInstance',
@@ -3012,15 +2563,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Reruns a successful or failed job instance. You can call this operation only in the professional edition.
+     * @summary Reruns a successful or failed job instance. You can call this operation only in the professional edition.
+     *  *
+     * @param RetryJobInstanceRequest $request RetryJobInstanceRequest
      *
-     * @param request - RetryJobInstanceRequest
-     *
-     * @returns RetryJobInstanceResponse
-     *
-     * @param RetryJobInstanceRequest $request
-     *
-     * @return RetryJobInstanceResponse
+     * @return RetryJobInstanceResponse RetryJobInstanceResponse
      */
     public function retryJobInstance($request)
     {
@@ -3030,44 +2577,34 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Revokes the permissions that are granted to an Alibaba Cloud Resource Access Management (RAM) user.
+     * @summary Revokes the permissions that are granted to an Alibaba Cloud Resource Access Management (RAM) user.
+     *  *
+     * @param RevokePermissionRequest $request RevokePermissionRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - RevokePermissionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns RevokePermissionResponse
-     *
-     * @param RevokePermissionRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return RevokePermissionResponse
+     * @return RevokePermissionResponse RevokePermissionResponse
      */
     public function revokePermissionWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->namespace) {
-            @$query['Namespace'] = $request->namespace;
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
         }
-
-        if (null !== $request->namespaceSource) {
-            @$query['NamespaceSource'] = $request->namespaceSource;
+        if (!Utils::isUnset($request->namespaceSource)) {
+            $query['NamespaceSource'] = $request->namespaceSource;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->userId) {
-            @$query['UserId'] = $request->userId;
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'RevokePermission',
@@ -3085,15 +2622,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Revokes the permissions that are granted to an Alibaba Cloud Resource Access Management (RAM) user.
+     * @summary Revokes the permissions that are granted to an Alibaba Cloud Resource Access Management (RAM) user.
+     *  *
+     * @param RevokePermissionRequest $request RevokePermissionRequest
      *
-     * @param request - RevokePermissionRequest
-     *
-     * @returns RevokePermissionResponse
-     *
-     * @param RevokePermissionRequest $request
-     *
-     * @return RevokePermissionResponse
+     * @return RevokePermissionResponse RevokePermissionResponse
      */
     public function revokePermission($request)
     {
@@ -3103,48 +2636,37 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Forcibly sets the state of a job instance to successful. You can call this operation only in the professional edition.
+     * @summary Forcibly sets the state of a job instance to successful. You can call this operation only in the professional edition.
+     *  *
+     * @param SetJobInstanceSuccessRequest $request SetJobInstanceSuccessRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - SetJobInstanceSuccessRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns SetJobInstanceSuccessResponse
-     *
-     * @param SetJobInstanceSuccessRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return SetJobInstanceSuccessResponse
+     * @return SetJobInstanceSuccessResponse SetJobInstanceSuccessResponse
      */
     public function setJobInstanceSuccessWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->jobId) {
-            @$query['JobId'] = $request->jobId;
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
         }
-
-        if (null !== $request->jobInstanceId) {
-            @$query['JobInstanceId'] = $request->jobInstanceId;
+        if (!Utils::isUnset($request->jobInstanceId)) {
+            $query['JobInstanceId'] = $request->jobInstanceId;
         }
-
-        if (null !== $request->namespace) {
-            @$query['Namespace'] = $request->namespace;
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
         }
-
-        if (null !== $request->namespaceSource) {
-            @$query['NamespaceSource'] = $request->namespaceSource;
+        if (!Utils::isUnset($request->namespaceSource)) {
+            $query['NamespaceSource'] = $request->namespaceSource;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'SetJobInstanceSuccess',
@@ -3162,15 +2684,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Forcibly sets the state of a job instance to successful. You can call this operation only in the professional edition.
+     * @summary Forcibly sets the state of a job instance to successful. You can call this operation only in the professional edition.
+     *  *
+     * @param SetJobInstanceSuccessRequest $request SetJobInstanceSuccessRequest
      *
-     * @param request - SetJobInstanceSuccessRequest
-     *
-     * @returns SetJobInstanceSuccessResponse
-     *
-     * @param SetJobInstanceSuccessRequest $request
-     *
-     * @return SetJobInstanceSuccessResponse
+     * @return SetJobInstanceSuccessResponse SetJobInstanceSuccessResponse
      */
     public function setJobInstanceSuccess($request)
     {
@@ -3180,48 +2698,37 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Forcibly sets the state of a workflow instance to successful. You can call this operation only in the professional edition.
+     * @summary Forcibly sets the state of a workflow instance to successful. You can call this operation only in the professional edition.
+     *  *
+     * @param SetWfInstanceSuccessRequest $request SetWfInstanceSuccessRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - SetWfInstanceSuccessRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns SetWfInstanceSuccessResponse
-     *
-     * @param SetWfInstanceSuccessRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return SetWfInstanceSuccessResponse
+     * @return SetWfInstanceSuccessResponse SetWfInstanceSuccessResponse
      */
     public function setWfInstanceSuccessWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->namespace) {
-            @$query['Namespace'] = $request->namespace;
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
         }
-
-        if (null !== $request->namespaceSource) {
-            @$query['NamespaceSource'] = $request->namespaceSource;
+        if (!Utils::isUnset($request->namespaceSource)) {
+            $query['NamespaceSource'] = $request->namespaceSource;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->wfInstanceId) {
-            @$query['WfInstanceId'] = $request->wfInstanceId;
+        if (!Utils::isUnset($request->wfInstanceId)) {
+            $query['WfInstanceId'] = $request->wfInstanceId;
         }
-
-        if (null !== $request->workflowId) {
-            @$query['WorkflowId'] = $request->workflowId;
+        if (!Utils::isUnset($request->workflowId)) {
+            $query['WorkflowId'] = $request->workflowId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'SetWfInstanceSuccess',
@@ -3239,15 +2746,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Forcibly sets the state of a workflow instance to successful. You can call this operation only in the professional edition.
+     * @summary Forcibly sets the state of a workflow instance to successful. You can call this operation only in the professional edition.
+     *  *
+     * @param SetWfInstanceSuccessRequest $request SetWfInstanceSuccessRequest
      *
-     * @param request - SetWfInstanceSuccessRequest
-     *
-     * @returns SetWfInstanceSuccessResponse
-     *
-     * @param SetWfInstanceSuccessRequest $request
-     *
-     * @return SetWfInstanceSuccessResponse
+     * @return SetWfInstanceSuccessResponse SetWfInstanceSuccessResponse
      */
     public function setWfInstanceSuccess($request)
     {
@@ -3257,24 +2760,19 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Stops a job instance in the running state.
+     * @summary Stops a job instance in the running state.
+     *  *
+     * @param StopInstanceRequest $request StopInstanceRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - StopInstanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns StopInstanceResponse
-     *
-     * @param StopInstanceRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return StopInstanceResponse
+     * @return StopInstanceResponse StopInstanceResponse
      */
     public function stopInstanceWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'StopInstance',
@@ -3292,15 +2790,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Stops a job instance in the running state.
+     * @summary Stops a job instance in the running state.
+     *  *
+     * @param StopInstanceRequest $request StopInstanceRequest
      *
-     * @param request - StopInstanceRequest
-     *
-     * @returns StopInstanceResponse
-     *
-     * @param StopInstanceRequest $request
-     *
-     * @return StopInstanceResponse
+     * @return StopInstanceResponse StopInstanceResponse
      */
     public function stopInstance($request)
     {
@@ -3310,56 +2804,43 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Updates the application group.
+     * @summary Updates the application group.
+     *  *
+     * @param UpdateAppGroupRequest $request UpdateAppGroupRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateAppGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateAppGroupResponse
-     *
-     * @param UpdateAppGroupRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return UpdateAppGroupResponse
+     * @return UpdateAppGroupResponse UpdateAppGroupResponse
      */
     public function updateAppGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->appVersion) {
-            @$query['AppVersion'] = $request->appVersion;
+        if (!Utils::isUnset($request->appVersion)) {
+            $query['AppVersion'] = $request->appVersion;
         }
-
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->maxConcurrency) {
-            @$query['MaxConcurrency'] = $request->maxConcurrency;
+        if (!Utils::isUnset($request->maxConcurrency)) {
+            $query['MaxConcurrency'] = $request->maxConcurrency;
         }
-
-        if (null !== $request->monitorConfigJson) {
-            @$query['MonitorConfigJson'] = $request->monitorConfigJson;
+        if (!Utils::isUnset($request->monitorConfigJson)) {
+            $query['MonitorConfigJson'] = $request->monitorConfigJson;
         }
-
-        if (null !== $request->monitorContactsJson) {
-            @$query['MonitorContactsJson'] = $request->monitorContactsJson;
+        if (!Utils::isUnset($request->monitorContactsJson)) {
+            $query['MonitorContactsJson'] = $request->monitorContactsJson;
         }
-
-        if (null !== $request->namespace) {
-            @$query['Namespace'] = $request->namespace;
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateAppGroup',
@@ -3377,15 +2858,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Updates the application group.
+     * @summary Updates the application group.
+     *  *
+     * @param UpdateAppGroupRequest $request UpdateAppGroupRequest
      *
-     * @param request - UpdateAppGroupRequest
-     *
-     * @returns UpdateAppGroupResponse
-     *
-     * @param UpdateAppGroupRequest $request
-     *
-     * @return UpdateAppGroupResponse
+     * @return UpdateAppGroupResponse UpdateAppGroupResponse
      */
     public function updateAppGroup($request)
     {
@@ -3395,178 +2872,135 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Updates the configuration information about a job. By default, you need to call the GetJobInfo operation to obtain the original configuration of the job before you call this operation to modify the configuration as required.
+     * @summary Updates the configuration information about a job. By default, you need to call the GetJobInfo operation to obtain the original configuration of the job before you call this operation to modify the configuration as required.
+     *  *
+     * @param UpdateJobRequest $request UpdateJobRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateJobRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateJobResponse
-     *
-     * @param UpdateJobRequest $request
-     * @param RuntimeOptions   $runtime
-     *
-     * @return UpdateJobResponse
+     * @return UpdateJobResponse UpdateJobResponse
      */
     public function updateJobWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->priority) {
-            @$query['Priority'] = $request->priority;
+        if (!Utils::isUnset($request->priority)) {
+            $query['Priority'] = $request->priority;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $body = [];
-        if (null !== $request->attemptInterval) {
-            @$body['AttemptInterval'] = $request->attemptInterval;
+        if (!Utils::isUnset($request->attemptInterval)) {
+            $body['AttemptInterval'] = $request->attemptInterval;
         }
-
-        if (null !== $request->calendar) {
-            @$body['Calendar'] = $request->calendar;
+        if (!Utils::isUnset($request->calendar)) {
+            $body['Calendar'] = $request->calendar;
         }
-
-        if (null !== $request->className) {
-            @$body['ClassName'] = $request->className;
+        if (!Utils::isUnset($request->className)) {
+            $body['ClassName'] = $request->className;
         }
-
-        if (null !== $request->consumerSize) {
-            @$body['ConsumerSize'] = $request->consumerSize;
+        if (!Utils::isUnset($request->consumerSize)) {
+            $body['ConsumerSize'] = $request->consumerSize;
         }
-
-        if (null !== $request->contactInfo) {
-            @$body['ContactInfo'] = $request->contactInfo;
+        if (!Utils::isUnset($request->contactInfo)) {
+            $body['ContactInfo'] = $request->contactInfo;
         }
-
-        if (null !== $request->content) {
-            @$body['Content'] = $request->content;
+        if (!Utils::isUnset($request->content)) {
+            $body['Content'] = $request->content;
         }
-
-        if (null !== $request->dataOffset) {
-            @$body['DataOffset'] = $request->dataOffset;
+        if (!Utils::isUnset($request->dataOffset)) {
+            $body['DataOffset'] = $request->dataOffset;
         }
-
-        if (null !== $request->description) {
-            @$body['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
         }
-
-        if (null !== $request->dispatcherSize) {
-            @$body['DispatcherSize'] = $request->dispatcherSize;
+        if (!Utils::isUnset($request->dispatcherSize)) {
+            $body['DispatcherSize'] = $request->dispatcherSize;
         }
-
-        if (null !== $request->executeMode) {
-            @$body['ExecuteMode'] = $request->executeMode;
+        if (!Utils::isUnset($request->executeMode)) {
+            $body['ExecuteMode'] = $request->executeMode;
         }
-
-        if (null !== $request->failEnable) {
-            @$body['FailEnable'] = $request->failEnable;
+        if (!Utils::isUnset($request->failEnable)) {
+            $body['FailEnable'] = $request->failEnable;
         }
-
-        if (null !== $request->failTimes) {
-            @$body['FailTimes'] = $request->failTimes;
+        if (!Utils::isUnset($request->failTimes)) {
+            $body['FailTimes'] = $request->failTimes;
         }
-
-        if (null !== $request->groupId) {
-            @$body['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $body['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->jobId) {
-            @$body['JobId'] = $request->jobId;
+        if (!Utils::isUnset($request->jobId)) {
+            $body['JobId'] = $request->jobId;
         }
-
-        if (null !== $request->maxAttempt) {
-            @$body['MaxAttempt'] = $request->maxAttempt;
+        if (!Utils::isUnset($request->maxAttempt)) {
+            $body['MaxAttempt'] = $request->maxAttempt;
         }
-
-        if (null !== $request->maxConcurrency) {
-            @$body['MaxConcurrency'] = $request->maxConcurrency;
+        if (!Utils::isUnset($request->maxConcurrency)) {
+            $body['MaxConcurrency'] = $request->maxConcurrency;
         }
-
-        if (null !== $request->missWorkerEnable) {
-            @$body['MissWorkerEnable'] = $request->missWorkerEnable;
+        if (!Utils::isUnset($request->missWorkerEnable)) {
+            $body['MissWorkerEnable'] = $request->missWorkerEnable;
         }
-
-        if (null !== $request->name) {
-            @$body['Name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
         }
-
-        if (null !== $request->namespace) {
-            @$body['Namespace'] = $request->namespace;
+        if (!Utils::isUnset($request->namespace_)) {
+            $body['Namespace'] = $request->namespace_;
         }
-
-        if (null !== $request->namespaceSource) {
-            @$body['NamespaceSource'] = $request->namespaceSource;
+        if (!Utils::isUnset($request->namespaceSource)) {
+            $body['NamespaceSource'] = $request->namespaceSource;
         }
-
-        if (null !== $request->pageSize) {
-            @$body['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->parameters) {
-            @$body['Parameters'] = $request->parameters;
+        if (!Utils::isUnset($request->parameters)) {
+            $body['Parameters'] = $request->parameters;
         }
-
-        if (null !== $request->queueSize) {
-            @$body['QueueSize'] = $request->queueSize;
+        if (!Utils::isUnset($request->queueSize)) {
+            $body['QueueSize'] = $request->queueSize;
         }
-
-        if (null !== $request->sendChannel) {
-            @$body['SendChannel'] = $request->sendChannel;
+        if (!Utils::isUnset($request->sendChannel)) {
+            $body['SendChannel'] = $request->sendChannel;
         }
-
-        if (null !== $request->successNoticeEnable) {
-            @$body['SuccessNoticeEnable'] = $request->successNoticeEnable;
+        if (!Utils::isUnset($request->successNoticeEnable)) {
+            $body['SuccessNoticeEnable'] = $request->successNoticeEnable;
         }
-
-        if (null !== $request->taskAttemptInterval) {
-            @$body['TaskAttemptInterval'] = $request->taskAttemptInterval;
+        if (!Utils::isUnset($request->taskAttemptInterval)) {
+            $body['TaskAttemptInterval'] = $request->taskAttemptInterval;
         }
-
-        if (null !== $request->taskDispatchMode) {
-            @$body['TaskDispatchMode'] = $request->taskDispatchMode;
+        if (!Utils::isUnset($request->taskDispatchMode)) {
+            $body['TaskDispatchMode'] = $request->taskDispatchMode;
         }
-
-        if (null !== $request->taskMaxAttempt) {
-            @$body['TaskMaxAttempt'] = $request->taskMaxAttempt;
+        if (!Utils::isUnset($request->taskMaxAttempt)) {
+            $body['TaskMaxAttempt'] = $request->taskMaxAttempt;
         }
-
-        if (null !== $request->template) {
-            @$body['Template'] = $request->template;
+        if (!Utils::isUnset($request->template)) {
+            $body['Template'] = $request->template;
         }
-
-        if (null !== $request->timeExpression) {
-            @$body['TimeExpression'] = $request->timeExpression;
+        if (!Utils::isUnset($request->timeExpression)) {
+            $body['TimeExpression'] = $request->timeExpression;
         }
-
-        if (null !== $request->timeType) {
-            @$body['TimeType'] = $request->timeType;
+        if (!Utils::isUnset($request->timeType)) {
+            $body['TimeType'] = $request->timeType;
         }
-
-        if (null !== $request->timeout) {
-            @$body['Timeout'] = $request->timeout;
+        if (!Utils::isUnset($request->timeout)) {
+            $body['Timeout'] = $request->timeout;
         }
-
-        if (null !== $request->timeoutEnable) {
-            @$body['TimeoutEnable'] = $request->timeoutEnable;
+        if (!Utils::isUnset($request->timeoutEnable)) {
+            $body['TimeoutEnable'] = $request->timeoutEnable;
         }
-
-        if (null !== $request->timeoutKillEnable) {
-            @$body['TimeoutKillEnable'] = $request->timeoutKillEnable;
+        if (!Utils::isUnset($request->timeoutKillEnable)) {
+            $body['TimeoutKillEnable'] = $request->timeoutKillEnable;
         }
-
-        if (null !== $request->timezone) {
-            @$body['Timezone'] = $request->timezone;
+        if (!Utils::isUnset($request->timezone)) {
+            $body['Timezone'] = $request->timezone;
         }
-
-        if (null !== $request->XAttrs) {
-            @$body['XAttrs'] = $request->XAttrs;
+        if (!Utils::isUnset($request->XAttrs)) {
+            $body['XAttrs'] = $request->XAttrs;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateJob',
@@ -3584,15 +3018,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Updates the configuration information about a job. By default, you need to call the GetJobInfo operation to obtain the original configuration of the job before you call this operation to modify the configuration as required.
+     * @summary Updates the configuration information about a job. By default, you need to call the GetJobInfo operation to obtain the original configuration of the job before you call this operation to modify the configuration as required.
+     *  *
+     * @param UpdateJobRequest $request UpdateJobRequest
      *
-     * @param request - UpdateJobRequest
-     *
-     * @returns UpdateJobResponse
-     *
-     * @param UpdateJobRequest $request
-     *
-     * @return UpdateJobResponse
+     * @return UpdateJobResponse UpdateJobResponse
      */
     public function updateJob($request)
     {
@@ -3602,52 +3032,40 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * 更新任务执行脚本.
+     * @summary 更新任务执行脚本
+     *  *
+     * @param UpdateJobScriptRequest $request UpdateJobScriptRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateJobScriptRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateJobScriptResponse
-     *
-     * @param UpdateJobScriptRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return UpdateJobScriptResponse
+     * @return UpdateJobScriptResponse UpdateJobScriptResponse
      */
     public function updateJobScriptWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->groupId) {
-            @$body['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $body['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->jobId) {
-            @$body['JobId'] = $request->jobId;
+        if (!Utils::isUnset($request->jobId)) {
+            $body['JobId'] = $request->jobId;
         }
-
-        if (null !== $request->namespace) {
-            @$body['Namespace'] = $request->namespace;
+        if (!Utils::isUnset($request->namespace_)) {
+            $body['Namespace'] = $request->namespace_;
         }
-
-        if (null !== $request->namespaceSource) {
-            @$body['NamespaceSource'] = $request->namespaceSource;
+        if (!Utils::isUnset($request->namespaceSource)) {
+            $body['NamespaceSource'] = $request->namespaceSource;
         }
-
-        if (null !== $request->regionId) {
-            @$body['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->scriptContent) {
-            @$body['ScriptContent'] = $request->scriptContent;
+        if (!Utils::isUnset($request->scriptContent)) {
+            $body['ScriptContent'] = $request->scriptContent;
         }
-
-        if (null !== $request->versionDescription) {
-            @$body['VersionDescription'] = $request->versionDescription;
+        if (!Utils::isUnset($request->versionDescription)) {
+            $body['VersionDescription'] = $request->versionDescription;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateJobScript',
@@ -3665,15 +3083,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * 更新任务执行脚本.
+     * @summary 更新任务执行脚本
+     *  *
+     * @param UpdateJobScriptRequest $request UpdateJobScriptRequest
      *
-     * @param request - UpdateJobScriptRequest
-     *
-     * @returns UpdateJobScriptResponse
-     *
-     * @param UpdateJobScriptRequest $request
-     *
-     * @return UpdateJobScriptResponse
+     * @return UpdateJobScriptResponse UpdateJobScriptResponse
      */
     public function updateJobScript($request)
     {
@@ -3683,40 +3097,31 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * 更新命名空间.
+     * @summary 更新命名空间
+     *  *
+     * @param UpdateNamespaceRequest $request UpdateNamespaceRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateNamespaceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateNamespaceResponse
-     *
-     * @param UpdateNamespaceRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return UpdateNamespaceResponse
+     * @return UpdateNamespaceResponse UpdateNamespaceResponse
      */
     public function updateNamespaceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->namespace) {
-            @$query['Namespace'] = $request->namespace;
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
         }
-
-        if (null !== $request->namespaceName) {
-            @$query['NamespaceName'] = $request->namespaceName;
+        if (!Utils::isUnset($request->namespaceName)) {
+            $query['NamespaceName'] = $request->namespaceName;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateNamespace',
@@ -3734,15 +3139,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * 更新命名空间.
+     * @summary 更新命名空间
+     *  *
+     * @param UpdateNamespaceRequest $request UpdateNamespaceRequest
      *
-     * @param request - UpdateNamespaceRequest
-     *
-     * @returns UpdateNamespaceResponse
-     *
-     * @param UpdateNamespaceRequest $request
-     *
-     * @return UpdateNamespaceResponse
+     * @return UpdateNamespaceResponse UpdateNamespaceResponse
      */
     public function updateNamespace($request)
     {
@@ -3752,62 +3153,48 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Updates the basic information about a workflow. You can call this operation only in the professional edition.
+     * @summary Updates the basic information about a workflow. You can call this operation only in the professional edition.
+     *  *
+     * @param UpdateWorkflowRequest $request UpdateWorkflowRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateWorkflowRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateWorkflowResponse
-     *
-     * @param UpdateWorkflowRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return UpdateWorkflowResponse
+     * @return UpdateWorkflowResponse UpdateWorkflowResponse
      */
     public function updateWorkflowWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $body = [];
-        if (null !== $request->description) {
-            @$body['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
         }
-
-        if (null !== $request->groupId) {
-            @$body['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $body['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->name) {
-            @$body['Name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
         }
-
-        if (null !== $request->namespace) {
-            @$body['Namespace'] = $request->namespace;
+        if (!Utils::isUnset($request->namespace_)) {
+            $body['Namespace'] = $request->namespace_;
         }
-
-        if (null !== $request->namespaceSource) {
-            @$body['NamespaceSource'] = $request->namespaceSource;
+        if (!Utils::isUnset($request->namespaceSource)) {
+            $body['NamespaceSource'] = $request->namespaceSource;
         }
-
-        if (null !== $request->timeExpression) {
-            @$body['TimeExpression'] = $request->timeExpression;
+        if (!Utils::isUnset($request->timeExpression)) {
+            $body['TimeExpression'] = $request->timeExpression;
         }
-
-        if (null !== $request->timeType) {
-            @$body['TimeType'] = $request->timeType;
+        if (!Utils::isUnset($request->timeType)) {
+            $body['TimeType'] = $request->timeType;
         }
-
-        if (null !== $request->workflowId) {
-            @$body['WorkflowId'] = $request->workflowId;
+        if (!Utils::isUnset($request->workflowId)) {
+            $body['WorkflowId'] = $request->workflowId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateWorkflow',
@@ -3825,15 +3212,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Updates the basic information about a workflow. You can call this operation only in the professional edition.
+     * @summary Updates the basic information about a workflow. You can call this operation only in the professional edition.
+     *  *
+     * @param UpdateWorkflowRequest $request UpdateWorkflowRequest
      *
-     * @param request - UpdateWorkflowRequest
-     *
-     * @returns UpdateWorkflowResponse
-     *
-     * @param UpdateWorkflowRequest $request
-     *
-     * @return UpdateWorkflowResponse
+     * @return UpdateWorkflowResponse UpdateWorkflowResponse
      */
     public function updateWorkflow($request)
     {
@@ -3843,50 +3226,39 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Modifies the nodes and dependencies of a workflow. You can call this operation only in the professional edition.
+     * @summary Modifies the nodes and dependencies of a workflow. You can call this operation only in the professional edition.
+     *  *
+     * @param UpdateWorkflowDagRequest $request UpdateWorkflowDagRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateWorkflowDagRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateWorkflowDagResponse
-     *
-     * @param UpdateWorkflowDagRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return UpdateWorkflowDagResponse
+     * @return UpdateWorkflowDagResponse UpdateWorkflowDagResponse
      */
     public function updateWorkflowDagWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $body = [];
-        if (null !== $request->dagJson) {
-            @$body['DagJson'] = $request->dagJson;
+        if (!Utils::isUnset($request->dagJson)) {
+            $body['DagJson'] = $request->dagJson;
         }
-
-        if (null !== $request->groupId) {
-            @$body['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $body['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->namespace) {
-            @$body['Namespace'] = $request->namespace;
+        if (!Utils::isUnset($request->namespace_)) {
+            $body['Namespace'] = $request->namespace_;
         }
-
-        if (null !== $request->namespaceSource) {
-            @$body['NamespaceSource'] = $request->namespaceSource;
+        if (!Utils::isUnset($request->namespaceSource)) {
+            $body['NamespaceSource'] = $request->namespaceSource;
         }
-
-        if (null !== $request->workflowId) {
-            @$body['WorkflowId'] = $request->workflowId;
+        if (!Utils::isUnset($request->workflowId)) {
+            $body['WorkflowId'] = $request->workflowId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateWorkflowDag',
@@ -3904,15 +3276,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Modifies the nodes and dependencies of a workflow. You can call this operation only in the professional edition.
+     * @summary Modifies the nodes and dependencies of a workflow. You can call this operation only in the professional edition.
+     *  *
+     * @param UpdateWorkflowDagRequest $request UpdateWorkflowDagRequest
      *
-     * @param request - UpdateWorkflowDagRequest
-     *
-     * @returns UpdateWorkflowDagResponse
-     *
-     * @param UpdateWorkflowDagRequest $request
-     *
-     * @return UpdateWorkflowDagResponse
+     * @return UpdateWorkflowDagResponse UpdateWorkflowDagResponse
      */
     public function updateWorkflowDag($request)
     {

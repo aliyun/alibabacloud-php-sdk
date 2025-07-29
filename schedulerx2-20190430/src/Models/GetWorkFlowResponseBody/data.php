@@ -4,18 +4,22 @@
 
 namespace AlibabaCloud\SDK\Schedulerx2\V20190430\Models\GetWorkFlowResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\GetWorkFlowResponseBody\data\workFlowInfo;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\GetWorkFlowResponseBody\data\workFlowNodeInfo;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description The basic information of the workflow.
+     *
      * @var workFlowInfo
      */
     public $workFlowInfo;
 
     /**
+     * @description The node information of the workflow.
+     *
      * @var workFlowNodeInfo
      */
     public $workFlowNodeInfo;
@@ -24,43 +28,32 @@ class data extends Model
         'workFlowNodeInfo' => 'WorkFlowNodeInfo',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->workFlowInfo) {
-            $this->workFlowInfo->validate();
-        }
-        if (null !== $this->workFlowNodeInfo) {
-            $this->workFlowNodeInfo->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->workFlowInfo) {
-            $res['WorkFlowInfo'] = null !== $this->workFlowInfo ? $this->workFlowInfo->toArray($noStream) : $this->workFlowInfo;
+            $res['WorkFlowInfo'] = null !== $this->workFlowInfo ? $this->workFlowInfo->toMap() : null;
         }
-
         if (null !== $this->workFlowNodeInfo) {
-            $res['WorkFlowNodeInfo'] = null !== $this->workFlowNodeInfo ? $this->workFlowNodeInfo->toArray($noStream) : $this->workFlowNodeInfo;
+            $res['WorkFlowNodeInfo'] = null !== $this->workFlowNodeInfo ? $this->workFlowNodeInfo->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['WorkFlowInfo'])) {
             $model->workFlowInfo = workFlowInfo::fromMap($map['WorkFlowInfo']);
         }
-
         if (isset($map['WorkFlowNodeInfo'])) {
             $model->workFlowNodeInfo = workFlowNodeInfo::fromMap($map['WorkFlowNodeInfo']);
         }

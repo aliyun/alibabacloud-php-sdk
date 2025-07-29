@@ -4,21 +4,33 @@
 
 namespace AlibabaCloud\SDK\Schedulerx2\V20190430\Models\GetWorkFlowResponseBody\data\workFlowNodeInfo;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class nodes extends Model
 {
     /**
+     * @description The ID of the job.
+     *
+     * @example 123456xxx
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The name of the job.
+     *
+     * @example job_111
+     *
      * @var string
      */
     public $label;
 
     /**
+     * @description The status of the job.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $status;
@@ -28,22 +40,17 @@ class nodes extends Model
         'status' => 'Status',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->label) {
             $res['Label'] = $this->label;
         }
-
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -51,22 +58,20 @@ class nodes extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return nodes
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['Label'])) {
             $model->label = $map['Label'];
         }
-
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

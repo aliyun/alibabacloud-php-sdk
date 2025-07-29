@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Schedulerx2\V20190430\Models\GetWorkflowInstanceResponseBody\data\wfInstanceDag;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class edges extends Model
 {
     /**
+     * @description The upstream job instance of the current job instance. A value of 0 indicates that the upstream job instance is the root node.
+     *
+     * @example 24058798
+     *
      * @var int
      */
     public $source;
 
     /**
+     * @description The downstream job instance of the current job instance.
+     *
+     * @example 24058796
+     *
      * @var int
      */
     public $target;
@@ -22,18 +30,14 @@ class edges extends Model
         'target' => 'Target',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->source) {
             $res['Source'] = $this->source;
         }
-
         if (null !== $this->target) {
             $res['Target'] = $this->target;
         }
@@ -41,18 +45,17 @@ class edges extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return edges
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
         }
-
         if (isset($map['Target'])) {
             $model->target = $map['Target'];
         }

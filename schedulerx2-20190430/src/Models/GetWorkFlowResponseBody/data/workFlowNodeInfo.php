@@ -4,18 +4,22 @@
 
 namespace AlibabaCloud\SDK\Schedulerx2\V20190430\Models\GetWorkFlowResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\GetWorkFlowResponseBody\data\workFlowNodeInfo\edges;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\GetWorkFlowResponseBody\data\workFlowNodeInfo\nodes;
+use AlibabaCloud\Tea\Model;
 
 class workFlowNodeInfo extends Model
 {
     /**
+     * @description The workflow edges.
+     *
      * @var edges[]
      */
     public $edges;
 
     /**
+     * @description The list of workflow nodes.
+     *
      * @var nodes[]
      */
     public $nodes;
@@ -24,36 +28,26 @@ class workFlowNodeInfo extends Model
         'nodes' => 'Nodes',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->edges)) {
-            Model::validateArray($this->edges);
-        }
-        if (\is_array($this->nodes)) {
-            Model::validateArray($this->nodes);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->edges) {
-            if (\is_array($this->edges)) {
-                $res['Edges'] = [];
-                $n1 = 0;
-                foreach ($this->edges as $item1) {
-                    $res['Edges'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Edges'] = [];
+            if (null !== $this->edges && \is_array($this->edges)) {
+                $n = 0;
+                foreach ($this->edges as $item) {
+                    $res['Edges'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->nodes) {
-            if (\is_array($this->nodes)) {
-                $res['Nodes'] = [];
-                $n1 = 0;
-                foreach ($this->nodes as $item1) {
-                    $res['Nodes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Nodes'] = [];
+            if (null !== $this->nodes && \is_array($this->nodes)) {
+                $n = 0;
+                foreach ($this->nodes as $item) {
+                    $res['Nodes'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -61,30 +55,29 @@ class workFlowNodeInfo extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return workFlowNodeInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Edges'])) {
             if (!empty($map['Edges'])) {
                 $model->edges = [];
-                $n1 = 0;
-                foreach ($map['Edges'] as $item1) {
-                    $model->edges[$n1++] = edges::fromMap($item1);
+                $n = 0;
+                foreach ($map['Edges'] as $item) {
+                    $model->edges[$n++] = null !== $item ? edges::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['Nodes'])) {
             if (!empty($map['Nodes'])) {
                 $model->nodes = [];
-                $n1 = 0;
-                foreach ($map['Nodes'] as $item1) {
-                    $model->nodes[$n1++] = nodes::fromMap($item1);
+                $n = 0;
+                foreach ($map['Nodes'] as $item) {
+                    $model->nodes[$n++] = null !== $item ? nodes::fromMap($item) : $item;
                 }
             }
         }

@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Schedulerx2\V20190430\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class EnableJobResponse extends Model
+class ManageSchedulerxJobSyncResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class EnableJobResponse extends Model
     public $statusCode;
 
     /**
-     * @var EnableJobResponseBody
+     * @var ManageSchedulerxJobSyncResponseBody
      */
     public $body;
     protected $_name = [
@@ -49,7 +49,7 @@ class EnableJobResponse extends Model
     /**
      * @param array $map
      *
-     * @return EnableJobResponse
+     * @return ManageSchedulerxJobSyncResponse
      */
     public static function fromMap($map = [])
     {
@@ -61,7 +61,7 @@ class EnableJobResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = EnableJobResponseBody::fromMap($map['body']);
+            $model->body = ManageSchedulerxJobSyncResponseBody::fromMap($map['body']);
         }
 
         return $model;

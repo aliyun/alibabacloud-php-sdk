@@ -4,56 +4,104 @@
 
 namespace AlibabaCloud\SDK\Schedulerx2\V20190430\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetJobInstanceListRequest extends Model
 {
     /**
+     * @description The end of the time range to query. Specify a UNIX timestamp.
+     *
+     * @example 1684202400000
+     *
      * @var int
      */
     public $endTimestamp;
 
     /**
+     * @description The application group ID.
+     *
+     * This parameter is required.
+     *
+     * @example testSchedulerx.defaultGroup
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The job ID.
+     *
+     * @example 92583
+     *
      * @var int
      */
     public $jobId;
 
     /**
+     * @description The namespace ID. You can obtain the namespace ID on the **Namespace** page in the SchedulerX console.
+     *
+     * This parameter is required.
+     *
+     * @example adcfc35d-e2fe-4fe9-bbaa-20e90ffc****
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @description The source of the namespace. This parameter is required only for a special third party.
+     *
+     * @example schedulerx
+     *
      * @var string
      */
     public $namespaceSource;
 
     /**
+     * @description The page number. Default value: 1.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @description The number of entries per page. Default value: 10.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The region ID.
+     *
+     * This parameter is required.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The beginning of the time range to query. Specify a UNIX timestamp.
+     *
+     * @example 1684116000000
+     *
      * @var int
      */
     public $startTimestamp;
 
     /**
+     * @description The status of the job instance. Valid values:
+     *
+     * 1: The job instance is pending. 3: The job instance is running. 4: The job instance is run. 5: The job instance fails. 9: The request for running the job instance is rejected. To specify this parameter, you must declare the following enumeration class: com.alibaba.schedulerx.common.domain.InstanceStatus.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $status;
@@ -70,50 +118,38 @@ class GetJobInstanceListRequest extends Model
         'status' => 'Status',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->endTimestamp) {
             $res['EndTimestamp'] = $this->endTimestamp;
         }
-
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
-
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
         }
-
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
-
         if (null !== $this->namespaceSource) {
             $res['NamespaceSource'] = $this->namespaceSource;
         }
-
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
-
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->startTimestamp) {
             $res['StartTimestamp'] = $this->startTimestamp;
         }
-
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -121,50 +157,41 @@ class GetJobInstanceListRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetJobInstanceListRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EndTimestamp'])) {
             $model->endTimestamp = $map['EndTimestamp'];
         }
-
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
-
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
         }
-
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }
-
         if (isset($map['NamespaceSource'])) {
             $model->namespaceSource = $map['NamespaceSource'];
         }
-
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }
-
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['StartTimestamp'])) {
             $model->startTimestamp = $map['StartTimestamp'];
         }
-
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

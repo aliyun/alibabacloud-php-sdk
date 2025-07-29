@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Schedulerx2\V20190430\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class UpdateNamespaceResponseBody extends Model
+class ManageSchedulerxJobSyncResponseBody extends Model
 {
     /**
      * @example 200
@@ -16,14 +16,14 @@ class UpdateNamespaceResponseBody extends Model
     public $code;
 
     /**
-     * @example The system namespace cannot be modified
+     * @example jobId=xxx is not existed
      *
      * @var string
      */
     public $message;
 
     /**
-     * @example 39090022-1F3B-4797-8518-6B61095F1AF0
+     * @example 71BCC0E3-64B2-4B63-A870-AFB64EBCB58C
      *
      * @var string
      */
@@ -66,7 +66,7 @@ class UpdateNamespaceResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return UpdateNamespaceResponseBody
+     * @return ManageSchedulerxJobSyncResponseBody
      */
     public static function fromMap($map = [])
     {

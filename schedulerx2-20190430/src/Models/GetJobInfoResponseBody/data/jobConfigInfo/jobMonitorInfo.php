@@ -4,18 +4,22 @@
 
 namespace AlibabaCloud\SDK\Schedulerx2\V20190430\Models\GetJobInfoResponseBody\data\jobConfigInfo;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\GetJobInfoResponseBody\data\jobConfigInfo\jobMonitorInfo\contactInfo;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\GetJobInfoResponseBody\data\jobConfigInfo\jobMonitorInfo\monitorConfig;
+use AlibabaCloud\Tea\Model;
 
 class jobMonitorInfo extends Model
 {
     /**
+     * @description The alert contact Information.
+     *
      * @var contactInfo[]
      */
     public $contactInfo;
 
     /**
+     * @description The configurations of the alerting features and the alert thresholds.
+     *
      * @var monitorConfig
      */
     public $monitorConfig;
@@ -24,55 +28,44 @@ class jobMonitorInfo extends Model
         'monitorConfig' => 'MonitorConfig',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->contactInfo)) {
-            Model::validateArray($this->contactInfo);
-        }
-        if (null !== $this->monitorConfig) {
-            $this->monitorConfig->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->contactInfo) {
-            if (\is_array($this->contactInfo)) {
-                $res['ContactInfo'] = [];
-                $n1 = 0;
-                foreach ($this->contactInfo as $item1) {
-                    $res['ContactInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['ContactInfo'] = [];
+            if (null !== $this->contactInfo && \is_array($this->contactInfo)) {
+                $n = 0;
+                foreach ($this->contactInfo as $item) {
+                    $res['ContactInfo'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->monitorConfig) {
-            $res['MonitorConfig'] = null !== $this->monitorConfig ? $this->monitorConfig->toArray($noStream) : $this->monitorConfig;
+            $res['MonitorConfig'] = null !== $this->monitorConfig ? $this->monitorConfig->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return jobMonitorInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ContactInfo'])) {
             if (!empty($map['ContactInfo'])) {
                 $model->contactInfo = [];
-                $n1 = 0;
-                foreach ($map['ContactInfo'] as $item1) {
-                    $model->contactInfo[$n1++] = contactInfo::fromMap($item1);
+                $n = 0;
+                foreach ($map['ContactInfo'] as $item) {
+                    $model->contactInfo[$n++] = null !== $item ? contactInfo::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['MonitorConfig'])) {
             $model->monitorConfig = monitorConfig::fromMap($map['MonitorConfig']);
         }
