@@ -9474,6 +9474,9 @@ class Ecd extends OpenApiClient
         if (!Utils::isUnset($request->instanceType)) {
             $query['InstanceType'] = $request->instanceType;
         }
+        if (!Utils::isUnset($request->promotionId)) {
+            $query['PromotionId'] = $request->promotionId;
+        }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
@@ -10329,6 +10332,9 @@ class Ecd extends OpenApiClient
         }
         if (!Utils::isUnset($request->periodUnit)) {
             $query['PeriodUnit'] = $request->periodUnit;
+        }
+        if (!Utils::isUnset($request->promotionId)) {
+            $query['PromotionId'] = $request->promotionId;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;

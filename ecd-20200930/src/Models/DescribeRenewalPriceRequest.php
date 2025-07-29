@@ -57,6 +57,11 @@ class DescribeRenewalPriceRequest extends Model
     public $periodUnit;
 
     /**
+     * @var string
+     */
+    public $promotionId;
+
+    /**
      * @description The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
      *
      * This parameter is required.
@@ -91,6 +96,7 @@ class DescribeRenewalPriceRequest extends Model
         'instanceIds' => 'InstanceIds',
         'period' => 'Period',
         'periodUnit' => 'PeriodUnit',
+        'promotionId' => 'PromotionId',
         'regionId' => 'RegionId',
         'resellerOwnerUid' => 'ResellerOwnerUid',
         'resourceType' => 'ResourceType',
@@ -112,6 +118,9 @@ class DescribeRenewalPriceRequest extends Model
         }
         if (null !== $this->periodUnit) {
             $res['PeriodUnit'] = $this->periodUnit;
+        }
+        if (null !== $this->promotionId) {
+            $res['PromotionId'] = $this->promotionId;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -147,6 +156,9 @@ class DescribeRenewalPriceRequest extends Model
         }
         if (isset($map['PeriodUnit'])) {
             $model->periodUnit = $map['PeriodUnit'];
+        }
+        if (isset($map['PromotionId'])) {
+            $model->promotionId = $map['PromotionId'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

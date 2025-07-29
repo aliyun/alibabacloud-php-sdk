@@ -1,3 +1,8 @@
+2025-07-29 Version: 4.8.3
+- Update API DescribeModificationPrice: add request parameters PromotionId.
+- Update API DescribeRenewalPrice: add request parameters PromotionId.
+
+
 2025-07-28 Version: 4.8.2
 - Update API DescribeDesktops: add request parameters IncludeAutoSnapshotPolicy.
 

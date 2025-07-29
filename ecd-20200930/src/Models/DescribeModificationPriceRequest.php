@@ -62,6 +62,11 @@ class DescribeModificationPriceRequest extends Model
     public $instanceType;
 
     /**
+     * @var string
+     */
+    public $promotionId;
+
+    /**
      * @description The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
      *
      * This parameter is required.
@@ -120,6 +125,7 @@ class DescribeModificationPriceRequest extends Model
         'bandwidth' => 'Bandwidth',
         'instanceId' => 'InstanceId',
         'instanceType' => 'InstanceType',
+        'promotionId' => 'PromotionId',
         'regionId' => 'RegionId',
         'resellerOwnerUid' => 'ResellerOwnerUid',
         'resourceSpecs' => 'ResourceSpecs',
@@ -141,6 +147,9 @@ class DescribeModificationPriceRequest extends Model
         }
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
+        }
+        if (null !== $this->promotionId) {
+            $res['PromotionId'] = $this->promotionId;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -186,6 +195,9 @@ class DescribeModificationPriceRequest extends Model
         }
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
+        }
+        if (isset($map['PromotionId'])) {
+            $model->promotionId = $map['PromotionId'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
