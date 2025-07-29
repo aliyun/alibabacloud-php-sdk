@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeExternalAgentResponseBody extends Model
 {
     /**
+     * @description The agent configurations in the YAML format.
+     *
+     * @example apiVersion: v1****
+     *
      * @var string
      */
     public $config;
@@ -16,12 +20,9 @@ class DescribeExternalAgentResponseBody extends Model
         'config' => 'config',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->config) {
@@ -31,11 +32,11 @@ class DescribeExternalAgentResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeExternalAgentResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

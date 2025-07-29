@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterNodePoolRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class efloNodeGroup extends Model
 {
@@ -22,18 +22,14 @@ class efloNodeGroup extends Model
         'groupId' => 'group_id',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['cluster_id'] = $this->clusterId;
         }
-
         if (null !== $this->groupId) {
             $res['group_id'] = $this->groupId;
         }
@@ -41,18 +37,17 @@ class efloNodeGroup extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return efloNodeGroup
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['cluster_id'])) {
             $model->clusterId = $map['cluster_id'];
         }
-
         if (isset($map['group_id'])) {
             $model->groupId = $map['group_id'];
         }

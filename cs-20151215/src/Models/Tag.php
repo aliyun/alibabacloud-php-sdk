@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class Tag extends Model
 {
     /**
+     * @example env
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @example prod
+     *
      * @var string
      */
     public $value;
@@ -22,18 +26,14 @@ class Tag extends Model
         'value' => 'value',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->key) {
             $res['key'] = $this->key;
         }
-
         if (null !== $this->value) {
             $res['value'] = $this->value;
         }
@@ -41,18 +41,17 @@ class Tag extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return Tag
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['key'])) {
             $model->key = $map['key'];
         }
-
         if (isset($map['value'])) {
             $model->value = $map['value'];
         }

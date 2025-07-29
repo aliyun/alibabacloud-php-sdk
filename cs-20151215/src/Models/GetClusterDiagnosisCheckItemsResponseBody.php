@@ -4,27 +4,41 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CS\V20151215\Models\GetClusterDiagnosisCheckItemsResponseBody\checkItems;
+use AlibabaCloud\Tea\Model;
 
 class GetClusterDiagnosisCheckItemsResponseBody extends Model
 {
     /**
+     * @description The check item.
+     *
      * @var checkItems[]
      */
     public $checkItems;
 
     /**
+     * @description The status code.
+     *
+     * @example success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description Indicates whether the check is successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isSuccess;
 
     /**
+     * @description The request ID.
+     *
+     * @example 1DFFD8C6-259E-582B-8B40-002C17DC****
+     *
      * @var string
      */
     public $requestId;
@@ -35,36 +49,26 @@ class GetClusterDiagnosisCheckItemsResponseBody extends Model
         'requestId' => 'request_id',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->checkItems)) {
-            Model::validateArray($this->checkItems);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->checkItems) {
-            if (\is_array($this->checkItems)) {
-                $res['check_items'] = [];
-                $n1 = 0;
-                foreach ($this->checkItems as $item1) {
-                    $res['check_items'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['check_items'] = [];
+            if (null !== $this->checkItems && \is_array($this->checkItems)) {
+                $n = 0;
+                foreach ($this->checkItems as $item) {
+                    $res['check_items'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->code) {
             $res['code'] = $this->code;
         }
-
         if (null !== $this->isSuccess) {
             $res['is_success'] = $this->isSuccess;
         }
-
         if (null !== $this->requestId) {
             $res['request_id'] = $this->requestId;
         }
@@ -72,33 +76,29 @@ class GetClusterDiagnosisCheckItemsResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetClusterDiagnosisCheckItemsResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['check_items'])) {
             if (!empty($map['check_items'])) {
                 $model->checkItems = [];
-                $n1 = 0;
-                foreach ($map['check_items'] as $item1) {
-                    $model->checkItems[$n1] = checkItems::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['check_items'] as $item) {
+                    $model->checkItems[$n++] = null !== $item ? checkItems::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['code'])) {
             $model->code = $map['code'];
         }
-
         if (isset($map['is_success'])) {
             $model->isSuccess = $map['is_success'];
         }
-
         if (isset($map['request_id'])) {
             $model->requestId = $map['request_id'];
         }

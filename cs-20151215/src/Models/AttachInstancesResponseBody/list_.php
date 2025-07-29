@@ -4,21 +4,33 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models\AttachInstancesResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class list_ extends Model
 {
     /**
+     * @description The code that indicates the task result.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The ID of the ECS instance.
+     *
+     * @example i-2ze0lgm3y6iylcbt****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description Indicates whether the ECS instance is successfully added to the ACK cluster.
+     *
+     * @example successful
+     *
      * @var string
      */
     public $message;
@@ -28,22 +40,17 @@ class list_ extends Model
         'message' => 'message',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->code) {
             $res['code'] = $this->code;
         }
-
         if (null !== $this->instanceId) {
             $res['instanceId'] = $this->instanceId;
         }
-
         if (null !== $this->message) {
             $res['message'] = $this->message;
         }
@@ -51,22 +58,20 @@ class list_ extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return list_
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['code'])) {
             $model->code = $map['code'];
         }
-
         if (isset($map['instanceId'])) {
             $model->instanceId = $map['instanceId'];
         }
-
         if (isset($map['message'])) {
             $model->message = $map['message'];
         }

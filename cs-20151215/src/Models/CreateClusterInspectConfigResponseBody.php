@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateClusterInspectConfigResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 873DC52C-28AA-5A5C-938C-684D3D4B****
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class CreateClusterInspectConfigResponseBody extends Model
         'requestId' => 'requestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class CreateClusterInspectConfigResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateClusterInspectConfigResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

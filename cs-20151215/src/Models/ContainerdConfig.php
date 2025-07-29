@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ContainerdConfig extends Model
 {
@@ -22,72 +22,37 @@ class ContainerdConfig extends Model
         'registryMirrors' => 'registryMirrors',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->insecureRegistries)) {
-            Model::validateArray($this->insecureRegistries);
-        }
-        if (\is_array($this->registryMirrors)) {
-            Model::validateArray($this->registryMirrors);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->insecureRegistries) {
-            if (\is_array($this->insecureRegistries)) {
-                $res['insecureRegistries'] = [];
-                $n1 = 0;
-                foreach ($this->insecureRegistries as $item1) {
-                    $res['insecureRegistries'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['insecureRegistries'] = $this->insecureRegistries;
         }
-
         if (null !== $this->registryMirrors) {
-            if (\is_array($this->registryMirrors)) {
-                $res['registryMirrors'] = [];
-                $n1 = 0;
-                foreach ($this->registryMirrors as $item1) {
-                    $res['registryMirrors'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['registryMirrors'] = $this->registryMirrors;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ContainerdConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['insecureRegistries'])) {
             if (!empty($map['insecureRegistries'])) {
-                $model->insecureRegistries = [];
-                $n1 = 0;
-                foreach ($map['insecureRegistries'] as $item1) {
-                    $model->insecureRegistries[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->insecureRegistries = $map['insecureRegistries'];
             }
         }
-
         if (isset($map['registryMirrors'])) {
             if (!empty($map['registryMirrors'])) {
-                $model->registryMirrors = [];
-                $n1 = 0;
-                foreach ($map['registryMirrors'] as $item1) {
-                    $model->registryMirrors[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->registryMirrors = $map['registryMirrors'];
             }
         }
 

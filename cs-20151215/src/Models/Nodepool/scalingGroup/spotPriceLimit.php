@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models\Nodepool\scalingGroup;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class spotPriceLimit extends Model
 {
     /**
+     * @example ecs.c6.large
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @example 0.39
+     *
      * @var string
      */
     public $priceLimit;
@@ -22,18 +26,14 @@ class spotPriceLimit extends Model
         'priceLimit' => 'price_limit',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceType) {
             $res['instance_type'] = $this->instanceType;
         }
-
         if (null !== $this->priceLimit) {
             $res['price_limit'] = $this->priceLimit;
         }
@@ -41,18 +41,17 @@ class spotPriceLimit extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return spotPriceLimit
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['instance_type'])) {
             $model->instanceType = $map['instance_type'];
         }
-
         if (isset($map['price_limit'])) {
             $model->priceLimit = $map['price_limit'];
         }

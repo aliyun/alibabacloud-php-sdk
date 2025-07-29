@@ -4,16 +4,29 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeClusterUserKubeconfigRequest extends Model
 {
     /**
+     * @description Specifies whether to obtain the kubeconfig file that is used to connect to the cluster over the internal network. You can obtain the terminal ID by calling one of the following operations:
+     *
+     *   `true`: obtains the kubeconfig file that is used to connect to the master instance over the internal network.
+     *   `false`: obtains the kubeconfig file that is used to connect to the master instance over the Internet.
+     *
+     * Default value: `false`
+     *
+     * @example true
+     *
      * @var bool
      */
     public $privateIpAddress;
 
     /**
+     * @description The validity period of the temporary kubeconfig file. Unit: minutes. Valid values: 15 to 4320 (3 days).
+     **Usage notes** If you do not specify this parameter, the system specifies a longer validity period. The validity period is returned in the `expiration` parameter.
+     * @example 15
+     *
      * @var int
      */
     public $temporaryDurationMinutes;
@@ -22,18 +35,14 @@ class DescribeClusterUserKubeconfigRequest extends Model
         'temporaryDurationMinutes' => 'TemporaryDurationMinutes',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->privateIpAddress) {
             $res['PrivateIpAddress'] = $this->privateIpAddress;
         }
-
         if (null !== $this->temporaryDurationMinutes) {
             $res['TemporaryDurationMinutes'] = $this->temporaryDurationMinutes;
         }
@@ -41,18 +50,17 @@ class DescribeClusterUserKubeconfigRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeClusterUserKubeconfigRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PrivateIpAddress'])) {
             $model->privateIpAddress = $map['PrivateIpAddress'];
         }
-
         if (isset($map['TemporaryDurationMinutes'])) {
             $model->temporaryDurationMinutes = $map['TemporaryDurationMinutes'];
         }

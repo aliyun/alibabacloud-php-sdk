@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class auditLogConfig extends Model
 {
@@ -22,18 +22,14 @@ class auditLogConfig extends Model
         'slsProjectName' => 'sls_project_name',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->enabled) {
             $res['enabled'] = $this->enabled;
         }
-
         if (null !== $this->slsProjectName) {
             $res['sls_project_name'] = $this->slsProjectName;
         }
@@ -41,18 +37,17 @@ class auditLogConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return auditLogConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['enabled'])) {
             $model->enabled = $map['enabled'];
         }
-
         if (isset($map['sls_project_name'])) {
             $model->slsProjectName = $map['sls_project_name'];
         }

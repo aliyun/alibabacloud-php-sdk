@@ -4,26 +4,50 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeClusterAddonInstanceResponseBody extends Model
 {
     /**
+     * @description The configuration of the component.
+     *
+     * @example {"NetworkPolicy":"true"}
+     *
      * @var string
      */
     public $config;
 
     /**
+     * @description The name of the component.
+     *
+     * @example terway-eniip
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The status of the component. Valid values:
+     *
+     *   initial: The component is being installed.
+     *   active: The component has been installed.
+     *   unhealthy: The component is in an abnormal state.
+     *   upgrading: The component is undergoing an upgrade.
+     *   updating: Component configuration changes are being applied.
+     *   deleting: The component is being uninstalled.
+     *   deleted: The component has been deleted.
+     *
+     * @example active
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @description The version of the component.
+     *
+     * @example v1.4.3
+     *
      * @var string
      */
     public $version;
@@ -34,26 +58,20 @@ class DescribeClusterAddonInstanceResponseBody extends Model
         'version' => 'version',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->config) {
             $res['config'] = $this->config;
         }
-
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
-
         if (null !== $this->state) {
             $res['state'] = $this->state;
         }
-
         if (null !== $this->version) {
             $res['version'] = $this->version;
         }
@@ -61,26 +79,23 @@ class DescribeClusterAddonInstanceResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeClusterAddonInstanceResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['config'])) {
             $model->config = $map['config'];
         }
-
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
-
         if (isset($map['state'])) {
             $model->state = $map['state'];
         }
-
         if (isset($map['version'])) {
             $model->version = $map['version'];
         }

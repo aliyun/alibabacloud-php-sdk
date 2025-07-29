@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models\Nodepool;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CS\V20151215\Models\KubeletConfig;
+use AlibabaCloud\Tea\Model;
 
 class nodeConfig extends Model
 {
@@ -17,29 +17,23 @@ class nodeConfig extends Model
         'kubeletConfiguration' => 'kubelet_configuration',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->kubeletConfiguration) {
-            $this->kubeletConfiguration->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->kubeletConfiguration) {
-            $res['kubelet_configuration'] = null !== $this->kubeletConfiguration ? $this->kubeletConfiguration->toArray($noStream) : $this->kubeletConfiguration;
+            $res['kubelet_configuration'] = null !== $this->kubeletConfiguration ? $this->kubeletConfiguration->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return nodeConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

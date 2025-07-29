@@ -4,17 +4,26 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeNodePoolVulsResponseBody\vulRecords;
+use AlibabaCloud\Tea\Model;
 
 class DescribeNodePoolVulsResponseBody extends Model
 {
     /**
+     * @description The vulnerability list of all node pools.
+     *
      * @var vulRecords[]
      */
     public $vulRecords;
 
     /**
+     * @description Indicates whether the CVE vulnerability patching service provided by Security Center is purchased.
+     *
+     *   true: yes
+     *   false: no
+     *
+     * @example false
+     *
      * @var bool
      */
     public $vulsFixServicePurchased;
@@ -23,28 +32,20 @@ class DescribeNodePoolVulsResponseBody extends Model
         'vulsFixServicePurchased' => 'vuls_fix_service_purchased',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->vulRecords)) {
-            Model::validateArray($this->vulRecords);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->vulRecords) {
-            if (\is_array($this->vulRecords)) {
-                $res['vul_records'] = [];
-                $n1 = 0;
-                foreach ($this->vulRecords as $item1) {
-                    $res['vul_records'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['vul_records'] = [];
+            if (null !== $this->vulRecords && \is_array($this->vulRecords)) {
+                $n = 0;
+                foreach ($this->vulRecords as $item) {
+                    $res['vul_records'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->vulsFixServicePurchased) {
             $res['vuls_fix_service_purchased'] = $this->vulsFixServicePurchased;
         }
@@ -52,25 +53,23 @@ class DescribeNodePoolVulsResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeNodePoolVulsResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['vul_records'])) {
             if (!empty($map['vul_records'])) {
                 $model->vulRecords = [];
-                $n1 = 0;
-                foreach ($map['vul_records'] as $item1) {
-                    $model->vulRecords[$n1] = vulRecords::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['vul_records'] as $item) {
+                    $model->vulRecords[$n++] = null !== $item ? vulRecords::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['vuls_fix_service_purchased'])) {
             $model->vulsFixServicePurchased = $map['vuls_fix_service_purchased'];
         }

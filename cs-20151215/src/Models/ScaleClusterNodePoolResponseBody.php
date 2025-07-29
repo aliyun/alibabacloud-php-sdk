@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ScaleClusterNodePoolResponseBody extends Model
 {
     /**
+     * @description The task ID.
+     *
+     * @example T-5faa48fb31b6b8078d00****
+     *
      * @var string
      */
     public $taskId;
@@ -16,12 +20,9 @@ class ScaleClusterNodePoolResponseBody extends Model
         'taskId' => 'task_id',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->taskId) {
@@ -31,11 +32,11 @@ class ScaleClusterNodePoolResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ScaleClusterNodePoolResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,30 +4,38 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribePolicyGovernanceInClusterResponseBody\admitLog;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribePolicyGovernanceInClusterResponseBody\onState;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribePolicyGovernanceInClusterResponseBody\totalViolations;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribePolicyGovernanceInClusterResponseBody\violations;
+use AlibabaCloud\Tea\Model;
 
 class DescribePolicyGovernanceInClusterResponseBody extends Model
 {
     /**
+     * @description The audit logs of the policies in the cluster.
+     *
      * @var admitLog
      */
     public $admitLog;
 
     /**
+     * @description Details about the policies of different severity levels that are enabled for the cluster.
+     *
      * @var onState[]
      */
     public $onState;
 
     /**
+     * @description Details about the blocking and alerting events that are triggered by policies of different severity levels.
+     *
      * @var totalViolations
      */
     public $totalViolations;
 
     /**
+     * @description Details about the blocking and alerting events that are triggered by different policies.
+     *
      * @var violations
      */
     public $violations;
@@ -38,79 +46,56 @@ class DescribePolicyGovernanceInClusterResponseBody extends Model
         'violations' => 'violations',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->admitLog) {
-            $this->admitLog->validate();
-        }
-        if (\is_array($this->onState)) {
-            Model::validateArray($this->onState);
-        }
-        if (null !== $this->totalViolations) {
-            $this->totalViolations->validate();
-        }
-        if (null !== $this->violations) {
-            $this->violations->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->admitLog) {
-            $res['admit_log'] = null !== $this->admitLog ? $this->admitLog->toArray($noStream) : $this->admitLog;
+            $res['admit_log'] = null !== $this->admitLog ? $this->admitLog->toMap() : null;
         }
-
         if (null !== $this->onState) {
-            if (\is_array($this->onState)) {
-                $res['on_state'] = [];
-                $n1 = 0;
-                foreach ($this->onState as $item1) {
-                    $res['on_state'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['on_state'] = [];
+            if (null !== $this->onState && \is_array($this->onState)) {
+                $n = 0;
+                foreach ($this->onState as $item) {
+                    $res['on_state'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->totalViolations) {
-            $res['totalViolations'] = null !== $this->totalViolations ? $this->totalViolations->toArray($noStream) : $this->totalViolations;
+            $res['totalViolations'] = null !== $this->totalViolations ? $this->totalViolations->toMap() : null;
         }
-
         if (null !== $this->violations) {
-            $res['violations'] = null !== $this->violations ? $this->violations->toArray($noStream) : $this->violations;
+            $res['violations'] = null !== $this->violations ? $this->violations->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribePolicyGovernanceInClusterResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['admit_log'])) {
             $model->admitLog = admitLog::fromMap($map['admit_log']);
         }
-
         if (isset($map['on_state'])) {
             if (!empty($map['on_state'])) {
                 $model->onState = [];
-                $n1 = 0;
-                foreach ($map['on_state'] as $item1) {
-                    $model->onState[$n1] = onState::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['on_state'] as $item) {
+                    $model->onState[$n++] = null !== $item ? onState::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['totalViolations'])) {
             $model->totalViolations = totalViolations::fromMap($map['totalViolations']);
         }
-
         if (isset($map['violations'])) {
             $model->violations = violations::fromMap($map['violations']);
         }

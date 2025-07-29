@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteAlertContactShrinkRequest extends Model
 {
     /**
+     * @description The list of alert contact IDs.
+     *
+     * This parameter is required.
+     *
      * @var string
      */
     public $contactIdsShrink;
@@ -16,12 +20,9 @@ class DeleteAlertContactShrinkRequest extends Model
         'contactIdsShrink' => 'contact_ids',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->contactIdsShrink) {
@@ -31,11 +32,11 @@ class DeleteAlertContactShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteAlertContactShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

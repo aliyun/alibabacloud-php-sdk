@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ScaleClusterResponseBody extends Model
 {
@@ -28,22 +28,17 @@ class ScaleClusterResponseBody extends Model
         'taskId' => 'task_id',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['cluster_id'] = $this->clusterId;
         }
-
         if (null !== $this->requestId) {
             $res['request_id'] = $this->requestId;
         }
-
         if (null !== $this->taskId) {
             $res['task_id'] = $this->taskId;
         }
@@ -51,22 +46,20 @@ class ScaleClusterResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ScaleClusterResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['cluster_id'])) {
             $model->clusterId = $map['cluster_id'];
         }
-
         if (isset($map['request_id'])) {
             $model->requestId = $map['request_id'];
         }
-
         if (isset($map['task_id'])) {
             $model->taskId = $map['task_id'];
         }

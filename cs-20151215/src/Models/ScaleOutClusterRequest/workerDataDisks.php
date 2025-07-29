@@ -4,26 +4,49 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models\ScaleOutClusterRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class workerDataDisks extends Model
 {
     /**
+     * @description The ID of the automatic snapshot policy. The system performs automatic backup for a cloud disk based on the specified automatic snapshot policy.
+     *
+     * By default, this parameter is left empty, which indicates that automatic backup is disabled.
+     *
+     * @example sp-bp14yziiuvu3s6jn****
+     *
      * @var string
      */
     public $autoSnapshotPolicyId;
 
     /**
+     * @description The type of the data disk.
+     *
+     * @example cloud_essd
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @description Specifies whether to encrypt the data disks. Valid values:
+     *
+     *   `true`: encrypts the data disk.
+     *   `false`: does not encrypt the data disk.
+     *
+     * Default value: `false`.
+     *
+     * @example true
+     *
      * @var string
      */
     public $encrypted;
 
     /**
+     * @description The size of the data disk. Valid values: 40 to 32767.
+     *
+     * @example 120
+     *
      * @var string
      */
     public $size;
@@ -34,26 +57,20 @@ class workerDataDisks extends Model
         'size' => 'size',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->autoSnapshotPolicyId) {
             $res['auto_snapshot_policy_id'] = $this->autoSnapshotPolicyId;
         }
-
         if (null !== $this->category) {
             $res['category'] = $this->category;
         }
-
         if (null !== $this->encrypted) {
             $res['encrypted'] = $this->encrypted;
         }
-
         if (null !== $this->size) {
             $res['size'] = $this->size;
         }
@@ -61,26 +78,23 @@ class workerDataDisks extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return workerDataDisks
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['auto_snapshot_policy_id'])) {
             $model->autoSnapshotPolicyId = $map['auto_snapshot_policy_id'];
         }
-
         if (isset($map['category'])) {
             $model->category = $map['category'];
         }
-
         if (isset($map['encrypted'])) {
             $model->encrypted = $map['encrypted'];
         }
-
         if (isset($map['size'])) {
             $model->size = $map['size'];
         }

@@ -4,18 +4,22 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CS\V20151215\Models\ListClusterKubeconfigStatesResponseBody\page;
 use AlibabaCloud\SDK\CS\V20151215\Models\ListClusterKubeconfigStatesResponseBody\states;
+use AlibabaCloud\Tea\Model;
 
 class ListClusterKubeconfigStatesResponseBody extends Model
 {
     /**
+     * @description The pagination information.
+     *
      * @var page
      */
     public $page;
 
     /**
+     * @description The status list of the kubeconfig files associated with the cluster.
+     *
      * @var states[]
      */
     public $states;
@@ -24,31 +28,20 @@ class ListClusterKubeconfigStatesResponseBody extends Model
         'states' => 'states',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->page) {
-            $this->page->validate();
-        }
-        if (\is_array($this->states)) {
-            Model::validateArray($this->states);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->page) {
-            $res['page'] = null !== $this->page ? $this->page->toArray($noStream) : $this->page;
+            $res['page'] = null !== $this->page ? $this->page->toMap() : null;
         }
-
         if (null !== $this->states) {
-            if (\is_array($this->states)) {
-                $res['states'] = [];
-                $n1 = 0;
-                foreach ($this->states as $item1) {
-                    $res['states'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['states'] = [];
+            if (null !== $this->states && \is_array($this->states)) {
+                $n = 0;
+                foreach ($this->states as $item) {
+                    $res['states'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -56,25 +49,23 @@ class ListClusterKubeconfigStatesResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListClusterKubeconfigStatesResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['page'])) {
             $model->page = page::fromMap($map['page']);
         }
-
         if (isset($map['states'])) {
             if (!empty($map['states'])) {
                 $model->states = [];
-                $n1 = 0;
-                foreach ($map['states'] as $item1) {
-                    $model->states[$n1] = states::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['states'] as $item) {
+                    $model->states[$n++] = null !== $item ? states::fromMap($item) : $item;
                 }
             }
         }

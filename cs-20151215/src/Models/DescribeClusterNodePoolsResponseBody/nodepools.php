@@ -4,7 +4,6 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolsResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolsResponseBody\nodepools\autoMode;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolsResponseBody\nodepools\autoScaling;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolsResponseBody\nodepools\interconnectConfig;
@@ -15,6 +14,7 @@ use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolsResponseBody\no
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolsResponseBody\nodepools\scalingGroup;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolsResponseBody\nodepools\status;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolsResponseBody\nodepools\teeConfig;
+use AlibabaCloud\Tea\Model;
 
 class nodepools extends Model
 {
@@ -24,56 +24,87 @@ class nodepools extends Model
     public $autoMode;
 
     /**
+     * @description The configurations about auto scaling.
+     *
      * @var autoScaling
      */
     public $autoScaling;
 
     /**
+     * @description This parameter is discontinued.
+     *
+     * The network configurations of the edge node pool. This parameter takes effect only on edge node pools.
+     *
      * @var interconnectConfig
      */
     public $interconnectConfig;
 
     /**
+     * @description The network type of the edge node pool. This parameter takes effect only if you set `type` of the node pool to `edge`. Valid values:
+     *
+     *   `basic`: Internet. Nodes in the node pool communicate with nodes in the cloud over the Internet. Applications deployed on the edge nodes cannot directly access virtual private clouds (VPCs) over the Internet.
+     *   `private`: private network. You can connect nodes in the node pool to the cloud by using Express Connect, VPN, or Cloud Enterprise Network (CEN). This greatly improves the quality and security of cloud-edge communication.
+     *
+     * @example improved
+     *
      * @var string
      */
     public $interconnectMode;
 
     /**
+     * @description The configurations of the cluster.
+     *
      * @var kubernetesConfig
      */
     public $kubernetesConfig;
 
     /**
+     * @description The configuration of the managed node pool feature. The configuration takes effect only for ACK Pro managed clusters.
+     *
      * @var management
      */
     public $management;
 
     /**
+     * @description The maximum number of nodes that can be created in the edge node pool. The value of this parameter must be greater than or equal to 0. A value of 0 indicates that the number of nodes in the node pool is limited only by the quota of nodes in the cluster. In most cases, this parameter is set to a value larger than 0 for edge node pools. This parameter is set to 0 for node pools whose types are ess or default edge node pools.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $maxNodes;
 
     /**
+     * @description The configurations of nodes.
+     *
      * @var nodeConfig
      */
     public $nodeConfig;
 
     /**
+     * @description The information about the node pool.
+     *
      * @var nodepoolInfo
      */
     public $nodepoolInfo;
 
     /**
+     * @description The configurations of the scaling group that is used by the node pool.
+     *
      * @var scalingGroup
      */
     public $scalingGroup;
 
     /**
+     * @description The status of the node pool.
+     *
      * @var status
      */
     public $status;
 
     /**
+     * @description The configurations of confidential computing.
+     *
      * @var teeConfig
      */
     public $teeConfig;
@@ -92,147 +123,92 @@ class nodepools extends Model
         'teeConfig' => 'tee_config',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->autoMode) {
-            $this->autoMode->validate();
-        }
-        if (null !== $this->autoScaling) {
-            $this->autoScaling->validate();
-        }
-        if (null !== $this->interconnectConfig) {
-            $this->interconnectConfig->validate();
-        }
-        if (null !== $this->kubernetesConfig) {
-            $this->kubernetesConfig->validate();
-        }
-        if (null !== $this->management) {
-            $this->management->validate();
-        }
-        if (null !== $this->nodeConfig) {
-            $this->nodeConfig->validate();
-        }
-        if (null !== $this->nodepoolInfo) {
-            $this->nodepoolInfo->validate();
-        }
-        if (null !== $this->scalingGroup) {
-            $this->scalingGroup->validate();
-        }
-        if (null !== $this->status) {
-            $this->status->validate();
-        }
-        if (null !== $this->teeConfig) {
-            $this->teeConfig->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->autoMode) {
-            $res['auto_mode'] = null !== $this->autoMode ? $this->autoMode->toArray($noStream) : $this->autoMode;
+            $res['auto_mode'] = null !== $this->autoMode ? $this->autoMode->toMap() : null;
         }
-
         if (null !== $this->autoScaling) {
-            $res['auto_scaling'] = null !== $this->autoScaling ? $this->autoScaling->toArray($noStream) : $this->autoScaling;
+            $res['auto_scaling'] = null !== $this->autoScaling ? $this->autoScaling->toMap() : null;
         }
-
         if (null !== $this->interconnectConfig) {
-            $res['interconnect_config'] = null !== $this->interconnectConfig ? $this->interconnectConfig->toArray($noStream) : $this->interconnectConfig;
+            $res['interconnect_config'] = null !== $this->interconnectConfig ? $this->interconnectConfig->toMap() : null;
         }
-
         if (null !== $this->interconnectMode) {
             $res['interconnect_mode'] = $this->interconnectMode;
         }
-
         if (null !== $this->kubernetesConfig) {
-            $res['kubernetes_config'] = null !== $this->kubernetesConfig ? $this->kubernetesConfig->toArray($noStream) : $this->kubernetesConfig;
+            $res['kubernetes_config'] = null !== $this->kubernetesConfig ? $this->kubernetesConfig->toMap() : null;
         }
-
         if (null !== $this->management) {
-            $res['management'] = null !== $this->management ? $this->management->toArray($noStream) : $this->management;
+            $res['management'] = null !== $this->management ? $this->management->toMap() : null;
         }
-
         if (null !== $this->maxNodes) {
             $res['max_nodes'] = $this->maxNodes;
         }
-
         if (null !== $this->nodeConfig) {
-            $res['node_config'] = null !== $this->nodeConfig ? $this->nodeConfig->toArray($noStream) : $this->nodeConfig;
+            $res['node_config'] = null !== $this->nodeConfig ? $this->nodeConfig->toMap() : null;
         }
-
         if (null !== $this->nodepoolInfo) {
-            $res['nodepool_info'] = null !== $this->nodepoolInfo ? $this->nodepoolInfo->toArray($noStream) : $this->nodepoolInfo;
+            $res['nodepool_info'] = null !== $this->nodepoolInfo ? $this->nodepoolInfo->toMap() : null;
         }
-
         if (null !== $this->scalingGroup) {
-            $res['scaling_group'] = null !== $this->scalingGroup ? $this->scalingGroup->toArray($noStream) : $this->scalingGroup;
+            $res['scaling_group'] = null !== $this->scalingGroup ? $this->scalingGroup->toMap() : null;
         }
-
         if (null !== $this->status) {
-            $res['status'] = null !== $this->status ? $this->status->toArray($noStream) : $this->status;
+            $res['status'] = null !== $this->status ? $this->status->toMap() : null;
         }
-
         if (null !== $this->teeConfig) {
-            $res['tee_config'] = null !== $this->teeConfig ? $this->teeConfig->toArray($noStream) : $this->teeConfig;
+            $res['tee_config'] = null !== $this->teeConfig ? $this->teeConfig->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return nodepools
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['auto_mode'])) {
             $model->autoMode = autoMode::fromMap($map['auto_mode']);
         }
-
         if (isset($map['auto_scaling'])) {
             $model->autoScaling = autoScaling::fromMap($map['auto_scaling']);
         }
-
         if (isset($map['interconnect_config'])) {
             $model->interconnectConfig = interconnectConfig::fromMap($map['interconnect_config']);
         }
-
         if (isset($map['interconnect_mode'])) {
             $model->interconnectMode = $map['interconnect_mode'];
         }
-
         if (isset($map['kubernetes_config'])) {
             $model->kubernetesConfig = kubernetesConfig::fromMap($map['kubernetes_config']);
         }
-
         if (isset($map['management'])) {
             $model->management = management::fromMap($map['management']);
         }
-
         if (isset($map['max_nodes'])) {
             $model->maxNodes = $map['max_nodes'];
         }
-
         if (isset($map['node_config'])) {
             $model->nodeConfig = nodeConfig::fromMap($map['node_config']);
         }
-
         if (isset($map['nodepool_info'])) {
             $model->nodepoolInfo = nodepoolInfo::fromMap($map['nodepool_info']);
         }
-
         if (isset($map['scaling_group'])) {
             $model->scalingGroup = scalingGroup::fromMap($map['scaling_group']);
         }
-
         if (isset($map['status'])) {
             $model->status = status::fromMap($map['status']);
         }
-
         if (isset($map['tee_config'])) {
             $model->teeConfig = teeConfig::fromMap($map['tee_config']);
         }

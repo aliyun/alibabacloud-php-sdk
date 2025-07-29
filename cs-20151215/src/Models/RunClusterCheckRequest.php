@@ -4,21 +4,42 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class RunClusterCheckRequest extends Model
 {
     /**
+     * @description The cluster check parameters.
+     *
      * @var string[]
      */
     public $options;
 
     /**
+     * @description The check target.
+     *
+     * If you set `type=NodePoolUpgrade`, you must set this parameter to the node pool ID. Otherwise, this parameter is optional.
+     *
+     * @example np1f6779297c4444a3a1cdd29be8e5****
+     *
      * @var string
      */
     public $target;
 
     /**
+     * @description The check type.
+     *
+     * Valid values:
+     *
+     *   ClusterMigrate: cluster migration.
+     *   MasterUpgrade: control plane upgrade.
+     *   NodePoolUpgrade: node pool upgrade.
+     *   ClusterUpgrade: cluster upgrade.
+     *
+     * This parameter is required.
+     *
+     * @example ClusterUpgrade
+     *
      * @var string
      */
     public $type;
@@ -28,30 +49,17 @@ class RunClusterCheckRequest extends Model
         'type' => 'type',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->options)) {
-            Model::validateArray($this->options);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->options) {
-            if (\is_array($this->options)) {
-                $res['options'] = [];
-                foreach ($this->options as $key1 => $value1) {
-                    $res['options'][$key1] = $value1;
-                }
-            }
+            $res['options'] = $this->options;
         }
-
         if (null !== $this->target) {
             $res['target'] = $this->target;
         }
-
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -59,27 +67,20 @@ class RunClusterCheckRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return RunClusterCheckRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['options'])) {
-            if (!empty($map['options'])) {
-                $model->options = [];
-                foreach ($map['options'] as $key1 => $value1) {
-                    $model->options[$key1] = $value1;
-                }
-            }
+            $model->options = $map['options'];
         }
-
         if (isset($map['target'])) {
             $model->target = $map['target'];
         }
-
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }

@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolDetailResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class autoMode extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $enable;
@@ -16,12 +18,9 @@ class autoMode extends Model
         'enable' => 'enable',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->enable) {
@@ -31,11 +30,11 @@ class autoMode extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return autoMode
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

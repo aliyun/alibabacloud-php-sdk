@@ -4,16 +4,25 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CleanUserPermissionsRequest extends Model
 {
     /**
+     * @description The cluster IDs. If you specify a list of cluster IDs, only the kubeconfig files and RBAC permissions of the clusters that belong to the current user in the list are revoked.
+     *
      * @var string[]
      */
     public $clusterIds;
 
     /**
+     * @description Specifies whether to forcefully delete the specified kubeconfig files. Valid values:
+     *
+     *   false (default): checks the cluster access records within the previous seven days before deleting the kubeconfig files. The kubeconfig files are not deleted if cluster access records are found or fail to be retrieved.
+     *   true: forcefully deletes the kubeconfig files without checking the cluster access records.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $force;
@@ -22,28 +31,14 @@ class CleanUserPermissionsRequest extends Model
         'force' => 'Force',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->clusterIds)) {
-            Model::validateArray($this->clusterIds);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->clusterIds) {
-            if (\is_array($this->clusterIds)) {
-                $res['ClusterIds'] = [];
-                $n1 = 0;
-                foreach ($this->clusterIds as $item1) {
-                    $res['ClusterIds'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['ClusterIds'] = $this->clusterIds;
         }
-
         if (null !== $this->force) {
             $res['Force'] = $this->force;
         }
@@ -51,25 +46,19 @@ class CleanUserPermissionsRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CleanUserPermissionsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterIds'])) {
             if (!empty($map['ClusterIds'])) {
-                $model->clusterIds = [];
-                $n1 = 0;
-                foreach ($map['ClusterIds'] as $item1) {
-                    $model->clusterIds[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->clusterIds = $map['ClusterIds'];
             }
         }
-
         if (isset($map['Force'])) {
             $model->force = $map['Force'];
         }

@@ -4,26 +4,40 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetClusterInspectConfigResponseBody extends Model
 {
     /**
+     * @description The list of disabled inspection items.
+     *
      * @var string[]
      */
     public $disabledCheckItems;
 
     /**
+     * @description Specifies whether to enable inspection.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enabled;
 
     /**
+     * @description The inspection schedule defined through the RFC5545 Recurrence Rule syntax. You must specify BYHOUR and BYMINUTE. Only FREQ=DAILY is supported. COUNT and UNTIL are not supported.
+     *
+     * @example FREQ=DAILY;BYHOUR=10;BYMINUTE=15
+     *
      * @var string
      */
     public $recurrence;
 
     /**
+     * @description The request ID.
+     *
+     * @example 49511F2D-D56A-5C24-B9AE-C8491E09B095
+     *
      * @var string
      */
     public $requestId;
@@ -34,36 +48,20 @@ class GetClusterInspectConfigResponseBody extends Model
         'requestId' => 'requestId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->disabledCheckItems)) {
-            Model::validateArray($this->disabledCheckItems);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->disabledCheckItems) {
-            if (\is_array($this->disabledCheckItems)) {
-                $res['disabledCheckItems'] = [];
-                $n1 = 0;
-                foreach ($this->disabledCheckItems as $item1) {
-                    $res['disabledCheckItems'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['disabledCheckItems'] = $this->disabledCheckItems;
         }
-
         if (null !== $this->enabled) {
             $res['enabled'] = $this->enabled;
         }
-
         if (null !== $this->recurrence) {
             $res['recurrence'] = $this->recurrence;
         }
-
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -71,33 +69,25 @@ class GetClusterInspectConfigResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetClusterInspectConfigResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['disabledCheckItems'])) {
             if (!empty($map['disabledCheckItems'])) {
-                $model->disabledCheckItems = [];
-                $n1 = 0;
-                foreach ($map['disabledCheckItems'] as $item1) {
-                    $model->disabledCheckItems[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->disabledCheckItems = $map['disabledCheckItems'];
             }
         }
-
         if (isset($map['enabled'])) {
             $model->enabled = $map['enabled'];
         }
-
         if (isset($map['recurrence'])) {
             $model->recurrence = $map['recurrence'];
         }
-
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }

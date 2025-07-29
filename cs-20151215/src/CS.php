@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215;
 
-use AlibabaCloud\Dara\Models\RuntimeOptions;
-use AlibabaCloud\Dara\Url;
+use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\CS\V20151215\Models\AttachInstancesRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\AttachInstancesResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\AttachInstancesToNodePoolRequest;
@@ -250,10 +250,11 @@ use AlibabaCloud\SDK\CS\V20151215\Models\UpgradeClusterNodepoolRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\UpgradeClusterNodepoolResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\UpgradeClusterRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\UpgradeClusterResponse;
+use AlibabaCloud\Tea\Utils\Utils;
+use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
-use Darabonba\OpenApi\Utils;
 
 class CS extends OpenApiClient
 {
@@ -311,98 +312,78 @@ class CS extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (null !== $endpoint) {
+        if (!Utils::empty_($endpoint)) {
             return $endpoint;
         }
-
-        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
+        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
             return @$endpointMap[$regionId];
         }
 
-        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * Adds existing Elastic Compute Service (ECS) instances to a Container Service for Kubernetes (ACK) cluster.
-     *
-     * @param request - AttachInstancesRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns AttachInstancesResponse
-     *
+     * @summary Adds existing Elastic Compute Service (ECS) instances to a Container Service for Kubernetes (ACK) cluster.
+     *  *
      * @param string                 $ClusterId
-     * @param AttachInstancesRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param AttachInstancesRequest $request   AttachInstancesRequest
+     * @param string[]               $headers   map
+     * @param RuntimeOptions         $runtime   runtime options for this request RuntimeOptions
      *
-     * @return AttachInstancesResponse
+     * @return AttachInstancesResponse AttachInstancesResponse
      */
     public function attachInstancesWithOptions($ClusterId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->cpuPolicy) {
-            @$body['cpu_policy'] = $request->cpuPolicy;
+        if (!Utils::isUnset($request->cpuPolicy)) {
+            $body['cpu_policy'] = $request->cpuPolicy;
         }
-
-        if (null !== $request->formatDisk) {
-            @$body['format_disk'] = $request->formatDisk;
+        if (!Utils::isUnset($request->formatDisk)) {
+            $body['format_disk'] = $request->formatDisk;
         }
-
-        if (null !== $request->imageId) {
-            @$body['image_id'] = $request->imageId;
+        if (!Utils::isUnset($request->imageId)) {
+            $body['image_id'] = $request->imageId;
         }
-
-        if (null !== $request->instances) {
-            @$body['instances'] = $request->instances;
+        if (!Utils::isUnset($request->instances)) {
+            $body['instances'] = $request->instances;
         }
-
-        if (null !== $request->isEdgeWorker) {
-            @$body['is_edge_worker'] = $request->isEdgeWorker;
+        if (!Utils::isUnset($request->isEdgeWorker)) {
+            $body['is_edge_worker'] = $request->isEdgeWorker;
         }
-
-        if (null !== $request->keepInstanceName) {
-            @$body['keep_instance_name'] = $request->keepInstanceName;
+        if (!Utils::isUnset($request->keepInstanceName)) {
+            $body['keep_instance_name'] = $request->keepInstanceName;
         }
-
-        if (null !== $request->keyPair) {
-            @$body['key_pair'] = $request->keyPair;
+        if (!Utils::isUnset($request->keyPair)) {
+            $body['key_pair'] = $request->keyPair;
         }
-
-        if (null !== $request->nodepoolId) {
-            @$body['nodepool_id'] = $request->nodepoolId;
+        if (!Utils::isUnset($request->nodepoolId)) {
+            $body['nodepool_id'] = $request->nodepoolId;
         }
-
-        if (null !== $request->password) {
-            @$body['password'] = $request->password;
+        if (!Utils::isUnset($request->password)) {
+            $body['password'] = $request->password;
         }
-
-        if (null !== $request->rdsInstances) {
-            @$body['rds_instances'] = $request->rdsInstances;
+        if (!Utils::isUnset($request->rdsInstances)) {
+            $body['rds_instances'] = $request->rdsInstances;
         }
-
-        if (null !== $request->runtime) {
-            @$body['runtime'] = $request->runtime;
+        if (!Utils::isUnset($request->runtime)) {
+            $body['runtime'] = $request->runtime;
         }
-
-        if (null !== $request->tags) {
-            @$body['tags'] = $request->tags;
+        if (!Utils::isUnset($request->tags)) {
+            $body['tags'] = $request->tags;
         }
-
-        if (null !== $request->userData) {
-            @$body['user_data'] = $request->userData;
+        if (!Utils::isUnset($request->userData)) {
+            $body['user_data'] = $request->userData;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'AttachInstances',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/clusters/' . Url::percentEncode($ClusterId) . '/attach',
+            'pathname' => '/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/attach',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -414,16 +395,12 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Adds existing Elastic Compute Service (ECS) instances to a Container Service for Kubernetes (ACK) cluster.
-     *
-     * @param request - AttachInstancesRequest
-     *
-     * @returns AttachInstancesResponse
-     *
+     * @summary Adds existing Elastic Compute Service (ECS) instances to a Container Service for Kubernetes (ACK) cluster.
+     *  *
      * @param string                 $ClusterId
-     * @param AttachInstancesRequest $request
+     * @param AttachInstancesRequest $request   AttachInstancesRequest
      *
-     * @return AttachInstancesResponse
+     * @return AttachInstancesResponse AttachInstancesResponse
      */
     public function attachInstances($ClusterId, $request)
     {
@@ -434,51 +411,41 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Adds existing nodes to a specific node pool. You can add existing ECS instances to a specific node pool in a Container Service for Kubernetes (ACK) cluster as worker nodes. You can also add removed worker nodes back to the node pool.
-     *
-     * @param request - AttachInstancesToNodePoolRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns AttachInstancesToNodePoolResponse
-     *
+     * @summary Adds existing nodes to a specific node pool. You can add existing ECS instances to a specific node pool in a Container Service for Kubernetes (ACK) cluster as worker nodes. You can also add removed worker nodes back to the node pool.
+     *  *
      * @param string                           $ClusterId
      * @param string                           $NodepoolId
-     * @param AttachInstancesToNodePoolRequest $request
-     * @param string[]                         $headers
-     * @param RuntimeOptions                   $runtime
+     * @param AttachInstancesToNodePoolRequest $request    AttachInstancesToNodePoolRequest
+     * @param string[]                         $headers    map
+     * @param RuntimeOptions                   $runtime    runtime options for this request RuntimeOptions
      *
-     * @return AttachInstancesToNodePoolResponse
+     * @return AttachInstancesToNodePoolResponse AttachInstancesToNodePoolResponse
      */
     public function attachInstancesToNodePoolWithOptions($ClusterId, $NodepoolId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->formatDisk) {
-            @$body['format_disk'] = $request->formatDisk;
+        if (!Utils::isUnset($request->formatDisk)) {
+            $body['format_disk'] = $request->formatDisk;
         }
-
-        if (null !== $request->instances) {
-            @$body['instances'] = $request->instances;
+        if (!Utils::isUnset($request->instances)) {
+            $body['instances'] = $request->instances;
         }
-
-        if (null !== $request->keepInstanceName) {
-            @$body['keep_instance_name'] = $request->keepInstanceName;
+        if (!Utils::isUnset($request->keepInstanceName)) {
+            $body['keep_instance_name'] = $request->keepInstanceName;
         }
-
-        if (null !== $request->password) {
-            @$body['password'] = $request->password;
+        if (!Utils::isUnset($request->password)) {
+            $body['password'] = $request->password;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'AttachInstancesToNodePool',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/clusters/' . Url::percentEncode($ClusterId) . '/nodepools/' . Url::percentEncode($NodepoolId) . '/attach',
+            'pathname' => '/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/nodepools/' . OpenApiUtilClient::getEncodeParam($NodepoolId) . '/attach',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -490,17 +457,13 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Adds existing nodes to a specific node pool. You can add existing ECS instances to a specific node pool in a Container Service for Kubernetes (ACK) cluster as worker nodes. You can also add removed worker nodes back to the node pool.
-     *
-     * @param request - AttachInstancesToNodePoolRequest
-     *
-     * @returns AttachInstancesToNodePoolResponse
-     *
+     * @summary Adds existing nodes to a specific node pool. You can add existing ECS instances to a specific node pool in a Container Service for Kubernetes (ACK) cluster as worker nodes. You can also add removed worker nodes back to the node pool.
+     *  *
      * @param string                           $ClusterId
      * @param string                           $NodepoolId
-     * @param AttachInstancesToNodePoolRequest $request
+     * @param AttachInstancesToNodePoolRequest $request    AttachInstancesToNodePoolRequest
      *
-     * @return AttachInstancesToNodePoolResponse
+     * @return AttachInstancesToNodePoolResponse AttachInstancesToNodePoolResponse
      */
     public function attachInstancesToNodePool($ClusterId, $NodepoolId, $request)
     {
@@ -510,22 +473,18 @@ class CS extends OpenApiClient
         return $this->attachInstancesToNodePoolWithOptions($ClusterId, $NodepoolId, $request, $headers, $runtime);
     }
 
-    // Deprecated
     /**
-     * You can call the CancelClusterUpgrade operation to cancel the update of a cluster.
-     *
      * @deprecated OpenAPI CancelClusterUpgrade is deprecated
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CancelClusterUpgradeResponse
+     *  *
+     * @summary You can call the CancelClusterUpgrade operation to cancel the update of a cluster.
+     *  *
+     * Deprecated
      *
      * @param string         $ClusterId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
      *
-     * @return CancelClusterUpgradeResponse
+     * @return CancelClusterUpgradeResponse CancelClusterUpgradeResponse
      */
     public function cancelClusterUpgradeWithOptions($ClusterId, $headers, $runtime)
     {
@@ -536,7 +495,7 @@ class CS extends OpenApiClient
             'action' => 'CancelClusterUpgrade',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/clusters/' . Url::percentEncode($ClusterId) . '/upgrade/cancel',
+            'pathname' => '/api/v2/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/upgrade/cancel',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -547,17 +506,16 @@ class CS extends OpenApiClient
         return CancelClusterUpgradeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
-    // Deprecated
     /**
-     * You can call the CancelClusterUpgrade operation to cancel the update of a cluster.
-     *
      * @deprecated OpenAPI CancelClusterUpgrade is deprecated
-     *
-     * @returns CancelClusterUpgradeResponse
+     *  *
+     * @summary You can call the CancelClusterUpgrade operation to cancel the update of a cluster.
+     *  *
+     * Deprecated
      *
      * @param string $ClusterId
      *
-     * @return CancelClusterUpgradeResponse
+     * @return CancelClusterUpgradeResponse CancelClusterUpgradeResponse
      */
     public function cancelClusterUpgrade($ClusterId)
     {
@@ -567,23 +525,19 @@ class CS extends OpenApiClient
         return $this->cancelClusterUpgradeWithOptions($ClusterId, $headers, $runtime);
     }
 
-    // Deprecated
     /**
-     * You can call the CancelComponentUpgrade operation to cancel the update of a component.
-     *
      * @deprecated OpenAPI CancelComponentUpgrade is deprecated
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CancelComponentUpgradeResponse
+     *  *
+     * @summary You can call the CancelComponentUpgrade operation to cancel the update of a component.
+     *  *
+     * Deprecated
      *
      * @param string         $clusterId
      * @param string         $componentId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers     map
+     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
      *
-     * @return CancelComponentUpgradeResponse
+     * @return CancelComponentUpgradeResponse CancelComponentUpgradeResponse
      */
     public function cancelComponentUpgradeWithOptions($clusterId, $componentId, $headers, $runtime)
     {
@@ -594,7 +548,7 @@ class CS extends OpenApiClient
             'action' => 'CancelComponentUpgrade',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/clusters/' . Url::percentEncode($clusterId) . '/components/' . Url::percentEncode($componentId) . '/cancel',
+            'pathname' => '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterId) . '/components/' . OpenApiUtilClient::getEncodeParam($componentId) . '/cancel',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -605,18 +559,17 @@ class CS extends OpenApiClient
         return CancelComponentUpgradeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
-    // Deprecated
     /**
-     * You can call the CancelComponentUpgrade operation to cancel the update of a component.
-     *
      * @deprecated OpenAPI CancelComponentUpgrade is deprecated
-     *
-     * @returns CancelComponentUpgradeResponse
+     *  *
+     * @summary You can call the CancelComponentUpgrade operation to cancel the update of a component.
+     *  *
+     * Deprecated
      *
      * @param string $clusterId
      * @param string $componentId
      *
-     * @return CancelComponentUpgradeResponse
+     * @return CancelComponentUpgradeResponse CancelComponentUpgradeResponse
      */
     public function cancelComponentUpgrade($clusterId, $componentId)
     {
@@ -627,18 +580,13 @@ class CS extends OpenApiClient
     }
 
     /**
-     * You can call the CancelOperationPlan operation to cancel a pending auto O\\\\\\\\\\\\&M plan.
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CancelOperationPlanResponse
-     *
+     * @summary You can call the CancelOperationPlan operation to cancel a pending auto O\\\\\\\\\\\\&M plan.
+     *  *
      * @param string         $planId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return CancelOperationPlanResponse
+     * @return CancelOperationPlanResponse CancelOperationPlanResponse
      */
     public function cancelOperationPlanWithOptions($planId, $headers, $runtime)
     {
@@ -649,7 +597,7 @@ class CS extends OpenApiClient
             'action' => 'CancelOperationPlan',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/operation/plans/' . Url::percentEncode($planId) . '',
+            'pathname' => '/operation/plans/' . OpenApiUtilClient::getEncodeParam($planId) . '',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -661,13 +609,11 @@ class CS extends OpenApiClient
     }
 
     /**
-     * You can call the CancelOperationPlan operation to cancel a pending auto O\\\\\\\\\\\\&M plan.
-     *
-     * @returns CancelOperationPlanResponse
-     *
+     * @summary You can call the CancelOperationPlan operation to cancel a pending auto O\\\\\\\\\\\\&M plan.
+     *  *
      * @param string $planId
      *
-     * @return CancelOperationPlanResponse
+     * @return CancelOperationPlanResponse CancelOperationPlanResponse
      */
     public function cancelOperationPlan($planId)
     {
@@ -678,18 +624,13 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Cancels the execution of a cluster task.
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CancelTaskResponse
-     *
+     * @summary Cancels the execution of a cluster task.
+     *  *
      * @param string         $taskId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return CancelTaskResponse
+     * @return CancelTaskResponse CancelTaskResponse
      */
     public function cancelTaskWithOptions($taskId, $headers, $runtime)
     {
@@ -700,7 +641,7 @@ class CS extends OpenApiClient
             'action' => 'CancelTask',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/tasks/' . Url::percentEncode($taskId) . '/cancel',
+            'pathname' => '/tasks/' . OpenApiUtilClient::getEncodeParam($taskId) . '/cancel',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -712,13 +653,11 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Cancels the execution of a cluster task.
-     *
-     * @returns CancelTaskResponse
-     *
+     * @summary Cancels the execution of a cluster task.
+     *  *
      * @param string $taskId
      *
-     * @return CancelTaskResponse
+     * @return CancelTaskResponse CancelTaskResponse
      */
     public function cancelTask($taskId)
     {
@@ -729,18 +668,13 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Queries the current log configuration of control plane components, including the log retention period and the log collection component. Container Service for Kubernetes (ACK) managed clusters can collect the logs of control plane components and deliver the logs to projects in Simple Log Service. These control plane components include Kube API Server, Kube Scheduler, Kube Controller Manager, and Cloud Controller Manager.
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CheckControlPlaneLogEnableResponse
-     *
+     * @summary Queries the current log configuration of control plane components, including the log retention period and the log collection component. Container Service for Kubernetes (ACK) managed clusters can collect the logs of control plane components and deliver the logs to projects in Simple Log Service. These control plane components include Kube API Server, Kube Scheduler, Kube Controller Manager, and Cloud Controller Manager.
+     *  *
      * @param string         $ClusterId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
      *
-     * @return CheckControlPlaneLogEnableResponse
+     * @return CheckControlPlaneLogEnableResponse CheckControlPlaneLogEnableResponse
      */
     public function checkControlPlaneLogEnableWithOptions($ClusterId, $headers, $runtime)
     {
@@ -751,7 +685,7 @@ class CS extends OpenApiClient
             'action' => 'CheckControlPlaneLogEnable',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/clusters/' . Url::percentEncode($ClusterId) . '/controlplanelog',
+            'pathname' => '/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/controlplanelog',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -763,13 +697,11 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Queries the current log configuration of control plane components, including the log retention period and the log collection component. Container Service for Kubernetes (ACK) managed clusters can collect the logs of control plane components and deliver the logs to projects in Simple Log Service. These control plane components include Kube API Server, Kube Scheduler, Kube Controller Manager, and Cloud Controller Manager.
-     *
-     * @returns CheckControlPlaneLogEnableResponse
-     *
+     * @summary Queries the current log configuration of control plane components, including the log retention period and the log collection component. Container Service for Kubernetes (ACK) managed clusters can collect the logs of control plane components and deliver the logs to projects in Simple Log Service. These control plane components include Kube API Server, Kube Scheduler, Kube Controller Manager, and Cloud Controller Manager.
+     *  *
      * @param string $ClusterId
      *
-     * @return CheckControlPlaneLogEnableResponse
+     * @return CheckControlPlaneLogEnableResponse CheckControlPlaneLogEnableResponse
      */
     public function checkControlPlaneLogEnable($ClusterId)
     {
@@ -780,31 +712,24 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Checks whether the specified service roles are granted to Container Service for Kubernetes (ACK) within the current Alibaba Cloud account. ACK can access other cloud services, such as Elastic Compute Service (ECS), Object Storage Service (OSS), File Storage NAS (NAS), and Server Load Balancer (SLB), only after ACK is assigned the required service roles.
+     * @summary Checks whether the specified service roles are granted to Container Service for Kubernetes (ACK) within the current Alibaba Cloud account. ACK can access other cloud services, such as Elastic Compute Service (ECS), Object Storage Service (OSS), File Storage NAS (NAS), and Server Load Balancer (SLB), only after ACK is assigned the required service roles.
+     *  *
+     * @param CheckServiceRoleRequest $request CheckServiceRoleRequest
+     * @param string[]                $headers map
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CheckServiceRoleRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CheckServiceRoleResponse
-     *
-     * @param CheckServiceRoleRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
-     *
-     * @return CheckServiceRoleResponse
+     * @return CheckServiceRoleResponse CheckServiceRoleResponse
      */
     public function checkServiceRoleWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->roles) {
-            @$body['roles'] = $request->roles;
+        if (!Utils::isUnset($request->roles)) {
+            $body['roles'] = $request->roles;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CheckServiceRole',
@@ -822,15 +747,11 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Checks whether the specified service roles are granted to Container Service for Kubernetes (ACK) within the current Alibaba Cloud account. ACK can access other cloud services, such as Elastic Compute Service (ECS), Object Storage Service (OSS), File Storage NAS (NAS), and Server Load Balancer (SLB), only after ACK is assigned the required service roles.
+     * @summary Checks whether the specified service roles are granted to Container Service for Kubernetes (ACK) within the current Alibaba Cloud account. ACK can access other cloud services, such as Elastic Compute Service (ECS), Object Storage Service (OSS), File Storage NAS (NAS), and Server Load Balancer (SLB), only after ACK is assigned the required service roles.
+     *  *
+     * @param CheckServiceRoleRequest $request CheckServiceRoleRequest
      *
-     * @param request - CheckServiceRoleRequest
-     *
-     * @returns CheckServiceRoleResponse
-     *
-     * @param CheckServiceRoleRequest $request
-     *
-     * @return CheckServiceRoleResponse
+     * @return CheckServiceRoleResponse CheckServiceRoleResponse
      */
     public function checkServiceRole($request)
     {
@@ -841,45 +762,37 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Deletes kubeconfig files that may pose potential risks from a user and revokes Role-Based Access Control (RBAC) permissions on a cluster.
-     *
-     * @remarks
-     * >
+     * @summary Deletes kubeconfig files that may pose potential risks from a user and revokes Role-Based Access Control (RBAC) permissions on a cluster.
+     *  *
+     * @description >
      * *   To call this operation, make sure that you have the AliyunCSFullAccess permission.
      * *   You cannot revoke the permissions of an Alibaba Cloud account.
      * *   You cannot revoke the permissions of the account that you use to call this operation.
-     *
-     * @param request - CleanClusterUserPermissionsRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CleanClusterUserPermissionsResponse
-     *
+     *  *
      * @param string                             $ClusterId
      * @param string                             $Uid
-     * @param CleanClusterUserPermissionsRequest $request
-     * @param string[]                           $headers
-     * @param RuntimeOptions                     $runtime
+     * @param CleanClusterUserPermissionsRequest $request   CleanClusterUserPermissionsRequest
+     * @param string[]                           $headers   map
+     * @param RuntimeOptions                     $runtime   runtime options for this request RuntimeOptions
      *
-     * @return CleanClusterUserPermissionsResponse
+     * @return CleanClusterUserPermissionsResponse CleanClusterUserPermissionsResponse
      */
     public function cleanClusterUserPermissionsWithOptions($ClusterId, $Uid, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->force) {
-            @$query['Force'] = $request->force;
+        if (!Utils::isUnset($request->force)) {
+            $query['Force'] = $request->force;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CleanClusterUserPermissions',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/cluster/' . Url::percentEncode($ClusterId) . '/user/' . Url::percentEncode($Uid) . '/permissions',
+            'pathname' => '/cluster/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/user/' . OpenApiUtilClient::getEncodeParam($Uid) . '/permissions',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -891,23 +804,18 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Deletes kubeconfig files that may pose potential risks from a user and revokes Role-Based Access Control (RBAC) permissions on a cluster.
-     *
-     * @remarks
-     * >
+     * @summary Deletes kubeconfig files that may pose potential risks from a user and revokes Role-Based Access Control (RBAC) permissions on a cluster.
+     *  *
+     * @description >
      * *   To call this operation, make sure that you have the AliyunCSFullAccess permission.
      * *   You cannot revoke the permissions of an Alibaba Cloud account.
      * *   You cannot revoke the permissions of the account that you use to call this operation.
-     *
-     * @param request - CleanClusterUserPermissionsRequest
-     *
-     * @returns CleanClusterUserPermissionsResponse
-     *
+     *  *
      * @param string                             $ClusterId
      * @param string                             $Uid
-     * @param CleanClusterUserPermissionsRequest $request
+     * @param CleanClusterUserPermissionsRequest $request   CleanClusterUserPermissionsRequest
      *
-     * @return CleanClusterUserPermissionsResponse
+     * @return CleanClusterUserPermissionsResponse CleanClusterUserPermissionsResponse
      */
     public function cleanClusterUserPermissions($ClusterId, $Uid, $request)
     {
@@ -918,53 +826,43 @@ class CS extends OpenApiClient
     }
 
     /**
-     * You can call the CleanUserPermissions operation to delete the kubeconfig files of the specified users and revoke the relevant Role-Based Access Control (RBAC) permissions. This API operation is suitable for scenarios where employees have resigned or the accounts of employees are locked.
-     *
-     * @remarks
-     * > - To call this operation, make sure that you have the AliyunCSFullAccess permission.
+     * @summary You can call the CleanUserPermissions operation to delete the kubeconfig files of the specified users and revoke the relevant Role-Based Access Control (RBAC) permissions. This API operation is suitable for scenarios where employees have resigned or the accounts of employees are locked.
+     *  *
+     * @description > - To call this operation, make sure that you have the AliyunCSFullAccess permission.
      * > - You cannot revoke the permissions of an Alibaba Cloud account.
      * > - You cannot revoke the permissions of the account that you use to call this operation.
-     *
-     * @param tmpReq - CleanUserPermissionsRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CleanUserPermissionsResponse
-     *
+     *  *
      * @param string                      $Uid
-     * @param CleanUserPermissionsRequest $tmpReq
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @param CleanUserPermissionsRequest $tmpReq  CleanUserPermissionsRequest
+     * @param string[]                    $headers map
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return CleanUserPermissionsResponse
+     * @return CleanUserPermissionsResponse CleanUserPermissionsResponse
      */
     public function cleanUserPermissionsWithOptions($Uid, $tmpReq, $headers, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new CleanUserPermissionsShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->clusterIds) {
-            $request->clusterIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->clusterIds, 'ClusterIds', 'simple');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->clusterIds)) {
+            $request->clusterIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->clusterIds, 'ClusterIds', 'simple');
         }
-
         $query = [];
-        if (null !== $request->clusterIdsShrink) {
-            @$query['ClusterIds'] = $request->clusterIdsShrink;
+        if (!Utils::isUnset($request->clusterIdsShrink)) {
+            $query['ClusterIds'] = $request->clusterIdsShrink;
         }
-
-        if (null !== $request->force) {
-            @$query['Force'] = $request->force;
+        if (!Utils::isUnset($request->force)) {
+            $query['Force'] = $request->force;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CleanUserPermissions',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/users/' . Url::percentEncode($Uid) . '/permissions',
+            'pathname' => '/users/' . OpenApiUtilClient::getEncodeParam($Uid) . '/permissions',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -976,21 +874,16 @@ class CS extends OpenApiClient
     }
 
     /**
-     * You can call the CleanUserPermissions operation to delete the kubeconfig files of the specified users and revoke the relevant Role-Based Access Control (RBAC) permissions. This API operation is suitable for scenarios where employees have resigned or the accounts of employees are locked.
-     *
-     * @remarks
-     * > - To call this operation, make sure that you have the AliyunCSFullAccess permission.
+     * @summary You can call the CleanUserPermissions operation to delete the kubeconfig files of the specified users and revoke the relevant Role-Based Access Control (RBAC) permissions. This API operation is suitable for scenarios where employees have resigned or the accounts of employees are locked.
+     *  *
+     * @description > - To call this operation, make sure that you have the AliyunCSFullAccess permission.
      * > - You cannot revoke the permissions of an Alibaba Cloud account.
      * > - You cannot revoke the permissions of the account that you use to call this operation.
-     *
-     * @param request - CleanUserPermissionsRequest
-     *
-     * @returns CleanUserPermissionsResponse
-     *
+     *  *
      * @param string                      $Uid
-     * @param CleanUserPermissionsRequest $request
+     * @param CleanUserPermissionsRequest $request CleanUserPermissionsRequest
      *
-     * @return CleanUserPermissionsResponse
+     * @return CleanUserPermissionsResponse CleanUserPermissionsResponse
      */
     public function cleanUserPermissions($Uid, $request)
     {
@@ -1001,98 +894,76 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Creates a scaling configuration to allow the system to scale resources based on the given scaling rules. When you create a scaling configuration, you can specify the scaling metrics, thresholds, scaling order, and scaling interval.
-     *
-     * @param request - CreateAutoscalingConfigRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateAutoscalingConfigResponse
-     *
+     * @summary Creates a scaling configuration to allow the system to scale resources based on the given scaling rules. When you create a scaling configuration, you can specify the scaling metrics, thresholds, scaling order, and scaling interval.
+     *  *
      * @param string                         $ClusterId
-     * @param CreateAutoscalingConfigRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
+     * @param CreateAutoscalingConfigRequest $request   CreateAutoscalingConfigRequest
+     * @param string[]                       $headers   map
+     * @param RuntimeOptions                 $runtime   runtime options for this request RuntimeOptions
      *
-     * @return CreateAutoscalingConfigResponse
+     * @return CreateAutoscalingConfigResponse CreateAutoscalingConfigResponse
      */
     public function createAutoscalingConfigWithOptions($ClusterId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->coolDownDuration) {
-            @$body['cool_down_duration'] = $request->coolDownDuration;
+        if (!Utils::isUnset($request->coolDownDuration)) {
+            $body['cool_down_duration'] = $request->coolDownDuration;
         }
-
-        if (null !== $request->daemonsetEvictionForNodes) {
-            @$body['daemonset_eviction_for_nodes'] = $request->daemonsetEvictionForNodes;
+        if (!Utils::isUnset($request->daemonsetEvictionForNodes)) {
+            $body['daemonset_eviction_for_nodes'] = $request->daemonsetEvictionForNodes;
         }
-
-        if (null !== $request->expander) {
-            @$body['expander'] = $request->expander;
+        if (!Utils::isUnset($request->expander)) {
+            $body['expander'] = $request->expander;
         }
-
-        if (null !== $request->gpuUtilizationThreshold) {
-            @$body['gpu_utilization_threshold'] = $request->gpuUtilizationThreshold;
+        if (!Utils::isUnset($request->gpuUtilizationThreshold)) {
+            $body['gpu_utilization_threshold'] = $request->gpuUtilizationThreshold;
         }
-
-        if (null !== $request->maxGracefulTerminationSec) {
-            @$body['max_graceful_termination_sec'] = $request->maxGracefulTerminationSec;
+        if (!Utils::isUnset($request->maxGracefulTerminationSec)) {
+            $body['max_graceful_termination_sec'] = $request->maxGracefulTerminationSec;
         }
-
-        if (null !== $request->minReplicaCount) {
-            @$body['min_replica_count'] = $request->minReplicaCount;
+        if (!Utils::isUnset($request->minReplicaCount)) {
+            $body['min_replica_count'] = $request->minReplicaCount;
         }
-
-        if (null !== $request->priorities) {
-            @$body['priorities'] = $request->priorities;
+        if (!Utils::isUnset($request->priorities)) {
+            $body['priorities'] = $request->priorities;
         }
-
-        if (null !== $request->recycleNodeDeletionEnabled) {
-            @$body['recycle_node_deletion_enabled'] = $request->recycleNodeDeletionEnabled;
+        if (!Utils::isUnset($request->recycleNodeDeletionEnabled)) {
+            $body['recycle_node_deletion_enabled'] = $request->recycleNodeDeletionEnabled;
         }
-
-        if (null !== $request->scaleDownEnabled) {
-            @$body['scale_down_enabled'] = $request->scaleDownEnabled;
+        if (!Utils::isUnset($request->scaleDownEnabled)) {
+            $body['scale_down_enabled'] = $request->scaleDownEnabled;
         }
-
-        if (null !== $request->scaleUpFromZero) {
-            @$body['scale_up_from_zero'] = $request->scaleUpFromZero;
+        if (!Utils::isUnset($request->scaleUpFromZero)) {
+            $body['scale_up_from_zero'] = $request->scaleUpFromZero;
         }
-
-        if (null !== $request->scalerType) {
-            @$body['scaler_type'] = $request->scalerType;
+        if (!Utils::isUnset($request->scalerType)) {
+            $body['scaler_type'] = $request->scalerType;
         }
-
-        if (null !== $request->scanInterval) {
-            @$body['scan_interval'] = $request->scanInterval;
+        if (!Utils::isUnset($request->scanInterval)) {
+            $body['scan_interval'] = $request->scanInterval;
         }
-
-        if (null !== $request->skipNodesWithLocalStorage) {
-            @$body['skip_nodes_with_local_storage'] = $request->skipNodesWithLocalStorage;
+        if (!Utils::isUnset($request->skipNodesWithLocalStorage)) {
+            $body['skip_nodes_with_local_storage'] = $request->skipNodesWithLocalStorage;
         }
-
-        if (null !== $request->skipNodesWithSystemPods) {
-            @$body['skip_nodes_with_system_pods'] = $request->skipNodesWithSystemPods;
+        if (!Utils::isUnset($request->skipNodesWithSystemPods)) {
+            $body['skip_nodes_with_system_pods'] = $request->skipNodesWithSystemPods;
         }
-
-        if (null !== $request->unneededDuration) {
-            @$body['unneeded_duration'] = $request->unneededDuration;
+        if (!Utils::isUnset($request->unneededDuration)) {
+            $body['unneeded_duration'] = $request->unneededDuration;
         }
-
-        if (null !== $request->utilizationThreshold) {
-            @$body['utilization_threshold'] = $request->utilizationThreshold;
+        if (!Utils::isUnset($request->utilizationThreshold)) {
+            $body['utilization_threshold'] = $request->utilizationThreshold;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateAutoscalingConfig',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/cluster/' . Url::percentEncode($ClusterId) . '/autoscale/config/',
+            'pathname' => '/cluster/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/autoscale/config/',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -1104,16 +975,12 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Creates a scaling configuration to allow the system to scale resources based on the given scaling rules. When you create a scaling configuration, you can specify the scaling metrics, thresholds, scaling order, and scaling interval.
-     *
-     * @param request - CreateAutoscalingConfigRequest
-     *
-     * @returns CreateAutoscalingConfigResponse
-     *
+     * @summary Creates a scaling configuration to allow the system to scale resources based on the given scaling rules. When you create a scaling configuration, you can specify the scaling metrics, thresholds, scaling order, and scaling interval.
+     *  *
      * @param string                         $ClusterId
-     * @param CreateAutoscalingConfigRequest $request
+     * @param CreateAutoscalingConfigRequest $request   CreateAutoscalingConfigRequest
      *
-     * @return CreateAutoscalingConfigResponse
+     * @return CreateAutoscalingConfigResponse CreateAutoscalingConfigResponse
      */
     public function createAutoscalingConfig($ClusterId, $request)
     {
@@ -1124,444 +991,335 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Creates a Container Service for Kubernetes (ACK) cluster. For example, you can create an ACK managed cluster, ACK Serverless cluster, ACK Edge cluster, or registered cluster. When you create an ACK cluster, you need to configure the cluster information, components, and cloud resources used by ACK.
-     *
-     * @remarks
-     * ### [](#-openapi-)Generate API request parameters through the ACK console
+     * @summary Creates a Container Service for Kubernetes (ACK) cluster. For example, you can create an ACK managed cluster, ACK Serverless cluster, ACK Edge cluster, or registered cluster. When you create an ACK cluster, you need to configure the cluster information, components, and cloud resources used by ACK.
+     *  *
+     * @description ### [](#-openapi-)Generate API request parameters through the ACK console
      * When calling the CreateCluster operation to create a cluster, if the API call fails due to invalid parameter settings, you can generate valid request parameters through the ACK console. Follow these steps:
      * 1.  Log on to the [ACK console](https://csnew.console.aliyun.com). In the left-side navigation pane, click **Clusters**.
      * 2.  On the **Clusters** page, click **Cluster Templates**.
      * 3.  In the Select Cluster Template dialog box, select the type of cluster you want to create and click Create. Then, configure the cluster parameters.
      * 4.  In the **Confirm** step, click **Generate API Request Parameters**.
      *     The API request parameters are displayed in the API Request Parameters dialog box.
+     *  *
+     * @param CreateClusterRequest $request CreateClusterRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateClusterRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateClusterResponse
-     *
-     * @param CreateClusterRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
-     *
-     * @return CreateClusterResponse
+     * @return CreateClusterResponse CreateClusterResponse
      */
     public function createClusterWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->accessControlList) {
-            @$body['access_control_list'] = $request->accessControlList;
-        }
-
-        if (null !== $request->addons) {
-            @$body['addons'] = $request->addons;
-        }
-
-        if (null !== $request->apiAudiences) {
-            @$body['api_audiences'] = $request->apiAudiences;
-        }
-
-        if (null !== $request->auditLogConfig) {
-            @$body['audit_log_config'] = $request->auditLogConfig;
-        }
-
-        if (null !== $request->autoMode) {
-            @$body['auto_mode'] = $request->autoMode;
-        }
-
-        if (null !== $request->autoRenew) {
-            @$body['auto_renew'] = $request->autoRenew;
-        }
-
-        if (null !== $request->autoRenewPeriod) {
-            @$body['auto_renew_period'] = $request->autoRenewPeriod;
-        }
-
-        if (null !== $request->chargeType) {
-            @$body['charge_type'] = $request->chargeType;
-        }
-
-        if (null !== $request->cisEnabled) {
-            @$body['cis_enabled'] = $request->cisEnabled;
-        }
-
-        if (null !== $request->cloudMonitorFlags) {
-            @$body['cloud_monitor_flags'] = $request->cloudMonitorFlags;
-        }
-
-        if (null !== $request->clusterDomain) {
-            @$body['cluster_domain'] = $request->clusterDomain;
-        }
-
-        if (null !== $request->clusterSpec) {
-            @$body['cluster_spec'] = $request->clusterSpec;
-        }
-
-        if (null !== $request->clusterType) {
-            @$body['cluster_type'] = $request->clusterType;
-        }
-
-        if (null !== $request->containerCidr) {
-            @$body['container_cidr'] = $request->containerCidr;
-        }
-
-        if (null !== $request->controlPlaneConfig) {
-            @$body['control_plane_config'] = $request->controlPlaneConfig;
-        }
-
-        if (null !== $request->controlplaneLogComponents) {
-            @$body['controlplane_log_components'] = $request->controlplaneLogComponents;
-        }
-
-        if (null !== $request->controlplaneLogProject) {
-            @$body['controlplane_log_project'] = $request->controlplaneLogProject;
-        }
-
-        if (null !== $request->controlplaneLogTtl) {
-            @$body['controlplane_log_ttl'] = $request->controlplaneLogTtl;
-        }
-
-        if (null !== $request->cpuPolicy) {
-            @$body['cpu_policy'] = $request->cpuPolicy;
-        }
-
-        if (null !== $request->customSan) {
-            @$body['custom_san'] = $request->customSan;
-        }
-
-        if (null !== $request->deletionProtection) {
-            @$body['deletion_protection'] = $request->deletionProtection;
-        }
-
-        if (null !== $request->disableRollback) {
-            @$body['disable_rollback'] = $request->disableRollback;
-        }
-
-        if (null !== $request->enableRrsa) {
-            @$body['enable_rrsa'] = $request->enableRrsa;
-        }
-
-        if (null !== $request->encryptionProviderKey) {
-            @$body['encryption_provider_key'] = $request->encryptionProviderKey;
-        }
-
-        if (null !== $request->endpointPublicAccess) {
-            @$body['endpoint_public_access'] = $request->endpointPublicAccess;
-        }
-
-        if (null !== $request->extraSans) {
-            @$body['extra_sans'] = $request->extraSans;
-        }
-
-        if (null !== $request->formatDisk) {
-            @$body['format_disk'] = $request->formatDisk;
-        }
-
-        if (null !== $request->imageId) {
-            @$body['image_id'] = $request->imageId;
-        }
-
-        if (null !== $request->imageType) {
-            @$body['image_type'] = $request->imageType;
-        }
-
-        if (null !== $request->instances) {
-            @$body['instances'] = $request->instances;
-        }
-
-        if (null !== $request->ipStack) {
-            @$body['ip_stack'] = $request->ipStack;
-        }
-
-        if (null !== $request->isEnterpriseSecurityGroup) {
-            @$body['is_enterprise_security_group'] = $request->isEnterpriseSecurityGroup;
-        }
-
-        if (null !== $request->keepInstanceName) {
-            @$body['keep_instance_name'] = $request->keepInstanceName;
-        }
-
-        if (null !== $request->keyPair) {
-            @$body['key_pair'] = $request->keyPair;
-        }
-
-        if (null !== $request->kubernetesVersion) {
-            @$body['kubernetes_version'] = $request->kubernetesVersion;
-        }
-
-        if (null !== $request->loadBalancerId) {
-            @$body['load_balancer_id'] = $request->loadBalancerId;
-        }
-
-        if (null !== $request->loadBalancerSpec) {
-            @$body['load_balancer_spec'] = $request->loadBalancerSpec;
-        }
-
-        if (null !== $request->loggingType) {
-            @$body['logging_type'] = $request->loggingType;
-        }
-
-        if (null !== $request->loginPassword) {
-            @$body['login_password'] = $request->loginPassword;
-        }
-
-        if (null !== $request->maintenanceWindow) {
-            @$body['maintenance_window'] = $request->maintenanceWindow;
-        }
-
-        if (null !== $request->masterAutoRenew) {
-            @$body['master_auto_renew'] = $request->masterAutoRenew;
-        }
-
-        if (null !== $request->masterAutoRenewPeriod) {
-            @$body['master_auto_renew_period'] = $request->masterAutoRenewPeriod;
-        }
-
-        if (null !== $request->masterCount) {
-            @$body['master_count'] = $request->masterCount;
-        }
-
-        if (null !== $request->masterInstanceChargeType) {
-            @$body['master_instance_charge_type'] = $request->masterInstanceChargeType;
-        }
-
-        if (null !== $request->masterInstanceTypes) {
-            @$body['master_instance_types'] = $request->masterInstanceTypes;
-        }
-
-        if (null !== $request->masterPeriod) {
-            @$body['master_period'] = $request->masterPeriod;
-        }
-
-        if (null !== $request->masterPeriodUnit) {
-            @$body['master_period_unit'] = $request->masterPeriodUnit;
-        }
-
-        if (null !== $request->masterSystemDiskCategory) {
-            @$body['master_system_disk_category'] = $request->masterSystemDiskCategory;
-        }
-
-        if (null !== $request->masterSystemDiskPerformanceLevel) {
-            @$body['master_system_disk_performance_level'] = $request->masterSystemDiskPerformanceLevel;
-        }
-
-        if (null !== $request->masterSystemDiskSize) {
-            @$body['master_system_disk_size'] = $request->masterSystemDiskSize;
-        }
-
-        if (null !== $request->masterSystemDiskSnapshotPolicyId) {
-            @$body['master_system_disk_snapshot_policy_id'] = $request->masterSystemDiskSnapshotPolicyId;
-        }
-
-        if (null !== $request->masterVswitchIds) {
-            @$body['master_vswitch_ids'] = $request->masterVswitchIds;
-        }
-
-        if (null !== $request->name) {
-            @$body['name'] = $request->name;
-        }
-
-        if (null !== $request->natGateway) {
-            @$body['nat_gateway'] = $request->natGateway;
-        }
-
-        if (null !== $request->nodeCidrMask) {
-            @$body['node_cidr_mask'] = $request->nodeCidrMask;
-        }
-
-        if (null !== $request->nodeNameMode) {
-            @$body['node_name_mode'] = $request->nodeNameMode;
-        }
-
-        if (null !== $request->nodePortRange) {
-            @$body['node_port_range'] = $request->nodePortRange;
-        }
-
-        if (null !== $request->nodepools) {
-            @$body['nodepools'] = $request->nodepools;
-        }
-
-        if (null !== $request->numOfNodes) {
-            @$body['num_of_nodes'] = $request->numOfNodes;
-        }
-
-        if (null !== $request->operationPolicy) {
-            @$body['operation_policy'] = $request->operationPolicy;
-        }
-
-        if (null !== $request->osType) {
-            @$body['os_type'] = $request->osType;
-        }
-
-        if (null !== $request->period) {
-            @$body['period'] = $request->period;
-        }
-
-        if (null !== $request->periodUnit) {
-            @$body['period_unit'] = $request->periodUnit;
-        }
-
-        if (null !== $request->platform) {
-            @$body['platform'] = $request->platform;
-        }
-
-        if (null !== $request->podVswitchIds) {
-            @$body['pod_vswitch_ids'] = $request->podVswitchIds;
-        }
-
-        if (null !== $request->profile) {
-            @$body['profile'] = $request->profile;
-        }
-
-        if (null !== $request->proxyMode) {
-            @$body['proxy_mode'] = $request->proxyMode;
-        }
-
-        if (null !== $request->rdsInstances) {
-            @$body['rds_instances'] = $request->rdsInstances;
-        }
-
-        if (null !== $request->regionId) {
-            @$body['region_id'] = $request->regionId;
-        }
-
-        if (null !== $request->resourceGroupId) {
-            @$body['resource_group_id'] = $request->resourceGroupId;
-        }
-
-        if (null !== $request->rrsaConfig) {
-            @$body['rrsa_config'] = $request->rrsaConfig;
-        }
-
-        if (null !== $request->runtime) {
-            @$body['runtime'] = $request->runtime;
-        }
-
-        if (null !== $request->securityGroupId) {
-            @$body['security_group_id'] = $request->securityGroupId;
-        }
-
-        if (null !== $request->securityHardeningOs) {
-            @$body['security_hardening_os'] = $request->securityHardeningOs;
-        }
-
-        if (null !== $request->serviceAccountIssuer) {
-            @$body['service_account_issuer'] = $request->serviceAccountIssuer;
-        }
-
-        if (null !== $request->serviceCidr) {
-            @$body['service_cidr'] = $request->serviceCidr;
-        }
-
-        if (null !== $request->serviceDiscoveryTypes) {
-            @$body['service_discovery_types'] = $request->serviceDiscoveryTypes;
-        }
-
-        if (null !== $request->snatEntry) {
-            @$body['snat_entry'] = $request->snatEntry;
+        if (!Utils::isUnset($request->accessControlList)) {
+            $body['access_control_list'] = $request->accessControlList;
         }
-
-        if (null !== $request->socEnabled) {
-            @$body['soc_enabled'] = $request->socEnabled;
+        if (!Utils::isUnset($request->addons)) {
+            $body['addons'] = $request->addons;
         }
-
-        if (null !== $request->sshFlags) {
-            @$body['ssh_flags'] = $request->sshFlags;
+        if (!Utils::isUnset($request->apiAudiences)) {
+            $body['api_audiences'] = $request->apiAudiences;
         }
-
-        if (null !== $request->tags) {
-            @$body['tags'] = $request->tags;
+        if (!Utils::isUnset($request->auditLogConfig)) {
+            $body['audit_log_config'] = $request->auditLogConfig;
         }
-
-        if (null !== $request->taints) {
-            @$body['taints'] = $request->taints;
+        if (!Utils::isUnset($request->autoMode)) {
+            $body['auto_mode'] = $request->autoMode;
         }
-
-        if (null !== $request->timeoutMins) {
-            @$body['timeout_mins'] = $request->timeoutMins;
+        if (!Utils::isUnset($request->autoRenew)) {
+            $body['auto_renew'] = $request->autoRenew;
         }
-
-        if (null !== $request->timezone) {
-            @$body['timezone'] = $request->timezone;
+        if (!Utils::isUnset($request->autoRenewPeriod)) {
+            $body['auto_renew_period'] = $request->autoRenewPeriod;
         }
-
-        if (null !== $request->userCa) {
-            @$body['user_ca'] = $request->userCa;
+        if (!Utils::isUnset($request->chargeType)) {
+            $body['charge_type'] = $request->chargeType;
         }
-
-        if (null !== $request->userData) {
-            @$body['user_data'] = $request->userData;
+        if (!Utils::isUnset($request->cisEnabled)) {
+            $body['cis_enabled'] = $request->cisEnabled;
         }
-
-        if (null !== $request->vpcid) {
-            @$body['vpcid'] = $request->vpcid;
+        if (!Utils::isUnset($request->cloudMonitorFlags)) {
+            $body['cloud_monitor_flags'] = $request->cloudMonitorFlags;
         }
-
-        if (null !== $request->vswitchIds) {
-            @$body['vswitch_ids'] = $request->vswitchIds;
+        if (!Utils::isUnset($request->clusterDomain)) {
+            $body['cluster_domain'] = $request->clusterDomain;
         }
-
-        if (null !== $request->workerAutoRenew) {
-            @$body['worker_auto_renew'] = $request->workerAutoRenew;
+        if (!Utils::isUnset($request->clusterSpec)) {
+            $body['cluster_spec'] = $request->clusterSpec;
         }
-
-        if (null !== $request->workerAutoRenewPeriod) {
-            @$body['worker_auto_renew_period'] = $request->workerAutoRenewPeriod;
+        if (!Utils::isUnset($request->clusterType)) {
+            $body['cluster_type'] = $request->clusterType;
         }
-
-        if (null !== $request->workerDataDisks) {
-            @$body['worker_data_disks'] = $request->workerDataDisks;
+        if (!Utils::isUnset($request->containerCidr)) {
+            $body['container_cidr'] = $request->containerCidr;
         }
-
-        if (null !== $request->workerInstanceChargeType) {
-            @$body['worker_instance_charge_type'] = $request->workerInstanceChargeType;
+        if (!Utils::isUnset($request->controlPlaneConfig)) {
+            $body['control_plane_config'] = $request->controlPlaneConfig;
         }
-
-        if (null !== $request->workerInstanceTypes) {
-            @$body['worker_instance_types'] = $request->workerInstanceTypes;
+        if (!Utils::isUnset($request->controlplaneLogComponents)) {
+            $body['controlplane_log_components'] = $request->controlplaneLogComponents;
         }
-
-        if (null !== $request->workerPeriod) {
-            @$body['worker_period'] = $request->workerPeriod;
+        if (!Utils::isUnset($request->controlplaneLogProject)) {
+            $body['controlplane_log_project'] = $request->controlplaneLogProject;
         }
-
-        if (null !== $request->workerPeriodUnit) {
-            @$body['worker_period_unit'] = $request->workerPeriodUnit;
+        if (!Utils::isUnset($request->controlplaneLogTtl)) {
+            $body['controlplane_log_ttl'] = $request->controlplaneLogTtl;
         }
-
-        if (null !== $request->workerSystemDiskCategory) {
-            @$body['worker_system_disk_category'] = $request->workerSystemDiskCategory;
+        if (!Utils::isUnset($request->cpuPolicy)) {
+            $body['cpu_policy'] = $request->cpuPolicy;
         }
-
-        if (null !== $request->workerSystemDiskPerformanceLevel) {
-            @$body['worker_system_disk_performance_level'] = $request->workerSystemDiskPerformanceLevel;
+        if (!Utils::isUnset($request->customSan)) {
+            $body['custom_san'] = $request->customSan;
         }
-
-        if (null !== $request->workerSystemDiskSize) {
-            @$body['worker_system_disk_size'] = $request->workerSystemDiskSize;
+        if (!Utils::isUnset($request->deletionProtection)) {
+            $body['deletion_protection'] = $request->deletionProtection;
         }
-
-        if (null !== $request->workerSystemDiskSnapshotPolicyId) {
-            @$body['worker_system_disk_snapshot_policy_id'] = $request->workerSystemDiskSnapshotPolicyId;
+        if (!Utils::isUnset($request->disableRollback)) {
+            $body['disable_rollback'] = $request->disableRollback;
         }
-
-        if (null !== $request->workerVswitchIds) {
-            @$body['worker_vswitch_ids'] = $request->workerVswitchIds;
+        if (!Utils::isUnset($request->enableRrsa)) {
+            $body['enable_rrsa'] = $request->enableRrsa;
         }
-
-        if (null !== $request->zoneId) {
-            @$body['zone_id'] = $request->zoneId;
+        if (!Utils::isUnset($request->encryptionProviderKey)) {
+            $body['encryption_provider_key'] = $request->encryptionProviderKey;
         }
-
-        if (null !== $request->zoneIds) {
-            @$body['zone_ids'] = $request->zoneIds;
+        if (!Utils::isUnset($request->endpointPublicAccess)) {
+            $body['endpoint_public_access'] = $request->endpointPublicAccess;
         }
-
+        if (!Utils::isUnset($request->extraSans)) {
+            $body['extra_sans'] = $request->extraSans;
+        }
+        if (!Utils::isUnset($request->formatDisk)) {
+            $body['format_disk'] = $request->formatDisk;
+        }
+        if (!Utils::isUnset($request->imageId)) {
+            $body['image_id'] = $request->imageId;
+        }
+        if (!Utils::isUnset($request->imageType)) {
+            $body['image_type'] = $request->imageType;
+        }
+        if (!Utils::isUnset($request->instances)) {
+            $body['instances'] = $request->instances;
+        }
+        if (!Utils::isUnset($request->ipStack)) {
+            $body['ip_stack'] = $request->ipStack;
+        }
+        if (!Utils::isUnset($request->isEnterpriseSecurityGroup)) {
+            $body['is_enterprise_security_group'] = $request->isEnterpriseSecurityGroup;
+        }
+        if (!Utils::isUnset($request->keepInstanceName)) {
+            $body['keep_instance_name'] = $request->keepInstanceName;
+        }
+        if (!Utils::isUnset($request->keyPair)) {
+            $body['key_pair'] = $request->keyPair;
+        }
+        if (!Utils::isUnset($request->kubernetesVersion)) {
+            $body['kubernetes_version'] = $request->kubernetesVersion;
+        }
+        if (!Utils::isUnset($request->loadBalancerId)) {
+            $body['load_balancer_id'] = $request->loadBalancerId;
+        }
+        if (!Utils::isUnset($request->loadBalancerSpec)) {
+            $body['load_balancer_spec'] = $request->loadBalancerSpec;
+        }
+        if (!Utils::isUnset($request->loggingType)) {
+            $body['logging_type'] = $request->loggingType;
+        }
+        if (!Utils::isUnset($request->loginPassword)) {
+            $body['login_password'] = $request->loginPassword;
+        }
+        if (!Utils::isUnset($request->maintenanceWindow)) {
+            $body['maintenance_window'] = $request->maintenanceWindow;
+        }
+        if (!Utils::isUnset($request->masterAutoRenew)) {
+            $body['master_auto_renew'] = $request->masterAutoRenew;
+        }
+        if (!Utils::isUnset($request->masterAutoRenewPeriod)) {
+            $body['master_auto_renew_period'] = $request->masterAutoRenewPeriod;
+        }
+        if (!Utils::isUnset($request->masterCount)) {
+            $body['master_count'] = $request->masterCount;
+        }
+        if (!Utils::isUnset($request->masterInstanceChargeType)) {
+            $body['master_instance_charge_type'] = $request->masterInstanceChargeType;
+        }
+        if (!Utils::isUnset($request->masterInstanceTypes)) {
+            $body['master_instance_types'] = $request->masterInstanceTypes;
+        }
+        if (!Utils::isUnset($request->masterPeriod)) {
+            $body['master_period'] = $request->masterPeriod;
+        }
+        if (!Utils::isUnset($request->masterPeriodUnit)) {
+            $body['master_period_unit'] = $request->masterPeriodUnit;
+        }
+        if (!Utils::isUnset($request->masterSystemDiskCategory)) {
+            $body['master_system_disk_category'] = $request->masterSystemDiskCategory;
+        }
+        if (!Utils::isUnset($request->masterSystemDiskPerformanceLevel)) {
+            $body['master_system_disk_performance_level'] = $request->masterSystemDiskPerformanceLevel;
+        }
+        if (!Utils::isUnset($request->masterSystemDiskSize)) {
+            $body['master_system_disk_size'] = $request->masterSystemDiskSize;
+        }
+        if (!Utils::isUnset($request->masterSystemDiskSnapshotPolicyId)) {
+            $body['master_system_disk_snapshot_policy_id'] = $request->masterSystemDiskSnapshotPolicyId;
+        }
+        if (!Utils::isUnset($request->masterVswitchIds)) {
+            $body['master_vswitch_ids'] = $request->masterVswitchIds;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->natGateway)) {
+            $body['nat_gateway'] = $request->natGateway;
+        }
+        if (!Utils::isUnset($request->nodeCidrMask)) {
+            $body['node_cidr_mask'] = $request->nodeCidrMask;
+        }
+        if (!Utils::isUnset($request->nodeNameMode)) {
+            $body['node_name_mode'] = $request->nodeNameMode;
+        }
+        if (!Utils::isUnset($request->nodePortRange)) {
+            $body['node_port_range'] = $request->nodePortRange;
+        }
+        if (!Utils::isUnset($request->nodepools)) {
+            $body['nodepools'] = $request->nodepools;
+        }
+        if (!Utils::isUnset($request->numOfNodes)) {
+            $body['num_of_nodes'] = $request->numOfNodes;
+        }
+        if (!Utils::isUnset($request->operationPolicy)) {
+            $body['operation_policy'] = $request->operationPolicy;
+        }
+        if (!Utils::isUnset($request->osType)) {
+            $body['os_type'] = $request->osType;
+        }
+        if (!Utils::isUnset($request->period)) {
+            $body['period'] = $request->period;
+        }
+        if (!Utils::isUnset($request->periodUnit)) {
+            $body['period_unit'] = $request->periodUnit;
+        }
+        if (!Utils::isUnset($request->platform)) {
+            $body['platform'] = $request->platform;
+        }
+        if (!Utils::isUnset($request->podVswitchIds)) {
+            $body['pod_vswitch_ids'] = $request->podVswitchIds;
+        }
+        if (!Utils::isUnset($request->profile)) {
+            $body['profile'] = $request->profile;
+        }
+        if (!Utils::isUnset($request->proxyMode)) {
+            $body['proxy_mode'] = $request->proxyMode;
+        }
+        if (!Utils::isUnset($request->rdsInstances)) {
+            $body['rds_instances'] = $request->rdsInstances;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $body['region_id'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $body['resource_group_id'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->rrsaConfig)) {
+            $body['rrsa_config'] = $request->rrsaConfig;
+        }
+        if (!Utils::isUnset($request->runtime)) {
+            $body['runtime'] = $request->runtime;
+        }
+        if (!Utils::isUnset($request->securityGroupId)) {
+            $body['security_group_id'] = $request->securityGroupId;
+        }
+        if (!Utils::isUnset($request->securityHardeningOs)) {
+            $body['security_hardening_os'] = $request->securityHardeningOs;
+        }
+        if (!Utils::isUnset($request->serviceAccountIssuer)) {
+            $body['service_account_issuer'] = $request->serviceAccountIssuer;
+        }
+        if (!Utils::isUnset($request->serviceCidr)) {
+            $body['service_cidr'] = $request->serviceCidr;
+        }
+        if (!Utils::isUnset($request->serviceDiscoveryTypes)) {
+            $body['service_discovery_types'] = $request->serviceDiscoveryTypes;
+        }
+        if (!Utils::isUnset($request->snatEntry)) {
+            $body['snat_entry'] = $request->snatEntry;
+        }
+        if (!Utils::isUnset($request->socEnabled)) {
+            $body['soc_enabled'] = $request->socEnabled;
+        }
+        if (!Utils::isUnset($request->sshFlags)) {
+            $body['ssh_flags'] = $request->sshFlags;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $body['tags'] = $request->tags;
+        }
+        if (!Utils::isUnset($request->taints)) {
+            $body['taints'] = $request->taints;
+        }
+        if (!Utils::isUnset($request->timeoutMins)) {
+            $body['timeout_mins'] = $request->timeoutMins;
+        }
+        if (!Utils::isUnset($request->timezone)) {
+            $body['timezone'] = $request->timezone;
+        }
+        if (!Utils::isUnset($request->userCa)) {
+            $body['user_ca'] = $request->userCa;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $body['user_data'] = $request->userData;
+        }
+        if (!Utils::isUnset($request->vpcid)) {
+            $body['vpcid'] = $request->vpcid;
+        }
+        if (!Utils::isUnset($request->vswitchIds)) {
+            $body['vswitch_ids'] = $request->vswitchIds;
+        }
+        if (!Utils::isUnset($request->workerAutoRenew)) {
+            $body['worker_auto_renew'] = $request->workerAutoRenew;
+        }
+        if (!Utils::isUnset($request->workerAutoRenewPeriod)) {
+            $body['worker_auto_renew_period'] = $request->workerAutoRenewPeriod;
+        }
+        if (!Utils::isUnset($request->workerDataDisks)) {
+            $body['worker_data_disks'] = $request->workerDataDisks;
+        }
+        if (!Utils::isUnset($request->workerInstanceChargeType)) {
+            $body['worker_instance_charge_type'] = $request->workerInstanceChargeType;
+        }
+        if (!Utils::isUnset($request->workerInstanceTypes)) {
+            $body['worker_instance_types'] = $request->workerInstanceTypes;
+        }
+        if (!Utils::isUnset($request->workerPeriod)) {
+            $body['worker_period'] = $request->workerPeriod;
+        }
+        if (!Utils::isUnset($request->workerPeriodUnit)) {
+            $body['worker_period_unit'] = $request->workerPeriodUnit;
+        }
+        if (!Utils::isUnset($request->workerSystemDiskCategory)) {
+            $body['worker_system_disk_category'] = $request->workerSystemDiskCategory;
+        }
+        if (!Utils::isUnset($request->workerSystemDiskPerformanceLevel)) {
+            $body['worker_system_disk_performance_level'] = $request->workerSystemDiskPerformanceLevel;
+        }
+        if (!Utils::isUnset($request->workerSystemDiskSize)) {
+            $body['worker_system_disk_size'] = $request->workerSystemDiskSize;
+        }
+        if (!Utils::isUnset($request->workerSystemDiskSnapshotPolicyId)) {
+            $body['worker_system_disk_snapshot_policy_id'] = $request->workerSystemDiskSnapshotPolicyId;
+        }
+        if (!Utils::isUnset($request->workerVswitchIds)) {
+            $body['worker_vswitch_ids'] = $request->workerVswitchIds;
+        }
+        if (!Utils::isUnset($request->zoneId)) {
+            $body['zone_id'] = $request->zoneId;
+        }
+        if (!Utils::isUnset($request->zoneIds)) {
+            $body['zone_ids'] = $request->zoneIds;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateCluster',
@@ -1579,24 +1337,19 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Creates a Container Service for Kubernetes (ACK) cluster. For example, you can create an ACK managed cluster, ACK Serverless cluster, ACK Edge cluster, or registered cluster. When you create an ACK cluster, you need to configure the cluster information, components, and cloud resources used by ACK.
-     *
-     * @remarks
-     * ### [](#-openapi-)Generate API request parameters through the ACK console
+     * @summary Creates a Container Service for Kubernetes (ACK) cluster. For example, you can create an ACK managed cluster, ACK Serverless cluster, ACK Edge cluster, or registered cluster. When you create an ACK cluster, you need to configure the cluster information, components, and cloud resources used by ACK.
+     *  *
+     * @description ### [](#-openapi-)Generate API request parameters through the ACK console
      * When calling the CreateCluster operation to create a cluster, if the API call fails due to invalid parameter settings, you can generate valid request parameters through the ACK console. Follow these steps:
      * 1.  Log on to the [ACK console](https://csnew.console.aliyun.com). In the left-side navigation pane, click **Clusters**.
      * 2.  On the **Clusters** page, click **Cluster Templates**.
      * 3.  In the Select Cluster Template dialog box, select the type of cluster you want to create and click Create. Then, configure the cluster parameters.
      * 4.  In the **Confirm** step, click **Generate API Request Parameters**.
      *     The API request parameters are displayed in the API Request Parameters dialog box.
+     *  *
+     * @param CreateClusterRequest $request CreateClusterRequest
      *
-     * @param request - CreateClusterRequest
-     *
-     * @returns CreateClusterResponse
-     *
-     * @param CreateClusterRequest $request
-     *
-     * @return CreateClusterResponse
+     * @return CreateClusterResponse CreateClusterResponse
      */
     public function createCluster($request)
     {
@@ -1607,42 +1360,34 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Starts a cluster diagnostic.
-     *
-     * @param request - CreateClusterDiagnosisRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateClusterDiagnosisResponse
-     *
+     * @summary Starts a cluster diagnostic.
+     *  *
      * @param string                        $clusterId
-     * @param CreateClusterDiagnosisRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @param CreateClusterDiagnosisRequest $request   CreateClusterDiagnosisRequest
+     * @param string[]                      $headers   map
+     * @param RuntimeOptions                $runtime   runtime options for this request RuntimeOptions
      *
-     * @return CreateClusterDiagnosisResponse
+     * @return CreateClusterDiagnosisResponse CreateClusterDiagnosisResponse
      */
     public function createClusterDiagnosisWithOptions($clusterId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->target) {
-            @$body['target'] = $request->target;
+        if (!Utils::isUnset($request->target)) {
+            $body['target'] = $request->target;
         }
-
-        if (null !== $request->type) {
-            @$body['type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $body['type'] = $request->type;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateClusterDiagnosis',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/clusters/' . Url::percentEncode($clusterId) . '/diagnosis',
+            'pathname' => '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterId) . '/diagnosis',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -1654,16 +1399,12 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Starts a cluster diagnostic.
-     *
-     * @param request - CreateClusterDiagnosisRequest
-     *
-     * @returns CreateClusterDiagnosisResponse
-     *
+     * @summary Starts a cluster diagnostic.
+     *  *
      * @param string                        $clusterId
-     * @param CreateClusterDiagnosisRequest $request
+     * @param CreateClusterDiagnosisRequest $request   CreateClusterDiagnosisRequest
      *
-     * @return CreateClusterDiagnosisResponse
+     * @return CreateClusterDiagnosisResponse CreateClusterDiagnosisResponse
      */
     public function createClusterDiagnosis($clusterId, $request)
     {
@@ -1674,46 +1415,37 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Configures cluster inspection.
-     *
-     * @param request - CreateClusterInspectConfigRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateClusterInspectConfigResponse
-     *
+     * @summary Configures cluster inspection.
+     *  *
      * @param string                            $clusterId
-     * @param CreateClusterInspectConfigRequest $request
-     * @param string[]                          $headers
-     * @param RuntimeOptions                    $runtime
+     * @param CreateClusterInspectConfigRequest $request   CreateClusterInspectConfigRequest
+     * @param string[]                          $headers   map
+     * @param RuntimeOptions                    $runtime   runtime options for this request RuntimeOptions
      *
-     * @return CreateClusterInspectConfigResponse
+     * @return CreateClusterInspectConfigResponse CreateClusterInspectConfigResponse
      */
     public function createClusterInspectConfigWithOptions($clusterId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->disabledCheckItems) {
-            @$body['disabledCheckItems'] = $request->disabledCheckItems;
+        if (!Utils::isUnset($request->disabledCheckItems)) {
+            $body['disabledCheckItems'] = $request->disabledCheckItems;
         }
-
-        if (null !== $request->enabled) {
-            @$body['enabled'] = $request->enabled;
+        if (!Utils::isUnset($request->enabled)) {
+            $body['enabled'] = $request->enabled;
         }
-
-        if (null !== $request->recurrence) {
-            @$body['recurrence'] = $request->recurrence;
+        if (!Utils::isUnset($request->recurrence)) {
+            $body['recurrence'] = $request->recurrence;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateClusterInspectConfig',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/clusters/' . Url::percentEncode($clusterId) . '/inspectConfig',
+            'pathname' => '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterId) . '/inspectConfig',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -1725,16 +1457,12 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Configures cluster inspection.
-     *
-     * @param request - CreateClusterInspectConfigRequest
-     *
-     * @returns CreateClusterInspectConfigResponse
-     *
+     * @summary Configures cluster inspection.
+     *  *
      * @param string                            $clusterId
-     * @param CreateClusterInspectConfigRequest $request
+     * @param CreateClusterInspectConfigRequest $request   CreateClusterInspectConfigRequest
      *
-     * @return CreateClusterInspectConfigResponse
+     * @return CreateClusterInspectConfigResponse CreateClusterInspectConfigResponse
      */
     public function createClusterInspectConfig($clusterId, $request)
     {
@@ -1745,94 +1473,73 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Creates a node pool for a Container Service for Kubernetes (ACK) cluster. You can use node pools to facilitate node management. For example, you can schedule, configure, or maintain nodes by node pool, and enable auto scaling for a node pool. We recommend that you use a managed node pool, which can help automate specific O\\\\\\&M tasks for nodes, such as Common Vulnerabilities and Exposures (CVE) patching and node repair. This reduces your O\\\\\\&M workload.
-     *
-     * @param request - CreateClusterNodePoolRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateClusterNodePoolResponse
-     *
+     * @summary Creates a node pool for a Container Service for Kubernetes (ACK) cluster. You can use node pools to facilitate node management. For example, you can schedule, configure, or maintain nodes by node pool, and enable auto scaling for a node pool. We recommend that you use a managed node pool, which can help automate specific O\\\\\\&M tasks for nodes, such as Common Vulnerabilities and Exposures (CVE) patching and node repair. This reduces your O\\\\\\&M workload.
+     *  *
      * @param string                       $ClusterId
-     * @param CreateClusterNodePoolRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @param CreateClusterNodePoolRequest $request   CreateClusterNodePoolRequest
+     * @param string[]                     $headers   map
+     * @param RuntimeOptions               $runtime   runtime options for this request RuntimeOptions
      *
-     * @return CreateClusterNodePoolResponse
+     * @return CreateClusterNodePoolResponse CreateClusterNodePoolResponse
      */
     public function createClusterNodePoolWithOptions($ClusterId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->autoMode) {
-            @$body['auto_mode'] = $request->autoMode;
+        if (!Utils::isUnset($request->autoMode)) {
+            $body['auto_mode'] = $request->autoMode;
         }
-
-        if (null !== $request->autoScaling) {
-            @$body['auto_scaling'] = $request->autoScaling;
+        if (!Utils::isUnset($request->autoScaling)) {
+            $body['auto_scaling'] = $request->autoScaling;
         }
-
-        if (null !== $request->count) {
-            @$body['count'] = $request->count;
+        if (!Utils::isUnset($request->count)) {
+            $body['count'] = $request->count;
         }
-
-        if (null !== $request->efloNodeGroup) {
-            @$body['eflo_node_group'] = $request->efloNodeGroup;
+        if (!Utils::isUnset($request->efloNodeGroup)) {
+            $body['eflo_node_group'] = $request->efloNodeGroup;
         }
-
-        if (null !== $request->hostNetwork) {
-            @$body['host_network'] = $request->hostNetwork;
+        if (!Utils::isUnset($request->hostNetwork)) {
+            $body['host_network'] = $request->hostNetwork;
         }
-
-        if (null !== $request->interconnectConfig) {
-            @$body['interconnect_config'] = $request->interconnectConfig;
+        if (!Utils::isUnset($request->interconnectConfig)) {
+            $body['interconnect_config'] = $request->interconnectConfig;
         }
-
-        if (null !== $request->interconnectMode) {
-            @$body['interconnect_mode'] = $request->interconnectMode;
+        if (!Utils::isUnset($request->interconnectMode)) {
+            $body['interconnect_mode'] = $request->interconnectMode;
         }
-
-        if (null !== $request->intranet) {
-            @$body['intranet'] = $request->intranet;
+        if (!Utils::isUnset($request->intranet)) {
+            $body['intranet'] = $request->intranet;
         }
-
-        if (null !== $request->kubernetesConfig) {
-            @$body['kubernetes_config'] = $request->kubernetesConfig;
+        if (!Utils::isUnset($request->kubernetesConfig)) {
+            $body['kubernetes_config'] = $request->kubernetesConfig;
         }
-
-        if (null !== $request->management) {
-            @$body['management'] = $request->management;
+        if (!Utils::isUnset($request->management)) {
+            $body['management'] = $request->management;
         }
-
-        if (null !== $request->maxNodes) {
-            @$body['max_nodes'] = $request->maxNodes;
+        if (!Utils::isUnset($request->maxNodes)) {
+            $body['max_nodes'] = $request->maxNodes;
         }
-
-        if (null !== $request->nodeConfig) {
-            @$body['node_config'] = $request->nodeConfig;
+        if (!Utils::isUnset($request->nodeConfig)) {
+            $body['node_config'] = $request->nodeConfig;
         }
-
-        if (null !== $request->nodepoolInfo) {
-            @$body['nodepool_info'] = $request->nodepoolInfo;
+        if (!Utils::isUnset($request->nodepoolInfo)) {
+            $body['nodepool_info'] = $request->nodepoolInfo;
         }
-
-        if (null !== $request->scalingGroup) {
-            @$body['scaling_group'] = $request->scalingGroup;
+        if (!Utils::isUnset($request->scalingGroup)) {
+            $body['scaling_group'] = $request->scalingGroup;
         }
-
-        if (null !== $request->teeConfig) {
-            @$body['tee_config'] = $request->teeConfig;
+        if (!Utils::isUnset($request->teeConfig)) {
+            $body['tee_config'] = $request->teeConfig;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateClusterNodePool',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/clusters/' . Url::percentEncode($ClusterId) . '/nodepools',
+            'pathname' => '/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/nodepools',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -1844,16 +1551,12 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Creates a node pool for a Container Service for Kubernetes (ACK) cluster. You can use node pools to facilitate node management. For example, you can schedule, configure, or maintain nodes by node pool, and enable auto scaling for a node pool. We recommend that you use a managed node pool, which can help automate specific O\\\\\\&M tasks for nodes, such as Common Vulnerabilities and Exposures (CVE) patching and node repair. This reduces your O\\\\\\&M workload.
-     *
-     * @param request - CreateClusterNodePoolRequest
-     *
-     * @returns CreateClusterNodePoolResponse
-     *
+     * @summary Creates a node pool for a Container Service for Kubernetes (ACK) cluster. You can use node pools to facilitate node management. For example, you can schedule, configure, or maintain nodes by node pool, and enable auto scaling for a node pool. We recommend that you use a managed node pool, which can help automate specific O\\\\\\&M tasks for nodes, such as Common Vulnerabilities and Exposures (CVE) patching and node repair. This reduces your O\\\\\\&M workload.
+     *  *
      * @param string                       $ClusterId
-     * @param CreateClusterNodePoolRequest $request
+     * @param CreateClusterNodePoolRequest $request   CreateClusterNodePoolRequest
      *
-     * @return CreateClusterNodePoolResponse
+     * @return CreateClusterNodePoolResponse CreateClusterNodePoolResponse
      */
     public function createClusterNodePool($ClusterId, $request)
     {
@@ -1864,39 +1567,30 @@ class CS extends OpenApiClient
     }
 
     /**
-     * You can call the CreateEdgeMachine operation to activate a cloud-native box.
+     * @summary You can call the CreateEdgeMachine operation to activate a cloud-native box.
+     *  *
+     * @param CreateEdgeMachineRequest $request CreateEdgeMachineRequest
+     * @param string[]                 $headers map
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateEdgeMachineRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateEdgeMachineResponse
-     *
-     * @param CreateEdgeMachineRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
-     *
-     * @return CreateEdgeMachineResponse
+     * @return CreateEdgeMachineResponse CreateEdgeMachineResponse
      */
     public function createEdgeMachineWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->hostname) {
-            @$body['hostname'] = $request->hostname;
+        if (!Utils::isUnset($request->hostname)) {
+            $body['hostname'] = $request->hostname;
         }
-
-        if (null !== $request->model) {
-            @$body['model'] = $request->model;
+        if (!Utils::isUnset($request->model)) {
+            $body['model'] = $request->model;
         }
-
-        if (null !== $request->sn) {
-            @$body['sn'] = $request->sn;
+        if (!Utils::isUnset($request->sn)) {
+            $body['sn'] = $request->sn;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateEdgeMachine',
@@ -1914,15 +1608,11 @@ class CS extends OpenApiClient
     }
 
     /**
-     * You can call the CreateEdgeMachine operation to activate a cloud-native box.
+     * @summary You can call the CreateEdgeMachine operation to activate a cloud-native box.
+     *  *
+     * @param CreateEdgeMachineRequest $request CreateEdgeMachineRequest
      *
-     * @param request - CreateEdgeMachineRequest
-     *
-     * @returns CreateEdgeMachineResponse
-     *
-     * @param CreateEdgeMachineRequest $request
-     *
-     * @return CreateEdgeMachineResponse
+     * @return CreateEdgeMachineResponse CreateEdgeMachineResponse
      */
     public function createEdgeMachine($request)
     {
@@ -1932,47 +1622,38 @@ class CS extends OpenApiClient
         return $this->createEdgeMachineWithOptions($request, $headers, $runtime);
     }
 
-    // Deprecated
     /**
-     * You can call the CreateKubernetesTrigger operation to create a trigger for an application.
-     *
      * @deprecated OpenAPI CreateKubernetesTrigger is deprecated
+     *  *
+     * @summary You can call the CreateKubernetesTrigger operation to create a trigger for an application.
+     *  *
+     * Deprecated
      *
-     * @param request - CreateKubernetesTriggerRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
+     * @param CreateKubernetesTriggerRequest $request CreateKubernetesTriggerRequest
+     * @param string[]                       $headers map
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @returns CreateKubernetesTriggerResponse
-     *
-     * @param CreateKubernetesTriggerRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return CreateKubernetesTriggerResponse
+     * @return CreateKubernetesTriggerResponse CreateKubernetesTriggerResponse
      */
     public function createKubernetesTriggerWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->action) {
-            @$body['action'] = $request->action;
+        if (!Utils::isUnset($request->action)) {
+            $body['action'] = $request->action;
         }
-
-        if (null !== $request->clusterId) {
-            @$body['cluster_id'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $body['cluster_id'] = $request->clusterId;
         }
-
-        if (null !== $request->projectId) {
-            @$body['project_id'] = $request->projectId;
+        if (!Utils::isUnset($request->projectId)) {
+            $body['project_id'] = $request->projectId;
         }
-
-        if (null !== $request->type) {
-            @$body['type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $body['type'] = $request->type;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateKubernetesTrigger',
@@ -1989,19 +1670,16 @@ class CS extends OpenApiClient
         return CreateKubernetesTriggerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
-    // Deprecated
     /**
-     * You can call the CreateKubernetesTrigger operation to create a trigger for an application.
-     *
      * @deprecated OpenAPI CreateKubernetesTrigger is deprecated
+     *  *
+     * @summary You can call the CreateKubernetesTrigger operation to create a trigger for an application.
+     *  *
+     * Deprecated
      *
-     * @param request - CreateKubernetesTriggerRequest
+     * @param CreateKubernetesTriggerRequest $request CreateKubernetesTriggerRequest
      *
-     * @returns CreateKubernetesTriggerResponse
-     *
-     * @param CreateKubernetesTriggerRequest $request
-     *
-     * @return CreateKubernetesTriggerResponse
+     * @return CreateKubernetesTriggerResponse CreateKubernetesTriggerResponse
      */
     public function createKubernetesTrigger($request)
     {
@@ -2012,47 +1690,36 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Creates an orchestration template. An orchestration template defines and describes a group of Kubernetes resources. It declaratively describes the configuration of an application or how an application runs. You can use orchestration templates to manage resources in Kubernetes clusters and automate resource deployment, such as pods, Services, Deployments, ConfigMaps, and persistent volumes (PVs).
+     * @summary Creates an orchestration template. An orchestration template defines and describes a group of Kubernetes resources. It declaratively describes the configuration of an application or how an application runs. You can use orchestration templates to manage resources in Kubernetes clusters and automate resource deployment, such as pods, Services, Deployments, ConfigMaps, and persistent volumes (PVs).
+     *  *
+     * @param CreateTemplateRequest $request CreateTemplateRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateTemplateRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateTemplateResponse
-     *
-     * @param CreateTemplateRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
-     *
-     * @return CreateTemplateResponse
+     * @return CreateTemplateResponse CreateTemplateResponse
      */
     public function createTemplateWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->description) {
-            @$body['description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $body['description'] = $request->description;
         }
-
-        if (null !== $request->name) {
-            @$body['name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $body['name'] = $request->name;
         }
-
-        if (null !== $request->tags) {
-            @$body['tags'] = $request->tags;
+        if (!Utils::isUnset($request->tags)) {
+            $body['tags'] = $request->tags;
         }
-
-        if (null !== $request->template) {
-            @$body['template'] = $request->template;
+        if (!Utils::isUnset($request->template)) {
+            $body['template'] = $request->template;
         }
-
-        if (null !== $request->templateType) {
-            @$body['template_type'] = $request->templateType;
+        if (!Utils::isUnset($request->templateType)) {
+            $body['template_type'] = $request->templateType;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateTemplate',
@@ -2070,15 +1737,11 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Creates an orchestration template. An orchestration template defines and describes a group of Kubernetes resources. It declaratively describes the configuration of an application or how an application runs. You can use orchestration templates to manage resources in Kubernetes clusters and automate resource deployment, such as pods, Services, Deployments, ConfigMaps, and persistent volumes (PVs).
+     * @summary Creates an orchestration template. An orchestration template defines and describes a group of Kubernetes resources. It declaratively describes the configuration of an application or how an application runs. You can use orchestration templates to manage resources in Kubernetes clusters and automate resource deployment, such as pods, Services, Deployments, ConfigMaps, and persistent volumes (PVs).
+     *  *
+     * @param CreateTemplateRequest $request CreateTemplateRequest
      *
-     * @param request - CreateTemplateRequest
-     *
-     * @returns CreateTemplateResponse
-     *
-     * @param CreateTemplateRequest $request
-     *
-     * @return CreateTemplateResponse
+     * @return CreateTemplateResponse CreateTemplateResponse
      */
     public function createTemplate($request)
     {
@@ -2089,50 +1752,40 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Creates a trigger for an application to redeploy the application pods when specific conditions are met.
-     *
-     * @param request - CreateTriggerRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateTriggerResponse
-     *
+     * @summary Creates a trigger for an application to redeploy the application pods when specific conditions are met.
+     *  *
      * @param string               $clusterId
-     * @param CreateTriggerRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param CreateTriggerRequest $request   CreateTriggerRequest
+     * @param string[]             $headers   map
+     * @param RuntimeOptions       $runtime   runtime options for this request RuntimeOptions
      *
-     * @return CreateTriggerResponse
+     * @return CreateTriggerResponse CreateTriggerResponse
      */
     public function createTriggerWithOptions($clusterId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->action) {
-            @$body['action'] = $request->action;
+        if (!Utils::isUnset($request->action)) {
+            $body['action'] = $request->action;
         }
-
-        if (null !== $request->clusterId) {
-            @$body['cluster_id'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $body['cluster_id'] = $request->clusterId;
         }
-
-        if (null !== $request->projectId) {
-            @$body['project_id'] = $request->projectId;
+        if (!Utils::isUnset($request->projectId)) {
+            $body['project_id'] = $request->projectId;
         }
-
-        if (null !== $request->type) {
-            @$body['type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $body['type'] = $request->type;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateTrigger',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/clusters/' . Url::percentEncode($clusterId) . '/triggers',
+            'pathname' => '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterId) . '/triggers',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -2144,16 +1797,12 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Creates a trigger for an application to redeploy the application pods when specific conditions are met.
-     *
-     * @param request - CreateTriggerRequest
-     *
-     * @returns CreateTriggerResponse
-     *
+     * @summary Creates a trigger for an application to redeploy the application pods when specific conditions are met.
+     *  *
      * @param string               $clusterId
-     * @param CreateTriggerRequest $request
+     * @param CreateTriggerRequest $request   CreateTriggerRequest
      *
-     * @return CreateTriggerResponse
+     * @return CreateTriggerResponse CreateTriggerResponse
      */
     public function createTrigger($clusterId, $request)
     {
@@ -2164,37 +1813,29 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Deletes one or more ACK alert contacts.
+     * @summary Deletes one or more ACK alert contacts.
+     *  *
+     * @param DeleteAlertContactRequest $tmpReq  DeleteAlertContactRequest
+     * @param string[]                  $headers map
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - DeleteAlertContactRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteAlertContactResponse
-     *
-     * @param DeleteAlertContactRequest $tmpReq
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DeleteAlertContactResponse
+     * @return DeleteAlertContactResponse DeleteAlertContactResponse
      */
     public function deleteAlertContactWithOptions($tmpReq, $headers, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new DeleteAlertContactShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->contactIds) {
-            $request->contactIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->contactIds, 'contact_ids', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->contactIds)) {
+            $request->contactIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->contactIds, 'contact_ids', 'json');
         }
-
         $query = [];
-        if (null !== $request->contactIdsShrink) {
-            @$query['contact_ids'] = $request->contactIdsShrink;
+        if (!Utils::isUnset($request->contactIdsShrink)) {
+            $query['contact_ids'] = $request->contactIdsShrink;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteAlertContact',
@@ -2212,15 +1853,11 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Deletes one or more ACK alert contacts.
+     * @summary Deletes one or more ACK alert contacts.
+     *  *
+     * @param DeleteAlertContactRequest $request DeleteAlertContactRequest
      *
-     * @param request - DeleteAlertContactRequest
-     *
-     * @returns DeleteAlertContactResponse
-     *
-     * @param DeleteAlertContactRequest $request
-     *
-     * @return DeleteAlertContactResponse
+     * @return DeleteAlertContactResponse DeleteAlertContactResponse
      */
     public function deleteAlertContact($request)
     {
@@ -2231,37 +1868,29 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Deletes an ACK alert contact group.
+     * @summary Deletes an ACK alert contact group.
+     *  *
+     * @param DeleteAlertContactGroupRequest $tmpReq  DeleteAlertContactGroupRequest
+     * @param string[]                       $headers map
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - DeleteAlertContactGroupRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteAlertContactGroupResponse
-     *
-     * @param DeleteAlertContactGroupRequest $tmpReq
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DeleteAlertContactGroupResponse
+     * @return DeleteAlertContactGroupResponse DeleteAlertContactGroupResponse
      */
     public function deleteAlertContactGroupWithOptions($tmpReq, $headers, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new DeleteAlertContactGroupShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->contactGroupIds) {
-            $request->contactGroupIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->contactGroupIds, 'contact_group_ids', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->contactGroupIds)) {
+            $request->contactGroupIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->contactGroupIds, 'contact_group_ids', 'json');
         }
-
         $query = [];
-        if (null !== $request->contactGroupIdsShrink) {
-            @$query['contact_group_ids'] = $request->contactGroupIdsShrink;
+        if (!Utils::isUnset($request->contactGroupIdsShrink)) {
+            $query['contact_group_ids'] = $request->contactGroupIdsShrink;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteAlertContactGroup',
@@ -2279,15 +1908,11 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Deletes an ACK alert contact group.
+     * @summary Deletes an ACK alert contact group.
+     *  *
+     * @param DeleteAlertContactGroupRequest $request DeleteAlertContactGroupRequest
      *
-     * @param request - DeleteAlertContactGroupRequest
-     *
-     * @returns DeleteAlertContactGroupResponse
-     *
-     * @param DeleteAlertContactGroupRequest $request
-     *
-     * @return DeleteAlertContactGroupResponse
+     * @return DeleteAlertContactGroupResponse DeleteAlertContactGroupResponse
      */
     public function deleteAlertContactGroup($request)
     {
@@ -2298,68 +1923,55 @@ class CS extends OpenApiClient
     }
 
     /**
-     * You can call the DeleteCluster operation to delete a cluster and specify whether to delete or retain the relevant cluster resources. Before you delete a cluster, you must manually delete workloads in the cluster, such as Deployments, StatefulSets, Jobs, and CronJobs. Otherwise, you may fail to delete the cluster.
-     *
-     * @remarks
-     * Warning:
+     * @summary You can call the DeleteCluster operation to delete a cluster and specify whether to delete or retain the relevant cluster resources. Before you delete a cluster, you must manually delete workloads in the cluster, such as Deployments, StatefulSets, Jobs, and CronJobs. Otherwise, you may fail to delete the cluster.
+     *  *
+     * @description Warning:
      * *   Subscription ECS instances and Lingjun nodes in a cluster cannot be automatically released. To avoid unnecessary costs, we recommend that you manually release the resources. For more information, see \\<a href="{0}" target="_blank">Rules for deleting clusters and releasing nodes\\</a>.
      * *   If the SLB instance of the API server uses the subscription billing method, it cannot be automatically released. To avoid unnecessary costs, we recommend that you manually release it.
      * *   By default, virtual private clouds (VPCs), vSwitches, security groups, and RAM roles are retained if they are used by other resources. To avoid unnecessary costs, we recommend that you manually release the resources.
      * *   Elastic container instances created on virtual nodes are automatically released.
      * *   Some resources created together with a cluster are not automatically released when the cluster is deleted. After the cluster is deleted, you are still charged for the resources. Release or retain the resources based on your actual needs. The resources include Simple Log Service projects automatically created by the cluster and dynamically provisioned disks.
-     *
-     * @param tmpReq - DeleteClusterRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteClusterResponse
-     *
+     *  *
      * @param string               $ClusterId
-     * @param DeleteClusterRequest $tmpReq
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param DeleteClusterRequest $tmpReq    DeleteClusterRequest
+     * @param string[]             $headers   map
+     * @param RuntimeOptions       $runtime   runtime options for this request RuntimeOptions
      *
-     * @return DeleteClusterResponse
+     * @return DeleteClusterResponse DeleteClusterResponse
      */
     public function deleteClusterWithOptions($ClusterId, $tmpReq, $headers, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new DeleteClusterShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->deleteOptions) {
-            $request->deleteOptionsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deleteOptions, 'delete_options', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->deleteOptions)) {
+            $request->deleteOptionsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deleteOptions, 'delete_options', 'json');
         }
-
-        if (null !== $tmpReq->retainResources) {
-            $request->retainResourcesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->retainResources, 'retain_resources', 'json');
+        if (!Utils::isUnset($tmpReq->retainResources)) {
+            $request->retainResourcesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->retainResources, 'retain_resources', 'json');
         }
-
         $query = [];
-        if (null !== $request->deleteOptionsShrink) {
-            @$query['delete_options'] = $request->deleteOptionsShrink;
+        if (!Utils::isUnset($request->deleteOptionsShrink)) {
+            $query['delete_options'] = $request->deleteOptionsShrink;
         }
-
-        if (null !== $request->keepSlb) {
-            @$query['keep_slb'] = $request->keepSlb;
+        if (!Utils::isUnset($request->keepSlb)) {
+            $query['keep_slb'] = $request->keepSlb;
         }
-
-        if (null !== $request->retainAllResources) {
-            @$query['retain_all_resources'] = $request->retainAllResources;
+        if (!Utils::isUnset($request->retainAllResources)) {
+            $query['retain_all_resources'] = $request->retainAllResources;
         }
-
-        if (null !== $request->retainResourcesShrink) {
-            @$query['retain_resources'] = $request->retainResourcesShrink;
+        if (!Utils::isUnset($request->retainResourcesShrink)) {
+            $query['retain_resources'] = $request->retainResourcesShrink;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteCluster',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/clusters/' . Url::percentEncode($ClusterId) . '',
+            'pathname' => '/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -2371,24 +1983,19 @@ class CS extends OpenApiClient
     }
 
     /**
-     * You can call the DeleteCluster operation to delete a cluster and specify whether to delete or retain the relevant cluster resources. Before you delete a cluster, you must manually delete workloads in the cluster, such as Deployments, StatefulSets, Jobs, and CronJobs. Otherwise, you may fail to delete the cluster.
-     *
-     * @remarks
-     * Warning:
+     * @summary You can call the DeleteCluster operation to delete a cluster and specify whether to delete or retain the relevant cluster resources. Before you delete a cluster, you must manually delete workloads in the cluster, such as Deployments, StatefulSets, Jobs, and CronJobs. Otherwise, you may fail to delete the cluster.
+     *  *
+     * @description Warning:
      * *   Subscription ECS instances and Lingjun nodes in a cluster cannot be automatically released. To avoid unnecessary costs, we recommend that you manually release the resources. For more information, see \\<a href="{0}" target="_blank">Rules for deleting clusters and releasing nodes\\</a>.
      * *   If the SLB instance of the API server uses the subscription billing method, it cannot be automatically released. To avoid unnecessary costs, we recommend that you manually release it.
      * *   By default, virtual private clouds (VPCs), vSwitches, security groups, and RAM roles are retained if they are used by other resources. To avoid unnecessary costs, we recommend that you manually release the resources.
      * *   Elastic container instances created on virtual nodes are automatically released.
      * *   Some resources created together with a cluster are not automatically released when the cluster is deleted. After the cluster is deleted, you are still charged for the resources. Release or retain the resources based on your actual needs. The resources include Simple Log Service projects automatically created by the cluster and dynamically provisioned disks.
-     *
-     * @param request - DeleteClusterRequest
-     *
-     * @returns DeleteClusterResponse
-     *
+     *  *
      * @param string               $ClusterId
-     * @param DeleteClusterRequest $request
+     * @param DeleteClusterRequest $request   DeleteClusterRequest
      *
-     * @return DeleteClusterResponse
+     * @return DeleteClusterResponse DeleteClusterResponse
      */
     public function deleteCluster($ClusterId, $request)
     {
@@ -2399,18 +2006,13 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Deletes cluster inspection configurations.
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteClusterInspectConfigResponse
-     *
+     * @summary Deletes cluster inspection configurations.
+     *  *
      * @param string         $clusterId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
      *
-     * @return DeleteClusterInspectConfigResponse
+     * @return DeleteClusterInspectConfigResponse DeleteClusterInspectConfigResponse
      */
     public function deleteClusterInspectConfigWithOptions($clusterId, $headers, $runtime)
     {
@@ -2421,7 +2023,7 @@ class CS extends OpenApiClient
             'action' => 'DeleteClusterInspectConfig',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/clusters/' . Url::percentEncode($clusterId) . '/inspectConfig',
+            'pathname' => '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterId) . '/inspectConfig',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -2433,13 +2035,11 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Deletes cluster inspection configurations.
-     *
-     * @returns DeleteClusterInspectConfigResponse
-     *
+     * @summary Deletes cluster inspection configurations.
+     *  *
      * @param string $clusterId
      *
-     * @return DeleteClusterInspectConfigResponse
+     * @return DeleteClusterInspectConfigResponse DeleteClusterInspectConfigResponse
      */
     public function deleteClusterInspectConfig($clusterId)
     {
@@ -2450,39 +2050,32 @@ class CS extends OpenApiClient
     }
 
     /**
-     * null.
-     *
-     * @param request - DeleteClusterNodepoolRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteClusterNodepoolResponse
-     *
+     * @summary null
+     *  *
      * @param string                       $ClusterId
      * @param string                       $NodepoolId
-     * @param DeleteClusterNodepoolRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @param DeleteClusterNodepoolRequest $request    DeleteClusterNodepoolRequest
+     * @param string[]                     $headers    map
+     * @param RuntimeOptions               $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DeleteClusterNodepoolResponse
+     * @return DeleteClusterNodepoolResponse DeleteClusterNodepoolResponse
      */
     public function deleteClusterNodepoolWithOptions($ClusterId, $NodepoolId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->force) {
-            @$query['force'] = $request->force;
+        if (!Utils::isUnset($request->force)) {
+            $query['force'] = $request->force;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteClusterNodepool',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/clusters/' . Url::percentEncode($ClusterId) . '/nodepools/' . Url::percentEncode($NodepoolId) . '',
+            'pathname' => '/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/nodepools/' . OpenApiUtilClient::getEncodeParam($NodepoolId) . '',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -2494,17 +2087,13 @@ class CS extends OpenApiClient
     }
 
     /**
-     * null.
-     *
-     * @param request - DeleteClusterNodepoolRequest
-     *
-     * @returns DeleteClusterNodepoolResponse
-     *
+     * @summary null
+     *  *
      * @param string                       $ClusterId
      * @param string                       $NodepoolId
-     * @param DeleteClusterNodepoolRequest $request
+     * @param DeleteClusterNodepoolRequest $request    DeleteClusterNodepoolRequest
      *
-     * @return DeleteClusterNodepoolResponse
+     * @return DeleteClusterNodepoolResponse DeleteClusterNodepoolResponse
      */
     public function deleteClusterNodepool($ClusterId, $NodepoolId, $request)
     {
@@ -2515,54 +2104,44 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Removes nodes from a Container Service for Kubernetes (ACK) cluster when they are no longer required through the DeleteClusterNodes interface. When removing nodes, you can specify whether to release the Elastic Compute Service (ECS) instances and drain the nodes.
-     *
-     * @remarks
-     *   Use this API or the [ACK console](https://cs.console.aliyun.com) for node removal. Do not remove a node by running the `kubectl delete node` command.
+     * @summary Removes nodes from a Container Service for Kubernetes (ACK) cluster when they are no longer required through the DeleteClusterNodes interface. When removing nodes, you can specify whether to release the Elastic Compute Service (ECS) instances and drain the nodes.
+     *  *
+     * @description *   Use this API or the [ACK console](https://cs.console.aliyun.com) for node removal. Do not remove a node by running the `kubectl delete node` command.
      * *   Never directly release or remove ECS instances through the ECS or Auto Scaling console/APIs. Renew subscription ECS instances before they expire. Violations may cause node termination and removal from the ACK console.
      * *   If a node pool has the Expected Nodes parameter configured, the node pool automatically scales other ECS instances to maintain the expected number of nodes.
      * *   When you remove a node, the pods on the node are migrated to other nodes. To prevent service interruptions, remove nodes during off-peak hours. Unexpected risks may arise during node removal. Back up the data in advance.
      * *   ACK drains the node during node removal. Make sure that other nodes in the cluster have sufficient resources to host the evicted pods.
      * *   To ensure the pods on the node you want to remove can be successfully scheduled to other nodes, check whether the node affinity rules and scheduling policies of the pods meet the requirements.
-     *
-     * @param request - DeleteClusterNodesRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteClusterNodesResponse
-     *
+     *  *
      * @param string                    $ClusterId
-     * @param DeleteClusterNodesRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @param DeleteClusterNodesRequest $request   DeleteClusterNodesRequest
+     * @param string[]                  $headers   map
+     * @param RuntimeOptions            $runtime   runtime options for this request RuntimeOptions
      *
-     * @return DeleteClusterNodesResponse
+     * @return DeleteClusterNodesResponse DeleteClusterNodesResponse
      */
     public function deleteClusterNodesWithOptions($ClusterId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->drainNode) {
-            @$body['drain_node'] = $request->drainNode;
+        if (!Utils::isUnset($request->drainNode)) {
+            $body['drain_node'] = $request->drainNode;
         }
-
-        if (null !== $request->nodes) {
-            @$body['nodes'] = $request->nodes;
+        if (!Utils::isUnset($request->nodes)) {
+            $body['nodes'] = $request->nodes;
         }
-
-        if (null !== $request->releaseNode) {
-            @$body['release_node'] = $request->releaseNode;
+        if (!Utils::isUnset($request->releaseNode)) {
+            $body['release_node'] = $request->releaseNode;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DeleteClusterNodes',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/clusters/' . Url::percentEncode($ClusterId) . '/nodes',
+            'pathname' => '/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/nodes',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -2574,24 +2153,19 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Removes nodes from a Container Service for Kubernetes (ACK) cluster when they are no longer required through the DeleteClusterNodes interface. When removing nodes, you can specify whether to release the Elastic Compute Service (ECS) instances and drain the nodes.
-     *
-     * @remarks
-     *   Use this API or the [ACK console](https://cs.console.aliyun.com) for node removal. Do not remove a node by running the `kubectl delete node` command.
+     * @summary Removes nodes from a Container Service for Kubernetes (ACK) cluster when they are no longer required through the DeleteClusterNodes interface. When removing nodes, you can specify whether to release the Elastic Compute Service (ECS) instances and drain the nodes.
+     *  *
+     * @description *   Use this API or the [ACK console](https://cs.console.aliyun.com) for node removal. Do not remove a node by running the `kubectl delete node` command.
      * *   Never directly release or remove ECS instances through the ECS or Auto Scaling console/APIs. Renew subscription ECS instances before they expire. Violations may cause node termination and removal from the ACK console.
      * *   If a node pool has the Expected Nodes parameter configured, the node pool automatically scales other ECS instances to maintain the expected number of nodes.
      * *   When you remove a node, the pods on the node are migrated to other nodes. To prevent service interruptions, remove nodes during off-peak hours. Unexpected risks may arise during node removal. Back up the data in advance.
      * *   ACK drains the node during node removal. Make sure that other nodes in the cluster have sufficient resources to host the evicted pods.
      * *   To ensure the pods on the node you want to remove can be successfully scheduled to other nodes, check whether the node affinity rules and scheduling policies of the pods meet the requirements.
-     *
-     * @param request - DeleteClusterNodesRequest
-     *
-     * @returns DeleteClusterNodesResponse
-     *
+     *  *
      * @param string                    $ClusterId
-     * @param DeleteClusterNodesRequest $request
+     * @param DeleteClusterNodesRequest $request   DeleteClusterNodesRequest
      *
-     * @return DeleteClusterNodesResponse
+     * @return DeleteClusterNodesResponse DeleteClusterNodesResponse
      */
     public function deleteClusterNodes($ClusterId, $request)
     {
@@ -2602,32 +2176,25 @@ class CS extends OpenApiClient
     }
 
     /**
-     * You can call the DeleteEdgeMachine operation to delete a cloud-native box.
-     *
-     * @param request - DeleteEdgeMachineRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteEdgeMachineResponse
-     *
+     * @summary You can call the DeleteEdgeMachine operation to delete a cloud-native box.
+     *  *
      * @param string                   $edgeMachineid
-     * @param DeleteEdgeMachineRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @param DeleteEdgeMachineRequest $request       DeleteEdgeMachineRequest
+     * @param string[]                 $headers       map
+     * @param RuntimeOptions           $runtime       runtime options for this request RuntimeOptions
      *
-     * @return DeleteEdgeMachineResponse
+     * @return DeleteEdgeMachineResponse DeleteEdgeMachineResponse
      */
     public function deleteEdgeMachineWithOptions($edgeMachineid, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->force) {
-            @$query['force'] = $request->force;
+        if (!Utils::isUnset($request->force)) {
+            $query['force'] = $request->force;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteEdgeMachine',
@@ -2645,16 +2212,12 @@ class CS extends OpenApiClient
     }
 
     /**
-     * You can call the DeleteEdgeMachine operation to delete a cloud-native box.
-     *
-     * @param request - DeleteEdgeMachineRequest
-     *
-     * @returns DeleteEdgeMachineResponse
-     *
+     * @summary You can call the DeleteEdgeMachine operation to delete a cloud-native box.
+     *  *
      * @param string                   $edgeMachineid
-     * @param DeleteEdgeMachineRequest $request
+     * @param DeleteEdgeMachineRequest $request       DeleteEdgeMachineRequest
      *
-     * @return DeleteEdgeMachineResponse
+     * @return DeleteEdgeMachineResponse DeleteEdgeMachineResponse
      */
     public function deleteEdgeMachine($edgeMachineid, $request)
     {
@@ -2664,22 +2227,18 @@ class CS extends OpenApiClient
         return $this->deleteEdgeMachineWithOptions($edgeMachineid, $request, $headers, $runtime);
     }
 
-    // Deprecated
     /**
-     * You can call the DeleteKubernetesTrigger operation to delete an application trigger by trigger ID.
-     *
      * @deprecated OpenAPI DeleteKubernetesTrigger is deprecated
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteKubernetesTriggerResponse
+     *  *
+     * @summary You can call the DeleteKubernetesTrigger operation to delete an application trigger by trigger ID
+     *  *
+     * Deprecated
      *
      * @param string         $Id
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteKubernetesTriggerResponse
+     * @return DeleteKubernetesTriggerResponse DeleteKubernetesTriggerResponse
      */
     public function deleteKubernetesTriggerWithOptions($Id, $headers, $runtime)
     {
@@ -2690,7 +2249,7 @@ class CS extends OpenApiClient
             'action' => 'DeleteKubernetesTrigger',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/triggers/revoke/' . Url::percentEncode($Id) . '',
+            'pathname' => '/triggers/revoke/' . OpenApiUtilClient::getEncodeParam($Id) . '',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -2701,17 +2260,16 @@ class CS extends OpenApiClient
         return DeleteKubernetesTriggerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
-    // Deprecated
     /**
-     * You can call the DeleteKubernetesTrigger operation to delete an application trigger by trigger ID.
-     *
      * @deprecated OpenAPI DeleteKubernetesTrigger is deprecated
-     *
-     * @returns DeleteKubernetesTriggerResponse
+     *  *
+     * @summary You can call the DeleteKubernetesTrigger operation to delete an application trigger by trigger ID
+     *  *
+     * Deprecated
      *
      * @param string $Id
      *
-     * @return DeleteKubernetesTriggerResponse
+     * @return DeleteKubernetesTriggerResponse DeleteKubernetesTriggerResponse
      */
     public function deleteKubernetesTrigger($Id)
     {
@@ -2722,39 +2280,32 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Deletes policy instances in a Container Service for Kubernetes (ACK) cluster.
-     *
-     * @param request - DeletePolicyInstanceRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeletePolicyInstanceResponse
-     *
+     * @summary Deletes policy instances in a Container Service for Kubernetes (ACK) cluster.
+     *  *
      * @param string                      $clusterId
      * @param string                      $policyName
-     * @param DeletePolicyInstanceRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @param DeletePolicyInstanceRequest $request    DeletePolicyInstanceRequest
+     * @param string[]                    $headers    map
+     * @param RuntimeOptions              $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DeletePolicyInstanceResponse
+     * @return DeletePolicyInstanceResponse DeletePolicyInstanceResponse
      */
     public function deletePolicyInstanceWithOptions($clusterId, $policyName, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceName) {
-            @$query['instance_name'] = $request->instanceName;
+        if (!Utils::isUnset($request->instanceName)) {
+            $query['instance_name'] = $request->instanceName;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeletePolicyInstance',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/clusters/' . Url::percentEncode($clusterId) . '/policies/' . Url::percentEncode($policyName) . '',
+            'pathname' => '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterId) . '/policies/' . OpenApiUtilClient::getEncodeParam($policyName) . '',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -2766,17 +2317,13 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Deletes policy instances in a Container Service for Kubernetes (ACK) cluster.
-     *
-     * @param request - DeletePolicyInstanceRequest
-     *
-     * @returns DeletePolicyInstanceResponse
-     *
+     * @summary Deletes policy instances in a Container Service for Kubernetes (ACK) cluster.
+     *  *
      * @param string                      $clusterId
      * @param string                      $policyName
-     * @param DeletePolicyInstanceRequest $request
+     * @param DeletePolicyInstanceRequest $request    DeletePolicyInstanceRequest
      *
-     * @return DeletePolicyInstanceResponse
+     * @return DeletePolicyInstanceResponse DeletePolicyInstanceResponse
      */
     public function deletePolicyInstance($clusterId, $policyName, $request)
     {
@@ -2787,18 +2334,13 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Deletes the orchestration templates that you no longer need.
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteTemplateResponse
-     *
+     * @summary Deletes the orchestration templates that you no longer need.
+     *  *
      * @param string         $TemplateId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DeleteTemplateResponse
+     * @return DeleteTemplateResponse DeleteTemplateResponse
      */
     public function deleteTemplateWithOptions($TemplateId, $headers, $runtime)
     {
@@ -2809,7 +2351,7 @@ class CS extends OpenApiClient
             'action' => 'DeleteTemplate',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/templates/' . Url::percentEncode($TemplateId) . '',
+            'pathname' => '/templates/' . OpenApiUtilClient::getEncodeParam($TemplateId) . '',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -2821,13 +2363,11 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Deletes the orchestration templates that you no longer need.
-     *
-     * @returns DeleteTemplateResponse
-     *
+     * @summary Deletes the orchestration templates that you no longer need.
+     *  *
      * @param string $TemplateId
      *
-     * @return DeleteTemplateResponse
+     * @return DeleteTemplateResponse DeleteTemplateResponse
      */
     public function deleteTemplate($TemplateId)
     {
@@ -2838,19 +2378,14 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Deletes an application trigger.
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteTriggerResponse
-     *
+     * @summary Deletes an application trigger.
+     *  *
      * @param string         $clusterId
      * @param string         $Id
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
      *
-     * @return DeleteTriggerResponse
+     * @return DeleteTriggerResponse DeleteTriggerResponse
      */
     public function deleteTriggerWithOptions($clusterId, $Id, $headers, $runtime)
     {
@@ -2861,7 +2396,7 @@ class CS extends OpenApiClient
             'action' => 'DeleteTrigger',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/clusters/' . Url::percentEncode($clusterId) . '/triggers/' . Url::percentEncode($Id) . '',
+            'pathname' => '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterId) . '/triggers/' . OpenApiUtilClient::getEncodeParam($Id) . '',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -2873,14 +2408,12 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Deletes an application trigger.
-     *
-     * @returns DeleteTriggerResponse
-     *
+     * @summary Deletes an application trigger.
+     *  *
      * @param string $clusterId
      * @param string $Id
      *
-     * @return DeleteTriggerResponse
+     * @return DeleteTriggerResponse DeleteTriggerResponse
      */
     public function deleteTrigger($clusterId, $Id)
     {
@@ -2891,47 +2424,38 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Deploys a policy in the specified namespaces of a specific Container Service for Kubernetes (ACK) cluster. You can create and deploy a security policy by specifying the policy type, action of the policy such as alerting or denying, and namespaces to which the policy applies.
-     *
-     * @param request - DeployPolicyInstanceRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeployPolicyInstanceResponse
-     *
+     * @summary Deploys a policy in the specified namespaces of a specific Container Service for Kubernetes (ACK) cluster. You can create and deploy a security policy by specifying the policy type, action of the policy such as alerting or denying, and namespaces to which the policy applies.
+     *  *
      * @param string                      $clusterId
      * @param string                      $policyName
-     * @param DeployPolicyInstanceRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @param DeployPolicyInstanceRequest $request    DeployPolicyInstanceRequest
+     * @param string[]                    $headers    map
+     * @param RuntimeOptions              $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DeployPolicyInstanceResponse
+     * @return DeployPolicyInstanceResponse DeployPolicyInstanceResponse
      */
     public function deployPolicyInstanceWithOptions($clusterId, $policyName, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->action) {
-            @$body['action'] = $request->action;
+        if (!Utils::isUnset($request->action)) {
+            $body['action'] = $request->action;
         }
-
-        if (null !== $request->namespaces) {
-            @$body['namespaces'] = $request->namespaces;
+        if (!Utils::isUnset($request->namespaces)) {
+            $body['namespaces'] = $request->namespaces;
         }
-
-        if (null !== $request->parameters) {
-            @$body['parameters'] = $request->parameters;
+        if (!Utils::isUnset($request->parameters)) {
+            $body['parameters'] = $request->parameters;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DeployPolicyInstance',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/clusters/' . Url::percentEncode($clusterId) . '/policies/' . Url::percentEncode($policyName) . '',
+            'pathname' => '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterId) . '/policies/' . OpenApiUtilClient::getEncodeParam($policyName) . '',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -2943,17 +2467,13 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Deploys a policy in the specified namespaces of a specific Container Service for Kubernetes (ACK) cluster. You can create and deploy a security policy by specifying the policy type, action of the policy such as alerting or denying, and namespaces to which the policy applies.
-     *
-     * @param request - DeployPolicyInstanceRequest
-     *
-     * @returns DeployPolicyInstanceResponse
-     *
+     * @summary Deploys a policy in the specified namespaces of a specific Container Service for Kubernetes (ACK) cluster. You can create and deploy a security policy by specifying the policy type, action of the policy such as alerting or denying, and namespaces to which the policy applies.
+     *  *
      * @param string                      $clusterId
      * @param string                      $policyName
-     * @param DeployPolicyInstanceRequest $request
+     * @param DeployPolicyInstanceRequest $request    DeployPolicyInstanceRequest
      *
-     * @return DeployPolicyInstanceResponse
+     * @return DeployPolicyInstanceResponse DeployPolicyInstanceResponse
      */
     public function deployPolicyInstance($clusterId, $policyName, $request)
     {
@@ -2964,62 +2484,49 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Queries the information about a component based on specific conditions such as the region, cluster type, cluster subtype defined by cluster profile, cluster version, and component name. The information includes whether the component is managed, the component type, supported custom parameter schema, compatible operating system architecture, and earliest supported cluster version.
-     *
-     * @param request - DescribeAddonRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeAddonResponse
-     *
+     * @summary Queries the information about a component based on specific conditions such as the region, cluster type, cluster subtype defined by cluster profile, cluster version, and component name. The information includes whether the component is managed, the component type, supported custom parameter schema, compatible operating system architecture, and earliest supported cluster version.
+     *  *
      * @param string               $addonName
-     * @param DescribeAddonRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param DescribeAddonRequest $request   DescribeAddonRequest
+     * @param string[]             $headers   map
+     * @param RuntimeOptions       $runtime   runtime options for this request RuntimeOptions
      *
-     * @return DescribeAddonResponse
+     * @return DescribeAddonResponse DescribeAddonResponse
      */
     public function describeAddonWithOptions($addonName, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clusterId) {
-            @$query['cluster_id'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['cluster_id'] = $request->clusterId;
         }
-
-        if (null !== $request->clusterSpec) {
-            @$query['cluster_spec'] = $request->clusterSpec;
+        if (!Utils::isUnset($request->clusterSpec)) {
+            $query['cluster_spec'] = $request->clusterSpec;
         }
-
-        if (null !== $request->clusterType) {
-            @$query['cluster_type'] = $request->clusterType;
+        if (!Utils::isUnset($request->clusterType)) {
+            $query['cluster_type'] = $request->clusterType;
         }
-
-        if (null !== $request->clusterVersion) {
-            @$query['cluster_version'] = $request->clusterVersion;
+        if (!Utils::isUnset($request->clusterVersion)) {
+            $query['cluster_version'] = $request->clusterVersion;
         }
-
-        if (null !== $request->profile) {
-            @$query['profile'] = $request->profile;
+        if (!Utils::isUnset($request->profile)) {
+            $query['profile'] = $request->profile;
         }
-
-        if (null !== $request->regionId) {
-            @$query['region_id'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['region_id'] = $request->regionId;
         }
-
-        if (null !== $request->version) {
-            @$query['version'] = $request->version;
+        if (!Utils::isUnset($request->version)) {
+            $query['version'] = $request->version;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeAddon',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/addons/' . Url::percentEncode($addonName) . '',
+            'pathname' => '/addons/' . OpenApiUtilClient::getEncodeParam($addonName) . '',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -3031,16 +2538,12 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Queries the information about a component based on specific conditions such as the region, cluster type, cluster subtype defined by cluster profile, cluster version, and component name. The information includes whether the component is managed, the component type, supported custom parameter schema, compatible operating system architecture, and earliest supported cluster version.
-     *
-     * @param request - DescribeAddonRequest
-     *
-     * @returns DescribeAddonResponse
-     *
+     * @summary Queries the information about a component based on specific conditions such as the region, cluster type, cluster subtype defined by cluster profile, cluster version, and component name. The information includes whether the component is managed, the component type, supported custom parameter schema, compatible operating system architecture, and earliest supported cluster version.
+     *  *
      * @param string               $addonName
-     * @param DescribeAddonRequest $request
+     * @param DescribeAddonRequest $request   DescribeAddonRequest
      *
-     * @return DescribeAddonResponse
+     * @return DescribeAddonResponse DescribeAddonResponse
      */
     public function describeAddon($addonName, $request)
     {
@@ -3050,51 +2553,41 @@ class CS extends OpenApiClient
         return $this->describeAddonWithOptions($addonName, $request, $headers, $runtime);
     }
 
-    // Deprecated
     /**
-     * You can call the DescribeAddons operation to query the details about all components that are supported by Container Service for Kubernetes (ACK).
-     *
      * @deprecated OpenAPI DescribeAddons is deprecated
+     *  *
+     * @summary You can call the DescribeAddons operation to query the details about all components that are supported by Container Service for Kubernetes (ACK).
+     *  *
+     * Deprecated
      *
-     * @param request - DescribeAddonsRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
+     * @param DescribeAddonsRequest $request DescribeAddonsRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @returns DescribeAddonsResponse
-     *
-     * @param DescribeAddonsRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
-     *
-     * @return DescribeAddonsResponse
+     * @return DescribeAddonsResponse DescribeAddonsResponse
      */
     public function describeAddonsWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clusterProfile) {
-            @$query['cluster_profile'] = $request->clusterProfile;
+        if (!Utils::isUnset($request->clusterProfile)) {
+            $query['cluster_profile'] = $request->clusterProfile;
         }
-
-        if (null !== $request->clusterSpec) {
-            @$query['cluster_spec'] = $request->clusterSpec;
+        if (!Utils::isUnset($request->clusterSpec)) {
+            $query['cluster_spec'] = $request->clusterSpec;
         }
-
-        if (null !== $request->clusterType) {
-            @$query['cluster_type'] = $request->clusterType;
+        if (!Utils::isUnset($request->clusterType)) {
+            $query['cluster_type'] = $request->clusterType;
         }
-
-        if (null !== $request->clusterVersion) {
-            @$query['cluster_version'] = $request->clusterVersion;
+        if (!Utils::isUnset($request->clusterVersion)) {
+            $query['cluster_version'] = $request->clusterVersion;
         }
-
-        if (null !== $request->region) {
-            @$query['region'] = $request->region;
+        if (!Utils::isUnset($request->region)) {
+            $query['region'] = $request->region;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeAddons',
@@ -3111,19 +2604,16 @@ class CS extends OpenApiClient
         return DescribeAddonsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
-    // Deprecated
     /**
-     * You can call the DescribeAddons operation to query the details about all components that are supported by Container Service for Kubernetes (ACK).
-     *
      * @deprecated OpenAPI DescribeAddons is deprecated
+     *  *
+     * @summary You can call the DescribeAddons operation to query the details about all components that are supported by Container Service for Kubernetes (ACK).
+     *  *
+     * Deprecated
      *
-     * @param request - DescribeAddonsRequest
+     * @param DescribeAddonsRequest $request DescribeAddonsRequest
      *
-     * @returns DescribeAddonsResponse
-     *
-     * @param DescribeAddonsRequest $request
-     *
-     * @return DescribeAddonsResponse
+     * @return DescribeAddonsResponse DescribeAddonsResponse
      */
     public function describeAddons($request)
     {
@@ -3133,23 +2623,19 @@ class CS extends OpenApiClient
         return $this->describeAddonsWithOptions($request, $headers, $runtime);
     }
 
-    // Deprecated
     /**
-     * You can call the DescribeClusterAddonInstance operation to query the information about a cluster component, including the version, status, and configuration of the component.
-     *
      * @deprecated OpenAPI DescribeClusterAddonInstance is deprecated
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeClusterAddonInstanceResponse
+     *  *
+     * @summary You can call the DescribeClusterAddonInstance operation to query the information about a cluster component, including the version, status, and configuration of the component.
+     *  *
+     * Deprecated
      *
      * @param string         $ClusterID
      * @param string         $AddonName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
      *
-     * @return DescribeClusterAddonInstanceResponse
+     * @return DescribeClusterAddonInstanceResponse DescribeClusterAddonInstanceResponse
      */
     public function describeClusterAddonInstanceWithOptions($ClusterID, $AddonName, $headers, $runtime)
     {
@@ -3160,7 +2646,7 @@ class CS extends OpenApiClient
             'action' => 'DescribeClusterAddonInstance',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/clusters/' . Url::percentEncode($ClusterID) . '/components/' . Url::percentEncode($AddonName) . '/instance',
+            'pathname' => '/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterID) . '/components/' . OpenApiUtilClient::getEncodeParam($AddonName) . '/instance',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -3171,18 +2657,17 @@ class CS extends OpenApiClient
         return DescribeClusterAddonInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
-    // Deprecated
     /**
-     * You can call the DescribeClusterAddonInstance operation to query the information about a cluster component, including the version, status, and configuration of the component.
-     *
      * @deprecated OpenAPI DescribeClusterAddonInstance is deprecated
-     *
-     * @returns DescribeClusterAddonInstanceResponse
+     *  *
+     * @summary You can call the DescribeClusterAddonInstance operation to query the information about a cluster component, including the version, status, and configuration of the component.
+     *  *
+     * Deprecated
      *
      * @param string $ClusterID
      * @param string $AddonName
      *
-     * @return DescribeClusterAddonInstanceResponse
+     * @return DescribeClusterAddonInstanceResponse DescribeClusterAddonInstanceResponse
      */
     public function describeClusterAddonInstance($ClusterID, $AddonName)
     {
@@ -3192,43 +2677,37 @@ class CS extends OpenApiClient
         return $this->describeClusterAddonInstanceWithOptions($ClusterID, $AddonName, $headers, $runtime);
     }
 
-    // Deprecated
     /**
-     * You can call the DescribeClusterAddonMetadata operation to query the metadata of a component version. The metadata includes the component version and available parameters.
-     *
      * @deprecated OpenAPI DescribeClusterAddonMetadata is deprecated
-     *
-     * @param request - DescribeClusterAddonMetadataRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeClusterAddonMetadataResponse
+     *  *
+     * @summary You can call the DescribeClusterAddonMetadata operation to query the metadata of a component version. The metadata includes the component version and available parameters.
+     *  *
+     * Deprecated
      *
      * @param string                              $clusterId
      * @param string                              $componentId
-     * @param DescribeClusterAddonMetadataRequest $request
-     * @param string[]                            $headers
-     * @param RuntimeOptions                      $runtime
+     * @param DescribeClusterAddonMetadataRequest $request     DescribeClusterAddonMetadataRequest
+     * @param string[]                            $headers     map
+     * @param RuntimeOptions                      $runtime     runtime options for this request RuntimeOptions
      *
-     * @return DescribeClusterAddonMetadataResponse
+     * @return DescribeClusterAddonMetadataResponse DescribeClusterAddonMetadataResponse
      */
     public function describeClusterAddonMetadataWithOptions($clusterId, $componentId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->version) {
-            @$query['version'] = $request->version;
+        if (!Utils::isUnset($request->version)) {
+            $query['version'] = $request->version;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeClusterAddonMetadata',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/clusters/' . Url::percentEncode($clusterId) . '/components/' . Url::percentEncode($componentId) . '/metadata',
+            'pathname' => '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterId) . '/components/' . OpenApiUtilClient::getEncodeParam($componentId) . '/metadata',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -3239,21 +2718,18 @@ class CS extends OpenApiClient
         return DescribeClusterAddonMetadataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
-    // Deprecated
     /**
-     * You can call the DescribeClusterAddonMetadata operation to query the metadata of a component version. The metadata includes the component version and available parameters.
-     *
      * @deprecated OpenAPI DescribeClusterAddonMetadata is deprecated
-     *
-     * @param request - DescribeClusterAddonMetadataRequest
-     *
-     * @returns DescribeClusterAddonMetadataResponse
+     *  *
+     * @summary You can call the DescribeClusterAddonMetadata operation to query the metadata of a component version. The metadata includes the component version and available parameters.
+     *  *
+     * Deprecated
      *
      * @param string                              $clusterId
      * @param string                              $componentId
-     * @param DescribeClusterAddonMetadataRequest $request
+     * @param DescribeClusterAddonMetadataRequest $request     DescribeClusterAddonMetadataRequest
      *
-     * @return DescribeClusterAddonMetadataResponse
+     * @return DescribeClusterAddonMetadataResponse DescribeClusterAddonMetadataResponse
      */
     public function describeClusterAddonMetadata($clusterId, $componentId, $request)
     {
@@ -3263,23 +2739,19 @@ class CS extends OpenApiClient
         return $this->describeClusterAddonMetadataWithOptions($clusterId, $componentId, $request, $headers, $runtime);
     }
 
-    // Deprecated
     /**
-     * You can call the DescribeClusterAddonUpgradeStatus operation to query the update progress of a cluster component.
-     *
      * @deprecated OpenAPI DescribeClusterAddonUpgradeStatus is deprecated
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeClusterAddonUpgradeStatusResponse
+     *  *
+     * @summary You can call the DescribeClusterAddonUpgradeStatus operation to query the update progress of a cluster component.
+     *  *
+     * Deprecated
      *
      * @param string         $ClusterId
      * @param string         $ComponentId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers     map
+     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
      *
-     * @return DescribeClusterAddonUpgradeStatusResponse
+     * @return DescribeClusterAddonUpgradeStatusResponse DescribeClusterAddonUpgradeStatusResponse
      */
     public function describeClusterAddonUpgradeStatusWithOptions($ClusterId, $ComponentId, $headers, $runtime)
     {
@@ -3290,7 +2762,7 @@ class CS extends OpenApiClient
             'action' => 'DescribeClusterAddonUpgradeStatus',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/clusters/' . Url::percentEncode($ClusterId) . '/components/' . Url::percentEncode($ComponentId) . '/upgradestatus',
+            'pathname' => '/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/components/' . OpenApiUtilClient::getEncodeParam($ComponentId) . '/upgradestatus',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -3301,18 +2773,17 @@ class CS extends OpenApiClient
         return DescribeClusterAddonUpgradeStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
-    // Deprecated
     /**
-     * You can call the DescribeClusterAddonUpgradeStatus operation to query the update progress of a cluster component.
-     *
      * @deprecated OpenAPI DescribeClusterAddonUpgradeStatus is deprecated
-     *
-     * @returns DescribeClusterAddonUpgradeStatusResponse
+     *  *
+     * @summary You can call the DescribeClusterAddonUpgradeStatus operation to query the update progress of a cluster component.
+     *  *
+     * Deprecated
      *
      * @param string $ClusterId
      * @param string $ComponentId
      *
-     * @return DescribeClusterAddonUpgradeStatusResponse
+     * @return DescribeClusterAddonUpgradeStatusResponse DescribeClusterAddonUpgradeStatusResponse
      */
     public function describeClusterAddonUpgradeStatus($ClusterId, $ComponentId)
     {
@@ -3322,48 +2793,41 @@ class CS extends OpenApiClient
         return $this->describeClusterAddonUpgradeStatusWithOptions($ClusterId, $ComponentId, $headers, $runtime);
     }
 
-    // Deprecated
     /**
-     * You can call the DescribeClusterAddonsUpgradeStatus operation to query the update progress of a component by component name.
-     *
      * @deprecated OpenAPI DescribeClusterAddonsUpgradeStatus is deprecated
-     *
-     * @param tmpReq - DescribeClusterAddonsUpgradeStatusRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeClusterAddonsUpgradeStatusResponse
+     *  *
+     * @summary You can call the DescribeClusterAddonsUpgradeStatus operation to query the update progress of a component by component name.
+     *  *
+     * Deprecated
      *
      * @param string                                    $ClusterId
-     * @param DescribeClusterAddonsUpgradeStatusRequest $tmpReq
-     * @param string[]                                  $headers
-     * @param RuntimeOptions                            $runtime
+     * @param DescribeClusterAddonsUpgradeStatusRequest $tmpReq    DescribeClusterAddonsUpgradeStatusRequest
+     * @param string[]                                  $headers   map
+     * @param RuntimeOptions                            $runtime   runtime options for this request RuntimeOptions
      *
-     * @return DescribeClusterAddonsUpgradeStatusResponse
+     * @return DescribeClusterAddonsUpgradeStatusResponse DescribeClusterAddonsUpgradeStatusResponse
      */
     public function describeClusterAddonsUpgradeStatusWithOptions($ClusterId, $tmpReq, $headers, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new DescribeClusterAddonsUpgradeStatusShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->componentIds) {
-            $request->componentIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->componentIds, 'componentIds', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->componentIds)) {
+            $request->componentIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->componentIds, 'componentIds', 'json');
         }
-
         $query = [];
-        if (null !== $request->componentIdsShrink) {
-            @$query['componentIds'] = $request->componentIdsShrink;
+        if (!Utils::isUnset($request->componentIdsShrink)) {
+            $query['componentIds'] = $request->componentIdsShrink;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeClusterAddonsUpgradeStatus',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/clusters/' . Url::percentEncode($ClusterId) . '/components/upgradestatus',
+            'pathname' => '/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/components/upgradestatus',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -3374,20 +2838,17 @@ class CS extends OpenApiClient
         return DescribeClusterAddonsUpgradeStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
-    // Deprecated
     /**
-     * You can call the DescribeClusterAddonsUpgradeStatus operation to query the update progress of a component by component name.
-     *
      * @deprecated OpenAPI DescribeClusterAddonsUpgradeStatus is deprecated
-     *
-     * @param request - DescribeClusterAddonsUpgradeStatusRequest
-     *
-     * @returns DescribeClusterAddonsUpgradeStatusResponse
+     *  *
+     * @summary You can call the DescribeClusterAddonsUpgradeStatus operation to query the update progress of a component by component name.
+     *  *
+     * Deprecated
      *
      * @param string                                    $ClusterId
-     * @param DescribeClusterAddonsUpgradeStatusRequest $request
+     * @param DescribeClusterAddonsUpgradeStatusRequest $request   DescribeClusterAddonsUpgradeStatusRequest
      *
-     * @return DescribeClusterAddonsUpgradeStatusResponse
+     * @return DescribeClusterAddonsUpgradeStatusResponse DescribeClusterAddonsUpgradeStatusResponse
      */
     public function describeClusterAddonsUpgradeStatus($ClusterId, $request)
     {
@@ -3397,22 +2858,18 @@ class CS extends OpenApiClient
         return $this->describeClusterAddonsUpgradeStatusWithOptions($ClusterId, $request, $headers, $runtime);
     }
 
-    // Deprecated
     /**
-     * You can call the DescribeClusterAddonsVersion operation to query the details about all components in a cluster by cluster ID.
-     *
      * @deprecated OpenAPI DescribeClusterAddonsVersion is deprecated
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeClusterAddonsVersionResponse
+     *  *
+     * @summary You can call the DescribeClusterAddonsVersion operation to query the details about all components in a cluster by cluster ID.
+     *  *
+     * Deprecated
      *
      * @param string         $ClusterId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
      *
-     * @return DescribeClusterAddonsVersionResponse
+     * @return DescribeClusterAddonsVersionResponse DescribeClusterAddonsVersionResponse
      */
     public function describeClusterAddonsVersionWithOptions($ClusterId, $headers, $runtime)
     {
@@ -3423,7 +2880,7 @@ class CS extends OpenApiClient
             'action' => 'DescribeClusterAddonsVersion',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/clusters/' . Url::percentEncode($ClusterId) . '/components/version',
+            'pathname' => '/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/components/version',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -3434,17 +2891,16 @@ class CS extends OpenApiClient
         return DescribeClusterAddonsVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
-    // Deprecated
     /**
-     * You can call the DescribeClusterAddonsVersion operation to query the details about all components in a cluster by cluster ID.
-     *
      * @deprecated OpenAPI DescribeClusterAddonsVersion is deprecated
-     *
-     * @returns DescribeClusterAddonsVersionResponse
+     *  *
+     * @summary You can call the DescribeClusterAddonsVersion operation to query the details about all components in a cluster by cluster ID.
+     *  *
+     * Deprecated
      *
      * @param string $ClusterId
      *
-     * @return DescribeClusterAddonsVersionResponse
+     * @return DescribeClusterAddonsVersionResponse DescribeClusterAddonsVersionResponse
      */
     public function describeClusterAddonsVersion($ClusterId)
     {
@@ -3455,62 +2911,49 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Queries the scripts used to add existing nodes to a Container Service for Kubernetes (ACK) cluster. ACK allows you to manually add existing Elastic Compute Service (ECS) instances to an ACK cluster as worker nodes or re-add worker nodes that you remove from the cluster to a node pool.
-     *
-     * @param request - DescribeClusterAttachScriptsRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeClusterAttachScriptsResponse
-     *
+     * @summary Queries the scripts used to add existing nodes to a Container Service for Kubernetes (ACK) cluster. ACK allows you to manually add existing Elastic Compute Service (ECS) instances to an ACK cluster as worker nodes or re-add worker nodes that you remove from the cluster to a node pool.
+     *  *
      * @param string                              $ClusterId
-     * @param DescribeClusterAttachScriptsRequest $request
-     * @param string[]                            $headers
-     * @param RuntimeOptions                      $runtime
+     * @param DescribeClusterAttachScriptsRequest $request   DescribeClusterAttachScriptsRequest
+     * @param string[]                            $headers   map
+     * @param RuntimeOptions                      $runtime   runtime options for this request RuntimeOptions
      *
-     * @return DescribeClusterAttachScriptsResponse
+     * @return DescribeClusterAttachScriptsResponse DescribeClusterAttachScriptsResponse
      */
     public function describeClusterAttachScriptsWithOptions($ClusterId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->arch) {
-            @$body['arch'] = $request->arch;
+        if (!Utils::isUnset($request->arch)) {
+            $body['arch'] = $request->arch;
         }
-
-        if (null !== $request->expired) {
-            @$body['expired'] = $request->expired;
+        if (!Utils::isUnset($request->expired)) {
+            $body['expired'] = $request->expired;
         }
-
-        if (null !== $request->formatDisk) {
-            @$body['format_disk'] = $request->formatDisk;
+        if (!Utils::isUnset($request->formatDisk)) {
+            $body['format_disk'] = $request->formatDisk;
         }
-
-        if (null !== $request->keepInstanceName) {
-            @$body['keep_instance_name'] = $request->keepInstanceName;
+        if (!Utils::isUnset($request->keepInstanceName)) {
+            $body['keep_instance_name'] = $request->keepInstanceName;
         }
-
-        if (null !== $request->nodepoolId) {
-            @$body['nodepool_id'] = $request->nodepoolId;
+        if (!Utils::isUnset($request->nodepoolId)) {
+            $body['nodepool_id'] = $request->nodepoolId;
         }
-
-        if (null !== $request->options) {
-            @$body['options'] = $request->options;
+        if (!Utils::isUnset($request->options)) {
+            $body['options'] = $request->options;
         }
-
-        if (null !== $request->rdsInstances) {
-            @$body['rds_instances'] = $request->rdsInstances;
+        if (!Utils::isUnset($request->rdsInstances)) {
+            $body['rds_instances'] = $request->rdsInstances;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DescribeClusterAttachScripts',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/clusters/' . Url::percentEncode($ClusterId) . '/attachscript',
+            'pathname' => '/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/attachscript',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -3522,16 +2965,12 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Queries the scripts used to add existing nodes to a Container Service for Kubernetes (ACK) cluster. ACK allows you to manually add existing Elastic Compute Service (ECS) instances to an ACK cluster as worker nodes or re-add worker nodes that you remove from the cluster to a node pool.
-     *
-     * @param request - DescribeClusterAttachScriptsRequest
-     *
-     * @returns DescribeClusterAttachScriptsResponse
-     *
+     * @summary Queries the scripts used to add existing nodes to a Container Service for Kubernetes (ACK) cluster. ACK allows you to manually add existing Elastic Compute Service (ECS) instances to an ACK cluster as worker nodes or re-add worker nodes that you remove from the cluster to a node pool.
+     *  *
      * @param string                              $ClusterId
-     * @param DescribeClusterAttachScriptsRequest $request
+     * @param DescribeClusterAttachScriptsRequest $request   DescribeClusterAttachScriptsRequest
      *
-     * @return DescribeClusterAttachScriptsResponse
+     * @return DescribeClusterAttachScriptsResponse DescribeClusterAttachScriptsResponse
      */
     public function describeClusterAttachScripts($ClusterId, $request)
     {
@@ -3542,18 +2981,13 @@ class CS extends OpenApiClient
     }
 
     /**
-     * You can call the DescribeClusterDetail operation to query the details of a Container Service for Kubernetes (ACK) cluster by cluster ID.
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeClusterDetailResponse
-     *
+     * @summary You can call the DescribeClusterDetail operation to query the details of a Container Service for Kubernetes (ACK) cluster by cluster ID.
+     *  *
      * @param string         $ClusterId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
      *
-     * @return DescribeClusterDetailResponse
+     * @return DescribeClusterDetailResponse DescribeClusterDetailResponse
      */
     public function describeClusterDetailWithOptions($ClusterId, $headers, $runtime)
     {
@@ -3564,7 +2998,7 @@ class CS extends OpenApiClient
             'action' => 'DescribeClusterDetail',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/clusters/' . Url::percentEncode($ClusterId) . '',
+            'pathname' => '/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -3576,13 +3010,11 @@ class CS extends OpenApiClient
     }
 
     /**
-     * You can call the DescribeClusterDetail operation to query the details of a Container Service for Kubernetes (ACK) cluster by cluster ID.
-     *
-     * @returns DescribeClusterDetailResponse
-     *
+     * @summary You can call the DescribeClusterDetail operation to query the details of a Container Service for Kubernetes (ACK) cluster by cluster ID.
+     *  *
      * @param string $ClusterId
      *
-     * @return DescribeClusterDetailResponse
+     * @return DescribeClusterDetailResponse DescribeClusterDetailResponse
      */
     public function describeClusterDetail($ClusterId)
     {
@@ -3593,46 +3025,37 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Queries events and event details in a Container Service for Kubernetes (ACK) cluster, including the severity level, status, and start time of each event. Events are generated when clusters created, modified, and updated, node pools are created and scaled out, and components are installed.
-     *
-     * @param request - DescribeClusterEventsRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeClusterEventsResponse
-     *
+     * @summary Queries events and event details in a Container Service for Kubernetes (ACK) cluster, including the severity level, status, and start time of each event. Events are generated when clusters created, modified, and updated, node pools are created and scaled out, and components are installed.
+     *  *
      * @param string                       $ClusterId
-     * @param DescribeClusterEventsRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @param DescribeClusterEventsRequest $request   DescribeClusterEventsRequest
+     * @param string[]                     $headers   map
+     * @param RuntimeOptions               $runtime   runtime options for this request RuntimeOptions
      *
-     * @return DescribeClusterEventsResponse
+     * @return DescribeClusterEventsResponse DescribeClusterEventsResponse
      */
     public function describeClusterEventsWithOptions($ClusterId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->pageNumber) {
-            @$query['page_number'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['page_number'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['page_size'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['page_size'] = $request->pageSize;
         }
-
-        if (null !== $request->taskId) {
-            @$query['task_id'] = $request->taskId;
+        if (!Utils::isUnset($request->taskId)) {
+            $query['task_id'] = $request->taskId;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeClusterEvents',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/clusters/' . Url::percentEncode($ClusterId) . '/events',
+            'pathname' => '/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/events',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -3644,16 +3067,12 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Queries events and event details in a Container Service for Kubernetes (ACK) cluster, including the severity level, status, and start time of each event. Events are generated when clusters created, modified, and updated, node pools are created and scaled out, and components are installed.
-     *
-     * @param request - DescribeClusterEventsRequest
-     *
-     * @returns DescribeClusterEventsResponse
-     *
+     * @summary Queries events and event details in a Container Service for Kubernetes (ACK) cluster, including the severity level, status, and start time of each event. Events are generated when clusters created, modified, and updated, node pools are created and scaled out, and components are installed.
+     *  *
      * @param string                       $ClusterId
-     * @param DescribeClusterEventsRequest $request
+     * @param DescribeClusterEventsRequest $request   DescribeClusterEventsRequest
      *
-     * @return DescribeClusterEventsResponse
+     * @return DescribeClusterEventsResponse DescribeClusterEventsResponse
      */
     public function describeClusterEvents($ClusterId, $request)
     {
@@ -3664,18 +3083,13 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Queries the cluster log to help analyze cluster issues and locate the cause.
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeClusterLogsResponse
-     *
+     * @summary Queries the cluster log to help analyze cluster issues and locate the cause.
+     *  *
      * @param string         $ClusterId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
      *
-     * @return DescribeClusterLogsResponse
+     * @return DescribeClusterLogsResponse DescribeClusterLogsResponse
      */
     public function describeClusterLogsWithOptions($ClusterId, $headers, $runtime)
     {
@@ -3686,7 +3100,7 @@ class CS extends OpenApiClient
             'action' => 'DescribeClusterLogs',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/clusters/' . Url::percentEncode($ClusterId) . '/logs',
+            'pathname' => '/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/logs',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -3698,13 +3112,11 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Queries the cluster log to help analyze cluster issues and locate the cause.
-     *
-     * @returns DescribeClusterLogsResponse
-     *
+     * @summary Queries the cluster log to help analyze cluster issues and locate the cause.
+     *  *
      * @param string $ClusterId
      *
-     * @return DescribeClusterLogsResponse
+     * @return DescribeClusterLogsResponse DescribeClusterLogsResponse
      */
     public function describeClusterLogs($ClusterId)
     {
@@ -3715,19 +3127,14 @@ class CS extends OpenApiClient
     }
 
     /**
-     * You can call the DescribeClusterNodePoolDetail.html operation to query the details about a node pool in a cluster by node pool ID.
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeClusterNodePoolDetailResponse
-     *
+     * @summary You can call the DescribeClusterNodePoolDetail.html operation to query the details about a node pool in a cluster by node pool ID.
+     *  *
      * @param string         $ClusterId
      * @param string         $NodepoolId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DescribeClusterNodePoolDetailResponse
+     * @return DescribeClusterNodePoolDetailResponse DescribeClusterNodePoolDetailResponse
      */
     public function describeClusterNodePoolDetailWithOptions($ClusterId, $NodepoolId, $headers, $runtime)
     {
@@ -3738,7 +3145,7 @@ class CS extends OpenApiClient
             'action' => 'DescribeClusterNodePoolDetail',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/clusters/' . Url::percentEncode($ClusterId) . '/nodepools/' . Url::percentEncode($NodepoolId) . '',
+            'pathname' => '/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/nodepools/' . OpenApiUtilClient::getEncodeParam($NodepoolId) . '',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -3750,14 +3157,12 @@ class CS extends OpenApiClient
     }
 
     /**
-     * You can call the DescribeClusterNodePoolDetail.html operation to query the details about a node pool in a cluster by node pool ID.
-     *
-     * @returns DescribeClusterNodePoolDetailResponse
-     *
+     * @summary You can call the DescribeClusterNodePoolDetail.html operation to query the details about a node pool in a cluster by node pool ID.
+     *  *
      * @param string $ClusterId
      * @param string $NodepoolId
      *
-     * @return DescribeClusterNodePoolDetailResponse
+     * @return DescribeClusterNodePoolDetailResponse DescribeClusterNodePoolDetailResponse
      */
     public function describeClusterNodePoolDetail($ClusterId, $NodepoolId)
     {
@@ -3768,38 +3173,31 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Queries the information about all node pools in a cluster.
-     *
-     * @param request - DescribeClusterNodePoolsRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeClusterNodePoolsResponse
-     *
+     * @summary Queries the information about all node pools in a cluster.
+     *  *
      * @param string                          $ClusterId
-     * @param DescribeClusterNodePoolsRequest $request
-     * @param string[]                        $headers
-     * @param RuntimeOptions                  $runtime
+     * @param DescribeClusterNodePoolsRequest $request   DescribeClusterNodePoolsRequest
+     * @param string[]                        $headers   map
+     * @param RuntimeOptions                  $runtime   runtime options for this request RuntimeOptions
      *
-     * @return DescribeClusterNodePoolsResponse
+     * @return DescribeClusterNodePoolsResponse DescribeClusterNodePoolsResponse
      */
     public function describeClusterNodePoolsWithOptions($ClusterId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->nodepoolName) {
-            @$query['NodepoolName'] = $request->nodepoolName;
+        if (!Utils::isUnset($request->nodepoolName)) {
+            $query['NodepoolName'] = $request->nodepoolName;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeClusterNodePools',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/clusters/' . Url::percentEncode($ClusterId) . '/nodepools',
+            'pathname' => '/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/nodepools',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -3811,16 +3209,12 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Queries the information about all node pools in a cluster.
-     *
-     * @param request - DescribeClusterNodePoolsRequest
-     *
-     * @returns DescribeClusterNodePoolsResponse
-     *
+     * @summary Queries the information about all node pools in a cluster.
+     *  *
      * @param string                          $ClusterId
-     * @param DescribeClusterNodePoolsRequest $request
+     * @param DescribeClusterNodePoolsRequest $request   DescribeClusterNodePoolsRequest
      *
-     * @return DescribeClusterNodePoolsResponse
+     * @return DescribeClusterNodePoolsResponse DescribeClusterNodePoolsResponse
      */
     public function describeClusterNodePools($ClusterId, $request)
     {
@@ -3831,54 +3225,43 @@ class CS extends OpenApiClient
     }
 
     /**
-     * null.
-     *
-     * @param request - DescribeClusterNodesRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeClusterNodesResponse
-     *
+     * @summary null
+     *  *
      * @param string                      $ClusterId
-     * @param DescribeClusterNodesRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @param DescribeClusterNodesRequest $request   DescribeClusterNodesRequest
+     * @param string[]                    $headers   map
+     * @param RuntimeOptions              $runtime   runtime options for this request RuntimeOptions
      *
-     * @return DescribeClusterNodesResponse
+     * @return DescribeClusterNodesResponse DescribeClusterNodesResponse
      */
     public function describeClusterNodesWithOptions($ClusterId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceIds) {
-            @$query['instanceIds'] = $request->instanceIds;
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['instanceIds'] = $request->instanceIds;
         }
-
-        if (null !== $request->nodepoolId) {
-            @$query['nodepool_id'] = $request->nodepoolId;
+        if (!Utils::isUnset($request->nodepoolId)) {
+            $query['nodepool_id'] = $request->nodepoolId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['pageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['pageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['pageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['pageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->state) {
-            @$query['state'] = $request->state;
+        if (!Utils::isUnset($request->state)) {
+            $query['state'] = $request->state;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeClusterNodes',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/clusters/' . Url::percentEncode($ClusterId) . '/nodes',
+            'pathname' => '/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/nodes',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -3890,16 +3273,12 @@ class CS extends OpenApiClient
     }
 
     /**
-     * null.
-     *
-     * @param request - DescribeClusterNodesRequest
-     *
-     * @returns DescribeClusterNodesResponse
-     *
+     * @summary null
+     *  *
      * @param string                      $ClusterId
-     * @param DescribeClusterNodesRequest $request
+     * @param DescribeClusterNodesRequest $request   DescribeClusterNodesRequest
      *
-     * @return DescribeClusterNodesResponse
+     * @return DescribeClusterNodesResponse DescribeClusterNodesResponse
      */
     public function describeClusterNodes($ClusterId, $request)
     {
@@ -3910,38 +3289,31 @@ class CS extends OpenApiClient
     }
 
     /**
-     * You can call the DescribeClusterResources operation to query all resources in a cluster by cluster ID.
-     *
-     * @param request - DescribeClusterResourcesRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeClusterResourcesResponse
-     *
+     * @summary You can call the DescribeClusterResources operation to query all resources in a cluster by cluster ID.
+     *  *
      * @param string                          $ClusterId
-     * @param DescribeClusterResourcesRequest $request
-     * @param string[]                        $headers
-     * @param RuntimeOptions                  $runtime
+     * @param DescribeClusterResourcesRequest $request   DescribeClusterResourcesRequest
+     * @param string[]                        $headers   map
+     * @param RuntimeOptions                  $runtime   runtime options for this request RuntimeOptions
      *
-     * @return DescribeClusterResourcesResponse
+     * @return DescribeClusterResourcesResponse DescribeClusterResourcesResponse
      */
     public function describeClusterResourcesWithOptions($ClusterId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->withAddonResources) {
-            @$query['with_addon_resources'] = $request->withAddonResources;
+        if (!Utils::isUnset($request->withAddonResources)) {
+            $query['with_addon_resources'] = $request->withAddonResources;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeClusterResources',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/clusters/' . Url::percentEncode($ClusterId) . '/resources',
+            'pathname' => '/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/resources',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -3953,16 +3325,12 @@ class CS extends OpenApiClient
     }
 
     /**
-     * You can call the DescribeClusterResources operation to query all resources in a cluster by cluster ID.
-     *
-     * @param request - DescribeClusterResourcesRequest
-     *
-     * @returns DescribeClusterResourcesResponse
-     *
+     * @summary You can call the DescribeClusterResources operation to query all resources in a cluster by cluster ID.
+     *  *
      * @param string                          $ClusterId
-     * @param DescribeClusterResourcesRequest $request
+     * @param DescribeClusterResourcesRequest $request   DescribeClusterResourcesRequest
      *
-     * @return DescribeClusterResourcesResponse
+     * @return DescribeClusterResourcesResponse DescribeClusterResourcesResponse
      */
     public function describeClusterResources($ClusterId, $request)
     {
@@ -3973,42 +3341,34 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Queries tasks in a Container Service for Kubernetes (ACK) cluster.
-     *
-     * @param request - DescribeClusterTasksRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeClusterTasksResponse
-     *
+     * @summary Queries tasks in a Container Service for Kubernetes (ACK) cluster.
+     *  *
      * @param string                      $clusterId
-     * @param DescribeClusterTasksRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @param DescribeClusterTasksRequest $request   DescribeClusterTasksRequest
+     * @param string[]                    $headers   map
+     * @param RuntimeOptions              $runtime   runtime options for this request RuntimeOptions
      *
-     * @return DescribeClusterTasksResponse
+     * @return DescribeClusterTasksResponse DescribeClusterTasksResponse
      */
     public function describeClusterTasksWithOptions($clusterId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->pageNumber) {
-            @$query['page_number'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['page_number'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['page_size'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['page_size'] = $request->pageSize;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeClusterTasks',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/clusters/' . Url::percentEncode($clusterId) . '/tasks',
+            'pathname' => '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterId) . '/tasks',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -4020,16 +3380,12 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Queries tasks in a Container Service for Kubernetes (ACK) cluster.
-     *
-     * @param request - DescribeClusterTasksRequest
-     *
-     * @returns DescribeClusterTasksResponse
-     *
+     * @summary Queries tasks in a Container Service for Kubernetes (ACK) cluster.
+     *  *
      * @param string                      $clusterId
-     * @param DescribeClusterTasksRequest $request
+     * @param DescribeClusterTasksRequest $request   DescribeClusterTasksRequest
      *
-     * @return DescribeClusterTasksResponse
+     * @return DescribeClusterTasksResponse DescribeClusterTasksResponse
      */
     public function describeClusterTasks($clusterId, $request)
     {
@@ -4040,46 +3396,37 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Kubeconfig files store identity and authentication information that is used by clients to access Container Service for Kubernetes (ACK) clusters. To use a kubectl client to manage an ACK cluster, you need to use the corresponding kubeconfig file to connect to the ACK cluster. We recommend that you keep kubeconfig files confidential and revoke kubeconfig files that are not in use. This helps prevent data leaks caused by the disclosure of kubeconfig files.
-     *
-     * @remarks
-     *   The default validity period of a kubeconfig file is 3 years. 180 days before a kubeconfig file expires, you can renew it in the Container Service for Kubernetes (ACK) console or by calling API operations. After a kubeconfig file is renewed, the kubeconfig file is valid for 3 years. The previous kubeconfig file still remains valid until expiration. We recommend that you renew your kubeconfig file at the earliest opportunity.
+     * @summary Kubeconfig files store identity and authentication information that is used by clients to access Container Service for Kubernetes (ACK) clusters. To use a kubectl client to manage an ACK cluster, you need to use the corresponding kubeconfig file to connect to the ACK cluster. We recommend that you keep kubeconfig files confidential and revoke kubeconfig files that are not in use. This helps prevent data leaks caused by the disclosure of kubeconfig files.
+     *  *
+     * @description *   The default validity period of a kubeconfig file is 3 years. 180 days before a kubeconfig file expires, you can renew it in the Container Service for Kubernetes (ACK) console or by calling API operations. After a kubeconfig file is renewed, the kubeconfig file is valid for 3 years. The previous kubeconfig file still remains valid until expiration. We recommend that you renew your kubeconfig file at the earliest opportunity.
      * *   We recommend that you keep kubeconfig files confidential and revoke kubeconfig files that are not in use. This helps prevent data leaks caused by the disclosure of kubeconfig files.
-     *
-     * @param request - DescribeClusterUserKubeconfigRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeClusterUserKubeconfigResponse
-     *
+     *  *
      * @param string                               $ClusterId
-     * @param DescribeClusterUserKubeconfigRequest $request
-     * @param string[]                             $headers
-     * @param RuntimeOptions                       $runtime
+     * @param DescribeClusterUserKubeconfigRequest $request   DescribeClusterUserKubeconfigRequest
+     * @param string[]                             $headers   map
+     * @param RuntimeOptions                       $runtime   runtime options for this request RuntimeOptions
      *
-     * @return DescribeClusterUserKubeconfigResponse
+     * @return DescribeClusterUserKubeconfigResponse DescribeClusterUserKubeconfigResponse
      */
     public function describeClusterUserKubeconfigWithOptions($ClusterId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->privateIpAddress) {
-            @$query['PrivateIpAddress'] = $request->privateIpAddress;
+        if (!Utils::isUnset($request->privateIpAddress)) {
+            $query['PrivateIpAddress'] = $request->privateIpAddress;
         }
-
-        if (null !== $request->temporaryDurationMinutes) {
-            @$query['TemporaryDurationMinutes'] = $request->temporaryDurationMinutes;
+        if (!Utils::isUnset($request->temporaryDurationMinutes)) {
+            $query['TemporaryDurationMinutes'] = $request->temporaryDurationMinutes;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeClusterUserKubeconfig',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/k8s/' . Url::percentEncode($ClusterId) . '/user_config',
+            'pathname' => '/k8s/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/user_config',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -4091,20 +3438,15 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Kubeconfig files store identity and authentication information that is used by clients to access Container Service for Kubernetes (ACK) clusters. To use a kubectl client to manage an ACK cluster, you need to use the corresponding kubeconfig file to connect to the ACK cluster. We recommend that you keep kubeconfig files confidential and revoke kubeconfig files that are not in use. This helps prevent data leaks caused by the disclosure of kubeconfig files.
-     *
-     * @remarks
-     *   The default validity period of a kubeconfig file is 3 years. 180 days before a kubeconfig file expires, you can renew it in the Container Service for Kubernetes (ACK) console or by calling API operations. After a kubeconfig file is renewed, the kubeconfig file is valid for 3 years. The previous kubeconfig file still remains valid until expiration. We recommend that you renew your kubeconfig file at the earliest opportunity.
+     * @summary Kubeconfig files store identity and authentication information that is used by clients to access Container Service for Kubernetes (ACK) clusters. To use a kubectl client to manage an ACK cluster, you need to use the corresponding kubeconfig file to connect to the ACK cluster. We recommend that you keep kubeconfig files confidential and revoke kubeconfig files that are not in use. This helps prevent data leaks caused by the disclosure of kubeconfig files.
+     *  *
+     * @description *   The default validity period of a kubeconfig file is 3 years. 180 days before a kubeconfig file expires, you can renew it in the Container Service for Kubernetes (ACK) console or by calling API operations. After a kubeconfig file is renewed, the kubeconfig file is valid for 3 years. The previous kubeconfig file still remains valid until expiration. We recommend that you renew your kubeconfig file at the earliest opportunity.
      * *   We recommend that you keep kubeconfig files confidential and revoke kubeconfig files that are not in use. This helps prevent data leaks caused by the disclosure of kubeconfig files.
-     *
-     * @param request - DescribeClusterUserKubeconfigRequest
-     *
-     * @returns DescribeClusterUserKubeconfigResponse
-     *
+     *  *
      * @param string                               $ClusterId
-     * @param DescribeClusterUserKubeconfigRequest $request
+     * @param DescribeClusterUserKubeconfigRequest $request   DescribeClusterUserKubeconfigRequest
      *
-     * @return DescribeClusterUserKubeconfigResponse
+     * @return DescribeClusterUserKubeconfigResponse DescribeClusterUserKubeconfigResponse
      */
     public function describeClusterUserKubeconfig($ClusterId, $request)
     {
@@ -4114,46 +3456,39 @@ class CS extends OpenApiClient
         return $this->describeClusterUserKubeconfigWithOptions($ClusterId, $request, $headers, $runtime);
     }
 
-    // Deprecated
     /**
-     * 获取集群kubeconfig接口.
-     *
      * @deprecated OpenAPI DescribeClusterV2UserKubeconfig is deprecated
-     *
-     * @param request - DescribeClusterV2UserKubeconfigRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeClusterV2UserKubeconfigResponse
+     *  *
+     * @summary 获取集群kubeconfig接口
+     *  *
+     * Deprecated
      *
      * @param string                                 $ClusterId
-     * @param DescribeClusterV2UserKubeconfigRequest $request
-     * @param string[]                               $headers
-     * @param RuntimeOptions                         $runtime
+     * @param DescribeClusterV2UserKubeconfigRequest $request   DescribeClusterV2UserKubeconfigRequest
+     * @param string[]                               $headers   map
+     * @param RuntimeOptions                         $runtime   runtime options for this request RuntimeOptions
      *
-     * @return DescribeClusterV2UserKubeconfigResponse
+     * @return DescribeClusterV2UserKubeconfigResponse DescribeClusterV2UserKubeconfigResponse
      */
     public function describeClusterV2UserKubeconfigWithOptions($ClusterId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->privateIpAddress) {
-            @$query['PrivateIpAddress'] = $request->privateIpAddress;
+        if (!Utils::isUnset($request->privateIpAddress)) {
+            $query['PrivateIpAddress'] = $request->privateIpAddress;
         }
-
-        if (null !== $request->temporaryDurationMinutes) {
-            @$query['TemporaryDurationMinutes'] = $request->temporaryDurationMinutes;
+        if (!Utils::isUnset($request->temporaryDurationMinutes)) {
+            $query['TemporaryDurationMinutes'] = $request->temporaryDurationMinutes;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeClusterV2UserKubeconfig',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/k8s/' . Url::percentEncode($ClusterId) . '/user_config',
+            'pathname' => '/api/v2/k8s/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/user_config',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -4164,20 +3499,17 @@ class CS extends OpenApiClient
         return DescribeClusterV2UserKubeconfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
-    // Deprecated
     /**
-     * 获取集群kubeconfig接口.
-     *
      * @deprecated OpenAPI DescribeClusterV2UserKubeconfig is deprecated
-     *
-     * @param request - DescribeClusterV2UserKubeconfigRequest
-     *
-     * @returns DescribeClusterV2UserKubeconfigResponse
+     *  *
+     * @summary 获取集群kubeconfig接口
+     *  *
+     * Deprecated
      *
      * @param string                                 $ClusterId
-     * @param DescribeClusterV2UserKubeconfigRequest $request
+     * @param DescribeClusterV2UserKubeconfigRequest $request   DescribeClusterV2UserKubeconfigRequest
      *
-     * @return DescribeClusterV2UserKubeconfigResponse
+     * @return DescribeClusterV2UserKubeconfigResponse DescribeClusterV2UserKubeconfigResponse
      */
     public function describeClusterV2UserKubeconfig($ClusterId, $request)
     {
@@ -4188,18 +3520,13 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Queries the security vulnerability details of a cluster by cluster ID. The details include vulnerability name, vulnerability type, and vulnerability severity. We recommend that you scan your cluster on a regular basis to ensure cluster security.
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeClusterVulsResponse
-     *
+     * @summary Queries the security vulnerability details of a cluster by cluster ID. The details include vulnerability name, vulnerability type, and vulnerability severity. We recommend that you scan your cluster on a regular basis to ensure cluster security.
+     *  *
      * @param string         $clusterId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
      *
-     * @return DescribeClusterVulsResponse
+     * @return DescribeClusterVulsResponse DescribeClusterVulsResponse
      */
     public function describeClusterVulsWithOptions($clusterId, $headers, $runtime)
     {
@@ -4210,7 +3537,7 @@ class CS extends OpenApiClient
             'action' => 'DescribeClusterVuls',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/clusters/' . Url::percentEncode($clusterId) . '/vuls',
+            'pathname' => '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterId) . '/vuls',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -4222,13 +3549,11 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Queries the security vulnerability details of a cluster by cluster ID. The details include vulnerability name, vulnerability type, and vulnerability severity. We recommend that you scan your cluster on a regular basis to ensure cluster security.
-     *
-     * @returns DescribeClusterVulsResponse
-     *
+     * @summary Queries the security vulnerability details of a cluster by cluster ID. The details include vulnerability name, vulnerability type, and vulnerability severity. We recommend that you scan your cluster on a regular basis to ensure cluster security.
+     *  *
      * @param string $clusterId
      *
-     * @return DescribeClusterVulsResponse
+     * @return DescribeClusterVulsResponse DescribeClusterVulsResponse
      */
     public function describeClusterVuls($clusterId)
     {
@@ -4238,43 +3563,35 @@ class CS extends OpenApiClient
         return $this->describeClusterVulsWithOptions($clusterId, $headers, $runtime);
     }
 
-    // Deprecated
     /**
-     * Queries all the clusters that belong to the current Alibaba Cloud account, including Kubernetes clusters and Swarm clusters.
-     *
      * @deprecated OpenAPI DescribeClusters is deprecated
+     *  *
+     * @summary Queries all the clusters that belong to the current Alibaba Cloud account, including Kubernetes clusters and Swarm clusters.
+     *  *
+     * Deprecated
      *
-     * @param request - DescribeClustersRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
+     * @param DescribeClustersRequest $request DescribeClustersRequest
+     * @param string[]                $headers map
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @returns DescribeClustersResponse
-     *
-     * @param DescribeClustersRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
-     *
-     * @return DescribeClustersResponse
+     * @return DescribeClustersResponse DescribeClustersResponse
      */
     public function describeClustersWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clusterType) {
-            @$query['clusterType'] = $request->clusterType;
+        if (!Utils::isUnset($request->clusterType)) {
+            $query['clusterType'] = $request->clusterType;
         }
-
-        if (null !== $request->name) {
-            @$query['name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $query['name'] = $request->name;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['resource_group_id'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['resource_group_id'] = $request->resourceGroupId;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeClusters',
@@ -4291,19 +3608,16 @@ class CS extends OpenApiClient
         return DescribeClustersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
-    // Deprecated
     /**
-     * Queries all the clusters that belong to the current Alibaba Cloud account, including Kubernetes clusters and Swarm clusters.
-     *
      * @deprecated OpenAPI DescribeClusters is deprecated
+     *  *
+     * @summary Queries all the clusters that belong to the current Alibaba Cloud account, including Kubernetes clusters and Swarm clusters.
+     *  *
+     * Deprecated
      *
-     * @param request - DescribeClustersRequest
+     * @param DescribeClustersRequest $request DescribeClustersRequest
      *
-     * @returns DescribeClustersResponse
-     *
-     * @param DescribeClustersRequest $request
-     *
-     * @return DescribeClustersResponse
+     * @return DescribeClustersResponse DescribeClustersResponse
      */
     public function describeClusters($request)
     {
@@ -4314,62 +3628,49 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Queries all clusters in a specified region.
-     *
-     * @param request - DescribeClustersForRegionRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeClustersForRegionResponse
-     *
+     * @summary Queries all clusters in a specified region.
+     *  *
      * @param string                           $regionId
-     * @param DescribeClustersForRegionRequest $request
-     * @param string[]                         $headers
-     * @param RuntimeOptions                   $runtime
+     * @param DescribeClustersForRegionRequest $request  DescribeClustersForRegionRequest
+     * @param string[]                         $headers  map
+     * @param RuntimeOptions                   $runtime  runtime options for this request RuntimeOptions
      *
-     * @return DescribeClustersForRegionResponse
+     * @return DescribeClustersForRegionResponse DescribeClustersForRegionResponse
      */
     public function describeClustersForRegionWithOptions($regionId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clusterId) {
-            @$query['cluster_id'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['cluster_id'] = $request->clusterId;
         }
-
-        if (null !== $request->clusterSpec) {
-            @$query['cluster_spec'] = $request->clusterSpec;
+        if (!Utils::isUnset($request->clusterSpec)) {
+            $query['cluster_spec'] = $request->clusterSpec;
         }
-
-        if (null !== $request->clusterType) {
-            @$query['cluster_type'] = $request->clusterType;
+        if (!Utils::isUnset($request->clusterType)) {
+            $query['cluster_type'] = $request->clusterType;
         }
-
-        if (null !== $request->name) {
-            @$query['name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $query['name'] = $request->name;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['page_number'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['page_number'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['page_size'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['page_size'] = $request->pageSize;
         }
-
-        if (null !== $request->profile) {
-            @$query['profile'] = $request->profile;
+        if (!Utils::isUnset($request->profile)) {
+            $query['profile'] = $request->profile;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeClustersForRegion',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/regions/' . Url::percentEncode($regionId) . '/clusters',
+            'pathname' => '/regions/' . OpenApiUtilClient::getEncodeParam($regionId) . '/clusters',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -4381,16 +3682,12 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Queries all clusters in a specified region.
-     *
-     * @param request - DescribeClustersForRegionRequest
-     *
-     * @returns DescribeClustersForRegionResponse
-     *
+     * @summary Queries all clusters in a specified region.
+     *  *
      * @param string                           $regionId
-     * @param DescribeClustersForRegionRequest $request
+     * @param DescribeClustersForRegionRequest $request  DescribeClustersForRegionRequest
      *
-     * @return DescribeClustersForRegionResponse
+     * @return DescribeClustersForRegionResponse DescribeClustersForRegionResponse
      */
     public function describeClustersForRegion($regionId, $request)
     {
@@ -4401,59 +3698,45 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Queries the details about Container Service for Kubernetes (ACK) clusters of specified types or specifications within an account.
+     * @summary Queries the details about Container Service for Kubernetes (ACK) clusters of specified types or specifications within an account.
+     *  *
+     * @param DescribeClustersV1Request $request DescribeClustersV1Request
+     * @param string[]                  $headers map
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeClustersV1Request
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeClustersV1Response
-     *
-     * @param DescribeClustersV1Request $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DescribeClustersV1Response
+     * @return DescribeClustersV1Response DescribeClustersV1Response
      */
     public function describeClustersV1WithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clusterId) {
-            @$query['cluster_id'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['cluster_id'] = $request->clusterId;
         }
-
-        if (null !== $request->clusterSpec) {
-            @$query['cluster_spec'] = $request->clusterSpec;
+        if (!Utils::isUnset($request->clusterSpec)) {
+            $query['cluster_spec'] = $request->clusterSpec;
         }
-
-        if (null !== $request->clusterType) {
-            @$query['cluster_type'] = $request->clusterType;
+        if (!Utils::isUnset($request->clusterType)) {
+            $query['cluster_type'] = $request->clusterType;
         }
-
-        if (null !== $request->name) {
-            @$query['name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $query['name'] = $request->name;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['page_number'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['page_number'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['page_size'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['page_size'] = $request->pageSize;
         }
-
-        if (null !== $request->profile) {
-            @$query['profile'] = $request->profile;
+        if (!Utils::isUnset($request->profile)) {
+            $query['profile'] = $request->profile;
         }
-
-        if (null !== $request->regionId) {
-            @$query['region_id'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['region_id'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeClustersV1',
@@ -4471,15 +3754,11 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Queries the details about Container Service for Kubernetes (ACK) clusters of specified types or specifications within an account.
+     * @summary Queries the details about Container Service for Kubernetes (ACK) clusters of specified types or specifications within an account.
+     *  *
+     * @param DescribeClustersV1Request $request DescribeClustersV1Request
      *
-     * @param request - DescribeClustersV1Request
-     *
-     * @returns DescribeClustersV1Response
-     *
-     * @param DescribeClustersV1Request $request
-     *
-     * @return DescribeClustersV1Response
+     * @return DescribeClustersV1Response DescribeClustersV1Response
      */
     public function describeClustersV1($request)
     {
@@ -4489,22 +3768,18 @@ class CS extends OpenApiClient
         return $this->describeClustersV1WithOptions($request, $headers, $runtime);
     }
 
-    // Deprecated
     /**
-     * You can call the DescribeEdgeMachineActiveProcess operation to query the activation progress of a cloud-native box.
-     *
      * @deprecated OpenAPI DescribeEdgeMachineActiveProcess is deprecated
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeEdgeMachineActiveProcessResponse
+     *  *
+     * @summary You can call the DescribeEdgeMachineActiveProcess operation to query the activation progress of a cloud-native box.
+     *  *
+     * Deprecated
      *
      * @param string         $edgeMachineid
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers       map
+     * @param RuntimeOptions $runtime       runtime options for this request RuntimeOptions
      *
-     * @return DescribeEdgeMachineActiveProcessResponse
+     * @return DescribeEdgeMachineActiveProcessResponse DescribeEdgeMachineActiveProcessResponse
      */
     public function describeEdgeMachineActiveProcessWithOptions($edgeMachineid, $headers, $runtime)
     {
@@ -4526,17 +3801,16 @@ class CS extends OpenApiClient
         return DescribeEdgeMachineActiveProcessResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
-    // Deprecated
     /**
-     * You can call the DescribeEdgeMachineActiveProcess operation to query the activation progress of a cloud-native box.
-     *
      * @deprecated OpenAPI DescribeEdgeMachineActiveProcess is deprecated
-     *
-     * @returns DescribeEdgeMachineActiveProcessResponse
+     *  *
+     * @summary You can call the DescribeEdgeMachineActiveProcess operation to query the activation progress of a cloud-native box.
+     *  *
+     * Deprecated
      *
      * @param string $edgeMachineid
      *
-     * @return DescribeEdgeMachineActiveProcessResponse
+     * @return DescribeEdgeMachineActiveProcessResponse DescribeEdgeMachineActiveProcessResponse
      */
     public function describeEdgeMachineActiveProcess($edgeMachineid)
     {
@@ -4547,17 +3821,12 @@ class CS extends OpenApiClient
     }
 
     /**
-     * You can call the DescribeEdgeMachineModels operation to query the cloud-native box models.
+     * @summary You can call the DescribeEdgeMachineModels operation to query the cloud-native box models.
+     *  *
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeEdgeMachineModelsResponse
-     *
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
-     *
-     * @return DescribeEdgeMachineModelsResponse
+     * @return DescribeEdgeMachineModelsResponse DescribeEdgeMachineModelsResponse
      */
     public function describeEdgeMachineModelsWithOptions($headers, $runtime)
     {
@@ -4580,11 +3849,9 @@ class CS extends OpenApiClient
     }
 
     /**
-     * You can call the DescribeEdgeMachineModels operation to query the cloud-native box models.
-     *
-     * @returns DescribeEdgeMachineModelsResponse
-     *
-     * @return DescribeEdgeMachineModelsResponse
+     * @summary You can call the DescribeEdgeMachineModels operation to query the cloud-native box models.
+     *  *
+     * @return DescribeEdgeMachineModelsResponse DescribeEdgeMachineModelsResponse
      */
     public function describeEdgeMachineModels()
     {
@@ -4595,18 +3862,13 @@ class CS extends OpenApiClient
     }
 
     /**
-     * You can call the DescribeEdgeMachineTunnelConfigDetail operation to obtain the SSH token of a cloud-native box.
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeEdgeMachineTunnelConfigDetailResponse
-     *
+     * @summary You can call the DescribeEdgeMachineTunnelConfigDetail operation to obtain the SSH token of a cloud-native box.
+     *  *
      * @param string         $edgeMachineid
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers       map
+     * @param RuntimeOptions $runtime       runtime options for this request RuntimeOptions
      *
-     * @return DescribeEdgeMachineTunnelConfigDetailResponse
+     * @return DescribeEdgeMachineTunnelConfigDetailResponse DescribeEdgeMachineTunnelConfigDetailResponse
      */
     public function describeEdgeMachineTunnelConfigDetailWithOptions($edgeMachineid, $headers, $runtime)
     {
@@ -4629,13 +3891,11 @@ class CS extends OpenApiClient
     }
 
     /**
-     * You can call the DescribeEdgeMachineTunnelConfigDetail operation to obtain the SSH token of a cloud-native box.
-     *
-     * @returns DescribeEdgeMachineTunnelConfigDetailResponse
-     *
+     * @summary You can call the DescribeEdgeMachineTunnelConfigDetail operation to obtain the SSH token of a cloud-native box.
+     *  *
      * @param string $edgeMachineid
      *
-     * @return DescribeEdgeMachineTunnelConfigDetailResponse
+     * @return DescribeEdgeMachineTunnelConfigDetailResponse DescribeEdgeMachineTunnelConfigDetailResponse
      */
     public function describeEdgeMachineTunnelConfigDetail($edgeMachineid)
     {
@@ -4646,51 +3906,39 @@ class CS extends OpenApiClient
     }
 
     /**
-     * You can call the DescribeEdgeMachines operation to query a list of cloud-native boxes.
+     * @summary You can call the DescribeEdgeMachines operation to query a list of cloud-native boxes.
+     *  *
+     * @param DescribeEdgeMachinesRequest $request DescribeEdgeMachinesRequest
+     * @param string[]                    $headers map
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeEdgeMachinesRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeEdgeMachinesResponse
-     *
-     * @param DescribeEdgeMachinesRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DescribeEdgeMachinesResponse
+     * @return DescribeEdgeMachinesResponse DescribeEdgeMachinesResponse
      */
     public function describeEdgeMachinesWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->hostname) {
-            @$query['hostname'] = $request->hostname;
+        if (!Utils::isUnset($request->hostname)) {
+            $query['hostname'] = $request->hostname;
         }
-
-        if (null !== $request->lifeState) {
-            @$query['life_state'] = $request->lifeState;
+        if (!Utils::isUnset($request->lifeState)) {
+            $query['life_state'] = $request->lifeState;
         }
-
-        if (null !== $request->model) {
-            @$query['model'] = $request->model;
+        if (!Utils::isUnset($request->model)) {
+            $query['model'] = $request->model;
         }
-
-        if (null !== $request->onlineState) {
-            @$query['online_state'] = $request->onlineState;
+        if (!Utils::isUnset($request->onlineState)) {
+            $query['online_state'] = $request->onlineState;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['page_number'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['page_number'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['page_size'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['page_size'] = $request->pageSize;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeEdgeMachines',
@@ -4708,15 +3956,11 @@ class CS extends OpenApiClient
     }
 
     /**
-     * You can call the DescribeEdgeMachines operation to query a list of cloud-native boxes.
+     * @summary You can call the DescribeEdgeMachines operation to query a list of cloud-native boxes.
+     *  *
+     * @param DescribeEdgeMachinesRequest $request DescribeEdgeMachinesRequest
      *
-     * @param request - DescribeEdgeMachinesRequest
-     *
-     * @returns DescribeEdgeMachinesResponse
-     *
-     * @param DescribeEdgeMachinesRequest $request
-     *
-     * @return DescribeEdgeMachinesResponse
+     * @return DescribeEdgeMachinesResponse DescribeEdgeMachinesResponse
      */
     public function describeEdgeMachines($request)
     {
@@ -4727,43 +3971,33 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Queries the detailed information about a type of events, including the severity level, status, and time. Events are generated when clusters are created, modified, and updated, node pools are created and scaled out, and components are installed.
+     * @summary Queries the detailed information about a type of events, including the severity level, status, and time. Events are generated when clusters are created, modified, and updated, node pools are created and scaled out, and components are installed.
+     *  *
+     * @param DescribeEventsRequest $request DescribeEventsRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeEventsRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeEventsResponse
-     *
-     * @param DescribeEventsRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
-     *
-     * @return DescribeEventsResponse
+     * @return DescribeEventsResponse DescribeEventsResponse
      */
     public function describeEventsWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clusterId) {
-            @$query['cluster_id'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['cluster_id'] = $request->clusterId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['page_number'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['page_number'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['page_size'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['page_size'] = $request->pageSize;
         }
-
-        if (null !== $request->type) {
-            @$query['type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $query['type'] = $request->type;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeEvents',
@@ -4781,15 +4015,11 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Queries the detailed information about a type of events, including the severity level, status, and time. Events are generated when clusters are created, modified, and updated, node pools are created and scaled out, and components are installed.
+     * @summary Queries the detailed information about a type of events, including the severity level, status, and time. Events are generated when clusters are created, modified, and updated, node pools are created and scaled out, and components are installed.
+     *  *
+     * @param DescribeEventsRequest $request DescribeEventsRequest
      *
-     * @param request - DescribeEventsRequest
-     *
-     * @returns DescribeEventsResponse
-     *
-     * @param DescribeEventsRequest $request
-     *
-     * @return DescribeEventsResponse
+     * @return DescribeEventsResponse DescribeEventsResponse
      */
     public function describeEvents($request)
     {
@@ -4800,46 +4030,37 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Queries all events in a specified region.
-     *
-     * @param request - DescribeEventsForRegionRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeEventsForRegionResponse
-     *
+     * @summary Queries all events in a specified region.
+     *  *
      * @param string                         $regionId
-     * @param DescribeEventsForRegionRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
+     * @param DescribeEventsForRegionRequest $request  DescribeEventsForRegionRequest
+     * @param string[]                       $headers  map
+     * @param RuntimeOptions                 $runtime  runtime options for this request RuntimeOptions
      *
-     * @return DescribeEventsForRegionResponse
+     * @return DescribeEventsForRegionResponse DescribeEventsForRegionResponse
      */
     public function describeEventsForRegionWithOptions($regionId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clusterId) {
-            @$query['cluster_id'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['cluster_id'] = $request->clusterId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['page_number'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['page_number'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['page_size'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['page_size'] = $request->pageSize;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeEventsForRegion',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/regions/' . Url::percentEncode($regionId) . '/events',
+            'pathname' => '/regions/' . OpenApiUtilClient::getEncodeParam($regionId) . '/events',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -4851,16 +4072,12 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Queries all events in a specified region.
-     *
-     * @param request - DescribeEventsForRegionRequest
-     *
-     * @returns DescribeEventsForRegionResponse
-     *
+     * @summary Queries all events in a specified region.
+     *  *
      * @param string                         $regionId
-     * @param DescribeEventsForRegionRequest $request
+     * @param DescribeEventsForRegionRequest $request  DescribeEventsForRegionRequest
      *
-     * @return DescribeEventsForRegionResponse
+     * @return DescribeEventsForRegionResponse DescribeEventsForRegionResponse
      */
     public function describeEventsForRegion($regionId, $request)
     {
@@ -4870,49 +4087,41 @@ class CS extends OpenApiClient
         return $this->describeEventsForRegionWithOptions($regionId, $request, $headers, $runtime);
     }
 
-    // Deprecated
     /**
-     * Queries the proxy configurations of a registered cluster by cluster ID.
-     *
-     * @remarks
-     * For more information, see [Register an external Kubernetes cluster](https://help.aliyun.com/document_detail/121053.html).
-     *
      * @deprecated OpenAPI DescribeExternalAgent is deprecated
-     *
-     * @param request - DescribeExternalAgentRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeExternalAgentResponse
+     *  *
+     * @summary Queries the proxy configurations of a registered cluster by cluster ID.
+     *  *
+     * @description For more information, see [Register an external Kubernetes cluster](https://help.aliyun.com/document_detail/121053.html).
+     *  *
+     * Deprecated
      *
      * @param string                       $ClusterId
-     * @param DescribeExternalAgentRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @param DescribeExternalAgentRequest $request   DescribeExternalAgentRequest
+     * @param string[]                     $headers   map
+     * @param RuntimeOptions               $runtime   runtime options for this request RuntimeOptions
      *
-     * @return DescribeExternalAgentResponse
+     * @return DescribeExternalAgentResponse DescribeExternalAgentResponse
      */
     public function describeExternalAgentWithOptions($ClusterId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->agentMode) {
-            @$query['AgentMode'] = $request->agentMode;
+        if (!Utils::isUnset($request->agentMode)) {
+            $query['AgentMode'] = $request->agentMode;
         }
-
-        if (null !== $request->privateIpAddress) {
-            @$query['PrivateIpAddress'] = $request->privateIpAddress;
+        if (!Utils::isUnset($request->privateIpAddress)) {
+            $query['PrivateIpAddress'] = $request->privateIpAddress;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeExternalAgent',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/k8s/' . Url::percentEncode($ClusterId) . '/external/agent/deployment',
+            'pathname' => '/k8s/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/external/agent/deployment',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -4923,23 +4132,19 @@ class CS extends OpenApiClient
         return DescribeExternalAgentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
-    // Deprecated
     /**
-     * Queries the proxy configurations of a registered cluster by cluster ID.
-     *
-     * @remarks
-     * For more information, see [Register an external Kubernetes cluster](https://help.aliyun.com/document_detail/121053.html).
-     *
      * @deprecated OpenAPI DescribeExternalAgent is deprecated
-     *
-     * @param request - DescribeExternalAgentRequest
-     *
-     * @returns DescribeExternalAgentResponse
+     *  *
+     * @summary Queries the proxy configurations of a registered cluster by cluster ID.
+     *  *
+     * @description For more information, see [Register an external Kubernetes cluster](https://help.aliyun.com/document_detail/121053.html).
+     *  *
+     * Deprecated
      *
      * @param string                       $ClusterId
-     * @param DescribeExternalAgentRequest $request
+     * @param DescribeExternalAgentRequest $request   DescribeExternalAgentRequest
      *
-     * @return DescribeExternalAgentResponse
+     * @return DescribeExternalAgentResponse DescribeExternalAgentResponse
      */
     public function describeExternalAgent($ClusterId, $request)
     {
@@ -4950,55 +4155,42 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Queries the detailed information about Kubernetes versions, including the version number, release date, expiration date, compatible OSs, and runtime.
+     * @summary Queries the detailed information about Kubernetes versions, including the version number, release date, expiration date, compatible OSs, and runtime.
+     *  *
+     * @param DescribeKubernetesVersionMetadataRequest $request DescribeKubernetesVersionMetadataRequest
+     * @param string[]                                 $headers map
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeKubernetesVersionMetadataRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeKubernetesVersionMetadataResponse
-     *
-     * @param DescribeKubernetesVersionMetadataRequest $request
-     * @param string[]                                 $headers
-     * @param RuntimeOptions                           $runtime
-     *
-     * @return DescribeKubernetesVersionMetadataResponse
+     * @return DescribeKubernetesVersionMetadataResponse DescribeKubernetesVersionMetadataResponse
      */
     public function describeKubernetesVersionMetadataWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clusterType) {
-            @$query['ClusterType'] = $request->clusterType;
+        if (!Utils::isUnset($request->clusterType)) {
+            $query['ClusterType'] = $request->clusterType;
         }
-
-        if (null !== $request->kubernetesVersion) {
-            @$query['KubernetesVersion'] = $request->kubernetesVersion;
+        if (!Utils::isUnset($request->kubernetesVersion)) {
+            $query['KubernetesVersion'] = $request->kubernetesVersion;
         }
-
-        if (null !== $request->mode) {
-            @$query['Mode'] = $request->mode;
+        if (!Utils::isUnset($request->mode)) {
+            $query['Mode'] = $request->mode;
         }
-
-        if (null !== $request->profile) {
-            @$query['Profile'] = $request->profile;
+        if (!Utils::isUnset($request->profile)) {
+            $query['Profile'] = $request->profile;
         }
-
-        if (null !== $request->queryUpgradableVersion) {
-            @$query['QueryUpgradableVersion'] = $request->queryUpgradableVersion;
+        if (!Utils::isUnset($request->queryUpgradableVersion)) {
+            $query['QueryUpgradableVersion'] = $request->queryUpgradableVersion;
         }
-
-        if (null !== $request->region) {
-            @$query['Region'] = $request->region;
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
         }
-
-        if (null !== $request->runtime) {
-            @$query['runtime'] = $request->runtime;
+        if (!Utils::isUnset($request->runtime)) {
+            $query['runtime'] = $request->runtime;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeKubernetesVersionMetadata',
@@ -5016,15 +4208,11 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Queries the detailed information about Kubernetes versions, including the version number, release date, expiration date, compatible OSs, and runtime.
+     * @summary Queries the detailed information about Kubernetes versions, including the version number, release date, expiration date, compatible OSs, and runtime.
+     *  *
+     * @param DescribeKubernetesVersionMetadataRequest $request DescribeKubernetesVersionMetadataRequest
      *
-     * @param request - DescribeKubernetesVersionMetadataRequest
-     *
-     * @returns DescribeKubernetesVersionMetadataResponse
-     *
-     * @param DescribeKubernetesVersionMetadataRequest $request
-     *
-     * @return DescribeKubernetesVersionMetadataResponse
+     * @return DescribeKubernetesVersionMetadataResponse DescribeKubernetesVersionMetadataResponse
      */
     public function describeKubernetesVersionMetadata($request)
     {
@@ -5035,39 +4223,32 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Queries the vulnerability information of a node pool, such as vulnerability names and severity levels, by specifying the ID of the node pool. We recommend that you periodically scan node pools for vulnerabilities to enhance cluster security.
-     *
-     * @param request - DescribeNodePoolVulsRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeNodePoolVulsResponse
-     *
+     * @summary Queries the vulnerability information of a node pool, such as vulnerability names and severity levels, by specifying the ID of the node pool. We recommend that you periodically scan node pools for vulnerabilities to enhance cluster security.
+     *  *
      * @param string                      $clusterId
      * @param string                      $nodepoolId
-     * @param DescribeNodePoolVulsRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @param DescribeNodePoolVulsRequest $request    DescribeNodePoolVulsRequest
+     * @param string[]                    $headers    map
+     * @param RuntimeOptions              $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DescribeNodePoolVulsResponse
+     * @return DescribeNodePoolVulsResponse DescribeNodePoolVulsResponse
      */
     public function describeNodePoolVulsWithOptions($clusterId, $nodepoolId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->necessity) {
-            @$query['necessity'] = $request->necessity;
+        if (!Utils::isUnset($request->necessity)) {
+            $query['necessity'] = $request->necessity;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeNodePoolVuls',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/clusters/' . Url::percentEncode($clusterId) . '/nodepools/' . Url::percentEncode($nodepoolId) . '/vuls',
+            'pathname' => '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterId) . '/nodepools/' . OpenApiUtilClient::getEncodeParam($nodepoolId) . '/vuls',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -5079,17 +4260,13 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Queries the vulnerability information of a node pool, such as vulnerability names and severity levels, by specifying the ID of the node pool. We recommend that you periodically scan node pools for vulnerabilities to enhance cluster security.
-     *
-     * @param request - DescribeNodePoolVulsRequest
-     *
-     * @returns DescribeNodePoolVulsResponse
-     *
+     * @summary Queries the vulnerability information of a node pool, such as vulnerability names and severity levels, by specifying the ID of the node pool. We recommend that you periodically scan node pools for vulnerabilities to enhance cluster security.
+     *  *
      * @param string                      $clusterId
      * @param string                      $nodepoolId
-     * @param DescribeNodePoolVulsRequest $request
+     * @param DescribeNodePoolVulsRequest $request    DescribeNodePoolVulsRequest
      *
-     * @return DescribeNodePoolVulsResponse
+     * @return DescribeNodePoolVulsResponse DescribeNodePoolVulsResponse
      */
     public function describeNodePoolVuls($clusterId, $nodepoolId, $request)
     {
@@ -5100,17 +4277,12 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Queries a list of security policies. Container Service for Kubernetes (ACK) clusters offer a variety of built-in container security policies, such as Compliance, Infra, K8s-general, and pod security policy (PSP). You can use these policies to ensure the security of containers running in a production environment.
+     * @summary Queries a list of security policies. Container Service for Kubernetes (ACK) clusters offer a variety of built-in container security policies, such as Compliance, Infra, K8s-general, and pod security policy (PSP). You can use these policies to ensure the security of containers running in a production environment.
+     *  *
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribePoliciesResponse
-     *
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
-     *
-     * @return DescribePoliciesResponse
+     * @return DescribePoliciesResponse DescribePoliciesResponse
      */
     public function describePoliciesWithOptions($headers, $runtime)
     {
@@ -5133,11 +4305,9 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Queries a list of security policies. Container Service for Kubernetes (ACK) clusters offer a variety of built-in container security policies, such as Compliance, Infra, K8s-general, and pod security policy (PSP). You can use these policies to ensure the security of containers running in a production environment.
-     *
-     * @returns DescribePoliciesResponse
-     *
-     * @return DescribePoliciesResponse
+     * @summary Queries a list of security policies. Container Service for Kubernetes (ACK) clusters offer a variety of built-in container security policies, such as Compliance, Infra, K8s-general, and pod security policy (PSP). You can use these policies to ensure the security of containers running in a production environment.
+     *  *
+     * @return DescribePoliciesResponse DescribePoliciesResponse
      */
     public function describePolicies()
     {
@@ -5148,18 +4318,13 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Queries the detailed information about a policy. The information includes the content, action, and severity level of the policy. Container Service for Kubernetes (ACK) provides the following types of predefined security policies: Compliance, Infra, K8s-general, and pod security policy (PSP). These policies ensure that containers are running in the production environment in a secure manner.
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribePolicyDetailsResponse
-     *
+     * @summary Queries the detailed information about a policy. The information includes the content, action, and severity level of the policy. Container Service for Kubernetes (ACK) provides the following types of predefined security policies: Compliance, Infra, K8s-general, and pod security policy (PSP). These policies ensure that containers are running in the production environment in a secure manner.
+     *  *
      * @param string         $policyName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DescribePolicyDetailsResponse
+     * @return DescribePolicyDetailsResponse DescribePolicyDetailsResponse
      */
     public function describePolicyDetailsWithOptions($policyName, $headers, $runtime)
     {
@@ -5170,7 +4335,7 @@ class CS extends OpenApiClient
             'action' => 'DescribePolicyDetails',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/policies/' . Url::percentEncode($policyName) . '',
+            'pathname' => '/policies/' . OpenApiUtilClient::getEncodeParam($policyName) . '',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -5182,13 +4347,11 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Queries the detailed information about a policy. The information includes the content, action, and severity level of the policy. Container Service for Kubernetes (ACK) provides the following types of predefined security policies: Compliance, Infra, K8s-general, and pod security policy (PSP). These policies ensure that containers are running in the production environment in a secure manner.
-     *
-     * @returns DescribePolicyDetailsResponse
-     *
+     * @summary Queries the detailed information about a policy. The information includes the content, action, and severity level of the policy. Container Service for Kubernetes (ACK) provides the following types of predefined security policies: Compliance, Infra, K8s-general, and pod security policy (PSP). These policies ensure that containers are running in the production environment in a secure manner.
+     *  *
      * @param string $policyName
      *
-     * @return DescribePolicyDetailsResponse
+     * @return DescribePolicyDetailsResponse DescribePolicyDetailsResponse
      */
     public function describePolicyDetails($policyName)
     {
@@ -5199,18 +4362,13 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Container Service for Kubernetes (ACK) clusters offer a variety of built-in container security policies, such as Compliance, Infra, K8s-general, and pod security policy (PSP). You can use these policies to ensure the security of containers running in a production environment. You can call the DescribePolicyGovernanceInCluster operation to query the details of policies for an ACK cluster. For example, you can query the number of policies that are enabled per severity level, the audit logs of policies, and the blocking and alerting information.
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribePolicyGovernanceInClusterResponse
-     *
+     * @summary Container Service for Kubernetes (ACK) clusters offer a variety of built-in container security policies, such as Compliance, Infra, K8s-general, and pod security policy (PSP). You can use these policies to ensure the security of containers running in a production environment. You can call the DescribePolicyGovernanceInCluster operation to query the details of policies for an ACK cluster. For example, you can query the number of policies that are enabled per severity level, the audit logs of policies, and the blocking and alerting information.
+     *  *
      * @param string         $clusterId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
      *
-     * @return DescribePolicyGovernanceInClusterResponse
+     * @return DescribePolicyGovernanceInClusterResponse DescribePolicyGovernanceInClusterResponse
      */
     public function describePolicyGovernanceInClusterWithOptions($clusterId, $headers, $runtime)
     {
@@ -5221,7 +4379,7 @@ class CS extends OpenApiClient
             'action' => 'DescribePolicyGovernanceInCluster',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/clusters/' . Url::percentEncode($clusterId) . '/policygovernance',
+            'pathname' => '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterId) . '/policygovernance',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -5233,13 +4391,11 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Container Service for Kubernetes (ACK) clusters offer a variety of built-in container security policies, such as Compliance, Infra, K8s-general, and pod security policy (PSP). You can use these policies to ensure the security of containers running in a production environment. You can call the DescribePolicyGovernanceInCluster operation to query the details of policies for an ACK cluster. For example, you can query the number of policies that are enabled per severity level, the audit logs of policies, and the blocking and alerting information.
-     *
-     * @returns DescribePolicyGovernanceInClusterResponse
-     *
+     * @summary Container Service for Kubernetes (ACK) clusters offer a variety of built-in container security policies, such as Compliance, Infra, K8s-general, and pod security policy (PSP). You can use these policies to ensure the security of containers running in a production environment. You can call the DescribePolicyGovernanceInCluster operation to query the details of policies for an ACK cluster. For example, you can query the number of policies that are enabled per severity level, the audit logs of policies, and the blocking and alerting information.
+     *  *
      * @param string $clusterId
      *
-     * @return DescribePolicyGovernanceInClusterResponse
+     * @return DescribePolicyGovernanceInClusterResponse DescribePolicyGovernanceInClusterResponse
      */
     public function describePolicyGovernanceInCluster($clusterId)
     {
@@ -5250,42 +4406,34 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Queries the detailed information about policy instances of the specified type in a Container Service for Kubernetes (ACK) cluster, such as the policy description and severity level. You can choose a type of security policy for an ACK cluster, specify the action and applicable scope of the policy, and then create and deploy a policy instance.
-     *
-     * @param request - DescribePolicyInstancesRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribePolicyInstancesResponse
-     *
+     * @summary Queries the detailed information about policy instances of the specified type in a Container Service for Kubernetes (ACK) cluster, such as the policy description and severity level. You can choose a type of security policy for an ACK cluster, specify the action and applicable scope of the policy, and then create and deploy a policy instance.
+     *  *
      * @param string                         $clusterId
-     * @param DescribePolicyInstancesRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
+     * @param DescribePolicyInstancesRequest $request   DescribePolicyInstancesRequest
+     * @param string[]                       $headers   map
+     * @param RuntimeOptions                 $runtime   runtime options for this request RuntimeOptions
      *
-     * @return DescribePolicyInstancesResponse
+     * @return DescribePolicyInstancesResponse DescribePolicyInstancesResponse
      */
     public function describePolicyInstancesWithOptions($clusterId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceName) {
-            @$query['instance_name'] = $request->instanceName;
+        if (!Utils::isUnset($request->instanceName)) {
+            $query['instance_name'] = $request->instanceName;
         }
-
-        if (null !== $request->policyName) {
-            @$query['policy_name'] = $request->policyName;
+        if (!Utils::isUnset($request->policyName)) {
+            $query['policy_name'] = $request->policyName;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribePolicyInstances',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/clusters/' . Url::percentEncode($clusterId) . '/policies',
+            'pathname' => '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterId) . '/policies',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -5297,16 +4445,12 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Queries the detailed information about policy instances of the specified type in a Container Service for Kubernetes (ACK) cluster, such as the policy description and severity level. You can choose a type of security policy for an ACK cluster, specify the action and applicable scope of the policy, and then create and deploy a policy instance.
-     *
-     * @param request - DescribePolicyInstancesRequest
-     *
-     * @returns DescribePolicyInstancesResponse
-     *
+     * @summary Queries the detailed information about policy instances of the specified type in a Container Service for Kubernetes (ACK) cluster, such as the policy description and severity level. You can choose a type of security policy for an ACK cluster, specify the action and applicable scope of the policy, and then create and deploy a policy instance.
+     *  *
      * @param string                         $clusterId
-     * @param DescribePolicyInstancesRequest $request
+     * @param DescribePolicyInstancesRequest $request   DescribePolicyInstancesRequest
      *
-     * @return DescribePolicyInstancesResponse
+     * @return DescribePolicyInstancesResponse DescribePolicyInstancesResponse
      */
     public function describePolicyInstances($clusterId, $request)
     {
@@ -5317,18 +4461,13 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Queries the deployment of policy instances in the current Container Service for Kubernetes (ACK) cluster, including the number of policy instances of each type and the number of policy types of each severity level.
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribePolicyInstancesStatusResponse
-     *
+     * @summary Queries the deployment of policy instances in the current Container Service for Kubernetes (ACK) cluster, including the number of policy instances of each type and the number of policy types of each severity level.
+     *  *
      * @param string         $clusterId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
      *
-     * @return DescribePolicyInstancesStatusResponse
+     * @return DescribePolicyInstancesStatusResponse DescribePolicyInstancesStatusResponse
      */
     public function describePolicyInstancesStatusWithOptions($clusterId, $headers, $runtime)
     {
@@ -5339,7 +4478,7 @@ class CS extends OpenApiClient
             'action' => 'DescribePolicyInstancesStatus',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/clusters/' . Url::percentEncode($clusterId) . '/policies/status',
+            'pathname' => '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterId) . '/policies/status',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -5351,13 +4490,11 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Queries the deployment of policy instances in the current Container Service for Kubernetes (ACK) cluster, including the number of policy instances of each type and the number of policy types of each severity level.
-     *
-     * @returns DescribePolicyInstancesStatusResponse
-     *
+     * @summary Queries the deployment of policy instances in the current Container Service for Kubernetes (ACK) cluster, including the number of policy instances of each type and the number of policy types of each severity level.
+     *  *
      * @param string $clusterId
      *
-     * @return DescribePolicyInstancesStatusResponse
+     * @return DescribePolicyInstancesStatusResponse DescribePolicyInstancesStatusResponse
      */
     public function describePolicyInstancesStatus($clusterId)
     {
@@ -5368,43 +4505,35 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Queries whether the deletion protection feature is enabled for the specified resources in the cluster. The resources that you can query include namespaces and Services.
-     *
-     * @param request - DescribeResourcesDeleteProtectionRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeResourcesDeleteProtectionResponse
-     *
+     * @summary Queries whether the deletion protection feature is enabled for the specified resources in the cluster. The resources that you can query include namespaces and Services.
+     *  *
      * @param string                                   $ClusterId
      * @param string                                   $ResourceType
-     * @param DescribeResourcesDeleteProtectionRequest $request
-     * @param string[]                                 $headers
-     * @param RuntimeOptions                           $runtime
+     * @param DescribeResourcesDeleteProtectionRequest $request      DescribeResourcesDeleteProtectionRequest
+     * @param string[]                                 $headers      map
+     * @param RuntimeOptions                           $runtime      runtime options for this request RuntimeOptions
      *
-     * @return DescribeResourcesDeleteProtectionResponse
+     * @return DescribeResourcesDeleteProtectionResponse DescribeResourcesDeleteProtectionResponse
      */
     public function describeResourcesDeleteProtectionWithOptions($ClusterId, $ResourceType, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->namespace) {
-            @$query['namespace'] = $request->namespace;
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['namespace'] = $request->namespace_;
         }
-
-        if (null !== $request->resources) {
-            @$query['resources'] = $request->resources;
+        if (!Utils::isUnset($request->resources)) {
+            $query['resources'] = $request->resources;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeResourcesDeleteProtection',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/clusters/' . Url::percentEncode($ClusterId) . '/resources/' . Url::percentEncode($ResourceType) . '/protection',
+            'pathname' => '/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/resources/' . OpenApiUtilClient::getEncodeParam($ResourceType) . '/protection',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -5416,17 +4545,13 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Queries whether the deletion protection feature is enabled for the specified resources in the cluster. The resources that you can query include namespaces and Services.
-     *
-     * @param request - DescribeResourcesDeleteProtectionRequest
-     *
-     * @returns DescribeResourcesDeleteProtectionResponse
-     *
+     * @summary Queries whether the deletion protection feature is enabled for the specified resources in the cluster. The resources that you can query include namespaces and Services.
+     *  *
      * @param string                                   $ClusterId
      * @param string                                   $ResourceType
-     * @param DescribeResourcesDeleteProtectionRequest $request
+     * @param DescribeResourcesDeleteProtectionRequest $request      DescribeResourcesDeleteProtectionRequest
      *
-     * @return DescribeResourcesDeleteProtectionResponse
+     * @return DescribeResourcesDeleteProtectionResponse DescribeResourcesDeleteProtectionResponse
      */
     public function describeResourcesDeleteProtection($ClusterId, $ResourceType, $request)
     {
@@ -5437,46 +4562,37 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Queries or issues the kubeconfig credentials of a Resource Access Management (RAM) user or RAM role of the account. If you are the permission manager of a Container Service for Kubernetes (ACK) cluster, you can issue the kubeconfig credentials to a specific RAM user or RAM role of the account by using the Alibaba Cloud account. The kubeconfig credentials, which are used to connect to the ACK cluster, contain the identity information about the RAM user or RAM role.
-     *
-     * @remarks
-     * You can call this operation only by using an Alibaba Cloud account.
-     *
-     * @param request - DescribeSubaccountK8sClusterUserConfigRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeSubaccountK8sClusterUserConfigResponse
-     *
+     * @summary Queries or issues the kubeconfig credentials of a Resource Access Management (RAM) user or RAM role of the account. If you are the permission manager of a Container Service for Kubernetes (ACK) cluster, you can issue the kubeconfig credentials to a specific RAM user or RAM role of the account by using the Alibaba Cloud account. The kubeconfig credentials, which are used to connect to the ACK cluster, contain the identity information about the RAM user or RAM role.
+     *  *
+     * @description You can call this operation only by using an Alibaba Cloud account.
+     *  *
      * @param string                                        $ClusterId
      * @param string                                        $Uid
-     * @param DescribeSubaccountK8sClusterUserConfigRequest $request
-     * @param string[]                                      $headers
-     * @param RuntimeOptions                                $runtime
+     * @param DescribeSubaccountK8sClusterUserConfigRequest $request   DescribeSubaccountK8sClusterUserConfigRequest
+     * @param string[]                                      $headers   map
+     * @param RuntimeOptions                                $runtime   runtime options for this request RuntimeOptions
      *
-     * @return DescribeSubaccountK8sClusterUserConfigResponse
+     * @return DescribeSubaccountK8sClusterUserConfigResponse DescribeSubaccountK8sClusterUserConfigResponse
      */
     public function describeSubaccountK8sClusterUserConfigWithOptions($ClusterId, $Uid, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->privateIpAddress) {
-            @$query['PrivateIpAddress'] = $request->privateIpAddress;
+        if (!Utils::isUnset($request->privateIpAddress)) {
+            $query['PrivateIpAddress'] = $request->privateIpAddress;
         }
-
-        if (null !== $request->temporaryDurationMinutes) {
-            @$query['TemporaryDurationMinutes'] = $request->temporaryDurationMinutes;
+        if (!Utils::isUnset($request->temporaryDurationMinutes)) {
+            $query['TemporaryDurationMinutes'] = $request->temporaryDurationMinutes;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeSubaccountK8sClusterUserConfig',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/k8s/' . Url::percentEncode($ClusterId) . '/users/' . Url::percentEncode($Uid) . '/user_config',
+            'pathname' => '/k8s/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/users/' . OpenApiUtilClient::getEncodeParam($Uid) . '/user_config',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -5488,20 +4604,15 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Queries or issues the kubeconfig credentials of a Resource Access Management (RAM) user or RAM role of the account. If you are the permission manager of a Container Service for Kubernetes (ACK) cluster, you can issue the kubeconfig credentials to a specific RAM user or RAM role of the account by using the Alibaba Cloud account. The kubeconfig credentials, which are used to connect to the ACK cluster, contain the identity information about the RAM user or RAM role.
-     *
-     * @remarks
-     * You can call this operation only by using an Alibaba Cloud account.
-     *
-     * @param request - DescribeSubaccountK8sClusterUserConfigRequest
-     *
-     * @returns DescribeSubaccountK8sClusterUserConfigResponse
-     *
+     * @summary Queries or issues the kubeconfig credentials of a Resource Access Management (RAM) user or RAM role of the account. If you are the permission manager of a Container Service for Kubernetes (ACK) cluster, you can issue the kubeconfig credentials to a specific RAM user or RAM role of the account by using the Alibaba Cloud account. The kubeconfig credentials, which are used to connect to the ACK cluster, contain the identity information about the RAM user or RAM role.
+     *  *
+     * @description You can call this operation only by using an Alibaba Cloud account.
+     *  *
      * @param string                                        $ClusterId
      * @param string                                        $Uid
-     * @param DescribeSubaccountK8sClusterUserConfigRequest $request
+     * @param DescribeSubaccountK8sClusterUserConfigRequest $request   DescribeSubaccountK8sClusterUserConfigRequest
      *
-     * @return DescribeSubaccountK8sClusterUserConfigResponse
+     * @return DescribeSubaccountK8sClusterUserConfigResponse DescribeSubaccountK8sClusterUserConfigResponse
      */
     public function describeSubaccountK8sClusterUserConfig($ClusterId, $Uid, $request)
     {
@@ -5512,18 +4623,13 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Queries detailed information about a task, such as the task type, status, and progress.
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeTaskInfoResponse
-     *
+     * @summary Queries detailed information about a task, such as the task type, status, and progress.
+     *  *
      * @param string         $taskId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeTaskInfoResponse
+     * @return DescribeTaskInfoResponse DescribeTaskInfoResponse
      */
     public function describeTaskInfoWithOptions($taskId, $headers, $runtime)
     {
@@ -5534,7 +4640,7 @@ class CS extends OpenApiClient
             'action' => 'DescribeTaskInfo',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/tasks/' . Url::percentEncode($taskId) . '',
+            'pathname' => '/tasks/' . OpenApiUtilClient::getEncodeParam($taskId) . '',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -5546,13 +4652,11 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Queries detailed information about a task, such as the task type, status, and progress.
-     *
-     * @returns DescribeTaskInfoResponse
-     *
+     * @summary Queries detailed information about a task, such as the task type, status, and progress.
+     *  *
      * @param string $taskId
      *
-     * @return DescribeTaskInfoResponse
+     * @return DescribeTaskInfoResponse DescribeTaskInfoResponse
      */
     public function describeTaskInfo($taskId)
     {
@@ -5563,38 +4667,31 @@ class CS extends OpenApiClient
     }
 
     /**
-     * An orchestration template defines and describes a group of Kubernetes resources. It declaratively describes the configuration of an application or how an application runs. You can call the DescribeTemplates API operation to query orchestration templates and their detailed information, including access permissions, YAML content, and labels.
-     *
-     * @param request - DescribeTemplateAttributeRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeTemplateAttributeResponse
-     *
+     * @summary An orchestration template defines and describes a group of Kubernetes resources. It declaratively describes the configuration of an application or how an application runs. You can call the DescribeTemplates API operation to query orchestration templates and their detailed information, including access permissions, YAML content, and labels.
+     *  *
      * @param string                           $TemplateId
-     * @param DescribeTemplateAttributeRequest $request
-     * @param string[]                         $headers
-     * @param RuntimeOptions                   $runtime
+     * @param DescribeTemplateAttributeRequest $request    DescribeTemplateAttributeRequest
+     * @param string[]                         $headers    map
+     * @param RuntimeOptions                   $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DescribeTemplateAttributeResponse
+     * @return DescribeTemplateAttributeResponse DescribeTemplateAttributeResponse
      */
     public function describeTemplateAttributeWithOptions($TemplateId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->templateType) {
-            @$query['template_type'] = $request->templateType;
+        if (!Utils::isUnset($request->templateType)) {
+            $query['template_type'] = $request->templateType;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeTemplateAttribute',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/templates/' . Url::percentEncode($TemplateId) . '',
+            'pathname' => '/templates/' . OpenApiUtilClient::getEncodeParam($TemplateId) . '',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -5606,16 +4703,12 @@ class CS extends OpenApiClient
     }
 
     /**
-     * An orchestration template defines and describes a group of Kubernetes resources. It declaratively describes the configuration of an application or how an application runs. You can call the DescribeTemplates API operation to query orchestration templates and their detailed information, including access permissions, YAML content, and labels.
-     *
-     * @param request - DescribeTemplateAttributeRequest
-     *
-     * @returns DescribeTemplateAttributeResponse
-     *
+     * @summary An orchestration template defines and describes a group of Kubernetes resources. It declaratively describes the configuration of an application or how an application runs. You can call the DescribeTemplates API operation to query orchestration templates and their detailed information, including access permissions, YAML content, and labels.
+     *  *
      * @param string                           $TemplateId
-     * @param DescribeTemplateAttributeRequest $request
+     * @param DescribeTemplateAttributeRequest $request    DescribeTemplateAttributeRequest
      *
-     * @return DescribeTemplateAttributeResponse
+     * @return DescribeTemplateAttributeResponse DescribeTemplateAttributeResponse
      */
     public function describeTemplateAttribute($TemplateId, $request)
     {
@@ -5626,39 +4719,30 @@ class CS extends OpenApiClient
     }
 
     /**
-     * An orchestration template defines and describes a group of Kubernetes resources. It declaratively describes the configuration of an application or how an application runs. You can call the DescribeTemplates API operation to query orchestration templates and their detailed information, including access permissions, YAML content, and labels.
+     * @summary An orchestration template defines and describes a group of Kubernetes resources. It declaratively describes the configuration of an application or how an application runs. You can call the DescribeTemplates API operation to query orchestration templates and their detailed information, including access permissions, YAML content, and labels.
+     *  *
+     * @param DescribeTemplatesRequest $request DescribeTemplatesRequest
+     * @param string[]                 $headers map
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeTemplatesRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeTemplatesResponse
-     *
-     * @param DescribeTemplatesRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
-     *
-     * @return DescribeTemplatesResponse
+     * @return DescribeTemplatesResponse DescribeTemplatesResponse
      */
     public function describeTemplatesWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->pageNum) {
-            @$query['page_num'] = $request->pageNum;
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['page_num'] = $request->pageNum;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['page_size'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['page_size'] = $request->pageSize;
         }
-
-        if (null !== $request->templateType) {
-            @$query['template_type'] = $request->templateType;
+        if (!Utils::isUnset($request->templateType)) {
+            $query['template_type'] = $request->templateType;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeTemplates',
@@ -5676,15 +4760,11 @@ class CS extends OpenApiClient
     }
 
     /**
-     * An orchestration template defines and describes a group of Kubernetes resources. It declaratively describes the configuration of an application or how an application runs. You can call the DescribeTemplates API operation to query orchestration templates and their detailed information, including access permissions, YAML content, and labels.
+     * @summary An orchestration template defines and describes a group of Kubernetes resources. It declaratively describes the configuration of an application or how an application runs. You can call the DescribeTemplates API operation to query orchestration templates and their detailed information, including access permissions, YAML content, and labels.
+     *  *
+     * @param DescribeTemplatesRequest $request DescribeTemplatesRequest
      *
-     * @param request - DescribeTemplatesRequest
-     *
-     * @returns DescribeTemplatesResponse
-     *
-     * @param DescribeTemplatesRequest $request
-     *
-     * @return DescribeTemplatesResponse
+     * @return DescribeTemplatesResponse DescribeTemplatesResponse
      */
     public function describeTemplates($request)
     {
@@ -5695,50 +4775,40 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Queries triggers that match specific conditions.
-     *
-     * @param request - DescribeTriggerRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeTriggerResponse
-     *
+     * @summary Queries triggers that match specific conditions.
+     *  *
      * @param string                 $clusterId
-     * @param DescribeTriggerRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param DescribeTriggerRequest $request   DescribeTriggerRequest
+     * @param string[]               $headers   map
+     * @param RuntimeOptions         $runtime   runtime options for this request RuntimeOptions
      *
-     * @return DescribeTriggerResponse
+     * @return DescribeTriggerResponse DescribeTriggerResponse
      */
     public function describeTriggerWithOptions($clusterId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->name) {
-            @$query['Name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
         }
-
-        if (null !== $request->namespace) {
-            @$query['Namespace'] = $request->namespace;
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
         }
-
-        if (null !== $request->type) {
-            @$query['Type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
         }
-
-        if (null !== $request->action) {
-            @$query['action'] = $request->action;
+        if (!Utils::isUnset($request->action)) {
+            $query['action'] = $request->action;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeTrigger',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/clusters/' . Url::percentEncode($clusterId) . '/triggers',
+            'pathname' => '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterId) . '/triggers',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -5750,16 +4820,12 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Queries triggers that match specific conditions.
-     *
-     * @param request - DescribeTriggerRequest
-     *
-     * @returns DescribeTriggerResponse
-     *
+     * @summary Queries triggers that match specific conditions.
+     *  *
      * @param string                 $clusterId
-     * @param DescribeTriggerRequest $request
+     * @param DescribeTriggerRequest $request   DescribeTriggerRequest
      *
-     * @return DescribeTriggerResponse
+     * @return DescribeTriggerResponse DescribeTriggerResponse
      */
     public function describeTrigger($clusterId, $request)
     {
@@ -5770,18 +4836,13 @@ class CS extends OpenApiClient
     }
 
     /**
-     * You can use Kubernetes namespaces to limit users from accessing resources in a Container Service for Kubernetes (ACK) cluster. Users that are granted Role-Based Access Control (RBAC) permissions only on one namespace cannot access resources in other namespaces. Queries the RBAC permissions that are granted to the current Resource Access Management (RAM) user or RAM role on an ACK cluster.
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeUserClusterNamespacesResponse
-     *
+     * @summary You can use Kubernetes namespaces to limit users from accessing resources in a Container Service for Kubernetes (ACK) cluster. Users that are granted Role-Based Access Control (RBAC) permissions only on one namespace cannot access resources in other namespaces. Queries the RBAC permissions that are granted to the current Resource Access Management (RAM) user or RAM role on an ACK cluster.
+     *  *
      * @param string         $ClusterId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
      *
-     * @return DescribeUserClusterNamespacesResponse
+     * @return DescribeUserClusterNamespacesResponse DescribeUserClusterNamespacesResponse
      */
     public function describeUserClusterNamespacesWithOptions($ClusterId, $headers, $runtime)
     {
@@ -5792,7 +4853,7 @@ class CS extends OpenApiClient
             'action' => 'DescribeUserClusterNamespaces',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/k8s/' . Url::percentEncode($ClusterId) . '/namespaces',
+            'pathname' => '/api/v2/k8s/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/namespaces',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -5804,13 +4865,11 @@ class CS extends OpenApiClient
     }
 
     /**
-     * You can use Kubernetes namespaces to limit users from accessing resources in a Container Service for Kubernetes (ACK) cluster. Users that are granted Role-Based Access Control (RBAC) permissions only on one namespace cannot access resources in other namespaces. Queries the RBAC permissions that are granted to the current Resource Access Management (RAM) user or RAM role on an ACK cluster.
-     *
-     * @returns DescribeUserClusterNamespacesResponse
-     *
+     * @summary You can use Kubernetes namespaces to limit users from accessing resources in a Container Service for Kubernetes (ACK) cluster. Users that are granted Role-Based Access Control (RBAC) permissions only on one namespace cannot access resources in other namespaces. Queries the RBAC permissions that are granted to the current Resource Access Management (RAM) user or RAM role on an ACK cluster.
+     *  *
      * @param string $ClusterId
      *
-     * @return DescribeUserClusterNamespacesResponse
+     * @return DescribeUserClusterNamespacesResponse DescribeUserClusterNamespacesResponse
      */
     public function describeUserClusterNamespaces($ClusterId)
     {
@@ -5821,22 +4880,16 @@ class CS extends OpenApiClient
     }
 
     /**
-     * In an Container Service for Kubernetes (ACK) cluster, you can create and specify different Resource Access Management (RAM) users or roles to have different access permissions. This ensures access control and resource isolation. You can call the DescribeUserPermission operation to query the permissions that are granted to a RAM user or RAM role on ACK clusters, including the resources that are allowed to access, the scope of the permissions, the predefined role, and the permission source.
-     *
-     * @remarks
-     * *Precautions**:
+     * @summary In an Container Service for Kubernetes (ACK) cluster, you can create and specify different Resource Access Management (RAM) users or roles to have different access permissions. This ensures access control and resource isolation. You can call the DescribeUserPermission operation to query the permissions that are granted to a RAM user or RAM role on ACK clusters, including the resources that are allowed to access, the scope of the permissions, the predefined role, and the permission source.
+     *  *
+     * @description **Precautions**:
      * *   If you call this operation as a Resource Access Management (RAM) user or by assuming a RAM role, only the permissions granted on the clusters on which the current account has the role-based access control (RBAC) administrator permissions are returned. If you want to query the permissions on all clusters, you must use an account that has the RBAC administrator permissions on all clusters.
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeUserPermissionResponse
-     *
+     *  *
      * @param string         $uid
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeUserPermissionResponse
+     * @return DescribeUserPermissionResponse DescribeUserPermissionResponse
      */
     public function describeUserPermissionWithOptions($uid, $headers, $runtime)
     {
@@ -5847,7 +4900,7 @@ class CS extends OpenApiClient
             'action' => 'DescribeUserPermission',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/permissions/users/' . Url::percentEncode($uid) . '',
+            'pathname' => '/permissions/users/' . OpenApiUtilClient::getEncodeParam($uid) . '',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -5859,17 +4912,14 @@ class CS extends OpenApiClient
     }
 
     /**
-     * In an Container Service for Kubernetes (ACK) cluster, you can create and specify different Resource Access Management (RAM) users or roles to have different access permissions. This ensures access control and resource isolation. You can call the DescribeUserPermission operation to query the permissions that are granted to a RAM user or RAM role on ACK clusters, including the resources that are allowed to access, the scope of the permissions, the predefined role, and the permission source.
-     *
-     * @remarks
-     * *Precautions**:
+     * @summary In an Container Service for Kubernetes (ACK) cluster, you can create and specify different Resource Access Management (RAM) users or roles to have different access permissions. This ensures access control and resource isolation. You can call the DescribeUserPermission operation to query the permissions that are granted to a RAM user or RAM role on ACK clusters, including the resources that are allowed to access, the scope of the permissions, the predefined role, and the permission source.
+     *  *
+     * @description **Precautions**:
      * *   If you call this operation as a Resource Access Management (RAM) user or by assuming a RAM role, only the permissions granted on the clusters on which the current account has the role-based access control (RBAC) administrator permissions are returned. If you want to query the permissions on all clusters, you must use an account that has the RBAC administrator permissions on all clusters.
-     *
-     * @returns DescribeUserPermissionResponse
-     *
+     *  *
      * @param string $uid
      *
-     * @return DescribeUserPermissionResponse
+     * @return DescribeUserPermissionResponse DescribeUserPermissionResponse
      */
     public function describeUserPermission($uid)
     {
@@ -5880,17 +4930,12 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Queries quotas related to Container Service for Kubernetes (ACK) clusters, node pools, and nodes. To increase a quota, submit an application in the Quota Center console.
+     * @summary Queries quotas related to Container Service for Kubernetes (ACK) clusters, node pools, and nodes. To increase a quota, submit an application in the Quota Center console.
+     *  *
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeUserQuotaResponse
-     *
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
-     *
-     * @return DescribeUserQuotaResponse
+     * @return DescribeUserQuotaResponse DescribeUserQuotaResponse
      */
     public function describeUserQuotaWithOptions($headers, $runtime)
     {
@@ -5913,11 +4958,9 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Queries quotas related to Container Service for Kubernetes (ACK) clusters, node pools, and nodes. To increase a quota, submit an application in the Quota Center console.
-     *
-     * @returns DescribeUserQuotaResponse
-     *
-     * @return DescribeUserQuotaResponse
+     * @summary Queries quotas related to Container Service for Kubernetes (ACK) clusters, node pools, and nodes. To increase a quota, submit an application in the Quota Center console.
+     *  *
+     * @return DescribeUserQuotaResponse DescribeUserQuotaResponse
      */
     public function describeUserQuota()
     {
@@ -5927,45 +4970,37 @@ class CS extends OpenApiClient
         return $this->describeUserQuotaWithOptions($headers, $runtime);
     }
 
-    // Deprecated
     /**
-     * You can call the EdgeClusterAddEdgeMachine operation to add a cloud-native box to a Container Service for Kubernetes (ACK) Edge cluster.
-     *
      * @deprecated OpenAPI EdgeClusterAddEdgeMachine is deprecated
-     *
-     * @param request - EdgeClusterAddEdgeMachineRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns EdgeClusterAddEdgeMachineResponse
+     *  *
+     * @summary You can call the EdgeClusterAddEdgeMachine operation to add a cloud-native box to a Container Service for Kubernetes (ACK) Edge cluster.
+     *  *
+     * Deprecated
      *
      * @param string                           $clusterid
      * @param string                           $edgeMachineid
-     * @param EdgeClusterAddEdgeMachineRequest $request
-     * @param string[]                         $headers
-     * @param RuntimeOptions                   $runtime
+     * @param EdgeClusterAddEdgeMachineRequest $request       EdgeClusterAddEdgeMachineRequest
+     * @param string[]                         $headers       map
+     * @param RuntimeOptions                   $runtime       runtime options for this request RuntimeOptions
      *
-     * @return EdgeClusterAddEdgeMachineResponse
+     * @return EdgeClusterAddEdgeMachineResponse EdgeClusterAddEdgeMachineResponse
      */
     public function edgeClusterAddEdgeMachineWithOptions($clusterid, $edgeMachineid, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->expired) {
-            @$body['expired'] = $request->expired;
+        if (!Utils::isUnset($request->expired)) {
+            $body['expired'] = $request->expired;
         }
-
-        if (null !== $request->nodepoolId) {
-            @$body['nodepool_id'] = $request->nodepoolId;
+        if (!Utils::isUnset($request->nodepoolId)) {
+            $body['nodepool_id'] = $request->nodepoolId;
         }
-
-        if (null !== $request->options) {
-            @$body['options'] = $request->options;
+        if (!Utils::isUnset($request->options)) {
+            $body['options'] = $request->options;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'EdgeClusterAddEdgeMachine',
@@ -5982,21 +5017,18 @@ class CS extends OpenApiClient
         return EdgeClusterAddEdgeMachineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
-    // Deprecated
     /**
-     * You can call the EdgeClusterAddEdgeMachine operation to add a cloud-native box to a Container Service for Kubernetes (ACK) Edge cluster.
-     *
      * @deprecated OpenAPI EdgeClusterAddEdgeMachine is deprecated
-     *
-     * @param request - EdgeClusterAddEdgeMachineRequest
-     *
-     * @returns EdgeClusterAddEdgeMachineResponse
+     *  *
+     * @summary You can call the EdgeClusterAddEdgeMachine operation to add a cloud-native box to a Container Service for Kubernetes (ACK) Edge cluster.
+     *  *
+     * Deprecated
      *
      * @param string                           $clusterid
      * @param string                           $edgeMachineid
-     * @param EdgeClusterAddEdgeMachineRequest $request
+     * @param EdgeClusterAddEdgeMachineRequest $request       EdgeClusterAddEdgeMachineRequest
      *
-     * @return EdgeClusterAddEdgeMachineResponse
+     * @return EdgeClusterAddEdgeMachineResponse EdgeClusterAddEdgeMachineResponse
      */
     public function edgeClusterAddEdgeMachine($clusterid, $edgeMachineid, $request)
     {
@@ -6007,57 +5039,46 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Patches node vulnerabilities in a node pool to enhance node security. Cloud Security provided by Alibaba Cloud periodically scans Elastic Compute Service (ECS) instances for vulnerabilities and provides suggestions on how to patch the detected vulnerabilities. Vulnerability patching may require node restarts. Make sure that your cluster has sufficient idle nodes for node draining.
-     *
-     * @remarks
-     * 1.  The Common Vulnerabilities and Exposures (CVE) patching feature is developed based on Security Center. To use this feature, you must purchase the Security Center Ultimate Edition that supports Container Service for Kubernetes (ACK).
+     * @summary Patches node vulnerabilities in a node pool to enhance node security. Cloud Security provided by Alibaba Cloud periodically scans Elastic Compute Service (ECS) instances for vulnerabilities and provides suggestions on how to patch the detected vulnerabilities. Vulnerability patching may require node restarts. Make sure that your cluster has sufficient idle nodes for node draining.
+     *  *
+     * @description 1.  The Common Vulnerabilities and Exposures (CVE) patching feature is developed based on Security Center. To use this feature, you must purchase the Security Center Ultimate Edition that supports Container Service for Kubernetes (ACK).
      * 2.  ACK may need to restart nodes to patch certain vulnerabilities. ACK drains a node before the node restarts. Make sure that the ACK cluster has sufficient idle nodes to host the pods evicted from the trained nodes. For example, you can scale out a node pool before you patch vulnerabilities for the nodes in the node pool.
      * 3.  Security Center ensures the compatibility of CVE patches. We recommend that you check the compatibility of a CVE patch with your application before you install the patch. You can pause or cancel a CVE patching task anytime.
      * 4.  CVE patching is a progressive task that consists of multiple batches. After you pause or cancel a CVE patching task, ACK continues to process the dispatched batches. Only the batches that have not been dispatched are paused or canceled.
-     *
-     * @param request - FixNodePoolVulsRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns FixNodePoolVulsResponse
-     *
+     *  *
      * @param string                 $clusterId
      * @param string                 $nodepoolId
-     * @param FixNodePoolVulsRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param FixNodePoolVulsRequest $request    FixNodePoolVulsRequest
+     * @param string[]               $headers    map
+     * @param RuntimeOptions         $runtime    runtime options for this request RuntimeOptions
      *
-     * @return FixNodePoolVulsResponse
+     * @return FixNodePoolVulsResponse FixNodePoolVulsResponse
      */
     public function fixNodePoolVulsWithOptions($clusterId, $nodepoolId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->autoRestart) {
-            @$body['auto_restart'] = $request->autoRestart;
+        if (!Utils::isUnset($request->autoRestart)) {
+            $body['auto_restart'] = $request->autoRestart;
         }
-
-        if (null !== $request->nodes) {
-            @$body['nodes'] = $request->nodes;
+        if (!Utils::isUnset($request->nodes)) {
+            $body['nodes'] = $request->nodes;
         }
-
-        if (null !== $request->rolloutPolicy) {
-            @$body['rollout_policy'] = $request->rolloutPolicy;
+        if (!Utils::isUnset($request->rolloutPolicy)) {
+            $body['rollout_policy'] = $request->rolloutPolicy;
         }
-
-        if (null !== $request->vuls) {
-            @$body['vuls'] = $request->vuls;
+        if (!Utils::isUnset($request->vuls)) {
+            $body['vuls'] = $request->vuls;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'FixNodePoolVuls',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/clusters/' . Url::percentEncode($clusterId) . '/nodepools/' . Url::percentEncode($nodepoolId) . '/vuls/fix',
+            'pathname' => '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterId) . '/nodepools/' . OpenApiUtilClient::getEncodeParam($nodepoolId) . '/vuls/fix',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -6069,23 +5090,18 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Patches node vulnerabilities in a node pool to enhance node security. Cloud Security provided by Alibaba Cloud periodically scans Elastic Compute Service (ECS) instances for vulnerabilities and provides suggestions on how to patch the detected vulnerabilities. Vulnerability patching may require node restarts. Make sure that your cluster has sufficient idle nodes for node draining.
-     *
-     * @remarks
-     * 1.  The Common Vulnerabilities and Exposures (CVE) patching feature is developed based on Security Center. To use this feature, you must purchase the Security Center Ultimate Edition that supports Container Service for Kubernetes (ACK).
+     * @summary Patches node vulnerabilities in a node pool to enhance node security. Cloud Security provided by Alibaba Cloud periodically scans Elastic Compute Service (ECS) instances for vulnerabilities and provides suggestions on how to patch the detected vulnerabilities. Vulnerability patching may require node restarts. Make sure that your cluster has sufficient idle nodes for node draining.
+     *  *
+     * @description 1.  The Common Vulnerabilities and Exposures (CVE) patching feature is developed based on Security Center. To use this feature, you must purchase the Security Center Ultimate Edition that supports Container Service for Kubernetes (ACK).
      * 2.  ACK may need to restart nodes to patch certain vulnerabilities. ACK drains a node before the node restarts. Make sure that the ACK cluster has sufficient idle nodes to host the pods evicted from the trained nodes. For example, you can scale out a node pool before you patch vulnerabilities for the nodes in the node pool.
      * 3.  Security Center ensures the compatibility of CVE patches. We recommend that you check the compatibility of a CVE patch with your application before you install the patch. You can pause or cancel a CVE patching task anytime.
      * 4.  CVE patching is a progressive task that consists of multiple batches. After you pause or cancel a CVE patching task, ACK continues to process the dispatched batches. Only the batches that have not been dispatched are paused or canceled.
-     *
-     * @param request - FixNodePoolVulsRequest
-     *
-     * @returns FixNodePoolVulsResponse
-     *
+     *  *
      * @param string                 $clusterId
      * @param string                 $nodepoolId
-     * @param FixNodePoolVulsRequest $request
+     * @param FixNodePoolVulsRequest $request    FixNodePoolVulsRequest
      *
-     * @return FixNodePoolVulsResponse
+     * @return FixNodePoolVulsResponse FixNodePoolVulsResponse
      */
     public function fixNodePoolVuls($clusterId, $nodepoolId, $request)
     {
@@ -6096,19 +5112,14 @@ class CS extends OpenApiClient
     }
 
     /**
-     * You can call the GetClusterAddonInstance operation to query the information of a component instance in a cluster, including the version, configurations, and log status of the component instance.
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetClusterAddonInstanceResponse
-     *
+     * @summary You can call the GetClusterAddonInstance operation to query the information of a component instance in a cluster, including the version, configurations, and log status of the component instance.
+     *  *
      * @param string         $clusterId
      * @param string         $instanceName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers      map
+     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
      *
-     * @return GetClusterAddonInstanceResponse
+     * @return GetClusterAddonInstanceResponse GetClusterAddonInstanceResponse
      */
     public function getClusterAddonInstanceWithOptions($clusterId, $instanceName, $headers, $runtime)
     {
@@ -6119,7 +5130,7 @@ class CS extends OpenApiClient
             'action' => 'GetClusterAddonInstance',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/clusters/' . Url::percentEncode($clusterId) . '/addon_instances/' . Url::percentEncode($instanceName) . '',
+            'pathname' => '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterId) . '/addon_instances/' . OpenApiUtilClient::getEncodeParam($instanceName) . '',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -6131,14 +5142,12 @@ class CS extends OpenApiClient
     }
 
     /**
-     * You can call the GetClusterAddonInstance operation to query the information of a component instance in a cluster, including the version, configurations, and log status of the component instance.
-     *
-     * @returns GetClusterAddonInstanceResponse
-     *
+     * @summary You can call the GetClusterAddonInstance operation to query the information of a component instance in a cluster, including the version, configurations, and log status of the component instance.
+     *  *
      * @param string $clusterId
      * @param string $instanceName
      *
-     * @return GetClusterAddonInstanceResponse
+     * @return GetClusterAddonInstanceResponse GetClusterAddonInstanceResponse
      */
     public function getClusterAddonInstance($clusterId, $instanceName)
     {
@@ -6149,18 +5158,13 @@ class CS extends OpenApiClient
     }
 
     /**
-     * You can call the GetClusterAuditProject operation to check whether the cluster has API Server auditing enabled and the corresponding Simple Log Service project that stores API Server audit logs.
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetClusterAuditProjectResponse
-     *
+     * @summary You can call the GetClusterAuditProject operation to check whether the cluster has API Server auditing enabled and the corresponding Simple Log Service project that stores API Server audit logs.
+     *  *
      * @param string         $clusterid
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
      *
-     * @return GetClusterAuditProjectResponse
+     * @return GetClusterAuditProjectResponse GetClusterAuditProjectResponse
      */
     public function getClusterAuditProjectWithOptions($clusterid, $headers, $runtime)
     {
@@ -6171,7 +5175,7 @@ class CS extends OpenApiClient
             'action' => 'GetClusterAuditProject',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/clusters/' . Url::percentEncode($clusterid) . '/audit',
+            'pathname' => '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterid) . '/audit',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -6183,13 +5187,11 @@ class CS extends OpenApiClient
     }
 
     /**
-     * You can call the GetClusterAuditProject operation to check whether the cluster has API Server auditing enabled and the corresponding Simple Log Service project that stores API Server audit logs.
-     *
-     * @returns GetClusterAuditProjectResponse
-     *
+     * @summary You can call the GetClusterAuditProject operation to check whether the cluster has API Server auditing enabled and the corresponding Simple Log Service project that stores API Server audit logs.
+     *  *
      * @param string $clusterid
      *
-     * @return GetClusterAuditProjectResponse
+     * @return GetClusterAuditProjectResponse GetClusterAuditProjectResponse
      */
     public function getClusterAuditProject($clusterid)
     {
@@ -6200,19 +5202,14 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Queries a cluster check task by cluster ID and task ID. You can view the status, check items, creation time, and end time of the task. Container Intelligence Service (CIS) provides a variety of Kubernetes cluster check features, including cluster update check, cluster migration check, component installation check, component update check, and node pool check.
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetClusterCheckResponse
-     *
+     * @summary Queries a cluster check task by cluster ID and task ID. You can view the status, check items, creation time, and end time of the task. Container Intelligence Service (CIS) provides a variety of Kubernetes cluster check features, including cluster update check, cluster migration check, component installation check, component update check, and node pool check.
+     *  *
      * @param string         $clusterId
      * @param string         $checkId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
      *
-     * @return GetClusterCheckResponse
+     * @return GetClusterCheckResponse GetClusterCheckResponse
      */
     public function getClusterCheckWithOptions($clusterId, $checkId, $headers, $runtime)
     {
@@ -6223,7 +5220,7 @@ class CS extends OpenApiClient
             'action' => 'GetClusterCheck',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/clusters/' . Url::percentEncode($clusterId) . '/checks/' . Url::percentEncode($checkId) . '',
+            'pathname' => '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterId) . '/checks/' . OpenApiUtilClient::getEncodeParam($checkId) . '',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -6235,14 +5232,12 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Queries a cluster check task by cluster ID and task ID. You can view the status, check items, creation time, and end time of the task. Container Intelligence Service (CIS) provides a variety of Kubernetes cluster check features, including cluster update check, cluster migration check, component installation check, component update check, and node pool check.
-     *
-     * @returns GetClusterCheckResponse
-     *
+     * @summary Queries a cluster check task by cluster ID and task ID. You can view the status, check items, creation time, and end time of the task. Container Intelligence Service (CIS) provides a variety of Kubernetes cluster check features, including cluster update check, cluster migration check, component installation check, component update check, and node pool check.
+     *  *
      * @param string $clusterId
      * @param string $checkId
      *
-     * @return GetClusterCheckResponse
+     * @return GetClusterCheckResponse GetClusterCheckResponse
      */
     public function getClusterCheck($clusterId, $checkId)
     {
@@ -6253,39 +5248,32 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Queries cluster diagnostic items.
-     *
-     * @param request - GetClusterDiagnosisCheckItemsRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetClusterDiagnosisCheckItemsResponse
-     *
+     * @summary Queries cluster diagnostic items.
+     *  *
      * @param string                               $clusterId
      * @param string                               $diagnosisId
-     * @param GetClusterDiagnosisCheckItemsRequest $request
-     * @param string[]                             $headers
-     * @param RuntimeOptions                       $runtime
+     * @param GetClusterDiagnosisCheckItemsRequest $request     GetClusterDiagnosisCheckItemsRequest
+     * @param string[]                             $headers     map
+     * @param RuntimeOptions                       $runtime     runtime options for this request RuntimeOptions
      *
-     * @return GetClusterDiagnosisCheckItemsResponse
+     * @return GetClusterDiagnosisCheckItemsResponse GetClusterDiagnosisCheckItemsResponse
      */
     public function getClusterDiagnosisCheckItemsWithOptions($clusterId, $diagnosisId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->language) {
-            @$query['language'] = $request->language;
+        if (!Utils::isUnset($request->language)) {
+            $query['language'] = $request->language;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetClusterDiagnosisCheckItems',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/clusters/' . Url::percentEncode($clusterId) . '/diagnosis/' . Url::percentEncode($diagnosisId) . '/check_items',
+            'pathname' => '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterId) . '/diagnosis/' . OpenApiUtilClient::getEncodeParam($diagnosisId) . '/check_items',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -6297,17 +5285,13 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Queries cluster diagnostic items.
-     *
-     * @param request - GetClusterDiagnosisCheckItemsRequest
-     *
-     * @returns GetClusterDiagnosisCheckItemsResponse
-     *
+     * @summary Queries cluster diagnostic items.
+     *  *
      * @param string                               $clusterId
      * @param string                               $diagnosisId
-     * @param GetClusterDiagnosisCheckItemsRequest $request
+     * @param GetClusterDiagnosisCheckItemsRequest $request     GetClusterDiagnosisCheckItemsRequest
      *
-     * @return GetClusterDiagnosisCheckItemsResponse
+     * @return GetClusterDiagnosisCheckItemsResponse GetClusterDiagnosisCheckItemsResponse
      */
     public function getClusterDiagnosisCheckItems($clusterId, $diagnosisId, $request)
     {
@@ -6318,39 +5302,32 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Queries cluster diagnostic results.
-     *
-     * @param request - GetClusterDiagnosisResultRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetClusterDiagnosisResultResponse
-     *
+     * @summary Queries cluster diagnostic results.
+     *  *
      * @param string                           $clusterId
      * @param string                           $diagnosisId
-     * @param GetClusterDiagnosisResultRequest $request
-     * @param string[]                         $headers
-     * @param RuntimeOptions                   $runtime
+     * @param GetClusterDiagnosisResultRequest $request     GetClusterDiagnosisResultRequest
+     * @param string[]                         $headers     map
+     * @param RuntimeOptions                   $runtime     runtime options for this request RuntimeOptions
      *
-     * @return GetClusterDiagnosisResultResponse
+     * @return GetClusterDiagnosisResultResponse GetClusterDiagnosisResultResponse
      */
     public function getClusterDiagnosisResultWithOptions($clusterId, $diagnosisId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->language) {
-            @$query['language'] = $request->language;
+        if (!Utils::isUnset($request->language)) {
+            $query['language'] = $request->language;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetClusterDiagnosisResult',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/clusters/' . Url::percentEncode($clusterId) . '/diagnosis/' . Url::percentEncode($diagnosisId) . '/result',
+            'pathname' => '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterId) . '/diagnosis/' . OpenApiUtilClient::getEncodeParam($diagnosisId) . '/result',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -6362,17 +5339,13 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Queries cluster diagnostic results.
-     *
-     * @param request - GetClusterDiagnosisResultRequest
-     *
-     * @returns GetClusterDiagnosisResultResponse
-     *
+     * @summary Queries cluster diagnostic results.
+     *  *
      * @param string                           $clusterId
      * @param string                           $diagnosisId
-     * @param GetClusterDiagnosisResultRequest $request
+     * @param GetClusterDiagnosisResultRequest $request     GetClusterDiagnosisResultRequest
      *
-     * @return GetClusterDiagnosisResultResponse
+     * @return GetClusterDiagnosisResultResponse GetClusterDiagnosisResultResponse
      */
     public function getClusterDiagnosisResult($clusterId, $diagnosisId, $request)
     {
@@ -6383,18 +5356,13 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Retrieves cluster inspection configuration.
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetClusterInspectConfigResponse
-     *
+     * @summary Retrieves cluster inspection configuration.
+     *  *
      * @param string         $clusterId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
      *
-     * @return GetClusterInspectConfigResponse
+     * @return GetClusterInspectConfigResponse GetClusterInspectConfigResponse
      */
     public function getClusterInspectConfigWithOptions($clusterId, $headers, $runtime)
     {
@@ -6405,7 +5373,7 @@ class CS extends OpenApiClient
             'action' => 'GetClusterInspectConfig',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/clusters/' . Url::percentEncode($clusterId) . '/inspectConfig',
+            'pathname' => '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterId) . '/inspectConfig',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -6417,13 +5385,11 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Retrieves cluster inspection configuration.
-     *
-     * @returns GetClusterInspectConfigResponse
-     *
+     * @summary Retrieves cluster inspection configuration.
+     *  *
      * @param string $clusterId
      *
-     * @return GetClusterInspectConfigResponse
+     * @return GetClusterInspectConfigResponse GetClusterInspectConfigResponse
      */
     public function getClusterInspectConfig($clusterId)
     {
@@ -6434,63 +5400,50 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Obtain the details of the inspection report for the cluster.
-     *
-     * @param request - GetClusterInspectReportDetailRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetClusterInspectReportDetailResponse
-     *
+     * @summary Obtain the details of the inspection report for the cluster
+     *  *
      * @param string                               $clusterId
      * @param string                               $reportId
-     * @param GetClusterInspectReportDetailRequest $request
-     * @param string[]                             $headers
-     * @param RuntimeOptions                       $runtime
+     * @param GetClusterInspectReportDetailRequest $request   GetClusterInspectReportDetailRequest
+     * @param string[]                             $headers   map
+     * @param RuntimeOptions                       $runtime   runtime options for this request RuntimeOptions
      *
-     * @return GetClusterInspectReportDetailResponse
+     * @return GetClusterInspectReportDetailResponse GetClusterInspectReportDetailResponse
      */
     public function getClusterInspectReportDetailWithOptions($clusterId, $reportId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->category) {
-            @$query['category'] = $request->category;
+        if (!Utils::isUnset($request->category)) {
+            $query['category'] = $request->category;
         }
-
-        if (null !== $request->enableFilter) {
-            @$query['enableFilter'] = $request->enableFilter;
+        if (!Utils::isUnset($request->enableFilter)) {
+            $query['enableFilter'] = $request->enableFilter;
         }
-
-        if (null !== $request->language) {
-            @$query['language'] = $request->language;
+        if (!Utils::isUnset($request->language)) {
+            $query['language'] = $request->language;
         }
-
-        if (null !== $request->level) {
-            @$query['level'] = $request->level;
+        if (!Utils::isUnset($request->level)) {
+            $query['level'] = $request->level;
         }
-
-        if (null !== $request->maxResults) {
-            @$query['maxResults'] = $request->maxResults;
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['maxResults'] = $request->maxResults;
         }
-
-        if (null !== $request->nextToken) {
-            @$query['nextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['nextToken'] = $request->nextToken;
         }
-
-        if (null !== $request->targetType) {
-            @$query['targetType'] = $request->targetType;
+        if (!Utils::isUnset($request->targetType)) {
+            $query['targetType'] = $request->targetType;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetClusterInspectReportDetail',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/clusters/' . Url::percentEncode($clusterId) . '/inspectReports/' . Url::percentEncode($reportId) . '',
+            'pathname' => '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterId) . '/inspectReports/' . OpenApiUtilClient::getEncodeParam($reportId) . '',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -6502,17 +5455,13 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Obtain the details of the inspection report for the cluster.
-     *
-     * @param request - GetClusterInspectReportDetailRequest
-     *
-     * @returns GetClusterInspectReportDetailResponse
-     *
+     * @summary Obtain the details of the inspection report for the cluster
+     *  *
      * @param string                               $clusterId
      * @param string                               $reportId
-     * @param GetClusterInspectReportDetailRequest $request
+     * @param GetClusterInspectReportDetailRequest $request   GetClusterInspectReportDetailRequest
      *
-     * @return GetClusterInspectReportDetailResponse
+     * @return GetClusterInspectReportDetailResponse GetClusterInspectReportDetailResponse
      */
     public function getClusterInspectReportDetail($clusterId, $reportId, $request)
     {
@@ -6522,54 +5471,45 @@ class CS extends OpenApiClient
         return $this->getClusterInspectReportDetailWithOptions($clusterId, $reportId, $request, $headers, $runtime);
     }
 
-    // Deprecated
     /**
-     * You can call the GetKubernetesTrigger operationto query the triggers of an application by application name.
-     *
      * @deprecated OpenAPI GetKubernetesTrigger is deprecated
-     *
-     * @param request - GetKubernetesTriggerRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetKubernetesTriggerResponse
+     *  *
+     * @summary You can call the GetKubernetesTrigger operationto query the triggers of an application by application name.
+     *  *
+     * Deprecated
      *
      * @param string                      $ClusterId
-     * @param GetKubernetesTriggerRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @param GetKubernetesTriggerRequest $request   GetKubernetesTriggerRequest
+     * @param string[]                    $headers   map
+     * @param RuntimeOptions              $runtime   runtime options for this request RuntimeOptions
      *
-     * @return GetKubernetesTriggerResponse
+     * @return GetKubernetesTriggerResponse GetKubernetesTriggerResponse
      */
     public function getKubernetesTriggerWithOptions($ClusterId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->name) {
-            @$query['Name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
         }
-
-        if (null !== $request->namespace) {
-            @$query['Namespace'] = $request->namespace;
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
         }
-
-        if (null !== $request->type) {
-            @$query['Type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
         }
-
-        if (null !== $request->action) {
-            @$query['action'] = $request->action;
+        if (!Utils::isUnset($request->action)) {
+            $query['action'] = $request->action;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetKubernetesTrigger',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/triggers/' . Url::percentEncode($ClusterId) . '',
+            'pathname' => '/triggers/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -6580,20 +5520,17 @@ class CS extends OpenApiClient
         return GetKubernetesTriggerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
-    // Deprecated
     /**
-     * You can call the GetKubernetesTrigger operationto query the triggers of an application by application name.
-     *
      * @deprecated OpenAPI GetKubernetesTrigger is deprecated
-     *
-     * @param request - GetKubernetesTriggerRequest
-     *
-     * @returns GetKubernetesTriggerResponse
+     *  *
+     * @summary You can call the GetKubernetesTrigger operationto query the triggers of an application by application name.
+     *  *
+     * Deprecated
      *
      * @param string                      $ClusterId
-     * @param GetKubernetesTriggerRequest $request
+     * @param GetKubernetesTriggerRequest $request   GetKubernetesTriggerRequest
      *
-     * @return GetKubernetesTriggerResponse
+     * @return GetKubernetesTriggerResponse GetKubernetesTriggerResponse
      */
     public function getKubernetesTrigger($ClusterId, $request)
     {
@@ -6603,22 +5540,18 @@ class CS extends OpenApiClient
         return $this->getKubernetesTriggerWithOptions($ClusterId, $request, $headers, $runtime);
     }
 
-    // Deprecated
     /**
-     * You can call the GetUpgradeStatus operation to query the update progress of a cluster by cluster ID.
-     *
      * @deprecated OpenAPI GetUpgradeStatus is deprecated
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetUpgradeStatusResponse
+     *  *
+     * @summary You can call the GetUpgradeStatus operation to query the update progress of a cluster by cluster ID.
+     *  *
+     * Deprecated
      *
      * @param string         $ClusterId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
      *
-     * @return GetUpgradeStatusResponse
+     * @return GetUpgradeStatusResponse GetUpgradeStatusResponse
      */
     public function getUpgradeStatusWithOptions($ClusterId, $headers, $runtime)
     {
@@ -6629,7 +5562,7 @@ class CS extends OpenApiClient
             'action' => 'GetUpgradeStatus',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/clusters/' . Url::percentEncode($ClusterId) . '/upgrade/status',
+            'pathname' => '/api/v2/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/upgrade/status',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -6640,17 +5573,16 @@ class CS extends OpenApiClient
         return GetUpgradeStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
-    // Deprecated
     /**
-     * You can call the GetUpgradeStatus operation to query the update progress of a cluster by cluster ID.
-     *
      * @deprecated OpenAPI GetUpgradeStatus is deprecated
-     *
-     * @returns GetUpgradeStatusResponse
+     *  *
+     * @summary You can call the GetUpgradeStatus operation to query the update progress of a cluster by cluster ID.
+     *  *
+     * Deprecated
      *
      * @param string $ClusterId
      *
-     * @return GetUpgradeStatusResponse
+     * @return GetUpgradeStatusResponse GetUpgradeStatusResponse
      */
     public function getUpgradeStatus($ClusterId)
     {
@@ -6661,28 +5593,21 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Updates the role-based access control (RBAC) permissions of a Resource Access Management (RAM) user or RAM role. By default, you do not have the RBAC permissions on a Container Service for Kubernetes (ACK) cluster if you are not the cluster owner or you are not using an Alibaba Cloud account. You can call this operation to specify the resources that can be accessed, permission scope, and predefined roles. This helps you better manage the access control on resources in ACK clusters.
-     *
-     * @remarks
-     *   If you use a Resource Access Management (RAM) account to call this operation, make sure it has permissions to modify cluster authorization information for other RAM users or RAM roles. Otherwise, the `StatusForbidden` or `ForbiddenGrantPermissions` error code is returned. For more information, see [Use a RAM user to grant RBAC permissions to other RAM users](https://help.aliyun.com/document_detail/119035.html).
+     * @summary Updates the role-based access control (RBAC) permissions of a Resource Access Management (RAM) user or RAM role. By default, you do not have the RBAC permissions on a Container Service for Kubernetes (ACK) cluster if you are not the cluster owner or you are not using an Alibaba Cloud account. You can call this operation to specify the resources that can be accessed, permission scope, and predefined roles. This helps you better manage the access control on resources in ACK clusters.
+     *  *
+     * @description *   If you use a Resource Access Management (RAM) account to call this operation, make sure it has permissions to modify cluster authorization information for other RAM users or RAM roles. Otherwise, the `StatusForbidden` or `ForbiddenGrantPermissions` error code is returned. For more information, see [Use a RAM user to grant RBAC permissions to other RAM users](https://help.aliyun.com/document_detail/119035.html).
      * *   This operation overwrites all existing cluster permissions for the target RAM user or RAM role. You must specify all the permissions you want to grant to the RAM user or RAM role in the request.
-     *
-     * @param request - GrantPermissionsRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GrantPermissionsResponse
-     *
+     *  *
      * @param string                  $uid
-     * @param GrantPermissionsRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @param GrantPermissionsRequest $request GrantPermissionsRequest
+     * @param string[]                $headers map
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return GrantPermissionsResponse
+     * @return GrantPermissionsResponse GrantPermissionsResponse
      */
     public function grantPermissionsWithOptions($uid, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body' => Utils::toArray($request->body),
@@ -6691,7 +5616,7 @@ class CS extends OpenApiClient
             'action' => 'GrantPermissions',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/permissions/users/' . Url::percentEncode($uid) . '',
+            'pathname' => '/permissions/users/' . OpenApiUtilClient::getEncodeParam($uid) . '',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -6703,20 +5628,15 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Updates the role-based access control (RBAC) permissions of a Resource Access Management (RAM) user or RAM role. By default, you do not have the RBAC permissions on a Container Service for Kubernetes (ACK) cluster if you are not the cluster owner or you are not using an Alibaba Cloud account. You can call this operation to specify the resources that can be accessed, permission scope, and predefined roles. This helps you better manage the access control on resources in ACK clusters.
-     *
-     * @remarks
-     *   If you use a Resource Access Management (RAM) account to call this operation, make sure it has permissions to modify cluster authorization information for other RAM users or RAM roles. Otherwise, the `StatusForbidden` or `ForbiddenGrantPermissions` error code is returned. For more information, see [Use a RAM user to grant RBAC permissions to other RAM users](https://help.aliyun.com/document_detail/119035.html).
+     * @summary Updates the role-based access control (RBAC) permissions of a Resource Access Management (RAM) user or RAM role. By default, you do not have the RBAC permissions on a Container Service for Kubernetes (ACK) cluster if you are not the cluster owner or you are not using an Alibaba Cloud account. You can call this operation to specify the resources that can be accessed, permission scope, and predefined roles. This helps you better manage the access control on resources in ACK clusters.
+     *  *
+     * @description *   If you use a Resource Access Management (RAM) account to call this operation, make sure it has permissions to modify cluster authorization information for other RAM users or RAM roles. Otherwise, the `StatusForbidden` or `ForbiddenGrantPermissions` error code is returned. For more information, see [Use a RAM user to grant RBAC permissions to other RAM users](https://help.aliyun.com/document_detail/119035.html).
      * *   This operation overwrites all existing cluster permissions for the target RAM user or RAM role. You must specify all the permissions you want to grant to the RAM user or RAM role in the request.
-     *
-     * @param request - GrantPermissionsRequest
-     *
-     * @returns GrantPermissionsResponse
-     *
+     *  *
      * @param string                  $uid
-     * @param GrantPermissionsRequest $request
+     * @param GrantPermissionsRequest $request GrantPermissionsRequest
      *
-     * @return GrantPermissionsResponse
+     * @return GrantPermissionsResponse GrantPermissionsResponse
      */
     public function grantPermissions($uid, $request)
     {
@@ -6727,24 +5647,18 @@ class CS extends OpenApiClient
     }
 
     /**
-     * 为了增强Kubernetes能力，ACK集群支持了多种组件，例如托管的核心组件，应用、日志和监控、网络、存储、安全组件等。您可以调用InstallClusterAddons接口，通过组件名称和版本安装组件。
-     *
-     * @param request - InstallClusterAddonsRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns InstallClusterAddonsResponse
-     *
+     * @summary 为了增强Kubernetes能力，ACK集群支持了多种组件，例如托管的核心组件，应用、日志和监控、网络、存储、安全组件等。您可以调用InstallClusterAddons接口，通过组件名称和版本安装组件。
+     *  *
      * @param string                      $ClusterId
-     * @param InstallClusterAddonsRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @param InstallClusterAddonsRequest $request   InstallClusterAddonsRequest
+     * @param string[]                    $headers   map
+     * @param RuntimeOptions              $runtime   runtime options for this request RuntimeOptions
      *
-     * @return InstallClusterAddonsResponse
+     * @return InstallClusterAddonsResponse InstallClusterAddonsResponse
      */
     public function installClusterAddonsWithOptions($ClusterId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body' => Utils::toArray($request->body),
@@ -6753,7 +5667,7 @@ class CS extends OpenApiClient
             'action' => 'InstallClusterAddons',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/clusters/' . Url::percentEncode($ClusterId) . '/components/install',
+            'pathname' => '/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/components/install',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -6765,16 +5679,12 @@ class CS extends OpenApiClient
     }
 
     /**
-     * 为了增强Kubernetes能力，ACK集群支持了多种组件，例如托管的核心组件，应用、日志和监控、网络、存储、安全组件等。您可以调用InstallClusterAddons接口，通过组件名称和版本安装组件。
-     *
-     * @param request - InstallClusterAddonsRequest
-     *
-     * @returns InstallClusterAddonsResponse
-     *
+     * @summary 为了增强Kubernetes能力，ACK集群支持了多种组件，例如托管的核心组件，应用、日志和监控、网络、存储、安全组件等。您可以调用InstallClusterAddons接口，通过组件名称和版本安装组件。
+     *  *
      * @param string                      $ClusterId
-     * @param InstallClusterAddonsRequest $request
+     * @param InstallClusterAddonsRequest $request   InstallClusterAddonsRequest
      *
-     * @return InstallClusterAddonsResponse
+     * @return InstallClusterAddonsResponse InstallClusterAddonsResponse
      */
     public function installClusterAddons($ClusterId, $request)
     {
@@ -6785,51 +5695,39 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Queries the available components based on specific conditions such as the region, cluster type, cluster subtype defined by cluster profile, and cluster version and queries the detailed information about a component. The information includes whether the component is managed, the supported custom parameter schema, and compatible operating system architecture.
+     * @summary Queries the available components based on specific conditions such as the region, cluster type, cluster subtype defined by cluster profile, and cluster version and queries the detailed information about a component. The information includes whether the component is managed, the supported custom parameter schema, and compatible operating system architecture.
+     *  *
+     * @param ListAddonsRequest $request ListAddonsRequest
+     * @param string[]          $headers map
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListAddonsRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListAddonsResponse
-     *
-     * @param ListAddonsRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
-     *
-     * @return ListAddonsResponse
+     * @return ListAddonsResponse ListAddonsResponse
      */
     public function listAddonsWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clusterId) {
-            @$query['cluster_id'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['cluster_id'] = $request->clusterId;
         }
-
-        if (null !== $request->clusterSpec) {
-            @$query['cluster_spec'] = $request->clusterSpec;
+        if (!Utils::isUnset($request->clusterSpec)) {
+            $query['cluster_spec'] = $request->clusterSpec;
         }
-
-        if (null !== $request->clusterType) {
-            @$query['cluster_type'] = $request->clusterType;
+        if (!Utils::isUnset($request->clusterType)) {
+            $query['cluster_type'] = $request->clusterType;
         }
-
-        if (null !== $request->clusterVersion) {
-            @$query['cluster_version'] = $request->clusterVersion;
+        if (!Utils::isUnset($request->clusterVersion)) {
+            $query['cluster_version'] = $request->clusterVersion;
         }
-
-        if (null !== $request->profile) {
-            @$query['profile'] = $request->profile;
+        if (!Utils::isUnset($request->profile)) {
+            $query['profile'] = $request->profile;
         }
-
-        if (null !== $request->regionId) {
-            @$query['region_id'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['region_id'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListAddons',
@@ -6847,15 +5745,11 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Queries the available components based on specific conditions such as the region, cluster type, cluster subtype defined by cluster profile, and cluster version and queries the detailed information about a component. The information includes whether the component is managed, the supported custom parameter schema, and compatible operating system architecture.
+     * @summary Queries the available components based on specific conditions such as the region, cluster type, cluster subtype defined by cluster profile, and cluster version and queries the detailed information about a component. The information includes whether the component is managed, the supported custom parameter schema, and compatible operating system architecture.
+     *  *
+     * @param ListAddonsRequest $request ListAddonsRequest
      *
-     * @param request - ListAddonsRequest
-     *
-     * @returns ListAddonsResponse
-     *
-     * @param ListAddonsRequest $request
-     *
-     * @return ListAddonsResponse
+     * @return ListAddonsResponse ListAddonsResponse
      */
     public function listAddons($request)
     {
@@ -6866,18 +5760,13 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Queries the component instances that are running in the specified cluster and the information about the component instances. The information includes the component version and status.
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListClusterAddonInstancesResponse
-     *
+     * @summary Queries the component instances that are running in the specified cluster and the information about the component instances. The information includes the component version and status.
+     *  *
      * @param string         $clusterId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
      *
-     * @return ListClusterAddonInstancesResponse
+     * @return ListClusterAddonInstancesResponse ListClusterAddonInstancesResponse
      */
     public function listClusterAddonInstancesWithOptions($clusterId, $headers, $runtime)
     {
@@ -6888,7 +5777,7 @@ class CS extends OpenApiClient
             'action' => 'ListClusterAddonInstances',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/clusters/' . Url::percentEncode($clusterId) . '/addon_instances',
+            'pathname' => '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterId) . '/addon_instances',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -6900,13 +5789,11 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Queries the component instances that are running in the specified cluster and the information about the component instances. The information includes the component version and status.
-     *
-     * @returns ListClusterAddonInstancesResponse
-     *
+     * @summary Queries the component instances that are running in the specified cluster and the information about the component instances. The information includes the component version and status.
+     *  *
      * @param string $clusterId
      *
-     * @return ListClusterAddonInstancesResponse
+     * @return ListClusterAddonInstancesResponse ListClusterAddonInstancesResponse
      */
     public function listClusterAddonInstances($clusterId)
     {
@@ -6917,42 +5804,34 @@ class CS extends OpenApiClient
     }
 
     /**
-     * You can call the ListClusterChecks operation to query all the cluster check results of a cluster.
-     *
-     * @param request - ListClusterChecksRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListClusterChecksResponse
-     *
+     * @summary You can call the ListClusterChecks operation to query all the cluster check results of a cluster.
+     *  *
      * @param string                   $clusterId
-     * @param ListClusterChecksRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @param ListClusterChecksRequest $request   ListClusterChecksRequest
+     * @param string[]                 $headers   map
+     * @param RuntimeOptions           $runtime   runtime options for this request RuntimeOptions
      *
-     * @return ListClusterChecksResponse
+     * @return ListClusterChecksResponse ListClusterChecksResponse
      */
     public function listClusterChecksWithOptions($clusterId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->target) {
-            @$query['target'] = $request->target;
+        if (!Utils::isUnset($request->target)) {
+            $query['target'] = $request->target;
         }
-
-        if (null !== $request->type) {
-            @$query['type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $query['type'] = $request->type;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListClusterChecks',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/clusters/' . Url::percentEncode($clusterId) . '/checks',
+            'pathname' => '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterId) . '/checks',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -6964,16 +5843,12 @@ class CS extends OpenApiClient
     }
 
     /**
-     * You can call the ListClusterChecks operation to query all the cluster check results of a cluster.
-     *
-     * @param request - ListClusterChecksRequest
-     *
-     * @returns ListClusterChecksResponse
-     *
+     * @summary You can call the ListClusterChecks operation to query all the cluster check results of a cluster.
+     *  *
      * @param string                   $clusterId
-     * @param ListClusterChecksRequest $request
+     * @param ListClusterChecksRequest $request   ListClusterChecksRequest
      *
-     * @return ListClusterChecksResponse
+     * @return ListClusterChecksResponse ListClusterChecksResponse
      */
     public function listClusterChecks($clusterId, $request)
     {
@@ -6984,42 +5859,34 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Obtains the details of the cluster inspection report.
-     *
-     * @param request - ListClusterInspectReportsRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListClusterInspectReportsResponse
-     *
+     * @summary Obtains the details of the cluster inspection report.
+     *  *
      * @param string                           $clusterId
-     * @param ListClusterInspectReportsRequest $request
-     * @param string[]                         $headers
-     * @param RuntimeOptions                   $runtime
+     * @param ListClusterInspectReportsRequest $request   ListClusterInspectReportsRequest
+     * @param string[]                         $headers   map
+     * @param RuntimeOptions                   $runtime   runtime options for this request RuntimeOptions
      *
-     * @return ListClusterInspectReportsResponse
+     * @return ListClusterInspectReportsResponse ListClusterInspectReportsResponse
      */
     public function listClusterInspectReportsWithOptions($clusterId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->maxResults) {
-            @$query['maxResults'] = $request->maxResults;
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['maxResults'] = $request->maxResults;
         }
-
-        if (null !== $request->nextToken) {
-            @$query['nextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['nextToken'] = $request->nextToken;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListClusterInspectReports',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/clusters/' . Url::percentEncode($clusterId) . '/inspectReports',
+            'pathname' => '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterId) . '/inspectReports',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -7031,16 +5898,12 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Obtains the details of the cluster inspection report.
-     *
-     * @param request - ListClusterInspectReportsRequest
-     *
-     * @returns ListClusterInspectReportsResponse
-     *
+     * @summary Obtains the details of the cluster inspection report.
+     *  *
      * @param string                           $clusterId
-     * @param ListClusterInspectReportsRequest $request
+     * @param ListClusterInspectReportsRequest $request   ListClusterInspectReportsRequest
      *
-     * @return ListClusterInspectReportsResponse
+     * @return ListClusterInspectReportsResponse ListClusterInspectReportsResponse
      */
     public function listClusterInspectReports($clusterId, $request)
     {
@@ -7051,46 +5914,37 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Queries the kubeconfig files that are issued to users for the current cluster and the status of the kubeconfig files.
-     *
-     * @remarks
-     * > - To call this operation, make sure that you have ram:ListUsers and ram:ListRoles permissions.
+     * @summary Queries the kubeconfig files that are issued to users for the current cluster and the status of the kubeconfig files.
+     *  *
+     * @description > - To call this operation, make sure that you have ram:ListUsers and ram:ListRoles permissions.
      * > - To call this operation, make sure that you have the AliyunCSFullAccess permissions.
-     *
-     * @param request - ListClusterKubeconfigStatesRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListClusterKubeconfigStatesResponse
-     *
+     *  *
      * @param string                             $ClusterId
-     * @param ListClusterKubeconfigStatesRequest $request
-     * @param string[]                           $headers
-     * @param RuntimeOptions                     $runtime
+     * @param ListClusterKubeconfigStatesRequest $request   ListClusterKubeconfigStatesRequest
+     * @param string[]                           $headers   map
+     * @param RuntimeOptions                     $runtime   runtime options for this request RuntimeOptions
      *
-     * @return ListClusterKubeconfigStatesResponse
+     * @return ListClusterKubeconfigStatesResponse ListClusterKubeconfigStatesResponse
      */
     public function listClusterKubeconfigStatesWithOptions($ClusterId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->pageNumber) {
-            @$query['pageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['pageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['pageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['pageSize'] = $request->pageSize;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListClusterKubeconfigStates',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/clusters/' . Url::percentEncode($ClusterId) . '/kubeconfig/states',
+            'pathname' => '/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/kubeconfig/states',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -7102,20 +5956,15 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Queries the kubeconfig files that are issued to users for the current cluster and the status of the kubeconfig files.
-     *
-     * @remarks
-     * > - To call this operation, make sure that you have ram:ListUsers and ram:ListRoles permissions.
+     * @summary Queries the kubeconfig files that are issued to users for the current cluster and the status of the kubeconfig files.
+     *  *
+     * @description > - To call this operation, make sure that you have ram:ListUsers and ram:ListRoles permissions.
      * > - To call this operation, make sure that you have the AliyunCSFullAccess permissions.
-     *
-     * @param request - ListClusterKubeconfigStatesRequest
-     *
-     * @returns ListClusterKubeconfigStatesResponse
-     *
+     *  *
      * @param string                             $ClusterId
-     * @param ListClusterKubeconfigStatesRequest $request
+     * @param ListClusterKubeconfigStatesRequest $request   ListClusterKubeconfigStatesRequest
      *
-     * @return ListClusterKubeconfigStatesResponse
+     * @return ListClusterKubeconfigStatesResponse ListClusterKubeconfigStatesResponse
      */
     public function listClusterKubeconfigStates($ClusterId, $request)
     {
@@ -7126,35 +5975,27 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Queries the automated maintenance schedules of a cluster.
+     * @summary Queries the automated maintenance schedules of a cluster.
+     *  *
+     * @param ListOperationPlansRequest $request ListOperationPlansRequest
+     * @param string[]                  $headers map
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListOperationPlansRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListOperationPlansResponse
-     *
-     * @param ListOperationPlansRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
-     *
-     * @return ListOperationPlansResponse
+     * @return ListOperationPlansResponse ListOperationPlansResponse
      */
     public function listOperationPlansWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clusterId) {
-            @$query['cluster_id'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['cluster_id'] = $request->clusterId;
         }
-
-        if (null !== $request->type) {
-            @$query['type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $query['type'] = $request->type;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListOperationPlans',
@@ -7172,15 +6013,11 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Queries the automated maintenance schedules of a cluster.
+     * @summary Queries the automated maintenance schedules of a cluster.
+     *  *
+     * @param ListOperationPlansRequest $request ListOperationPlansRequest
      *
-     * @param request - ListOperationPlansRequest
-     *
-     * @returns ListOperationPlansResponse
-     *
-     * @param ListOperationPlansRequest $request
-     *
-     * @return ListOperationPlansResponse
+     * @return ListOperationPlansResponse ListOperationPlansResponse
      */
     public function listOperationPlans($request)
     {
@@ -7191,57 +6028,44 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Queries resource labels and the detailed information, such as the key-value pairs of the labels and the clusters to which the labels are added. You can use labels to classify and manage Container Service for Kubernetes (ACK) clusters in order to meet monitoring, cost analysis, and tenant isolation requirements.
+     * @summary Queries resource labels and the detailed information, such as the key-value pairs of the labels and the clusters to which the labels are added. You can use labels to classify and manage Container Service for Kubernetes (ACK) clusters in order to meet monitoring, cost analysis, and tenant isolation requirements.
+     *  *
+     * @param ListTagResourcesRequest $tmpReq  ListTagResourcesRequest
+     * @param string[]                $headers map
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - ListTagResourcesRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListTagResourcesResponse
-     *
-     * @param ListTagResourcesRequest $tmpReq
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
-     *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($tmpReq, $headers, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new ListTagResourcesShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->resourceIds) {
-            $request->resourceIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->resourceIds, 'resource_ids', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->resourceIds)) {
+            $request->resourceIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceIds, 'resource_ids', 'json');
         }
-
-        if (null !== $tmpReq->tags) {
-            $request->tagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'tags', 'json');
+        if (!Utils::isUnset($tmpReq->tags)) {
+            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'tags', 'json');
         }
-
         $query = [];
-        if (null !== $request->nextToken) {
-            @$query['next_token'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['next_token'] = $request->nextToken;
         }
-
-        if (null !== $request->regionId) {
-            @$query['region_id'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['region_id'] = $request->regionId;
         }
-
-        if (null !== $request->resourceIdsShrink) {
-            @$query['resource_ids'] = $request->resourceIdsShrink;
+        if (!Utils::isUnset($request->resourceIdsShrink)) {
+            $query['resource_ids'] = $request->resourceIdsShrink;
         }
-
-        if (null !== $request->resourceType) {
-            @$query['resource_type'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['resource_type'] = $request->resourceType;
         }
-
-        if (null !== $request->tagsShrink) {
-            @$query['tags'] = $request->tagsShrink;
+        if (!Utils::isUnset($request->tagsShrink)) {
+            $query['tags'] = $request->tagsShrink;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListTagResources',
@@ -7259,15 +6083,11 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Queries resource labels and the detailed information, such as the key-value pairs of the labels and the clusters to which the labels are added. You can use labels to classify and manage Container Service for Kubernetes (ACK) clusters in order to meet monitoring, cost analysis, and tenant isolation requirements.
+     * @summary Queries resource labels and the detailed information, such as the key-value pairs of the labels and the clusters to which the labels are added. You can use labels to classify and manage Container Service for Kubernetes (ACK) clusters in order to meet monitoring, cost analysis, and tenant isolation requirements.
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
-     * @param request - ListTagResourcesRequest
-     *
-     * @returns ListTagResourcesResponse
-     *
-     * @param ListTagResourcesRequest $request
-     *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -7278,45 +6098,36 @@ class CS extends OpenApiClient
     }
 
     /**
-     * You can call the ListUserKubeConfigStates operation to query the status of the kubeconfig files of all clusters managed by the current user.
-     *
-     * @remarks
-     * >  To call this operation, make sure that you have the AliyunCSFullAccess permissions.
-     *
-     * @param request - ListUserKubeConfigStatesRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListUserKubeConfigStatesResponse
-     *
+     * @summary You can call the ListUserKubeConfigStates operation to query the status of the kubeconfig files of all clusters managed by the current user.
+     *  *
+     * @description >  To call this operation, make sure that you have the AliyunCSFullAccess permissions.
+     *  *
      * @param string                          $Uid
-     * @param ListUserKubeConfigStatesRequest $request
-     * @param string[]                        $headers
-     * @param RuntimeOptions                  $runtime
+     * @param ListUserKubeConfigStatesRequest $request ListUserKubeConfigStatesRequest
+     * @param string[]                        $headers map
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListUserKubeConfigStatesResponse
+     * @return ListUserKubeConfigStatesResponse ListUserKubeConfigStatesResponse
      */
     public function listUserKubeConfigStatesWithOptions($Uid, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->pageNumber) {
-            @$query['page_number'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['page_number'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['page_size'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['page_size'] = $request->pageSize;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListUserKubeConfigStates',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/users/' . Url::percentEncode($Uid) . '/kubeconfig/states',
+            'pathname' => '/users/' . OpenApiUtilClient::getEncodeParam($Uid) . '/kubeconfig/states',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -7328,19 +6139,14 @@ class CS extends OpenApiClient
     }
 
     /**
-     * You can call the ListUserKubeConfigStates operation to query the status of the kubeconfig files of all clusters managed by the current user.
-     *
-     * @remarks
-     * >  To call this operation, make sure that you have the AliyunCSFullAccess permissions.
-     *
-     * @param request - ListUserKubeConfigStatesRequest
-     *
-     * @returns ListUserKubeConfigStatesResponse
-     *
+     * @summary You can call the ListUserKubeConfigStates operation to query the status of the kubeconfig files of all clusters managed by the current user.
+     *  *
+     * @description >  To call this operation, make sure that you have the AliyunCSFullAccess permissions.
+     *  *
      * @param string                          $Uid
-     * @param ListUserKubeConfigStatesRequest $request
+     * @param ListUserKubeConfigStatesRequest $request ListUserKubeConfigStatesRequest
      *
-     * @return ListUserKubeConfigStatesResponse
+     * @return ListUserKubeConfigStatesResponse ListUserKubeConfigStatesResponse
      */
     public function listUserKubeConfigStates($Uid, $request)
     {
@@ -7351,42 +6157,34 @@ class CS extends OpenApiClient
     }
 
     /**
-     * The Container Service for Kubernetes (ACK) managed Pro cluster type is developed based on the ACK managed Basic cluster type. It inherits all benefits of ACK managed clusters, such as fully-managed control planes and control plane high availability. It further enhances reliability, security, scheduling capabilities, and offers service level agreement (SLA)-backed guarantees, making it ideal for enterprise customers with large-scale production workloads requiring high stability and security. You can call the MigrateCluster operation to migrate an ACK managed Basic cluster to an ACK managed Pro cluster.
-     *
-     * @param request - MigrateClusterRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns MigrateClusterResponse
-     *
+     * @summary The Container Service for Kubernetes (ACK) managed Pro cluster type is developed based on the ACK managed Basic cluster type. It inherits all benefits of ACK managed clusters, such as fully-managed control planes and control plane high availability. It further enhances reliability, security, scheduling capabilities, and offers service level agreement (SLA)-backed guarantees, making it ideal for enterprise customers with large-scale production workloads requiring high stability and security. You can call the MigrateCluster operation to migrate an ACK managed Basic cluster to an ACK managed Pro cluster.
+     *  *
      * @param string                $clusterId
-     * @param MigrateClusterRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @param MigrateClusterRequest $request   MigrateClusterRequest
+     * @param string[]              $headers   map
+     * @param RuntimeOptions        $runtime   runtime options for this request RuntimeOptions
      *
-     * @return MigrateClusterResponse
+     * @return MigrateClusterResponse MigrateClusterResponse
      */
     public function migrateClusterWithOptions($clusterId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->ossBucketEndpoint) {
-            @$body['oss_bucket_endpoint'] = $request->ossBucketEndpoint;
+        if (!Utils::isUnset($request->ossBucketEndpoint)) {
+            $body['oss_bucket_endpoint'] = $request->ossBucketEndpoint;
         }
-
-        if (null !== $request->ossBucketName) {
-            @$body['oss_bucket_name'] = $request->ossBucketName;
+        if (!Utils::isUnset($request->ossBucketName)) {
+            $body['oss_bucket_name'] = $request->ossBucketName;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'MigrateCluster',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/clusters/' . Url::percentEncode($clusterId) . '/migrate',
+            'pathname' => '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterId) . '/migrate',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -7398,16 +6196,12 @@ class CS extends OpenApiClient
     }
 
     /**
-     * The Container Service for Kubernetes (ACK) managed Pro cluster type is developed based on the ACK managed Basic cluster type. It inherits all benefits of ACK managed clusters, such as fully-managed control planes and control plane high availability. It further enhances reliability, security, scheduling capabilities, and offers service level agreement (SLA)-backed guarantees, making it ideal for enterprise customers with large-scale production workloads requiring high stability and security. You can call the MigrateCluster operation to migrate an ACK managed Basic cluster to an ACK managed Pro cluster.
-     *
-     * @param request - MigrateClusterRequest
-     *
-     * @returns MigrateClusterResponse
-     *
+     * @summary The Container Service for Kubernetes (ACK) managed Pro cluster type is developed based on the ACK managed Basic cluster type. It inherits all benefits of ACK managed clusters, such as fully-managed control planes and control plane high availability. It further enhances reliability, security, scheduling capabilities, and offers service level agreement (SLA)-backed guarantees, making it ideal for enterprise customers with large-scale production workloads requiring high stability and security. You can call the MigrateCluster operation to migrate an ACK managed Basic cluster to an ACK managed Pro cluster.
+     *  *
      * @param string                $clusterId
-     * @param MigrateClusterRequest $request
+     * @param MigrateClusterRequest $request   MigrateClusterRequest
      *
-     * @return MigrateClusterResponse
+     * @return MigrateClusterResponse MigrateClusterResponse
      */
     public function migrateCluster($clusterId, $request)
     {
@@ -7418,106 +6212,82 @@ class CS extends OpenApiClient
     }
 
     /**
-     * You can call the ModifyCluster operation to modify the cluster configurations by cluster ID.
-     *
-     * @param request - ModifyClusterRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyClusterResponse
-     *
+     * @summary You can call the ModifyCluster operation to modify the cluster configurations by cluster ID.
+     *  *
      * @param string               $ClusterId
-     * @param ModifyClusterRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param ModifyClusterRequest $request   ModifyClusterRequest
+     * @param string[]             $headers   map
+     * @param RuntimeOptions       $runtime   runtime options for this request RuntimeOptions
      *
-     * @return ModifyClusterResponse
+     * @return ModifyClusterResponse ModifyClusterResponse
      */
     public function modifyClusterWithOptions($ClusterId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->accessControlList) {
-            @$body['access_control_list'] = $request->accessControlList;
+        if (!Utils::isUnset($request->accessControlList)) {
+            $body['access_control_list'] = $request->accessControlList;
         }
-
-        if (null !== $request->apiServerCustomCertSans) {
-            @$body['api_server_custom_cert_sans'] = $request->apiServerCustomCertSans;
+        if (!Utils::isUnset($request->apiServerCustomCertSans)) {
+            $body['api_server_custom_cert_sans'] = $request->apiServerCustomCertSans;
         }
-
-        if (null !== $request->apiServerEip) {
-            @$body['api_server_eip'] = $request->apiServerEip;
+        if (!Utils::isUnset($request->apiServerEip)) {
+            $body['api_server_eip'] = $request->apiServerEip;
         }
-
-        if (null !== $request->apiServerEipId) {
-            @$body['api_server_eip_id'] = $request->apiServerEipId;
+        if (!Utils::isUnset($request->apiServerEipId)) {
+            $body['api_server_eip_id'] = $request->apiServerEipId;
         }
-
-        if (null !== $request->clusterName) {
-            @$body['cluster_name'] = $request->clusterName;
+        if (!Utils::isUnset($request->clusterName)) {
+            $body['cluster_name'] = $request->clusterName;
         }
-
-        if (null !== $request->controlPlaneConfig) {
-            @$body['control_plane_config'] = $request->controlPlaneConfig;
+        if (!Utils::isUnset($request->controlPlaneConfig)) {
+            $body['control_plane_config'] = $request->controlPlaneConfig;
         }
-
-        if (null !== $request->deletionProtection) {
-            @$body['deletion_protection'] = $request->deletionProtection;
+        if (!Utils::isUnset($request->deletionProtection)) {
+            $body['deletion_protection'] = $request->deletionProtection;
         }
-
-        if (null !== $request->enableRrsa) {
-            @$body['enable_rrsa'] = $request->enableRrsa;
+        if (!Utils::isUnset($request->enableRrsa)) {
+            $body['enable_rrsa'] = $request->enableRrsa;
         }
-
-        if (null !== $request->ingressDomainRebinding) {
-            @$body['ingress_domain_rebinding'] = $request->ingressDomainRebinding;
+        if (!Utils::isUnset($request->ingressDomainRebinding)) {
+            $body['ingress_domain_rebinding'] = $request->ingressDomainRebinding;
         }
-
-        if (null !== $request->ingressLoadbalancerId) {
-            @$body['ingress_loadbalancer_id'] = $request->ingressLoadbalancerId;
+        if (!Utils::isUnset($request->ingressLoadbalancerId)) {
+            $body['ingress_loadbalancer_id'] = $request->ingressLoadbalancerId;
         }
-
-        if (null !== $request->instanceDeletionProtection) {
-            @$body['instance_deletion_protection'] = $request->instanceDeletionProtection;
+        if (!Utils::isUnset($request->instanceDeletionProtection)) {
+            $body['instance_deletion_protection'] = $request->instanceDeletionProtection;
         }
-
-        if (null !== $request->maintenanceWindow) {
-            @$body['maintenance_window'] = $request->maintenanceWindow;
+        if (!Utils::isUnset($request->maintenanceWindow)) {
+            $body['maintenance_window'] = $request->maintenanceWindow;
         }
-
-        if (null !== $request->operationPolicy) {
-            @$body['operation_policy'] = $request->operationPolicy;
+        if (!Utils::isUnset($request->operationPolicy)) {
+            $body['operation_policy'] = $request->operationPolicy;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$body['resource_group_id'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $body['resource_group_id'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->securityGroupId) {
-            @$body['security_group_id'] = $request->securityGroupId;
+        if (!Utils::isUnset($request->securityGroupId)) {
+            $body['security_group_id'] = $request->securityGroupId;
         }
-
-        if (null !== $request->systemEventsLogging) {
-            @$body['system_events_logging'] = $request->systemEventsLogging;
+        if (!Utils::isUnset($request->systemEventsLogging)) {
+            $body['system_events_logging'] = $request->systemEventsLogging;
         }
-
-        if (null !== $request->timezone) {
-            @$body['timezone'] = $request->timezone;
+        if (!Utils::isUnset($request->timezone)) {
+            $body['timezone'] = $request->timezone;
         }
-
-        if (null !== $request->vswitchIds) {
-            @$body['vswitch_ids'] = $request->vswitchIds;
+        if (!Utils::isUnset($request->vswitchIds)) {
+            $body['vswitch_ids'] = $request->vswitchIds;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ModifyCluster',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/clusters/' . Url::percentEncode($ClusterId) . '',
+            'pathname' => '/api/v2/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -7529,16 +6299,12 @@ class CS extends OpenApiClient
     }
 
     /**
-     * You can call the ModifyCluster operation to modify the cluster configurations by cluster ID.
-     *
-     * @param request - ModifyClusterRequest
-     *
-     * @returns ModifyClusterResponse
-     *
+     * @summary You can call the ModifyCluster operation to modify the cluster configurations by cluster ID.
+     *  *
      * @param string               $ClusterId
-     * @param ModifyClusterRequest $request
+     * @param ModifyClusterRequest $request   ModifyClusterRequest
      *
-     * @return ModifyClusterResponse
+     * @return ModifyClusterResponse ModifyClusterResponse
      */
     public function modifyCluster($ClusterId, $request)
     {
@@ -7549,45 +6315,37 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Modifies the configuration of a cluster component. This operation may affect your businesses. We recommend that you assess the impact, back up data, and perform the operation during off-peak hours.
-     *
-     * @remarks
-     * You can call this API operation to modify the component parameters of an ACK Basic cluster or the control plane parameters of an ACK Pro cluster:
+     * @summary Modifies the configuration of a cluster component. This operation may affect your businesses. We recommend that you assess the impact, back up data, and perform the operation during off-peak hours.
+     *  *
+     * @description You can call this API operation to modify the component parameters of an ACK Basic cluster or the control plane parameters of an ACK Pro cluster:
      * *   To view the component parameters of an ACK Basic cluster, call the DescribeClusterAddonMetadata API operation. For more information, see [Query the metadata of a cluster component](https://help.aliyun.com/document_detail/2667944.html).
      * *   To view the control plane parameters of an ACK Pro cluster, see [Customize the control plane parameters of an ACK Pro cluster](https://help.aliyun.com/document_detail/199588.html).
      * After you call this operation, the component may be redeployed and restarted. We recommend that you assess the impact before you call this operation.
-     *
-     * @param request - ModifyClusterAddonRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyClusterAddonResponse
-     *
+     *  *
      * @param string                    $clusterId
      * @param string                    $componentId
-     * @param ModifyClusterAddonRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @param ModifyClusterAddonRequest $request     ModifyClusterAddonRequest
+     * @param string[]                  $headers     map
+     * @param RuntimeOptions            $runtime     runtime options for this request RuntimeOptions
      *
-     * @return ModifyClusterAddonResponse
+     * @return ModifyClusterAddonResponse ModifyClusterAddonResponse
      */
     public function modifyClusterAddonWithOptions($clusterId, $componentId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->config) {
-            @$body['config'] = $request->config;
+        if (!Utils::isUnset($request->config)) {
+            $body['config'] = $request->config;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ModifyClusterAddon',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/clusters/' . Url::percentEncode($clusterId) . '/components/' . Url::percentEncode($componentId) . '/config',
+            'pathname' => '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterId) . '/components/' . OpenApiUtilClient::getEncodeParam($componentId) . '/config',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -7599,23 +6357,18 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Modifies the configuration of a cluster component. This operation may affect your businesses. We recommend that you assess the impact, back up data, and perform the operation during off-peak hours.
-     *
-     * @remarks
-     * You can call this API operation to modify the component parameters of an ACK Basic cluster or the control plane parameters of an ACK Pro cluster:
+     * @summary Modifies the configuration of a cluster component. This operation may affect your businesses. We recommend that you assess the impact, back up data, and perform the operation during off-peak hours.
+     *  *
+     * @description You can call this API operation to modify the component parameters of an ACK Basic cluster or the control plane parameters of an ACK Pro cluster:
      * *   To view the component parameters of an ACK Basic cluster, call the DescribeClusterAddonMetadata API operation. For more information, see [Query the metadata of a cluster component](https://help.aliyun.com/document_detail/2667944.html).
      * *   To view the control plane parameters of an ACK Pro cluster, see [Customize the control plane parameters of an ACK Pro cluster](https://help.aliyun.com/document_detail/199588.html).
      * After you call this operation, the component may be redeployed and restarted. We recommend that you assess the impact before you call this operation.
-     *
-     * @param request - ModifyClusterAddonRequest
-     *
-     * @returns ModifyClusterAddonResponse
-     *
+     *  *
      * @param string                    $clusterId
      * @param string                    $componentId
-     * @param ModifyClusterAddonRequest $request
+     * @param ModifyClusterAddonRequest $request     ModifyClusterAddonRequest
      *
-     * @return ModifyClusterAddonResponse
+     * @return ModifyClusterAddonResponse ModifyClusterAddonResponse
      */
     public function modifyClusterAddon($clusterId, $componentId, $request)
     {
@@ -7625,42 +6378,36 @@ class CS extends OpenApiClient
         return $this->modifyClusterAddonWithOptions($clusterId, $componentId, $request, $headers, $runtime);
     }
 
-    // Deprecated
     /**
-     * This API operation applies only to Container Service for Kubernetes (ACK) managed clusters.
-     *
      * @deprecated OpenAPI ModifyClusterConfiguration is deprecated
-     *
-     * @param request - ModifyClusterConfigurationRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyClusterConfigurationResponse
+     *  *
+     * @summary This API operation applies only to Container Service for Kubernetes (ACK) managed clusters.
+     *  *
+     * Deprecated
      *
      * @param string                            $ClusterId
-     * @param ModifyClusterConfigurationRequest $request
-     * @param string[]                          $headers
-     * @param RuntimeOptions                    $runtime
+     * @param ModifyClusterConfigurationRequest $request   ModifyClusterConfigurationRequest
+     * @param string[]                          $headers   map
+     * @param RuntimeOptions                    $runtime   runtime options for this request RuntimeOptions
      *
-     * @return ModifyClusterConfigurationResponse
+     * @return ModifyClusterConfigurationResponse ModifyClusterConfigurationResponse
      */
     public function modifyClusterConfigurationWithOptions($ClusterId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->customizeConfig) {
-            @$body['customize_config'] = $request->customizeConfig;
+        if (!Utils::isUnset($request->customizeConfig)) {
+            $body['customize_config'] = $request->customizeConfig;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ModifyClusterConfiguration',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/clusters/' . Url::percentEncode($ClusterId) . '/configuration',
+            'pathname' => '/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/configuration',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -7671,20 +6418,17 @@ class CS extends OpenApiClient
         return ModifyClusterConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
-    // Deprecated
     /**
-     * This API operation applies only to Container Service for Kubernetes (ACK) managed clusters.
-     *
      * @deprecated OpenAPI ModifyClusterConfiguration is deprecated
-     *
-     * @param request - ModifyClusterConfigurationRequest
-     *
-     * @returns ModifyClusterConfigurationResponse
+     *  *
+     * @summary This API operation applies only to Container Service for Kubernetes (ACK) managed clusters.
+     *  *
+     * Deprecated
      *
      * @param string                            $ClusterId
-     * @param ModifyClusterConfigurationRequest $request
+     * @param ModifyClusterConfigurationRequest $request   ModifyClusterConfigurationRequest
      *
-     * @return ModifyClusterConfigurationResponse
+     * @return ModifyClusterConfigurationResponse ModifyClusterConfigurationResponse
      */
     public function modifyClusterConfiguration($ClusterId, $request)
     {
@@ -7695,67 +6439,53 @@ class CS extends OpenApiClient
     }
 
     /**
-     * You can call the ModifyClusterNodePool operation to modify the configuration of a node pool with the specified node pool ID.
-     *
-     * @param request - ModifyClusterNodePoolRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyClusterNodePoolResponse
-     *
+     * @summary You can call the ModifyClusterNodePool operation to modify the configuration of a node pool with the specified node pool ID.
+     *  *
      * @param string                       $ClusterId
      * @param string                       $NodepoolId
-     * @param ModifyClusterNodePoolRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @param ModifyClusterNodePoolRequest $request    ModifyClusterNodePoolRequest
+     * @param string[]                     $headers    map
+     * @param RuntimeOptions               $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ModifyClusterNodePoolResponse
+     * @return ModifyClusterNodePoolResponse ModifyClusterNodePoolResponse
      */
     public function modifyClusterNodePoolWithOptions($ClusterId, $NodepoolId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->autoScaling) {
-            @$body['auto_scaling'] = $request->autoScaling;
+        if (!Utils::isUnset($request->autoScaling)) {
+            $body['auto_scaling'] = $request->autoScaling;
         }
-
-        if (null !== $request->concurrency) {
-            @$body['concurrency'] = $request->concurrency;
+        if (!Utils::isUnset($request->concurrency)) {
+            $body['concurrency'] = $request->concurrency;
         }
-
-        if (null !== $request->kubernetesConfig) {
-            @$body['kubernetes_config'] = $request->kubernetesConfig;
+        if (!Utils::isUnset($request->kubernetesConfig)) {
+            $body['kubernetes_config'] = $request->kubernetesConfig;
         }
-
-        if (null !== $request->management) {
-            @$body['management'] = $request->management;
+        if (!Utils::isUnset($request->management)) {
+            $body['management'] = $request->management;
         }
-
-        if (null !== $request->nodepoolInfo) {
-            @$body['nodepool_info'] = $request->nodepoolInfo;
+        if (!Utils::isUnset($request->nodepoolInfo)) {
+            $body['nodepool_info'] = $request->nodepoolInfo;
         }
-
-        if (null !== $request->scalingGroup) {
-            @$body['scaling_group'] = $request->scalingGroup;
+        if (!Utils::isUnset($request->scalingGroup)) {
+            $body['scaling_group'] = $request->scalingGroup;
         }
-
-        if (null !== $request->teeConfig) {
-            @$body['tee_config'] = $request->teeConfig;
+        if (!Utils::isUnset($request->teeConfig)) {
+            $body['tee_config'] = $request->teeConfig;
         }
-
-        if (null !== $request->updateNodes) {
-            @$body['update_nodes'] = $request->updateNodes;
+        if (!Utils::isUnset($request->updateNodes)) {
+            $body['update_nodes'] = $request->updateNodes;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ModifyClusterNodePool',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/clusters/' . Url::percentEncode($ClusterId) . '/nodepools/' . Url::percentEncode($NodepoolId) . '',
+            'pathname' => '/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/nodepools/' . OpenApiUtilClient::getEncodeParam($NodepoolId) . '',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -7767,17 +6497,13 @@ class CS extends OpenApiClient
     }
 
     /**
-     * You can call the ModifyClusterNodePool operation to modify the configuration of a node pool with the specified node pool ID.
-     *
-     * @param request - ModifyClusterNodePoolRequest
-     *
-     * @returns ModifyClusterNodePoolResponse
-     *
+     * @summary You can call the ModifyClusterNodePool operation to modify the configuration of a node pool with the specified node pool ID.
+     *  *
      * @param string                       $ClusterId
      * @param string                       $NodepoolId
-     * @param ModifyClusterNodePoolRequest $request
+     * @param ModifyClusterNodePoolRequest $request    ModifyClusterNodePoolRequest
      *
-     * @return ModifyClusterNodePoolResponse
+     * @return ModifyClusterNodePoolResponse ModifyClusterNodePoolResponse
      */
     public function modifyClusterNodePool($ClusterId, $NodepoolId, $request)
     {
@@ -7788,24 +6514,18 @@ class CS extends OpenApiClient
     }
 
     /**
-     * You can add labels in key-value pairs to clusters. This allows cluster developers or O\\\\\\&M engineers to classify and manage clusters in a more flexible manner. This also meets the requirements for monitoring, cost analysis, and tenant isolation. You can call the ModifyClusterTags operation to modify the labels of a cluster.
-     *
-     * @param request - ModifyClusterTagsRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyClusterTagsResponse
-     *
+     * @summary You can add labels in key-value pairs to clusters. This allows cluster developers or O\\\\\\&M engineers to classify and manage clusters in a more flexible manner. This also meets the requirements for monitoring, cost analysis, and tenant isolation. You can call the ModifyClusterTags operation to modify the labels of a cluster.
+     *  *
      * @param string                   $ClusterId
-     * @param ModifyClusterTagsRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @param ModifyClusterTagsRequest $request   ModifyClusterTagsRequest
+     * @param string[]                 $headers   map
+     * @param RuntimeOptions           $runtime   runtime options for this request RuntimeOptions
      *
-     * @return ModifyClusterTagsResponse
+     * @return ModifyClusterTagsResponse ModifyClusterTagsResponse
      */
     public function modifyClusterTagsWithOptions($ClusterId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body' => Utils::toArray($request->body),
@@ -7814,7 +6534,7 @@ class CS extends OpenApiClient
             'action' => 'ModifyClusterTags',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/clusters/' . Url::percentEncode($ClusterId) . '/tags',
+            'pathname' => '/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/tags',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -7826,16 +6546,12 @@ class CS extends OpenApiClient
     }
 
     /**
-     * You can add labels in key-value pairs to clusters. This allows cluster developers or O\\\\\\&M engineers to classify and manage clusters in a more flexible manner. This also meets the requirements for monitoring, cost analysis, and tenant isolation. You can call the ModifyClusterTags operation to modify the labels of a cluster.
-     *
-     * @param request - ModifyClusterTagsRequest
-     *
-     * @returns ModifyClusterTagsResponse
-     *
+     * @summary You can add labels in key-value pairs to clusters. This allows cluster developers or O\\\\\\&M engineers to classify and manage clusters in a more flexible manner. This also meets the requirements for monitoring, cost analysis, and tenant isolation. You can call the ModifyClusterTags operation to modify the labels of a cluster.
+     *  *
      * @param string                   $ClusterId
-     * @param ModifyClusterTagsRequest $request
+     * @param ModifyClusterTagsRequest $request   ModifyClusterTagsRequest
      *
-     * @return ModifyClusterTagsResponse
+     * @return ModifyClusterTagsResponse ModifyClusterTagsResponse
      */
     public function modifyClusterTags($ClusterId, $request)
     {
@@ -7846,54 +6562,43 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Modifies the configuration of a node pool, such as the kubelet configuration and node rolling update configuration. After you modify the node pool configuration, nodes are batch updated and the kubelet on each node is restarted. This may adversely affect the nodes and workloads. We recommend that you perform this operation during off-peak hours.
-     *
-     * @remarks
-     * >  Container Service for Kubernetes (ACK) allows you to modify the kubelet configuration of nodes in a node pool. After you modify the kubelet configuration, the new configuration immediately takes effect on existing nodes in the node pool and is automatically applied to newly added nodes.
-     *
-     * @param request - ModifyNodePoolNodeConfigRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyNodePoolNodeConfigResponse
-     *
+     * @summary Modifies the configuration of a node pool, such as the kubelet configuration and node rolling update configuration. After you modify the node pool configuration, nodes are batch updated and the kubelet on each node is restarted. This may adversely affect the nodes and workloads. We recommend that you perform this operation during off-peak hours.
+     *  *
+     * @description >  Container Service for Kubernetes (ACK) allows you to modify the kubelet configuration of nodes in a node pool. After you modify the kubelet configuration, the new configuration immediately takes effect on existing nodes in the node pool and is automatically applied to newly added nodes.
+     *  *
      * @param string                          $ClusterId
      * @param string                          $NodepoolId
-     * @param ModifyNodePoolNodeConfigRequest $request
-     * @param string[]                        $headers
-     * @param RuntimeOptions                  $runtime
+     * @param ModifyNodePoolNodeConfigRequest $request    ModifyNodePoolNodeConfigRequest
+     * @param string[]                        $headers    map
+     * @param RuntimeOptions                  $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ModifyNodePoolNodeConfigResponse
+     * @return ModifyNodePoolNodeConfigResponse ModifyNodePoolNodeConfigResponse
      */
     public function modifyNodePoolNodeConfigWithOptions($ClusterId, $NodepoolId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->containerdConfig) {
-            @$body['containerd_config'] = $request->containerdConfig;
+        if (!Utils::isUnset($request->containerdConfig)) {
+            $body['containerd_config'] = $request->containerdConfig;
         }
-
-        if (null !== $request->kubeletConfig) {
-            @$body['kubelet_config'] = $request->kubeletConfig;
+        if (!Utils::isUnset($request->kubeletConfig)) {
+            $body['kubelet_config'] = $request->kubeletConfig;
         }
-
-        if (null !== $request->osConfig) {
-            @$body['os_config'] = $request->osConfig;
+        if (!Utils::isUnset($request->osConfig)) {
+            $body['os_config'] = $request->osConfig;
         }
-
-        if (null !== $request->rollingPolicy) {
-            @$body['rolling_policy'] = $request->rollingPolicy;
+        if (!Utils::isUnset($request->rollingPolicy)) {
+            $body['rolling_policy'] = $request->rollingPolicy;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ModifyNodePoolNodeConfig',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/clusters/' . Url::percentEncode($ClusterId) . '/nodepools/' . Url::percentEncode($NodepoolId) . '/node_config',
+            'pathname' => '/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/nodepools/' . OpenApiUtilClient::getEncodeParam($NodepoolId) . '/node_config',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -7905,20 +6610,15 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Modifies the configuration of a node pool, such as the kubelet configuration and node rolling update configuration. After you modify the node pool configuration, nodes are batch updated and the kubelet on each node is restarted. This may adversely affect the nodes and workloads. We recommend that you perform this operation during off-peak hours.
-     *
-     * @remarks
-     * >  Container Service for Kubernetes (ACK) allows you to modify the kubelet configuration of nodes in a node pool. After you modify the kubelet configuration, the new configuration immediately takes effect on existing nodes in the node pool and is automatically applied to newly added nodes.
-     *
-     * @param request - ModifyNodePoolNodeConfigRequest
-     *
-     * @returns ModifyNodePoolNodeConfigResponse
-     *
+     * @summary Modifies the configuration of a node pool, such as the kubelet configuration and node rolling update configuration. After you modify the node pool configuration, nodes are batch updated and the kubelet on each node is restarted. This may adversely affect the nodes and workloads. We recommend that you perform this operation during off-peak hours.
+     *  *
+     * @description >  Container Service for Kubernetes (ACK) allows you to modify the kubelet configuration of nodes in a node pool. After you modify the kubelet configuration, the new configuration immediately takes effect on existing nodes in the node pool and is automatically applied to newly added nodes.
+     *  *
      * @param string                          $ClusterId
      * @param string                          $NodepoolId
-     * @param ModifyNodePoolNodeConfigRequest $request
+     * @param ModifyNodePoolNodeConfigRequest $request    ModifyNodePoolNodeConfigRequest
      *
-     * @return ModifyNodePoolNodeConfigResponse
+     * @return ModifyNodePoolNodeConfigResponse ModifyNodePoolNodeConfigResponse
      */
     public function modifyNodePoolNodeConfig($ClusterId, $NodepoolId, $request)
     {
@@ -7929,51 +6629,41 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Updates a policy in a specific Container Service for Kubernetes (ACK) cluster. You can modify the action of the policy such as alerting or denying and namespaces to which the policy applies.
-     *
-     * @param request - ModifyPolicyInstanceRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyPolicyInstanceResponse
-     *
+     * @summary Updates a policy in a specific Container Service for Kubernetes (ACK) cluster. You can modify the action of the policy such as alerting or denying and namespaces to which the policy applies.
+     *  *
      * @param string                      $clusterId
      * @param string                      $policyName
-     * @param ModifyPolicyInstanceRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @param ModifyPolicyInstanceRequest $request    ModifyPolicyInstanceRequest
+     * @param string[]                    $headers    map
+     * @param RuntimeOptions              $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ModifyPolicyInstanceResponse
+     * @return ModifyPolicyInstanceResponse ModifyPolicyInstanceResponse
      */
     public function modifyPolicyInstanceWithOptions($clusterId, $policyName, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->action) {
-            @$body['action'] = $request->action;
+        if (!Utils::isUnset($request->action)) {
+            $body['action'] = $request->action;
         }
-
-        if (null !== $request->instanceName) {
-            @$body['instance_name'] = $request->instanceName;
+        if (!Utils::isUnset($request->instanceName)) {
+            $body['instance_name'] = $request->instanceName;
         }
-
-        if (null !== $request->namespaces) {
-            @$body['namespaces'] = $request->namespaces;
+        if (!Utils::isUnset($request->namespaces)) {
+            $body['namespaces'] = $request->namespaces;
         }
-
-        if (null !== $request->parameters) {
-            @$body['parameters'] = $request->parameters;
+        if (!Utils::isUnset($request->parameters)) {
+            $body['parameters'] = $request->parameters;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ModifyPolicyInstance',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/clusters/' . Url::percentEncode($clusterId) . '/policies/' . Url::percentEncode($policyName) . '',
+            'pathname' => '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterId) . '/policies/' . OpenApiUtilClient::getEncodeParam($policyName) . '',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -7985,17 +6675,13 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Updates a policy in a specific Container Service for Kubernetes (ACK) cluster. You can modify the action of the policy such as alerting or denying and namespaces to which the policy applies.
-     *
-     * @param request - ModifyPolicyInstanceRequest
-     *
-     * @returns ModifyPolicyInstanceResponse
-     *
+     * @summary Updates a policy in a specific Container Service for Kubernetes (ACK) cluster. You can modify the action of the policy such as alerting or denying and namespaces to which the policy applies.
+     *  *
      * @param string                      $clusterId
      * @param string                      $policyName
-     * @param ModifyPolicyInstanceRequest $request
+     * @param ModifyPolicyInstanceRequest $request    ModifyPolicyInstanceRequest
      *
-     * @return ModifyPolicyInstanceResponse
+     * @return ModifyPolicyInstanceResponse ModifyPolicyInstanceResponse
      */
     public function modifyPolicyInstance($clusterId, $policyName, $request)
     {
@@ -8006,35 +6692,27 @@ class CS extends OpenApiClient
     }
 
     /**
-     * When using Container Service for Kubernetes (ACK) for the first time, you must call the OpenAckService operation to activate the service.
-     *
-     * @remarks
-     *   You can activate ACK by using Alibaba Cloud accounts.
+     * @summary When using Container Service for Kubernetes (ACK) for the first time, you must call the OpenAckService operation to activate the service.
+     *  *
+     * @description *   You can activate ACK by using Alibaba Cloud accounts.
      * *   To activate ACK by using RAM users, you need to grant the AdministratorAccess permission to the RAM users.
+     *  *
+     * @param OpenAckServiceRequest $request OpenAckServiceRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - OpenAckServiceRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns OpenAckServiceResponse
-     *
-     * @param OpenAckServiceRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
-     *
-     * @return OpenAckServiceResponse
+     * @return OpenAckServiceResponse OpenAckServiceResponse
      */
     public function openAckServiceWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->type) {
-            @$query['type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $query['type'] = $request->type;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'OpenAckService',
@@ -8052,19 +6730,14 @@ class CS extends OpenApiClient
     }
 
     /**
-     * When using Container Service for Kubernetes (ACK) for the first time, you must call the OpenAckService operation to activate the service.
-     *
-     * @remarks
-     *   You can activate ACK by using Alibaba Cloud accounts.
+     * @summary When using Container Service for Kubernetes (ACK) for the first time, you must call the OpenAckService operation to activate the service.
+     *  *
+     * @description *   You can activate ACK by using Alibaba Cloud accounts.
      * *   To activate ACK by using RAM users, you need to grant the AdministratorAccess permission to the RAM users.
+     *  *
+     * @param OpenAckServiceRequest $request OpenAckServiceRequest
      *
-     * @param request - OpenAckServiceRequest
-     *
-     * @returns OpenAckServiceResponse
-     *
-     * @param OpenAckServiceRequest $request
-     *
-     * @return OpenAckServiceResponse
+     * @return OpenAckServiceResponse OpenAckServiceResponse
      */
     public function openAckService($request)
     {
@@ -8074,22 +6747,18 @@ class CS extends OpenApiClient
         return $this->openAckServiceWithOptions($request, $headers, $runtime);
     }
 
-    // Deprecated
     /**
-     * You can call the PauseClusterUpgrade operation to pause the update of a Container Service for Kubernetes (ACK) cluster.
-     *
      * @deprecated OpenAPI PauseClusterUpgrade is deprecated
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns PauseClusterUpgradeResponse
+     *  *
+     * @summary You can call the PauseClusterUpgrade operation to pause the update of a Container Service for Kubernetes (ACK) cluster.
+     *  *
+     * Deprecated
      *
      * @param string         $ClusterId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
      *
-     * @return PauseClusterUpgradeResponse
+     * @return PauseClusterUpgradeResponse PauseClusterUpgradeResponse
      */
     public function pauseClusterUpgradeWithOptions($ClusterId, $headers, $runtime)
     {
@@ -8100,7 +6769,7 @@ class CS extends OpenApiClient
             'action' => 'PauseClusterUpgrade',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/clusters/' . Url::percentEncode($ClusterId) . '/upgrade/pause',
+            'pathname' => '/api/v2/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/upgrade/pause',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -8111,17 +6780,16 @@ class CS extends OpenApiClient
         return PauseClusterUpgradeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
-    // Deprecated
     /**
-     * You can call the PauseClusterUpgrade operation to pause the update of a Container Service for Kubernetes (ACK) cluster.
-     *
      * @deprecated OpenAPI PauseClusterUpgrade is deprecated
-     *
-     * @returns PauseClusterUpgradeResponse
+     *  *
+     * @summary You can call the PauseClusterUpgrade operation to pause the update of a Container Service for Kubernetes (ACK) cluster.
+     *  *
+     * Deprecated
      *
      * @param string $ClusterId
      *
-     * @return PauseClusterUpgradeResponse
+     * @return PauseClusterUpgradeResponse PauseClusterUpgradeResponse
      */
     public function pauseClusterUpgrade($ClusterId)
     {
@@ -8131,23 +6799,19 @@ class CS extends OpenApiClient
         return $this->pauseClusterUpgradeWithOptions($ClusterId, $headers, $runtime);
     }
 
-    // Deprecated
     /**
-     * You can call the PauseComponentUpgrade operation to pause the update of a component.
-     *
      * @deprecated OpenAPI PauseComponentUpgrade is deprecated
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns PauseComponentUpgradeResponse
+     *  *
+     * @summary You can call the PauseComponentUpgrade operation to pause the update of a component.
+     *  *
+     * Deprecated
      *
      * @param string         $clusterid
      * @param string         $componentid
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers     map
+     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
      *
-     * @return PauseComponentUpgradeResponse
+     * @return PauseComponentUpgradeResponse PauseComponentUpgradeResponse
      */
     public function pauseComponentUpgradeWithOptions($clusterid, $componentid, $headers, $runtime)
     {
@@ -8158,7 +6822,7 @@ class CS extends OpenApiClient
             'action' => 'PauseComponentUpgrade',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/clusters/' . Url::percentEncode($clusterid) . '/components/' . Url::percentEncode($componentid) . '/pause',
+            'pathname' => '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterid) . '/components/' . OpenApiUtilClient::getEncodeParam($componentid) . '/pause',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -8169,18 +6833,17 @@ class CS extends OpenApiClient
         return PauseComponentUpgradeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
-    // Deprecated
     /**
-     * You can call the PauseComponentUpgrade operation to pause the update of a component.
-     *
      * @deprecated OpenAPI PauseComponentUpgrade is deprecated
-     *
-     * @returns PauseComponentUpgradeResponse
+     *  *
+     * @summary You can call the PauseComponentUpgrade operation to pause the update of a component.
+     *  *
+     * Deprecated
      *
      * @param string $clusterid
      * @param string $componentid
      *
-     * @return PauseComponentUpgradeResponse
+     * @return PauseComponentUpgradeResponse PauseComponentUpgradeResponse
      */
     public function pauseComponentUpgrade($clusterid, $componentid)
     {
@@ -8191,18 +6854,13 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Pauses an on-going task.
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns PauseTaskResponse
-     *
+     * @summary Pauses an on-going task.
+     *  *
      * @param string         $taskId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return PauseTaskResponse
+     * @return PauseTaskResponse PauseTaskResponse
      */
     public function pauseTaskWithOptions($taskId, $headers, $runtime)
     {
@@ -8213,7 +6871,7 @@ class CS extends OpenApiClient
             'action' => 'PauseTask',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/tasks/' . Url::percentEncode($taskId) . '/pause',
+            'pathname' => '/tasks/' . OpenApiUtilClient::getEncodeParam($taskId) . '/pause',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -8225,13 +6883,11 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Pauses an on-going task.
-     *
-     * @returns PauseTaskResponse
-     *
+     * @summary Pauses an on-going task.
+     *  *
      * @param string $taskId
      *
-     * @return PauseTaskResponse
+     * @return PauseTaskResponse PauseTaskResponse
      */
     public function pauseTask($taskId)
     {
@@ -8241,57 +6897,48 @@ class CS extends OpenApiClient
         return $this->pauseTaskWithOptions($taskId, $headers, $runtime);
     }
 
-    // Deprecated
     /**
-     * You can call the RemoveClusterNodes operation to remove nodes from a Container Service for Kubernetes (ACK) cluster.
-     *
-     * @remarks
-     * ***
+     * @deprecated OpenAPI RemoveClusterNodes is deprecated
+     *  *
+     * @summary You can call the RemoveClusterNodes operation to remove nodes from a Container Service for Kubernetes (ACK) cluster.
+     *  *
+     * @description ****
      * *   When you remove a node, the pods that run on the node are migrated to other nodes. This may cause service interruptions. We recommend that you remove nodes during off-peak hours.
      * *   Unknown errors may occur when you remove nodes. Before you remove nodes, back up the data on the nodes.
      * *   Nodes remain in the Unschedulable state when they are being removed.
      * *   You can remove only worker nodes. You cannot remove master nodes.
-     *
-     * @deprecated OpenAPI RemoveClusterNodes is deprecated
-     *
-     * @param request - RemoveClusterNodesRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns RemoveClusterNodesResponse
+     *  *
+     * Deprecated
      *
      * @param string                    $ClusterId
-     * @param RemoveClusterNodesRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @param RemoveClusterNodesRequest $request   RemoveClusterNodesRequest
+     * @param string[]                  $headers   map
+     * @param RuntimeOptions            $runtime   runtime options for this request RuntimeOptions
      *
-     * @return RemoveClusterNodesResponse
+     * @return RemoveClusterNodesResponse RemoveClusterNodesResponse
      */
     public function removeClusterNodesWithOptions($ClusterId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->drainNode) {
-            @$body['drain_node'] = $request->drainNode;
+        if (!Utils::isUnset($request->drainNode)) {
+            $body['drain_node'] = $request->drainNode;
         }
-
-        if (null !== $request->nodes) {
-            @$body['nodes'] = $request->nodes;
+        if (!Utils::isUnset($request->nodes)) {
+            $body['nodes'] = $request->nodes;
         }
-
-        if (null !== $request->releaseNode) {
-            @$body['release_node'] = $request->releaseNode;
+        if (!Utils::isUnset($request->releaseNode)) {
+            $body['release_node'] = $request->releaseNode;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'RemoveClusterNodes',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/clusters/' . Url::percentEncode($ClusterId) . '/nodes/remove',
+            'pathname' => '/api/v2/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/nodes/remove',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -8302,27 +6949,23 @@ class CS extends OpenApiClient
         return RemoveClusterNodesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
-    // Deprecated
     /**
-     * You can call the RemoveClusterNodes operation to remove nodes from a Container Service for Kubernetes (ACK) cluster.
-     *
-     * @remarks
-     * ***
+     * @deprecated OpenAPI RemoveClusterNodes is deprecated
+     *  *
+     * @summary You can call the RemoveClusterNodes operation to remove nodes from a Container Service for Kubernetes (ACK) cluster.
+     *  *
+     * @description ****
      * *   When you remove a node, the pods that run on the node are migrated to other nodes. This may cause service interruptions. We recommend that you remove nodes during off-peak hours.
      * *   Unknown errors may occur when you remove nodes. Before you remove nodes, back up the data on the nodes.
      * *   Nodes remain in the Unschedulable state when they are being removed.
      * *   You can remove only worker nodes. You cannot remove master nodes.
-     *
-     * @deprecated OpenAPI RemoveClusterNodes is deprecated
-     *
-     * @param request - RemoveClusterNodesRequest
-     *
-     * @returns RemoveClusterNodesResponse
+     *  *
+     * Deprecated
      *
      * @param string                    $ClusterId
-     * @param RemoveClusterNodesRequest $request
+     * @param RemoveClusterNodesRequest $request   RemoveClusterNodesRequest
      *
-     * @return RemoveClusterNodesResponse
+     * @return RemoveClusterNodesResponse RemoveClusterNodesResponse
      */
     public function removeClusterNodes($ClusterId, $request)
     {
@@ -8333,72 +6976,58 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Removes nodes from a node pool.
-     *
-     * @remarks
-     *   When you remove a node, the pods on the node are migrated to other nodes. This may cause service interruptions. We recommend that you remove nodes during off-peak hours.
+     * @summary Removes nodes from a node pool.
+     *  *
+     * @description *   When you remove a node, the pods on the node are migrated to other nodes. This may cause service interruptions. We recommend that you remove nodes during off-peak hours.
      * *   The operation may have unexpected risks. Back up the data before you perform this operation.
      * *   Nodes remain in the Unschedulable state when they are being removed.
      * *   The system removes only worker nodes. It does not remove master nodes.
      * *   Even if you set the `release_node` parameter to `true`, subscription nodes are not released. You must release the subscription nodes in the [ECS console](https://ecs.console.aliyun.com/) after you remove the nodes.
-     *
-     * @param tmpReq - RemoveNodePoolNodesRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns RemoveNodePoolNodesResponse
-     *
+     *  *
      * @param string                     $ClusterId
      * @param string                     $NodepoolId
-     * @param RemoveNodePoolNodesRequest $tmpReq
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @param RemoveNodePoolNodesRequest $tmpReq     RemoveNodePoolNodesRequest
+     * @param string[]                   $headers    map
+     * @param RuntimeOptions             $runtime    runtime options for this request RuntimeOptions
      *
-     * @return RemoveNodePoolNodesResponse
+     * @return RemoveNodePoolNodesResponse RemoveNodePoolNodesResponse
      */
     public function removeNodePoolNodesWithOptions($ClusterId, $NodepoolId, $tmpReq, $headers, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new RemoveNodePoolNodesShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->instanceIds) {
-            $request->instanceIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->instanceIds, 'instance_ids', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->instanceIds)) {
+            $request->instanceIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->instanceIds, 'instance_ids', 'json');
         }
-
-        if (null !== $tmpReq->nodes) {
-            $request->nodesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->nodes, 'nodes', 'json');
+        if (!Utils::isUnset($tmpReq->nodes)) {
+            $request->nodesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->nodes, 'nodes', 'json');
         }
-
         $query = [];
-        if (null !== $request->concurrency) {
-            @$query['concurrency'] = $request->concurrency;
+        if (!Utils::isUnset($request->concurrency)) {
+            $query['concurrency'] = $request->concurrency;
         }
-
-        if (null !== $request->drainNode) {
-            @$query['drain_node'] = $request->drainNode;
+        if (!Utils::isUnset($request->drainNode)) {
+            $query['drain_node'] = $request->drainNode;
         }
-
-        if (null !== $request->instanceIdsShrink) {
-            @$query['instance_ids'] = $request->instanceIdsShrink;
+        if (!Utils::isUnset($request->instanceIdsShrink)) {
+            $query['instance_ids'] = $request->instanceIdsShrink;
         }
-
-        if (null !== $request->nodesShrink) {
-            @$query['nodes'] = $request->nodesShrink;
+        if (!Utils::isUnset($request->nodesShrink)) {
+            $query['nodes'] = $request->nodesShrink;
         }
-
-        if (null !== $request->releaseNode) {
-            @$query['release_node'] = $request->releaseNode;
+        if (!Utils::isUnset($request->releaseNode)) {
+            $query['release_node'] = $request->releaseNode;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'RemoveNodePoolNodes',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/clusters/' . Url::percentEncode($ClusterId) . '/nodepools/' . Url::percentEncode($NodepoolId) . '/nodes',
+            'pathname' => '/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/nodepools/' . OpenApiUtilClient::getEncodeParam($NodepoolId) . '/nodes',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -8410,24 +7039,19 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Removes nodes from a node pool.
-     *
-     * @remarks
-     *   When you remove a node, the pods on the node are migrated to other nodes. This may cause service interruptions. We recommend that you remove nodes during off-peak hours.
+     * @summary Removes nodes from a node pool.
+     *  *
+     * @description *   When you remove a node, the pods on the node are migrated to other nodes. This may cause service interruptions. We recommend that you remove nodes during off-peak hours.
      * *   The operation may have unexpected risks. Back up the data before you perform this operation.
      * *   Nodes remain in the Unschedulable state when they are being removed.
      * *   The system removes only worker nodes. It does not remove master nodes.
      * *   Even if you set the `release_node` parameter to `true`, subscription nodes are not released. You must release the subscription nodes in the [ECS console](https://ecs.console.aliyun.com/) after you remove the nodes.
-     *
-     * @param request - RemoveNodePoolNodesRequest
-     *
-     * @returns RemoveNodePoolNodesResponse
-     *
+     *  *
      * @param string                     $ClusterId
      * @param string                     $NodepoolId
-     * @param RemoveNodePoolNodesRequest $request
+     * @param RemoveNodePoolNodesRequest $request    RemoveNodePoolNodesRequest
      *
-     * @return RemoveNodePoolNodesResponse
+     * @return RemoveNodePoolNodesResponse RemoveNodePoolNodesResponse
      */
     public function removeNodePoolNodes($ClusterId, $NodepoolId, $request)
     {
@@ -8438,47 +7062,38 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Repairs a node pool.
-     *
-     * @param request - RepairClusterNodePoolRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns RepairClusterNodePoolResponse
-     *
+     * @summary Repairs a node pool.
+     *  *
      * @param string                       $clusterId
      * @param string                       $nodepoolId
-     * @param RepairClusterNodePoolRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @param RepairClusterNodePoolRequest $request    RepairClusterNodePoolRequest
+     * @param string[]                     $headers    map
+     * @param RuntimeOptions               $runtime    runtime options for this request RuntimeOptions
      *
-     * @return RepairClusterNodePoolResponse
+     * @return RepairClusterNodePoolResponse RepairClusterNodePoolResponse
      */
     public function repairClusterNodePoolWithOptions($clusterId, $nodepoolId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->autoRestart) {
-            @$body['auto_restart'] = $request->autoRestart;
+        if (!Utils::isUnset($request->autoRestart)) {
+            $body['auto_restart'] = $request->autoRestart;
         }
-
-        if (null !== $request->nodes) {
-            @$body['nodes'] = $request->nodes;
+        if (!Utils::isUnset($request->nodes)) {
+            $body['nodes'] = $request->nodes;
         }
-
-        if (null !== $request->operations) {
-            @$body['operations'] = $request->operations;
+        if (!Utils::isUnset($request->operations)) {
+            $body['operations'] = $request->operations;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'RepairClusterNodePool',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/clusters/' . Url::percentEncode($clusterId) . '/nodepools/' . Url::percentEncode($nodepoolId) . '/repair',
+            'pathname' => '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterId) . '/nodepools/' . OpenApiUtilClient::getEncodeParam($nodepoolId) . '/repair',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -8490,17 +7105,13 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Repairs a node pool.
-     *
-     * @param request - RepairClusterNodePoolRequest
-     *
-     * @returns RepairClusterNodePoolResponse
-     *
+     * @summary Repairs a node pool.
+     *  *
      * @param string                       $clusterId
      * @param string                       $nodepoolId
-     * @param RepairClusterNodePoolRequest $request
+     * @param RepairClusterNodePoolRequest $request    RepairClusterNodePoolRequest
      *
-     * @return RepairClusterNodePoolResponse
+     * @return RepairClusterNodePoolResponse RepairClusterNodePoolResponse
      */
     public function repairClusterNodePool($clusterId, $nodepoolId, $request)
     {
@@ -8510,23 +7121,19 @@ class CS extends OpenApiClient
         return $this->repairClusterNodePoolWithOptions($clusterId, $nodepoolId, $request, $headers, $runtime);
     }
 
-    // Deprecated
     /**
-     * You can call the ResumeComponentUpgrade operation to resume the update of a component.
-     *
      * @deprecated OpenAPI ResumeComponentUpgrade is deprecated
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ResumeComponentUpgradeResponse
+     *  *
+     * @summary You can call the ResumeComponentUpgrade operation to resume the update of a component.
+     *  *
+     * Deprecated
      *
      * @param string         $clusterid
      * @param string         $componentid
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers     map
+     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
      *
-     * @return ResumeComponentUpgradeResponse
+     * @return ResumeComponentUpgradeResponse ResumeComponentUpgradeResponse
      */
     public function resumeComponentUpgradeWithOptions($clusterid, $componentid, $headers, $runtime)
     {
@@ -8537,7 +7144,7 @@ class CS extends OpenApiClient
             'action' => 'ResumeComponentUpgrade',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/clusters/' . Url::percentEncode($clusterid) . '/components/' . Url::percentEncode($componentid) . '/resume',
+            'pathname' => '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterid) . '/components/' . OpenApiUtilClient::getEncodeParam($componentid) . '/resume',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -8548,18 +7155,17 @@ class CS extends OpenApiClient
         return ResumeComponentUpgradeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
-    // Deprecated
     /**
-     * You can call the ResumeComponentUpgrade operation to resume the update of a component.
-     *
      * @deprecated OpenAPI ResumeComponentUpgrade is deprecated
-     *
-     * @returns ResumeComponentUpgradeResponse
+     *  *
+     * @summary You can call the ResumeComponentUpgrade operation to resume the update of a component.
+     *  *
+     * Deprecated
      *
      * @param string $clusterid
      * @param string $componentid
      *
-     * @return ResumeComponentUpgradeResponse
+     * @return ResumeComponentUpgradeResponse ResumeComponentUpgradeResponse
      */
     public function resumeComponentUpgrade($clusterid, $componentid)
     {
@@ -8570,18 +7176,13 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Resumes a task.
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ResumeTaskResponse
-     *
+     * @summary Resumes a task.
+     *  *
      * @param string         $taskId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return ResumeTaskResponse
+     * @return ResumeTaskResponse ResumeTaskResponse
      */
     public function resumeTaskWithOptions($taskId, $headers, $runtime)
     {
@@ -8592,7 +7193,7 @@ class CS extends OpenApiClient
             'action' => 'ResumeTask',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/tasks/' . Url::percentEncode($taskId) . '/resume',
+            'pathname' => '/tasks/' . OpenApiUtilClient::getEncodeParam($taskId) . '/resume',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -8604,13 +7205,11 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Resumes a task.
-     *
-     * @returns ResumeTaskResponse
-     *
+     * @summary Resumes a task.
+     *  *
      * @param string $taskId
      *
-     * @return ResumeTaskResponse
+     * @return ResumeTaskResponse ResumeTaskResponse
      */
     public function resumeTask($taskId)
     {
@@ -8620,22 +7219,18 @@ class CS extends OpenApiClient
         return $this->resumeTaskWithOptions($taskId, $headers, $runtime);
     }
 
-    // Deprecated
     /**
-     * You can call the ResumeUpgradeCluster operation to resume the update of a cluster by cluster ID.
-     *
      * @deprecated OpenAPI ResumeUpgradeCluster is deprecated
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ResumeUpgradeClusterResponse
+     *  *
+     * @summary You can call the ResumeUpgradeCluster operation to resume the update of a cluster by cluster ID.
+     *  *
+     * Deprecated
      *
      * @param string         $ClusterId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
      *
-     * @return ResumeUpgradeClusterResponse
+     * @return ResumeUpgradeClusterResponse ResumeUpgradeClusterResponse
      */
     public function resumeUpgradeClusterWithOptions($ClusterId, $headers, $runtime)
     {
@@ -8646,7 +7241,7 @@ class CS extends OpenApiClient
             'action' => 'ResumeUpgradeCluster',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/clusters/' . Url::percentEncode($ClusterId) . '/upgrade/resume',
+            'pathname' => '/api/v2/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/upgrade/resume',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -8657,17 +7252,16 @@ class CS extends OpenApiClient
         return ResumeUpgradeClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
-    // Deprecated
     /**
-     * You can call the ResumeUpgradeCluster operation to resume the update of a cluster by cluster ID.
-     *
      * @deprecated OpenAPI ResumeUpgradeCluster is deprecated
-     *
-     * @returns ResumeUpgradeClusterResponse
+     *  *
+     * @summary You can call the ResumeUpgradeCluster operation to resume the update of a cluster by cluster ID.
+     *  *
+     * Deprecated
      *
      * @param string $ClusterId
      *
-     * @return ResumeUpgradeClusterResponse
+     * @return ResumeUpgradeClusterResponse ResumeUpgradeClusterResponse
      */
     public function resumeUpgradeCluster($ClusterId)
     {
@@ -8678,18 +7272,13 @@ class CS extends OpenApiClient
     }
 
     /**
-     * You can call the RevokeK8sClusterKubeConfig operation to revoke the kubeconfig file of a cluster that belongs to the current Alibaba Cloud account or RAM user. After the kubeconfig file is revoked, the cluster generates a new kubeconfig file, and the original kubeconfig file becomes invalid.
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns RevokeK8sClusterKubeConfigResponse
-     *
+     * @summary You can call the RevokeK8sClusterKubeConfig operation to revoke the kubeconfig file of a cluster that belongs to the current Alibaba Cloud account or RAM user. After the kubeconfig file is revoked, the cluster generates a new kubeconfig file, and the original kubeconfig file becomes invalid.
+     *  *
      * @param string         $ClusterId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
      *
-     * @return RevokeK8sClusterKubeConfigResponse
+     * @return RevokeK8sClusterKubeConfigResponse RevokeK8sClusterKubeConfigResponse
      */
     public function revokeK8sClusterKubeConfigWithOptions($ClusterId, $headers, $runtime)
     {
@@ -8700,7 +7289,7 @@ class CS extends OpenApiClient
             'action' => 'RevokeK8sClusterKubeConfig',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/k8s/' . Url::percentEncode($ClusterId) . '/certs',
+            'pathname' => '/k8s/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/certs',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -8712,13 +7301,11 @@ class CS extends OpenApiClient
     }
 
     /**
-     * You can call the RevokeK8sClusterKubeConfig operation to revoke the kubeconfig file of a cluster that belongs to the current Alibaba Cloud account or RAM user. After the kubeconfig file is revoked, the cluster generates a new kubeconfig file, and the original kubeconfig file becomes invalid.
-     *
-     * @returns RevokeK8sClusterKubeConfigResponse
-     *
+     * @summary You can call the RevokeK8sClusterKubeConfig operation to revoke the kubeconfig file of a cluster that belongs to the current Alibaba Cloud account or RAM user. After the kubeconfig file is revoked, the cluster generates a new kubeconfig file, and the original kubeconfig file becomes invalid.
+     *  *
      * @param string $ClusterId
      *
-     * @return RevokeK8sClusterKubeConfigResponse
+     * @return RevokeK8sClusterKubeConfigResponse RevokeK8sClusterKubeConfigResponse
      */
     public function revokeK8sClusterKubeConfig($ClusterId)
     {
@@ -8729,46 +7316,37 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Container Intelligence Service (CIS) provides a variety of cluster check capabilities to allow you to perform cluster update check, cluster migration check, component installation check, component update check, and node pool check. A precheck is automatically triggered before an update, migration, or installation is performed. You can perform changes only if the cluster passes the precheck. You can also manually call the RunClusterCheck operation to initiate cluster checks. We recommend that you periodically check and maintain your cluster to mitigate potential risks.
-     *
-     * @param request - RunClusterCheckRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns RunClusterCheckResponse
-     *
+     * @summary Container Intelligence Service (CIS) provides a variety of cluster check capabilities to allow you to perform cluster update check, cluster migration check, component installation check, component update check, and node pool check. A precheck is automatically triggered before an update, migration, or installation is performed. You can perform changes only if the cluster passes the precheck. You can also manually call the RunClusterCheck operation to initiate cluster checks. We recommend that you periodically check and maintain your cluster to mitigate potential risks.
+     *  *
      * @param string                 $clusterId
-     * @param RunClusterCheckRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param RunClusterCheckRequest $request   RunClusterCheckRequest
+     * @param string[]               $headers   map
+     * @param RuntimeOptions         $runtime   runtime options for this request RuntimeOptions
      *
-     * @return RunClusterCheckResponse
+     * @return RunClusterCheckResponse RunClusterCheckResponse
      */
     public function runClusterCheckWithOptions($clusterId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->options) {
-            @$body['options'] = $request->options;
+        if (!Utils::isUnset($request->options)) {
+            $body['options'] = $request->options;
         }
-
-        if (null !== $request->target) {
-            @$body['target'] = $request->target;
+        if (!Utils::isUnset($request->target)) {
+            $body['target'] = $request->target;
         }
-
-        if (null !== $request->type) {
-            @$body['type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $body['type'] = $request->type;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'RunClusterCheck',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/clusters/' . Url::percentEncode($clusterId) . '/checks',
+            'pathname' => '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterId) . '/checks',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -8780,16 +7358,12 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Container Intelligence Service (CIS) provides a variety of cluster check capabilities to allow you to perform cluster update check, cluster migration check, component installation check, component update check, and node pool check. A precheck is automatically triggered before an update, migration, or installation is performed. You can perform changes only if the cluster passes the precheck. You can also manually call the RunClusterCheck operation to initiate cluster checks. We recommend that you periodically check and maintain your cluster to mitigate potential risks.
-     *
-     * @param request - RunClusterCheckRequest
-     *
-     * @returns RunClusterCheckResponse
-     *
+     * @summary Container Intelligence Service (CIS) provides a variety of cluster check capabilities to allow you to perform cluster update check, cluster migration check, component installation check, component update check, and node pool check. A precheck is automatically triggered before an update, migration, or installation is performed. You can perform changes only if the cluster passes the precheck. You can also manually call the RunClusterCheck operation to initiate cluster checks. We recommend that you periodically check and maintain your cluster to mitigate potential risks.
+     *  *
      * @param string                 $clusterId
-     * @param RunClusterCheckRequest $request
+     * @param RunClusterCheckRequest $request   RunClusterCheckRequest
      *
-     * @return RunClusterCheckResponse
+     * @return RunClusterCheckResponse RunClusterCheckResponse
      */
     public function runClusterCheck($clusterId, $request)
     {
@@ -8800,38 +7374,31 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Triggers a cluster inspection and generates a report.
-     *
-     * @param request - RunClusterInspectRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns RunClusterInspectResponse
-     *
+     * @summary Triggers a cluster inspection and generates a report.
+     *  *
      * @param string                   $clusterId
-     * @param RunClusterInspectRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @param RunClusterInspectRequest $request   RunClusterInspectRequest
+     * @param string[]                 $headers   map
+     * @param RuntimeOptions           $runtime   runtime options for this request RuntimeOptions
      *
-     * @return RunClusterInspectResponse
+     * @return RunClusterInspectResponse RunClusterInspectResponse
      */
     public function runClusterInspectWithOptions($clusterId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->clientToken) {
-            @$body['clientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['clientToken'] = $request->clientToken;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'RunClusterInspect',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/clusters/' . Url::percentEncode($clusterId) . '/inspectReports',
+            'pathname' => '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterId) . '/inspectReports',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -8843,16 +7410,12 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Triggers a cluster inspection and generates a report.
-     *
-     * @param request - RunClusterInspectRequest
-     *
-     * @returns RunClusterInspectResponse
-     *
+     * @summary Triggers a cluster inspection and generates a report.
+     *  *
      * @param string                   $clusterId
-     * @param RunClusterInspectRequest $request
+     * @param RunClusterInspectRequest $request   RunClusterInspectRequest
      *
-     * @return RunClusterInspectResponse
+     * @return RunClusterInspectResponse RunClusterInspectResponse
      */
     public function runClusterInspect($clusterId, $request)
     {
@@ -8862,114 +7425,90 @@ class CS extends OpenApiClient
         return $this->runClusterInspectWithOptions($clusterId, $request, $headers, $runtime);
     }
 
-    // Deprecated
     /**
-     * 扩容Kubernetes集群.
-     *
      * @deprecated OpenAPI ScaleCluster is deprecated
-     *
-     * @param request - ScaleClusterRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ScaleClusterResponse
+     *  *
+     * @summary 扩容Kubernetes集群
+     *  *
+     * Deprecated
      *
      * @param string              $ClusterId
-     * @param ScaleClusterRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @param ScaleClusterRequest $request   ScaleClusterRequest
+     * @param string[]            $headers   map
+     * @param RuntimeOptions      $runtime   runtime options for this request RuntimeOptions
      *
-     * @return ScaleClusterResponse
+     * @return ScaleClusterResponse ScaleClusterResponse
      */
     public function scaleClusterWithOptions($ClusterId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->cloudMonitorFlags) {
-            @$body['cloud_monitor_flags'] = $request->cloudMonitorFlags;
+        if (!Utils::isUnset($request->cloudMonitorFlags)) {
+            $body['cloud_monitor_flags'] = $request->cloudMonitorFlags;
         }
-
-        if (null !== $request->count) {
-            @$body['count'] = $request->count;
+        if (!Utils::isUnset($request->count)) {
+            $body['count'] = $request->count;
         }
-
-        if (null !== $request->cpuPolicy) {
-            @$body['cpu_policy'] = $request->cpuPolicy;
+        if (!Utils::isUnset($request->cpuPolicy)) {
+            $body['cpu_policy'] = $request->cpuPolicy;
         }
-
-        if (null !== $request->disableRollback) {
-            @$body['disable_rollback'] = $request->disableRollback;
+        if (!Utils::isUnset($request->disableRollback)) {
+            $body['disable_rollback'] = $request->disableRollback;
         }
-
-        if (null !== $request->keyPair) {
-            @$body['key_pair'] = $request->keyPair;
+        if (!Utils::isUnset($request->keyPair)) {
+            $body['key_pair'] = $request->keyPair;
         }
-
-        if (null !== $request->loginPassword) {
-            @$body['login_password'] = $request->loginPassword;
+        if (!Utils::isUnset($request->loginPassword)) {
+            $body['login_password'] = $request->loginPassword;
         }
-
-        if (null !== $request->tags) {
-            @$body['tags'] = $request->tags;
+        if (!Utils::isUnset($request->tags)) {
+            $body['tags'] = $request->tags;
         }
-
-        if (null !== $request->taints) {
-            @$body['taints'] = $request->taints;
+        if (!Utils::isUnset($request->taints)) {
+            $body['taints'] = $request->taints;
         }
-
-        if (null !== $request->vswitchIds) {
-            @$body['vswitch_ids'] = $request->vswitchIds;
+        if (!Utils::isUnset($request->vswitchIds)) {
+            $body['vswitch_ids'] = $request->vswitchIds;
         }
-
-        if (null !== $request->workerAutoRenew) {
-            @$body['worker_auto_renew'] = $request->workerAutoRenew;
+        if (!Utils::isUnset($request->workerAutoRenew)) {
+            $body['worker_auto_renew'] = $request->workerAutoRenew;
         }
-
-        if (null !== $request->workerAutoRenewPeriod) {
-            @$body['worker_auto_renew_period'] = $request->workerAutoRenewPeriod;
+        if (!Utils::isUnset($request->workerAutoRenewPeriod)) {
+            $body['worker_auto_renew_period'] = $request->workerAutoRenewPeriod;
         }
-
-        if (null !== $request->workerDataDisk) {
-            @$body['worker_data_disk'] = $request->workerDataDisk;
+        if (!Utils::isUnset($request->workerDataDisk)) {
+            $body['worker_data_disk'] = $request->workerDataDisk;
         }
-
-        if (null !== $request->workerDataDisks) {
-            @$body['worker_data_disks'] = $request->workerDataDisks;
+        if (!Utils::isUnset($request->workerDataDisks)) {
+            $body['worker_data_disks'] = $request->workerDataDisks;
         }
-
-        if (null !== $request->workerInstanceChargeType) {
-            @$body['worker_instance_charge_type'] = $request->workerInstanceChargeType;
+        if (!Utils::isUnset($request->workerInstanceChargeType)) {
+            $body['worker_instance_charge_type'] = $request->workerInstanceChargeType;
         }
-
-        if (null !== $request->workerInstanceTypes) {
-            @$body['worker_instance_types'] = $request->workerInstanceTypes;
+        if (!Utils::isUnset($request->workerInstanceTypes)) {
+            $body['worker_instance_types'] = $request->workerInstanceTypes;
         }
-
-        if (null !== $request->workerPeriod) {
-            @$body['worker_period'] = $request->workerPeriod;
+        if (!Utils::isUnset($request->workerPeriod)) {
+            $body['worker_period'] = $request->workerPeriod;
         }
-
-        if (null !== $request->workerPeriodUnit) {
-            @$body['worker_period_unit'] = $request->workerPeriodUnit;
+        if (!Utils::isUnset($request->workerPeriodUnit)) {
+            $body['worker_period_unit'] = $request->workerPeriodUnit;
         }
-
-        if (null !== $request->workerSystemDiskCategory) {
-            @$body['worker_system_disk_category'] = $request->workerSystemDiskCategory;
+        if (!Utils::isUnset($request->workerSystemDiskCategory)) {
+            $body['worker_system_disk_category'] = $request->workerSystemDiskCategory;
         }
-
-        if (null !== $request->workerSystemDiskSize) {
-            @$body['worker_system_disk_size'] = $request->workerSystemDiskSize;
+        if (!Utils::isUnset($request->workerSystemDiskSize)) {
+            $body['worker_system_disk_size'] = $request->workerSystemDiskSize;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ScaleCluster',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/clusters/' . Url::percentEncode($ClusterId) . '',
+            'pathname' => '/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -8980,20 +7519,17 @@ class CS extends OpenApiClient
         return ScaleClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
-    // Deprecated
     /**
-     * 扩容Kubernetes集群.
-     *
      * @deprecated OpenAPI ScaleCluster is deprecated
-     *
-     * @param request - ScaleClusterRequest
-     *
-     * @returns ScaleClusterResponse
+     *  *
+     * @summary 扩容Kubernetes集群
+     *  *
+     * Deprecated
      *
      * @param string              $ClusterId
-     * @param ScaleClusterRequest $request
+     * @param ScaleClusterRequest $request   ScaleClusterRequest
      *
-     * @return ScaleClusterResponse
+     * @return ScaleClusterResponse ScaleClusterResponse
      */
     public function scaleCluster($ClusterId, $request)
     {
@@ -9004,39 +7540,32 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Scales out a node pool.
-     *
-     * @param request - ScaleClusterNodePoolRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ScaleClusterNodePoolResponse
-     *
+     * @summary Scales out a node pool.
+     *  *
      * @param string                      $ClusterId
      * @param string                      $NodepoolId
-     * @param ScaleClusterNodePoolRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @param ScaleClusterNodePoolRequest $request    ScaleClusterNodePoolRequest
+     * @param string[]                    $headers    map
+     * @param RuntimeOptions              $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ScaleClusterNodePoolResponse
+     * @return ScaleClusterNodePoolResponse ScaleClusterNodePoolResponse
      */
     public function scaleClusterNodePoolWithOptions($ClusterId, $NodepoolId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->count) {
-            @$body['count'] = $request->count;
+        if (!Utils::isUnset($request->count)) {
+            $body['count'] = $request->count;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ScaleClusterNodePool',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/clusters/' . Url::percentEncode($ClusterId) . '/nodepools/' . Url::percentEncode($NodepoolId) . '',
+            'pathname' => '/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/nodepools/' . OpenApiUtilClient::getEncodeParam($NodepoolId) . '',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -9048,17 +7577,13 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Scales out a node pool.
-     *
-     * @param request - ScaleClusterNodePoolRequest
-     *
-     * @returns ScaleClusterNodePoolResponse
-     *
+     * @summary Scales out a node pool.
+     *  *
      * @param string                      $ClusterId
      * @param string                      $NodepoolId
-     * @param ScaleClusterNodePoolRequest $request
+     * @param ScaleClusterNodePoolRequest $request    ScaleClusterNodePoolRequest
      *
-     * @return ScaleClusterNodePoolResponse
+     * @return ScaleClusterNodePoolResponse ScaleClusterNodePoolResponse
      */
     public function scaleClusterNodePool($ClusterId, $NodepoolId, $request)
     {
@@ -9069,122 +7594,94 @@ class CS extends OpenApiClient
     }
 
     /**
-     * You can call the ScaleOutCluster operation to scale out a cluster by cluster ID.
-     *
-     * @remarks
-     * *
+     * @summary You can call the ScaleOutCluster operation to scale out a cluster by cluster ID.
+     *  *
+     * @description **
      * ****The ScaleOutCluster API operation is phased out. You must call the node pool-related API operations to manage nodes. If you want to add worker nodes to a Container Service for Kubernetes (ACK) cluster, call the ScaleClusterNodePool API operation. For more information, see [ScaleClusterNodePool](https://help.aliyun.com/document_detail/184928.html).
-     *
-     * @param request - ScaleOutClusterRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ScaleOutClusterResponse
-     *
+     *  *
      * @param string                 $ClusterId
-     * @param ScaleOutClusterRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param ScaleOutClusterRequest $request   ScaleOutClusterRequest
+     * @param string[]               $headers   map
+     * @param RuntimeOptions         $runtime   runtime options for this request RuntimeOptions
      *
-     * @return ScaleOutClusterResponse
+     * @return ScaleOutClusterResponse ScaleOutClusterResponse
      */
     public function scaleOutClusterWithOptions($ClusterId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->cloudMonitorFlags) {
-            @$body['cloud_monitor_flags'] = $request->cloudMonitorFlags;
+        if (!Utils::isUnset($request->cloudMonitorFlags)) {
+            $body['cloud_monitor_flags'] = $request->cloudMonitorFlags;
         }
-
-        if (null !== $request->count) {
-            @$body['count'] = $request->count;
+        if (!Utils::isUnset($request->count)) {
+            $body['count'] = $request->count;
         }
-
-        if (null !== $request->cpuPolicy) {
-            @$body['cpu_policy'] = $request->cpuPolicy;
+        if (!Utils::isUnset($request->cpuPolicy)) {
+            $body['cpu_policy'] = $request->cpuPolicy;
         }
-
-        if (null !== $request->imageId) {
-            @$body['image_id'] = $request->imageId;
+        if (!Utils::isUnset($request->imageId)) {
+            $body['image_id'] = $request->imageId;
         }
-
-        if (null !== $request->keyPair) {
-            @$body['key_pair'] = $request->keyPair;
+        if (!Utils::isUnset($request->keyPair)) {
+            $body['key_pair'] = $request->keyPair;
         }
-
-        if (null !== $request->loginPassword) {
-            @$body['login_password'] = $request->loginPassword;
+        if (!Utils::isUnset($request->loginPassword)) {
+            $body['login_password'] = $request->loginPassword;
         }
-
-        if (null !== $request->rdsInstances) {
-            @$body['rds_instances'] = $request->rdsInstances;
+        if (!Utils::isUnset($request->rdsInstances)) {
+            $body['rds_instances'] = $request->rdsInstances;
         }
-
-        if (null !== $request->runtime) {
-            @$body['runtime'] = $request->runtime;
+        if (!Utils::isUnset($request->runtime)) {
+            $body['runtime'] = $request->runtime;
         }
-
-        if (null !== $request->tags) {
-            @$body['tags'] = $request->tags;
+        if (!Utils::isUnset($request->tags)) {
+            $body['tags'] = $request->tags;
         }
-
-        if (null !== $request->taints) {
-            @$body['taints'] = $request->taints;
+        if (!Utils::isUnset($request->taints)) {
+            $body['taints'] = $request->taints;
         }
-
-        if (null !== $request->userData) {
-            @$body['user_data'] = $request->userData;
+        if (!Utils::isUnset($request->userData)) {
+            $body['user_data'] = $request->userData;
         }
-
-        if (null !== $request->vswitchIds) {
-            @$body['vswitch_ids'] = $request->vswitchIds;
+        if (!Utils::isUnset($request->vswitchIds)) {
+            $body['vswitch_ids'] = $request->vswitchIds;
         }
-
-        if (null !== $request->workerAutoRenew) {
-            @$body['worker_auto_renew'] = $request->workerAutoRenew;
+        if (!Utils::isUnset($request->workerAutoRenew)) {
+            $body['worker_auto_renew'] = $request->workerAutoRenew;
         }
-
-        if (null !== $request->workerAutoRenewPeriod) {
-            @$body['worker_auto_renew_period'] = $request->workerAutoRenewPeriod;
+        if (!Utils::isUnset($request->workerAutoRenewPeriod)) {
+            $body['worker_auto_renew_period'] = $request->workerAutoRenewPeriod;
         }
-
-        if (null !== $request->workerDataDisks) {
-            @$body['worker_data_disks'] = $request->workerDataDisks;
+        if (!Utils::isUnset($request->workerDataDisks)) {
+            $body['worker_data_disks'] = $request->workerDataDisks;
         }
-
-        if (null !== $request->workerInstanceChargeType) {
-            @$body['worker_instance_charge_type'] = $request->workerInstanceChargeType;
+        if (!Utils::isUnset($request->workerInstanceChargeType)) {
+            $body['worker_instance_charge_type'] = $request->workerInstanceChargeType;
         }
-
-        if (null !== $request->workerInstanceTypes) {
-            @$body['worker_instance_types'] = $request->workerInstanceTypes;
+        if (!Utils::isUnset($request->workerInstanceTypes)) {
+            $body['worker_instance_types'] = $request->workerInstanceTypes;
         }
-
-        if (null !== $request->workerPeriod) {
-            @$body['worker_period'] = $request->workerPeriod;
+        if (!Utils::isUnset($request->workerPeriod)) {
+            $body['worker_period'] = $request->workerPeriod;
         }
-
-        if (null !== $request->workerPeriodUnit) {
-            @$body['worker_period_unit'] = $request->workerPeriodUnit;
+        if (!Utils::isUnset($request->workerPeriodUnit)) {
+            $body['worker_period_unit'] = $request->workerPeriodUnit;
         }
-
-        if (null !== $request->workerSystemDiskCategory) {
-            @$body['worker_system_disk_category'] = $request->workerSystemDiskCategory;
+        if (!Utils::isUnset($request->workerSystemDiskCategory)) {
+            $body['worker_system_disk_category'] = $request->workerSystemDiskCategory;
         }
-
-        if (null !== $request->workerSystemDiskSize) {
-            @$body['worker_system_disk_size'] = $request->workerSystemDiskSize;
+        if (!Utils::isUnset($request->workerSystemDiskSize)) {
+            $body['worker_system_disk_size'] = $request->workerSystemDiskSize;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ScaleOutCluster',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/clusters/' . Url::percentEncode($ClusterId) . '',
+            'pathname' => '/api/v2/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -9196,20 +7693,15 @@ class CS extends OpenApiClient
     }
 
     /**
-     * You can call the ScaleOutCluster operation to scale out a cluster by cluster ID.
-     *
-     * @remarks
-     * *
+     * @summary You can call the ScaleOutCluster operation to scale out a cluster by cluster ID.
+     *  *
+     * @description **
      * ****The ScaleOutCluster API operation is phased out. You must call the node pool-related API operations to manage nodes. If you want to add worker nodes to a Container Service for Kubernetes (ACK) cluster, call the ScaleClusterNodePool API operation. For more information, see [ScaleClusterNodePool](https://help.aliyun.com/document_detail/184928.html).
-     *
-     * @param request - ScaleOutClusterRequest
-     *
-     * @returns ScaleOutClusterResponse
-     *
+     *  *
      * @param string                 $ClusterId
-     * @param ScaleOutClusterRequest $request
+     * @param ScaleOutClusterRequest $request   ScaleOutClusterRequest
      *
-     * @return ScaleOutClusterResponse
+     * @return ScaleOutClusterResponse ScaleOutClusterResponse
      */
     public function scaleOutCluster($ClusterId, $request)
     {
@@ -9220,18 +7712,13 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Scans for vulnerabilities in a Container Service for Kubernetes (ACK) cluster, including workload vulnerabilities, third-party software vulnerabilities, CVE vulnerabilities, WebCMS vulnerabilities, and Windows vulnerabilities. We recommend that you scan your cluster on a regular basis to ensure cluster security.
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ScanClusterVulsResponse
-     *
+     * @summary Scans for vulnerabilities in a Container Service for Kubernetes (ACK) cluster, including workload vulnerabilities, third-party software vulnerabilities, CVE vulnerabilities, WebCMS vulnerabilities, and Windows vulnerabilities. We recommend that you scan your cluster on a regular basis to ensure cluster security.
+     *  *
      * @param string         $clusterId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
      *
-     * @return ScanClusterVulsResponse
+     * @return ScanClusterVulsResponse ScanClusterVulsResponse
      */
     public function scanClusterVulsWithOptions($clusterId, $headers, $runtime)
     {
@@ -9242,7 +7729,7 @@ class CS extends OpenApiClient
             'action' => 'ScanClusterVuls',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/clusters/' . Url::percentEncode($clusterId) . '/vuls/scan',
+            'pathname' => '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterId) . '/vuls/scan',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -9254,13 +7741,11 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Scans for vulnerabilities in a Container Service for Kubernetes (ACK) cluster, including workload vulnerabilities, third-party software vulnerabilities, CVE vulnerabilities, WebCMS vulnerabilities, and Windows vulnerabilities. We recommend that you scan your cluster on a regular basis to ensure cluster security.
-     *
-     * @returns ScanClusterVulsResponse
-     *
+     * @summary Scans for vulnerabilities in a Container Service for Kubernetes (ACK) cluster, including workload vulnerabilities, third-party software vulnerabilities, CVE vulnerabilities, WebCMS vulnerabilities, and Windows vulnerabilities. We recommend that you scan your cluster on a regular basis to ensure cluster security.
+     *  *
      * @param string $clusterId
      *
-     * @return ScanClusterVulsResponse
+     * @return ScanClusterVulsResponse ScanClusterVulsResponse
      */
     public function scanClusterVuls($clusterId)
     {
@@ -9271,42 +7756,34 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Activates the specified alert rule(s).
-     *
-     * @param request - StartAlertRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns StartAlertResponse
-     *
+     * @summary Activates the specified alert rule(s).
+     *  *
      * @param string            $ClusterId
-     * @param StartAlertRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
+     * @param StartAlertRequest $request   StartAlertRequest
+     * @param string[]          $headers   map
+     * @param RuntimeOptions    $runtime   runtime options for this request RuntimeOptions
      *
-     * @return StartAlertResponse
+     * @return StartAlertResponse StartAlertResponse
      */
     public function startAlertWithOptions($ClusterId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->alertRuleGroupName) {
-            @$body['alert_rule_group_name'] = $request->alertRuleGroupName;
+        if (!Utils::isUnset($request->alertRuleGroupName)) {
+            $body['alert_rule_group_name'] = $request->alertRuleGroupName;
         }
-
-        if (null !== $request->alertRuleName) {
-            @$body['alert_rule_name'] = $request->alertRuleName;
+        if (!Utils::isUnset($request->alertRuleName)) {
+            $body['alert_rule_name'] = $request->alertRuleName;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'StartAlert',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/alert/' . Url::percentEncode($ClusterId) . '/alert_rule/start',
+            'pathname' => '/alert/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/alert_rule/start',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -9318,16 +7795,12 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Activates the specified alert rule(s).
-     *
-     * @param request - StartAlertRequest
-     *
-     * @returns StartAlertResponse
-     *
+     * @summary Activates the specified alert rule(s).
+     *  *
      * @param string            $ClusterId
-     * @param StartAlertRequest $request
+     * @param StartAlertRequest $request   StartAlertRequest
      *
-     * @return StartAlertResponse
+     * @return StartAlertResponse StartAlertResponse
      */
     public function startAlert($ClusterId, $request)
     {
@@ -9338,42 +7811,34 @@ class CS extends OpenApiClient
     }
 
     /**
-     * You can call the StopAlert operation to disable an alert rule or an alert rule set in the alert center of Container Service for Kubernetes (ACK).
-     *
-     * @param request - StopAlertRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns StopAlertResponse
-     *
+     * @summary You can call the StopAlert operation to disable an alert rule or an alert rule set in the alert center of Container Service for Kubernetes (ACK).
+     *  *
      * @param string           $ClusterId
-     * @param StopAlertRequest $request
-     * @param string[]         $headers
-     * @param RuntimeOptions   $runtime
+     * @param StopAlertRequest $request   StopAlertRequest
+     * @param string[]         $headers   map
+     * @param RuntimeOptions   $runtime   runtime options for this request RuntimeOptions
      *
-     * @return StopAlertResponse
+     * @return StopAlertResponse StopAlertResponse
      */
     public function stopAlertWithOptions($ClusterId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->alertRuleGroupName) {
-            @$body['alert_rule_group_name'] = $request->alertRuleGroupName;
+        if (!Utils::isUnset($request->alertRuleGroupName)) {
+            $body['alert_rule_group_name'] = $request->alertRuleGroupName;
         }
-
-        if (null !== $request->alertRuleName) {
-            @$body['alert_rule_name'] = $request->alertRuleName;
+        if (!Utils::isUnset($request->alertRuleName)) {
+            $body['alert_rule_name'] = $request->alertRuleName;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'StopAlert',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/alert/' . Url::percentEncode($ClusterId) . '/alert_rule/stop',
+            'pathname' => '/alert/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/alert_rule/stop',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -9385,16 +7850,12 @@ class CS extends OpenApiClient
     }
 
     /**
-     * You can call the StopAlert operation to disable an alert rule or an alert rule set in the alert center of Container Service for Kubernetes (ACK).
-     *
-     * @param request - StopAlertRequest
-     *
-     * @returns StopAlertResponse
-     *
+     * @summary You can call the StopAlert operation to disable an alert rule or an alert rule set in the alert center of Container Service for Kubernetes (ACK).
+     *  *
      * @param string           $ClusterId
-     * @param StopAlertRequest $request
+     * @param StopAlertRequest $request   StopAlertRequest
      *
-     * @return StopAlertResponse
+     * @return StopAlertResponse StopAlertResponse
      */
     public function stopAlert($ClusterId, $request)
     {
@@ -9405,18 +7866,13 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Synchronizes the information about a node pool, including the metadata and node information of the node pool.
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns SyncClusterNodePoolResponse
-     *
+     * @summary Synchronizes the information about a node pool, including the metadata and node information of the node pool.
+     *  *
      * @param string         $ClusterId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
      *
-     * @return SyncClusterNodePoolResponse
+     * @return SyncClusterNodePoolResponse SyncClusterNodePoolResponse
      */
     public function syncClusterNodePoolWithOptions($ClusterId, $headers, $runtime)
     {
@@ -9427,7 +7883,7 @@ class CS extends OpenApiClient
             'action' => 'SyncClusterNodePool',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/clusters/' . Url::percentEncode($ClusterId) . '/sync_nodepools',
+            'pathname' => '/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/sync_nodepools',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -9439,13 +7895,11 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Synchronizes the information about a node pool, including the metadata and node information of the node pool.
-     *
-     * @returns SyncClusterNodePoolResponse
-     *
+     * @summary Synchronizes the information about a node pool, including the metadata and node information of the node pool.
+     *  *
      * @param string $ClusterId
      *
-     * @return SyncClusterNodePoolResponse
+     * @return SyncClusterNodePoolResponse SyncClusterNodePoolResponse
      */
     public function syncClusterNodePool($ClusterId)
     {
@@ -9456,43 +7910,33 @@ class CS extends OpenApiClient
     }
 
     /**
-     * You can add labels in key-value pairs to clusters. This allows cluster developers or O\\&M engineers to classify and manage clusters in a more flexible manner. This also meets the requirements for monitoring, cost analysis, and tenant isolation. You can call the TagResources operation to add labels to a cluster.
+     * @summary You can add labels in key-value pairs to clusters. This allows cluster developers or O\\&M engineers to classify and manage clusters in a more flexible manner. This also meets the requirements for monitoring, cost analysis, and tenant isolation. You can call the TagResources operation to add labels to a cluster.
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
+     * @param string[]            $headers map
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - TagResourcesRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns TagResourcesResponse
-     *
-     * @param TagResourcesRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
-     *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->regionId) {
-            @$body['region_id'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $body['region_id'] = $request->regionId;
         }
-
-        if (null !== $request->resourceIds) {
-            @$body['resource_ids'] = $request->resourceIds;
+        if (!Utils::isUnset($request->resourceIds)) {
+            $body['resource_ids'] = $request->resourceIds;
         }
-
-        if (null !== $request->resourceType) {
-            @$body['resource_type'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $body['resource_type'] = $request->resourceType;
         }
-
-        if (null !== $request->tags) {
-            @$body['tags'] = $request->tags;
+        if (!Utils::isUnset($request->tags)) {
+            $body['tags'] = $request->tags;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'TagResources',
@@ -9510,15 +7954,11 @@ class CS extends OpenApiClient
     }
 
     /**
-     * You can add labels in key-value pairs to clusters. This allows cluster developers or O\\&M engineers to classify and manage clusters in a more flexible manner. This also meets the requirements for monitoring, cost analysis, and tenant isolation. You can call the TagResources operation to add labels to a cluster.
+     * @summary You can add labels in key-value pairs to clusters. This allows cluster developers or O\\&M engineers to classify and manage clusters in a more flexible manner. This also meets the requirements for monitoring, cost analysis, and tenant isolation. You can call the TagResources operation to add labels to a cluster.
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
      *
-     * @param request - TagResourcesRequest
-     *
-     * @returns TagResourcesResponse
-     *
-     * @param TagResourcesRequest $request
-     *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -9529,24 +7969,18 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Uninstalls components that you no longer need from a cluster. You must specify the name of the components and specify whether to release associated Alibaba Cloud resources from the cluster.
-     *
-     * @param request - UnInstallClusterAddonsRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UnInstallClusterAddonsResponse
-     *
+     * @summary Uninstalls components that you no longer need from a cluster. You must specify the name of the components and specify whether to release associated Alibaba Cloud resources from the cluster.
+     *  *
      * @param string                        $ClusterId
-     * @param UnInstallClusterAddonsRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @param UnInstallClusterAddonsRequest $request   UnInstallClusterAddonsRequest
+     * @param string[]                      $headers   map
+     * @param RuntimeOptions                $runtime   runtime options for this request RuntimeOptions
      *
-     * @return UnInstallClusterAddonsResponse
+     * @return UnInstallClusterAddonsResponse UnInstallClusterAddonsResponse
      */
     public function unInstallClusterAddonsWithOptions($ClusterId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body' => Utils::toArray($request->addons),
@@ -9555,7 +7989,7 @@ class CS extends OpenApiClient
             'action' => 'UnInstallClusterAddons',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/clusters/' . Url::percentEncode($ClusterId) . '/components/uninstall',
+            'pathname' => '/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/components/uninstall',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -9567,16 +8001,12 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Uninstalls components that you no longer need from a cluster. You must specify the name of the components and specify whether to release associated Alibaba Cloud resources from the cluster.
-     *
-     * @param request - UnInstallClusterAddonsRequest
-     *
-     * @returns UnInstallClusterAddonsResponse
-     *
+     * @summary Uninstalls components that you no longer need from a cluster. You must specify the name of the components and specify whether to release associated Alibaba Cloud resources from the cluster.
+     *  *
      * @param string                        $ClusterId
-     * @param UnInstallClusterAddonsRequest $request
+     * @param UnInstallClusterAddonsRequest $request   UnInstallClusterAddonsRequest
      *
-     * @return UnInstallClusterAddonsResponse
+     * @return UnInstallClusterAddonsResponse UnInstallClusterAddonsResponse
      */
     public function unInstallClusterAddons($ClusterId, $request)
     {
@@ -9587,57 +8017,44 @@ class CS extends OpenApiClient
     }
 
     /**
-     * If you no longer need the labels (key-value pairs) of a cluster, you can call the UntagResources operation to delete the labels.
+     * @summary If you no longer need the labels (key-value pairs) of a cluster, you can call the UntagResources operation to delete the labels.
+     *  *
+     * @param UntagResourcesRequest $tmpReq  UntagResourcesRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - UntagResourcesRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UntagResourcesResponse
-     *
-     * @param UntagResourcesRequest $tmpReq
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
-     *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResourcesWithOptions($tmpReq, $headers, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new UntagResourcesShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->resourceIds) {
-            $request->resourceIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->resourceIds, 'resource_ids', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->resourceIds)) {
+            $request->resourceIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceIds, 'resource_ids', 'json');
         }
-
-        if (null !== $tmpReq->tagKeys) {
-            $request->tagKeysShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tagKeys, 'tag_keys', 'json');
+        if (!Utils::isUnset($tmpReq->tagKeys)) {
+            $request->tagKeysShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tagKeys, 'tag_keys', 'json');
         }
-
         $query = [];
-        if (null !== $request->all) {
-            @$query['all'] = $request->all;
+        if (!Utils::isUnset($request->all)) {
+            $query['all'] = $request->all;
         }
-
-        if (null !== $request->regionId) {
-            @$query['region_id'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['region_id'] = $request->regionId;
         }
-
-        if (null !== $request->resourceIdsShrink) {
-            @$query['resource_ids'] = $request->resourceIdsShrink;
+        if (!Utils::isUnset($request->resourceIdsShrink)) {
+            $query['resource_ids'] = $request->resourceIdsShrink;
         }
-
-        if (null !== $request->resourceType) {
-            @$query['resource_type'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['resource_type'] = $request->resourceType;
         }
-
-        if (null !== $request->tagKeysShrink) {
-            @$query['tag_keys'] = $request->tagKeysShrink;
+        if (!Utils::isUnset($request->tagKeysShrink)) {
+            $query['tag_keys'] = $request->tagKeysShrink;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UntagResources',
@@ -9655,15 +8072,11 @@ class CS extends OpenApiClient
     }
 
     /**
-     * If you no longer need the labels (key-value pairs) of a cluster, you can call the UntagResources operation to delete the labels.
+     * @summary If you no longer need the labels (key-value pairs) of a cluster, you can call the UntagResources operation to delete the labels.
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
      *
-     * @param request - UntagResourcesRequest
-     *
-     * @returns UntagResourcesResponse
-     *
-     * @param UntagResourcesRequest $request
-     *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResources($request)
     {
@@ -9674,45 +8087,36 @@ class CS extends OpenApiClient
     }
 
     /**
-     * You can call the UpdateClusterAuditLogConfig operation to enable or disable the audit log feature in a Container Service for Kubernetes (ACK) cluster and update the audit log configuration. This operation also allows you to record requests to the Kubernetes API and the responses, which can be used to trace cluster operation history and troubleshoot cluster issues.
-     *
-     * @remarks
-     * Before you call this operation, ensure that you understand the billing methods and pricing of [Simple Log Service](https://www.alibabacloud.com/product/log-service/pricing).
-     *
-     * @param request - UpdateClusterAuditLogConfigRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateClusterAuditLogConfigResponse
-     *
+     * @summary You can call the UpdateClusterAuditLogConfig operation to enable or disable the audit log feature in a Container Service for Kubernetes (ACK) cluster and update the audit log configuration. This operation also allows you to record requests to the Kubernetes API and the responses, which can be used to trace cluster operation history and troubleshoot cluster issues.
+     *  *
+     * @description Before you call this operation, ensure that you understand the billing methods and pricing of [Simple Log Service](https://www.alibabacloud.com/product/log-service/pricing).
+     *  *
      * @param string                             $clusterid
-     * @param UpdateClusterAuditLogConfigRequest $request
-     * @param string[]                           $headers
-     * @param RuntimeOptions                     $runtime
+     * @param UpdateClusterAuditLogConfigRequest $request   UpdateClusterAuditLogConfigRequest
+     * @param string[]                           $headers   map
+     * @param RuntimeOptions                     $runtime   runtime options for this request RuntimeOptions
      *
-     * @return UpdateClusterAuditLogConfigResponse
+     * @return UpdateClusterAuditLogConfigResponse UpdateClusterAuditLogConfigResponse
      */
     public function updateClusterAuditLogConfigWithOptions($clusterid, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->disable) {
-            @$body['disable'] = $request->disable;
+        if (!Utils::isUnset($request->disable)) {
+            $body['disable'] = $request->disable;
         }
-
-        if (null !== $request->slsProjectName) {
-            @$body['sls_project_name'] = $request->slsProjectName;
+        if (!Utils::isUnset($request->slsProjectName)) {
+            $body['sls_project_name'] = $request->slsProjectName;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateClusterAuditLogConfig',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/clusters/' . Url::percentEncode($clusterid) . '/audit_log',
+            'pathname' => '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterid) . '/audit_log',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -9724,19 +8128,14 @@ class CS extends OpenApiClient
     }
 
     /**
-     * You can call the UpdateClusterAuditLogConfig operation to enable or disable the audit log feature in a Container Service for Kubernetes (ACK) cluster and update the audit log configuration. This operation also allows you to record requests to the Kubernetes API and the responses, which can be used to trace cluster operation history and troubleshoot cluster issues.
-     *
-     * @remarks
-     * Before you call this operation, ensure that you understand the billing methods and pricing of [Simple Log Service](https://www.alibabacloud.com/product/log-service/pricing).
-     *
-     * @param request - UpdateClusterAuditLogConfigRequest
-     *
-     * @returns UpdateClusterAuditLogConfigResponse
-     *
+     * @summary You can call the UpdateClusterAuditLogConfig operation to enable or disable the audit log feature in a Container Service for Kubernetes (ACK) cluster and update the audit log configuration. This operation also allows you to record requests to the Kubernetes API and the responses, which can be used to trace cluster operation history and troubleshoot cluster issues.
+     *  *
+     * @description Before you call this operation, ensure that you understand the billing methods and pricing of [Simple Log Service](https://www.alibabacloud.com/product/log-service/pricing).
+     *  *
      * @param string                             $clusterid
-     * @param UpdateClusterAuditLogConfigRequest $request
+     * @param UpdateClusterAuditLogConfigRequest $request   UpdateClusterAuditLogConfigRequest
      *
-     * @return UpdateClusterAuditLogConfigResponse
+     * @return UpdateClusterAuditLogConfigResponse UpdateClusterAuditLogConfigResponse
      */
     public function updateClusterAuditLogConfig($clusterid, $request)
     {
@@ -9747,46 +8146,37 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Modifies cluster inspection configurations.
-     *
-     * @param request - UpdateClusterInspectConfigRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateClusterInspectConfigResponse
-     *
+     * @summary Modifies cluster inspection configurations.
+     *  *
      * @param string                            $clusterId
-     * @param UpdateClusterInspectConfigRequest $request
-     * @param string[]                          $headers
-     * @param RuntimeOptions                    $runtime
+     * @param UpdateClusterInspectConfigRequest $request   UpdateClusterInspectConfigRequest
+     * @param string[]                          $headers   map
+     * @param RuntimeOptions                    $runtime   runtime options for this request RuntimeOptions
      *
-     * @return UpdateClusterInspectConfigResponse
+     * @return UpdateClusterInspectConfigResponse UpdateClusterInspectConfigResponse
      */
     public function updateClusterInspectConfigWithOptions($clusterId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->disabledCheckItems) {
-            @$body['disabledCheckItems'] = $request->disabledCheckItems;
+        if (!Utils::isUnset($request->disabledCheckItems)) {
+            $body['disabledCheckItems'] = $request->disabledCheckItems;
         }
-
-        if (null !== $request->enabled) {
-            @$body['enabled'] = $request->enabled;
+        if (!Utils::isUnset($request->enabled)) {
+            $body['enabled'] = $request->enabled;
         }
-
-        if (null !== $request->scheduleTime) {
-            @$body['scheduleTime'] = $request->scheduleTime;
+        if (!Utils::isUnset($request->scheduleTime)) {
+            $body['scheduleTime'] = $request->scheduleTime;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateClusterInspectConfig',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/clusters/' . Url::percentEncode($clusterId) . '/inspectConfig',
+            'pathname' => '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterId) . '/inspectConfig',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -9798,16 +8188,12 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Modifies cluster inspection configurations.
-     *
-     * @param request - UpdateClusterInspectConfigRequest
-     *
-     * @returns UpdateClusterInspectConfigResponse
-     *
+     * @summary Modifies cluster inspection configurations.
+     *  *
      * @param string                            $clusterId
-     * @param UpdateClusterInspectConfigRequest $request
+     * @param UpdateClusterInspectConfigRequest $request   UpdateClusterInspectConfigRequest
      *
-     * @return UpdateClusterInspectConfigResponse
+     * @return UpdateClusterInspectConfigResponse UpdateClusterInspectConfigResponse
      */
     public function updateClusterInspectConfig($clusterId, $request)
     {
@@ -9818,50 +8204,40 @@ class CS extends OpenApiClient
     }
 
     /**
-     * You can call the UpdateContactGroupForAlert operation to specify a contact group for an alert rule in an ACK cluster.
-     *
-     * @param request - UpdateContactGroupForAlertRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateContactGroupForAlertResponse
-     *
+     * @summary You can call the UpdateContactGroupForAlert operation to specify a contact group for an alert rule in an ACK cluster.
+     *  *
      * @param string                            $ClusterId
-     * @param UpdateContactGroupForAlertRequest $request
-     * @param string[]                          $headers
-     * @param RuntimeOptions                    $runtime
+     * @param UpdateContactGroupForAlertRequest $request   UpdateContactGroupForAlertRequest
+     * @param string[]                          $headers   map
+     * @param RuntimeOptions                    $runtime   runtime options for this request RuntimeOptions
      *
-     * @return UpdateContactGroupForAlertResponse
+     * @return UpdateContactGroupForAlertResponse UpdateContactGroupForAlertResponse
      */
     public function updateContactGroupForAlertWithOptions($ClusterId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->alertRuleGroupName) {
-            @$body['alert_rule_group_name'] = $request->alertRuleGroupName;
+        if (!Utils::isUnset($request->alertRuleGroupName)) {
+            $body['alert_rule_group_name'] = $request->alertRuleGroupName;
         }
-
-        if (null !== $request->contactGroupIds) {
-            @$body['contact_group_ids'] = $request->contactGroupIds;
+        if (!Utils::isUnset($request->contactGroupIds)) {
+            $body['contact_group_ids'] = $request->contactGroupIds;
         }
-
-        if (null !== $request->crName) {
-            @$body['cr_name'] = $request->crName;
+        if (!Utils::isUnset($request->crName)) {
+            $body['cr_name'] = $request->crName;
         }
-
-        if (null !== $request->namespace) {
-            @$body['namespace'] = $request->namespace;
+        if (!Utils::isUnset($request->namespace_)) {
+            $body['namespace'] = $request->namespace_;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateContactGroupForAlert',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/alert/' . Url::percentEncode($ClusterId) . '/alert_rule/contact_groups',
+            'pathname' => '/alert/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/alert_rule/contact_groups',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -9873,16 +8249,12 @@ class CS extends OpenApiClient
     }
 
     /**
-     * You can call the UpdateContactGroupForAlert operation to specify a contact group for an alert rule in an ACK cluster.
-     *
-     * @param request - UpdateContactGroupForAlertRequest
-     *
-     * @returns UpdateContactGroupForAlertResponse
-     *
+     * @summary You can call the UpdateContactGroupForAlert operation to specify a contact group for an alert rule in an ACK cluster.
+     *  *
      * @param string                            $ClusterId
-     * @param UpdateContactGroupForAlertRequest $request
+     * @param UpdateContactGroupForAlertRequest $request   UpdateContactGroupForAlertRequest
      *
-     * @return UpdateContactGroupForAlertResponse
+     * @return UpdateContactGroupForAlertResponse UpdateContactGroupForAlertResponse
      */
     public function updateContactGroupForAlert($ClusterId, $request)
     {
@@ -9893,50 +8265,40 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Modifies the log configurations of control plane components. The configurations include the log retention period and components whose logs that you want to collect. Container Service for Kubernetes (ACK) managed clusters can collect the logs of control plane components and deliver the logs to projects in Simple Log Service. These control plane components include Kube-apiserver, kube-scheduler, Kubernetes controller manager, and cloud controller manager (CCM).
-     *
-     * @param request - UpdateControlPlaneLogRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateControlPlaneLogResponse
-     *
+     * @summary Modifies the log configurations of control plane components. The configurations include the log retention period and components whose logs that you want to collect. Container Service for Kubernetes (ACK) managed clusters can collect the logs of control plane components and deliver the logs to projects in Simple Log Service. These control plane components include Kube-apiserver, kube-scheduler, Kubernetes controller manager, and cloud controller manager (CCM).
+     *  *
      * @param string                       $ClusterId
-     * @param UpdateControlPlaneLogRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @param UpdateControlPlaneLogRequest $request   UpdateControlPlaneLogRequest
+     * @param string[]                     $headers   map
+     * @param RuntimeOptions               $runtime   runtime options for this request RuntimeOptions
      *
-     * @return UpdateControlPlaneLogResponse
+     * @return UpdateControlPlaneLogResponse UpdateControlPlaneLogResponse
      */
     public function updateControlPlaneLogWithOptions($ClusterId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->aliuid) {
-            @$body['aliuid'] = $request->aliuid;
+        if (!Utils::isUnset($request->aliuid)) {
+            $body['aliuid'] = $request->aliuid;
         }
-
-        if (null !== $request->components) {
-            @$body['components'] = $request->components;
+        if (!Utils::isUnset($request->components)) {
+            $body['components'] = $request->components;
         }
-
-        if (null !== $request->logProject) {
-            @$body['log_project'] = $request->logProject;
+        if (!Utils::isUnset($request->logProject)) {
+            $body['log_project'] = $request->logProject;
         }
-
-        if (null !== $request->logTtl) {
-            @$body['log_ttl'] = $request->logTtl;
+        if (!Utils::isUnset($request->logTtl)) {
+            $body['log_ttl'] = $request->logTtl;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateControlPlaneLog',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/clusters/' . Url::percentEncode($ClusterId) . '/controlplanelog',
+            'pathname' => '/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/controlplanelog',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -9948,16 +8310,12 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Modifies the log configurations of control plane components. The configurations include the log retention period and components whose logs that you want to collect. Container Service for Kubernetes (ACK) managed clusters can collect the logs of control plane components and deliver the logs to projects in Simple Log Service. These control plane components include Kube-apiserver, kube-scheduler, Kubernetes controller manager, and cloud controller manager (CCM).
-     *
-     * @param request - UpdateControlPlaneLogRequest
-     *
-     * @returns UpdateControlPlaneLogResponse
-     *
+     * @summary Modifies the log configurations of control plane components. The configurations include the log retention period and components whose logs that you want to collect. Container Service for Kubernetes (ACK) managed clusters can collect the logs of control plane components and deliver the logs to projects in Simple Log Service. These control plane components include Kube-apiserver, kube-scheduler, Kubernetes controller manager, and cloud controller manager (CCM).
+     *  *
      * @param string                       $ClusterId
-     * @param UpdateControlPlaneLogRequest $request
+     * @param UpdateControlPlaneLogRequest $request   UpdateControlPlaneLogRequest
      *
-     * @return UpdateControlPlaneLogResponse
+     * @return UpdateControlPlaneLogResponse UpdateControlPlaneLogResponse
      */
     public function updateControlPlaneLog($ClusterId, $request)
     {
@@ -9968,46 +8326,37 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Sets the validity period of a kubeconfig file used by a Resource Access Management (RAM) user or RAM role to connect to a Container Service for Kubernetes (ACK) cluster. The validity period ranges from 1 to 876,000 hours. You can call this API operation when you customize configurations by using an Alibaba Cloud account. The default validity period of a kubeconfig file is three years.
-     *
-     * @remarks
-     *   You can call this operation only with an Alibaba Cloud account.
+     * @summary Sets the validity period of a kubeconfig file used by a Resource Access Management (RAM) user or RAM role to connect to a Container Service for Kubernetes (ACK) cluster. The validity period ranges from 1 to 876,000 hours. You can call this API operation when you customize configurations by using an Alibaba Cloud account. The default validity period of a kubeconfig file is three years.
+     *  *
+     * @description *   You can call this operation only with an Alibaba Cloud account.
      * *   If the kubeconfig file used by your cluster is revoked, the custom validity period of the kubeconfig file is reset. In this case, you need to call this API operation to reconfigure the validity period of the kubeconfig file.
-     *
-     * @param request - UpdateK8sClusterUserConfigExpireRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateK8sClusterUserConfigExpireResponse
-     *
+     *  *
      * @param string                                  $ClusterId
-     * @param UpdateK8sClusterUserConfigExpireRequest $request
-     * @param string[]                                $headers
-     * @param RuntimeOptions                          $runtime
+     * @param UpdateK8sClusterUserConfigExpireRequest $request   UpdateK8sClusterUserConfigExpireRequest
+     * @param string[]                                $headers   map
+     * @param RuntimeOptions                          $runtime   runtime options for this request RuntimeOptions
      *
-     * @return UpdateK8sClusterUserConfigExpireResponse
+     * @return UpdateK8sClusterUserConfigExpireResponse UpdateK8sClusterUserConfigExpireResponse
      */
     public function updateK8sClusterUserConfigExpireWithOptions($ClusterId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->expireHour) {
-            @$body['expire_hour'] = $request->expireHour;
+        if (!Utils::isUnset($request->expireHour)) {
+            $body['expire_hour'] = $request->expireHour;
         }
-
-        if (null !== $request->user) {
-            @$body['user'] = $request->user;
+        if (!Utils::isUnset($request->user)) {
+            $body['user'] = $request->user;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateK8sClusterUserConfigExpire',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/k8s/' . Url::percentEncode($ClusterId) . '/user_config/expire',
+            'pathname' => '/k8s/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/user_config/expire',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -10019,20 +8368,15 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Sets the validity period of a kubeconfig file used by a Resource Access Management (RAM) user or RAM role to connect to a Container Service for Kubernetes (ACK) cluster. The validity period ranges from 1 to 876,000 hours. You can call this API operation when you customize configurations by using an Alibaba Cloud account. The default validity period of a kubeconfig file is three years.
-     *
-     * @remarks
-     *   You can call this operation only with an Alibaba Cloud account.
+     * @summary Sets the validity period of a kubeconfig file used by a Resource Access Management (RAM) user or RAM role to connect to a Container Service for Kubernetes (ACK) cluster. The validity period ranges from 1 to 876,000 hours. You can call this API operation when you customize configurations by using an Alibaba Cloud account. The default validity period of a kubeconfig file is three years.
+     *  *
+     * @description *   You can call this operation only with an Alibaba Cloud account.
      * *   If the kubeconfig file used by your cluster is revoked, the custom validity period of the kubeconfig file is reset. In this case, you need to call this API operation to reconfigure the validity period of the kubeconfig file.
-     *
-     * @param request - UpdateK8sClusterUserConfigExpireRequest
-     *
-     * @returns UpdateK8sClusterUserConfigExpireResponse
-     *
+     *  *
      * @param string                                  $ClusterId
-     * @param UpdateK8sClusterUserConfigExpireRequest $request
+     * @param UpdateK8sClusterUserConfigExpireRequest $request   UpdateK8sClusterUserConfigExpireRequest
      *
-     * @return UpdateK8sClusterUserConfigExpireResponse
+     * @return UpdateK8sClusterUserConfigExpireResponse UpdateK8sClusterUserConfigExpireResponse
      */
     public function updateK8sClusterUserConfigExpire($ClusterId, $request)
     {
@@ -10043,50 +8387,40 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Updates the deletion protection status of the specified resources. You can enable or disable deletion protection for namespaces and Services. You can call this operation to enable deletion protection for namespaces or Services that involve businesses-critical and sensitive data to avoid incurring maintenance costs caused by accidental namespace or Service deletion.
-     *
-     * @param request - UpdateResourcesDeleteProtectionRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateResourcesDeleteProtectionResponse
-     *
+     * @summary Updates the deletion protection status of the specified resources. You can enable or disable deletion protection for namespaces and Services. You can call this operation to enable deletion protection for namespaces or Services that involve businesses-critical and sensitive data to avoid incurring maintenance costs caused by accidental namespace or Service deletion.
+     *  *
      * @param string                                 $ClusterId
-     * @param UpdateResourcesDeleteProtectionRequest $request
-     * @param string[]                               $headers
-     * @param RuntimeOptions                         $runtime
+     * @param UpdateResourcesDeleteProtectionRequest $request   UpdateResourcesDeleteProtectionRequest
+     * @param string[]                               $headers   map
+     * @param RuntimeOptions                         $runtime   runtime options for this request RuntimeOptions
      *
-     * @return UpdateResourcesDeleteProtectionResponse
+     * @return UpdateResourcesDeleteProtectionResponse UpdateResourcesDeleteProtectionResponse
      */
     public function updateResourcesDeleteProtectionWithOptions($ClusterId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->enable) {
-            @$body['enable'] = $request->enable;
+        if (!Utils::isUnset($request->enable)) {
+            $body['enable'] = $request->enable;
         }
-
-        if (null !== $request->namespace) {
-            @$body['namespace'] = $request->namespace;
+        if (!Utils::isUnset($request->namespace_)) {
+            $body['namespace'] = $request->namespace_;
         }
-
-        if (null !== $request->resourceType) {
-            @$body['resource_type'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $body['resource_type'] = $request->resourceType;
         }
-
-        if (null !== $request->resources) {
-            @$body['resources'] = $request->resources;
+        if (!Utils::isUnset($request->resources)) {
+            $body['resources'] = $request->resources;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateResourcesDeleteProtection',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/clusters/' . Url::percentEncode($ClusterId) . '/resources/protection',
+            'pathname' => '/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/resources/protection',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -10098,16 +8432,12 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Updates the deletion protection status of the specified resources. You can enable or disable deletion protection for namespaces and Services. You can call this operation to enable deletion protection for namespaces or Services that involve businesses-critical and sensitive data to avoid incurring maintenance costs caused by accidental namespace or Service deletion.
-     *
-     * @param request - UpdateResourcesDeleteProtectionRequest
-     *
-     * @returns UpdateResourcesDeleteProtectionResponse
-     *
+     * @summary Updates the deletion protection status of the specified resources. You can enable or disable deletion protection for namespaces and Services. You can call this operation to enable deletion protection for namespaces or Services that involve businesses-critical and sensitive data to avoid incurring maintenance costs caused by accidental namespace or Service deletion.
+     *  *
      * @param string                                 $ClusterId
-     * @param UpdateResourcesDeleteProtectionRequest $request
+     * @param UpdateResourcesDeleteProtectionRequest $request   UpdateResourcesDeleteProtectionRequest
      *
-     * @return UpdateResourcesDeleteProtectionResponse
+     * @return UpdateResourcesDeleteProtectionResponse UpdateResourcesDeleteProtectionResponse
      */
     public function updateResourcesDeleteProtection($ClusterId, $request)
     {
@@ -10118,54 +8448,43 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Updates the configurations of an orchestration template. An orchestration template defines and describes a group of Container Service for Kubernetes (ACK) resources. An orchestration template describes the configurations of an application or how an application runs in a declarative manner.
-     *
-     * @param request - UpdateTemplateRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateTemplateResponse
-     *
+     * @summary Updates the configurations of an orchestration template. An orchestration template defines and describes a group of Container Service for Kubernetes (ACK) resources. An orchestration template describes the configurations of an application or how an application runs in a declarative manner.
+     *  *
      * @param string                $TemplateId
-     * @param UpdateTemplateRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @param UpdateTemplateRequest $request    UpdateTemplateRequest
+     * @param string[]              $headers    map
+     * @param RuntimeOptions        $runtime    runtime options for this request RuntimeOptions
      *
-     * @return UpdateTemplateResponse
+     * @return UpdateTemplateResponse UpdateTemplateResponse
      */
     public function updateTemplateWithOptions($TemplateId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->description) {
-            @$body['description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $body['description'] = $request->description;
         }
-
-        if (null !== $request->name) {
-            @$body['name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $body['name'] = $request->name;
         }
-
-        if (null !== $request->tags) {
-            @$body['tags'] = $request->tags;
+        if (!Utils::isUnset($request->tags)) {
+            $body['tags'] = $request->tags;
         }
-
-        if (null !== $request->template) {
-            @$body['template'] = $request->template;
+        if (!Utils::isUnset($request->template)) {
+            $body['template'] = $request->template;
         }
-
-        if (null !== $request->templateType) {
-            @$body['template_type'] = $request->templateType;
+        if (!Utils::isUnset($request->templateType)) {
+            $body['template_type'] = $request->templateType;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateTemplate',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/templates/' . Url::percentEncode($TemplateId) . '',
+            'pathname' => '/templates/' . OpenApiUtilClient::getEncodeParam($TemplateId) . '',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -10177,16 +8496,12 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Updates the configurations of an orchestration template. An orchestration template defines and describes a group of Container Service for Kubernetes (ACK) resources. An orchestration template describes the configurations of an application or how an application runs in a declarative manner.
-     *
-     * @param request - UpdateTemplateRequest
-     *
-     * @returns UpdateTemplateResponse
-     *
+     * @summary Updates the configurations of an orchestration template. An orchestration template defines and describes a group of Container Service for Kubernetes (ACK) resources. An orchestration template describes the configurations of an application or how an application runs in a declarative manner.
+     *  *
      * @param string                $TemplateId
-     * @param UpdateTemplateRequest $request
+     * @param UpdateTemplateRequest $request    UpdateTemplateRequest
      *
-     * @return UpdateTemplateResponse
+     * @return UpdateTemplateResponse UpdateTemplateResponse
      */
     public function updateTemplate($TemplateId, $request)
     {
@@ -10197,43 +8512,35 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Updates the role-based access control (RBAC) permissions of a Resource Access Management (RAM) user or RAM role. By default, you do not have the RBAC permissions on a Container Service for Kubernetes (ACK) cluster if you are not the cluster owner or you are not using an Alibaba Cloud account. You can call this operation to specify the resources that can be accessed, permission scope, and predefined roles. This helps you better manage the access control on resources in ACK clusters.
-     *
-     * @remarks
-     * *Precautions**:
+     * @summary Updates the role-based access control (RBAC) permissions of a Resource Access Management (RAM) user or RAM role. By default, you do not have the RBAC permissions on a Container Service for Kubernetes (ACK) cluster if you are not the cluster owner or you are not using an Alibaba Cloud account. You can call this operation to specify the resources that can be accessed, permission scope, and predefined roles. This helps you better manage the access control on resources in ACK clusters.
+     *  *
+     * @description **Precautions**:
      * *   You can update the permissions of a RAM user or RAM role on a cluster by using full update or incremental update. If you use full update, the existing permissions of the RAM user or RAM role on the cluster are overwritten. You must specify all the permissions that you want to grant to the RAM user or RAM role in the request parameters when you call the operation. If you use incremental update, you can grant permissions to or revoke permissions from the RAM user or RAM role on the cluster. In this case, only the permissions that you specify in the request parameters when you call the operation are granted or revoked, other permissions of the RAM user or RAM role on the cluster are not affected.
-     *
-     * @param request - UpdateUserPermissionsRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateUserPermissionsResponse
-     *
+     *  *
      * @param string                       $uid
-     * @param UpdateUserPermissionsRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @param UpdateUserPermissionsRequest $request UpdateUserPermissionsRequest
+     * @param string[]                     $headers map
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateUserPermissionsResponse
+     * @return UpdateUserPermissionsResponse UpdateUserPermissionsResponse
      */
     public function updateUserPermissionsWithOptions($uid, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->mode) {
-            @$query['mode'] = $request->mode;
+        if (!Utils::isUnset($request->mode)) {
+            $query['mode'] = $request->mode;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
             'body' => Utils::toArray($request->body),
         ]);
         $params = new Params([
             'action' => 'UpdateUserPermissions',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/permissions/users/' . Url::percentEncode($uid) . '/update',
+            'pathname' => '/permissions/users/' . OpenApiUtilClient::getEncodeParam($uid) . '/update',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -10245,20 +8552,15 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Updates the role-based access control (RBAC) permissions of a Resource Access Management (RAM) user or RAM role. By default, you do not have the RBAC permissions on a Container Service for Kubernetes (ACK) cluster if you are not the cluster owner or you are not using an Alibaba Cloud account. You can call this operation to specify the resources that can be accessed, permission scope, and predefined roles. This helps you better manage the access control on resources in ACK clusters.
-     *
-     * @remarks
-     * *Precautions**:
+     * @summary Updates the role-based access control (RBAC) permissions of a Resource Access Management (RAM) user or RAM role. By default, you do not have the RBAC permissions on a Container Service for Kubernetes (ACK) cluster if you are not the cluster owner or you are not using an Alibaba Cloud account. You can call this operation to specify the resources that can be accessed, permission scope, and predefined roles. This helps you better manage the access control on resources in ACK clusters.
+     *  *
+     * @description **Precautions**:
      * *   You can update the permissions of a RAM user or RAM role on a cluster by using full update or incremental update. If you use full update, the existing permissions of the RAM user or RAM role on the cluster are overwritten. You must specify all the permissions that you want to grant to the RAM user or RAM role in the request parameters when you call the operation. If you use incremental update, you can grant permissions to or revoke permissions from the RAM user or RAM role on the cluster. In this case, only the permissions that you specify in the request parameters when you call the operation are granted or revoked, other permissions of the RAM user or RAM role on the cluster are not affected.
-     *
-     * @param request - UpdateUserPermissionsRequest
-     *
-     * @returns UpdateUserPermissionsResponse
-     *
+     *  *
      * @param string                       $uid
-     * @param UpdateUserPermissionsRequest $request
+     * @param UpdateUserPermissionsRequest $request UpdateUserPermissionsRequest
      *
-     * @return UpdateUserPermissionsResponse
+     * @return UpdateUserPermissionsResponse UpdateUserPermissionsResponse
      */
     public function updateUserPermissions($uid, $request)
     {
@@ -10269,61 +8571,49 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Outdated Kubernetes versions may have security and stability issues. We recommend that you update the Kubernetes version of your cluster at the earliest opportunity to enjoy the new features of the new Kubernetes version. You can call the UpgradeCluster operation to manually upgrade a cluster.
-     *
-     * @remarks
-     * After successfully calling the UpgradeCluster interface, this API returns the `task_id` of the upgrade task. You can manage this operation task by calling the following task APIs:
+     * @summary Outdated Kubernetes versions may have security and stability issues. We recommend that you update the Kubernetes version of your cluster at the earliest opportunity to enjoy the new features of the new Kubernetes version. You can call the UpgradeCluster operation to manually upgrade a cluster.
+     *  *
+     * @description After successfully calling the UpgradeCluster interface, this API returns the `task_id` of the upgrade task. You can manage this operation task by calling the following task APIs:
      * - [Call DescribeTaskInfo to query task details](https://help.aliyun.com/document_detail/2667985.html)
      * - [Call PauseTask to pause a running task](https://help.aliyun.com/document_detail/2667986.html)
      * - [Call ResumeTask to resume a task that has been paused](https://help.aliyun.com/document_detail/2667987.html)
      * - [Call CancelTask to cancel a running task](https://help.aliyun.com/document_detail/2667988.html)
-     *
-     * @param request - UpgradeClusterRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpgradeClusterResponse
-     *
+     *  *
      * @param string                $ClusterId
-     * @param UpgradeClusterRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @param UpgradeClusterRequest $request   UpgradeClusterRequest
+     * @param string[]              $headers   map
+     * @param RuntimeOptions        $runtime   runtime options for this request RuntimeOptions
      *
-     * @return UpgradeClusterResponse
+     * @return UpgradeClusterResponse UpgradeClusterResponse
      */
     public function upgradeClusterWithOptions($ClusterId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->componentName) {
-            @$body['component_name'] = $request->componentName;
+        if (!Utils::isUnset($request->componentName)) {
+            $body['component_name'] = $request->componentName;
         }
-
-        if (null !== $request->masterOnly) {
-            @$body['master_only'] = $request->masterOnly;
+        if (!Utils::isUnset($request->masterOnly)) {
+            $body['master_only'] = $request->masterOnly;
         }
-
-        if (null !== $request->nextVersion) {
-            @$body['next_version'] = $request->nextVersion;
+        if (!Utils::isUnset($request->nextVersion)) {
+            $body['next_version'] = $request->nextVersion;
         }
-
-        if (null !== $request->rollingPolicy) {
-            @$body['rolling_policy'] = $request->rollingPolicy;
+        if (!Utils::isUnset($request->rollingPolicy)) {
+            $body['rolling_policy'] = $request->rollingPolicy;
         }
-
-        if (null !== $request->version) {
-            @$body['version'] = $request->version;
+        if (!Utils::isUnset($request->version)) {
+            $body['version'] = $request->version;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpgradeCluster',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/clusters/' . Url::percentEncode($ClusterId) . '/upgrade',
+            'pathname' => '/api/v2/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/upgrade',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -10335,23 +8625,18 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Outdated Kubernetes versions may have security and stability issues. We recommend that you update the Kubernetes version of your cluster at the earliest opportunity to enjoy the new features of the new Kubernetes version. You can call the UpgradeCluster operation to manually upgrade a cluster.
-     *
-     * @remarks
-     * After successfully calling the UpgradeCluster interface, this API returns the `task_id` of the upgrade task. You can manage this operation task by calling the following task APIs:
+     * @summary Outdated Kubernetes versions may have security and stability issues. We recommend that you update the Kubernetes version of your cluster at the earliest opportunity to enjoy the new features of the new Kubernetes version. You can call the UpgradeCluster operation to manually upgrade a cluster.
+     *  *
+     * @description After successfully calling the UpgradeCluster interface, this API returns the `task_id` of the upgrade task. You can manage this operation task by calling the following task APIs:
      * - [Call DescribeTaskInfo to query task details](https://help.aliyun.com/document_detail/2667985.html)
      * - [Call PauseTask to pause a running task](https://help.aliyun.com/document_detail/2667986.html)
      * - [Call ResumeTask to resume a task that has been paused](https://help.aliyun.com/document_detail/2667987.html)
      * - [Call CancelTask to cancel a running task](https://help.aliyun.com/document_detail/2667988.html)
-     *
-     * @param request - UpgradeClusterRequest
-     *
-     * @returns UpgradeClusterResponse
-     *
+     *  *
      * @param string                $ClusterId
-     * @param UpgradeClusterRequest $request
+     * @param UpgradeClusterRequest $request   UpgradeClusterRequest
      *
-     * @return UpgradeClusterResponse
+     * @return UpgradeClusterResponse UpgradeClusterResponse
      */
     public function upgradeCluster($ClusterId, $request)
     {
@@ -10362,24 +8647,18 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Updates cluster components to use new features and patch vulnerabilities. You must update cluster components one after one and update a component only after the previous one is successfully updated. Before you update a component, we recommend that you read the update notes for each component. Cluster component updates may affect your businesses. Assess the impact, back up data, and perform the update during off-peak hours.
-     *
-     * @param request - UpgradeClusterAddonsRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpgradeClusterAddonsResponse
-     *
+     * @summary Updates cluster components to use new features and patch vulnerabilities. You must update cluster components one after one and update a component only after the previous one is successfully updated. Before you update a component, we recommend that you read the update notes for each component. Cluster component updates may affect your businesses. Assess the impact, back up data, and perform the update during off-peak hours.
+     *  *
      * @param string                      $ClusterId
-     * @param UpgradeClusterAddonsRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @param UpgradeClusterAddonsRequest $request   UpgradeClusterAddonsRequest
+     * @param string[]                    $headers   map
+     * @param RuntimeOptions              $runtime   runtime options for this request RuntimeOptions
      *
-     * @return UpgradeClusterAddonsResponse
+     * @return UpgradeClusterAddonsResponse UpgradeClusterAddonsResponse
      */
     public function upgradeClusterAddonsWithOptions($ClusterId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body' => Utils::toArray($request->body),
@@ -10388,7 +8667,7 @@ class CS extends OpenApiClient
             'action' => 'UpgradeClusterAddons',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/clusters/' . Url::percentEncode($ClusterId) . '/components/upgrade',
+            'pathname' => '/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/components/upgrade',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -10400,16 +8679,12 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Updates cluster components to use new features and patch vulnerabilities. You must update cluster components one after one and update a component only after the previous one is successfully updated. Before you update a component, we recommend that you read the update notes for each component. Cluster component updates may affect your businesses. Assess the impact, back up data, and perform the update during off-peak hours.
-     *
-     * @param request - UpgradeClusterAddonsRequest
-     *
-     * @returns UpgradeClusterAddonsResponse
-     *
+     * @summary Updates cluster components to use new features and patch vulnerabilities. You must update cluster components one after one and update a component only after the previous one is successfully updated. Before you update a component, we recommend that you read the update notes for each component. Cluster component updates may affect your businesses. Assess the impact, back up data, and perform the update during off-peak hours.
+     *  *
      * @param string                      $ClusterId
-     * @param UpgradeClusterAddonsRequest $request
+     * @param UpgradeClusterAddonsRequest $request   UpgradeClusterAddonsRequest
      *
-     * @return UpgradeClusterAddonsResponse
+     * @return UpgradeClusterAddonsResponse UpgradeClusterAddonsResponse
      */
     public function upgradeClusterAddons($ClusterId, $request)
     {
@@ -10420,66 +8695,52 @@ class CS extends OpenApiClient
     }
 
     /**
-     * You can call the UpgradeClusterNodepool operation to update the Kubernetes version, OS version, or container runtime version of the nodes in a node pool.
-     *
-     * @remarks
-     * This operation allows you to update the Kubernetes version, OS version, or container runtime version of the nodes in a node pool.
-     *
-     * @param request - UpgradeClusterNodepoolRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpgradeClusterNodepoolResponse
-     *
+     * @summary You can call the UpgradeClusterNodepool operation to update the Kubernetes version, OS version, or container runtime version of the nodes in a node pool.
+     *  *
+     * @description This operation allows you to update the Kubernetes version, OS version, or container runtime version of the nodes in a node pool.
+     *  *
      * @param string                        $ClusterId
      * @param string                        $NodepoolId
-     * @param UpgradeClusterNodepoolRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @param UpgradeClusterNodepoolRequest $request    UpgradeClusterNodepoolRequest
+     * @param string[]                      $headers    map
+     * @param RuntimeOptions                $runtime    runtime options for this request RuntimeOptions
      *
-     * @return UpgradeClusterNodepoolResponse
+     * @return UpgradeClusterNodepoolResponse UpgradeClusterNodepoolResponse
      */
     public function upgradeClusterNodepoolWithOptions($ClusterId, $NodepoolId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->imageId) {
-            @$body['image_id'] = $request->imageId;
+        if (!Utils::isUnset($request->imageId)) {
+            $body['image_id'] = $request->imageId;
         }
-
-        if (null !== $request->kubernetesVersion) {
-            @$body['kubernetes_version'] = $request->kubernetesVersion;
+        if (!Utils::isUnset($request->kubernetesVersion)) {
+            $body['kubernetes_version'] = $request->kubernetesVersion;
         }
-
-        if (null !== $request->nodeNames) {
-            @$body['node_names'] = $request->nodeNames;
+        if (!Utils::isUnset($request->nodeNames)) {
+            $body['node_names'] = $request->nodeNames;
         }
-
-        if (null !== $request->rollingPolicy) {
-            @$body['rolling_policy'] = $request->rollingPolicy;
+        if (!Utils::isUnset($request->rollingPolicy)) {
+            $body['rolling_policy'] = $request->rollingPolicy;
         }
-
-        if (null !== $request->runtimeType) {
-            @$body['runtime_type'] = $request->runtimeType;
+        if (!Utils::isUnset($request->runtimeType)) {
+            $body['runtime_type'] = $request->runtimeType;
         }
-
-        if (null !== $request->runtimeVersion) {
-            @$body['runtime_version'] = $request->runtimeVersion;
+        if (!Utils::isUnset($request->runtimeVersion)) {
+            $body['runtime_version'] = $request->runtimeVersion;
         }
-
-        if (null !== $request->useReplace) {
-            @$body['use_replace'] = $request->useReplace;
+        if (!Utils::isUnset($request->useReplace)) {
+            $body['use_replace'] = $request->useReplace;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpgradeClusterNodepool',
             'version' => '2015-12-15',
             'protocol' => 'HTTPS',
-            'pathname' => '/clusters/' . Url::percentEncode($ClusterId) . '/nodepools/' . Url::percentEncode($NodepoolId) . '/upgrade',
+            'pathname' => '/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/nodepools/' . OpenApiUtilClient::getEncodeParam($NodepoolId) . '/upgrade',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -10491,20 +8752,15 @@ class CS extends OpenApiClient
     }
 
     /**
-     * You can call the UpgradeClusterNodepool operation to update the Kubernetes version, OS version, or container runtime version of the nodes in a node pool.
-     *
-     * @remarks
-     * This operation allows you to update the Kubernetes version, OS version, or container runtime version of the nodes in a node pool.
-     *
-     * @param request - UpgradeClusterNodepoolRequest
-     *
-     * @returns UpgradeClusterNodepoolResponse
-     *
+     * @summary You can call the UpgradeClusterNodepool operation to update the Kubernetes version, OS version, or container runtime version of the nodes in a node pool.
+     *  *
+     * @description This operation allows you to update the Kubernetes version, OS version, or container runtime version of the nodes in a node pool.
+     *  *
      * @param string                        $ClusterId
      * @param string                        $NodepoolId
-     * @param UpgradeClusterNodepoolRequest $request
+     * @param UpgradeClusterNodepoolRequest $request    UpgradeClusterNodepoolRequest
      *
-     * @return UpgradeClusterNodepoolResponse
+     * @return UpgradeClusterNodepoolResponse UpgradeClusterNodepoolResponse
      */
     public function upgradeClusterNodepool($ClusterId, $NodepoolId, $request)
     {

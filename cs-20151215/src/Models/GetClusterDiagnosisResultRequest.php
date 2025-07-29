@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetClusterDiagnosisResultRequest extends Model
 {
     /**
+     * @description The query language.
+     *
+     * @example zh_CN
+     *
      * @var string
      */
     public $language;
@@ -16,12 +20,9 @@ class GetClusterDiagnosisResultRequest extends Model
         'language' => 'language',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->language) {
@@ -31,11 +32,11 @@ class GetClusterDiagnosisResultRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetClusterDiagnosisResultRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

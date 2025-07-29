@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeletePolicyInstanceRequest extends Model
 {
     /**
+     * @description The ID of the policy instance.
+     *
+     * @example allowed-repos-mqdsf
+     *
      * @var string
      */
     public $instanceName;
@@ -16,12 +20,9 @@ class DeletePolicyInstanceRequest extends Model
         'instanceName' => 'instance_name',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceName) {
@@ -31,11 +32,11 @@ class DeletePolicyInstanceRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeletePolicyInstanceRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

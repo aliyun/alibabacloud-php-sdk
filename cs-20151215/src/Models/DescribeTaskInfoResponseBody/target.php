@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models\DescribeTaskInfoResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class target extends Model
 {
     /**
+     * @description The ID of the object.
+     *
+     * @example c78592bfe92244365b3c3ad47f1de****
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The type of the object.
+     *
+     * @example cluster
+     *
      * @var string
      */
     public $type;
@@ -22,18 +30,14 @@ class target extends Model
         'type' => 'type',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->id) {
             $res['id'] = $this->id;
         }
-
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -41,18 +45,17 @@ class target extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return target
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['id'])) {
             $model->id = $map['id'];
         }
-
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }

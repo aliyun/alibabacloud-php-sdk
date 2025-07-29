@@ -4,16 +4,30 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateK8sClusterUserConfigExpireRequest extends Model
 {
     /**
+     * @description Specifies the expiration time of the kubeconfig file. Unit: hours.
+     *
+     * Valid values: [1, 1876000]. The maximum value is 100 years.
+     *
+     * This parameter is required.
+     *
+     * @example 720
+     *
      * @var int
      */
     public $expireHour;
 
     /**
+     * @description The RAM user ID.
+     *
+     * This parameter is required.
+     *
+     * @example The ID of the Resource Access Management (RAM) user that you use.
+     *
      * @var string
      */
     public $user;
@@ -22,18 +36,14 @@ class UpdateK8sClusterUserConfigExpireRequest extends Model
         'user' => 'user',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->expireHour) {
             $res['expire_hour'] = $this->expireHour;
         }
-
         if (null !== $this->user) {
             $res['user'] = $this->user;
         }
@@ -41,18 +51,17 @@ class UpdateK8sClusterUserConfigExpireRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateK8sClusterUserConfigExpireRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['expire_hour'])) {
             $model->expireHour = $map['expire_hour'];
         }
-
         if (isset($map['user'])) {
             $model->user = $map['user'];
         }

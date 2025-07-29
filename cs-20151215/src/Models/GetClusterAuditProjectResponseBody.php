@@ -4,16 +4,27 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetClusterAuditProjectResponseBody extends Model
 {
     /**
+     * @description Indicates whether the cluster auditing feature is enabled for the cluster.
+     *
+     * `true`: The cluster auditing feature is enabled for the cluster.
+     * `false`: The cluster auditing feature is disabled for the cluster.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $auditEnabled;
 
     /**
+     * @description The SLS project in which the audit logs of the API server are stored.
+     *
+     * @example k8s-log-cad1230511cbb4db4a488e58518******
+     *
      * @var string
      */
     public $slsProjectName;
@@ -22,18 +33,14 @@ class GetClusterAuditProjectResponseBody extends Model
         'slsProjectName' => 'sls_project_name',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->auditEnabled) {
             $res['audit_enabled'] = $this->auditEnabled;
         }
-
         if (null !== $this->slsProjectName) {
             $res['sls_project_name'] = $this->slsProjectName;
         }
@@ -41,18 +48,17 @@ class GetClusterAuditProjectResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetClusterAuditProjectResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['audit_enabled'])) {
             $model->auditEnabled = $map['audit_enabled'];
         }
-
         if (isset($map['sls_project_name'])) {
             $model->slsProjectName = $map['sls_project_name'];
         }

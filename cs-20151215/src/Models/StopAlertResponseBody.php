@@ -4,16 +4,27 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class StopAlertResponseBody extends Model
 {
     /**
+     * @description The error message returned if the call fails.
+     *
+     * @example Success
+     *
      * @var string
      */
     public $msg;
 
     /**
+     * @description The operation result. Valid values:
+     *
+     *   True: The operation is successful.
+     *   False: The operation failed.
+     *
+     * @example True
+     *
      * @var bool
      */
     public $status;
@@ -22,18 +33,14 @@ class StopAlertResponseBody extends Model
         'status' => 'status',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->msg) {
             $res['msg'] = $this->msg;
         }
-
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
@@ -41,18 +48,17 @@ class StopAlertResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return StopAlertResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['msg'])) {
             $model->msg = $map['msg'];
         }
-
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }

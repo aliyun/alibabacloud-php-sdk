@@ -4,11 +4,18 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class OpenAckServiceRequest extends Model
 {
     /**
+     * @description The type of service that you want to activate. Valid values:
+     *
+     *   `propayasgo`: ACK clusters (including ACK managed clusters and ACK dedicated clusters), ACK Serverless clusters, and registered clusters.
+     *   `edgepayasgo`: ACK Edge clusters.
+     *
+     * @example propayasgo
+     *
      * @var string
      */
     public $type;
@@ -16,12 +23,9 @@ class OpenAckServiceRequest extends Model
         'type' => 'type',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->type) {
@@ -31,11 +35,11 @@ class OpenAckServiceRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return OpenAckServiceRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

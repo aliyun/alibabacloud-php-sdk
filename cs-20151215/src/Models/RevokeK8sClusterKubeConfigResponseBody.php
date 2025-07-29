@@ -4,28 +4,22 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class RevokeK8sClusterKubeConfigResponseBody extends Model
 {
-    protected $_name = [
-    ];
+    public function validate() {}
 
-    public function validate()
-    {
-        parent::validate();
-    }
-
-    public function toArray($noStream = false)
+    public function toMap()
     {
         return [];
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return RevokeK8sClusterKubeConfigResponseBody
+     */
     public static function fromMap($map = [])
     {
         return new self();

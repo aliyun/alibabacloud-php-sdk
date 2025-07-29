@@ -4,26 +4,46 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CheckControlPlaneLogEnableResponseBody extends Model
 {
     /**
+     * @description The ID of the Alibaba Cloud account to which the resource belongs.
+     *
+     * @example 162981*****
+     *
      * @var string
      */
     public $aliuid;
 
     /**
+     * @description The control plane components for which log collection is enabled.
+     *
+     * This parameter is required.
+     *
      * @var string[]
      */
     public $components;
 
     /**
+     * @description The name of the Simple Log Service project that you want to use to store the logs of control plane components.
+     *
+     * Default value: k8s-log-$Cluster ID.
+     *
+     * @example k8s-log-c5b5e80b0b64a4bf6939d2d8fbbc5****
+     *
      * @var string
      */
     public $logProject;
 
     /**
+     * @description The retention period of the log data stored in the Logstore. Valid values: 1 to 3000. Unit: days.
+     *
+     * Default value: 30.
+     *
+     * @example 30
+     *
      * @var string
      */
     public $logTtl;
@@ -34,36 +54,20 @@ class CheckControlPlaneLogEnableResponseBody extends Model
         'logTtl' => 'log_ttl',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->components)) {
-            Model::validateArray($this->components);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->aliuid) {
             $res['aliuid'] = $this->aliuid;
         }
-
         if (null !== $this->components) {
-            if (\is_array($this->components)) {
-                $res['components'] = [];
-                $n1 = 0;
-                foreach ($this->components as $item1) {
-                    $res['components'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['components'] = $this->components;
         }
-
         if (null !== $this->logProject) {
             $res['log_project'] = $this->logProject;
         }
-
         if (null !== $this->logTtl) {
             $res['log_ttl'] = $this->logTtl;
         }
@@ -71,33 +75,25 @@ class CheckControlPlaneLogEnableResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CheckControlPlaneLogEnableResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['aliuid'])) {
             $model->aliuid = $map['aliuid'];
         }
-
         if (isset($map['components'])) {
             if (!empty($map['components'])) {
-                $model->components = [];
-                $n1 = 0;
-                foreach ($map['components'] as $item1) {
-                    $model->components[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->components = $map['components'];
             }
         }
-
         if (isset($map['log_project'])) {
             $model->logProject = $map['log_project'];
         }
-
         if (isset($map['log_ttl'])) {
             $model->logTtl = $map['log_ttl'];
         }

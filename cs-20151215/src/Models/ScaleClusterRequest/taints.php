@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models\ScaleClusterRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class taints extends Model
 {
@@ -28,22 +28,17 @@ class taints extends Model
         'value' => 'value',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->effect) {
             $res['effect'] = $this->effect;
         }
-
         if (null !== $this->key) {
             $res['key'] = $this->key;
         }
-
         if (null !== $this->value) {
             $res['value'] = $this->value;
         }
@@ -51,22 +46,20 @@ class taints extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return taints
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['effect'])) {
             $model->effect = $map['effect'];
         }
-
         if (isset($map['key'])) {
             $model->key = $map['key'];
         }
-
         if (isset($map['value'])) {
             $model->value = $map['value'];
         }

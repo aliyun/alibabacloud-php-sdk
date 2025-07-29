@@ -4,21 +4,34 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeployPolicyInstanceRequest extends Model
 {
     /**
+     * @description The action of the policy. Valid values:
+     *
+     *   `deny`: Deployments that match the policy are denied.
+     *   `warn`: Alerts are generated for Deployments that match the policy.
+     *
+     * @example deny
+     *
      * @var string
      */
     public $action;
 
     /**
+     * @description The namespaces to which the policy applies. If you leave this parameter empty, the policy is applicable to all namespaces of the cluster.
+     *
      * @var string[]
      */
     public $namespaces;
 
     /**
+     * @description The parameter settings of the policy. For more information about the parameters supported by each policy, see [Predefined security policies of ACK](https://www.alibabacloud.com/help/doc-detail/359819.html).
+     *
+     * @example {"restrictedNamespaces": [ "test" ]}
+     *
      * @var mixed[]
      */
     public $parameters;
@@ -28,77 +41,42 @@ class DeployPolicyInstanceRequest extends Model
         'parameters' => 'parameters',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->namespaces)) {
-            Model::validateArray($this->namespaces);
-        }
-        if (\is_array($this->parameters)) {
-            Model::validateArray($this->parameters);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->action) {
             $res['action'] = $this->action;
         }
-
         if (null !== $this->namespaces) {
-            if (\is_array($this->namespaces)) {
-                $res['namespaces'] = [];
-                $n1 = 0;
-                foreach ($this->namespaces as $item1) {
-                    $res['namespaces'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['namespaces'] = $this->namespaces;
         }
-
         if (null !== $this->parameters) {
-            if (\is_array($this->parameters)) {
-                $res['parameters'] = [];
-                foreach ($this->parameters as $key1 => $value1) {
-                    $res['parameters'][$key1] = $value1;
-                }
-            }
+            $res['parameters'] = $this->parameters;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeployPolicyInstanceRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['action'])) {
             $model->action = $map['action'];
         }
-
         if (isset($map['namespaces'])) {
             if (!empty($map['namespaces'])) {
-                $model->namespaces = [];
-                $n1 = 0;
-                foreach ($map['namespaces'] as $item1) {
-                    $model->namespaces[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->namespaces = $map['namespaces'];
             }
         }
-
         if (isset($map['parameters'])) {
-            if (!empty($map['parameters'])) {
-                $model->parameters = [];
-                foreach ($map['parameters'] as $key1 => $value1) {
-                    $model->parameters[$key1] = $value1;
-                }
-            }
+            $model->parameters = $map['parameters'];
         }
 
         return $model;
