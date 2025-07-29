@@ -182,6 +182,9 @@ class EhpcInstant extends OpenApiClient
         Utils::validateModel($tmpReq);
         $request = new CreateJobShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->dependencyPolicy)) {
+            $request->dependencyPolicyShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->dependencyPolicy, 'DependencyPolicy', 'json');
+        }
         if (!Utils::isUnset($tmpReq->deploymentPolicy)) {
             $request->deploymentPolicyShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deploymentPolicy, 'DeploymentPolicy', 'json');
         }
@@ -192,6 +195,9 @@ class EhpcInstant extends OpenApiClient
             $request->tasksShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tasks, 'Tasks', 'json');
         }
         $query = [];
+        if (!Utils::isUnset($request->dependencyPolicyShrink)) {
+            $query['DependencyPolicy'] = $request->dependencyPolicyShrink;
+        }
         if (!Utils::isUnset($request->deploymentPolicyShrink)) {
             $query['DeploymentPolicy'] = $request->deploymentPolicyShrink;
         }

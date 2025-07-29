@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\EhpcInstant\V20230701\Models;
 
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\CreateJobRequest\dependencyPolicy;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\CreateJobRequest\deploymentPolicy;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\CreateJobRequest\securityPolicy;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\CreateJobRequest\tasks;
@@ -11,6 +12,11 @@ use AlibabaCloud\Tea\Model;
 
 class CreateJobRequest extends Model
 {
+    /**
+     * @var dependencyPolicy
+     */
+    public $dependencyPolicy;
+
     /**
      * @var deploymentPolicy
      */
@@ -49,6 +55,7 @@ class CreateJobRequest extends Model
      */
     public $tasks;
     protected $_name = [
+        'dependencyPolicy' => 'DependencyPolicy',
         'deploymentPolicy' => 'DeploymentPolicy',
         'jobDescription' => 'JobDescription',
         'jobName' => 'JobName',
@@ -62,6 +69,9 @@ class CreateJobRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->dependencyPolicy) {
+            $res['DependencyPolicy'] = null !== $this->dependencyPolicy ? $this->dependencyPolicy->toMap() : null;
+        }
         if (null !== $this->deploymentPolicy) {
             $res['DeploymentPolicy'] = null !== $this->deploymentPolicy ? $this->deploymentPolicy->toMap() : null;
         }
@@ -98,6 +108,9 @@ class CreateJobRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DependencyPolicy'])) {
+            $model->dependencyPolicy = dependencyPolicy::fromMap($map['DependencyPolicy']);
+        }
         if (isset($map['DeploymentPolicy'])) {
             $model->deploymentPolicy = deploymentPolicy::fromMap($map['DeploymentPolicy']);
         }

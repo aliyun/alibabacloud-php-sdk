@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetJobResponseBody\jobInfo\tasks;
 
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetJobResponseBody\jobInfo\tasks\taskSpec\resource;
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetJobResponseBody\jobInfo\tasks\taskSpec\retryPolicy;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetJobResponseBody\jobInfo\tasks\taskSpec\taskExecutor;
 use AlibabaCloud\Tea\Model;
 
@@ -16,11 +17,17 @@ class taskSpec extends Model
     public $resource;
 
     /**
+     * @var retryPolicy
+     */
+    public $retryPolicy;
+
+    /**
      * @var taskExecutor[]
      */
     public $taskExecutor;
     protected $_name = [
         'resource' => 'Resource',
+        'retryPolicy' => 'RetryPolicy',
         'taskExecutor' => 'TaskExecutor',
     ];
 
@@ -31,6 +38,9 @@ class taskSpec extends Model
         $res = [];
         if (null !== $this->resource) {
             $res['Resource'] = null !== $this->resource ? $this->resource->toMap() : null;
+        }
+        if (null !== $this->retryPolicy) {
+            $res['RetryPolicy'] = null !== $this->retryPolicy ? $this->retryPolicy->toMap() : null;
         }
         if (null !== $this->taskExecutor) {
             $res['TaskExecutor'] = [];
@@ -55,6 +65,9 @@ class taskSpec extends Model
         $model = new self();
         if (isset($map['Resource'])) {
             $model->resource = resource::fromMap($map['Resource']);
+        }
+        if (isset($map['RetryPolicy'])) {
+            $model->retryPolicy = retryPolicy::fromMap($map['RetryPolicy']);
         }
         if (isset($map['TaskExecutor'])) {
             if (!empty($map['TaskExecutor'])) {

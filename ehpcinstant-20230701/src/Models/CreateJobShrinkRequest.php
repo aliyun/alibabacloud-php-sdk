@@ -11,6 +11,11 @@ class CreateJobShrinkRequest extends Model
     /**
      * @var string
      */
+    public $dependencyPolicyShrink;
+
+    /**
+     * @var string
+     */
     public $deploymentPolicyShrink;
 
     /**
@@ -46,6 +51,7 @@ class CreateJobShrinkRequest extends Model
      */
     public $tasksShrink;
     protected $_name = [
+        'dependencyPolicyShrink' => 'DependencyPolicy',
         'deploymentPolicyShrink' => 'DeploymentPolicy',
         'jobDescription' => 'JobDescription',
         'jobName' => 'JobName',
@@ -59,6 +65,9 @@ class CreateJobShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->dependencyPolicyShrink) {
+            $res['DependencyPolicy'] = $this->dependencyPolicyShrink;
+        }
         if (null !== $this->deploymentPolicyShrink) {
             $res['DeploymentPolicy'] = $this->deploymentPolicyShrink;
         }
@@ -89,6 +98,9 @@ class CreateJobShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DependencyPolicy'])) {
+            $model->dependencyPolicyShrink = $map['DependencyPolicy'];
+        }
         if (isset($map['DeploymentPolicy'])) {
             $model->deploymentPolicyShrink = $map['DeploymentPolicy'];
         }

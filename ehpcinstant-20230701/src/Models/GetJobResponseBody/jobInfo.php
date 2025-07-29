@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetJobResponseBody;
 
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetJobResponseBody\jobInfo\dependencyPolicy;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetJobResponseBody\jobInfo\deploymentPolicy;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetJobResponseBody\jobInfo\tasks;
 use AlibabaCloud\Tea\Model;
@@ -21,6 +22,11 @@ class jobInfo extends Model
      * @var string
      */
     public $createTime;
+
+    /**
+     * @var dependencyPolicy
+     */
+    public $dependencyPolicy;
 
     /**
      * @var deploymentPolicy
@@ -81,6 +87,7 @@ class jobInfo extends Model
     protected $_name = [
         'appExtraInfo' => 'AppExtraInfo',
         'createTime' => 'CreateTime',
+        'dependencyPolicy' => 'DependencyPolicy',
         'deploymentPolicy' => 'DeploymentPolicy',
         'endTime' => 'EndTime',
         'jobDescription' => 'JobDescription',
@@ -102,6 +109,9 @@ class jobInfo extends Model
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->dependencyPolicy) {
+            $res['DependencyPolicy'] = null !== $this->dependencyPolicy ? $this->dependencyPolicy->toMap() : null;
         }
         if (null !== $this->deploymentPolicy) {
             $res['DeploymentPolicy'] = null !== $this->deploymentPolicy ? $this->deploymentPolicy->toMap() : null;
@@ -153,6 +163,9 @@ class jobInfo extends Model
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['DependencyPolicy'])) {
+            $model->dependencyPolicy = dependencyPolicy::fromMap($map['DependencyPolicy']);
         }
         if (isset($map['DeploymentPolicy'])) {
             $model->deploymentPolicy = deploymentPolicy::fromMap($map['DeploymentPolicy']);
