@@ -511,6 +511,8 @@ use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveUserBillPredictionRequest
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveUserBillPredictionResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveUserDomainsRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveUserDomainsResponse;
+use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveUserStreamMetricDataRequest;
+use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveUserStreamMetricDataResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveUserTagsRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveUserTagsResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveUserTrafficLogRequest;
@@ -18481,6 +18483,74 @@ class Live extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeLiveUserDomainsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary  查询指定域名流粒度批量数据
+     *  *
+     * @param DescribeLiveUserStreamMetricDataRequest $request DescribeLiveUserStreamMetricDataRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeLiveUserStreamMetricDataResponse DescribeLiveUserStreamMetricDataResponse
+     */
+    public function describeLiveUserStreamMetricDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->protocol)) {
+            $query['Protocol'] = $request->protocol;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->streamName)) {
+            $query['StreamName'] = $request->streamName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeLiveUserStreamMetricData',
+            'version' => '2016-11-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeLiveUserStreamMetricDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary  查询指定域名流粒度批量数据
+     *  *
+     * @param DescribeLiveUserStreamMetricDataRequest $request DescribeLiveUserStreamMetricDataRequest
+     *
+     * @return DescribeLiveUserStreamMetricDataResponse DescribeLiveUserStreamMetricDataResponse
+     */
+    public function describeLiveUserStreamMetricData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeLiveUserStreamMetricDataWithOptions($request, $runtime);
     }
 
     /**

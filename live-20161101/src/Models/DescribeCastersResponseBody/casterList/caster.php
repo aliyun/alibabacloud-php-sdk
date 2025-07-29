@@ -140,7 +140,7 @@ class caster extends Model
      *
      * @example rg-aekzw******
      *
-     * @var int
+     * @var string
      */
     public $resourceGroupId;
 
