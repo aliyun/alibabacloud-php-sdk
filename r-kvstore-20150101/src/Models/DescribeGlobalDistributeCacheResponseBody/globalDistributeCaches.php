@@ -4,22 +4,36 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeGlobalDistributeCacheResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeGlobalDistributeCacheResponseBody\globalDistributeCaches\subInstances;
+use AlibabaCloud\Tea\Model;
 
 class globalDistributeCaches extends Model
 {
     /**
+     * @description The ID of the distributed instance.
+     *
+     * @example gr-bp14rkqrhac****
+     *
      * @var string
      */
     public $globalInstanceId;
 
     /**
+     * @description The state of the distributed instance. Valid values:
+     *
+     *   **Normal**: The instance is normal.
+     *   **Changing**: The configurations of the instance are being changed.
+     *   **Creating**: The instance is being created.
+     *
+     * @example Normal
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description Details of the child instances.
+     *
      * @var subInstances[]
      */
     public $subInstances;
@@ -29,32 +43,23 @@ class globalDistributeCaches extends Model
         'subInstances' => 'SubInstances',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->subInstances)) {
-            Model::validateArray($this->subInstances);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->globalInstanceId) {
             $res['GlobalInstanceId'] = $this->globalInstanceId;
         }
-
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-
         if (null !== $this->subInstances) {
-            if (\is_array($this->subInstances)) {
-                $res['SubInstances'] = [];
-                $n1 = 0;
-                foreach ($this->subInstances as $item1) {
-                    $res['SubInstances'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['SubInstances'] = [];
+            if (null !== $this->subInstances && \is_array($this->subInstances)) {
+                $n = 0;
+                foreach ($this->subInstances as $item) {
+                    $res['SubInstances'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -62,29 +67,26 @@ class globalDistributeCaches extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return globalDistributeCaches
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GlobalInstanceId'])) {
             $model->globalInstanceId = $map['GlobalInstanceId'];
         }
-
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-
         if (isset($map['SubInstances'])) {
             if (!empty($map['SubInstances'])) {
                 $model->subInstances = [];
-                $n1 = 0;
-                foreach ($map['SubInstances'] as $item1) {
-                    $model->subInstances[$n1] = subInstances::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['SubInstances'] as $item) {
+                    $model->subInstances[$n++] = null !== $item ? subInstances::fromMap($item) : $item;
                 }
             }
         }

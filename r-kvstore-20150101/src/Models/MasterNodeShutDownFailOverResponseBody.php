@@ -4,21 +4,33 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class MasterNodeShutDownFailOverResponseBody extends Model
 {
     /**
+     * @description The instance ID.
+     *
+     * @example r-bp1zxszhcgatnx****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The request ID.
+     *
+     * @example 12123216-4B00-4378-BE4B-08005BFC****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The task ID.
+     *
+     * @example 17566
+     *
      * @var string
      */
     public $taskID;
@@ -28,22 +40,17 @@ class MasterNodeShutDownFailOverResponseBody extends Model
         'taskID' => 'TaskID',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->taskID) {
             $res['TaskID'] = $this->taskID;
         }
@@ -51,22 +58,20 @@ class MasterNodeShutDownFailOverResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return MasterNodeShutDownFailOverResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['TaskID'])) {
             $model->taskID = $map['TaskID'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeEncryptionKeyListResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class keyIds extends Model
 {
@@ -16,47 +16,29 @@ class keyIds extends Model
         'keyId' => 'KeyId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->keyId)) {
-            Model::validateArray($this->keyId);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->keyId) {
-            if (\is_array($this->keyId)) {
-                $res['KeyId'] = [];
-                $n1 = 0;
-                foreach ($this->keyId as $item1) {
-                    $res['KeyId'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['KeyId'] = $this->keyId;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return keyIds
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['KeyId'])) {
             if (!empty($map['KeyId'])) {
-                $model->keyId = [];
-                $n1 = 0;
-                foreach ($map['KeyId'] as $item1) {
-                    $model->keyId[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->keyId = $map['KeyId'];
             }
         }
 

@@ -4,21 +4,43 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyInstanceTDERequest extends Model
 {
     /**
+     * @description The ID of the custom key. You can call the [DescribeEncryptionKeyList](https://help.aliyun.com/document_detail/473860.html) operation to query the key ID.
+     *
+     * >
+     *
+     *   If you do not specify this parameter, [Key Management Service (KMS)](https://help.aliyun.com/document_detail/28935.html) automatically generates a key.
+     *
+     *   To create a custom key, you can call the [CreateKey](https://help.aliyun.com/document_detail/28947.html) operation of the KMS API.
+     *
+     * @example ad463061-992d-4195-8a94-ed63********
+     *
      * @var string
      */
     public $encryptionKey;
 
     /**
+     * @description The encryption algorithm. Default value: AES-CTR-256.
+     *
+     * > This parameter is available only if the **TDEStatus** parameter is set to **Enabled**.
+     *
+     * @example AES-CTR-256
+     *
      * @var string
      */
     public $encryptionName;
 
     /**
+     * @description The ID of the instance. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/473778.html) operation to query the ID of the instance.
+     *
+     * This parameter is required.
+     *
+     * @example r-bp1zxszhcgatnx****
+     *
      * @var string
      */
     public $instanceId;
@@ -44,6 +66,16 @@ class ModifyInstanceTDERequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The Alibaba Cloud Resource Name (ARN) of the Resource Access Management (RAM) role that you want to attach to your Tair (Redis OSS-compatible) instance. The ARN must be in the format of `acs:ram::$accountID:role/$roleName`. After the role is attached, your Tair (Redis OSS-compatible) instance can use KMS.
+     *
+     * >
+     *
+     *   `$accountID`: the ID of the Alibaba Cloud account. To view the account ID, log on to the Alibaba Cloud console, move the pointer over your profile picture in the upper-right corner of the page, and then click **Security Settings**.
+     *
+     *   `$roleName`: the name of the RAM role. Replace $roleName with **AliyunRdsInstanceEncryptionDefaultRole**.
+     *
+     * @example acs:ram::123456789012****:role/AliyunRdsInstanceEncryptionDefaultRole
+     *
      * @var string
      */
     public $roleArn;
@@ -54,6 +86,14 @@ class ModifyInstanceTDERequest extends Model
     public $securityToken;
 
     /**
+     * @description Specifies whether to enable TDE. Set the value to **Enabled**.
+     *
+     * > TDE cannot be disabled after it is enabled. Before you enable it, evaluate whether this feature affects your business. For more information, see [Enable TDE](https://help.aliyun.com/document_detail/265913.html).
+     *
+     * This parameter is required.
+     *
+     * @example Enabled
+     *
      * @var string
      */
     public $TDEStatus;
@@ -70,50 +110,38 @@ class ModifyInstanceTDERequest extends Model
         'TDEStatus' => 'TDEStatus',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->encryptionKey) {
             $res['EncryptionKey'] = $this->encryptionKey;
         }
-
         if (null !== $this->encryptionName) {
             $res['EncryptionName'] = $this->encryptionName;
         }
-
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
-
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
-
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-
         if (null !== $this->roleArn) {
             $res['RoleArn'] = $this->roleArn;
         }
-
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
-
         if (null !== $this->TDEStatus) {
             $res['TDEStatus'] = $this->TDEStatus;
         }
@@ -121,50 +149,41 @@ class ModifyInstanceTDERequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyInstanceTDERequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EncryptionKey'])) {
             $model->encryptionKey = $map['EncryptionKey'];
         }
-
         if (isset($map['EncryptionName'])) {
             $model->encryptionName = $map['EncryptionName'];
         }
-
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
-
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
-
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-
         if (isset($map['RoleArn'])) {
             $model->roleArn = $map['RoleArn'];
         }
-
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }
-
         if (isset($map['TDEStatus'])) {
             $model->TDEStatus = $map['TDEStatus'];
         }

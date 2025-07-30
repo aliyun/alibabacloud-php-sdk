@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ResetAccountPasswordResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 8BE02313-5395-4EBE-BAE7-E90A053F****
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class ResetAccountPasswordResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class ResetAccountPasswordResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ResetAccountPasswordResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

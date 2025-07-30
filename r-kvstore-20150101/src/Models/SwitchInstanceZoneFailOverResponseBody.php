@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class SwitchInstanceZoneFailOverResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 2D9F3768-EDA9-4811-943E-42C8006E****
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class SwitchInstanceZoneFailOverResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class SwitchInstanceZoneFailOverResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return SwitchInstanceZoneFailOverResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

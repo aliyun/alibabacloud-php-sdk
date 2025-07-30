@@ -4,76 +4,118 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribePriceResponseBody\subOrders;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribePriceResponseBody\subOrders\subOrder\depreciateInfo;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribePriceResponseBody\subOrders\subOrder\moduleInstance;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribePriceResponseBody\subOrders\subOrder\optionalPromotions;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribePriceResponseBody\subOrders\subOrder\promDetailList;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribePriceResponseBody\subOrders\subOrder\ruleIds;
+use AlibabaCloud\Tea\Model;
 
 class subOrder extends Model
 {
     /**
+     * @description Indicates whether eligibility for the contracted discount is met.
+     *
+     * @example ****
+     *
      * @var bool
      */
     public $contractActivity;
 
     /**
+     * @description The price reduction information.
+     *
      * @var depreciateInfo
      */
     public $depreciateInfo;
 
     /**
+     * @description The discount amount of the order.
+     *
+     * @example 0.21
+     *
      * @var string
      */
     public $discountAmount;
 
     /**
+     * @description The instance ID.
+     *
+     * @example r-bp1xxxxxxxxxxxxx
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description Indicates whether eligibility for the contracted discount is met.
+     *
+     * @example ****
+     *
      * @var bool
      */
     public $isContractActivity;
 
     /**
+     * @description The configuration details for each instance of an order line item.
+     *
      * @var moduleInstance
      */
     public $moduleInstance;
 
     /**
+     * @description The optional promotions.
+     *
      * @var optionalPromotions
      */
     public $optionalPromotions;
 
     /**
+     * @description The original price of the order.
+     *
+     * @example 0.21
+     *
      * @var string
      */
     public $originalAmount;
 
     /**
+     * @description Details about promotions.
+     *
      * @var promDetailList
      */
     public $promDetailList;
 
     /**
+     * @description The hit rule IDs.
+     *
      * @var ruleIds
      */
     public $ruleIds;
 
     /**
+     * @description The discounted price.
+     *
+     * @example ****
+     *
      * @var int
      */
     public $standDiscountPrice;
 
     /**
+     * @description The discounted price.
+     *
+     * @example ****
+     *
      * @var int
      */
     public $standPrice;
 
     /**
+     * @description The transaction price of the order.
+     *
+     * @example 10
+     *
      * @var string
      */
     public $tradeAmount;
@@ -93,77 +135,47 @@ class subOrder extends Model
         'tradeAmount' => 'TradeAmount',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->depreciateInfo) {
-            $this->depreciateInfo->validate();
-        }
-        if (null !== $this->moduleInstance) {
-            $this->moduleInstance->validate();
-        }
-        if (null !== $this->optionalPromotions) {
-            $this->optionalPromotions->validate();
-        }
-        if (null !== $this->promDetailList) {
-            $this->promDetailList->validate();
-        }
-        if (null !== $this->ruleIds) {
-            $this->ruleIds->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->contractActivity) {
             $res['ContractActivity'] = $this->contractActivity;
         }
-
         if (null !== $this->depreciateInfo) {
-            $res['DepreciateInfo'] = null !== $this->depreciateInfo ? $this->depreciateInfo->toArray($noStream) : $this->depreciateInfo;
+            $res['DepreciateInfo'] = null !== $this->depreciateInfo ? $this->depreciateInfo->toMap() : null;
         }
-
         if (null !== $this->discountAmount) {
             $res['DiscountAmount'] = $this->discountAmount;
         }
-
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->isContractActivity) {
             $res['IsContractActivity'] = $this->isContractActivity;
         }
-
         if (null !== $this->moduleInstance) {
-            $res['ModuleInstance'] = null !== $this->moduleInstance ? $this->moduleInstance->toArray($noStream) : $this->moduleInstance;
+            $res['ModuleInstance'] = null !== $this->moduleInstance ? $this->moduleInstance->toMap() : null;
         }
-
         if (null !== $this->optionalPromotions) {
-            $res['OptionalPromotions'] = null !== $this->optionalPromotions ? $this->optionalPromotions->toArray($noStream) : $this->optionalPromotions;
+            $res['OptionalPromotions'] = null !== $this->optionalPromotions ? $this->optionalPromotions->toMap() : null;
         }
-
         if (null !== $this->originalAmount) {
             $res['OriginalAmount'] = $this->originalAmount;
         }
-
         if (null !== $this->promDetailList) {
-            $res['PromDetailList'] = null !== $this->promDetailList ? $this->promDetailList->toArray($noStream) : $this->promDetailList;
+            $res['PromDetailList'] = null !== $this->promDetailList ? $this->promDetailList->toMap() : null;
         }
-
         if (null !== $this->ruleIds) {
-            $res['RuleIds'] = null !== $this->ruleIds ? $this->ruleIds->toArray($noStream) : $this->ruleIds;
+            $res['RuleIds'] = null !== $this->ruleIds ? $this->ruleIds->toMap() : null;
         }
-
         if (null !== $this->standDiscountPrice) {
             $res['StandDiscountPrice'] = $this->standDiscountPrice;
         }
-
         if (null !== $this->standPrice) {
             $res['StandPrice'] = $this->standPrice;
         }
-
         if (null !== $this->tradeAmount) {
             $res['TradeAmount'] = $this->tradeAmount;
         }
@@ -171,62 +183,50 @@ class subOrder extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return subOrder
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ContractActivity'])) {
             $model->contractActivity = $map['ContractActivity'];
         }
-
         if (isset($map['DepreciateInfo'])) {
             $model->depreciateInfo = depreciateInfo::fromMap($map['DepreciateInfo']);
         }
-
         if (isset($map['DiscountAmount'])) {
             $model->discountAmount = $map['DiscountAmount'];
         }
-
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['IsContractActivity'])) {
             $model->isContractActivity = $map['IsContractActivity'];
         }
-
         if (isset($map['ModuleInstance'])) {
             $model->moduleInstance = moduleInstance::fromMap($map['ModuleInstance']);
         }
-
         if (isset($map['OptionalPromotions'])) {
             $model->optionalPromotions = optionalPromotions::fromMap($map['OptionalPromotions']);
         }
-
         if (isset($map['OriginalAmount'])) {
             $model->originalAmount = $map['OriginalAmount'];
         }
-
         if (isset($map['PromDetailList'])) {
             $model->promDetailList = promDetailList::fromMap($map['PromDetailList']);
         }
-
         if (isset($map['RuleIds'])) {
             $model->ruleIds = ruleIds::fromMap($map['RuleIds']);
         }
-
         if (isset($map['StandDiscountPrice'])) {
             $model->standDiscountPrice = $map['StandDiscountPrice'];
         }
-
         if (isset($map['StandPrice'])) {
             $model->standPrice = $map['StandPrice'];
         }
-
         if (isset($map['TradeAmount'])) {
             $model->tradeAmount = $map['TradeAmount'];
         }

@@ -4,31 +4,63 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeActiveOperationTasksRequest extends Model
 {
     /**
+     * @description The filter condition that is used to return events based on the settings of event cancellation. Default value: -1. Valid values:
+     *
+     *   **-1**: returns all events.
+     *   **0**: returns only O\\&M events that cannot be canceled.
+     *   **1**: returns only O\\&M events that can be canceled.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $allowCancel;
 
     /**
+     * @description The filter condition that is used to return events based on the settings of the switching time. Default value: -1. Valid values:
+     *
+     *   **-1**: returns all events.
+     *   **0**: returns only O\\&M events for which the switching time cannot be changed.
+     *   **-1**: returns only O\\&M events for which the switching time can be changed.
+     *
+     * @example -1
+     *
      * @var int
      */
     public $allowChange;
 
     /**
+     * @description The type of task configuration change. Valid values:
+     *
+     *   **all** (default): The configurations of all O\\&M tasks are changed.
+     *   **S0**: The configurations of tasks initiated to fix exceptions are changed.
+     *   **S1**: The configurations of system O\\&M tasks are changed.
+     *
+     * @example all
+     *
      * @var string
      */
     public $changeLevel;
 
     /**
+     * @description The database type. Valid values: **redis**
+     *
+     * @example redis
+     *
      * @var string
      */
     public $dbType;
 
     /**
+     * @description The name of the instance. You can leave this parameter empty. If you configure this parameter, you can specify the name only of one instance.
+     *
+     * @example r-wz96fzmpvpr2qnqnlb
+     *
      * @var string
      */
     public $insName;
@@ -44,21 +76,39 @@ class DescribeActiveOperationTasksRequest extends Model
     public $ownerId;
 
     /**
+     * @description The page number. Pages start from page 1. Default value: 1.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Default value: 25. Maximum value: 100.
+     *
+     * @example 25
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The name of the service. Valid values: RDS, POLARDB, MongoDB, and Redis. For Redis instances, set the value to Redis.
+     *
+     * @example Redis
+     *
      * @var string
      */
     public $productId;
 
     /**
+     * @description The region ID of the O&M task. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/473763.html) operation to query the most recent region list.
+     *
+     * > A value of **all** indicates all region IDs.
+     *
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $region;
@@ -79,11 +129,37 @@ class DescribeActiveOperationTasksRequest extends Model
     public $securityToken;
 
     /**
+     * @description The status of an O\\&M event. This parameter is used to filter returned tasks. Valid values:
+     *
+     *   **-1**: filters all events.
+     *   **3**: filters pending events.
+     *   **4**: filters in-progress events.
+     *   **5**: filters successful events.
+     *   **6**: filters failed events.
+     *   **7**: filters canceled events.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @description The type of the O\\&M event. If this parameter is not specified, all types of O\\&M events are queried.
+     *
+     * Valid values:
+     *
+     *   rds_apsradb_upgrade: minor version update
+     *   rds_apsaradb_ha: primary/secondary switchover
+     *   rds_apsaradb_ssl_update: SSL certificate update
+     *   rds_apsaradb_major_upgrade: major version upgrade
+     *   rds_apsradb_transfer: instance migration
+     *   rds_apsaradb_modify_config: network upgrade
+     *   rds_apsaradb_modify_config: instance parameter adjustment
+     *   rds_apsaradb_maxscale: proxy minor version update
+     *
+     * @example all
+     *
      * @var string
      */
     public $taskType;
@@ -106,74 +182,56 @@ class DescribeActiveOperationTasksRequest extends Model
         'taskType' => 'TaskType',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->allowCancel) {
             $res['AllowCancel'] = $this->allowCancel;
         }
-
         if (null !== $this->allowChange) {
             $res['AllowChange'] = $this->allowChange;
         }
-
         if (null !== $this->changeLevel) {
             $res['ChangeLevel'] = $this->changeLevel;
         }
-
         if (null !== $this->dbType) {
             $res['DbType'] = $this->dbType;
         }
-
         if (null !== $this->insName) {
             $res['InsName'] = $this->insName;
         }
-
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
-
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
-
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-
         if (null !== $this->productId) {
             $res['ProductId'] = $this->productId;
         }
-
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
-
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
-
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
-
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-
         if (null !== $this->taskType) {
             $res['TaskType'] = $this->taskType;
         }
@@ -181,74 +239,59 @@ class DescribeActiveOperationTasksRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeActiveOperationTasksRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AllowCancel'])) {
             $model->allowCancel = $map['AllowCancel'];
         }
-
         if (isset($map['AllowChange'])) {
             $model->allowChange = $map['AllowChange'];
         }
-
         if (isset($map['ChangeLevel'])) {
             $model->changeLevel = $map['ChangeLevel'];
         }
-
         if (isset($map['DbType'])) {
             $model->dbType = $map['DbType'];
         }
-
         if (isset($map['InsName'])) {
             $model->insName = $map['InsName'];
         }
-
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
-
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
-
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-
         if (isset($map['ProductId'])) {
             $model->productId = $map['ProductId'];
         }
-
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }
-
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
-
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }
-
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-
         if (isset($map['TaskType'])) {
             $model->taskType = $map['TaskType'];
         }

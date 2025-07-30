@@ -4,21 +4,33 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyInstanceParameterResponseBody extends Model
 {
     /**
+     * @description The instance ID.
+     *
+     * @example r-bp1zxszhcgatnx****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description Id of the request
+     *
+     * @example 561AFBF1-BE20-44DB-9BD1-6988B53E****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the task.
+     *
+     * @example 578678678
+     *
      * @var int
      */
     public $taskId;
@@ -28,22 +40,17 @@ class ModifyInstanceParameterResponseBody extends Model
         'taskId' => 'TaskId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -51,22 +58,20 @@ class ModifyInstanceParameterResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyInstanceParameterResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

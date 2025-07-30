@@ -4,16 +4,28 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateTairInstanceRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class tag extends Model
 {
     /**
+     * @description The tag key. A tag is a key-value pair.
+     *
+     * >  A maximum of five key-value pairs can be specified at a time.
+     *
+     * @example key1_test
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The value of the tag.
+     *
+     * >  **N** specifies the value of the nth tag. For example, **Tag.1.Value** specifies the value of the first tag, and **Tag.2.Value** specifies the value of the second tag.
+     *
+     * @example value1_test
+     *
      * @var string
      */
     public $value;
@@ -22,18 +34,14 @@ class tag extends Model
         'value' => 'Value',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
-
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -41,18 +49,17 @@ class tag extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return tag
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
-
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

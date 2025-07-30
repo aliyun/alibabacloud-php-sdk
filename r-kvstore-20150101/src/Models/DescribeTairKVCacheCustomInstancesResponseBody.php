@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeTairKVCacheCustomInstancesResponseBody\instances;
+use AlibabaCloud\Tea\Model;
 
 class DescribeTairKVCacheCustomInstancesResponseBody extends Model
 {
@@ -15,21 +15,29 @@ class DescribeTairKVCacheCustomInstancesResponseBody extends Model
     public $instances;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example B79C1A90-495B-4E99-A2AA-A4DB13B8****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 40
+     *
      * @var int
      */
     public $totalCount;
@@ -41,33 +49,23 @@ class DescribeTairKVCacheCustomInstancesResponseBody extends Model
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->instances) {
-            $this->instances->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instances) {
-            $res['Instances'] = null !== $this->instances ? $this->instances->toArray($noStream) : $this->instances;
+            $res['Instances'] = null !== $this->instances ? $this->instances->toMap() : null;
         }
-
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
-
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -75,30 +73,26 @@ class DescribeTairKVCacheCustomInstancesResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeTairKVCacheCustomInstancesResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Instances'])) {
             $model->instances = instances::fromMap($map['Instances']);
         }
-
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
-
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

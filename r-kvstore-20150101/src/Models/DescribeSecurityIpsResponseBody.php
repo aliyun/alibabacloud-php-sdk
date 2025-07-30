@@ -4,17 +4,23 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeSecurityIpsResponseBody\securityIpGroups;
+use AlibabaCloud\Tea\Model;
 
 class DescribeSecurityIpsResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example EFC9161F-15E3-4A6E-8A99-C09916D1****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The whitelists of the instance.
+     *
      * @var securityIpGroups
      */
     public $securityIpGroups;
@@ -23,40 +29,32 @@ class DescribeSecurityIpsResponseBody extends Model
         'securityIpGroups' => 'SecurityIpGroups',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->securityIpGroups) {
-            $this->securityIpGroups->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->securityIpGroups) {
-            $res['SecurityIpGroups'] = null !== $this->securityIpGroups ? $this->securityIpGroups->toArray($noStream) : $this->securityIpGroups;
+            $res['SecurityIpGroups'] = null !== $this->securityIpGroups ? $this->securityIpGroups->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeSecurityIpsResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['SecurityIpGroups'])) {
             $model->securityIpGroups = securityIpGroups::fromMap($map['SecurityIpGroups']);
         }

@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyParameterGroupResponseBody extends Model
 {
     /**
+     * @description The parameter template ID.
+     *
+     * @example testGroupName
+     *
      * @var string
      */
     public $paramGroupId;
 
     /**
+     * @description The request ID.
+     *
+     * @example AD425AD3-CC7B-4EE2-A5CB-2F61BA73****
+     *
      * @var string
      */
     public $requestId;
@@ -22,18 +30,14 @@ class ModifyParameterGroupResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->paramGroupId) {
             $res['ParamGroupId'] = $this->paramGroupId;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -41,18 +45,17 @@ class ModifyParameterGroupResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyParameterGroupResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ParamGroupId'])) {
             $model->paramGroupId = $map['ParamGroupId'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

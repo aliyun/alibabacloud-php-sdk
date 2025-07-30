@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyAccountDescriptionResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 8D0C0AFC-E9CD-47A4-8395-5C31BF9B****
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class ModifyAccountDescriptionResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class ModifyAccountDescriptionResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyAccountDescriptionResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeAvailableResourceResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeAvailableResourceResponseBody\availableZones\availableZone;
+use AlibabaCloud\Tea\Model;
 
 class availableZones extends Model
 {
@@ -17,24 +17,17 @@ class availableZones extends Model
         'availableZone' => 'AvailableZone',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->availableZone)) {
-            Model::validateArray($this->availableZone);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->availableZone) {
-            if (\is_array($this->availableZone)) {
-                $res['AvailableZone'] = [];
-                $n1 = 0;
-                foreach ($this->availableZone as $item1) {
-                    $res['AvailableZone'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['AvailableZone'] = [];
+            if (null !== $this->availableZone && \is_array($this->availableZone)) {
+                $n = 0;
+                foreach ($this->availableZone as $item) {
+                    $res['AvailableZone'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -42,21 +35,20 @@ class availableZones extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return availableZones
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AvailableZone'])) {
             if (!empty($map['AvailableZone'])) {
                 $model->availableZone = [];
-                $n1 = 0;
-                foreach ($map['AvailableZone'] as $item1) {
-                    $model->availableZone[$n1] = availableZone::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['AvailableZone'] as $item) {
+                    $model->availableZone[$n++] = null !== $item ? availableZone::fromMap($item) : $item;
                 }
             }
         }

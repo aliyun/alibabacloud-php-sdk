@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ResetTairKVCacheCustomInstancePasswordResponseBody extends Model
 {
     /**
+     * @example AD425AD3-CC7B-4EE2-A5CB-2F61BA73****
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +18,9 @@ class ResetTairKVCacheCustomInstancePasswordResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +30,11 @@ class ResetTairKVCacheCustomInstancePasswordResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ResetTairKVCacheCustomInstancePasswordResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

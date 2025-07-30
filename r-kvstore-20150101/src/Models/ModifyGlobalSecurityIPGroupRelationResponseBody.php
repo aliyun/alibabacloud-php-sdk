@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyGlobalSecurityIPGroupRelationResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 1E83311F-0EE4-4922-A3BF-730B312B****
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class ModifyGlobalSecurityIPGroupRelationResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class ModifyGlobalSecurityIPGroupRelationResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyGlobalSecurityIPGroupRelationResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

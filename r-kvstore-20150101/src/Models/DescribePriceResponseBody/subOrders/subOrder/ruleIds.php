@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribePriceResponseBody\subOrders\subOrder;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ruleIds extends Model
 {
@@ -16,47 +16,29 @@ class ruleIds extends Model
         'ruleId' => 'RuleId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->ruleId)) {
-            Model::validateArray($this->ruleId);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->ruleId) {
-            if (\is_array($this->ruleId)) {
-                $res['RuleId'] = [];
-                $n1 = 0;
-                foreach ($this->ruleId as $item1) {
-                    $res['RuleId'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['RuleId'] = $this->ruleId;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ruleIds
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RuleId'])) {
             if (!empty($map['RuleId'])) {
-                $model->ruleId = [];
-                $n1 = 0;
-                foreach ($map['RuleId'] as $item1) {
-                    $model->ruleId[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->ruleId = $map['RuleId'];
             }
         }
 

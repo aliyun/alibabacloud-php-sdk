@@ -4,7 +4,8 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101;
 
-use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\AddShardingNodeRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\AddShardingNodeResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\AllocateDirectConnectionRequest;
@@ -285,10 +286,11 @@ use AlibabaCloud\SDK\Rkvstore\V20150101\Models\UnlockDBInstanceWriteRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\UnlockDBInstanceWriteResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\UntagResourcesResponse;
+use AlibabaCloud\Tea\Utils\Utils;
+use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
-use Darabonba\OpenApi\Utils;
 
 class Rkvstore extends OpenApiClient
 {
@@ -304,7 +306,6 @@ class Rkvstore extends OpenApiClient
             'cn-shanghai' => 'r-kvstore.aliyuncs.com',
             'cn-shenzhen' => 'r-kvstore.aliyuncs.com',
             'cn-heyuan' => 'r-kvstore.aliyuncs.com',
-            'cn-guangzhou' => 'r-kvstore.aliyuncs.com',
             'cn-hangzhou-finance' => 'r-kvstore.aliyuncs.com',
             'cn-shanghai-finance-1' => 'r-kvstore.aliyuncs.com',
             'ap-northeast-2-pop' => 'r-kvstore.aliyuncs.com',
@@ -356,91 +357,71 @@ class Rkvstore extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (null !== $endpoint) {
+        if (!Utils::empty_($endpoint)) {
             return $endpoint;
         }
-
-        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
+        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
             return @$endpointMap[$regionId];
         }
 
-        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * Adds one or more data shards to a Tair cluster instance.
+     * @summary Adds one or more data shards to a Tair cluster instance.
+     *  *
+     * @description This operation is available only for cluster instances that use cloud disks.
+     *  *
+     * @param AddShardingNodeRequest $request AddShardingNodeRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * This operation is available only for cluster instances that use cloud disks.
-     *
-     * @param request - AddShardingNodeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns AddShardingNodeResponse
-     *
-     * @param AddShardingNodeRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return AddShardingNodeResponse
+     * @return AddShardingNodeResponse AddShardingNodeResponse
      */
     public function addShardingNodeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->autoPay) {
-            @$query['AutoPay'] = $request->autoPay;
+        if (!Utils::isUnset($request->autoPay)) {
+            $query['AutoPay'] = $request->autoPay;
         }
-
-        if (null !== $request->businessInfo) {
-            @$query['BusinessInfo'] = $request->businessInfo;
+        if (!Utils::isUnset($request->businessInfo)) {
+            $query['BusinessInfo'] = $request->businessInfo;
         }
-
-        if (null !== $request->couponNo) {
-            @$query['CouponNo'] = $request->couponNo;
+        if (!Utils::isUnset($request->couponNo)) {
+            $query['CouponNo'] = $request->couponNo;
         }
-
-        if (null !== $request->forceTrans) {
-            @$query['ForceTrans'] = $request->forceTrans;
+        if (!Utils::isUnset($request->forceTrans)) {
+            $query['ForceTrans'] = $request->forceTrans;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->shardCount) {
-            @$query['ShardCount'] = $request->shardCount;
+        if (!Utils::isUnset($request->shardCount)) {
+            $query['ShardCount'] = $request->shardCount;
         }
-
-        if (null !== $request->sourceBiz) {
-            @$query['SourceBiz'] = $request->sourceBiz;
+        if (!Utils::isUnset($request->sourceBiz)) {
+            $query['SourceBiz'] = $request->sourceBiz;
         }
-
-        if (null !== $request->vSwitchId) {
-            @$query['VSwitchId'] = $request->vSwitchId;
+        if (!Utils::isUnset($request->vSwitchId)) {
+            $query['VSwitchId'] = $request->vSwitchId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'AddShardingNode',
@@ -458,18 +439,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Adds one or more data shards to a Tair cluster instance.
+     * @summary Adds one or more data shards to a Tair cluster instance.
+     *  *
+     * @description This operation is available only for cluster instances that use cloud disks.
+     *  *
+     * @param AddShardingNodeRequest $request AddShardingNodeRequest
      *
-     * @remarks
-     * This operation is available only for cluster instances that use cloud disks.
-     *
-     * @param request - AddShardingNodeRequest
-     *
-     * @returns AddShardingNodeResponse
-     *
-     * @param AddShardingNodeRequest $request
-     *
-     * @return AddShardingNodeResponse
+     * @return AddShardingNodeResponse AddShardingNodeResponse
      */
     public function addShardingNode($request)
     {
@@ -479,64 +455,50 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Applies for a private endpoint for a Tair (Redis OSS-compatible) instance.
-     *
-     * @remarks
-     * Clients can bypass proxy nodes and use private endpoints to connect to cluster instances. This is similar to the connection to native Redis clusters. The direct connection mode can reduce communication overheads and the response time of Tair (Redis OSS-compatible).
+     * @summary Applies for a private endpoint for a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @description Clients can bypass proxy nodes and use private endpoints to connect to cluster instances. This is similar to the connection to native Redis clusters. The direct connection mode can reduce communication overheads and the response time of Tair (Redis OSS-compatible).
      * To call this operation, make sure that the instance meets the following requirements:
      * *   The instance is a cluster instance.
      * *   The instance is deployed in classic mode.
      * *   The instance is deployed in a virtual private cloud (VPC). If the instance is deployed in the classic network, you can call the [SwitchNetwork](https://help.aliyun.com/document_detail/473797.html) operation to change the network type to VPC.
      * *   SSL encryption is disabled for the instance. If SSL encryption is enabled, you can call the [ModifyInstanceSSL](https://help.aliyun.com/document_detail/473838.html) operation to disable SSL encryption.
+     *  *
+     * @param AllocateDirectConnectionRequest $request AllocateDirectConnectionRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - AllocateDirectConnectionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns AllocateDirectConnectionResponse
-     *
-     * @param AllocateDirectConnectionRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return AllocateDirectConnectionResponse
+     * @return AllocateDirectConnectionResponse AllocateDirectConnectionResponse
      */
     public function allocateDirectConnectionWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->connectionString) {
-            @$query['ConnectionString'] = $request->connectionString;
+        if (!Utils::isUnset($request->connectionString)) {
+            $query['ConnectionString'] = $request->connectionString;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->port) {
-            @$query['Port'] = $request->port;
+        if (!Utils::isUnset($request->port)) {
+            $query['Port'] = $request->port;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'AllocateDirectConnection',
@@ -554,23 +516,18 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Applies for a private endpoint for a Tair (Redis OSS-compatible) instance.
-     *
-     * @remarks
-     * Clients can bypass proxy nodes and use private endpoints to connect to cluster instances. This is similar to the connection to native Redis clusters. The direct connection mode can reduce communication overheads and the response time of Tair (Redis OSS-compatible).
+     * @summary Applies for a private endpoint for a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @description Clients can bypass proxy nodes and use private endpoints to connect to cluster instances. This is similar to the connection to native Redis clusters. The direct connection mode can reduce communication overheads and the response time of Tair (Redis OSS-compatible).
      * To call this operation, make sure that the instance meets the following requirements:
      * *   The instance is a cluster instance.
      * *   The instance is deployed in classic mode.
      * *   The instance is deployed in a virtual private cloud (VPC). If the instance is deployed in the classic network, you can call the [SwitchNetwork](https://help.aliyun.com/document_detail/473797.html) operation to change the network type to VPC.
      * *   SSL encryption is disabled for the instance. If SSL encryption is enabled, you can call the [ModifyInstanceSSL](https://help.aliyun.com/document_detail/473838.html) operation to disable SSL encryption.
+     *  *
+     * @param AllocateDirectConnectionRequest $request AllocateDirectConnectionRequest
      *
-     * @param request - AllocateDirectConnectionRequest
-     *
-     * @returns AllocateDirectConnectionResponse
-     *
-     * @param AllocateDirectConnectionRequest $request
-     *
-     * @return AllocateDirectConnectionResponse
+     * @return AllocateDirectConnectionResponse AllocateDirectConnectionResponse
      */
     public function allocateDirectConnection($request)
     {
@@ -580,59 +537,45 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Applies for a public endpoint for an ApsaraDB for Redis instance.
+     * @summary Applies for a public endpoint for an ApsaraDB for Redis instance.
+     *  *
+     * @description You can also apply for public endpoints in the ApsaraDB for Redis console. For more information, see [Use a public endpoint to connect to an ApsaraDB for Redis instance](https://help.aliyun.com/document_detail/43850.html).
+     *  *
+     * @param AllocateInstancePublicConnectionRequest $request AllocateInstancePublicConnectionRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can also apply for public endpoints in the ApsaraDB for Redis console. For more information, see [Use a public endpoint to connect to an ApsaraDB for Redis instance](https://help.aliyun.com/document_detail/43850.html).
-     *
-     * @param request - AllocateInstancePublicConnectionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns AllocateInstancePublicConnectionResponse
-     *
-     * @param AllocateInstancePublicConnectionRequest $request
-     * @param RuntimeOptions                          $runtime
-     *
-     * @return AllocateInstancePublicConnectionResponse
+     * @return AllocateInstancePublicConnectionResponse AllocateInstancePublicConnectionResponse
      */
     public function allocateInstancePublicConnectionWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->connectionStringPrefix) {
-            @$query['ConnectionStringPrefix'] = $request->connectionStringPrefix;
+        if (!Utils::isUnset($request->connectionStringPrefix)) {
+            $query['ConnectionStringPrefix'] = $request->connectionStringPrefix;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->port) {
-            @$query['Port'] = $request->port;
+        if (!Utils::isUnset($request->port)) {
+            $query['Port'] = $request->port;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'AllocateInstancePublicConnection',
@@ -650,18 +593,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Applies for a public endpoint for an ApsaraDB for Redis instance.
+     * @summary Applies for a public endpoint for an ApsaraDB for Redis instance.
+     *  *
+     * @description You can also apply for public endpoints in the ApsaraDB for Redis console. For more information, see [Use a public endpoint to connect to an ApsaraDB for Redis instance](https://help.aliyun.com/document_detail/43850.html).
+     *  *
+     * @param AllocateInstancePublicConnectionRequest $request AllocateInstancePublicConnectionRequest
      *
-     * @remarks
-     * You can also apply for public endpoints in the ApsaraDB for Redis console. For more information, see [Use a public endpoint to connect to an ApsaraDB for Redis instance](https://help.aliyun.com/document_detail/43850.html).
-     *
-     * @param request - AllocateInstancePublicConnectionRequest
-     *
-     * @returns AllocateInstancePublicConnectionResponse
-     *
-     * @param AllocateInstancePublicConnectionRequest $request
-     *
-     * @return AllocateInstancePublicConnectionResponse
+     * @return AllocateInstancePublicConnectionResponse AllocateInstancePublicConnectionResponse
      */
     public function allocateInstancePublicConnection($request)
     {
@@ -671,54 +609,42 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Cancels O\\\\\\&M events at a time.
-     *
-     * @remarks
-     * O\\&M events cannot be canceled in the following scenarios:
+     * @summary Cancels O\\\\\\&M events at a time.
+     *  *
+     * @description O\\&M events cannot be canceled in the following scenarios:
      * *   The allowCancel parameter is set to 0.
      * *   The current time is later than the start time of the O\\&M event.
      * *   The state value of the O\\&M event is not 3.
+     *  *
+     * @param CancelActiveOperationTasksRequest $request CancelActiveOperationTasksRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CancelActiveOperationTasksRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CancelActiveOperationTasksResponse
-     *
-     * @param CancelActiveOperationTasksRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return CancelActiveOperationTasksResponse
+     * @return CancelActiveOperationTasksResponse CancelActiveOperationTasksResponse
      */
     public function cancelActiveOperationTasksWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->ids) {
-            @$query['Ids'] = $request->ids;
+        if (!Utils::isUnset($request->ids)) {
+            $query['Ids'] = $request->ids;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CancelActiveOperationTasks',
@@ -736,21 +662,16 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Cancels O\\\\\\&M events at a time.
-     *
-     * @remarks
-     * O\\&M events cannot be canceled in the following scenarios:
+     * @summary Cancels O\\\\\\&M events at a time.
+     *  *
+     * @description O\\&M events cannot be canceled in the following scenarios:
      * *   The allowCancel parameter is set to 0.
      * *   The current time is later than the start time of the O\\&M event.
      * *   The state value of the O\\&M event is not 3.
+     *  *
+     * @param CancelActiveOperationTasksRequest $request CancelActiveOperationTasksRequest
      *
-     * @param request - CancelActiveOperationTasksRequest
-     *
-     * @returns CancelActiveOperationTasksResponse
-     *
-     * @param CancelActiveOperationTasksRequest $request
-     *
-     * @return CancelActiveOperationTasksResponse
+     * @return CancelActiveOperationTasksResponse CancelActiveOperationTasksResponse
      */
     public function cancelActiveOperationTasks($request)
     {
@@ -760,56 +681,43 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries whether a Tair (Redis OSS-compatible) instance has the permissions to use Key Management Service (KMS).
-     *
-     * @remarks
-     *   For information about Transparent Data Encryption (TDE) and the usage notes of TDE, see [Enable TDE](https://help.aliyun.com/document_detail/265913.html).
+     * @summary Queries whether a Tair (Redis OSS-compatible) instance has the permissions to use Key Management Service (KMS).
+     *  *
+     * @description *   For information about Transparent Data Encryption (TDE) and the usage notes of TDE, see [Enable TDE](https://help.aliyun.com/document_detail/265913.html).
      * *   If the Tair (Redis OSS-compatible) instance is authorized to use KMS, you can call the [ModifyInstanceTDE](https://help.aliyun.com/document_detail/473859.html) operation to enable TDE.
+     *  *
+     * @param CheckCloudResourceAuthorizedRequest $request CheckCloudResourceAuthorizedRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CheckCloudResourceAuthorizedRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CheckCloudResourceAuthorizedResponse
-     *
-     * @param CheckCloudResourceAuthorizedRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return CheckCloudResourceAuthorizedResponse
+     * @return CheckCloudResourceAuthorizedResponse CheckCloudResourceAuthorizedResponse
      */
     public function checkCloudResourceAuthorizedWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->roleArn) {
-            @$query['RoleArn'] = $request->roleArn;
+        if (!Utils::isUnset($request->roleArn)) {
+            $query['RoleArn'] = $request->roleArn;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CheckCloudResourceAuthorized',
@@ -827,19 +735,14 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries whether a Tair (Redis OSS-compatible) instance has the permissions to use Key Management Service (KMS).
-     *
-     * @remarks
-     *   For information about Transparent Data Encryption (TDE) and the usage notes of TDE, see [Enable TDE](https://help.aliyun.com/document_detail/265913.html).
+     * @summary Queries whether a Tair (Redis OSS-compatible) instance has the permissions to use Key Management Service (KMS).
+     *  *
+     * @description *   For information about Transparent Data Encryption (TDE) and the usage notes of TDE, see [Enable TDE](https://help.aliyun.com/document_detail/265913.html).
      * *   If the Tair (Redis OSS-compatible) instance is authorized to use KMS, you can call the [ModifyInstanceTDE](https://help.aliyun.com/document_detail/473859.html) operation to enable TDE.
+     *  *
+     * @param CheckCloudResourceAuthorizedRequest $request CheckCloudResourceAuthorizedRequest
      *
-     * @param request - CheckCloudResourceAuthorizedRequest
-     *
-     * @returns CheckCloudResourceAuthorizedResponse
-     *
-     * @param CheckCloudResourceAuthorizedRequest $request
-     *
-     * @return CheckCloudResourceAuthorizedResponse
+     * @return CheckCloudResourceAuthorizedResponse CheckCloudResourceAuthorizedResponse
      */
     public function checkCloudResourceAuthorized($request)
     {
@@ -849,78 +752,60 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Creates an account that has specific permissions for a Tair (Redis OSS-compatible) instance.
-     *
-     * @remarks
-     *   This operation is supported only for instances that are compatible with Redis 4.0 or later.
+     * @summary Creates an account that has specific permissions for a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @description *   This operation is supported only for instances that are compatible with Redis 4.0 or later.
      * *   The instance must be in the running state.
      * *   You can create up to 18 accounts for an instance.
      * >  For more information about how to create an account in the console, see [Manage database accounts](https://help.aliyun.com/document_detail/92665.html).
+     *  *
+     * @param CreateAccountRequest $request CreateAccountRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateAccountRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateAccountResponse
-     *
-     * @param CreateAccountRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return CreateAccountResponse
+     * @return CreateAccountResponse CreateAccountResponse
      */
     public function createAccountWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountDescription) {
-            @$query['AccountDescription'] = $request->accountDescription;
+        if (!Utils::isUnset($request->accountDescription)) {
+            $query['AccountDescription'] = $request->accountDescription;
         }
-
-        if (null !== $request->accountName) {
-            @$query['AccountName'] = $request->accountName;
+        if (!Utils::isUnset($request->accountName)) {
+            $query['AccountName'] = $request->accountName;
         }
-
-        if (null !== $request->accountPassword) {
-            @$query['AccountPassword'] = $request->accountPassword;
+        if (!Utils::isUnset($request->accountPassword)) {
+            $query['AccountPassword'] = $request->accountPassword;
         }
-
-        if (null !== $request->accountPrivilege) {
-            @$query['AccountPrivilege'] = $request->accountPrivilege;
+        if (!Utils::isUnset($request->accountPrivilege)) {
+            $query['AccountPrivilege'] = $request->accountPrivilege;
         }
-
-        if (null !== $request->accountType) {
-            @$query['AccountType'] = $request->accountType;
+        if (!Utils::isUnset($request->accountType)) {
+            $query['AccountType'] = $request->accountType;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->sourceBiz) {
-            @$query['SourceBiz'] = $request->sourceBiz;
+        if (!Utils::isUnset($request->sourceBiz)) {
+            $query['SourceBiz'] = $request->sourceBiz;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateAccount',
@@ -938,21 +823,16 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Creates an account that has specific permissions for a Tair (Redis OSS-compatible) instance.
-     *
-     * @remarks
-     *   This operation is supported only for instances that are compatible with Redis 4.0 or later.
+     * @summary Creates an account that has specific permissions for a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @description *   This operation is supported only for instances that are compatible with Redis 4.0 or later.
      * *   The instance must be in the running state.
      * *   You can create up to 18 accounts for an instance.
      * >  For more information about how to create an account in the console, see [Manage database accounts](https://help.aliyun.com/document_detail/92665.html).
+     *  *
+     * @param CreateAccountRequest $request CreateAccountRequest
      *
-     * @param request - CreateAccountRequest
-     *
-     * @returns CreateAccountResponse
-     *
-     * @param CreateAccountRequest $request
-     *
-     * @return CreateAccountResponse
+     * @return CreateAccountResponse CreateAccountResponse
      */
     public function createAccount($request)
     {
@@ -962,55 +842,42 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Backs up a Tair (Redis OSS-compatible) instance.
+     * @summary Backs up a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @description You can also back up an instance in the Tair (Redis OSS-compatible) console. For more information, see [Backup and recovery](https://help.aliyun.com/document_detail/43886.html).
+     *  *
+     * @param CreateBackupRequest $request CreateBackupRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can also back up an instance in the Tair (Redis OSS-compatible) console. For more information, see [Backup and recovery](https://help.aliyun.com/document_detail/43886.html).
-     *
-     * @param request - CreateBackupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateBackupResponse
-     *
-     * @param CreateBackupRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return CreateBackupResponse
+     * @return CreateBackupResponse CreateBackupResponse
      */
     public function createBackupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->backupRetentionPeriod) {
-            @$query['BackupRetentionPeriod'] = $request->backupRetentionPeriod;
+        if (!Utils::isUnset($request->backupRetentionPeriod)) {
+            $query['BackupRetentionPeriod'] = $request->backupRetentionPeriod;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateBackup',
@@ -1028,18 +895,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Backs up a Tair (Redis OSS-compatible) instance.
+     * @summary Backs up a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @description You can also back up an instance in the Tair (Redis OSS-compatible) console. For more information, see [Backup and recovery](https://help.aliyun.com/document_detail/43886.html).
+     *  *
+     * @param CreateBackupRequest $request CreateBackupRequest
      *
-     * @remarks
-     * You can also back up an instance in the Tair (Redis OSS-compatible) console. For more information, see [Backup and recovery](https://help.aliyun.com/document_detail/43886.html).
-     *
-     * @param request - CreateBackupRequest
-     *
-     * @returns CreateBackupResponse
-     *
-     * @param CreateBackupRequest $request
-     *
-     * @return CreateBackupResponse
+     * @return CreateBackupResponse CreateBackupResponse
      */
     public function createBackup($request)
     {
@@ -1049,51 +911,39 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Creates a cache analysis task.
+     * @summary Creates a cache analysis task.
+     *  *
+     * @description This operation is no longer available. Use the new operation. For more information, see [Real-time key statistics and offline key analysis](https://help.aliyun.com/document_detail/184226.html).
+     *  *
+     * @param CreateCacheAnalysisTaskRequest $request CreateCacheAnalysisTaskRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * This operation is no longer available. Use the new operation. For more information, see [Real-time key statistics and offline key analysis](https://help.aliyun.com/document_detail/184226.html).
-     *
-     * @param request - CreateCacheAnalysisTaskRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateCacheAnalysisTaskResponse
-     *
-     * @param CreateCacheAnalysisTaskRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return CreateCacheAnalysisTaskResponse
+     * @return CreateCacheAnalysisTaskResponse CreateCacheAnalysisTaskResponse
      */
     public function createCacheAnalysisTaskWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateCacheAnalysisTask',
@@ -1111,18 +961,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Creates a cache analysis task.
+     * @summary Creates a cache analysis task.
+     *  *
+     * @description This operation is no longer available. Use the new operation. For more information, see [Real-time key statistics and offline key analysis](https://help.aliyun.com/document_detail/184226.html).
+     *  *
+     * @param CreateCacheAnalysisTaskRequest $request CreateCacheAnalysisTaskRequest
      *
-     * @remarks
-     * This operation is no longer available. Use the new operation. For more information, see [Real-time key statistics and offline key analysis](https://help.aliyun.com/document_detail/184226.html).
-     *
-     * @param request - CreateCacheAnalysisTaskRequest
-     *
-     * @returns CreateCacheAnalysisTaskResponse
-     *
-     * @param CreateCacheAnalysisTaskRequest $request
-     *
-     * @return CreateCacheAnalysisTaskResponse
+     * @return CreateCacheAnalysisTaskResponse CreateCacheAnalysisTaskResponse
      */
     public function createCacheAnalysisTask($request)
     {
@@ -1132,62 +977,48 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Converts an existing Tair DRAM-based classic instance to the first child instance of a distributed instance.
-     *
-     * @remarks
-     * You can call this operation to convert an existing instance to the first child instance of a distributed instance. After the instance is converted, the distributed instance is created. Before you call this operation, make sure that the following requirements are met:
+     * @summary Converts an existing Tair DRAM-based classic instance to the first child instance of a distributed instance.
+     *  *
+     * @description You can call this operation to convert an existing instance to the first child instance of a distributed instance. After the instance is converted, the distributed instance is created. Before you call this operation, make sure that the following requirements are met:
      * *   The instance that you want to convert must be a Tair [DRAM-based](https://help.aliyun.com/document_detail/126164.html) instance that uses the classic deployment mode.
      * *   If the existing instance is a cluster instance, the direct connection mode must be disabled for the instance. For more information, see [Release a private endpoint](https://help.aliyun.com/document_detail/150047.html).
      * >  You can also call the [CreateInstance](https://help.aliyun.com/document_detail/473757.html) operation to create an instance that is specified as the first child instance of a distributed instance. After the child instance is created, the distributed instance to which the child instance belongs is created.
+     *  *
+     * @param CreateGlobalDistributeCacheRequest $request CreateGlobalDistributeCacheRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateGlobalDistributeCacheRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateGlobalDistributeCacheResponse
-     *
-     * @param CreateGlobalDistributeCacheRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return CreateGlobalDistributeCacheResponse
+     * @return CreateGlobalDistributeCacheResponse CreateGlobalDistributeCacheResponse
      */
     public function createGlobalDistributeCacheWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->effectiveTime) {
-            @$query['EffectiveTime'] = $request->effectiveTime;
+        if (!Utils::isUnset($request->effectiveTime)) {
+            $query['EffectiveTime'] = $request->effectiveTime;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->seedSubInstanceId) {
-            @$query['SeedSubInstanceId'] = $request->seedSubInstanceId;
+        if (!Utils::isUnset($request->seedSubInstanceId)) {
+            $query['SeedSubInstanceId'] = $request->seedSubInstanceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateGlobalDistributeCache',
@@ -1205,21 +1036,16 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Converts an existing Tair DRAM-based classic instance to the first child instance of a distributed instance.
-     *
-     * @remarks
-     * You can call this operation to convert an existing instance to the first child instance of a distributed instance. After the instance is converted, the distributed instance is created. Before you call this operation, make sure that the following requirements are met:
+     * @summary Converts an existing Tair DRAM-based classic instance to the first child instance of a distributed instance.
+     *  *
+     * @description You can call this operation to convert an existing instance to the first child instance of a distributed instance. After the instance is converted, the distributed instance is created. Before you call this operation, make sure that the following requirements are met:
      * *   The instance that you want to convert must be a Tair [DRAM-based](https://help.aliyun.com/document_detail/126164.html) instance that uses the classic deployment mode.
      * *   If the existing instance is a cluster instance, the direct connection mode must be disabled for the instance. For more information, see [Release a private endpoint](https://help.aliyun.com/document_detail/150047.html).
      * >  You can also call the [CreateInstance](https://help.aliyun.com/document_detail/473757.html) operation to create an instance that is specified as the first child instance of a distributed instance. After the child instance is created, the distributed instance to which the child instance belongs is created.
+     *  *
+     * @param CreateGlobalDistributeCacheRequest $request CreateGlobalDistributeCacheRequest
      *
-     * @param request - CreateGlobalDistributeCacheRequest
-     *
-     * @returns CreateGlobalDistributeCacheResponse
-     *
-     * @param CreateGlobalDistributeCacheRequest $request
-     *
-     * @return CreateGlobalDistributeCacheResponse
+     * @return CreateGlobalDistributeCacheResponse CreateGlobalDistributeCacheResponse
      */
     public function createGlobalDistributeCache($request)
     {
@@ -1229,60 +1055,46 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Creates a global IP whitelist template.
+     * @summary Creates a global IP whitelist template.
+     *  *
+     * @param CreateGlobalSecurityIPGroupRequest $request CreateGlobalSecurityIPGroupRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateGlobalSecurityIPGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateGlobalSecurityIPGroupResponse
-     *
-     * @param CreateGlobalSecurityIPGroupRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return CreateGlobalSecurityIPGroupResponse
+     * @return CreateGlobalSecurityIPGroupResponse CreateGlobalSecurityIPGroupResponse
      */
     public function createGlobalSecurityIPGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->GIpList) {
-            @$query['GIpList'] = $request->GIpList;
+        if (!Utils::isUnset($request->GIpList)) {
+            $query['GIpList'] = $request->GIpList;
         }
-
-        if (null !== $request->globalIgName) {
-            @$query['GlobalIgName'] = $request->globalIgName;
+        if (!Utils::isUnset($request->globalIgName)) {
+            $query['GlobalIgName'] = $request->globalIgName;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateGlobalSecurityIPGroup',
@@ -1300,15 +1112,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Creates a global IP whitelist template.
+     * @summary Creates a global IP whitelist template.
+     *  *
+     * @param CreateGlobalSecurityIPGroupRequest $request CreateGlobalSecurityIPGroupRequest
      *
-     * @param request - CreateGlobalSecurityIPGroupRequest
-     *
-     * @returns CreateGlobalSecurityIPGroupResponse
-     *
-     * @param CreateGlobalSecurityIPGroupRequest $request
-     *
-     * @return CreateGlobalSecurityIPGroupResponse
+     * @return CreateGlobalSecurityIPGroupResponse CreateGlobalSecurityIPGroupResponse
      */
     public function createGlobalSecurityIPGroup($request)
     {
@@ -1318,221 +1126,167 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Creates a Tair (Redis OSS-compatible) instance. If you want to create a Tair (Enterprise Edition) cloud-native instance, you can call the CreateTairInstance operation.
-     *
-     * @remarks
-     * Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of Tair (Redis OSS-compatible).
+     * @summary Creates a Tair (Redis OSS-compatible) instance. If you want to create a Tair (Enterprise Edition) cloud-native instance, you can call the CreateTairInstance operation.
+     *  *
+     * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of Tair (Redis OSS-compatible).
      * You can call this operation to create a Tair (Redis OSS-compatible) instance or a classic Tair DRAM-based instance. To create a cloud-native Tair instance, call the [CreateTairInstance](https://help.aliyun.com/document_detail/473770.html) operation.
      * > For more information about how to create an instance that meets your requirements in the Tair (Redis OSS-compatible) console, see [Step 1: Create an instance](https://help.aliyun.com/document_detail/26351.html).
+     *  *
+     * @param CreateInstanceRequest $request CreateInstanceRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateInstanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateInstanceResponse
-     *
-     * @param CreateInstanceRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return CreateInstanceResponse
+     * @return CreateInstanceResponse CreateInstanceResponse
      */
     public function createInstanceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->appendonly) {
-            @$query['Appendonly'] = $request->appendonly;
+        if (!Utils::isUnset($request->appendonly)) {
+            $query['Appendonly'] = $request->appendonly;
         }
-
-        if (null !== $request->autoRenew) {
-            @$query['AutoRenew'] = $request->autoRenew;
+        if (!Utils::isUnset($request->autoRenew)) {
+            $query['AutoRenew'] = $request->autoRenew;
         }
-
-        if (null !== $request->autoRenewPeriod) {
-            @$query['AutoRenewPeriod'] = $request->autoRenewPeriod;
+        if (!Utils::isUnset($request->autoRenewPeriod)) {
+            $query['AutoRenewPeriod'] = $request->autoRenewPeriod;
         }
-
-        if (null !== $request->autoUseCoupon) {
-            @$query['AutoUseCoupon'] = $request->autoUseCoupon;
+        if (!Utils::isUnset($request->autoUseCoupon)) {
+            $query['AutoUseCoupon'] = $request->autoUseCoupon;
         }
-
-        if (null !== $request->backupId) {
-            @$query['BackupId'] = $request->backupId;
+        if (!Utils::isUnset($request->backupId)) {
+            $query['BackupId'] = $request->backupId;
         }
-
-        if (null !== $request->businessInfo) {
-            @$query['BusinessInfo'] = $request->businessInfo;
+        if (!Utils::isUnset($request->businessInfo)) {
+            $query['BusinessInfo'] = $request->businessInfo;
         }
-
-        if (null !== $request->capacity) {
-            @$query['Capacity'] = $request->capacity;
+        if (!Utils::isUnset($request->capacity)) {
+            $query['Capacity'] = $request->capacity;
         }
-
-        if (null !== $request->chargeType) {
-            @$query['ChargeType'] = $request->chargeType;
+        if (!Utils::isUnset($request->chargeType)) {
+            $query['ChargeType'] = $request->chargeType;
         }
-
-        if (null !== $request->clusterBackupId) {
-            @$query['ClusterBackupId'] = $request->clusterBackupId;
+        if (!Utils::isUnset($request->clusterBackupId)) {
+            $query['ClusterBackupId'] = $request->clusterBackupId;
         }
-
-        if (null !== $request->connectionStringPrefix) {
-            @$query['ConnectionStringPrefix'] = $request->connectionStringPrefix;
+        if (!Utils::isUnset($request->connectionStringPrefix)) {
+            $query['ConnectionStringPrefix'] = $request->connectionStringPrefix;
         }
-
-        if (null !== $request->couponNo) {
-            @$query['CouponNo'] = $request->couponNo;
+        if (!Utils::isUnset($request->couponNo)) {
+            $query['CouponNo'] = $request->couponNo;
         }
-
-        if (null !== $request->dedicatedHostGroupId) {
-            @$query['DedicatedHostGroupId'] = $request->dedicatedHostGroupId;
+        if (!Utils::isUnset($request->dedicatedHostGroupId)) {
+            $query['DedicatedHostGroupId'] = $request->dedicatedHostGroupId;
         }
-
-        if (null !== $request->dryRun) {
-            @$query['DryRun'] = $request->dryRun;
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
         }
-
-        if (null !== $request->engineVersion) {
-            @$query['EngineVersion'] = $request->engineVersion;
+        if (!Utils::isUnset($request->engineVersion)) {
+            $query['EngineVersion'] = $request->engineVersion;
         }
-
-        if (null !== $request->globalInstance) {
-            @$query['GlobalInstance'] = $request->globalInstance;
+        if (!Utils::isUnset($request->globalInstance)) {
+            $query['GlobalInstance'] = $request->globalInstance;
         }
-
-        if (null !== $request->globalInstanceId) {
-            @$query['GlobalInstanceId'] = $request->globalInstanceId;
+        if (!Utils::isUnset($request->globalInstanceId)) {
+            $query['GlobalInstanceId'] = $request->globalInstanceId;
         }
-
-        if (null !== $request->globalSecurityGroupIds) {
-            @$query['GlobalSecurityGroupIds'] = $request->globalSecurityGroupIds;
+        if (!Utils::isUnset($request->globalSecurityGroupIds)) {
+            $query['GlobalSecurityGroupIds'] = $request->globalSecurityGroupIds;
         }
-
-        if (null !== $request->instanceClass) {
-            @$query['InstanceClass'] = $request->instanceClass;
+        if (!Utils::isUnset($request->instanceClass)) {
+            $query['InstanceClass'] = $request->instanceClass;
         }
-
-        if (null !== $request->instanceName) {
-            @$query['InstanceName'] = $request->instanceName;
+        if (!Utils::isUnset($request->instanceName)) {
+            $query['InstanceName'] = $request->instanceName;
         }
-
-        if (null !== $request->instanceType) {
-            @$query['InstanceType'] = $request->instanceType;
+        if (!Utils::isUnset($request->instanceType)) {
+            $query['InstanceType'] = $request->instanceType;
         }
-
-        if (null !== $request->networkType) {
-            @$query['NetworkType'] = $request->networkType;
+        if (!Utils::isUnset($request->networkType)) {
+            $query['NetworkType'] = $request->networkType;
         }
-
-        if (null !== $request->nodeType) {
-            @$query['NodeType'] = $request->nodeType;
+        if (!Utils::isUnset($request->nodeType)) {
+            $query['NodeType'] = $request->nodeType;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->paramGroupId) {
-            @$query['ParamGroupId'] = $request->paramGroupId;
+        if (!Utils::isUnset($request->paramGroupId)) {
+            $query['ParamGroupId'] = $request->paramGroupId;
         }
-
-        if (null !== $request->password) {
-            @$query['Password'] = $request->password;
+        if (!Utils::isUnset($request->password)) {
+            $query['Password'] = $request->password;
         }
-
-        if (null !== $request->period) {
-            @$query['Period'] = $request->period;
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
         }
-
-        if (null !== $request->port) {
-            @$query['Port'] = $request->port;
+        if (!Utils::isUnset($request->port)) {
+            $query['Port'] = $request->port;
         }
-
-        if (null !== $request->privateIpAddress) {
-            @$query['PrivateIpAddress'] = $request->privateIpAddress;
+        if (!Utils::isUnset($request->privateIpAddress)) {
+            $query['PrivateIpAddress'] = $request->privateIpAddress;
         }
-
-        if (null !== $request->readOnlyCount) {
-            @$query['ReadOnlyCount'] = $request->readOnlyCount;
+        if (!Utils::isUnset($request->readOnlyCount)) {
+            $query['ReadOnlyCount'] = $request->readOnlyCount;
         }
-
-        if (null !== $request->recoverConfigMode) {
-            @$query['RecoverConfigMode'] = $request->recoverConfigMode;
+        if (!Utils::isUnset($request->recoverConfigMode)) {
+            $query['RecoverConfigMode'] = $request->recoverConfigMode;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->replicaCount) {
-            @$query['ReplicaCount'] = $request->replicaCount;
+        if (!Utils::isUnset($request->replicaCount)) {
+            $query['ReplicaCount'] = $request->replicaCount;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->restoreTime) {
-            @$query['RestoreTime'] = $request->restoreTime;
+        if (!Utils::isUnset($request->restoreTime)) {
+            $query['RestoreTime'] = $request->restoreTime;
         }
-
-        if (null !== $request->secondaryZoneId) {
-            @$query['SecondaryZoneId'] = $request->secondaryZoneId;
+        if (!Utils::isUnset($request->secondaryZoneId)) {
+            $query['SecondaryZoneId'] = $request->secondaryZoneId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->shardCount) {
-            @$query['ShardCount'] = $request->shardCount;
+        if (!Utils::isUnset($request->shardCount)) {
+            $query['ShardCount'] = $request->shardCount;
         }
-
-        if (null !== $request->slaveReadOnlyCount) {
-            @$query['SlaveReadOnlyCount'] = $request->slaveReadOnlyCount;
+        if (!Utils::isUnset($request->slaveReadOnlyCount)) {
+            $query['SlaveReadOnlyCount'] = $request->slaveReadOnlyCount;
         }
-
-        if (null !== $request->slaveReplicaCount) {
-            @$query['SlaveReplicaCount'] = $request->slaveReplicaCount;
+        if (!Utils::isUnset($request->slaveReplicaCount)) {
+            $query['SlaveReplicaCount'] = $request->slaveReplicaCount;
         }
-
-        if (null !== $request->srcDBInstanceId) {
-            @$query['SrcDBInstanceId'] = $request->srcDBInstanceId;
+        if (!Utils::isUnset($request->srcDBInstanceId)) {
+            $query['SrcDBInstanceId'] = $request->srcDBInstanceId;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
-        if (null !== $request->token) {
-            @$query['Token'] = $request->token;
+        if (!Utils::isUnset($request->token)) {
+            $query['Token'] = $request->token;
         }
-
-        if (null !== $request->vSwitchId) {
-            @$query['VSwitchId'] = $request->vSwitchId;
+        if (!Utils::isUnset($request->vSwitchId)) {
+            $query['VSwitchId'] = $request->vSwitchId;
         }
-
-        if (null !== $request->vpcId) {
-            @$query['VpcId'] = $request->vpcId;
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
         }
-
-        if (null !== $request->zoneId) {
-            @$query['ZoneId'] = $request->zoneId;
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateInstance',
@@ -1550,20 +1304,15 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Creates a Tair (Redis OSS-compatible) instance. If you want to create a Tair (Enterprise Edition) cloud-native instance, you can call the CreateTairInstance operation.
-     *
-     * @remarks
-     * Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of Tair (Redis OSS-compatible).
+     * @summary Creates a Tair (Redis OSS-compatible) instance. If you want to create a Tair (Enterprise Edition) cloud-native instance, you can call the CreateTairInstance operation.
+     *  *
+     * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of Tair (Redis OSS-compatible).
      * You can call this operation to create a Tair (Redis OSS-compatible) instance or a classic Tair DRAM-based instance. To create a cloud-native Tair instance, call the [CreateTairInstance](https://help.aliyun.com/document_detail/473770.html) operation.
      * > For more information about how to create an instance that meets your requirements in the Tair (Redis OSS-compatible) console, see [Step 1: Create an instance](https://help.aliyun.com/document_detail/26351.html).
+     *  *
+     * @param CreateInstanceRequest $request CreateInstanceRequest
      *
-     * @param request - CreateInstanceRequest
-     *
-     * @returns CreateInstanceResponse
-     *
-     * @param CreateInstanceRequest $request
-     *
-     * @return CreateInstanceResponse
+     * @return CreateInstanceResponse CreateInstanceResponse
      */
     public function createInstance($request)
     {
@@ -1573,86 +1322,66 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Creates multiple Tair (Redis OSS-compatible) instances at a time.
-     *
-     * @remarks
-     * Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of Tair (Redis OSS-compatible).
+     * @summary Creates multiple Tair (Redis OSS-compatible) instances at a time.
+     *  *
+     * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of Tair (Redis OSS-compatible).
      * >  You can call this operation to create classic Redis Open-Source Edition instances or classic Tair DRAM-based instances. We recommend that you use an API operation for creating a single instance:
      * *   [CreateInstance](https://help.aliyun.com/document_detail/473757.html): creates a Redis Open-Source instance or a classic Tair DRAM-based instance.
      * *   [CreateTairInstance](https://help.aliyun.com/document_detail/473770.html): creates a Tair (Enterprise Edition) instance. The instance can be a DRAM-based, persistent memory-optimized, or ESSD/SSD-based instance.
+     *  *
+     * @param CreateInstancesRequest $request CreateInstancesRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateInstancesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateInstancesResponse
-     *
-     * @param CreateInstancesRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return CreateInstancesResponse
+     * @return CreateInstancesResponse CreateInstancesResponse
      */
     public function createInstancesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->autoPay) {
-            @$query['AutoPay'] = $request->autoPay;
+        if (!Utils::isUnset($request->autoPay)) {
+            $query['AutoPay'] = $request->autoPay;
         }
-
-        if (null !== $request->autoRenew) {
-            @$query['AutoRenew'] = $request->autoRenew;
+        if (!Utils::isUnset($request->autoRenew)) {
+            $query['AutoRenew'] = $request->autoRenew;
         }
-
-        if (null !== $request->businessInfo) {
-            @$query['BusinessInfo'] = $request->businessInfo;
+        if (!Utils::isUnset($request->businessInfo)) {
+            $query['BusinessInfo'] = $request->businessInfo;
         }
-
-        if (null !== $request->couponNo) {
-            @$query['CouponNo'] = $request->couponNo;
+        if (!Utils::isUnset($request->couponNo)) {
+            $query['CouponNo'] = $request->couponNo;
         }
-
-        if (null !== $request->engineVersion) {
-            @$query['EngineVersion'] = $request->engineVersion;
+        if (!Utils::isUnset($request->engineVersion)) {
+            $query['EngineVersion'] = $request->engineVersion;
         }
-
-        if (null !== $request->instances) {
-            @$query['Instances'] = $request->instances;
+        if (!Utils::isUnset($request->instances)) {
+            $query['Instances'] = $request->instances;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->rebuildInstance) {
-            @$query['RebuildInstance'] = $request->rebuildInstance;
+        if (!Utils::isUnset($request->rebuildInstance)) {
+            $query['RebuildInstance'] = $request->rebuildInstance;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->token) {
-            @$query['Token'] = $request->token;
+        if (!Utils::isUnset($request->token)) {
+            $query['Token'] = $request->token;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateInstances',
@@ -1670,21 +1399,16 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Creates multiple Tair (Redis OSS-compatible) instances at a time.
-     *
-     * @remarks
-     * Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of Tair (Redis OSS-compatible).
+     * @summary Creates multiple Tair (Redis OSS-compatible) instances at a time.
+     *  *
+     * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of Tair (Redis OSS-compatible).
      * >  You can call this operation to create classic Redis Open-Source Edition instances or classic Tair DRAM-based instances. We recommend that you use an API operation for creating a single instance:
      * *   [CreateInstance](https://help.aliyun.com/document_detail/473757.html): creates a Redis Open-Source instance or a classic Tair DRAM-based instance.
      * *   [CreateTairInstance](https://help.aliyun.com/document_detail/473770.html): creates a Tair (Enterprise Edition) instance. The instance can be a DRAM-based, persistent memory-optimized, or ESSD/SSD-based instance.
+     *  *
+     * @param CreateInstancesRequest $request CreateInstancesRequest
      *
-     * @param request - CreateInstancesRequest
-     *
-     * @returns CreateInstancesResponse
-     *
-     * @param CreateInstancesRequest $request
-     *
-     * @return CreateInstancesResponse
+     * @return CreateInstancesResponse CreateInstancesResponse
      */
     public function createInstances($request)
     {
@@ -1694,72 +1418,55 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Creates a parameter template.
+     * @summary Creates a parameter template.
+     *  *
+     * @param CreateParameterGroupRequest $request CreateParameterGroupRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateParameterGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateParameterGroupResponse
-     *
-     * @param CreateParameterGroupRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return CreateParameterGroupResponse
+     * @return CreateParameterGroupResponse CreateParameterGroupResponse
      */
     public function createParameterGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->category) {
-            @$query['Category'] = $request->category;
+        if (!Utils::isUnset($request->category)) {
+            $query['Category'] = $request->category;
         }
-
-        if (null !== $request->engineType) {
-            @$query['EngineType'] = $request->engineType;
+        if (!Utils::isUnset($request->engineType)) {
+            $query['EngineType'] = $request->engineType;
         }
-
-        if (null !== $request->engineVersion) {
-            @$query['EngineVersion'] = $request->engineVersion;
+        if (!Utils::isUnset($request->engineVersion)) {
+            $query['EngineVersion'] = $request->engineVersion;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->parameterGroupDesc) {
-            @$query['ParameterGroupDesc'] = $request->parameterGroupDesc;
+        if (!Utils::isUnset($request->parameterGroupDesc)) {
+            $query['ParameterGroupDesc'] = $request->parameterGroupDesc;
         }
-
-        if (null !== $request->parameterGroupName) {
-            @$query['ParameterGroupName'] = $request->parameterGroupName;
+        if (!Utils::isUnset($request->parameterGroupName)) {
+            $query['ParameterGroupName'] = $request->parameterGroupName;
         }
-
-        if (null !== $request->parameters) {
-            @$query['Parameters'] = $request->parameters;
+        if (!Utils::isUnset($request->parameters)) {
+            $query['Parameters'] = $request->parameters;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateParameterGroup',
@@ -1777,15 +1484,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Creates a parameter template.
+     * @summary Creates a parameter template.
+     *  *
+     * @param CreateParameterGroupRequest $request CreateParameterGroupRequest
      *
-     * @param request - CreateParameterGroupRequest
-     *
-     * @returns CreateParameterGroupResponse
-     *
-     * @param CreateParameterGroupRequest $request
-     *
-     * @return CreateParameterGroupResponse
+     * @return CreateParameterGroupResponse CreateParameterGroupResponse
      */
     public function createParameterGroup($request)
     {
@@ -1795,132 +1498,100 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * 创建TairCustom实例.
+     * @summary 创建TairCustom实例
+     *  *
+     * @param CreateTCInstanceRequest $request CreateTCInstanceRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateTCInstanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateTCInstanceResponse
-     *
-     * @param CreateTCInstanceRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return CreateTCInstanceResponse
+     * @return CreateTCInstanceResponse CreateTCInstanceResponse
      */
     public function createTCInstanceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->autoRenew) {
-            @$query['AutoRenew'] = $request->autoRenew;
+        if (!Utils::isUnset($request->autoRenew)) {
+            $query['AutoRenew'] = $request->autoRenew;
         }
-
-        if (null !== $request->autoRenewPeriod) {
-            @$query['AutoRenewPeriod'] = $request->autoRenewPeriod;
+        if (!Utils::isUnset($request->autoRenewPeriod)) {
+            $query['AutoRenewPeriod'] = $request->autoRenewPeriod;
         }
-
-        if (null !== $request->autoUseCoupon) {
-            @$query['AutoUseCoupon'] = $request->autoUseCoupon;
+        if (!Utils::isUnset($request->autoUseCoupon)) {
+            $query['AutoUseCoupon'] = $request->autoUseCoupon;
         }
-
-        if (null !== $request->businessInfo) {
-            @$query['BusinessInfo'] = $request->businessInfo;
+        if (!Utils::isUnset($request->businessInfo)) {
+            $query['BusinessInfo'] = $request->businessInfo;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->couponNo) {
-            @$query['CouponNo'] = $request->couponNo;
+        if (!Utils::isUnset($request->couponNo)) {
+            $query['CouponNo'] = $request->couponNo;
         }
-
-        if (null !== $request->dataDisk) {
-            @$query['DataDisk'] = $request->dataDisk;
+        if (!Utils::isUnset($request->dataDisk)) {
+            $query['DataDisk'] = $request->dataDisk;
         }
-
-        if (null !== $request->dryRun) {
-            @$query['DryRun'] = $request->dryRun;
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
         }
-
-        if (null !== $request->imageId) {
-            @$query['ImageId'] = $request->imageId;
+        if (!Utils::isUnset($request->imageId)) {
+            $query['ImageId'] = $request->imageId;
         }
-
-        if (null !== $request->instanceChargeType) {
-            @$query['InstanceChargeType'] = $request->instanceChargeType;
+        if (!Utils::isUnset($request->instanceChargeType)) {
+            $query['InstanceChargeType'] = $request->instanceChargeType;
         }
-
-        if (null !== $request->instanceClass) {
-            @$query['InstanceClass'] = $request->instanceClass;
+        if (!Utils::isUnset($request->instanceClass)) {
+            $query['InstanceClass'] = $request->instanceClass;
         }
-
-        if (null !== $request->instanceName) {
-            @$query['InstanceName'] = $request->instanceName;
+        if (!Utils::isUnset($request->instanceName)) {
+            $query['InstanceName'] = $request->instanceName;
         }
-
-        if (null !== $request->needEni) {
-            @$query['NeedEni'] = $request->needEni;
+        if (!Utils::isUnset($request->needEni)) {
+            $query['NeedEni'] = $request->needEni;
         }
-
-        if (null !== $request->networkType) {
-            @$query['NetworkType'] = $request->networkType;
+        if (!Utils::isUnset($request->networkType)) {
+            $query['NetworkType'] = $request->networkType;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->period) {
-            @$query['Period'] = $request->period;
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityGroupId) {
-            @$query['SecurityGroupId'] = $request->securityGroupId;
+        if (!Utils::isUnset($request->securityGroupId)) {
+            $query['SecurityGroupId'] = $request->securityGroupId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
-        if (null !== $request->vSwitchId) {
-            @$query['VSwitchId'] = $request->vSwitchId;
+        if (!Utils::isUnset($request->vSwitchId)) {
+            $query['VSwitchId'] = $request->vSwitchId;
         }
-
-        if (null !== $request->vpcId) {
-            @$query['VpcId'] = $request->vpcId;
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
         }
-
-        if (null !== $request->zoneId) {
-            @$query['ZoneId'] = $request->zoneId;
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateTCInstance',
@@ -1938,15 +1609,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * 创建TairCustom实例.
+     * @summary 创建TairCustom实例
+     *  *
+     * @param CreateTCInstanceRequest $request CreateTCInstanceRequest
      *
-     * @param request - CreateTCInstanceRequest
-     *
-     * @returns CreateTCInstanceResponse
-     *
-     * @param CreateTCInstanceRequest $request
-     *
-     * @return CreateTCInstanceResponse
+     * @return CreateTCInstanceResponse CreateTCInstanceResponse
      */
     public function createTCInstance($request)
     {
@@ -1956,215 +1623,163 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Creates a Tair (Enterprise Edition) cloud-native instance.
-     *
-     * @remarks
-     * For information about instance selection, see [Instructions for selecting an appropriate Tair (Redis OSS-compatible) instance](https://help.aliyun.com/document_detail/223808.html).
+     * @summary Creates a Tair (Enterprise Edition) cloud-native instance.
+     *  *
+     * @description For information about instance selection, see [Instructions for selecting an appropriate Tair (Redis OSS-compatible) instance](https://help.aliyun.com/document_detail/223808.html).
      * Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of Tair (Redis OSS-compatible).
      * >
      * *   For information about how to create an instance in the console, see [Step 1: Create an instance](https://help.aliyun.com/document_detail/26351.html).
      * *   To create other types of instances, such as Redis Open-Source Edition instances or [Tair DRAM-based](https://help.aliyun.com/document_detail/126164.html) instances, you can call the [CreateInstance](https://help.aliyun.com/document_detail/473757.html) operation.
+     *  *
+     * @param CreateTairInstanceRequest $request CreateTairInstanceRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateTairInstanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateTairInstanceResponse
-     *
-     * @param CreateTairInstanceRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return CreateTairInstanceResponse
+     * @return CreateTairInstanceResponse CreateTairInstanceResponse
      */
     public function createTairInstanceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->autoPay) {
-            @$query['AutoPay'] = $request->autoPay;
+        if (!Utils::isUnset($request->autoPay)) {
+            $query['AutoPay'] = $request->autoPay;
         }
-
-        if (null !== $request->autoRenew) {
-            @$query['AutoRenew'] = $request->autoRenew;
+        if (!Utils::isUnset($request->autoRenew)) {
+            $query['AutoRenew'] = $request->autoRenew;
         }
-
-        if (null !== $request->autoRenewPeriod) {
-            @$query['AutoRenewPeriod'] = $request->autoRenewPeriod;
+        if (!Utils::isUnset($request->autoRenewPeriod)) {
+            $query['AutoRenewPeriod'] = $request->autoRenewPeriod;
         }
-
-        if (null !== $request->autoUseCoupon) {
-            @$query['AutoUseCoupon'] = $request->autoUseCoupon;
+        if (!Utils::isUnset($request->autoUseCoupon)) {
+            $query['AutoUseCoupon'] = $request->autoUseCoupon;
         }
-
-        if (null !== $request->backupId) {
-            @$query['BackupId'] = $request->backupId;
+        if (!Utils::isUnset($request->backupId)) {
+            $query['BackupId'] = $request->backupId;
         }
-
-        if (null !== $request->businessInfo) {
-            @$query['BusinessInfo'] = $request->businessInfo;
+        if (!Utils::isUnset($request->businessInfo)) {
+            $query['BusinessInfo'] = $request->businessInfo;
         }
-
-        if (null !== $request->chargeType) {
-            @$query['ChargeType'] = $request->chargeType;
+        if (!Utils::isUnset($request->chargeType)) {
+            $query['ChargeType'] = $request->chargeType;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->clusterBackupId) {
-            @$query['ClusterBackupId'] = $request->clusterBackupId;
+        if (!Utils::isUnset($request->clusterBackupId)) {
+            $query['ClusterBackupId'] = $request->clusterBackupId;
         }
-
-        if (null !== $request->connectionStringPrefix) {
-            @$query['ConnectionStringPrefix'] = $request->connectionStringPrefix;
+        if (!Utils::isUnset($request->connectionStringPrefix)) {
+            $query['ConnectionStringPrefix'] = $request->connectionStringPrefix;
         }
-
-        if (null !== $request->couponNo) {
-            @$query['CouponNo'] = $request->couponNo;
+        if (!Utils::isUnset($request->couponNo)) {
+            $query['CouponNo'] = $request->couponNo;
         }
-
-        if (null !== $request->dryRun) {
-            @$query['DryRun'] = $request->dryRun;
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
         }
-
-        if (null !== $request->engineVersion) {
-            @$query['EngineVersion'] = $request->engineVersion;
+        if (!Utils::isUnset($request->engineVersion)) {
+            $query['EngineVersion'] = $request->engineVersion;
         }
-
-        if (null !== $request->globalInstanceId) {
-            @$query['GlobalInstanceId'] = $request->globalInstanceId;
+        if (!Utils::isUnset($request->globalInstanceId)) {
+            $query['GlobalInstanceId'] = $request->globalInstanceId;
         }
-
-        if (null !== $request->globalSecurityGroupIds) {
-            @$query['GlobalSecurityGroupIds'] = $request->globalSecurityGroupIds;
+        if (!Utils::isUnset($request->globalSecurityGroupIds)) {
+            $query['GlobalSecurityGroupIds'] = $request->globalSecurityGroupIds;
         }
-
-        if (null !== $request->instanceClass) {
-            @$query['InstanceClass'] = $request->instanceClass;
+        if (!Utils::isUnset($request->instanceClass)) {
+            $query['InstanceClass'] = $request->instanceClass;
         }
-
-        if (null !== $request->instanceName) {
-            @$query['InstanceName'] = $request->instanceName;
+        if (!Utils::isUnset($request->instanceName)) {
+            $query['InstanceName'] = $request->instanceName;
         }
-
-        if (null !== $request->instanceType) {
-            @$query['InstanceType'] = $request->instanceType;
+        if (!Utils::isUnset($request->instanceType)) {
+            $query['InstanceType'] = $request->instanceType;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->paramGroupId) {
-            @$query['ParamGroupId'] = $request->paramGroupId;
+        if (!Utils::isUnset($request->paramGroupId)) {
+            $query['ParamGroupId'] = $request->paramGroupId;
         }
-
-        if (null !== $request->password) {
-            @$query['Password'] = $request->password;
+        if (!Utils::isUnset($request->password)) {
+            $query['Password'] = $request->password;
         }
-
-        if (null !== $request->period) {
-            @$query['Period'] = $request->period;
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
         }
-
-        if (null !== $request->port) {
-            @$query['Port'] = $request->port;
+        if (!Utils::isUnset($request->port)) {
+            $query['Port'] = $request->port;
         }
-
-        if (null !== $request->privateIpAddress) {
-            @$query['PrivateIpAddress'] = $request->privateIpAddress;
+        if (!Utils::isUnset($request->privateIpAddress)) {
+            $query['PrivateIpAddress'] = $request->privateIpAddress;
         }
-
-        if (null !== $request->readOnlyCount) {
-            @$query['ReadOnlyCount'] = $request->readOnlyCount;
+        if (!Utils::isUnset($request->readOnlyCount)) {
+            $query['ReadOnlyCount'] = $request->readOnlyCount;
         }
-
-        if (null !== $request->recoverConfigMode) {
-            @$query['RecoverConfigMode'] = $request->recoverConfigMode;
+        if (!Utils::isUnset($request->recoverConfigMode)) {
+            $query['RecoverConfigMode'] = $request->recoverConfigMode;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->replicaCount) {
-            @$query['ReplicaCount'] = $request->replicaCount;
+        if (!Utils::isUnset($request->replicaCount)) {
+            $query['ReplicaCount'] = $request->replicaCount;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->restoreTime) {
-            @$query['RestoreTime'] = $request->restoreTime;
+        if (!Utils::isUnset($request->restoreTime)) {
+            $query['RestoreTime'] = $request->restoreTime;
         }
-
-        if (null !== $request->secondaryZoneId) {
-            @$query['SecondaryZoneId'] = $request->secondaryZoneId;
+        if (!Utils::isUnset($request->secondaryZoneId)) {
+            $query['SecondaryZoneId'] = $request->secondaryZoneId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->shardCount) {
-            @$query['ShardCount'] = $request->shardCount;
+        if (!Utils::isUnset($request->shardCount)) {
+            $query['ShardCount'] = $request->shardCount;
         }
-
-        if (null !== $request->shardType) {
-            @$query['ShardType'] = $request->shardType;
+        if (!Utils::isUnset($request->shardType)) {
+            $query['ShardType'] = $request->shardType;
         }
-
-        if (null !== $request->slaveReadOnlyCount) {
-            @$query['SlaveReadOnlyCount'] = $request->slaveReadOnlyCount;
+        if (!Utils::isUnset($request->slaveReadOnlyCount)) {
+            $query['SlaveReadOnlyCount'] = $request->slaveReadOnlyCount;
         }
-
-        if (null !== $request->slaveReplicaCount) {
-            @$query['SlaveReplicaCount'] = $request->slaveReplicaCount;
+        if (!Utils::isUnset($request->slaveReplicaCount)) {
+            $query['SlaveReplicaCount'] = $request->slaveReplicaCount;
         }
-
-        if (null !== $request->srcDBInstanceId) {
-            @$query['SrcDBInstanceId'] = $request->srcDBInstanceId;
+        if (!Utils::isUnset($request->srcDBInstanceId)) {
+            $query['SrcDBInstanceId'] = $request->srcDBInstanceId;
         }
-
-        if (null !== $request->storage) {
-            @$query['Storage'] = $request->storage;
+        if (!Utils::isUnset($request->storage)) {
+            $query['Storage'] = $request->storage;
         }
-
-        if (null !== $request->storageType) {
-            @$query['StorageType'] = $request->storageType;
+        if (!Utils::isUnset($request->storageType)) {
+            $query['StorageType'] = $request->storageType;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
-        if (null !== $request->vSwitchId) {
-            @$query['VSwitchId'] = $request->vSwitchId;
+        if (!Utils::isUnset($request->vSwitchId)) {
+            $query['VSwitchId'] = $request->vSwitchId;
         }
-
-        if (null !== $request->vpcId) {
-            @$query['VpcId'] = $request->vpcId;
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
         }
-
-        if (null !== $request->zoneId) {
-            @$query['ZoneId'] = $request->zoneId;
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateTairInstance',
@@ -2182,22 +1797,17 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Creates a Tair (Enterprise Edition) cloud-native instance.
-     *
-     * @remarks
-     * For information about instance selection, see [Instructions for selecting an appropriate Tair (Redis OSS-compatible) instance](https://help.aliyun.com/document_detail/223808.html).
+     * @summary Creates a Tair (Enterprise Edition) cloud-native instance.
+     *  *
+     * @description For information about instance selection, see [Instructions for selecting an appropriate Tair (Redis OSS-compatible) instance](https://help.aliyun.com/document_detail/223808.html).
      * Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of Tair (Redis OSS-compatible).
      * >
      * *   For information about how to create an instance in the console, see [Step 1: Create an instance](https://help.aliyun.com/document_detail/26351.html).
      * *   To create other types of instances, such as Redis Open-Source Edition instances or [Tair DRAM-based](https://help.aliyun.com/document_detail/126164.html) instances, you can call the [CreateInstance](https://help.aliyun.com/document_detail/473757.html) operation.
+     *  *
+     * @param CreateTairInstanceRequest $request CreateTairInstanceRequest
      *
-     * @param request - CreateTairInstanceRequest
-     *
-     * @returns CreateTairInstanceResponse
-     *
-     * @param CreateTairInstanceRequest $request
-     *
-     * @return CreateTairInstanceResponse
+     * @return CreateTairInstanceResponse CreateTairInstanceResponse
      */
     public function createTairInstance($request)
     {
@@ -2207,60 +1817,46 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Deletes an account from a Tair (Redis OSS-compatible) instance.
-     *
-     * @remarks
-     *   This operation is supported only for instances that are compatible with Redis 4.0 or later.
+     * @summary Deletes an account from a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @description *   This operation is supported only for instances that are compatible with Redis 4.0 or later.
      * *   The instance must be in the Running state.
+     *  *
+     * @param DeleteAccountRequest $request DeleteAccountRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteAccountRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteAccountResponse
-     *
-     * @param DeleteAccountRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return DeleteAccountResponse
+     * @return DeleteAccountResponse DeleteAccountResponse
      */
     public function deleteAccountWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountName) {
-            @$query['AccountName'] = $request->accountName;
+        if (!Utils::isUnset($request->accountName)) {
+            $query['AccountName'] = $request->accountName;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->sourceBiz) {
-            @$query['SourceBiz'] = $request->sourceBiz;
+        if (!Utils::isUnset($request->sourceBiz)) {
+            $query['SourceBiz'] = $request->sourceBiz;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteAccount',
@@ -2278,19 +1874,14 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Deletes an account from a Tair (Redis OSS-compatible) instance.
-     *
-     * @remarks
-     *   This operation is supported only for instances that are compatible with Redis 4.0 or later.
+     * @summary Deletes an account from a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @description *   This operation is supported only for instances that are compatible with Redis 4.0 or later.
      * *   The instance must be in the Running state.
+     *  *
+     * @param DeleteAccountRequest $request DeleteAccountRequest
      *
-     * @param request - DeleteAccountRequest
-     *
-     * @returns DeleteAccountResponse
-     *
-     * @param DeleteAccountRequest $request
-     *
-     * @return DeleteAccountResponse
+     * @return DeleteAccountResponse DeleteAccountResponse
      */
     public function deleteAccount($request)
     {
@@ -2300,48 +1891,37 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * 删除指定备份集.
+     * @summary 删除指定备份集
+     *  *
+     * @param DeleteBackupRequest $request DeleteBackupRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteBackupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteBackupResponse
-     *
-     * @param DeleteBackupRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return DeleteBackupResponse
+     * @return DeleteBackupResponse DeleteBackupResponse
      */
     public function deleteBackupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->backupId) {
-            @$query['BackupId'] = $request->backupId;
+        if (!Utils::isUnset($request->backupId)) {
+            $query['BackupId'] = $request->backupId;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteBackup',
@@ -2359,15 +1939,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * 删除指定备份集.
+     * @summary 删除指定备份集
+     *  *
+     * @param DeleteBackupRequest $request DeleteBackupRequest
      *
-     * @param request - DeleteBackupRequest
-     *
-     * @returns DeleteBackupResponse
-     *
-     * @param DeleteBackupRequest $request
-     *
-     * @return DeleteBackupResponse
+     * @return DeleteBackupResponse DeleteBackupResponse
      */
     public function deleteBackup($request)
     {
@@ -2377,63 +1953,48 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Deletes a global IP whitelist template.
+     * @summary Deletes a global IP whitelist template.
+     *  *
+     * @description Before you delete an IP whitelist template, you must unbind (disassociate) the instances that are currently associated with the template.
+     *  *
+     * @param DeleteGlobalSecurityIPGroupRequest $request DeleteGlobalSecurityIPGroupRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * Before you delete an IP whitelist template, you must unbind (disassociate) the instances that are currently associated with the template.
-     *
-     * @param request - DeleteGlobalSecurityIPGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteGlobalSecurityIPGroupResponse
-     *
-     * @param DeleteGlobalSecurityIPGroupRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return DeleteGlobalSecurityIPGroupResponse
+     * @return DeleteGlobalSecurityIPGroupResponse DeleteGlobalSecurityIPGroupResponse
      */
     public function deleteGlobalSecurityIPGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->globalIgName) {
-            @$query['GlobalIgName'] = $request->globalIgName;
+        if (!Utils::isUnset($request->globalIgName)) {
+            $query['GlobalIgName'] = $request->globalIgName;
         }
-
-        if (null !== $request->globalSecurityGroupId) {
-            @$query['GlobalSecurityGroupId'] = $request->globalSecurityGroupId;
+        if (!Utils::isUnset($request->globalSecurityGroupId)) {
+            $query['GlobalSecurityGroupId'] = $request->globalSecurityGroupId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteGlobalSecurityIPGroup',
@@ -2451,18 +2012,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Deletes a global IP whitelist template.
+     * @summary Deletes a global IP whitelist template.
+     *  *
+     * @description Before you delete an IP whitelist template, you must unbind (disassociate) the instances that are currently associated with the template.
+     *  *
+     * @param DeleteGlobalSecurityIPGroupRequest $request DeleteGlobalSecurityIPGroupRequest
      *
-     * @remarks
-     * Before you delete an IP whitelist template, you must unbind (disassociate) the instances that are currently associated with the template.
-     *
-     * @param request - DeleteGlobalSecurityIPGroupRequest
-     *
-     * @returns DeleteGlobalSecurityIPGroupResponse
-     *
-     * @param DeleteGlobalSecurityIPGroupRequest $request
-     *
-     * @return DeleteGlobalSecurityIPGroupResponse
+     * @return DeleteGlobalSecurityIPGroupResponse DeleteGlobalSecurityIPGroupResponse
      */
     public function deleteGlobalSecurityIPGroup($request)
     {
@@ -2472,59 +2028,46 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Release the Redis instance.
-     *
-     * @remarks
-     * For more information about how to perform the corresponding operation in the console, see [Release an instance](https://help.aliyun.com/document_detail/43882.html).
+     * @summary Release the Redis instance.
+     *  *
+     * @description For more information about how to perform the corresponding operation in the console, see [Release an instance](https://help.aliyun.com/document_detail/43882.html).
      * Before you call this operation, make sure that the following requirements are met:
      * *   The instance is in the running state.
      * *   The instance is charged on a pay-as-you-go basis.
      * >  You cannot call this operation to release a subscription instance, which is automatically released when it expires. To release a subscription instance before it expires, submit a ticket.
+     *  *
+     * @param DeleteInstanceRequest $request DeleteInstanceRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteInstanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteInstanceResponse
-     *
-     * @param DeleteInstanceRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return DeleteInstanceResponse
+     * @return DeleteInstanceResponse DeleteInstanceResponse
      */
     public function deleteInstanceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->globalInstanceId) {
-            @$query['GlobalInstanceId'] = $request->globalInstanceId;
+        if (!Utils::isUnset($request->globalInstanceId)) {
+            $query['GlobalInstanceId'] = $request->globalInstanceId;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteInstance',
@@ -2542,22 +2085,17 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Release the Redis instance.
-     *
-     * @remarks
-     * For more information about how to perform the corresponding operation in the console, see [Release an instance](https://help.aliyun.com/document_detail/43882.html).
+     * @summary Release the Redis instance.
+     *  *
+     * @description For more information about how to perform the corresponding operation in the console, see [Release an instance](https://help.aliyun.com/document_detail/43882.html).
      * Before you call this operation, make sure that the following requirements are met:
      * *   The instance is in the running state.
      * *   The instance is charged on a pay-as-you-go basis.
      * >  You cannot call this operation to release a subscription instance, which is automatically released when it expires. To release a subscription instance before it expires, submit a ticket.
+     *  *
+     * @param DeleteInstanceRequest $request DeleteInstanceRequest
      *
-     * @param request - DeleteInstanceRequest
-     *
-     * @returns DeleteInstanceResponse
-     *
-     * @param DeleteInstanceRequest $request
-     *
-     * @return DeleteInstanceResponse
+     * @return DeleteInstanceResponse DeleteInstanceResponse
      */
     public function deleteInstance($request)
     {
@@ -2567,48 +2105,37 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Deletes a parameter template.
+     * @summary Deletes a parameter template.
+     *  *
+     * @param DeleteParameterGroupRequest $request DeleteParameterGroupRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteParameterGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteParameterGroupResponse
-     *
-     * @param DeleteParameterGroupRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DeleteParameterGroupResponse
+     * @return DeleteParameterGroupResponse DeleteParameterGroupResponse
      */
     public function deleteParameterGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->parameterGroupId) {
-            @$query['ParameterGroupId'] = $request->parameterGroupId;
+        if (!Utils::isUnset($request->parameterGroupId)) {
+            $query['ParameterGroupId'] = $request->parameterGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteParameterGroup',
@@ -2626,15 +2153,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Deletes a parameter template.
+     * @summary Deletes a parameter template.
+     *  *
+     * @param DeleteParameterGroupRequest $request DeleteParameterGroupRequest
      *
-     * @param request - DeleteParameterGroupRequest
-     *
-     * @returns DeleteParameterGroupResponse
-     *
-     * @param DeleteParameterGroupRequest $request
-     *
-     * @return DeleteParameterGroupResponse
+     * @return DeleteParameterGroupResponse DeleteParameterGroupResponse
      */
     public function deleteParameterGroup($request)
     {
@@ -2644,70 +2167,54 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Removes one or more data shards from a Tair (Redis OSS-compatible) cluster instance.
-     *
-     * @remarks
-     * You can also remove data shards from an instance in the Tair (Redis OSS-compatible) console. For more information, see [Adjust the number of shards for an instance with cloud disks](https://help.aliyun.com/document_detail/198082.html).\\
+     * @summary Removes one or more data shards from a Tair (Redis OSS-compatible) cluster instance.
+     *  *
+     * @description You can also remove data shards from an instance in the Tair (Redis OSS-compatible) console. For more information, see [Adjust the number of shards for an instance with cloud disks](https://help.aliyun.com/document_detail/198082.html).\\
      * Before you call this operation, make sure that the instance meets the following requirements:
      * *   The instance is a persistent memory-optimized instance in the cluster architecture. For more information about persistent memory-optimized instances, see [Persistent memory-optimized instances](https://help.aliyun.com/document_detail/183956.html).
      * *   The instance has more than one data shard.
+     *  *
+     * @param DeleteShardingNodeRequest $request DeleteShardingNodeRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteShardingNodeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteShardingNodeResponse
-     *
-     * @param DeleteShardingNodeRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DeleteShardingNodeResponse
+     * @return DeleteShardingNodeResponse DeleteShardingNodeResponse
      */
     public function deleteShardingNodeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->effectiveTime) {
-            @$query['EffectiveTime'] = $request->effectiveTime;
+        if (!Utils::isUnset($request->effectiveTime)) {
+            $query['EffectiveTime'] = $request->effectiveTime;
         }
-
-        if (null !== $request->forceTrans) {
-            @$query['ForceTrans'] = $request->forceTrans;
+        if (!Utils::isUnset($request->forceTrans)) {
+            $query['ForceTrans'] = $request->forceTrans;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->nodeId) {
-            @$query['NodeId'] = $request->nodeId;
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->shardCount) {
-            @$query['ShardCount'] = $request->shardCount;
+        if (!Utils::isUnset($request->shardCount)) {
+            $query['ShardCount'] = $request->shardCount;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteShardingNode',
@@ -2725,21 +2232,16 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Removes one or more data shards from a Tair (Redis OSS-compatible) cluster instance.
-     *
-     * @remarks
-     * You can also remove data shards from an instance in the Tair (Redis OSS-compatible) console. For more information, see [Adjust the number of shards for an instance with cloud disks](https://help.aliyun.com/document_detail/198082.html).\\
+     * @summary Removes one or more data shards from a Tair (Redis OSS-compatible) cluster instance.
+     *  *
+     * @description You can also remove data shards from an instance in the Tair (Redis OSS-compatible) console. For more information, see [Adjust the number of shards for an instance with cloud disks](https://help.aliyun.com/document_detail/198082.html).\\
      * Before you call this operation, make sure that the instance meets the following requirements:
      * *   The instance is a persistent memory-optimized instance in the cluster architecture. For more information about persistent memory-optimized instances, see [Persistent memory-optimized instances](https://help.aliyun.com/document_detail/183956.html).
      * *   The instance has more than one data shard.
+     *  *
+     * @param DeleteShardingNodeRequest $request DeleteShardingNodeRequest
      *
-     * @param request - DeleteShardingNodeRequest
-     *
-     * @returns DeleteShardingNodeResponse
-     *
-     * @param DeleteShardingNodeRequest $request
-     *
-     * @return DeleteShardingNodeResponse
+     * @return DeleteShardingNodeResponse DeleteShardingNodeResponse
      */
     public function deleteShardingNode($request)
     {
@@ -2749,55 +2251,42 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries a specified account of a Tair (Redis OSS-compatible) instance.
+     * @summary Queries a specified account of a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @description >  Only Tair (Redis OSS-compatible) instances of Redis 4.0 or later are supported.
+     *  *
+     * @param DescribeAccountsRequest $request DescribeAccountsRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * >  Only Tair (Redis OSS-compatible) instances of Redis 4.0 or later are supported.
-     *
-     * @param request - DescribeAccountsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeAccountsResponse
-     *
-     * @param DescribeAccountsRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return DescribeAccountsResponse
+     * @return DescribeAccountsResponse DescribeAccountsResponse
      */
     public function describeAccountsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountName) {
-            @$query['AccountName'] = $request->accountName;
+        if (!Utils::isUnset($request->accountName)) {
+            $query['AccountName'] = $request->accountName;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeAccounts',
@@ -2815,18 +2304,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries a specified account of a Tair (Redis OSS-compatible) instance.
+     * @summary Queries a specified account of a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @description >  Only Tair (Redis OSS-compatible) instances of Redis 4.0 or later are supported.
+     *  *
+     * @param DescribeAccountsRequest $request DescribeAccountsRequest
      *
-     * @remarks
-     * >  Only Tair (Redis OSS-compatible) instances of Redis 4.0 or later are supported.
-     *
-     * @param request - DescribeAccountsRequest
-     *
-     * @returns DescribeAccountsResponse
-     *
-     * @param DescribeAccountsRequest $request
-     *
-     * @return DescribeAccountsResponse
+     * @return DescribeAccountsResponse DescribeAccountsResponse
      */
     public function describeAccounts($request)
     {
@@ -2836,67 +2320,51 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the details of the O\\&M tasks of a Tair (Redis OSS-compatible) instance.
+     * @summary Queries the details of the O\\&M tasks of a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @description After you have called this API operation and queried the information about a specific O&M task, you can also call the [ModifyActiveOperationTask](https://help.aliyun.com/document_detail/473864.html) operation to modify the scheduled switchover time of the O&M task.
+     *  *
+     * @param DescribeActiveOperationTaskRequest $request DescribeActiveOperationTaskRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * After you have called this API operation and queried the information about a specific O&M task, you can also call the [ModifyActiveOperationTask](https://help.aliyun.com/document_detail/473864.html) operation to modify the scheduled switchover time of the O&M task.
-     *
-     * @param request - DescribeActiveOperationTaskRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeActiveOperationTaskResponse
-     *
-     * @param DescribeActiveOperationTaskRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return DescribeActiveOperationTaskResponse
+     * @return DescribeActiveOperationTaskResponse DescribeActiveOperationTaskResponse
      */
     public function describeActiveOperationTaskWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->isHistory) {
-            @$query['IsHistory'] = $request->isHistory;
+        if (!Utils::isUnset($request->isHistory)) {
+            $query['IsHistory'] = $request->isHistory;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->region) {
-            @$query['Region'] = $request->region;
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->taskType) {
-            @$query['TaskType'] = $request->taskType;
+        if (!Utils::isUnset($request->taskType)) {
+            $query['TaskType'] = $request->taskType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeActiveOperationTask',
@@ -2914,18 +2382,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the details of the O\\&M tasks of a Tair (Redis OSS-compatible) instance.
+     * @summary Queries the details of the O\\&M tasks of a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @description After you have called this API operation and queried the information about a specific O&M task, you can also call the [ModifyActiveOperationTask](https://help.aliyun.com/document_detail/473864.html) operation to modify the scheduled switchover time of the O&M task.
+     *  *
+     * @param DescribeActiveOperationTaskRequest $request DescribeActiveOperationTaskRequest
      *
-     * @remarks
-     * After you have called this API operation and queried the information about a specific O&M task, you can also call the [ModifyActiveOperationTask](https://help.aliyun.com/document_detail/473864.html) operation to modify the scheduled switchover time of the O&M task.
-     *
-     * @param request - DescribeActiveOperationTaskRequest
-     *
-     * @returns DescribeActiveOperationTaskResponse
-     *
-     * @param DescribeActiveOperationTaskRequest $request
-     *
-     * @return DescribeActiveOperationTaskResponse
+     * @return DescribeActiveOperationTaskResponse DescribeActiveOperationTaskResponse
      */
     public function describeActiveOperationTask($request)
     {
@@ -2935,88 +2398,67 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the O\\\\\\\\\\\\&M event details of an instance.
+     * @summary Queries the O\\\\\\\\\\\\&M event details of an instance.
+     *  *
+     * @param DescribeActiveOperationTasksRequest $request DescribeActiveOperationTasksRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeActiveOperationTasksRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeActiveOperationTasksResponse
-     *
-     * @param DescribeActiveOperationTasksRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return DescribeActiveOperationTasksResponse
+     * @return DescribeActiveOperationTasksResponse DescribeActiveOperationTasksResponse
      */
     public function describeActiveOperationTasksWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->allowCancel) {
-            @$query['AllowCancel'] = $request->allowCancel;
+        if (!Utils::isUnset($request->allowCancel)) {
+            $query['AllowCancel'] = $request->allowCancel;
         }
-
-        if (null !== $request->allowChange) {
-            @$query['AllowChange'] = $request->allowChange;
+        if (!Utils::isUnset($request->allowChange)) {
+            $query['AllowChange'] = $request->allowChange;
         }
-
-        if (null !== $request->changeLevel) {
-            @$query['ChangeLevel'] = $request->changeLevel;
+        if (!Utils::isUnset($request->changeLevel)) {
+            $query['ChangeLevel'] = $request->changeLevel;
         }
-
-        if (null !== $request->dbType) {
-            @$query['DbType'] = $request->dbType;
+        if (!Utils::isUnset($request->dbType)) {
+            $query['DbType'] = $request->dbType;
         }
-
-        if (null !== $request->insName) {
-            @$query['InsName'] = $request->insName;
+        if (!Utils::isUnset($request->insName)) {
+            $query['InsName'] = $request->insName;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->productId) {
-            @$query['ProductId'] = $request->productId;
+        if (!Utils::isUnset($request->productId)) {
+            $query['ProductId'] = $request->productId;
         }
-
-        if (null !== $request->region) {
-            @$query['Region'] = $request->region;
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->status) {
-            @$query['Status'] = $request->status;
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
         }
-
-        if (null !== $request->taskType) {
-            @$query['TaskType'] = $request->taskType;
+        if (!Utils::isUnset($request->taskType)) {
+            $query['TaskType'] = $request->taskType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeActiveOperationTasks',
@@ -3034,15 +2476,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the O\\\\\\\\\\\\&M event details of an instance.
+     * @summary Queries the O\\\\\\\\\\\\&M event details of an instance.
+     *  *
+     * @param DescribeActiveOperationTasksRequest $request DescribeActiveOperationTasksRequest
      *
-     * @param request - DescribeActiveOperationTasksRequest
-     *
-     * @returns DescribeActiveOperationTasksResponse
-     *
-     * @param DescribeActiveOperationTasksRequest $request
-     *
-     * @return DescribeActiveOperationTasksResponse
+     * @return DescribeActiveOperationTasksResponse DescribeActiveOperationTasksResponse
      */
     public function describeActiveOperationTasks($request)
     {
@@ -3052,55 +2490,42 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the audit log configurations of a Tair (Redis OSS-compatible) instance. The configurations include whether the audit log feature is enabled and the retention period of audit logs.
+     * @summary Queries the audit log configurations of a Tair (Redis OSS-compatible) instance. The configurations include whether the audit log feature is enabled and the retention period of audit logs.
+     *  *
+     * @description Before you call this operation, you must enable the audit log feature for the instance. For more information, see [ModifyAuditLogConfig](https://help.aliyun.com/document_detail/473829.html) or [Enable the audit log feature](https://help.aliyun.com/document_detail/102015.html).
+     *  *
+     * @param DescribeAuditLogConfigRequest $request DescribeAuditLogConfigRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * Before you call this operation, you must enable the audit log feature for the instance. For more information, see [ModifyAuditLogConfig](https://help.aliyun.com/document_detail/473829.html) or [Enable the audit log feature](https://help.aliyun.com/document_detail/102015.html).
-     *
-     * @param request - DescribeAuditLogConfigRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeAuditLogConfigResponse
-     *
-     * @param DescribeAuditLogConfigRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return DescribeAuditLogConfigResponse
+     * @return DescribeAuditLogConfigResponse DescribeAuditLogConfigResponse
      */
     public function describeAuditLogConfigWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeAuditLogConfig',
@@ -3118,18 +2543,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the audit log configurations of a Tair (Redis OSS-compatible) instance. The configurations include whether the audit log feature is enabled and the retention period of audit logs.
+     * @summary Queries the audit log configurations of a Tair (Redis OSS-compatible) instance. The configurations include whether the audit log feature is enabled and the retention period of audit logs.
+     *  *
+     * @description Before you call this operation, you must enable the audit log feature for the instance. For more information, see [ModifyAuditLogConfig](https://help.aliyun.com/document_detail/473829.html) or [Enable the audit log feature](https://help.aliyun.com/document_detail/102015.html).
+     *  *
+     * @param DescribeAuditLogConfigRequest $request DescribeAuditLogConfigRequest
      *
-     * @remarks
-     * Before you call this operation, you must enable the audit log feature for the instance. For more information, see [ModifyAuditLogConfig](https://help.aliyun.com/document_detail/473829.html) or [Enable the audit log feature](https://help.aliyun.com/document_detail/102015.html).
-     *
-     * @param request - DescribeAuditLogConfigRequest
-     *
-     * @returns DescribeAuditLogConfigResponse
-     *
-     * @param DescribeAuditLogConfigRequest $request
-     *
-     * @return DescribeAuditLogConfigResponse
+     * @return DescribeAuditLogConfigResponse DescribeAuditLogConfigResponse
      */
     public function describeAuditLogConfig($request)
     {
@@ -3139,87 +2559,66 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the audit logs of a Tair (Redis OSS-compatible) instance.
+     * @summary Queries the audit logs of a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @description Before you call this operation, you must enable the audit log feature for the instance. For more information, see [ModifyAuditLogConfig](https://help.aliyun.com/document_detail/473829.html).
+     *  *
+     * @param DescribeAuditRecordsRequest $request DescribeAuditRecordsRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * Before you call this operation, you must enable the audit log feature for the instance. For more information, see [ModifyAuditLogConfig](https://help.aliyun.com/document_detail/473829.html).
-     *
-     * @param request - DescribeAuditRecordsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeAuditRecordsResponse
-     *
-     * @param DescribeAuditRecordsRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DescribeAuditRecordsResponse
+     * @return DescribeAuditRecordsResponse DescribeAuditRecordsResponse
      */
     public function describeAuditRecordsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountName) {
-            @$query['AccountName'] = $request->accountName;
+        if (!Utils::isUnset($request->accountName)) {
+            $query['AccountName'] = $request->accountName;
         }
-
-        if (null !== $request->databaseName) {
-            @$query['DatabaseName'] = $request->databaseName;
+        if (!Utils::isUnset($request->databaseName)) {
+            $query['DatabaseName'] = $request->databaseName;
         }
-
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->hostAddress) {
-            @$query['HostAddress'] = $request->hostAddress;
+        if (!Utils::isUnset($request->hostAddress)) {
+            $query['HostAddress'] = $request->hostAddress;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->nodeId) {
-            @$query['NodeId'] = $request->nodeId;
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->queryKeywords) {
-            @$query['QueryKeywords'] = $request->queryKeywords;
+        if (!Utils::isUnset($request->queryKeywords)) {
+            $query['QueryKeywords'] = $request->queryKeywords;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeAuditRecords',
@@ -3237,18 +2636,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the audit logs of a Tair (Redis OSS-compatible) instance.
+     * @summary Queries the audit logs of a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @description Before you call this operation, you must enable the audit log feature for the instance. For more information, see [ModifyAuditLogConfig](https://help.aliyun.com/document_detail/473829.html).
+     *  *
+     * @param DescribeAuditRecordsRequest $request DescribeAuditRecordsRequest
      *
-     * @remarks
-     * Before you call this operation, you must enable the audit log feature for the instance. For more information, see [ModifyAuditLogConfig](https://help.aliyun.com/document_detail/473829.html).
-     *
-     * @param request - DescribeAuditRecordsRequest
-     *
-     * @returns DescribeAuditRecordsResponse
-     *
-     * @param DescribeAuditRecordsRequest $request
-     *
-     * @return DescribeAuditRecordsResponse
+     * @return DescribeAuditRecordsResponse DescribeAuditRecordsResponse
      */
     public function describeAuditRecords($request)
     {
@@ -3258,88 +2652,67 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the types of Tair (Redis OSS-compatible) instances that can be created in a specified zone.
+     * @summary Queries the types of Tair (Redis OSS-compatible) instances that can be created in a specified zone.
+     *  *
+     * @param DescribeAvailableResourceRequest $request DescribeAvailableResourceRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeAvailableResourceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeAvailableResourceResponse
-     *
-     * @param DescribeAvailableResourceRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DescribeAvailableResourceResponse
+     * @return DescribeAvailableResourceResponse DescribeAvailableResourceResponse
      */
     public function describeAvailableResourceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->acceptLanguage) {
-            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
         }
-
-        if (null !== $request->engine) {
-            @$query['Engine'] = $request->engine;
+        if (!Utils::isUnset($request->engine)) {
+            $query['Engine'] = $request->engine;
         }
-
-        if (null !== $request->instanceChargeType) {
-            @$query['InstanceChargeType'] = $request->instanceChargeType;
+        if (!Utils::isUnset($request->instanceChargeType)) {
+            $query['InstanceChargeType'] = $request->instanceChargeType;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->instanceScene) {
-            @$query['InstanceScene'] = $request->instanceScene;
+        if (!Utils::isUnset($request->instanceScene)) {
+            $query['InstanceScene'] = $request->instanceScene;
         }
-
-        if (null !== $request->nodeId) {
-            @$query['NodeId'] = $request->nodeId;
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
         }
-
-        if (null !== $request->orderType) {
-            @$query['OrderType'] = $request->orderType;
+        if (!Utils::isUnset($request->orderType)) {
+            $query['OrderType'] = $request->orderType;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->productType) {
-            @$query['ProductType'] = $request->productType;
+        if (!Utils::isUnset($request->productType)) {
+            $query['ProductType'] = $request->productType;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->zoneId) {
-            @$query['ZoneId'] = $request->zoneId;
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeAvailableResource',
@@ -3357,15 +2730,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the types of Tair (Redis OSS-compatible) instances that can be created in a specified zone.
+     * @summary Queries the types of Tair (Redis OSS-compatible) instances that can be created in a specified zone.
+     *  *
+     * @param DescribeAvailableResourceRequest $request DescribeAvailableResourceRequest
      *
-     * @param request - DescribeAvailableResourceRequest
-     *
-     * @returns DescribeAvailableResourceResponse
-     *
-     * @param DescribeAvailableResourceRequest $request
-     *
-     * @return DescribeAvailableResourceResponse
+     * @return DescribeAvailableResourceResponse DescribeAvailableResourceResponse
      */
     public function describeAvailableResource($request)
     {
@@ -3375,48 +2744,37 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the backup policy of a Tair (Redis OSS-compatible) instance, including the backup cycle and backup time.
+     * @summary Queries the backup policy of a Tair (Redis OSS-compatible) instance, including the backup cycle and backup time.
+     *  *
+     * @param DescribeBackupPolicyRequest $request DescribeBackupPolicyRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeBackupPolicyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeBackupPolicyResponse
-     *
-     * @param DescribeBackupPolicyRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DescribeBackupPolicyResponse
+     * @return DescribeBackupPolicyResponse DescribeBackupPolicyResponse
      */
     public function describeBackupPolicyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeBackupPolicy',
@@ -3434,15 +2792,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the backup policy of a Tair (Redis OSS-compatible) instance, including the backup cycle and backup time.
+     * @summary Queries the backup policy of a Tair (Redis OSS-compatible) instance, including the backup cycle and backup time.
+     *  *
+     * @param DescribeBackupPolicyRequest $request DescribeBackupPolicyRequest
      *
-     * @param request - DescribeBackupPolicyRequest
-     *
-     * @returns DescribeBackupPolicyResponse
-     *
-     * @param DescribeBackupPolicyRequest $request
-     *
-     * @return DescribeBackupPolicyResponse
+     * @return DescribeBackupPolicyResponse DescribeBackupPolicyResponse
      */
     public function describeBackupPolicy($request)
     {
@@ -3452,56 +2806,43 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the execution status of backup tasks for a Tair (Redis OSS-compatible) instance.
+     * @summary Queries the execution status of backup tasks for a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @param DescribeBackupTasksRequest $request DescribeBackupTasksRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeBackupTasksRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeBackupTasksResponse
-     *
-     * @param DescribeBackupTasksRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DescribeBackupTasksResponse
+     * @return DescribeBackupTasksResponse DescribeBackupTasksResponse
      */
     public function describeBackupTasksWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->backupJobId) {
-            @$query['BackupJobId'] = $request->backupJobId;
+        if (!Utils::isUnset($request->backupJobId)) {
+            $query['BackupJobId'] = $request->backupJobId;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->jobMode) {
-            @$query['JobMode'] = $request->jobMode;
+        if (!Utils::isUnset($request->jobMode)) {
+            $query['JobMode'] = $request->jobMode;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeBackupTasks',
@@ -3519,15 +2860,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the execution status of backup tasks for a Tair (Redis OSS-compatible) instance.
+     * @summary Queries the execution status of backup tasks for a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @param DescribeBackupTasksRequest $request DescribeBackupTasksRequest
      *
-     * @param request - DescribeBackupTasksRequest
-     *
-     * @returns DescribeBackupTasksResponse
-     *
-     * @param DescribeBackupTasksRequest $request
-     *
-     * @return DescribeBackupTasksResponse
+     * @return DescribeBackupTasksResponse DescribeBackupTasksResponse
      */
     public function describeBackupTasks($request)
     {
@@ -3537,76 +2874,58 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the backup files of the Tair (Redis OSS-compatible) instance.
+     * @summary Queries the backup files of the Tair (Redis OSS-compatible) instance.
+     *  *
+     * @param DescribeBackupsRequest $request DescribeBackupsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeBackupsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeBackupsResponse
-     *
-     * @param DescribeBackupsRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return DescribeBackupsResponse
+     * @return DescribeBackupsResponse DescribeBackupsResponse
      */
     public function describeBackupsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->backupId) {
-            @$query['BackupId'] = $request->backupId;
+        if (!Utils::isUnset($request->backupId)) {
+            $query['BackupId'] = $request->backupId;
         }
-
-        if (null !== $request->backupJobId) {
-            @$query['BackupJobId'] = $request->backupJobId;
+        if (!Utils::isUnset($request->backupJobId)) {
+            $query['BackupJobId'] = $request->backupJobId;
         }
-
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->needAof) {
-            @$query['NeedAof'] = $request->needAof;
+        if (!Utils::isUnset($request->needAof)) {
+            $query['NeedAof'] = $request->needAof;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeBackups',
@@ -3624,15 +2943,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the backup files of the Tair (Redis OSS-compatible) instance.
+     * @summary Queries the backup files of the Tair (Redis OSS-compatible) instance.
+     *  *
+     * @param DescribeBackupsRequest $request DescribeBackupsRequest
      *
-     * @param request - DescribeBackupsRequest
-     *
-     * @returns DescribeBackupsResponse
-     *
-     * @param DescribeBackupsRequest $request
-     *
-     * @return DescribeBackupsResponse
+     * @return DescribeBackupsResponse DescribeBackupsResponse
      */
     public function describeBackups($request)
     {
@@ -3642,74 +2957,57 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the cache analysis report of an instance on a specified date.
-     *
-     * @remarks
-     * > Tair (Redis OSS-compatible) has optimized the cache analytics feature to improve user experience. This API operation is phased out. You can use the new API operation for cache analytics. For more information, see [API operations for cache analytics are upgraded](https://help.aliyun.com/document_detail/186019.html).
+     * @summary Queries the cache analysis report of an instance on a specified date.
+     *  *
+     * @description > Tair (Redis OSS-compatible) has optimized the cache analytics feature to improve user experience. This API operation is phased out. You can use the new API operation for cache analytics. For more information, see [API operations for cache analytics are upgraded](https://help.aliyun.com/document_detail/186019.html).
      * Before you call this operation, make sure that the instance meets the following requirements:
      * *   The engine version of the instance is Redis 4.0 or later.
      * *   The instance uses the latest minor version. For more information about how to check whether to update the minor version of an instance, see [How do I check whether the minor version of a Tair (Redis OSS-compatible) instance is the latest?](https://help.aliyun.com/document_detail/129203.html)
+     *  *
+     * @param DescribeCacheAnalysisReportRequest $request DescribeCacheAnalysisReportRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeCacheAnalysisReportRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeCacheAnalysisReportResponse
-     *
-     * @param DescribeCacheAnalysisReportRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return DescribeCacheAnalysisReportResponse
+     * @return DescribeCacheAnalysisReportResponse DescribeCacheAnalysisReportResponse
      */
     public function describeCacheAnalysisReportWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->analysisType) {
-            @$query['AnalysisType'] = $request->analysisType;
+        if (!Utils::isUnset($request->analysisType)) {
+            $query['AnalysisType'] = $request->analysisType;
         }
-
-        if (null !== $request->date) {
-            @$query['Date'] = $request->date;
+        if (!Utils::isUnset($request->date)) {
+            $query['Date'] = $request->date;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->nodeId) {
-            @$query['NodeId'] = $request->nodeId;
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->pageNumbers) {
-            @$query['PageNumbers'] = $request->pageNumbers;
+        if (!Utils::isUnset($request->pageNumbers)) {
+            $query['PageNumbers'] = $request->pageNumbers;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeCacheAnalysisReport',
@@ -3727,21 +3025,16 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the cache analysis report of an instance on a specified date.
-     *
-     * @remarks
-     * > Tair (Redis OSS-compatible) has optimized the cache analytics feature to improve user experience. This API operation is phased out. You can use the new API operation for cache analytics. For more information, see [API operations for cache analytics are upgraded](https://help.aliyun.com/document_detail/186019.html).
+     * @summary Queries the cache analysis report of an instance on a specified date.
+     *  *
+     * @description > Tair (Redis OSS-compatible) has optimized the cache analytics feature to improve user experience. This API operation is phased out. You can use the new API operation for cache analytics. For more information, see [API operations for cache analytics are upgraded](https://help.aliyun.com/document_detail/186019.html).
      * Before you call this operation, make sure that the instance meets the following requirements:
      * *   The engine version of the instance is Redis 4.0 or later.
      * *   The instance uses the latest minor version. For more information about how to check whether to update the minor version of an instance, see [How do I check whether the minor version of a Tair (Redis OSS-compatible) instance is the latest?](https://help.aliyun.com/document_detail/129203.html)
+     *  *
+     * @param DescribeCacheAnalysisReportRequest $request DescribeCacheAnalysisReportRequest
      *
-     * @param request - DescribeCacheAnalysisReportRequest
-     *
-     * @returns DescribeCacheAnalysisReportResponse
-     *
-     * @param DescribeCacheAnalysisReportRequest $request
-     *
-     * @return DescribeCacheAnalysisReportResponse
+     * @return DescribeCacheAnalysisReportResponse DescribeCacheAnalysisReportResponse
      */
     public function describeCacheAnalysisReport($request)
     {
@@ -3751,70 +3044,54 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries a list of cache analysis reports for an instance.
-     *
-     * @remarks
-     * > Tair (Redis OSS-compatible) has optimized the cache analytics feature to improve user experience. This API operation is phased out. You can use the new API operation for cache analytics. For more information, see [API operations for cache analytics are upgraded](https://help.aliyun.com/document_detail/186019.html).
+     * @summary Queries a list of cache analysis reports for an instance.
+     *  *
+     * @description > Tair (Redis OSS-compatible) has optimized the cache analytics feature to improve user experience. This API operation is phased out. You can use the new API operation for cache analytics. For more information, see [API operations for cache analytics are upgraded](https://help.aliyun.com/document_detail/186019.html).
      * Before you call this operation, make sure that the instance meets the following requirements:
      * *   The engine version of the instance is Redis 4.0 or later.
      * *   The instance uses the latest minor version. For more information about how to check whether to update the minor version of an instance, see [How do I check whether the minor version of a Tair (Redis OSS-compatible) instance is the latest?](https://help.aliyun.com/document_detail/129203.html)
+     *  *
+     * @param DescribeCacheAnalysisReportListRequest $request DescribeCacheAnalysisReportListRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeCacheAnalysisReportListRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeCacheAnalysisReportListResponse
-     *
-     * @param DescribeCacheAnalysisReportListRequest $request
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return DescribeCacheAnalysisReportListResponse
+     * @return DescribeCacheAnalysisReportListResponse DescribeCacheAnalysisReportListResponse
      */
     public function describeCacheAnalysisReportListWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->days) {
-            @$query['Days'] = $request->days;
+        if (!Utils::isUnset($request->days)) {
+            $query['Days'] = $request->days;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->nodeId) {
-            @$query['NodeId'] = $request->nodeId;
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->pageNumbers) {
-            @$query['PageNumbers'] = $request->pageNumbers;
+        if (!Utils::isUnset($request->pageNumbers)) {
+            $query['PageNumbers'] = $request->pageNumbers;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeCacheAnalysisReportList',
@@ -3832,21 +3109,16 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries a list of cache analysis reports for an instance.
-     *
-     * @remarks
-     * > Tair (Redis OSS-compatible) has optimized the cache analytics feature to improve user experience. This API operation is phased out. You can use the new API operation for cache analytics. For more information, see [API operations for cache analytics are upgraded](https://help.aliyun.com/document_detail/186019.html).
+     * @summary Queries a list of cache analysis reports for an instance.
+     *  *
+     * @description > Tair (Redis OSS-compatible) has optimized the cache analytics feature to improve user experience. This API operation is phased out. You can use the new API operation for cache analytics. For more information, see [API operations for cache analytics are upgraded](https://help.aliyun.com/document_detail/186019.html).
      * Before you call this operation, make sure that the instance meets the following requirements:
      * *   The engine version of the instance is Redis 4.0 or later.
      * *   The instance uses the latest minor version. For more information about how to check whether to update the minor version of an instance, see [How do I check whether the minor version of a Tair (Redis OSS-compatible) instance is the latest?](https://help.aliyun.com/document_detail/129203.html)
+     *  *
+     * @param DescribeCacheAnalysisReportListRequest $request DescribeCacheAnalysisReportListRequest
      *
-     * @param request - DescribeCacheAnalysisReportListRequest
-     *
-     * @returns DescribeCacheAnalysisReportListResponse
-     *
-     * @param DescribeCacheAnalysisReportListRequest $request
-     *
-     * @return DescribeCacheAnalysisReportListResponse
+     * @return DescribeCacheAnalysisReportListResponse DescribeCacheAnalysisReportListResponse
      */
     public function describeCacheAnalysisReportList($request)
     {
@@ -3856,27 +3128,21 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the backup sets of a Tair (Redis OSS-compatible) cluster instance.
+     * @summary Queries the backup sets of a Tair (Redis OSS-compatible) cluster instance.
+     *  *
+     * @description This operation is applicable only to cloud-native instances.
+     *  *
+     * @param DescribeClusterBackupListRequest $request DescribeClusterBackupListRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * This operation is applicable only to cloud-native instances.
-     *
-     * @param request - DescribeClusterBackupListRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeClusterBackupListResponse
-     *
-     * @param DescribeClusterBackupListRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DescribeClusterBackupListResponse
+     * @return DescribeClusterBackupListResponse DescribeClusterBackupListResponse
      */
     public function describeClusterBackupListWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeClusterBackupList',
@@ -3894,18 +3160,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the backup sets of a Tair (Redis OSS-compatible) cluster instance.
+     * @summary Queries the backup sets of a Tair (Redis OSS-compatible) cluster instance.
+     *  *
+     * @description This operation is applicable only to cloud-native instances.
+     *  *
+     * @param DescribeClusterBackupListRequest $request DescribeClusterBackupListRequest
      *
-     * @remarks
-     * This operation is applicable only to cloud-native instances.
-     *
-     * @param request - DescribeClusterBackupListRequest
-     *
-     * @returns DescribeClusterBackupListResponse
-     *
-     * @param DescribeClusterBackupListRequest $request
-     *
-     * @return DescribeClusterBackupListResponse
+     * @return DescribeClusterBackupListResponse DescribeClusterBackupListResponse
      */
     public function describeClusterBackupList($request)
     {
@@ -3915,59 +3176,45 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the configuration information of nodes in a Tair (Redis OSS-compatible) cluster instance, such as the specifications and the maximum number of connections.
+     * @summary Queries the configuration information of nodes in a Tair (Redis OSS-compatible) cluster instance, such as the specifications and the maximum number of connections.
+     *  *
+     * @description > This API operation is applicable only to Tair (Redis OSS-compatible) instances that use [cloud disks](https://help.aliyun.com/document_detail/188068.html) and the [cluster architecture](https://help.aliyun.com/document_detail/52228.html).
+     *  *
+     * @param DescribeClusterMemberInfoRequest $request DescribeClusterMemberInfoRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * > This API operation is applicable only to Tair (Redis OSS-compatible) instances that use [cloud disks](https://help.aliyun.com/document_detail/188068.html) and the [cluster architecture](https://help.aliyun.com/document_detail/52228.html).
-     *
-     * @param request - DescribeClusterMemberInfoRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeClusterMemberInfoResponse
-     *
-     * @param DescribeClusterMemberInfoRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DescribeClusterMemberInfoResponse
+     * @return DescribeClusterMemberInfoResponse DescribeClusterMemberInfoResponse
      */
     public function describeClusterMemberInfoWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeClusterMemberInfo',
@@ -3985,18 +3232,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the configuration information of nodes in a Tair (Redis OSS-compatible) cluster instance, such as the specifications and the maximum number of connections.
+     * @summary Queries the configuration information of nodes in a Tair (Redis OSS-compatible) cluster instance, such as the specifications and the maximum number of connections.
+     *  *
+     * @description > This API operation is applicable only to Tair (Redis OSS-compatible) instances that use [cloud disks](https://help.aliyun.com/document_detail/188068.html) and the [cluster architecture](https://help.aliyun.com/document_detail/52228.html).
+     *  *
+     * @param DescribeClusterMemberInfoRequest $request DescribeClusterMemberInfoRequest
      *
-     * @remarks
-     * > This API operation is applicable only to Tair (Redis OSS-compatible) instances that use [cloud disks](https://help.aliyun.com/document_detail/188068.html) and the [cluster architecture](https://help.aliyun.com/document_detail/52228.html).
-     *
-     * @param request - DescribeClusterMemberInfoRequest
-     *
-     * @returns DescribeClusterMemberInfoResponse
-     *
-     * @param DescribeClusterMemberInfoRequest $request
-     *
-     * @return DescribeClusterMemberInfoResponse
+     * @return DescribeClusterMemberInfoResponse DescribeClusterMemberInfoResponse
      */
     public function describeClusterMemberInfo($request)
     {
@@ -4006,48 +3248,37 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the network information of an ApsaraDB for Redis instance.
+     * @summary Queries the network information of an ApsaraDB for Redis instance.
+     *  *
+     * @param DescribeDBInstanceNetInfoRequest $request DescribeDBInstanceNetInfoRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDBInstanceNetInfoRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDBInstanceNetInfoResponse
-     *
-     * @param DescribeDBInstanceNetInfoRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DescribeDBInstanceNetInfoResponse
+     * @return DescribeDBInstanceNetInfoResponse DescribeDBInstanceNetInfoResponse
      */
     public function describeDBInstanceNetInfoWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDBInstanceNetInfo',
@@ -4065,15 +3296,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the network information of an ApsaraDB for Redis instance.
+     * @summary Queries the network information of an ApsaraDB for Redis instance.
+     *  *
+     * @param DescribeDBInstanceNetInfoRequest $request DescribeDBInstanceNetInfoRequest
      *
-     * @param request - DescribeDBInstanceNetInfoRequest
-     *
-     * @returns DescribeDBInstanceNetInfoResponse
-     *
-     * @param DescribeDBInstanceNetInfoRequest $request
-     *
-     * @return DescribeDBInstanceNetInfoResponse
+     * @return DescribeDBInstanceNetInfoResponse DescribeDBInstanceNetInfoResponse
      */
     public function describeDBInstanceNetInfo($request)
     {
@@ -4083,47 +3310,36 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the information about virtual IP addresses (VIPs) of child instances of a cluster instance in direct connection mode.
+     * @summary Queries the information about virtual IP addresses (VIPs) of child instances of a cluster instance in direct connection mode.
+     *  *
+     * @description > Only instances that use cloud disks support this operation.
+     *  *
+     * @param DescribeDBNodeDirectVipInfoRequest $request DescribeDBNodeDirectVipInfoRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * > Only instances that use cloud disks support this operation.
-     *
-     * @param request - DescribeDBNodeDirectVipInfoRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDBNodeDirectVipInfoResponse
-     *
-     * @param DescribeDBNodeDirectVipInfoRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return DescribeDBNodeDirectVipInfoResponse
+     * @return DescribeDBNodeDirectVipInfoResponse DescribeDBNodeDirectVipInfoResponse
      */
     public function describeDBNodeDirectVipInfoWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDBNodeDirectVipInfo',
@@ -4141,18 +3357,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the information about virtual IP addresses (VIPs) of child instances of a cluster instance in direct connection mode.
+     * @summary Queries the information about virtual IP addresses (VIPs) of child instances of a cluster instance in direct connection mode.
+     *  *
+     * @description > Only instances that use cloud disks support this operation.
+     *  *
+     * @param DescribeDBNodeDirectVipInfoRequest $request DescribeDBNodeDirectVipInfoRequest
      *
-     * @remarks
-     * > Only instances that use cloud disks support this operation.
-     *
-     * @param request - DescribeDBNodeDirectVipInfoRequest
-     *
-     * @returns DescribeDBNodeDirectVipInfoResponse
-     *
-     * @param DescribeDBNodeDirectVipInfoRequest $request
-     *
-     * @return DescribeDBNodeDirectVipInfoResponse
+     * @return DescribeDBNodeDirectVipInfoResponse DescribeDBNodeDirectVipInfoResponse
      */
     public function describeDBNodeDirectVipInfo($request)
     {
@@ -4162,91 +3373,69 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the information of Tair (Redis OSS-compatible) instances deployed in a dedicated cluster.
+     * @summary Queries the information of Tair (Redis OSS-compatible) instances deployed in a dedicated cluster.
+     *  *
+     * @description > If you want to query the information about Tair (Redis OSS-compatible) instances that are not deployed in a dedicated cluster, call the [DescribeInstanceAttribute](https://help.aliyun.com/document_detail/473779.html) operation.
+     *  *
+     * @param DescribeDedicatedClusterInstanceListRequest $request DescribeDedicatedClusterInstanceListRequest
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * > If you want to query the information about Tair (Redis OSS-compatible) instances that are not deployed in a dedicated cluster, call the [DescribeInstanceAttribute](https://help.aliyun.com/document_detail/473779.html) operation.
-     *
-     * @param request - DescribeDedicatedClusterInstanceListRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDedicatedClusterInstanceListResponse
-     *
-     * @param DescribeDedicatedClusterInstanceListRequest $request
-     * @param RuntimeOptions                              $runtime
-     *
-     * @return DescribeDedicatedClusterInstanceListResponse
+     * @return DescribeDedicatedClusterInstanceListResponse DescribeDedicatedClusterInstanceListResponse
      */
     public function describeDedicatedClusterInstanceListWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->dedicatedHostName) {
-            @$query['DedicatedHostName'] = $request->dedicatedHostName;
+        if (!Utils::isUnset($request->dedicatedHostName)) {
+            $query['DedicatedHostName'] = $request->dedicatedHostName;
         }
-
-        if (null !== $request->engine) {
-            @$query['Engine'] = $request->engine;
+        if (!Utils::isUnset($request->engine)) {
+            $query['Engine'] = $request->engine;
         }
-
-        if (null !== $request->engineVersion) {
-            @$query['EngineVersion'] = $request->engineVersion;
+        if (!Utils::isUnset($request->engineVersion)) {
+            $query['EngineVersion'] = $request->engineVersion;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->instanceNetType) {
-            @$query['InstanceNetType'] = $request->instanceNetType;
+        if (!Utils::isUnset($request->instanceNetType)) {
+            $query['InstanceNetType'] = $request->instanceNetType;
         }
-
-        if (null !== $request->instanceStatus) {
-            @$query['InstanceStatus'] = $request->instanceStatus;
+        if (!Utils::isUnset($request->instanceStatus)) {
+            $query['InstanceStatus'] = $request->instanceStatus;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->zoneId) {
-            @$query['ZoneId'] = $request->zoneId;
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDedicatedClusterInstanceList',
@@ -4264,18 +3453,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the information of Tair (Redis OSS-compatible) instances deployed in a dedicated cluster.
+     * @summary Queries the information of Tair (Redis OSS-compatible) instances deployed in a dedicated cluster.
+     *  *
+     * @description > If you want to query the information about Tair (Redis OSS-compatible) instances that are not deployed in a dedicated cluster, call the [DescribeInstanceAttribute](https://help.aliyun.com/document_detail/473779.html) operation.
+     *  *
+     * @param DescribeDedicatedClusterInstanceListRequest $request DescribeDedicatedClusterInstanceListRequest
      *
-     * @remarks
-     * > If you want to query the information about Tair (Redis OSS-compatible) instances that are not deployed in a dedicated cluster, call the [DescribeInstanceAttribute](https://help.aliyun.com/document_detail/473779.html) operation.
-     *
-     * @param request - DescribeDedicatedClusterInstanceListRequest
-     *
-     * @returns DescribeDedicatedClusterInstanceListResponse
-     *
-     * @param DescribeDedicatedClusterInstanceListRequest $request
-     *
-     * @return DescribeDedicatedClusterInstanceListResponse
+     * @return DescribeDedicatedClusterInstanceListResponse DescribeDedicatedClusterInstanceListResponse
      */
     public function describeDedicatedClusterInstanceList($request)
     {
@@ -4285,56 +3469,43 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the details of a custom key for a Tair (Redis OSS-compatible) instance to use transparent data encryption (TDE).
-     *
-     * @remarks
-     * Before you call this operation, TDE must be enabled for the Tair (Redis OSS-compatible) instance by using a custom key. For more information, see [ModifyInstanceTDE](https://help.aliyun.com/document_detail/473859.html).
+     * @summary Queries the details of a custom key for a Tair (Redis OSS-compatible) instance to use transparent data encryption (TDE).
+     *  *
+     * @description Before you call this operation, TDE must be enabled for the Tair (Redis OSS-compatible) instance by using a custom key. For more information, see [ModifyInstanceTDE](https://help.aliyun.com/document_detail/473859.html).
      * > For more information about TDE, see [Enable TDE](https://help.aliyun.com/document_detail/265913.html).
+     *  *
+     * @param DescribeEncryptionKeyRequest $request DescribeEncryptionKeyRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeEncryptionKeyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeEncryptionKeyResponse
-     *
-     * @param DescribeEncryptionKeyRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DescribeEncryptionKeyResponse
+     * @return DescribeEncryptionKeyResponse DescribeEncryptionKeyResponse
      */
     public function describeEncryptionKeyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->encryptionKey) {
-            @$query['EncryptionKey'] = $request->encryptionKey;
+        if (!Utils::isUnset($request->encryptionKey)) {
+            $query['EncryptionKey'] = $request->encryptionKey;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeEncryptionKey',
@@ -4352,19 +3523,14 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the details of a custom key for a Tair (Redis OSS-compatible) instance to use transparent data encryption (TDE).
-     *
-     * @remarks
-     * Before you call this operation, TDE must be enabled for the Tair (Redis OSS-compatible) instance by using a custom key. For more information, see [ModifyInstanceTDE](https://help.aliyun.com/document_detail/473859.html).
+     * @summary Queries the details of a custom key for a Tair (Redis OSS-compatible) instance to use transparent data encryption (TDE).
+     *  *
+     * @description Before you call this operation, TDE must be enabled for the Tair (Redis OSS-compatible) instance by using a custom key. For more information, see [ModifyInstanceTDE](https://help.aliyun.com/document_detail/473859.html).
      * > For more information about TDE, see [Enable TDE](https://help.aliyun.com/document_detail/265913.html).
+     *  *
+     * @param DescribeEncryptionKeyRequest $request DescribeEncryptionKeyRequest
      *
-     * @param request - DescribeEncryptionKeyRequest
-     *
-     * @returns DescribeEncryptionKeyResponse
-     *
-     * @param DescribeEncryptionKeyRequest $request
-     *
-     * @return DescribeEncryptionKeyResponse
+     * @return DescribeEncryptionKeyResponse DescribeEncryptionKeyResponse
      */
     public function describeEncryptionKey($request)
     {
@@ -4374,52 +3540,40 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries a list of custom keys used by Tair (Redis OSS-compatible) instances.
-     *
-     * @remarks
-     *   You can specify a custom key when you call the [ModifyInstanceTDE](https://help.aliyun.com/document_detail/473859.html) operation to enable Transparent Data Encryption (TDE). You can call the DescribeEncryptionKeyList operation to query the custom keys that are in use. To create a custom key, you can call the [CreateKey](https://help.aliyun.com/document_detail/28947.html) operation of Key Management Service (KMS).
+     * @summary Queries a list of custom keys used by Tair (Redis OSS-compatible) instances.
+     *  *
+     * @description *   You can specify a custom key when you call the [ModifyInstanceTDE](https://help.aliyun.com/document_detail/473859.html) operation to enable Transparent Data Encryption (TDE). You can call the DescribeEncryptionKeyList operation to query the custom keys that are in use. To create a custom key, you can call the [CreateKey](https://help.aliyun.com/document_detail/28947.html) operation of Key Management Service (KMS).
      * *   For more information about TDE and the usage notes of TDE, see [Enable TDE](https://help.aliyun.com/document_detail/265913.html).
+     *  *
+     * @param DescribeEncryptionKeyListRequest $request DescribeEncryptionKeyListRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeEncryptionKeyListRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeEncryptionKeyListResponse
-     *
-     * @param DescribeEncryptionKeyListRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DescribeEncryptionKeyListResponse
+     * @return DescribeEncryptionKeyListResponse DescribeEncryptionKeyListResponse
      */
     public function describeEncryptionKeyListWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeEncryptionKeyList',
@@ -4437,19 +3591,14 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries a list of custom keys used by Tair (Redis OSS-compatible) instances.
-     *
-     * @remarks
-     *   You can specify a custom key when you call the [ModifyInstanceTDE](https://help.aliyun.com/document_detail/473859.html) operation to enable Transparent Data Encryption (TDE). You can call the DescribeEncryptionKeyList operation to query the custom keys that are in use. To create a custom key, you can call the [CreateKey](https://help.aliyun.com/document_detail/28947.html) operation of Key Management Service (KMS).
+     * @summary Queries a list of custom keys used by Tair (Redis OSS-compatible) instances.
+     *  *
+     * @description *   You can specify a custom key when you call the [ModifyInstanceTDE](https://help.aliyun.com/document_detail/473859.html) operation to enable Transparent Data Encryption (TDE). You can call the DescribeEncryptionKeyList operation to query the custom keys that are in use. To create a custom key, you can call the [CreateKey](https://help.aliyun.com/document_detail/28947.html) operation of Key Management Service (KMS).
      * *   For more information about TDE and the usage notes of TDE, see [Enable TDE](https://help.aliyun.com/document_detail/265913.html).
+     *  *
+     * @param DescribeEncryptionKeyListRequest $request DescribeEncryptionKeyListRequest
      *
-     * @param request - DescribeEncryptionKeyListRequest
-     *
-     * @returns DescribeEncryptionKeyListResponse
-     *
-     * @param DescribeEncryptionKeyListRequest $request
-     *
-     * @return DescribeEncryptionKeyListResponse
+     * @return DescribeEncryptionKeyListResponse DescribeEncryptionKeyListResponse
      */
     public function describeEncryptionKeyList($request)
     {
@@ -4459,52 +3608,40 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the major version and minor version of a Tair (Redis OSS-compatible) instance and the release notes for minor versions.
-     *
-     * @remarks
-     * ## Debugging
+     * @summary Queries the major version and minor version of a Tair (Redis OSS-compatible) instance and the release notes for minor versions.
+     *  *
+     * @description ## Debugging
      * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=R-kvstore\\&api=DescribeEngineVersion\\&type=RPC\\&version=2015-01-01)
+     *  *
+     * @param DescribeEngineVersionRequest $request DescribeEngineVersionRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeEngineVersionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeEngineVersionResponse
-     *
-     * @param DescribeEngineVersionRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DescribeEngineVersionResponse
+     * @return DescribeEngineVersionResponse DescribeEngineVersionResponse
      */
     public function describeEngineVersionWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeEngineVersion',
@@ -4522,19 +3659,14 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the major version and minor version of a Tair (Redis OSS-compatible) instance and the release notes for minor versions.
-     *
-     * @remarks
-     * ## Debugging
+     * @summary Queries the major version and minor version of a Tair (Redis OSS-compatible) instance and the release notes for minor versions.
+     *  *
+     * @description ## Debugging
      * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=R-kvstore\\&api=DescribeEngineVersion\\&type=RPC\\&version=2015-01-01)
+     *  *
+     * @param DescribeEngineVersionRequest $request DescribeEngineVersionRequest
      *
-     * @param request - DescribeEngineVersionRequest
-     *
-     * @returns DescribeEngineVersionResponse
-     *
-     * @param DescribeEngineVersionRequest $request
-     *
-     * @return DescribeEngineVersionResponse
+     * @return DescribeEngineVersionResponse DescribeEngineVersionResponse
      */
     public function describeEngineVersion($request)
     {
@@ -4544,64 +3676,49 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the details of a distributed Tair (Redis OSS-compatible) instance.
-     *
-     * @remarks
-     * ## Debugging
+     * @summary Queries the details of a distributed Tair (Redis OSS-compatible) instance.
+     *  *
+     * @description ## Debugging
      * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=R-kvstore\\&api=DescribeGlobalDistributeCache\\&type=RPC\\&version=2015-01-01)
+     *  *
+     * @param DescribeGlobalDistributeCacheRequest $request DescribeGlobalDistributeCacheRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeGlobalDistributeCacheRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeGlobalDistributeCacheResponse
-     *
-     * @param DescribeGlobalDistributeCacheRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return DescribeGlobalDistributeCacheResponse
+     * @return DescribeGlobalDistributeCacheResponse DescribeGlobalDistributeCacheResponse
      */
     public function describeGlobalDistributeCacheWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->globalInstanceId) {
-            @$query['GlobalInstanceId'] = $request->globalInstanceId;
+        if (!Utils::isUnset($request->globalInstanceId)) {
+            $query['GlobalInstanceId'] = $request->globalInstanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->subInstanceId) {
-            @$query['SubInstanceId'] = $request->subInstanceId;
+        if (!Utils::isUnset($request->subInstanceId)) {
+            $query['SubInstanceId'] = $request->subInstanceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeGlobalDistributeCache',
@@ -4619,19 +3736,14 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the details of a distributed Tair (Redis OSS-compatible) instance.
-     *
-     * @remarks
-     * ## Debugging
+     * @summary Queries the details of a distributed Tair (Redis OSS-compatible) instance.
+     *  *
+     * @description ## Debugging
      * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=R-kvstore\\&api=DescribeGlobalDistributeCache\\&type=RPC\\&version=2015-01-01)
+     *  *
+     * @param DescribeGlobalDistributeCacheRequest $request DescribeGlobalDistributeCacheRequest
      *
-     * @param request - DescribeGlobalDistributeCacheRequest
-     *
-     * @returns DescribeGlobalDistributeCacheResponse
-     *
-     * @param DescribeGlobalDistributeCacheRequest $request
-     *
-     * @return DescribeGlobalDistributeCacheResponse
+     * @return DescribeGlobalDistributeCacheResponse DescribeGlobalDistributeCacheResponse
      */
     public function describeGlobalDistributeCache($request)
     {
@@ -4641,24 +3753,19 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries global IP whitelist templates.
+     * @summary Queries global IP whitelist templates.
+     *  *
+     * @param DescribeGlobalSecurityIPGroupRequest $request DescribeGlobalSecurityIPGroupRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeGlobalSecurityIPGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeGlobalSecurityIPGroupResponse
-     *
-     * @param DescribeGlobalSecurityIPGroupRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return DescribeGlobalSecurityIPGroupResponse
+     * @return DescribeGlobalSecurityIPGroupResponse DescribeGlobalSecurityIPGroupResponse
      */
     public function describeGlobalSecurityIPGroupWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeGlobalSecurityIPGroup',
@@ -4676,15 +3783,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries global IP whitelist templates.
+     * @summary Queries global IP whitelist templates.
+     *  *
+     * @param DescribeGlobalSecurityIPGroupRequest $request DescribeGlobalSecurityIPGroupRequest
      *
-     * @param request - DescribeGlobalSecurityIPGroupRequest
-     *
-     * @returns DescribeGlobalSecurityIPGroupResponse
-     *
-     * @param DescribeGlobalSecurityIPGroupRequest $request
-     *
-     * @return DescribeGlobalSecurityIPGroupResponse
+     * @return DescribeGlobalSecurityIPGroupResponse DescribeGlobalSecurityIPGroupResponse
      */
     public function describeGlobalSecurityIPGroup($request)
     {
@@ -4694,24 +3797,19 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries information about the global IP whitelist templates associated with an instance.
+     * @summary Queries information about the global IP whitelist templates associated with an instance.
+     *  *
+     * @param DescribeGlobalSecurityIPGroupRelationRequest $request DescribeGlobalSecurityIPGroupRelationRequest
+     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeGlobalSecurityIPGroupRelationRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeGlobalSecurityIPGroupRelationResponse
-     *
-     * @param DescribeGlobalSecurityIPGroupRelationRequest $request
-     * @param RuntimeOptions                               $runtime
-     *
-     * @return DescribeGlobalSecurityIPGroupRelationResponse
+     * @return DescribeGlobalSecurityIPGroupRelationResponse DescribeGlobalSecurityIPGroupRelationResponse
      */
     public function describeGlobalSecurityIPGroupRelationWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeGlobalSecurityIPGroupRelation',
@@ -4729,15 +3827,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries information about the global IP whitelist templates associated with an instance.
+     * @summary Queries information about the global IP whitelist templates associated with an instance.
+     *  *
+     * @param DescribeGlobalSecurityIPGroupRelationRequest $request DescribeGlobalSecurityIPGroupRelationRequest
      *
-     * @param request - DescribeGlobalSecurityIPGroupRelationRequest
-     *
-     * @returns DescribeGlobalSecurityIPGroupRelationResponse
-     *
-     * @param DescribeGlobalSecurityIPGroupRelationRequest $request
-     *
-     * @return DescribeGlobalSecurityIPGroupRelationResponse
+     * @return DescribeGlobalSecurityIPGroupRelationResponse DescribeGlobalSecurityIPGroupRelationResponse
      */
     public function describeGlobalSecurityIPGroupRelation($request)
     {
@@ -4747,79 +3841,60 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the performance monitoring data of a Tair (Redis OSS-compatible) instance.
+     * @summary Queries the performance monitoring data of a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @description You can also query the performance monitoring data of an instance in the Tair console. For more information, see [Metrics](https://help.aliyun.com/document_detail/43887.html).
+     *  *
+     * @param DescribeHistoryMonitorValuesRequest $request DescribeHistoryMonitorValuesRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can also query the performance monitoring data of an instance in the Tair console. For more information, see [Metrics](https://help.aliyun.com/document_detail/43887.html).
-     *
-     * @param request - DescribeHistoryMonitorValuesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeHistoryMonitorValuesResponse
-     *
-     * @param DescribeHistoryMonitorValuesRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return DescribeHistoryMonitorValuesResponse
+     * @return DescribeHistoryMonitorValuesResponse DescribeHistoryMonitorValuesResponse
      */
     public function describeHistoryMonitorValuesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->intervalForHistory) {
-            @$query['IntervalForHistory'] = $request->intervalForHistory;
+        if (!Utils::isUnset($request->intervalForHistory)) {
+            $query['IntervalForHistory'] = $request->intervalForHistory;
         }
-
-        if (null !== $request->monitorKeys) {
-            @$query['MonitorKeys'] = $request->monitorKeys;
+        if (!Utils::isUnset($request->monitorKeys)) {
+            $query['MonitorKeys'] = $request->monitorKeys;
         }
-
-        if (null !== $request->nodeId) {
-            @$query['NodeId'] = $request->nodeId;
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
         }
-
-        if (null !== $request->nodeRole) {
-            @$query['NodeRole'] = $request->nodeRole;
+        if (!Utils::isUnset($request->nodeRole)) {
+            $query['NodeRole'] = $request->nodeRole;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
-        if (null !== $request->type) {
-            @$query['Type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeHistoryMonitorValues',
@@ -4837,18 +3912,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the performance monitoring data of a Tair (Redis OSS-compatible) instance.
+     * @summary Queries the performance monitoring data of a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @description You can also query the performance monitoring data of an instance in the Tair console. For more information, see [Metrics](https://help.aliyun.com/document_detail/43887.html).
+     *  *
+     * @param DescribeHistoryMonitorValuesRequest $request DescribeHistoryMonitorValuesRequest
      *
-     * @remarks
-     * You can also query the performance monitoring data of an instance in the Tair console. For more information, see [Metrics](https://help.aliyun.com/document_detail/43887.html).
-     *
-     * @param request - DescribeHistoryMonitorValuesRequest
-     *
-     * @returns DescribeHistoryMonitorValuesResponse
-     *
-     * @param DescribeHistoryMonitorValuesRequest $request
-     *
-     * @return DescribeHistoryMonitorValuesResponse
+     * @return DescribeHistoryMonitorValuesResponse DescribeHistoryMonitorValuesResponse
      */
     public function describeHistoryMonitorValues($request)
     {
@@ -4858,84 +3928,64 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries a list of tasks in the task center.
+     * @summary Queries a list of tasks in the task center.
+     *  *
+     * @param DescribeHistoryTasksRequest $request DescribeHistoryTasksRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeHistoryTasksRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeHistoryTasksResponse
-     *
-     * @param DescribeHistoryTasksRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DescribeHistoryTasksResponse
+     * @return DescribeHistoryTasksResponse DescribeHistoryTasksResponse
      */
     public function describeHistoryTasksWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->fromExecTime) {
-            @$query['FromExecTime'] = $request->fromExecTime;
+        if (!Utils::isUnset($request->fromExecTime)) {
+            $query['FromExecTime'] = $request->fromExecTime;
         }
-
-        if (null !== $request->fromStartTime) {
-            @$query['FromStartTime'] = $request->fromStartTime;
+        if (!Utils::isUnset($request->fromStartTime)) {
+            $query['FromStartTime'] = $request->fromStartTime;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->instanceType) {
-            @$query['InstanceType'] = $request->instanceType;
+        if (!Utils::isUnset($request->instanceType)) {
+            $query['InstanceType'] = $request->instanceType;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->status) {
-            @$query['Status'] = $request->status;
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
         }
-
-        if (null !== $request->taskId) {
-            @$query['TaskId'] = $request->taskId;
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
         }
-
-        if (null !== $request->taskType) {
-            @$query['TaskType'] = $request->taskType;
+        if (!Utils::isUnset($request->taskType)) {
+            $query['TaskType'] = $request->taskType;
         }
-
-        if (null !== $request->toExecTime) {
-            @$query['ToExecTime'] = $request->toExecTime;
+        if (!Utils::isUnset($request->toExecTime)) {
+            $query['ToExecTime'] = $request->toExecTime;
         }
-
-        if (null !== $request->toStartTime) {
-            @$query['ToStartTime'] = $request->toStartTime;
+        if (!Utils::isUnset($request->toStartTime)) {
+            $query['ToStartTime'] = $request->toStartTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeHistoryTasks',
@@ -4953,15 +4003,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries a list of tasks in the task center.
+     * @summary Queries a list of tasks in the task center.
+     *  *
+     * @param DescribeHistoryTasksRequest $request DescribeHistoryTasksRequest
      *
-     * @param request - DescribeHistoryTasksRequest
-     *
-     * @returns DescribeHistoryTasksResponse
-     *
-     * @param DescribeHistoryTasksRequest $request
-     *
-     * @return DescribeHistoryTasksResponse
+     * @return DescribeHistoryTasksResponse DescribeHistoryTasksResponse
      */
     public function describeHistoryTasks($request)
     {
@@ -4971,48 +4017,37 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the attribute of Tair (Redis OSS-compatible) instances.
+     * @summary Queries the attribute of Tair (Redis OSS-compatible) instances.
+     *  *
+     * @param DescribeInstanceAttributeRequest $request DescribeInstanceAttributeRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeInstanceAttributeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeInstanceAttributeResponse
-     *
-     * @param DescribeInstanceAttributeRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DescribeInstanceAttributeResponse
+     * @return DescribeInstanceAttributeResponse DescribeInstanceAttributeResponse
      */
     public function describeInstanceAttributeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeInstanceAttribute',
@@ -5030,15 +4065,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the attribute of Tair (Redis OSS-compatible) instances.
+     * @summary Queries the attribute of Tair (Redis OSS-compatible) instances.
+     *  *
+     * @param DescribeInstanceAttributeRequest $request DescribeInstanceAttributeRequest
      *
-     * @param request - DescribeInstanceAttributeRequest
-     *
-     * @returns DescribeInstanceAttributeResponse
-     *
-     * @param DescribeInstanceAttributeRequest $request
-     *
-     * @return DescribeInstanceAttributeResponse
+     * @return DescribeInstanceAttributeResponse DescribeInstanceAttributeResponse
      */
     public function describeInstanceAttribute($request)
     {
@@ -5048,60 +4079,46 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries whether auto-renewal is enabled for a Tair (Redis OSS-compatible) instance.
+     * @summary Queries whether auto-renewal is enabled for a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @param DescribeInstanceAutoRenewalAttributeRequest $request DescribeInstanceAutoRenewalAttributeRequest
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeInstanceAutoRenewalAttributeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeInstanceAutoRenewalAttributeResponse
-     *
-     * @param DescribeInstanceAutoRenewalAttributeRequest $request
-     * @param RuntimeOptions                              $runtime
-     *
-     * @return DescribeInstanceAutoRenewalAttributeResponse
+     * @return DescribeInstanceAutoRenewalAttributeResponse DescribeInstanceAutoRenewalAttributeResponse
      */
     public function describeInstanceAutoRenewalAttributeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeInstanceAutoRenewalAttribute',
@@ -5119,15 +4136,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries whether auto-renewal is enabled for a Tair (Redis OSS-compatible) instance.
+     * @summary Queries whether auto-renewal is enabled for a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @param DescribeInstanceAutoRenewalAttributeRequest $request DescribeInstanceAutoRenewalAttributeRequest
      *
-     * @param request - DescribeInstanceAutoRenewalAttributeRequest
-     *
-     * @returns DescribeInstanceAutoRenewalAttributeResponse
-     *
-     * @param DescribeInstanceAutoRenewalAttributeRequest $request
-     *
-     * @return DescribeInstanceAutoRenewalAttributeResponse
+     * @return DescribeInstanceAutoRenewalAttributeResponse DescribeInstanceAutoRenewalAttributeResponse
      */
     public function describeInstanceAutoRenewalAttribute($request)
     {
@@ -5137,52 +4150,40 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the default parameter configurations of a Tair (Redis OSS-compatible) instance.
-     *
-     * @remarks
-     * This operation is available only for instances that use cloud disks.
+     * @summary Queries the default parameter configurations of a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @description This operation is available only for instances that use cloud disks.
      * > You can call the [DescribeParameters](https://help.aliyun.com/document_detail/473847.html) operation to query the parameter settings of instances that use local disks.
+     *  *
+     * @param DescribeInstanceConfigRequest $request DescribeInstanceConfigRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeInstanceConfigRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeInstanceConfigResponse
-     *
-     * @param DescribeInstanceConfigRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return DescribeInstanceConfigResponse
+     * @return DescribeInstanceConfigResponse DescribeInstanceConfigResponse
      */
     public function describeInstanceConfigWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeInstanceConfig',
@@ -5200,19 +4201,14 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the default parameter configurations of a Tair (Redis OSS-compatible) instance.
-     *
-     * @remarks
-     * This operation is available only for instances that use cloud disks.
+     * @summary Queries the default parameter configurations of a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @description This operation is available only for instances that use cloud disks.
      * > You can call the [DescribeParameters](https://help.aliyun.com/document_detail/473847.html) operation to query the parameter settings of instances that use local disks.
+     *  *
+     * @param DescribeInstanceConfigRequest $request DescribeInstanceConfigRequest
      *
-     * @param request - DescribeInstanceConfigRequest
-     *
-     * @returns DescribeInstanceConfigResponse
-     *
-     * @param DescribeInstanceConfigRequest $request
-     *
-     * @return DescribeInstanceConfigResponse
+     * @return DescribeInstanceConfigResponse DescribeInstanceConfigResponse
      */
     public function describeInstanceConfig($request)
     {
@@ -5222,55 +4218,43 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries whether TLS (SSL) encryption is enabled for an instance.
-     *
-     * @remarks
-     * SSL encryption is supported for Tair (Redis OSS-compatible) 2.8 standard master-replica instances, Tair (Redis OSS-compatible) 2.8 master-replica cluster instances, and Tair (Redis OSS-compatible) 4.0 master-replica cluster instances. You can enable SSL encryption to enhance data transmission security.
+     * @summary Queries whether TLS (SSL) encryption is enabled for an instance.
+     *  *
+     * @description SSL encryption is supported for Tair (Redis OSS-compatible) 2.8 standard master-replica instances, Tair (Redis OSS-compatible) 2.8 master-replica cluster instances, and Tair (Redis OSS-compatible) 4.0 master-replica cluster instances. You can enable SSL encryption to enhance data transmission security.
      * You can use one of the following methods to enable or disable SSL encryption or update the SSL certificate for a Tair (Redis OSS-compatible) instance:
      * *   Call the [ModifyInstanceSSL](https://help.aliyun.com/document_detail/473838.html) operation.
      * *   Enable or disable SSL encryption or update the SSL certificate in the Tair (Redis OSS-compatible) console. For more information, see [Configure SSL encryption](https://help.aliyun.com/document_detail/84898.html).
      * > After SSL encryption is enabled, the instance may respond slower.
+     *  *
+     * @param DescribeInstanceSSLRequest $request DescribeInstanceSSLRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeInstanceSSLRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeInstanceSSLResponse
-     *
-     * @param DescribeInstanceSSLRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DescribeInstanceSSLResponse
+     * @return DescribeInstanceSSLResponse DescribeInstanceSSLResponse
      */
     public function describeInstanceSSLWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeInstanceSSL',
@@ -5288,22 +4272,17 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries whether TLS (SSL) encryption is enabled for an instance.
-     *
-     * @remarks
-     * SSL encryption is supported for Tair (Redis OSS-compatible) 2.8 standard master-replica instances, Tair (Redis OSS-compatible) 2.8 master-replica cluster instances, and Tair (Redis OSS-compatible) 4.0 master-replica cluster instances. You can enable SSL encryption to enhance data transmission security.
+     * @summary Queries whether TLS (SSL) encryption is enabled for an instance.
+     *  *
+     * @description SSL encryption is supported for Tair (Redis OSS-compatible) 2.8 standard master-replica instances, Tair (Redis OSS-compatible) 2.8 master-replica cluster instances, and Tair (Redis OSS-compatible) 4.0 master-replica cluster instances. You can enable SSL encryption to enhance data transmission security.
      * You can use one of the following methods to enable or disable SSL encryption or update the SSL certificate for a Tair (Redis OSS-compatible) instance:
      * *   Call the [ModifyInstanceSSL](https://help.aliyun.com/document_detail/473838.html) operation.
      * *   Enable or disable SSL encryption or update the SSL certificate in the Tair (Redis OSS-compatible) console. For more information, see [Configure SSL encryption](https://help.aliyun.com/document_detail/84898.html).
      * > After SSL encryption is enabled, the instance may respond slower.
+     *  *
+     * @param DescribeInstanceSSLRequest $request DescribeInstanceSSLRequest
      *
-     * @param request - DescribeInstanceSSLRequest
-     *
-     * @returns DescribeInstanceSSLResponse
-     *
-     * @param DescribeInstanceSSLRequest $request
-     *
-     * @return DescribeInstanceSSLResponse
+     * @return DescribeInstanceSSLResponse DescribeInstanceSSLResponse
      */
     public function describeInstanceSSL($request)
     {
@@ -5313,52 +4292,40 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries whether transparent data encryption (TDE) is enabled for a Tair (Redis OSS-compatible) instance.
-     *
-     * @remarks
-     * For more information about TDE and the usage notes of TDE, see [Enable TDE](https://help.aliyun.com/document_detail/265913.html).
+     * @summary Queries whether transparent data encryption (TDE) is enabled for a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @description For more information about TDE and the usage notes of TDE, see [Enable TDE](https://help.aliyun.com/document_detail/265913.html).
      * >  You can call the [ModifyInstanceTDE](https://help.aliyun.com/document_detail/473859.html) to enable or disable TDE.
+     *  *
+     * @param DescribeInstanceTDEStatusRequest $request DescribeInstanceTDEStatusRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeInstanceTDEStatusRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeInstanceTDEStatusResponse
-     *
-     * @param DescribeInstanceTDEStatusRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DescribeInstanceTDEStatusResponse
+     * @return DescribeInstanceTDEStatusResponse DescribeInstanceTDEStatusResponse
      */
     public function describeInstanceTDEStatusWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeInstanceTDEStatus',
@@ -5376,19 +4343,14 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries whether transparent data encryption (TDE) is enabled for a Tair (Redis OSS-compatible) instance.
-     *
-     * @remarks
-     * For more information about TDE and the usage notes of TDE, see [Enable TDE](https://help.aliyun.com/document_detail/265913.html).
+     * @summary Queries whether transparent data encryption (TDE) is enabled for a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @description For more information about TDE and the usage notes of TDE, see [Enable TDE](https://help.aliyun.com/document_detail/265913.html).
      * >  You can call the [ModifyInstanceTDE](https://help.aliyun.com/document_detail/473859.html) to enable or disable TDE.
+     *  *
+     * @param DescribeInstanceTDEStatusRequest $request DescribeInstanceTDEStatusRequest
      *
-     * @param request - DescribeInstanceTDEStatusRequest
-     *
-     * @returns DescribeInstanceTDEStatusResponse
-     *
-     * @param DescribeInstanceTDEStatusRequest $request
-     *
-     * @return DescribeInstanceTDEStatusResponse
+     * @return DescribeInstanceTDEStatusResponse DescribeInstanceTDEStatusResponse
      */
     public function describeInstanceTDEStatus($request)
     {
@@ -5398,128 +4360,97 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the information about one or more Tair (Redis OSS-compatible) instances.
+     * @summary Queries the information about one or more Tair (Redis OSS-compatible) instances.
+     *  *
+     * @param DescribeInstancesRequest $request DescribeInstancesRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeInstancesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeInstancesResponse
-     *
-     * @param DescribeInstancesRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return DescribeInstancesResponse
+     * @return DescribeInstancesResponse DescribeInstancesResponse
      */
     public function describeInstancesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->architectureType) {
-            @$query['ArchitectureType'] = $request->architectureType;
+        if (!Utils::isUnset($request->architectureType)) {
+            $query['ArchitectureType'] = $request->architectureType;
         }
-
-        if (null !== $request->chargeType) {
-            @$query['ChargeType'] = $request->chargeType;
+        if (!Utils::isUnset($request->chargeType)) {
+            $query['ChargeType'] = $request->chargeType;
         }
-
-        if (null !== $request->editionType) {
-            @$query['EditionType'] = $request->editionType;
+        if (!Utils::isUnset($request->editionType)) {
+            $query['EditionType'] = $request->editionType;
         }
-
-        if (null !== $request->engineVersion) {
-            @$query['EngineVersion'] = $request->engineVersion;
+        if (!Utils::isUnset($request->engineVersion)) {
+            $query['EngineVersion'] = $request->engineVersion;
         }
-
-        if (null !== $request->expired) {
-            @$query['Expired'] = $request->expired;
+        if (!Utils::isUnset($request->expired)) {
+            $query['Expired'] = $request->expired;
         }
-
-        if (null !== $request->globalInstance) {
-            @$query['GlobalInstance'] = $request->globalInstance;
+        if (!Utils::isUnset($request->globalInstance)) {
+            $query['GlobalInstance'] = $request->globalInstance;
         }
-
-        if (null !== $request->instanceClass) {
-            @$query['InstanceClass'] = $request->instanceClass;
+        if (!Utils::isUnset($request->instanceClass)) {
+            $query['InstanceClass'] = $request->instanceClass;
         }
-
-        if (null !== $request->instanceIds) {
-            @$query['InstanceIds'] = $request->instanceIds;
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
         }
-
-        if (null !== $request->instanceStatus) {
-            @$query['InstanceStatus'] = $request->instanceStatus;
+        if (!Utils::isUnset($request->instanceStatus)) {
+            $query['InstanceStatus'] = $request->instanceStatus;
         }
-
-        if (null !== $request->instanceType) {
-            @$query['InstanceType'] = $request->instanceType;
+        if (!Utils::isUnset($request->instanceType)) {
+            $query['InstanceType'] = $request->instanceType;
         }
-
-        if (null !== $request->networkType) {
-            @$query['NetworkType'] = $request->networkType;
+        if (!Utils::isUnset($request->networkType)) {
+            $query['NetworkType'] = $request->networkType;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->privateIp) {
-            @$query['PrivateIp'] = $request->privateIp;
+        if (!Utils::isUnset($request->privateIp)) {
+            $query['PrivateIp'] = $request->privateIp;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->searchKey) {
-            @$query['SearchKey'] = $request->searchKey;
+        if (!Utils::isUnset($request->searchKey)) {
+            $query['SearchKey'] = $request->searchKey;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
-        if (null !== $request->vSwitchId) {
-            @$query['VSwitchId'] = $request->vSwitchId;
+        if (!Utils::isUnset($request->vSwitchId)) {
+            $query['VSwitchId'] = $request->vSwitchId;
         }
-
-        if (null !== $request->vpcId) {
-            @$query['VpcId'] = $request->vpcId;
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
         }
-
-        if (null !== $request->zoneId) {
-            @$query['ZoneId'] = $request->zoneId;
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeInstances',
@@ -5537,15 +4468,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the information about one or more Tair (Redis OSS-compatible) instances.
+     * @summary Queries the information about one or more Tair (Redis OSS-compatible) instances.
+     *  *
+     * @param DescribeInstancesRequest $request DescribeInstancesRequest
      *
-     * @param request - DescribeInstancesRequest
-     *
-     * @returns DescribeInstancesResponse
-     *
-     * @param DescribeInstancesRequest $request
-     *
-     * @return DescribeInstancesResponse
+     * @return DescribeInstancesResponse DescribeInstancesResponse
      */
     public function describeInstances($request)
     {
@@ -5555,112 +4482,85 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the overview information of one or more Tair (Redis OSS-compatible) instances.
-     *
-     * @remarks
-     * If you do not specify the InstanceIds parameter when you call this operation, the overview information of all instances is returned.
+     * @summary Queries the overview information of one or more Tair (Redis OSS-compatible) instances.
+     *  *
+     * @description If you do not specify the InstanceIds parameter when you call this operation, the overview information of all instances is returned.
      * > This operation returns non-paged results.
+     *  *
+     * @param DescribeInstancesOverviewRequest $request DescribeInstancesOverviewRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeInstancesOverviewRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeInstancesOverviewResponse
-     *
-     * @param DescribeInstancesOverviewRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DescribeInstancesOverviewResponse
+     * @return DescribeInstancesOverviewResponse DescribeInstancesOverviewResponse
      */
     public function describeInstancesOverviewWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->architectureType) {
-            @$query['ArchitectureType'] = $request->architectureType;
+        if (!Utils::isUnset($request->architectureType)) {
+            $query['ArchitectureType'] = $request->architectureType;
         }
-
-        if (null !== $request->chargeType) {
-            @$query['ChargeType'] = $request->chargeType;
+        if (!Utils::isUnset($request->chargeType)) {
+            $query['ChargeType'] = $request->chargeType;
         }
-
-        if (null !== $request->editionType) {
-            @$query['EditionType'] = $request->editionType;
+        if (!Utils::isUnset($request->editionType)) {
+            $query['EditionType'] = $request->editionType;
         }
-
-        if (null !== $request->engineVersion) {
-            @$query['EngineVersion'] = $request->engineVersion;
+        if (!Utils::isUnset($request->engineVersion)) {
+            $query['EngineVersion'] = $request->engineVersion;
         }
-
-        if (null !== $request->instanceClass) {
-            @$query['InstanceClass'] = $request->instanceClass;
+        if (!Utils::isUnset($request->instanceClass)) {
+            $query['InstanceClass'] = $request->instanceClass;
         }
-
-        if (null !== $request->instanceIds) {
-            @$query['InstanceIds'] = $request->instanceIds;
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
         }
-
-        if (null !== $request->instanceStatus) {
-            @$query['InstanceStatus'] = $request->instanceStatus;
+        if (!Utils::isUnset($request->instanceStatus)) {
+            $query['InstanceStatus'] = $request->instanceStatus;
         }
-
-        if (null !== $request->instanceType) {
-            @$query['InstanceType'] = $request->instanceType;
+        if (!Utils::isUnset($request->instanceType)) {
+            $query['InstanceType'] = $request->instanceType;
         }
-
-        if (null !== $request->networkType) {
-            @$query['NetworkType'] = $request->networkType;
+        if (!Utils::isUnset($request->networkType)) {
+            $query['NetworkType'] = $request->networkType;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->privateIp) {
-            @$query['PrivateIp'] = $request->privateIp;
+        if (!Utils::isUnset($request->privateIp)) {
+            $query['PrivateIp'] = $request->privateIp;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->searchKey) {
-            @$query['SearchKey'] = $request->searchKey;
+        if (!Utils::isUnset($request->searchKey)) {
+            $query['SearchKey'] = $request->searchKey;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->vSwitchId) {
-            @$query['VSwitchId'] = $request->vSwitchId;
+        if (!Utils::isUnset($request->vSwitchId)) {
+            $query['VSwitchId'] = $request->vSwitchId;
         }
-
-        if (null !== $request->vpcId) {
-            @$query['VpcId'] = $request->vpcId;
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
         }
-
-        if (null !== $request->zoneId) {
-            @$query['ZoneId'] = $request->zoneId;
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeInstancesOverview',
@@ -5678,19 +4578,14 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the overview information of one or more Tair (Redis OSS-compatible) instances.
-     *
-     * @remarks
-     * If you do not specify the InstanceIds parameter when you call this operation, the overview information of all instances is returned.
+     * @summary Queries the overview information of one or more Tair (Redis OSS-compatible) instances.
+     *  *
+     * @description If you do not specify the InstanceIds parameter when you call this operation, the overview information of all instances is returned.
      * > This operation returns non-paged results.
+     *  *
+     * @param DescribeInstancesOverviewRequest $request DescribeInstancesOverviewRequest
      *
-     * @param request - DescribeInstancesOverviewRequest
-     *
-     * @returns DescribeInstancesOverviewResponse
-     *
-     * @param DescribeInstancesOverviewRequest $request
-     *
-     * @return DescribeInstancesOverviewResponse
+     * @return DescribeInstancesOverviewResponse DescribeInstancesOverviewResponse
      */
     public function describeInstancesOverview($request)
     {
@@ -5700,55 +4595,42 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the internal bandwidth of a Tair (Redis OSS-compatible) instance.
+     * @summary Queries the internal bandwidth of a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @description You can call the [EnableAdditionalBandwidth](https://help.aliyun.com/document_detail/473771.html) operation to increase the internal bandwidth of an instance.
+     *  *
+     * @param DescribeIntranetAttributeRequest $request DescribeIntranetAttributeRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can call the [EnableAdditionalBandwidth](https://help.aliyun.com/document_detail/473771.html) operation to increase the internal bandwidth of an instance.
-     *
-     * @param request - DescribeIntranetAttributeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeIntranetAttributeResponse
-     *
-     * @param DescribeIntranetAttributeRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DescribeIntranetAttributeResponse
+     * @return DescribeIntranetAttributeResponse DescribeIntranetAttributeResponse
      */
     public function describeIntranetAttributeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeIntranetAttribute',
@@ -5766,18 +4648,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the internal bandwidth of a Tair (Redis OSS-compatible) instance.
+     * @summary Queries the internal bandwidth of a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @description You can call the [EnableAdditionalBandwidth](https://help.aliyun.com/document_detail/473771.html) operation to increase the internal bandwidth of an instance.
+     *  *
+     * @param DescribeIntranetAttributeRequest $request DescribeIntranetAttributeRequest
      *
-     * @remarks
-     * You can call the [EnableAdditionalBandwidth](https://help.aliyun.com/document_detail/473771.html) operation to increase the internal bandwidth of an instance.
-     *
-     * @param request - DescribeIntranetAttributeRequest
-     *
-     * @returns DescribeIntranetAttributeResponse
-     *
-     * @param DescribeIntranetAttributeRequest $request
-     *
-     * @return DescribeIntranetAttributeResponse
+     * @return DescribeIntranetAttributeResponse DescribeIntranetAttributeResponse
      */
     public function describeIntranetAttribute($request)
     {
@@ -5787,51 +4664,39 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the logical topology of a Tair (Redis OSS-compatible) instance.
+     * @summary Queries the logical topology of a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @description This parameter is supported only for cluster and read/write splitting instances.
+     *  *
+     * @param DescribeLogicInstanceTopologyRequest $request DescribeLogicInstanceTopologyRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * This parameter is supported only for cluster and read/write splitting instances.
-     *
-     * @param request - DescribeLogicInstanceTopologyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeLogicInstanceTopologyResponse
-     *
-     * @param DescribeLogicInstanceTopologyRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return DescribeLogicInstanceTopologyResponse
+     * @return DescribeLogicInstanceTopologyResponse DescribeLogicInstanceTopologyResponse
      */
     public function describeLogicInstanceTopologyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeLogicInstanceTopology',
@@ -5849,18 +4714,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the logical topology of a Tair (Redis OSS-compatible) instance.
+     * @summary Queries the logical topology of a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @description This parameter is supported only for cluster and read/write splitting instances.
+     *  *
+     * @param DescribeLogicInstanceTopologyRequest $request DescribeLogicInstanceTopologyRequest
      *
-     * @remarks
-     * This parameter is supported only for cluster and read/write splitting instances.
-     *
-     * @param request - DescribeLogicInstanceTopologyRequest
-     *
-     * @returns DescribeLogicInstanceTopologyResponse
-     *
-     * @param DescribeLogicInstanceTopologyRequest $request
-     *
-     * @return DescribeLogicInstanceTopologyResponse
+     * @return DescribeLogicInstanceTopologyResponse DescribeLogicInstanceTopologyResponse
      */
     public function describeLogicInstanceTopology($request)
     {
@@ -5870,48 +4730,37 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the metrics of a Tair (Redis OSS-compatible) instance.
-     *
-     * @remarks
-     * >  To improve user experience, Tair has upgraded the monitoring metrics. The DescribeMonitorItems operation is phased out. For more information, see [The DescribeMonitorItems operation of Tair (Redis OSS-compatible) is phased out](https://help.aliyun.com/document_detail/189893.html).
+     * @summary Queries the metrics of a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @description >  To improve user experience, Tair has upgraded the monitoring metrics. The DescribeMonitorItems operation is phased out. For more information, see [The DescribeMonitorItems operation of Tair (Redis OSS-compatible) is phased out](https://help.aliyun.com/document_detail/189893.html).
      * After you call this operation to retrieve a list of metrics for a specified instance, you can call the [DescribeHistoryMonitorValues](https://help.aliyun.com/document_detail/473827.html) operation to query the monitoring history of the instance.
+     *  *
+     * @param DescribeMonitorItemsRequest $request DescribeMonitorItemsRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeMonitorItemsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeMonitorItemsResponse
-     *
-     * @param DescribeMonitorItemsRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DescribeMonitorItemsResponse
+     * @return DescribeMonitorItemsResponse DescribeMonitorItemsResponse
      */
     public function describeMonitorItemsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeMonitorItems',
@@ -5929,19 +4778,14 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the metrics of a Tair (Redis OSS-compatible) instance.
-     *
-     * @remarks
-     * >  To improve user experience, Tair has upgraded the monitoring metrics. The DescribeMonitorItems operation is phased out. For more information, see [The DescribeMonitorItems operation of Tair (Redis OSS-compatible) is phased out](https://help.aliyun.com/document_detail/189893.html).
+     * @summary Queries the metrics of a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @description >  To improve user experience, Tair has upgraded the monitoring metrics. The DescribeMonitorItems operation is phased out. For more information, see [The DescribeMonitorItems operation of Tair (Redis OSS-compatible) is phased out](https://help.aliyun.com/document_detail/189893.html).
      * After you call this operation to retrieve a list of metrics for a specified instance, you can call the [DescribeHistoryMonitorValues](https://help.aliyun.com/document_detail/473827.html) operation to query the monitoring history of the instance.
+     *  *
+     * @param DescribeMonitorItemsRequest $request DescribeMonitorItemsRequest
      *
-     * @param request - DescribeMonitorItemsRequest
-     *
-     * @returns DescribeMonitorItemsResponse
-     *
-     * @param DescribeMonitorItemsRequest $request
-     *
-     * @return DescribeMonitorItemsResponse
+     * @return DescribeMonitorItemsResponse DescribeMonitorItemsResponse
      */
     public function describeMonitorItems($request)
     {
@@ -5951,52 +4795,40 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the basic information about a parameter template.
+     * @summary Queries the basic information about a parameter template.
+     *  *
+     * @param DescribeParameterGroupRequest $request DescribeParameterGroupRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeParameterGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeParameterGroupResponse
-     *
-     * @param DescribeParameterGroupRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return DescribeParameterGroupResponse
+     * @return DescribeParameterGroupResponse DescribeParameterGroupResponse
      */
     public function describeParameterGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->parameterGroupId) {
-            @$query['ParameterGroupId'] = $request->parameterGroupId;
+        if (!Utils::isUnset($request->parameterGroupId)) {
+            $query['ParameterGroupId'] = $request->parameterGroupId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeParameterGroup',
@@ -6014,15 +4846,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the basic information about a parameter template.
+     * @summary Queries the basic information about a parameter template.
+     *  *
+     * @param DescribeParameterGroupRequest $request DescribeParameterGroupRequest
      *
-     * @param request - DescribeParameterGroupRequest
-     *
-     * @returns DescribeParameterGroupResponse
-     *
-     * @param DescribeParameterGroupRequest $request
-     *
-     * @return DescribeParameterGroupResponse
+     * @return DescribeParameterGroupResponse DescribeParameterGroupResponse
      */
     public function describeParameterGroup($request)
     {
@@ -6032,56 +4860,43 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the parameters that can be configured in parameter templates across different database versions.
+     * @summary Queries the parameters that can be configured in parameter templates across different database versions.
+     *  *
+     * @param DescribeParameterGroupSupportParamRequest $request DescribeParameterGroupSupportParamRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeParameterGroupSupportParamRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeParameterGroupSupportParamResponse
-     *
-     * @param DescribeParameterGroupSupportParamRequest $request
-     * @param RuntimeOptions                            $runtime
-     *
-     * @return DescribeParameterGroupSupportParamResponse
+     * @return DescribeParameterGroupSupportParamResponse DescribeParameterGroupSupportParamResponse
      */
     public function describeParameterGroupSupportParamWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->category) {
-            @$query['Category'] = $request->category;
+        if (!Utils::isUnset($request->category)) {
+            $query['Category'] = $request->category;
         }
-
-        if (null !== $request->engineType) {
-            @$query['EngineType'] = $request->engineType;
+        if (!Utils::isUnset($request->engineType)) {
+            $query['EngineType'] = $request->engineType;
         }
-
-        if (null !== $request->engineVersion) {
-            @$query['EngineVersion'] = $request->engineVersion;
+        if (!Utils::isUnset($request->engineVersion)) {
+            $query['EngineVersion'] = $request->engineVersion;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeParameterGroupSupportParam',
@@ -6099,15 +4914,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the parameters that can be configured in parameter templates across different database versions.
+     * @summary Queries the parameters that can be configured in parameter templates across different database versions.
+     *  *
+     * @param DescribeParameterGroupSupportParamRequest $request DescribeParameterGroupSupportParamRequest
      *
-     * @param request - DescribeParameterGroupSupportParamRequest
-     *
-     * @returns DescribeParameterGroupSupportParamResponse
-     *
-     * @param DescribeParameterGroupSupportParamRequest $request
-     *
-     * @return DescribeParameterGroupSupportParamResponse
+     * @return DescribeParameterGroupSupportParamResponse DescribeParameterGroupSupportParamResponse
      */
     public function describeParameterGroupSupportParam($request)
     {
@@ -6117,24 +4928,19 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the information about the parameters that can be configured in a parameter template, such as the default values, value ranges, and descriptions.
+     * @summary Queries the information about the parameters that can be configured in a parameter template, such as the default values, value ranges, and descriptions.
+     *  *
+     * @param DescribeParameterGroupTemplateListRequest $request DescribeParameterGroupTemplateListRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeParameterGroupTemplateListRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeParameterGroupTemplateListResponse
-     *
-     * @param DescribeParameterGroupTemplateListRequest $request
-     * @param RuntimeOptions                            $runtime
-     *
-     * @return DescribeParameterGroupTemplateListResponse
+     * @return DescribeParameterGroupTemplateListResponse DescribeParameterGroupTemplateListResponse
      */
     public function describeParameterGroupTemplateListWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeParameterGroupTemplateList',
@@ -6152,15 +4958,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the information about the parameters that can be configured in a parameter template, such as the default values, value ranges, and descriptions.
+     * @summary Queries the information about the parameters that can be configured in a parameter template, such as the default values, value ranges, and descriptions.
+     *  *
+     * @param DescribeParameterGroupTemplateListRequest $request DescribeParameterGroupTemplateListRequest
      *
-     * @param request - DescribeParameterGroupTemplateListRequest
-     *
-     * @returns DescribeParameterGroupTemplateListResponse
-     *
-     * @param DescribeParameterGroupTemplateListRequest $request
-     *
-     * @return DescribeParameterGroupTemplateListResponse
+     * @return DescribeParameterGroupTemplateListResponse DescribeParameterGroupTemplateListResponse
      */
     public function describeParameterGroupTemplateList($request)
     {
@@ -6170,52 +4972,40 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries a list of available parameter templates.
+     * @summary Queries a list of available parameter templates.
+     *  *
+     * @param DescribeParameterGroupsRequest $request DescribeParameterGroupsRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeParameterGroupsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeParameterGroupsResponse
-     *
-     * @param DescribeParameterGroupsRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DescribeParameterGroupsResponse
+     * @return DescribeParameterGroupsResponse DescribeParameterGroupsResponse
      */
     public function describeParameterGroupsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->dbType) {
-            @$query['DbType'] = $request->dbType;
+        if (!Utils::isUnset($request->dbType)) {
+            $query['DbType'] = $request->dbType;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeParameterGroups',
@@ -6233,15 +5023,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries a list of available parameter templates.
+     * @summary Queries a list of available parameter templates.
+     *  *
+     * @param DescribeParameterGroupsRequest $request DescribeParameterGroupsRequest
      *
-     * @param request - DescribeParameterGroupsRequest
-     *
-     * @returns DescribeParameterGroupsResponse
-     *
-     * @param DescribeParameterGroupsRequest $request
-     *
-     * @return DescribeParameterGroupsResponse
+     * @return DescribeParameterGroupsResponse DescribeParameterGroupsResponse
      */
     public function describeParameterGroups($request)
     {
@@ -6251,64 +5037,49 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the parameter modification history of a Tair (Redis OSS-compatible) instance.
+     * @summary Queries the parameter modification history of a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @param DescribeParameterModificationHistoryRequest $request DescribeParameterModificationHistoryRequest
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeParameterModificationHistoryRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeParameterModificationHistoryResponse
-     *
-     * @param DescribeParameterModificationHistoryRequest $request
-     * @param RuntimeOptions                              $runtime
-     *
-     * @return DescribeParameterModificationHistoryResponse
+     * @return DescribeParameterModificationHistoryResponse DescribeParameterModificationHistoryResponse
      */
     public function describeParameterModificationHistoryWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->nodeId) {
-            @$query['NodeId'] = $request->nodeId;
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->parameterName) {
-            @$query['ParameterName'] = $request->parameterName;
+        if (!Utils::isUnset($request->parameterName)) {
+            $query['ParameterName'] = $request->parameterName;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeParameterModificationHistory',
@@ -6326,15 +5097,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the parameter modification history of a Tair (Redis OSS-compatible) instance.
+     * @summary Queries the parameter modification history of a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @param DescribeParameterModificationHistoryRequest $request DescribeParameterModificationHistoryRequest
      *
-     * @param request - DescribeParameterModificationHistoryRequest
-     *
-     * @returns DescribeParameterModificationHistoryResponse
-     *
-     * @param DescribeParameterModificationHistoryRequest $request
-     *
-     * @return DescribeParameterModificationHistoryResponse
+     * @return DescribeParameterModificationHistoryResponse DescribeParameterModificationHistoryResponse
      */
     public function describeParameterModificationHistory($request)
     {
@@ -6344,67 +5111,51 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the parameters and their default values that are supported by Tair (Redis OSS-compatible) instances of different architectures and major versions.
+     * @summary Queries the parameters and their default values that are supported by Tair (Redis OSS-compatible) instances of different architectures and major versions.
+     *  *
+     * @description After you call this operation to query the parameters and default values of an instance, you can call the [ModifyInstanceConfig](https://help.aliyun.com/document_detail/473844.html) operation to reconfigure the parameters of the instance.
+     *  *
+     * @param DescribeParameterTemplatesRequest $request DescribeParameterTemplatesRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * After you call this operation to query the parameters and default values of an instance, you can call the [ModifyInstanceConfig](https://help.aliyun.com/document_detail/473844.html) operation to reconfigure the parameters of the instance.
-     *
-     * @param request - DescribeParameterTemplatesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeParameterTemplatesResponse
-     *
-     * @param DescribeParameterTemplatesRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return DescribeParameterTemplatesResponse
+     * @return DescribeParameterTemplatesResponse DescribeParameterTemplatesResponse
      */
     public function describeParameterTemplatesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->characterType) {
-            @$query['CharacterType'] = $request->characterType;
+        if (!Utils::isUnset($request->characterType)) {
+            $query['CharacterType'] = $request->characterType;
         }
-
-        if (null !== $request->engine) {
-            @$query['Engine'] = $request->engine;
+        if (!Utils::isUnset($request->engine)) {
+            $query['Engine'] = $request->engine;
         }
-
-        if (null !== $request->engineVersion) {
-            @$query['EngineVersion'] = $request->engineVersion;
+        if (!Utils::isUnset($request->engineVersion)) {
+            $query['EngineVersion'] = $request->engineVersion;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeParameterTemplates',
@@ -6422,18 +5173,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the parameters and their default values that are supported by Tair (Redis OSS-compatible) instances of different architectures and major versions.
+     * @summary Queries the parameters and their default values that are supported by Tair (Redis OSS-compatible) instances of different architectures and major versions.
+     *  *
+     * @description After you call this operation to query the parameters and default values of an instance, you can call the [ModifyInstanceConfig](https://help.aliyun.com/document_detail/473844.html) operation to reconfigure the parameters of the instance.
+     *  *
+     * @param DescribeParameterTemplatesRequest $request DescribeParameterTemplatesRequest
      *
-     * @remarks
-     * After you call this operation to query the parameters and default values of an instance, you can call the [ModifyInstanceConfig](https://help.aliyun.com/document_detail/473844.html) operation to reconfigure the parameters of the instance.
-     *
-     * @param request - DescribeParameterTemplatesRequest
-     *
-     * @returns DescribeParameterTemplatesResponse
-     *
-     * @param DescribeParameterTemplatesRequest $request
-     *
-     * @return DescribeParameterTemplatesResponse
+     * @return DescribeParameterTemplatesResponse DescribeParameterTemplatesResponse
      */
     public function describeParameterTemplates($request)
     {
@@ -6443,60 +5189,46 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the configuration parameters and running parameters of a Tair (Redis OSS-compatible) instance.
-     *
-     * @remarks
-     * This operation is applicable only to classic instances.
+     * @summary Queries the configuration parameters and running parameters of a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @description This operation is applicable only to classic instances.
      * >  If the instance is deployed in cloud-native mode, you can use the [DescribeInstanceConfig](https://help.aliyun.com/document_detail/473846.html) operation to query the configuration and operational parameters of the instance.
+     *  *
+     * @param DescribeParametersRequest $request DescribeParametersRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeParametersRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeParametersResponse
-     *
-     * @param DescribeParametersRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DescribeParametersResponse
+     * @return DescribeParametersResponse DescribeParametersResponse
      */
     public function describeParametersWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->nodeId) {
-            @$query['NodeId'] = $request->nodeId;
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeParameters',
@@ -6514,19 +5246,14 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the configuration parameters and running parameters of a Tair (Redis OSS-compatible) instance.
-     *
-     * @remarks
-     * This operation is applicable only to classic instances.
+     * @summary Queries the configuration parameters and running parameters of a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @description This operation is applicable only to classic instances.
      * >  If the instance is deployed in cloud-native mode, you can use the [DescribeInstanceConfig](https://help.aliyun.com/document_detail/473846.html) operation to query the configuration and operational parameters of the instance.
+     *  *
+     * @param DescribeParametersRequest $request DescribeParametersRequest
      *
-     * @param request - DescribeParametersRequest
-     *
-     * @returns DescribeParametersResponse
-     *
-     * @param DescribeParametersRequest $request
-     *
-     * @return DescribeParametersResponse
+     * @return DescribeParametersResponse DescribeParametersResponse
      */
     public function describeParameters($request)
     {
@@ -6536,112 +5263,85 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the fees that you must pay when you create, upgrade, or renew a Tair (Redis OSS-compatible) instance.
+     * @summary Queries the fees that you must pay when you create, upgrade, or renew a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @param DescribePriceRequest $request DescribePriceRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribePriceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribePriceResponse
-     *
-     * @param DescribePriceRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return DescribePriceResponse
+     * @return DescribePriceResponse DescribePriceResponse
      */
     public function describePriceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->businessInfo) {
-            @$query['BusinessInfo'] = $request->businessInfo;
+        if (!Utils::isUnset($request->businessInfo)) {
+            $query['BusinessInfo'] = $request->businessInfo;
         }
-
-        if (null !== $request->capacity) {
-            @$query['Capacity'] = $request->capacity;
+        if (!Utils::isUnset($request->capacity)) {
+            $query['Capacity'] = $request->capacity;
         }
-
-        if (null !== $request->chargeType) {
-            @$query['ChargeType'] = $request->chargeType;
+        if (!Utils::isUnset($request->chargeType)) {
+            $query['ChargeType'] = $request->chargeType;
         }
-
-        if (null !== $request->couponNo) {
-            @$query['CouponNo'] = $request->couponNo;
+        if (!Utils::isUnset($request->couponNo)) {
+            $query['CouponNo'] = $request->couponNo;
         }
-
-        if (null !== $request->engineVersion) {
-            @$query['EngineVersion'] = $request->engineVersion;
+        if (!Utils::isUnset($request->engineVersion)) {
+            $query['EngineVersion'] = $request->engineVersion;
         }
-
-        if (null !== $request->forceUpgrade) {
-            @$query['ForceUpgrade'] = $request->forceUpgrade;
+        if (!Utils::isUnset($request->forceUpgrade)) {
+            $query['ForceUpgrade'] = $request->forceUpgrade;
         }
-
-        if (null !== $request->instanceClass) {
-            @$query['InstanceClass'] = $request->instanceClass;
+        if (!Utils::isUnset($request->instanceClass)) {
+            $query['InstanceClass'] = $request->instanceClass;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->instances) {
-            @$query['Instances'] = $request->instances;
+        if (!Utils::isUnset($request->instances)) {
+            $query['Instances'] = $request->instances;
         }
-
-        if (null !== $request->nodeType) {
-            @$query['NodeType'] = $request->nodeType;
+        if (!Utils::isUnset($request->nodeType)) {
+            $query['NodeType'] = $request->nodeType;
         }
-
-        if (null !== $request->orderParamOut) {
-            @$query['OrderParamOut'] = $request->orderParamOut;
+        if (!Utils::isUnset($request->orderParamOut)) {
+            $query['OrderParamOut'] = $request->orderParamOut;
         }
-
-        if (null !== $request->orderType) {
-            @$query['OrderType'] = $request->orderType;
+        if (!Utils::isUnset($request->orderType)) {
+            $query['OrderType'] = $request->orderType;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->period) {
-            @$query['Period'] = $request->period;
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
         }
-
-        if (null !== $request->quantity) {
-            @$query['Quantity'] = $request->quantity;
+        if (!Utils::isUnset($request->quantity)) {
+            $query['Quantity'] = $request->quantity;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->shardCount) {
-            @$query['ShardCount'] = $request->shardCount;
+        if (!Utils::isUnset($request->shardCount)) {
+            $query['ShardCount'] = $request->shardCount;
         }
-
-        if (null !== $request->zoneId) {
-            @$query['ZoneId'] = $request->zoneId;
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribePrice',
@@ -6659,15 +5359,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the fees that you must pay when you create, upgrade, or renew a Tair (Redis OSS-compatible) instance.
+     * @summary Queries the fees that you must pay when you create, upgrade, or renew a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @param DescribePriceRequest $request DescribePriceRequest
      *
-     * @param request - DescribePriceRequest
-     *
-     * @returns DescribePriceResponse
-     *
-     * @param DescribePriceRequest $request
-     *
-     * @return DescribePriceResponse
+     * @return DescribePriceResponse DescribePriceResponse
      */
     public function describePrice($request)
     {
@@ -6677,48 +5373,37 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the regions in which ApsaraDB for Redis instances can be created.
+     * @summary Queries the regions in which ApsaraDB for Redis instances can be created.
+     *  *
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeRegionsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeRegionsResponse
-     *
-     * @param DescribeRegionsRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->acceptLanguage) {
-            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeRegions',
@@ -6736,15 +5421,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the regions in which ApsaraDB for Redis instances can be created.
+     * @summary Queries the regions in which ApsaraDB for Redis instances can be created.
+     *  *
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
      *
-     * @param request - DescribeRegionsRequest
-     *
-     * @returns DescribeRegionsResponse
-     *
-     * @param DescribeRegionsRequest $request
-     *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegions($request)
     {
@@ -6754,60 +5435,46 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the role, type, minor version, and zone of each node in a Tair (Redis OSS-compatible) instance.
+     * @summary Queries the role, type, minor version, and zone of each node in a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @param DescribeRoleZoneInfoRequest $request DescribeRoleZoneInfoRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeRoleZoneInfoRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeRoleZoneInfoResponse
-     *
-     * @param DescribeRoleZoneInfoRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DescribeRoleZoneInfoResponse
+     * @return DescribeRoleZoneInfoResponse DescribeRoleZoneInfoResponse
      */
     public function describeRoleZoneInfoWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->queryType) {
-            @$query['QueryType'] = $request->queryType;
+        if (!Utils::isUnset($request->queryType)) {
+            $query['QueryType'] = $request->queryType;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeRoleZoneInfo',
@@ -6825,15 +5492,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the role, type, minor version, and zone of each node in a Tair (Redis OSS-compatible) instance.
+     * @summary Queries the role, type, minor version, and zone of each node in a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @param DescribeRoleZoneInfoRequest $request DescribeRoleZoneInfoRequest
      *
-     * @param request - DescribeRoleZoneInfoRequest
-     *
-     * @returns DescribeRoleZoneInfoResponse
-     *
-     * @param DescribeRoleZoneInfoRequest $request
-     *
-     * @return DescribeRoleZoneInfoResponse
+     * @return DescribeRoleZoneInfoResponse DescribeRoleZoneInfoResponse
      */
     public function describeRoleZoneInfo($request)
     {
@@ -6843,96 +5506,73 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the operational logs of a Tair (Redis OSS-compatible) instance.
-     *
-     * @remarks
-     * For more information about how to view the operational logs of an instance in the Tair (Redis OSS-compatible) console, see [View active logs](https://help.aliyun.com/document_detail/101713.html).
+     * @summary Queries the operational logs of a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @description For more information about how to view the operational logs of an instance in the Tair (Redis OSS-compatible) console, see [View active logs](https://help.aliyun.com/document_detail/101713.html).
      * This operation can be called up to 100 times per minute.
+     *  *
+     * @param DescribeRunningLogRecordsRequest $request DescribeRunningLogRecordsRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeRunningLogRecordsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeRunningLogRecordsResponse
-     *
-     * @param DescribeRunningLogRecordsRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DescribeRunningLogRecordsResponse
+     * @return DescribeRunningLogRecordsResponse DescribeRunningLogRecordsResponse
      */
     public function describeRunningLogRecordsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->characterType) {
-            @$query['CharacterType'] = $request->characterType;
+        if (!Utils::isUnset($request->characterType)) {
+            $query['CharacterType'] = $request->characterType;
         }
-
-        if (null !== $request->DBName) {
-            @$query['DBName'] = $request->DBName;
+        if (!Utils::isUnset($request->DBName)) {
+            $query['DBName'] = $request->DBName;
         }
-
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->nodeId) {
-            @$query['NodeId'] = $request->nodeId;
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
         }
-
-        if (null !== $request->orderType) {
-            @$query['OrderType'] = $request->orderType;
+        if (!Utils::isUnset($request->orderType)) {
+            $query['OrderType'] = $request->orderType;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->queryKeyword) {
-            @$query['QueryKeyword'] = $request->queryKeyword;
+        if (!Utils::isUnset($request->queryKeyword)) {
+            $query['QueryKeyword'] = $request->queryKeyword;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->roleType) {
-            @$query['RoleType'] = $request->roleType;
+        if (!Utils::isUnset($request->roleType)) {
+            $query['RoleType'] = $request->roleType;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeRunningLogRecords',
@@ -6950,19 +5590,14 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the operational logs of a Tair (Redis OSS-compatible) instance.
-     *
-     * @remarks
-     * For more information about how to view the operational logs of an instance in the Tair (Redis OSS-compatible) console, see [View active logs](https://help.aliyun.com/document_detail/101713.html).
+     * @summary Queries the operational logs of a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @description For more information about how to view the operational logs of an instance in the Tair (Redis OSS-compatible) console, see [View active logs](https://help.aliyun.com/document_detail/101713.html).
      * This operation can be called up to 100 times per minute.
+     *  *
+     * @param DescribeRunningLogRecordsRequest $request DescribeRunningLogRecordsRequest
      *
-     * @param request - DescribeRunningLogRecordsRequest
-     *
-     * @returns DescribeRunningLogRecordsResponse
-     *
-     * @param DescribeRunningLogRecordsRequest $request
-     *
-     * @return DescribeRunningLogRecordsResponse
+     * @return DescribeRunningLogRecordsResponse DescribeRunningLogRecordsResponse
      */
     public function describeRunningLogRecords($request)
     {
@@ -6972,48 +5607,37 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the security groups that are added to the whitelists of a Tair (Redis OSS-compatible) instance.
+     * @summary Queries the security groups that are added to the whitelists of a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @param DescribeSecurityGroupConfigurationRequest $request DescribeSecurityGroupConfigurationRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeSecurityGroupConfigurationRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeSecurityGroupConfigurationResponse
-     *
-     * @param DescribeSecurityGroupConfigurationRequest $request
-     * @param RuntimeOptions                            $runtime
-     *
-     * @return DescribeSecurityGroupConfigurationResponse
+     * @return DescribeSecurityGroupConfigurationResponse DescribeSecurityGroupConfigurationResponse
      */
     public function describeSecurityGroupConfigurationWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeSecurityGroupConfiguration',
@@ -7031,15 +5655,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the security groups that are added to the whitelists of a Tair (Redis OSS-compatible) instance.
+     * @summary Queries the security groups that are added to the whitelists of a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @param DescribeSecurityGroupConfigurationRequest $request DescribeSecurityGroupConfigurationRequest
      *
-     * @param request - DescribeSecurityGroupConfigurationRequest
-     *
-     * @returns DescribeSecurityGroupConfigurationResponse
-     *
-     * @param DescribeSecurityGroupConfigurationRequest $request
-     *
-     * @return DescribeSecurityGroupConfigurationResponse
+     * @return DescribeSecurityGroupConfigurationResponse DescribeSecurityGroupConfigurationResponse
      */
     public function describeSecurityGroupConfiguration($request)
     {
@@ -7049,48 +5669,37 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the IP address whitelists of a Tair (Redis OSS-compatible) instance.
+     * @summary Queries the IP address whitelists of a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @param DescribeSecurityIpsRequest $request DescribeSecurityIpsRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeSecurityIpsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeSecurityIpsResponse
-     *
-     * @param DescribeSecurityIpsRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DescribeSecurityIpsResponse
+     * @return DescribeSecurityIpsResponse DescribeSecurityIpsResponse
      */
     public function describeSecurityIpsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeSecurityIps',
@@ -7108,15 +5717,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the IP address whitelists of a Tair (Redis OSS-compatible) instance.
+     * @summary Queries the IP address whitelists of a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @param DescribeSecurityIpsRequest $request DescribeSecurityIpsRequest
      *
-     * @param request - DescribeSecurityIpsRequest
-     *
-     * @returns DescribeSecurityIpsResponse
-     *
-     * @param DescribeSecurityIpsRequest $request
-     *
-     * @return DescribeSecurityIpsResponse
+     * @return DescribeSecurityIpsResponse DescribeSecurityIpsResponse
      */
     public function describeSecurityIps($request)
     {
@@ -7126,91 +5731,69 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the slow query logs of a Tair (Redis OSS-compatible) instance that are generated within a specified period of time.
+     * @summary Queries the slow query logs of a Tair (Redis OSS-compatible) instance that are generated within a specified period of time.
+     *  *
+     * @description You can also query slow logs in the Tair (Redis OSS-compatible) console. For more information, see [Query slow logs of an instance](https://help.aliyun.com/document_detail/95874.html). This operation can be called up to 100 times per minute.
+     *  *
+     * @param DescribeSlowLogRecordsRequest $request DescribeSlowLogRecordsRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can also query slow logs in the Tair (Redis OSS-compatible) console. For more information, see [Query slow logs of an instance](https://help.aliyun.com/document_detail/95874.html). This operation can be called up to 100 times per minute.
-     *
-     * @param request - DescribeSlowLogRecordsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeSlowLogRecordsResponse
-     *
-     * @param DescribeSlowLogRecordsRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return DescribeSlowLogRecordsResponse
+     * @return DescribeSlowLogRecordsResponse DescribeSlowLogRecordsResponse
      */
     public function describeSlowLogRecordsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBName) {
-            @$query['DBName'] = $request->DBName;
+        if (!Utils::isUnset($request->DBName)) {
+            $query['DBName'] = $request->DBName;
         }
-
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->nodeId) {
-            @$query['NodeId'] = $request->nodeId;
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
         }
-
-        if (null !== $request->orderBy) {
-            @$query['OrderBy'] = $request->orderBy;
+        if (!Utils::isUnset($request->orderBy)) {
+            $query['OrderBy'] = $request->orderBy;
         }
-
-        if (null !== $request->orderType) {
-            @$query['OrderType'] = $request->orderType;
+        if (!Utils::isUnset($request->orderType)) {
+            $query['OrderType'] = $request->orderType;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->queryKeyword) {
-            @$query['QueryKeyword'] = $request->queryKeyword;
+        if (!Utils::isUnset($request->queryKeyword)) {
+            $query['QueryKeyword'] = $request->queryKeyword;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->slowLogRecordType) {
-            @$query['SlowLogRecordType'] = $request->slowLogRecordType;
+        if (!Utils::isUnset($request->slowLogRecordType)) {
+            $query['SlowLogRecordType'] = $request->slowLogRecordType;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeSlowLogRecords',
@@ -7228,18 +5811,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the slow query logs of a Tair (Redis OSS-compatible) instance that are generated within a specified period of time.
+     * @summary Queries the slow query logs of a Tair (Redis OSS-compatible) instance that are generated within a specified period of time.
+     *  *
+     * @description You can also query slow logs in the Tair (Redis OSS-compatible) console. For more information, see [Query slow logs of an instance](https://help.aliyun.com/document_detail/95874.html). This operation can be called up to 100 times per minute.
+     *  *
+     * @param DescribeSlowLogRecordsRequest $request DescribeSlowLogRecordsRequest
      *
-     * @remarks
-     * You can also query slow logs in the Tair (Redis OSS-compatible) console. For more information, see [Query slow logs of an instance](https://help.aliyun.com/document_detail/95874.html). This operation can be called up to 100 times per minute.
-     *
-     * @param request - DescribeSlowLogRecordsRequest
-     *
-     * @returns DescribeSlowLogRecordsResponse
-     *
-     * @param DescribeSlowLogRecordsRequest $request
-     *
-     * @return DescribeSlowLogRecordsResponse
+     * @return DescribeSlowLogRecordsResponse DescribeSlowLogRecordsResponse
      */
     public function describeSlowLogRecords($request)
     {
@@ -7249,24 +5827,19 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * 查看TairCustom实例.
+     * @summary 查看TairCustom实例
+     *  *
+     * @param DescribeTairKVCacheCustomInstanceAttributeRequest $request DescribeTairKVCacheCustomInstanceAttributeRequest
+     * @param RuntimeOptions                                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeTairKVCacheCustomInstanceAttributeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeTairKVCacheCustomInstanceAttributeResponse
-     *
-     * @param DescribeTairKVCacheCustomInstanceAttributeRequest $request
-     * @param RuntimeOptions                                    $runtime
-     *
-     * @return DescribeTairKVCacheCustomInstanceAttributeResponse
+     * @return DescribeTairKVCacheCustomInstanceAttributeResponse DescribeTairKVCacheCustomInstanceAttributeResponse
      */
     public function describeTairKVCacheCustomInstanceAttributeWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeTairKVCacheCustomInstanceAttribute',
@@ -7284,15 +5857,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * 查看TairCustom实例.
+     * @summary 查看TairCustom实例
+     *  *
+     * @param DescribeTairKVCacheCustomInstanceAttributeRequest $request DescribeTairKVCacheCustomInstanceAttributeRequest
      *
-     * @param request - DescribeTairKVCacheCustomInstanceAttributeRequest
-     *
-     * @returns DescribeTairKVCacheCustomInstanceAttributeResponse
-     *
-     * @param DescribeTairKVCacheCustomInstanceAttributeRequest $request
-     *
-     * @return DescribeTairKVCacheCustomInstanceAttributeResponse
+     * @return DescribeTairKVCacheCustomInstanceAttributeResponse DescribeTairKVCacheCustomInstanceAttributeResponse
      */
     public function describeTairKVCacheCustomInstanceAttribute($request)
     {
@@ -7302,24 +5871,19 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * 查询TairCustom主机监控.
+     * @summary 查询TairCustom主机监控
+     *  *
+     * @param DescribeTairKVCacheCustomInstanceHistoryMonitorValuesRequest $request DescribeTairKVCacheCustomInstanceHistoryMonitorValuesRequest
+     * @param RuntimeOptions                                               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeTairKVCacheCustomInstanceHistoryMonitorValuesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeTairKVCacheCustomInstanceHistoryMonitorValuesResponse
-     *
-     * @param DescribeTairKVCacheCustomInstanceHistoryMonitorValuesRequest $request
-     * @param RuntimeOptions                                               $runtime
-     *
-     * @return DescribeTairKVCacheCustomInstanceHistoryMonitorValuesResponse
+     * @return DescribeTairKVCacheCustomInstanceHistoryMonitorValuesResponse DescribeTairKVCacheCustomInstanceHistoryMonitorValuesResponse
      */
     public function describeTairKVCacheCustomInstanceHistoryMonitorValuesWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeTairKVCacheCustomInstanceHistoryMonitorValues',
@@ -7337,15 +5901,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * 查询TairCustom主机监控.
+     * @summary 查询TairCustom主机监控
+     *  *
+     * @param DescribeTairKVCacheCustomInstanceHistoryMonitorValuesRequest $request DescribeTairKVCacheCustomInstanceHistoryMonitorValuesRequest
      *
-     * @param request - DescribeTairKVCacheCustomInstanceHistoryMonitorValuesRequest
-     *
-     * @returns DescribeTairKVCacheCustomInstanceHistoryMonitorValuesResponse
-     *
-     * @param DescribeTairKVCacheCustomInstanceHistoryMonitorValuesRequest $request
-     *
-     * @return DescribeTairKVCacheCustomInstanceHistoryMonitorValuesResponse
+     * @return DescribeTairKVCacheCustomInstanceHistoryMonitorValuesResponse DescribeTairKVCacheCustomInstanceHistoryMonitorValuesResponse
      */
     public function describeTairKVCacheCustomInstanceHistoryMonitorValues($request)
     {
@@ -7355,24 +5915,19 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * 查看TairCustom实例.
+     * @summary 查看TairCustom实例
+     *  *
+     * @param DescribeTairKVCacheCustomInstancesRequest $request DescribeTairKVCacheCustomInstancesRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeTairKVCacheCustomInstancesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeTairKVCacheCustomInstancesResponse
-     *
-     * @param DescribeTairKVCacheCustomInstancesRequest $request
-     * @param RuntimeOptions                            $runtime
-     *
-     * @return DescribeTairKVCacheCustomInstancesResponse
+     * @return DescribeTairKVCacheCustomInstancesResponse DescribeTairKVCacheCustomInstancesResponse
      */
     public function describeTairKVCacheCustomInstancesWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeTairKVCacheCustomInstances',
@@ -7390,15 +5945,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * 查看TairCustom实例.
+     * @summary 查看TairCustom实例
+     *  *
+     * @param DescribeTairKVCacheCustomInstancesRequest $request DescribeTairKVCacheCustomInstancesRequest
      *
-     * @param request - DescribeTairKVCacheCustomInstancesRequest
-     *
-     * @returns DescribeTairKVCacheCustomInstancesResponse
-     *
-     * @param DescribeTairKVCacheCustomInstancesRequest $request
-     *
-     * @return DescribeTairKVCacheCustomInstancesResponse
+     * @return DescribeTairKVCacheCustomInstancesResponse DescribeTairKVCacheCustomInstancesResponse
      */
     public function describeTairKVCacheCustomInstances($request)
     {
@@ -7408,24 +5959,19 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * 查看TairInfer实例.
+     * @summary 查看TairInfer实例
+     *  *
+     * @param DescribeTairKVCacheInferInstanceAttributeRequest $request DescribeTairKVCacheInferInstanceAttributeRequest
+     * @param RuntimeOptions                                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeTairKVCacheInferInstanceAttributeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeTairKVCacheInferInstanceAttributeResponse
-     *
-     * @param DescribeTairKVCacheInferInstanceAttributeRequest $request
-     * @param RuntimeOptions                                   $runtime
-     *
-     * @return DescribeTairKVCacheInferInstanceAttributeResponse
+     * @return DescribeTairKVCacheInferInstanceAttributeResponse DescribeTairKVCacheInferInstanceAttributeResponse
      */
     public function describeTairKVCacheInferInstanceAttributeWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeTairKVCacheInferInstanceAttribute',
@@ -7443,15 +5989,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * 查看TairInfer实例.
+     * @summary 查看TairInfer实例
+     *  *
+     * @param DescribeTairKVCacheInferInstanceAttributeRequest $request DescribeTairKVCacheInferInstanceAttributeRequest
      *
-     * @param request - DescribeTairKVCacheInferInstanceAttributeRequest
-     *
-     * @returns DescribeTairKVCacheInferInstanceAttributeResponse
-     *
-     * @param DescribeTairKVCacheInferInstanceAttributeRequest $request
-     *
-     * @return DescribeTairKVCacheInferInstanceAttributeResponse
+     * @return DescribeTairKVCacheInferInstanceAttributeResponse DescribeTairKVCacheInferInstanceAttributeResponse
      */
     public function describeTairKVCacheInferInstanceAttribute($request)
     {
@@ -7461,24 +6003,19 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * 查看TairInfer实例列表.
+     * @summary 查看TairInfer实例列表
+     *  *
+     * @param DescribeTairKVCacheInferInstancesRequest $request DescribeTairKVCacheInferInstancesRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeTairKVCacheInferInstancesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeTairKVCacheInferInstancesResponse
-     *
-     * @param DescribeTairKVCacheInferInstancesRequest $request
-     * @param RuntimeOptions                           $runtime
-     *
-     * @return DescribeTairKVCacheInferInstancesResponse
+     * @return DescribeTairKVCacheInferInstancesResponse DescribeTairKVCacheInferInstancesResponse
      */
     public function describeTairKVCacheInferInstancesWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeTairKVCacheInferInstances',
@@ -7496,15 +6033,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * 查看TairInfer实例列表.
+     * @summary 查看TairInfer实例列表
+     *  *
+     * @param DescribeTairKVCacheInferInstancesRequest $request DescribeTairKVCacheInferInstancesRequest
      *
-     * @param request - DescribeTairKVCacheInferInstancesRequest
-     *
-     * @returns DescribeTairKVCacheInferInstancesResponse
-     *
-     * @param DescribeTairKVCacheInferInstancesRequest $request
-     *
-     * @return DescribeTairKVCacheInferInstancesResponse
+     * @return DescribeTairKVCacheInferInstancesResponse DescribeTairKVCacheInferInstancesResponse
      */
     public function describeTairKVCacheInferInstances($request)
     {
@@ -7514,52 +6047,40 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the zones available for Tair (Redis OSS-compatible).
+     * @summary Queries the zones available for Tair (Redis OSS-compatible).
+     *  *
+     * @param DescribeZonesRequest $request DescribeZonesRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeZonesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeZonesResponse
-     *
-     * @param DescribeZonesRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return DescribeZonesResponse
+     * @return DescribeZonesResponse DescribeZonesResponse
      */
     public function describeZonesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->acceptLanguage) {
-            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeZones',
@@ -7577,15 +6098,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the zones available for Tair (Redis OSS-compatible).
+     * @summary Queries the zones available for Tair (Redis OSS-compatible).
+     *  *
+     * @param DescribeZonesRequest $request DescribeZonesRequest
      *
-     * @param request - DescribeZonesRequest
-     *
-     * @returns DescribeZonesResponse
-     *
-     * @param DescribeZonesRequest $request
-     *
-     * @return DescribeZonesResponse
+     * @return DescribeZonesResponse DescribeZonesResponse
      */
     public function describeZones($request)
     {
@@ -7595,88 +6112,67 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Adjusts the bandwidth of a Tair (Redis OSS-compatible) instance. Only the pay-as-you-go billing method is supported for bandwidth adjustment. You need to specify the InstanceId, NodeId (optional), Bandwidth, and ChargeType parameters.
-     *
-     * @remarks
-     * If you enable the bandwidth auto scaling feature and call this operation at the same time, bandwidth auto scaling takes precedence. During bandwidth scale-back, the instance is scaled back to the default bandwidth of the instance type. For more information about the limits, costs, and FAQ about this feature, see [Adjust the bandwidth of an instance](https://help.aliyun.com/document_detail/102588.html).
+     * @summary Adjusts the bandwidth of a Tair (Redis OSS-compatible) instance. Only the pay-as-you-go billing method is supported for bandwidth adjustment. You need to specify the InstanceId, NodeId (optional), Bandwidth, and ChargeType parameters.
+     *  *
+     * @description If you enable the bandwidth auto scaling feature and call this operation at the same time, bandwidth auto scaling takes precedence. During bandwidth scale-back, the instance is scaled back to the default bandwidth of the instance type. For more information about the limits, costs, and FAQ about this feature, see [Adjust the bandwidth of an instance](https://help.aliyun.com/document_detail/102588.html).
      * >  Before you call this operation, you can call the [DescribeRoleZoneInfo](https://help.aliyun.com/document_detail/473782.html) operation to query the current bandwidth of each data node in an instance.
+     *  *
+     * @param EnableAdditionalBandwidthRequest $request EnableAdditionalBandwidthRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - EnableAdditionalBandwidthRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns EnableAdditionalBandwidthResponse
-     *
-     * @param EnableAdditionalBandwidthRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return EnableAdditionalBandwidthResponse
+     * @return EnableAdditionalBandwidthResponse EnableAdditionalBandwidthResponse
      */
     public function enableAdditionalBandwidthWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->autoPay) {
-            @$query['AutoPay'] = $request->autoPay;
+        if (!Utils::isUnset($request->autoPay)) {
+            $query['AutoPay'] = $request->autoPay;
         }
-
-        if (null !== $request->autoRenew) {
-            @$query['AutoRenew'] = $request->autoRenew;
+        if (!Utils::isUnset($request->autoRenew)) {
+            $query['AutoRenew'] = $request->autoRenew;
         }
-
-        if (null !== $request->autoRenewPeriod) {
-            @$query['AutoRenewPeriod'] = $request->autoRenewPeriod;
+        if (!Utils::isUnset($request->autoRenewPeriod)) {
+            $query['AutoRenewPeriod'] = $request->autoRenewPeriod;
         }
-
-        if (null !== $request->bandwidth) {
-            @$query['Bandwidth'] = $request->bandwidth;
+        if (!Utils::isUnset($request->bandwidth)) {
+            $query['Bandwidth'] = $request->bandwidth;
         }
-
-        if (null !== $request->chargeType) {
-            @$query['ChargeType'] = $request->chargeType;
+        if (!Utils::isUnset($request->chargeType)) {
+            $query['ChargeType'] = $request->chargeType;
         }
-
-        if (null !== $request->couponNo) {
-            @$query['CouponNo'] = $request->couponNo;
+        if (!Utils::isUnset($request->couponNo)) {
+            $query['CouponNo'] = $request->couponNo;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->nodeId) {
-            @$query['NodeId'] = $request->nodeId;
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
         }
-
-        if (null !== $request->orderTimeLength) {
-            @$query['OrderTimeLength'] = $request->orderTimeLength;
+        if (!Utils::isUnset($request->orderTimeLength)) {
+            $query['OrderTimeLength'] = $request->orderTimeLength;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->sourceBiz) {
-            @$query['SourceBiz'] = $request->sourceBiz;
+        if (!Utils::isUnset($request->sourceBiz)) {
+            $query['SourceBiz'] = $request->sourceBiz;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'EnableAdditionalBandwidth',
@@ -7694,19 +6190,14 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Adjusts the bandwidth of a Tair (Redis OSS-compatible) instance. Only the pay-as-you-go billing method is supported for bandwidth adjustment. You need to specify the InstanceId, NodeId (optional), Bandwidth, and ChargeType parameters.
-     *
-     * @remarks
-     * If you enable the bandwidth auto scaling feature and call this operation at the same time, bandwidth auto scaling takes precedence. During bandwidth scale-back, the instance is scaled back to the default bandwidth of the instance type. For more information about the limits, costs, and FAQ about this feature, see [Adjust the bandwidth of an instance](https://help.aliyun.com/document_detail/102588.html).
+     * @summary Adjusts the bandwidth of a Tair (Redis OSS-compatible) instance. Only the pay-as-you-go billing method is supported for bandwidth adjustment. You need to specify the InstanceId, NodeId (optional), Bandwidth, and ChargeType parameters.
+     *  *
+     * @description If you enable the bandwidth auto scaling feature and call this operation at the same time, bandwidth auto scaling takes precedence. During bandwidth scale-back, the instance is scaled back to the default bandwidth of the instance type. For more information about the limits, costs, and FAQ about this feature, see [Adjust the bandwidth of an instance](https://help.aliyun.com/document_detail/102588.html).
      * >  Before you call this operation, you can call the [DescribeRoleZoneInfo](https://help.aliyun.com/document_detail/473782.html) operation to query the current bandwidth of each data node in an instance.
+     *  *
+     * @param EnableAdditionalBandwidthRequest $request EnableAdditionalBandwidthRequest
      *
-     * @param request - EnableAdditionalBandwidthRequest
-     *
-     * @returns EnableAdditionalBandwidthResponse
-     *
-     * @param EnableAdditionalBandwidthRequest $request
-     *
-     * @return EnableAdditionalBandwidthResponse
+     * @return EnableAdditionalBandwidthResponse EnableAdditionalBandwidthResponse
      */
     public function enableAdditionalBandwidth($request)
     {
@@ -7716,56 +6207,43 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Clears all expired keys in a Tair (Redis OSS-compatible) instance.
-     *
-     * @remarks
-     * For more information about how to clear the expired keys in the Tair (Redis OSS-compatible) console, see [Clear data](https://help.aliyun.com/document_detail/43881.html).
+     * @summary Clears all expired keys in a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @description For more information about how to clear the expired keys in the Tair (Redis OSS-compatible) console, see [Clear data](https://help.aliyun.com/document_detail/43881.html).
      * >  Expired keys cannot be recovered after they are deleted. Exercise caution when you call this operation.
+     *  *
+     * @param FlushExpireKeysRequest $request FlushExpireKeysRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - FlushExpireKeysRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns FlushExpireKeysResponse
-     *
-     * @param FlushExpireKeysRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return FlushExpireKeysResponse
+     * @return FlushExpireKeysResponse FlushExpireKeysResponse
      */
     public function flushExpireKeysWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->effectiveTime) {
-            @$query['EffectiveTime'] = $request->effectiveTime;
+        if (!Utils::isUnset($request->effectiveTime)) {
+            $query['EffectiveTime'] = $request->effectiveTime;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'FlushExpireKeys',
@@ -7783,19 +6261,14 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Clears all expired keys in a Tair (Redis OSS-compatible) instance.
-     *
-     * @remarks
-     * For more information about how to clear the expired keys in the Tair (Redis OSS-compatible) console, see [Clear data](https://help.aliyun.com/document_detail/43881.html).
+     * @summary Clears all expired keys in a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @description For more information about how to clear the expired keys in the Tair (Redis OSS-compatible) console, see [Clear data](https://help.aliyun.com/document_detail/43881.html).
      * >  Expired keys cannot be recovered after they are deleted. Exercise caution when you call this operation.
+     *  *
+     * @param FlushExpireKeysRequest $request FlushExpireKeysRequest
      *
-     * @param request - FlushExpireKeysRequest
-     *
-     * @returns FlushExpireKeysResponse
-     *
-     * @param FlushExpireKeysRequest $request
-     *
-     * @return FlushExpireKeysResponse
+     * @return FlushExpireKeysResponse FlushExpireKeysResponse
      */
     public function flushExpireKeys($request)
     {
@@ -7805,48 +6278,37 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Clears the data of a Tair (Redis OSS-compatible) instance. The cleared data cannot be restored.
+     * @summary Clears the data of a Tair (Redis OSS-compatible) instance. The cleared data cannot be restored.
+     *  *
+     * @param FlushInstanceRequest $request FlushInstanceRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - FlushInstanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns FlushInstanceResponse
-     *
-     * @param FlushInstanceRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return FlushInstanceResponse
+     * @return FlushInstanceResponse FlushInstanceResponse
      */
     public function flushInstanceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'FlushInstance',
@@ -7864,15 +6326,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Clears the data of a Tair (Redis OSS-compatible) instance. The cleared data cannot be restored.
+     * @summary Clears the data of a Tair (Redis OSS-compatible) instance. The cleared data cannot be restored.
+     *  *
+     * @param FlushInstanceRequest $request FlushInstanceRequest
      *
-     * @param request - FlushInstanceRequest
-     *
-     * @returns FlushInstanceResponse
-     *
-     * @param FlushInstanceRequest $request
-     *
-     * @return FlushInstanceResponse
+     * @return FlushInstanceResponse FlushInstanceResponse
      */
     public function flushInstance($request)
     {
@@ -7882,52 +6340,40 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Cleans the data of specified databases in a Tair (Redis OSS-compatible) instance.
-     *
-     * @remarks
-     * Each Tair (Redis OSS-compatible) instance can contain up to 256 databases named from DB0 to DB255. Each database does not have a separate memory usage limit. The memory capacity that a database can use is subject to the total memory limit of the instance. You can execute the `SELECT` statement to switch between databases. For more information, see [What is the size of each database on a Tair (Redis OSS-compatible) instance, and how can I choose databases?](https://help.aliyun.com/document_detail/38688.html)
+     * @summary Cleans the data of specified databases in a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @description Each Tair (Redis OSS-compatible) instance can contain up to 256 databases named from DB0 to DB255. Each database does not have a separate memory usage limit. The memory capacity that a database can use is subject to the total memory limit of the instance. You can execute the `SELECT` statement to switch between databases. For more information, see [What is the size of each database on a Tair (Redis OSS-compatible) instance, and how can I choose databases?](https://help.aliyun.com/document_detail/38688.html)
      * >  This operation is available only for cloud-native instances that use cloud disks.
+     *  *
+     * @param FlushInstanceForDBRequest $request FlushInstanceForDBRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - FlushInstanceForDBRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns FlushInstanceForDBResponse
-     *
-     * @param FlushInstanceForDBRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return FlushInstanceForDBResponse
+     * @return FlushInstanceForDBResponse FlushInstanceForDBResponse
      */
     public function flushInstanceForDBWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->dbIndex) {
-            @$query['DbIndex'] = $request->dbIndex;
+        if (!Utils::isUnset($request->dbIndex)) {
+            $query['DbIndex'] = $request->dbIndex;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'FlushInstanceForDB',
@@ -7945,19 +6391,14 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Cleans the data of specified databases in a Tair (Redis OSS-compatible) instance.
-     *
-     * @remarks
-     * Each Tair (Redis OSS-compatible) instance can contain up to 256 databases named from DB0 to DB255. Each database does not have a separate memory usage limit. The memory capacity that a database can use is subject to the total memory limit of the instance. You can execute the `SELECT` statement to switch between databases. For more information, see [What is the size of each database on a Tair (Redis OSS-compatible) instance, and how can I choose databases?](https://help.aliyun.com/document_detail/38688.html)
+     * @summary Cleans the data of specified databases in a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @description Each Tair (Redis OSS-compatible) instance can contain up to 256 databases named from DB0 to DB255. Each database does not have a separate memory usage limit. The memory capacity that a database can use is subject to the total memory limit of the instance. You can execute the `SELECT` statement to switch between databases. For more information, see [What is the size of each database on a Tair (Redis OSS-compatible) instance, and how can I choose databases?](https://help.aliyun.com/document_detail/38688.html)
      * >  This operation is available only for cloud-native instances that use cloud disks.
+     *  *
+     * @param FlushInstanceForDBRequest $request FlushInstanceForDBRequest
      *
-     * @param request - FlushInstanceForDBRequest
-     *
-     * @returns FlushInstanceForDBResponse
-     *
-     * @param FlushInstanceForDBRequest $request
-     *
-     * @return FlushInstanceForDBResponse
+     * @return FlushInstanceForDBResponse FlushInstanceForDBResponse
      */
     public function flushInstanceForDB($request)
     {
@@ -7967,65 +6408,50 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Modifies the permissions of an account for a Tair (Redis OSS-compatible) instance.
-     *
-     * @remarks
-     * >
+     * @summary Modifies the permissions of an account for a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @description >
      * *   Only Tair (Redis OSS-compatible) instances of Redis 4.0 or later are supported.
      * *   The Tair (Redis OSS-compatible) instance must be in the running state.
+     *  *
+     * @param GrantAccountPrivilegeRequest $request GrantAccountPrivilegeRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GrantAccountPrivilegeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GrantAccountPrivilegeResponse
-     *
-     * @param GrantAccountPrivilegeRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return GrantAccountPrivilegeResponse
+     * @return GrantAccountPrivilegeResponse GrantAccountPrivilegeResponse
      */
     public function grantAccountPrivilegeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountName) {
-            @$query['AccountName'] = $request->accountName;
+        if (!Utils::isUnset($request->accountName)) {
+            $query['AccountName'] = $request->accountName;
         }
-
-        if (null !== $request->accountPrivilege) {
-            @$query['AccountPrivilege'] = $request->accountPrivilege;
+        if (!Utils::isUnset($request->accountPrivilege)) {
+            $query['AccountPrivilege'] = $request->accountPrivilege;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->sourceBiz) {
-            @$query['SourceBiz'] = $request->sourceBiz;
+        if (!Utils::isUnset($request->sourceBiz)) {
+            $query['SourceBiz'] = $request->sourceBiz;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GrantAccountPrivilege',
@@ -8043,20 +6469,15 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Modifies the permissions of an account for a Tair (Redis OSS-compatible) instance.
-     *
-     * @remarks
-     * >
+     * @summary Modifies the permissions of an account for a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @description >
      * *   Only Tair (Redis OSS-compatible) instances of Redis 4.0 or later are supported.
      * *   The Tair (Redis OSS-compatible) instance must be in the running state.
+     *  *
+     * @param GrantAccountPrivilegeRequest $request GrantAccountPrivilegeRequest
      *
-     * @param request - GrantAccountPrivilegeRequest
-     *
-     * @returns GrantAccountPrivilegeResponse
-     *
-     * @param GrantAccountPrivilegeRequest $request
-     *
-     * @return GrantAccountPrivilegeResponse
+     * @return GrantAccountPrivilegeResponse GrantAccountPrivilegeResponse
      */
     public function grantAccountPrivilege($request)
     {
@@ -8066,51 +6487,39 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Assigns a service-linked role to Tair (Redis OSS-compatible).
+     * @summary Assigns a service-linked role to Tair (Redis OSS-compatible).
+     *  *
+     * @description The log management feature of Tair (Redis OSS-compatible) requires the resources of [Simple Log Service](https://help.aliyun.com/document_detail/48869.html). To use the log management feature, you can call this operation to assign the AliyunServiceRoleForKvstore service-linked role to Tair (Redis OSS-compatible). For more information, see [Service-linked role of Tair (Redis OSS-compatible)](https://help.aliyun.com/document_detail/184337.html).
+     *  *
+     * @param InitializeKvstorePermissionRequest $request InitializeKvstorePermissionRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * The log management feature of Tair (Redis OSS-compatible) requires the resources of [Simple Log Service](https://help.aliyun.com/document_detail/48869.html). To use the log management feature, you can call this operation to assign the AliyunServiceRoleForKvstore service-linked role to Tair (Redis OSS-compatible). For more information, see [Service-linked role of Tair (Redis OSS-compatible)](https://help.aliyun.com/document_detail/184337.html).
-     *
-     * @param request - InitializeKvstorePermissionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns InitializeKvstorePermissionResponse
-     *
-     * @param InitializeKvstorePermissionRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return InitializeKvstorePermissionResponse
+     * @return InitializeKvstorePermissionResponse InitializeKvstorePermissionResponse
      */
     public function initializeKvstorePermissionWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'InitializeKvstorePermission',
@@ -8128,18 +6537,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Assigns a service-linked role to Tair (Redis OSS-compatible).
+     * @summary Assigns a service-linked role to Tair (Redis OSS-compatible).
+     *  *
+     * @description The log management feature of Tair (Redis OSS-compatible) requires the resources of [Simple Log Service](https://help.aliyun.com/document_detail/48869.html). To use the log management feature, you can call this operation to assign the AliyunServiceRoleForKvstore service-linked role to Tair (Redis OSS-compatible). For more information, see [Service-linked role of Tair (Redis OSS-compatible)](https://help.aliyun.com/document_detail/184337.html).
+     *  *
+     * @param InitializeKvstorePermissionRequest $request InitializeKvstorePermissionRequest
      *
-     * @remarks
-     * The log management feature of Tair (Redis OSS-compatible) requires the resources of [Simple Log Service](https://help.aliyun.com/document_detail/48869.html). To use the log management feature, you can call this operation to assign the AliyunServiceRoleForKvstore service-linked role to Tair (Redis OSS-compatible). For more information, see [Service-linked role of Tair (Redis OSS-compatible)](https://help.aliyun.com/document_detail/184337.html).
-     *
-     * @param request - InitializeKvstorePermissionRequest
-     *
-     * @returns InitializeKvstorePermissionResponse
-     *
-     * @param InitializeKvstorePermissionRequest $request
-     *
-     * @return InitializeKvstorePermissionResponse
+     * @return InitializeKvstorePermissionResponse InitializeKvstorePermissionResponse
      */
     public function initializeKvstorePermission($request)
     {
@@ -8149,63 +6553,48 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the relationships between Tair (Redis OSS-compatible) instances and tags.
+     * @summary Queries the relationships between Tair (Redis OSS-compatible) instances and tags.
+     *  *
+     * @description You can also query the relationships between instances and tags in the Tair (Redis OSS-compatible) console. For more information, see [Filter Tair (Redis OSS-compatible) instances by tag](https://help.aliyun.com/document_detail/119160.html) and [View tags bound to an instance](https://help.aliyun.com/document_detail/134038.html).
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can also query the relationships between instances and tags in the Tair (Redis OSS-compatible) console. For more information, see [Filter Tair (Redis OSS-compatible) instances by tag](https://help.aliyun.com/document_detail/119160.html) and [View tags bound to an instance](https://help.aliyun.com/document_detail/134038.html).
-     *
-     * @param request - ListTagResourcesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListTagResourcesResponse
-     *
-     * @param ListTagResourcesRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->nextToken) {
-            @$query['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceId) {
-            @$query['ResourceId'] = $request->resourceId;
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->resourceType) {
-            @$query['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListTagResources',
@@ -8223,18 +6612,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the relationships between Tair (Redis OSS-compatible) instances and tags.
+     * @summary Queries the relationships between Tair (Redis OSS-compatible) instances and tags.
+     *  *
+     * @description You can also query the relationships between instances and tags in the Tair (Redis OSS-compatible) console. For more information, see [Filter Tair (Redis OSS-compatible) instances by tag](https://help.aliyun.com/document_detail/119160.html) and [View tags bound to an instance](https://help.aliyun.com/document_detail/134038.html).
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
-     * @remarks
-     * You can also query the relationships between instances and tags in the Tair (Redis OSS-compatible) console. For more information, see [Filter Tair (Redis OSS-compatible) instances by tag](https://help.aliyun.com/document_detail/119160.html) and [View tags bound to an instance](https://help.aliyun.com/document_detail/134038.html).
-     *
-     * @param request - ListTagResourcesRequest
-     *
-     * @returns ListTagResourcesResponse
-     *
-     * @param ListTagResourcesRequest $request
-     *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -8244,52 +6628,40 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Places a write lock on an instance. After the instance is locked, it supports only read operations.
+     * @summary Places a write lock on an instance. After the instance is locked, it supports only read operations.
+     *  *
+     * @param LockDBInstanceWriteRequest $request LockDBInstanceWriteRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - LockDBInstanceWriteRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns LockDBInstanceWriteResponse
-     *
-     * @param LockDBInstanceWriteRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return LockDBInstanceWriteResponse
+     * @return LockDBInstanceWriteResponse LockDBInstanceWriteResponse
      */
     public function lockDBInstanceWriteWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->lockReason) {
-            @$query['LockReason'] = $request->lockReason;
+        if (!Utils::isUnset($request->lockReason)) {
+            $query['LockReason'] = $request->lockReason;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'LockDBInstanceWrite',
@@ -8307,15 +6679,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Places a write lock on an instance. After the instance is locked, it supports only read operations.
+     * @summary Places a write lock on an instance. After the instance is locked, it supports only read operations.
+     *  *
+     * @param LockDBInstanceWriteRequest $request LockDBInstanceWriteRequest
      *
-     * @param request - LockDBInstanceWriteRequest
-     *
-     * @returns LockDBInstanceWriteResponse
-     *
-     * @param LockDBInstanceWriteRequest $request
-     *
-     * @return LockDBInstanceWriteResponse
+     * @return LockDBInstanceWriteResponse LockDBInstanceWriteResponse
      */
     public function lockDBInstanceWrite($request)
     {
@@ -8325,52 +6693,40 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Simulates database node failures.
+     * @summary Simulates database node failures.
+     *  *
+     * @param MasterNodeShutDownFailOverRequest $request MasterNodeShutDownFailOverRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - MasterNodeShutDownFailOverRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns MasterNodeShutDownFailOverResponse
-     *
-     * @param MasterNodeShutDownFailOverRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return MasterNodeShutDownFailOverResponse
+     * @return MasterNodeShutDownFailOverResponse MasterNodeShutDownFailOverResponse
      */
     public function masterNodeShutDownFailOverWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->category) {
-            @$query['Category'] = $request->category;
+        if (!Utils::isUnset($request->category)) {
+            $query['Category'] = $request->category;
         }
-
-        if (null !== $request->DBFaultMode) {
-            @$query['DBFaultMode'] = $request->DBFaultMode;
+        if (!Utils::isUnset($request->DBFaultMode)) {
+            $query['DBFaultMode'] = $request->DBFaultMode;
         }
-
-        if (null !== $request->DBNodes) {
-            @$query['DBNodes'] = $request->DBNodes;
+        if (!Utils::isUnset($request->DBNodes)) {
+            $query['DBNodes'] = $request->DBNodes;
         }
-
-        if (null !== $request->failMode) {
-            @$query['FailMode'] = $request->failMode;
+        if (!Utils::isUnset($request->failMode)) {
+            $query['FailMode'] = $request->failMode;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->proxyFaultMode) {
-            @$query['ProxyFaultMode'] = $request->proxyFaultMode;
+        if (!Utils::isUnset($request->proxyFaultMode)) {
+            $query['ProxyFaultMode'] = $request->proxyFaultMode;
         }
-
-        if (null !== $request->proxyInstanceIds) {
-            @$query['ProxyInstanceIds'] = $request->proxyInstanceIds;
+        if (!Utils::isUnset($request->proxyInstanceIds)) {
+            $query['ProxyInstanceIds'] = $request->proxyInstanceIds;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'MasterNodeShutDownFailOver',
@@ -8388,15 +6744,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Simulates database node failures.
+     * @summary Simulates database node failures.
+     *  *
+     * @param MasterNodeShutDownFailOverRequest $request MasterNodeShutDownFailOverRequest
      *
-     * @param request - MasterNodeShutDownFailOverRequest
-     *
-     * @returns MasterNodeShutDownFailOverResponse
-     *
-     * @param MasterNodeShutDownFailOverRequest $request
-     *
-     * @return MasterNodeShutDownFailOverResponse
+     * @return MasterNodeShutDownFailOverResponse MasterNodeShutDownFailOverResponse
      */
     public function masterNodeShutDownFailOver($request)
     {
@@ -8406,86 +6758,66 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Migrates a Tair (Redis OSS-compatible) instance to another zone in the same region.
-     *
-     * @remarks
-     * Before you call this operation, you must release the public endpoint (if any) of the instance. For more information, see [Migrate an instance across zones](https://help.aliyun.com/document_detail/106272.html).
+     * @summary Migrates a Tair (Redis OSS-compatible) instance to another zone in the same region.
+     *  *
+     * @description Before you call this operation, you must release the public endpoint (if any) of the instance. For more information, see [Migrate an instance across zones](https://help.aliyun.com/document_detail/106272.html).
      * >
      * *   If the network type of an Tair (Redis OSS-compatible) instance is switched from classic network to Virtual Private Cloud (VPC), and the classic network endpoint is retained, you can migrate the instance across zones only after the classic network endpoint is released upon expiration.
      * *   After the instance is migrated, the endpoint of the instance remains unchanged. However, the virtual IP address (VIP) is changed. We recommend that you use the endpoint instead of the VIP to connect to the instance.
+     *  *
+     * @param MigrateToOtherZoneRequest $request MigrateToOtherZoneRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - MigrateToOtherZoneRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns MigrateToOtherZoneResponse
-     *
-     * @param MigrateToOtherZoneRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return MigrateToOtherZoneResponse
+     * @return MigrateToOtherZoneResponse MigrateToOtherZoneResponse
      */
     public function migrateToOtherZoneWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->effectiveTime) {
-            @$query['EffectiveTime'] = $request->effectiveTime;
+        if (!Utils::isUnset($request->effectiveTime)) {
+            $query['EffectiveTime'] = $request->effectiveTime;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->readOnlyCount) {
-            @$query['ReadOnlyCount'] = $request->readOnlyCount;
+        if (!Utils::isUnset($request->readOnlyCount)) {
+            $query['ReadOnlyCount'] = $request->readOnlyCount;
         }
-
-        if (null !== $request->replicaCount) {
-            @$query['ReplicaCount'] = $request->replicaCount;
+        if (!Utils::isUnset($request->replicaCount)) {
+            $query['ReplicaCount'] = $request->replicaCount;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->secondaryZoneId) {
-            @$query['SecondaryZoneId'] = $request->secondaryZoneId;
+        if (!Utils::isUnset($request->secondaryZoneId)) {
+            $query['SecondaryZoneId'] = $request->secondaryZoneId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->slaveReadOnlyCount) {
-            @$query['SlaveReadOnlyCount'] = $request->slaveReadOnlyCount;
+        if (!Utils::isUnset($request->slaveReadOnlyCount)) {
+            $query['SlaveReadOnlyCount'] = $request->slaveReadOnlyCount;
         }
-
-        if (null !== $request->slaveReplicaCount) {
-            @$query['SlaveReplicaCount'] = $request->slaveReplicaCount;
+        if (!Utils::isUnset($request->slaveReplicaCount)) {
+            $query['SlaveReplicaCount'] = $request->slaveReplicaCount;
         }
-
-        if (null !== $request->vSwitchId) {
-            @$query['VSwitchId'] = $request->vSwitchId;
+        if (!Utils::isUnset($request->vSwitchId)) {
+            $query['VSwitchId'] = $request->vSwitchId;
         }
-
-        if (null !== $request->zoneId) {
-            @$query['ZoneId'] = $request->zoneId;
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'MigrateToOtherZone',
@@ -8503,21 +6835,16 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Migrates a Tair (Redis OSS-compatible) instance to another zone in the same region.
-     *
-     * @remarks
-     * Before you call this operation, you must release the public endpoint (if any) of the instance. For more information, see [Migrate an instance across zones](https://help.aliyun.com/document_detail/106272.html).
+     * @summary Migrates a Tair (Redis OSS-compatible) instance to another zone in the same region.
+     *  *
+     * @description Before you call this operation, you must release the public endpoint (if any) of the instance. For more information, see [Migrate an instance across zones](https://help.aliyun.com/document_detail/106272.html).
      * >
      * *   If the network type of an Tair (Redis OSS-compatible) instance is switched from classic network to Virtual Private Cloud (VPC), and the classic network endpoint is retained, you can migrate the instance across zones only after the classic network endpoint is released upon expiration.
      * *   After the instance is migrated, the endpoint of the instance remains unchanged. However, the virtual IP address (VIP) is changed. We recommend that you use the endpoint instead of the VIP to connect to the instance.
+     *  *
+     * @param MigrateToOtherZoneRequest $request MigrateToOtherZoneRequest
      *
-     * @param request - MigrateToOtherZoneRequest
-     *
-     * @returns MigrateToOtherZoneResponse
-     *
-     * @param MigrateToOtherZoneRequest $request
-     *
-     * @return MigrateToOtherZoneResponse
+     * @return MigrateToOtherZoneResponse MigrateToOtherZoneResponse
      */
     public function migrateToOtherZone($request)
     {
@@ -8527,63 +6854,48 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Modifies the description of an account for a Tair (Redis OSS-compatible) instance.
+     * @summary Modifies the description of an account for a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @description This operation is supported only for instances that run Redis 4.0 or later.
+     *  *
+     * @param ModifyAccountDescriptionRequest $request ModifyAccountDescriptionRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * This operation is supported only for instances that run Redis 4.0 or later.
-     *
-     * @param request - ModifyAccountDescriptionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyAccountDescriptionResponse
-     *
-     * @param ModifyAccountDescriptionRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return ModifyAccountDescriptionResponse
+     * @return ModifyAccountDescriptionResponse ModifyAccountDescriptionResponse
      */
     public function modifyAccountDescriptionWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountDescription) {
-            @$query['AccountDescription'] = $request->accountDescription;
+        if (!Utils::isUnset($request->accountDescription)) {
+            $query['AccountDescription'] = $request->accountDescription;
         }
-
-        if (null !== $request->accountName) {
-            @$query['AccountName'] = $request->accountName;
+        if (!Utils::isUnset($request->accountName)) {
+            $query['AccountName'] = $request->accountName;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->sourceBiz) {
-            @$query['SourceBiz'] = $request->sourceBiz;
+        if (!Utils::isUnset($request->sourceBiz)) {
+            $query['SourceBiz'] = $request->sourceBiz;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyAccountDescription',
@@ -8601,18 +6913,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Modifies the description of an account for a Tair (Redis OSS-compatible) instance.
+     * @summary Modifies the description of an account for a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @description This operation is supported only for instances that run Redis 4.0 or later.
+     *  *
+     * @param ModifyAccountDescriptionRequest $request ModifyAccountDescriptionRequest
      *
-     * @remarks
-     * This operation is supported only for instances that run Redis 4.0 or later.
-     *
-     * @param request - ModifyAccountDescriptionRequest
-     *
-     * @returns ModifyAccountDescriptionResponse
-     *
-     * @param ModifyAccountDescriptionRequest $request
-     *
-     * @return ModifyAccountDescriptionResponse
+     * @return ModifyAccountDescriptionResponse ModifyAccountDescriptionResponse
      */
     public function modifyAccountDescription($request)
     {
@@ -8622,64 +6929,49 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Changes the password of a specific account for a Tair (Redis OSS-compatible) instance.
+     * @summary Changes the password of a specific account for a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @param ModifyAccountPasswordRequest $request ModifyAccountPasswordRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyAccountPasswordRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyAccountPasswordResponse
-     *
-     * @param ModifyAccountPasswordRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return ModifyAccountPasswordResponse
+     * @return ModifyAccountPasswordResponse ModifyAccountPasswordResponse
      */
     public function modifyAccountPasswordWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountName) {
-            @$query['AccountName'] = $request->accountName;
+        if (!Utils::isUnset($request->accountName)) {
+            $query['AccountName'] = $request->accountName;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->newAccountPassword) {
-            @$query['NewAccountPassword'] = $request->newAccountPassword;
+        if (!Utils::isUnset($request->newAccountPassword)) {
+            $query['NewAccountPassword'] = $request->newAccountPassword;
         }
-
-        if (null !== $request->oldAccountPassword) {
-            @$query['OldAccountPassword'] = $request->oldAccountPassword;
+        if (!Utils::isUnset($request->oldAccountPassword)) {
+            $query['OldAccountPassword'] = $request->oldAccountPassword;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->sourceBiz) {
-            @$query['SourceBiz'] = $request->sourceBiz;
+        if (!Utils::isUnset($request->sourceBiz)) {
+            $query['SourceBiz'] = $request->sourceBiz;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyAccountPassword',
@@ -8697,15 +6989,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Changes the password of a specific account for a Tair (Redis OSS-compatible) instance.
+     * @summary Changes the password of a specific account for a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @param ModifyAccountPasswordRequest $request ModifyAccountPasswordRequest
      *
-     * @param request - ModifyAccountPasswordRequest
-     *
-     * @returns ModifyAccountPasswordResponse
-     *
-     * @param ModifyAccountPasswordRequest $request
-     *
-     * @return ModifyAccountPasswordResponse
+     * @return ModifyAccountPasswordResponse ModifyAccountPasswordResponse
      */
     public function modifyAccountPassword($request)
     {
@@ -8715,55 +7003,42 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Changes the scheduled switchover time of an O&M task.
+     * @summary Changes the scheduled switchover time of an O&M task.
+     *  *
+     * @description You can receive notifications for Tair (Redis OSS-compatible) events such as instance migration and version upgrade by text message, phone call, email, internal message, or by using the console. You can also change the scheduled switchover time of a task by using the console. For more information, see [Query or manage pending events](https://help.aliyun.com/document_detail/187022.html).
+     *  *
+     * @param ModifyActiveOperationTaskRequest $request ModifyActiveOperationTaskRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can receive notifications for Tair (Redis OSS-compatible) events such as instance migration and version upgrade by text message, phone call, email, internal message, or by using the console. You can also change the scheduled switchover time of a task by using the console. For more information, see [Query or manage pending events](https://help.aliyun.com/document_detail/187022.html).
-     *
-     * @param request - ModifyActiveOperationTaskRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyActiveOperationTaskResponse
-     *
-     * @param ModifyActiveOperationTaskRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return ModifyActiveOperationTaskResponse
+     * @return ModifyActiveOperationTaskResponse ModifyActiveOperationTaskResponse
      */
     public function modifyActiveOperationTaskWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->ids) {
-            @$query['Ids'] = $request->ids;
+        if (!Utils::isUnset($request->ids)) {
+            $query['Ids'] = $request->ids;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->switchTime) {
-            @$query['SwitchTime'] = $request->switchTime;
+        if (!Utils::isUnset($request->switchTime)) {
+            $query['SwitchTime'] = $request->switchTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyActiveOperationTask',
@@ -8781,18 +7056,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Changes the scheduled switchover time of an O&M task.
+     * @summary Changes the scheduled switchover time of an O&M task.
+     *  *
+     * @description You can receive notifications for Tair (Redis OSS-compatible) events such as instance migration and version upgrade by text message, phone call, email, internal message, or by using the console. You can also change the scheduled switchover time of a task by using the console. For more information, see [Query or manage pending events](https://help.aliyun.com/document_detail/187022.html).
+     *  *
+     * @param ModifyActiveOperationTaskRequest $request ModifyActiveOperationTaskRequest
      *
-     * @remarks
-     * You can receive notifications for Tair (Redis OSS-compatible) events such as instance migration and version upgrade by text message, phone call, email, internal message, or by using the console. You can also change the scheduled switchover time of a task by using the console. For more information, see [Query or manage pending events](https://help.aliyun.com/document_detail/187022.html).
-     *
-     * @param request - ModifyActiveOperationTaskRequest
-     *
-     * @returns ModifyActiveOperationTaskResponse
-     *
-     * @param ModifyActiveOperationTaskRequest $request
-     *
-     * @return ModifyActiveOperationTaskResponse
+     * @return ModifyActiveOperationTaskResponse ModifyActiveOperationTaskResponse
      */
     public function modifyActiveOperationTask($request)
     {
@@ -8802,56 +7072,43 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Modifies the switching time of scheduled O\\\\\\&M events for an instance.
+     * @summary Modifies the switching time of scheduled O\\\\\\&M events for an instance.
+     *  *
+     * @param ModifyActiveOperationTasksRequest $request ModifyActiveOperationTasksRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyActiveOperationTasksRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyActiveOperationTasksResponse
-     *
-     * @param ModifyActiveOperationTasksRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return ModifyActiveOperationTasksResponse
+     * @return ModifyActiveOperationTasksResponse ModifyActiveOperationTasksResponse
      */
     public function modifyActiveOperationTasksWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->ids) {
-            @$query['Ids'] = $request->ids;
+        if (!Utils::isUnset($request->ids)) {
+            $query['Ids'] = $request->ids;
         }
-
-        if (null !== $request->immediateStart) {
-            @$query['ImmediateStart'] = $request->immediateStart;
+        if (!Utils::isUnset($request->immediateStart)) {
+            $query['ImmediateStart'] = $request->immediateStart;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->switchTime) {
-            @$query['SwitchTime'] = $request->switchTime;
+        if (!Utils::isUnset($request->switchTime)) {
+            $query['SwitchTime'] = $request->switchTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyActiveOperationTasks',
@@ -8869,15 +7126,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Modifies the switching time of scheduled O\\\\\\&M events for an instance.
+     * @summary Modifies the switching time of scheduled O\\\\\\&M events for an instance.
+     *  *
+     * @param ModifyActiveOperationTasksRequest $request ModifyActiveOperationTasksRequest
      *
-     * @param request - ModifyActiveOperationTasksRequest
-     *
-     * @returns ModifyActiveOperationTasksResponse
-     *
-     * @param ModifyActiveOperationTasksRequest $request
-     *
-     * @return ModifyActiveOperationTasksResponse
+     * @return ModifyActiveOperationTasksResponse ModifyActiveOperationTasksResponse
      */
     public function modifyActiveOperationTasks($request)
     {
@@ -8887,62 +7140,48 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Enables the audit log feature or modifies the audit log settings for a Tair (Redis OSS-compatible) instance.
-     *
-     * @remarks
-     * Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of the audit log feature.
+     * @summary Enables the audit log feature or modifies the audit log settings for a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of the audit log feature.
      * Before you call this operation, make sure that the Tair (Redis OSS-compatible) instance meets the following requirements:
      * *   The instance is a Tair (Redis OSS-compatible) Community Edition instance or Tair [DRAM-based instance](https://help.aliyun.com/document_detail/126164.html).
      * *   The engine version of the instance is Redis 4.0 or later, and the latest minor version is used. You can call the [DescribeEngineVersion](https://help.aliyun.com/document_detail/473781.html) operation to check whether the instance uses the latest major version and minor version.
+     *  *
+     * @param ModifyAuditLogConfigRequest $request ModifyAuditLogConfigRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyAuditLogConfigRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyAuditLogConfigResponse
-     *
-     * @param ModifyAuditLogConfigRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return ModifyAuditLogConfigResponse
+     * @return ModifyAuditLogConfigResponse ModifyAuditLogConfigResponse
      */
     public function modifyAuditLogConfigWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->dbAudit) {
-            @$query['DbAudit'] = $request->dbAudit;
+        if (!Utils::isUnset($request->dbAudit)) {
+            $query['DbAudit'] = $request->dbAudit;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->retention) {
-            @$query['Retention'] = $request->retention;
+        if (!Utils::isUnset($request->retention)) {
+            $query['Retention'] = $request->retention;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyAuditLogConfig',
@@ -8960,21 +7199,16 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Enables the audit log feature or modifies the audit log settings for a Tair (Redis OSS-compatible) instance.
-     *
-     * @remarks
-     * Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of the audit log feature.
+     * @summary Enables the audit log feature or modifies the audit log settings for a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of the audit log feature.
      * Before you call this operation, make sure that the Tair (Redis OSS-compatible) instance meets the following requirements:
      * *   The instance is a Tair (Redis OSS-compatible) Community Edition instance or Tair [DRAM-based instance](https://help.aliyun.com/document_detail/126164.html).
      * *   The engine version of the instance is Redis 4.0 or later, and the latest minor version is used. You can call the [DescribeEngineVersion](https://help.aliyun.com/document_detail/473781.html) operation to check whether the instance uses the latest major version and minor version.
+     *  *
+     * @param ModifyAuditLogConfigRequest $request ModifyAuditLogConfigRequest
      *
-     * @param request - ModifyAuditLogConfigRequest
-     *
-     * @returns ModifyAuditLogConfigResponse
-     *
-     * @param ModifyAuditLogConfigRequest $request
-     *
-     * @return ModifyAuditLogConfigResponse
+     * @return ModifyAuditLogConfigResponse ModifyAuditLogConfigResponse
      */
     public function modifyAuditLogConfig($request)
     {
@@ -8984,52 +7218,40 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * 修改备份集过期时间.
+     * @summary 修改备份集过期时间
+     *  *
+     * @param ModifyBackupExpireTimeRequest $request ModifyBackupExpireTimeRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyBackupExpireTimeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyBackupExpireTimeResponse
-     *
-     * @param ModifyBackupExpireTimeRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return ModifyBackupExpireTimeResponse
+     * @return ModifyBackupExpireTimeResponse ModifyBackupExpireTimeResponse
      */
     public function modifyBackupExpireTimeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->backupId) {
-            @$query['BackupId'] = $request->backupId;
+        if (!Utils::isUnset($request->backupId)) {
+            $query['BackupId'] = $request->backupId;
         }
-
-        if (null !== $request->expectExpireTime) {
-            @$query['ExpectExpireTime'] = $request->expectExpireTime;
+        if (!Utils::isUnset($request->expectExpireTime)) {
+            $query['ExpectExpireTime'] = $request->expectExpireTime;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyBackupExpireTime',
@@ -9047,15 +7269,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * 修改备份集过期时间.
+     * @summary 修改备份集过期时间
+     *  *
+     * @param ModifyBackupExpireTimeRequest $request ModifyBackupExpireTimeRequest
      *
-     * @param request - ModifyBackupExpireTimeRequest
-     *
-     * @returns ModifyBackupExpireTimeResponse
-     *
-     * @param ModifyBackupExpireTimeRequest $request
-     *
-     * @return ModifyBackupExpireTimeResponse
+     * @return ModifyBackupExpireTimeResponse ModifyBackupExpireTimeResponse
      */
     public function modifyBackupExpireTime($request)
     {
@@ -9065,64 +7283,49 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Modifies the automatic backup policy of a Tair (Redis OSS-compatible) instance.
+     * @summary Modifies the automatic backup policy of a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @param ModifyBackupPolicyRequest $request ModifyBackupPolicyRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyBackupPolicyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyBackupPolicyResponse
-     *
-     * @param ModifyBackupPolicyRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return ModifyBackupPolicyResponse
+     * @return ModifyBackupPolicyResponse ModifyBackupPolicyResponse
      */
     public function modifyBackupPolicyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->backupRetentionPeriod) {
-            @$query['BackupRetentionPeriod'] = $request->backupRetentionPeriod;
+        if (!Utils::isUnset($request->backupRetentionPeriod)) {
+            $query['BackupRetentionPeriod'] = $request->backupRetentionPeriod;
         }
-
-        if (null !== $request->enableBackupLog) {
-            @$query['EnableBackupLog'] = $request->enableBackupLog;
+        if (!Utils::isUnset($request->enableBackupLog)) {
+            $query['EnableBackupLog'] = $request->enableBackupLog;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->preferredBackupPeriod) {
-            @$query['PreferredBackupPeriod'] = $request->preferredBackupPeriod;
+        if (!Utils::isUnset($request->preferredBackupPeriod)) {
+            $query['PreferredBackupPeriod'] = $request->preferredBackupPeriod;
         }
-
-        if (null !== $request->preferredBackupTime) {
-            @$query['PreferredBackupTime'] = $request->preferredBackupTime;
+        if (!Utils::isUnset($request->preferredBackupTime)) {
+            $query['PreferredBackupTime'] = $request->preferredBackupTime;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyBackupPolicy',
@@ -9140,15 +7343,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Modifies the automatic backup policy of a Tair (Redis OSS-compatible) instance.
+     * @summary Modifies the automatic backup policy of a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @param ModifyBackupPolicyRequest $request ModifyBackupPolicyRequest
      *
-     * @param request - ModifyBackupPolicyRequest
-     *
-     * @returns ModifyBackupPolicyResponse
-     *
-     * @param ModifyBackupPolicyRequest $request
-     *
-     * @return ModifyBackupPolicyResponse
+     * @return ModifyBackupPolicyResponse ModifyBackupPolicyResponse
      */
     public function modifyBackupPolicy($request)
     {
@@ -9158,52 +7357,40 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Modifies the setting related to the automatic update of minor versions for an instance.
+     * @summary Modifies the setting related to the automatic update of minor versions for an instance.
+     *  *
+     * @param ModifyDBInstanceAutoUpgradeRequest $request ModifyDBInstanceAutoUpgradeRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyDBInstanceAutoUpgradeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyDBInstanceAutoUpgradeResponse
-     *
-     * @param ModifyDBInstanceAutoUpgradeRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return ModifyDBInstanceAutoUpgradeResponse
+     * @return ModifyDBInstanceAutoUpgradeResponse ModifyDBInstanceAutoUpgradeResponse
      */
     public function modifyDBInstanceAutoUpgradeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->value) {
-            @$query['Value'] = $request->value;
+        if (!Utils::isUnset($request->value)) {
+            $query['Value'] = $request->value;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyDBInstanceAutoUpgrade',
@@ -9221,15 +7408,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Modifies the setting related to the automatic update of minor versions for an instance.
+     * @summary Modifies the setting related to the automatic update of minor versions for an instance.
+     *  *
+     * @param ModifyDBInstanceAutoUpgradeRequest $request ModifyDBInstanceAutoUpgradeRequest
      *
-     * @param request - ModifyDBInstanceAutoUpgradeRequest
-     *
-     * @returns ModifyDBInstanceAutoUpgradeResponse
-     *
-     * @param ModifyDBInstanceAutoUpgradeRequest $request
-     *
-     * @return ModifyDBInstanceAutoUpgradeResponse
+     * @return ModifyDBInstanceAutoUpgradeResponse ModifyDBInstanceAutoUpgradeResponse
      */
     public function modifyDBInstanceAutoUpgrade($request)
     {
@@ -9239,67 +7422,51 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Changes the endpoint or port number of a Tair (Redis OSS-compatible) instance.
+     * @summary Changes the endpoint or port number of a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @description You can also modify the endpoint or port number of an instance in the Tair (Redis OSS-compatible) console. For more information, see [Change the endpoint or port number of an instance](https://help.aliyun.com/document_detail/85683.html).
+     *  *
+     * @param ModifyDBInstanceConnectionStringRequest $request ModifyDBInstanceConnectionStringRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can also modify the endpoint or port number of an instance in the Tair (Redis OSS-compatible) console. For more information, see [Change the endpoint or port number of an instance](https://help.aliyun.com/document_detail/85683.html).
-     *
-     * @param request - ModifyDBInstanceConnectionStringRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyDBInstanceConnectionStringResponse
-     *
-     * @param ModifyDBInstanceConnectionStringRequest $request
-     * @param RuntimeOptions                          $runtime
-     *
-     * @return ModifyDBInstanceConnectionStringResponse
+     * @return ModifyDBInstanceConnectionStringResponse ModifyDBInstanceConnectionStringResponse
      */
     public function modifyDBInstanceConnectionStringWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->currentConnectionString) {
-            @$query['CurrentConnectionString'] = $request->currentConnectionString;
+        if (!Utils::isUnset($request->currentConnectionString)) {
+            $query['CurrentConnectionString'] = $request->currentConnectionString;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->IPType) {
-            @$query['IPType'] = $request->IPType;
+        if (!Utils::isUnset($request->IPType)) {
+            $query['IPType'] = $request->IPType;
         }
-
-        if (null !== $request->newConnectionString) {
-            @$query['NewConnectionString'] = $request->newConnectionString;
+        if (!Utils::isUnset($request->newConnectionString)) {
+            $query['NewConnectionString'] = $request->newConnectionString;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->port) {
-            @$query['Port'] = $request->port;
+        if (!Utils::isUnset($request->port)) {
+            $query['Port'] = $request->port;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyDBInstanceConnectionString',
@@ -9317,18 +7484,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Changes the endpoint or port number of a Tair (Redis OSS-compatible) instance.
+     * @summary Changes the endpoint or port number of a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @description You can also modify the endpoint or port number of an instance in the Tair (Redis OSS-compatible) console. For more information, see [Change the endpoint or port number of an instance](https://help.aliyun.com/document_detail/85683.html).
+     *  *
+     * @param ModifyDBInstanceConnectionStringRequest $request ModifyDBInstanceConnectionStringRequest
      *
-     * @remarks
-     * You can also modify the endpoint or port number of an instance in the Tair (Redis OSS-compatible) console. For more information, see [Change the endpoint or port number of an instance](https://help.aliyun.com/document_detail/85683.html).
-     *
-     * @param request - ModifyDBInstanceConnectionStringRequest
-     *
-     * @returns ModifyDBInstanceConnectionStringResponse
-     *
-     * @param ModifyDBInstanceConnectionStringRequest $request
-     *
-     * @return ModifyDBInstanceConnectionStringResponse
+     * @return ModifyDBInstanceConnectionStringResponse ModifyDBInstanceConnectionStringResponse
      */
     public function modifyDBInstanceConnectionString($request)
     {
@@ -9338,64 +7500,49 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Modifies a global IP whitelist template.
+     * @summary Modifies a global IP whitelist template.
+     *  *
+     * @param ModifyGlobalSecurityIPGroupRequest $request ModifyGlobalSecurityIPGroupRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyGlobalSecurityIPGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyGlobalSecurityIPGroupResponse
-     *
-     * @param ModifyGlobalSecurityIPGroupRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return ModifyGlobalSecurityIPGroupResponse
+     * @return ModifyGlobalSecurityIPGroupResponse ModifyGlobalSecurityIPGroupResponse
      */
     public function modifyGlobalSecurityIPGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->GIpList) {
-            @$query['GIpList'] = $request->GIpList;
+        if (!Utils::isUnset($request->GIpList)) {
+            $query['GIpList'] = $request->GIpList;
         }
-
-        if (null !== $request->globalIgName) {
-            @$query['GlobalIgName'] = $request->globalIgName;
+        if (!Utils::isUnset($request->globalIgName)) {
+            $query['GlobalIgName'] = $request->globalIgName;
         }
-
-        if (null !== $request->globalSecurityGroupId) {
-            @$query['GlobalSecurityGroupId'] = $request->globalSecurityGroupId;
+        if (!Utils::isUnset($request->globalSecurityGroupId)) {
+            $query['GlobalSecurityGroupId'] = $request->globalSecurityGroupId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyGlobalSecurityIPGroup',
@@ -9413,15 +7560,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Modifies a global IP whitelist template.
+     * @summary Modifies a global IP whitelist template.
+     *  *
+     * @param ModifyGlobalSecurityIPGroupRequest $request ModifyGlobalSecurityIPGroupRequest
      *
-     * @param request - ModifyGlobalSecurityIPGroupRequest
-     *
-     * @returns ModifyGlobalSecurityIPGroupResponse
-     *
-     * @param ModifyGlobalSecurityIPGroupRequest $request
-     *
-     * @return ModifyGlobalSecurityIPGroupResponse
+     * @return ModifyGlobalSecurityIPGroupResponse ModifyGlobalSecurityIPGroupResponse
      */
     public function modifyGlobalSecurityIPGroup($request)
     {
@@ -9431,60 +7574,46 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Modifies the name of a global IP whitelist template.
+     * @summary Modifies the name of a global IP whitelist template.
+     *  *
+     * @param ModifyGlobalSecurityIPGroupNameRequest $request ModifyGlobalSecurityIPGroupNameRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyGlobalSecurityIPGroupNameRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyGlobalSecurityIPGroupNameResponse
-     *
-     * @param ModifyGlobalSecurityIPGroupNameRequest $request
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return ModifyGlobalSecurityIPGroupNameResponse
+     * @return ModifyGlobalSecurityIPGroupNameResponse ModifyGlobalSecurityIPGroupNameResponse
      */
     public function modifyGlobalSecurityIPGroupNameWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->globalIgName) {
-            @$query['GlobalIgName'] = $request->globalIgName;
+        if (!Utils::isUnset($request->globalIgName)) {
+            $query['GlobalIgName'] = $request->globalIgName;
         }
-
-        if (null !== $request->globalSecurityGroupId) {
-            @$query['GlobalSecurityGroupId'] = $request->globalSecurityGroupId;
+        if (!Utils::isUnset($request->globalSecurityGroupId)) {
+            $query['GlobalSecurityGroupId'] = $request->globalSecurityGroupId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyGlobalSecurityIPGroupName',
@@ -9502,15 +7631,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Modifies the name of a global IP whitelist template.
+     * @summary Modifies the name of a global IP whitelist template.
+     *  *
+     * @param ModifyGlobalSecurityIPGroupNameRequest $request ModifyGlobalSecurityIPGroupNameRequest
      *
-     * @param request - ModifyGlobalSecurityIPGroupNameRequest
-     *
-     * @returns ModifyGlobalSecurityIPGroupNameResponse
-     *
-     * @param ModifyGlobalSecurityIPGroupNameRequest $request
-     *
-     * @return ModifyGlobalSecurityIPGroupNameResponse
+     * @return ModifyGlobalSecurityIPGroupNameResponse ModifyGlobalSecurityIPGroupNameResponse
      */
     public function modifyGlobalSecurityIPGroupName($request)
     {
@@ -9520,60 +7645,46 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Adds a specified instance to a specified IP whitelist template.
+     * @summary Adds a specified instance to a specified IP whitelist template.
+     *  *
+     * @param ModifyGlobalSecurityIPGroupRelationRequest $request ModifyGlobalSecurityIPGroupRelationRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyGlobalSecurityIPGroupRelationRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyGlobalSecurityIPGroupRelationResponse
-     *
-     * @param ModifyGlobalSecurityIPGroupRelationRequest $request
-     * @param RuntimeOptions                             $runtime
-     *
-     * @return ModifyGlobalSecurityIPGroupRelationResponse
+     * @return ModifyGlobalSecurityIPGroupRelationResponse ModifyGlobalSecurityIPGroupRelationResponse
      */
     public function modifyGlobalSecurityIPGroupRelationWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->globalSecurityGroupId) {
-            @$query['GlobalSecurityGroupId'] = $request->globalSecurityGroupId;
+        if (!Utils::isUnset($request->globalSecurityGroupId)) {
+            $query['GlobalSecurityGroupId'] = $request->globalSecurityGroupId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyGlobalSecurityIPGroupRelation',
@@ -9591,15 +7702,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Adds a specified instance to a specified IP whitelist template.
+     * @summary Adds a specified instance to a specified IP whitelist template.
+     *  *
+     * @param ModifyGlobalSecurityIPGroupRelationRequest $request ModifyGlobalSecurityIPGroupRelationRequest
      *
-     * @param request - ModifyGlobalSecurityIPGroupRelationRequest
-     *
-     * @returns ModifyGlobalSecurityIPGroupRelationResponse
-     *
-     * @param ModifyGlobalSecurityIPGroupRelationRequest $request
-     *
-     * @return ModifyGlobalSecurityIPGroupRelationResponse
+     * @return ModifyGlobalSecurityIPGroupRelationResponse ModifyGlobalSecurityIPGroupRelationResponse
      */
     public function modifyGlobalSecurityIPGroupRelation($request)
     {
@@ -9609,63 +7716,48 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Modifies the specific information of a Tair (Redis OSS-compatible) instance, such as the password and the name.
+     * @summary Modifies the specific information of a Tair (Redis OSS-compatible) instance, such as the password and the name.
+     *  *
+     * @description You can also modify the information of an instance in the Tair (Redis OSS-compatible) console. For more information, see [Change or reset the password](https://help.aliyun.com/document_detail/43874.html).
+     *  *
+     * @param ModifyInstanceAttributeRequest $request ModifyInstanceAttributeRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can also modify the information of an instance in the Tair (Redis OSS-compatible) console. For more information, see [Change or reset the password](https://help.aliyun.com/document_detail/43874.html).
-     *
-     * @param request - ModifyInstanceAttributeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyInstanceAttributeResponse
-     *
-     * @param ModifyInstanceAttributeRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return ModifyInstanceAttributeResponse
+     * @return ModifyInstanceAttributeResponse ModifyInstanceAttributeResponse
      */
     public function modifyInstanceAttributeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->instanceName) {
-            @$query['InstanceName'] = $request->instanceName;
+        if (!Utils::isUnset($request->instanceName)) {
+            $query['InstanceName'] = $request->instanceName;
         }
-
-        if (null !== $request->instanceReleaseProtection) {
-            @$query['InstanceReleaseProtection'] = $request->instanceReleaseProtection;
+        if (!Utils::isUnset($request->instanceReleaseProtection)) {
+            $query['InstanceReleaseProtection'] = $request->instanceReleaseProtection;
         }
-
-        if (null !== $request->newPassword) {
-            @$query['NewPassword'] = $request->newPassword;
+        if (!Utils::isUnset($request->newPassword)) {
+            $query['NewPassword'] = $request->newPassword;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyInstanceAttribute',
@@ -9683,18 +7775,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Modifies the specific information of a Tair (Redis OSS-compatible) instance, such as the password and the name.
+     * @summary Modifies the specific information of a Tair (Redis OSS-compatible) instance, such as the password and the name.
+     *  *
+     * @description You can also modify the information of an instance in the Tair (Redis OSS-compatible) console. For more information, see [Change or reset the password](https://help.aliyun.com/document_detail/43874.html).
+     *  *
+     * @param ModifyInstanceAttributeRequest $request ModifyInstanceAttributeRequest
      *
-     * @remarks
-     * You can also modify the information of an instance in the Tair (Redis OSS-compatible) console. For more information, see [Change or reset the password](https://help.aliyun.com/document_detail/43874.html).
-     *
-     * @param request - ModifyInstanceAttributeRequest
-     *
-     * @returns ModifyInstanceAttributeResponse
-     *
-     * @param ModifyInstanceAttributeRequest $request
-     *
-     * @return ModifyInstanceAttributeResponse
+     * @return ModifyInstanceAttributeResponse ModifyInstanceAttributeResponse
      */
     public function modifyInstanceAttribute($request)
     {
@@ -9704,63 +7791,48 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Enables or disables auto-renewal for a Tair (Redis OSS-compatible) instance.
+     * @summary Enables or disables auto-renewal for a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @description > Auto-renewal is triggered seven days before the expiration date of the instance.
+     *  *
+     * @param ModifyInstanceAutoRenewalAttributeRequest $request ModifyInstanceAutoRenewalAttributeRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * > Auto-renewal is triggered seven days before the expiration date of the instance.
-     *
-     * @param request - ModifyInstanceAutoRenewalAttributeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyInstanceAutoRenewalAttributeResponse
-     *
-     * @param ModifyInstanceAutoRenewalAttributeRequest $request
-     * @param RuntimeOptions                            $runtime
-     *
-     * @return ModifyInstanceAutoRenewalAttributeResponse
+     * @return ModifyInstanceAutoRenewalAttributeResponse ModifyInstanceAutoRenewalAttributeResponse
      */
     public function modifyInstanceAutoRenewalAttributeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->autoRenew) {
-            @$query['AutoRenew'] = $request->autoRenew;
+        if (!Utils::isUnset($request->autoRenew)) {
+            $query['AutoRenew'] = $request->autoRenew;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->duration) {
-            @$query['Duration'] = $request->duration;
+        if (!Utils::isUnset($request->duration)) {
+            $query['Duration'] = $request->duration;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->product) {
-            @$query['Product'] = $request->product;
+        if (!Utils::isUnset($request->product)) {
+            $query['Product'] = $request->product;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyInstanceAutoRenewalAttribute',
@@ -9778,18 +7850,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Enables or disables auto-renewal for a Tair (Redis OSS-compatible) instance.
+     * @summary Enables or disables auto-renewal for a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @description > Auto-renewal is triggered seven days before the expiration date of the instance.
+     *  *
+     * @param ModifyInstanceAutoRenewalAttributeRequest $request ModifyInstanceAutoRenewalAttributeRequest
      *
-     * @remarks
-     * > Auto-renewal is triggered seven days before the expiration date of the instance.
-     *
-     * @param request - ModifyInstanceAutoRenewalAttributeRequest
-     *
-     * @returns ModifyInstanceAutoRenewalAttributeResponse
-     *
-     * @param ModifyInstanceAutoRenewalAttributeRequest $request
-     *
-     * @return ModifyInstanceAutoRenewalAttributeResponse
+     * @return ModifyInstanceAutoRenewalAttributeResponse ModifyInstanceAutoRenewalAttributeResponse
      */
     public function modifyInstanceAutoRenewalAttribute($request)
     {
@@ -9799,56 +7866,43 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Sets the intended bandwidth value of a Tair (Redis OSS-compatible) instance.
-     *
-     * @remarks
-     *   Before you call this operation, make sure that you understand the billing methods and pricing of instance bandwidth. Tair (Redis OSS-compatible) charges fees per hour based on the amount and usage duration of the extra bandwidth that you purchase. The fees vary based on the region that you select. For more information, see [Billable items](https://help.aliyun.com/document_detail/54532.html).
+     * @summary Sets the intended bandwidth value of a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @description *   Before you call this operation, make sure that you understand the billing methods and pricing of instance bandwidth. Tair (Redis OSS-compatible) charges fees per hour based on the amount and usage duration of the extra bandwidth that you purchase. The fees vary based on the region that you select. For more information, see [Billable items](https://help.aliyun.com/document_detail/54532.html).
      * *   The bandwidth of an instance or a shard can be increased by up to six times the default bandwidth of the instance, but the increase in bandwidth cannot exceed 192 Mbit/s. For example, if the default bandwidth of a Tair DRAM-based master-replica instance equipped with 2 GB of memory is 96 Mbit/s, you can increase the bandwidth of the instance by up to 192 Mbit/s. As a result, the maximum bandwidth of the instance is 288 Mbit/s. If the default bandwidth of a Redis Open-Source Edition master-replica instance equipped with 256 MB of memory is 10 Mbit/s, you can increase the bandwidth of the instance by up to 60 Mbit/s. As a result, the maximum bandwidth of the instance is 70 Mbit/s.
+     *  *
+     * @param ModifyInstanceBandwidthRequest $request ModifyInstanceBandwidthRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyInstanceBandwidthRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyInstanceBandwidthResponse
-     *
-     * @param ModifyInstanceBandwidthRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return ModifyInstanceBandwidthResponse
+     * @return ModifyInstanceBandwidthResponse ModifyInstanceBandwidthResponse
      */
     public function modifyInstanceBandwidthWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->targetIntranetBandwidth) {
-            @$query['TargetIntranetBandwidth'] = $request->targetIntranetBandwidth;
+        if (!Utils::isUnset($request->targetIntranetBandwidth)) {
+            $query['TargetIntranetBandwidth'] = $request->targetIntranetBandwidth;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyInstanceBandwidth',
@@ -9866,19 +7920,14 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Sets the intended bandwidth value of a Tair (Redis OSS-compatible) instance.
-     *
-     * @remarks
-     *   Before you call this operation, make sure that you understand the billing methods and pricing of instance bandwidth. Tair (Redis OSS-compatible) charges fees per hour based on the amount and usage duration of the extra bandwidth that you purchase. The fees vary based on the region that you select. For more information, see [Billable items](https://help.aliyun.com/document_detail/54532.html).
+     * @summary Sets the intended bandwidth value of a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @description *   Before you call this operation, make sure that you understand the billing methods and pricing of instance bandwidth. Tair (Redis OSS-compatible) charges fees per hour based on the amount and usage duration of the extra bandwidth that you purchase. The fees vary based on the region that you select. For more information, see [Billable items](https://help.aliyun.com/document_detail/54532.html).
      * *   The bandwidth of an instance or a shard can be increased by up to six times the default bandwidth of the instance, but the increase in bandwidth cannot exceed 192 Mbit/s. For example, if the default bandwidth of a Tair DRAM-based master-replica instance equipped with 2 GB of memory is 96 Mbit/s, you can increase the bandwidth of the instance by up to 192 Mbit/s. As a result, the maximum bandwidth of the instance is 288 Mbit/s. If the default bandwidth of a Redis Open-Source Edition master-replica instance equipped with 256 MB of memory is 10 Mbit/s, you can increase the bandwidth of the instance by up to 60 Mbit/s. As a result, the maximum bandwidth of the instance is 70 Mbit/s.
+     *  *
+     * @param ModifyInstanceBandwidthRequest $request ModifyInstanceBandwidthRequest
      *
-     * @param request - ModifyInstanceBandwidthRequest
-     *
-     * @returns ModifyInstanceBandwidthResponse
-     *
-     * @param ModifyInstanceBandwidthRequest $request
-     *
-     * @return ModifyInstanceBandwidthResponse
+     * @return ModifyInstanceBandwidthResponse ModifyInstanceBandwidthResponse
      */
     public function modifyInstanceBandwidth($request)
     {
@@ -9888,76 +7937,58 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Modifies the parameter settings of a Tair (Redis OSS-compatible) instance.
+     * @summary Modifies the parameter settings of a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @param ModifyInstanceConfigRequest $request ModifyInstanceConfigRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyInstanceConfigRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyInstanceConfigResponse
-     *
-     * @param ModifyInstanceConfigRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return ModifyInstanceConfigResponse
+     * @return ModifyInstanceConfigResponse ModifyInstanceConfigResponse
      */
     public function modifyInstanceConfigWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->config) {
-            @$query['Config'] = $request->config;
+        if (!Utils::isUnset($request->config)) {
+            $query['Config'] = $request->config;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->paramNoLooseSentinelEnabled) {
-            @$query['ParamNoLooseSentinelEnabled'] = $request->paramNoLooseSentinelEnabled;
+        if (!Utils::isUnset($request->paramNoLooseSentinelEnabled)) {
+            $query['ParamNoLooseSentinelEnabled'] = $request->paramNoLooseSentinelEnabled;
         }
-
-        if (null !== $request->paramNoLooseSentinelPasswordFreeAccess) {
-            @$query['ParamNoLooseSentinelPasswordFreeAccess'] = $request->paramNoLooseSentinelPasswordFreeAccess;
+        if (!Utils::isUnset($request->paramNoLooseSentinelPasswordFreeAccess)) {
+            $query['ParamNoLooseSentinelPasswordFreeAccess'] = $request->paramNoLooseSentinelPasswordFreeAccess;
         }
-
-        if (null !== $request->paramNoLooseSentinelPasswordFreeCommands) {
-            @$query['ParamNoLooseSentinelPasswordFreeCommands'] = $request->paramNoLooseSentinelPasswordFreeCommands;
+        if (!Utils::isUnset($request->paramNoLooseSentinelPasswordFreeCommands)) {
+            $query['ParamNoLooseSentinelPasswordFreeCommands'] = $request->paramNoLooseSentinelPasswordFreeCommands;
         }
-
-        if (null !== $request->paramReplMode) {
-            @$query['ParamReplMode'] = $request->paramReplMode;
+        if (!Utils::isUnset($request->paramReplMode)) {
+            $query['ParamReplMode'] = $request->paramReplMode;
         }
-
-        if (null !== $request->paramSemisyncReplTimeout) {
-            @$query['ParamSemisyncReplTimeout'] = $request->paramSemisyncReplTimeout;
+        if (!Utils::isUnset($request->paramSemisyncReplTimeout)) {
+            $query['ParamSemisyncReplTimeout'] = $request->paramSemisyncReplTimeout;
         }
-
-        if (null !== $request->paramSentinelCompatEnable) {
-            @$query['ParamSentinelCompatEnable'] = $request->paramSentinelCompatEnable;
+        if (!Utils::isUnset($request->paramSentinelCompatEnable)) {
+            $query['ParamSentinelCompatEnable'] = $request->paramSentinelCompatEnable;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyInstanceConfig',
@@ -9975,15 +8006,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Modifies the parameter settings of a Tair (Redis OSS-compatible) instance.
+     * @summary Modifies the parameter settings of a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @param ModifyInstanceConfigRequest $request ModifyInstanceConfigRequest
      *
-     * @param request - ModifyInstanceConfigRequest
-     *
-     * @returns ModifyInstanceConfigResponse
-     *
-     * @param ModifyInstanceConfigRequest $request
-     *
-     * @return ModifyInstanceConfigResponse
+     * @return ModifyInstanceConfigResponse ModifyInstanceConfigResponse
      */
     public function modifyInstanceConfig($request)
     {
@@ -9993,59 +8020,45 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Modifies the maintenance window of an Tair (Redis OSS-compatible) instance. Alibaba Cloud maintains Tair (Redis OSS-compatible) instances during the specified maintenance window.
+     * @summary Modifies the maintenance window of an Tair (Redis OSS-compatible) instance. Alibaba Cloud maintains Tair (Redis OSS-compatible) instances during the specified maintenance window.
+     *  *
+     * @description You can also modify the maintenance window of an instance in the Tair (Redis OSS-compatible) console. For more information, see [Set a maintenance window](https://help.aliyun.com/document_detail/55252.html).
+     *  *
+     * @param ModifyInstanceMaintainTimeRequest $request ModifyInstanceMaintainTimeRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can also modify the maintenance window of an instance in the Tair (Redis OSS-compatible) console. For more information, see [Set a maintenance window](https://help.aliyun.com/document_detail/55252.html).
-     *
-     * @param request - ModifyInstanceMaintainTimeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyInstanceMaintainTimeResponse
-     *
-     * @param ModifyInstanceMaintainTimeRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return ModifyInstanceMaintainTimeResponse
+     * @return ModifyInstanceMaintainTimeResponse ModifyInstanceMaintainTimeResponse
      */
     public function modifyInstanceMaintainTimeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->maintainEndTime) {
-            @$query['MaintainEndTime'] = $request->maintainEndTime;
+        if (!Utils::isUnset($request->maintainEndTime)) {
+            $query['MaintainEndTime'] = $request->maintainEndTime;
         }
-
-        if (null !== $request->maintainStartTime) {
-            @$query['MaintainStartTime'] = $request->maintainStartTime;
+        if (!Utils::isUnset($request->maintainStartTime)) {
+            $query['MaintainStartTime'] = $request->maintainStartTime;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyInstanceMaintainTime',
@@ -10063,18 +8076,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Modifies the maintenance window of an Tair (Redis OSS-compatible) instance. Alibaba Cloud maintains Tair (Redis OSS-compatible) instances during the specified maintenance window.
+     * @summary Modifies the maintenance window of an Tair (Redis OSS-compatible) instance. Alibaba Cloud maintains Tair (Redis OSS-compatible) instances during the specified maintenance window.
+     *  *
+     * @description You can also modify the maintenance window of an instance in the Tair (Redis OSS-compatible) console. For more information, see [Set a maintenance window](https://help.aliyun.com/document_detail/55252.html).
+     *  *
+     * @param ModifyInstanceMaintainTimeRequest $request ModifyInstanceMaintainTimeRequest
      *
-     * @remarks
-     * You can also modify the maintenance window of an instance in the Tair (Redis OSS-compatible) console. For more information, see [Set a maintenance window](https://help.aliyun.com/document_detail/55252.html).
-     *
-     * @param request - ModifyInstanceMaintainTimeRequest
-     *
-     * @returns ModifyInstanceMaintainTimeResponse
-     *
-     * @param ModifyInstanceMaintainTimeRequest $request
-     *
-     * @return ModifyInstanceMaintainTimeResponse
+     * @return ModifyInstanceMaintainTimeResponse ModifyInstanceMaintainTimeResponse
      */
     public function modifyInstanceMaintainTime($request)
     {
@@ -10084,59 +8092,45 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Upgrades the major version of a Tair (Redis OSS-compatible) instance.
+     * @summary Upgrades the major version of a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @description For more information about the precautions and impacts of the upgrade, see [Upgrade the major version](https://help.aliyun.com/document_detail/101764.html).
+     *  *
+     * @param ModifyInstanceMajorVersionRequest $request ModifyInstanceMajorVersionRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * For more information about the precautions and impacts of the upgrade, see [Upgrade the major version](https://help.aliyun.com/document_detail/101764.html).
-     *
-     * @param request - ModifyInstanceMajorVersionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyInstanceMajorVersionResponse
-     *
-     * @param ModifyInstanceMajorVersionRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return ModifyInstanceMajorVersionResponse
+     * @return ModifyInstanceMajorVersionResponse ModifyInstanceMajorVersionResponse
      */
     public function modifyInstanceMajorVersionWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->effectiveTime) {
-            @$query['EffectiveTime'] = $request->effectiveTime;
+        if (!Utils::isUnset($request->effectiveTime)) {
+            $query['EffectiveTime'] = $request->effectiveTime;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->majorVersion) {
-            @$query['MajorVersion'] = $request->majorVersion;
+        if (!Utils::isUnset($request->majorVersion)) {
+            $query['MajorVersion'] = $request->majorVersion;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyInstanceMajorVersion',
@@ -10154,18 +8148,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Upgrades the major version of a Tair (Redis OSS-compatible) instance.
+     * @summary Upgrades the major version of a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @description For more information about the precautions and impacts of the upgrade, see [Upgrade the major version](https://help.aliyun.com/document_detail/101764.html).
+     *  *
+     * @param ModifyInstanceMajorVersionRequest $request ModifyInstanceMajorVersionRequest
      *
-     * @remarks
-     * For more information about the precautions and impacts of the upgrade, see [Upgrade the major version](https://help.aliyun.com/document_detail/101764.html).
-     *
-     * @param request - ModifyInstanceMajorVersionRequest
-     *
-     * @returns ModifyInstanceMajorVersionResponse
-     *
-     * @param ModifyInstanceMajorVersionRequest $request
-     *
-     * @return ModifyInstanceMajorVersionResponse
+     * @return ModifyInstanceMajorVersionResponse ModifyInstanceMajorVersionResponse
      */
     public function modifyInstanceMajorVersion($request)
     {
@@ -10175,62 +8164,48 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Updates the minor version of a Tair (Redis OSS-compatible) instance.
-     *
-     * @remarks
-     * The procedure to update the minor version of an instance varies based on types of Tair (Redis OSS-compatible) instances. For more information, see [Upgrade the minor version](https://help.aliyun.com/document_detail/56450.html).
+     * @summary Updates the minor version of a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @description The procedure to update the minor version of an instance varies based on types of Tair (Redis OSS-compatible) instances. For more information, see [Upgrade the minor version](https://help.aliyun.com/document_detail/56450.html).
      * >
      * *   Before you call this operation, you can call the [DescribeEngineVersion](https://help.aliyun.com/document_detail/473781.html) operation to query the minor version of the current instance.
      * *   When you switch your workloads over from the original instance to a new instance or from the master node to the replica node in the original instance, you may experience disconnections that last a few seconds. The original instance stays in the read-only state within 60 seconds until all data is synchronized. We recommend that you upgrade the original instance during off-peak hours and make sure that your application is configured to automatically reconnect to the original instance.
+     *  *
+     * @param ModifyInstanceMinorVersionRequest $request ModifyInstanceMinorVersionRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyInstanceMinorVersionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyInstanceMinorVersionResponse
-     *
-     * @param ModifyInstanceMinorVersionRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return ModifyInstanceMinorVersionResponse
+     * @return ModifyInstanceMinorVersionResponse ModifyInstanceMinorVersionResponse
      */
     public function modifyInstanceMinorVersionWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->effectiveTime) {
-            @$query['EffectiveTime'] = $request->effectiveTime;
+        if (!Utils::isUnset($request->effectiveTime)) {
+            $query['EffectiveTime'] = $request->effectiveTime;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->minorversion) {
-            @$query['Minorversion'] = $request->minorversion;
+        if (!Utils::isUnset($request->minorversion)) {
+            $query['Minorversion'] = $request->minorversion;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyInstanceMinorVersion',
@@ -10248,21 +8223,16 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Updates the minor version of a Tair (Redis OSS-compatible) instance.
-     *
-     * @remarks
-     * The procedure to update the minor version of an instance varies based on types of Tair (Redis OSS-compatible) instances. For more information, see [Upgrade the minor version](https://help.aliyun.com/document_detail/56450.html).
+     * @summary Updates the minor version of a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @description The procedure to update the minor version of an instance varies based on types of Tair (Redis OSS-compatible) instances. For more information, see [Upgrade the minor version](https://help.aliyun.com/document_detail/56450.html).
      * >
      * *   Before you call this operation, you can call the [DescribeEngineVersion](https://help.aliyun.com/document_detail/473781.html) operation to query the minor version of the current instance.
      * *   When you switch your workloads over from the original instance to a new instance or from the master node to the replica node in the original instance, you may experience disconnections that last a few seconds. The original instance stays in the read-only state within 60 seconds until all data is synchronized. We recommend that you upgrade the original instance during off-peak hours and make sure that your application is configured to automatically reconnect to the original instance.
+     *  *
+     * @param ModifyInstanceMinorVersionRequest $request ModifyInstanceMinorVersionRequest
      *
-     * @param request - ModifyInstanceMinorVersionRequest
-     *
-     * @returns ModifyInstanceMinorVersionResponse
-     *
-     * @param ModifyInstanceMinorVersionRequest $request
-     *
-     * @return ModifyInstanceMinorVersionResponse
+     * @return ModifyInstanceMinorVersionResponse ModifyInstanceMinorVersionResponse
      */
     public function modifyInstanceMinorVersion($request)
     {
@@ -10272,60 +8242,46 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Extends the retention period of the classic network endpoint of a Tair (Redis OSS-compatible) instance. You can call this operation after you change the network type of the Tair (Redis OSS-compatible) instance from classic network to Virtual Private Cloud (VPC) with the classic network endpoint retained.
-     *
-     * @remarks
-     * You can also perform this operation in the Tair (Redis OSS-compatible) console. For more information, see [Change the expiration time for the endpoint of the classic network](https://help.aliyun.com/document_detail/60062.html).
+     * @summary Extends the retention period of the classic network endpoint of a Tair (Redis OSS-compatible) instance. You can call this operation after you change the network type of the Tair (Redis OSS-compatible) instance from classic network to Virtual Private Cloud (VPC) with the classic network endpoint retained.
+     *  *
+     * @description You can also perform this operation in the Tair (Redis OSS-compatible) console. For more information, see [Change the expiration time for the endpoint of the classic network](https://help.aliyun.com/document_detail/60062.html).
      * > For more information about how to switch the network type of a Tair (Redis OSS-compatible) instance from classic network to VPC, see [SwitchNetwork](https://help.aliyun.com/document_detail/473797.html).
+     *  *
+     * @param ModifyInstanceNetExpireTimeRequest $request ModifyInstanceNetExpireTimeRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyInstanceNetExpireTimeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyInstanceNetExpireTimeResponse
-     *
-     * @param ModifyInstanceNetExpireTimeRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return ModifyInstanceNetExpireTimeResponse
+     * @return ModifyInstanceNetExpireTimeResponse ModifyInstanceNetExpireTimeResponse
      */
     public function modifyInstanceNetExpireTimeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->classicExpiredDays) {
-            @$query['ClassicExpiredDays'] = $request->classicExpiredDays;
+        if (!Utils::isUnset($request->classicExpiredDays)) {
+            $query['ClassicExpiredDays'] = $request->classicExpiredDays;
         }
-
-        if (null !== $request->connectionString) {
-            @$query['ConnectionString'] = $request->connectionString;
+        if (!Utils::isUnset($request->connectionString)) {
+            $query['ConnectionString'] = $request->connectionString;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyInstanceNetExpireTime',
@@ -10343,19 +8299,14 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Extends the retention period of the classic network endpoint of a Tair (Redis OSS-compatible) instance. You can call this operation after you change the network type of the Tair (Redis OSS-compatible) instance from classic network to Virtual Private Cloud (VPC) with the classic network endpoint retained.
-     *
-     * @remarks
-     * You can also perform this operation in the Tair (Redis OSS-compatible) console. For more information, see [Change the expiration time for the endpoint of the classic network](https://help.aliyun.com/document_detail/60062.html).
+     * @summary Extends the retention period of the classic network endpoint of a Tair (Redis OSS-compatible) instance. You can call this operation after you change the network type of the Tair (Redis OSS-compatible) instance from classic network to Virtual Private Cloud (VPC) with the classic network endpoint retained.
+     *  *
+     * @description You can also perform this operation in the Tair (Redis OSS-compatible) console. For more information, see [Change the expiration time for the endpoint of the classic network](https://help.aliyun.com/document_detail/60062.html).
      * > For more information about how to switch the network type of a Tair (Redis OSS-compatible) instance from classic network to VPC, see [SwitchNetwork](https://help.aliyun.com/document_detail/473797.html).
+     *  *
+     * @param ModifyInstanceNetExpireTimeRequest $request ModifyInstanceNetExpireTimeRequest
      *
-     * @param request - ModifyInstanceNetExpireTimeRequest
-     *
-     * @returns ModifyInstanceNetExpireTimeResponse
-     *
-     * @param ModifyInstanceNetExpireTimeRequest $request
-     *
-     * @return ModifyInstanceNetExpireTimeResponse
+     * @return ModifyInstanceNetExpireTimeResponse ModifyInstanceNetExpireTimeResponse
      */
     public function modifyInstanceNetExpireTime($request)
     {
@@ -10365,60 +8316,46 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Applies a parameter template to specific instances. This indicates that the parameter values in the template take effect on the instances. After you modify a parameter template, you must reapply it to specific instances for the new parameter values to take effect on the instances.
+     * @summary Applies a parameter template to specific instances. This indicates that the parameter values in the template take effect on the instances. After you modify a parameter template, you must reapply it to specific instances for the new parameter values to take effect on the instances.
+     *  *
+     * @param ModifyInstanceParameterRequest $request ModifyInstanceParameterRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyInstanceParameterRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyInstanceParameterResponse
-     *
-     * @param ModifyInstanceParameterRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return ModifyInstanceParameterResponse
+     * @return ModifyInstanceParameterResponse ModifyInstanceParameterResponse
      */
     public function modifyInstanceParameterWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->parameterGroupId) {
-            @$query['ParameterGroupId'] = $request->parameterGroupId;
+        if (!Utils::isUnset($request->parameterGroupId)) {
+            $query['ParameterGroupId'] = $request->parameterGroupId;
         }
-
-        if (null !== $request->parameters) {
-            @$query['Parameters'] = $request->parameters;
+        if (!Utils::isUnset($request->parameters)) {
+            $query['Parameters'] = $request->parameters;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyInstanceParameter',
@@ -10436,15 +8373,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Applies a parameter template to specific instances. This indicates that the parameter values in the template take effect on the instances. After you modify a parameter template, you must reapply it to specific instances for the new parameter values to take effect on the instances.
+     * @summary Applies a parameter template to specific instances. This indicates that the parameter values in the template take effect on the instances. After you modify a parameter template, you must reapply it to specific instances for the new parameter values to take effect on the instances.
+     *  *
+     * @param ModifyInstanceParameterRequest $request ModifyInstanceParameterRequest
      *
-     * @param request - ModifyInstanceParameterRequest
-     *
-     * @returns ModifyInstanceParameterResponse
-     *
-     * @param ModifyInstanceParameterRequest $request
-     *
-     * @return ModifyInstanceParameterResponse
+     * @return ModifyInstanceParameterResponse ModifyInstanceParameterResponse
      */
     public function modifyInstanceParameter($request)
     {
@@ -10454,56 +8387,43 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Enables Transport Layer Security (TLS) for a Tair (Redis OSS-compatible) instance.
-     *
-     * @remarks
-     * You can also configure SSL encryption in the console. For more information, see [Configure SSL encryption](https://help.aliyun.com/document_detail/84898.html).
+     * @summary Enables Transport Layer Security (TLS) for a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @description You can also configure SSL encryption in the console. For more information, see [Configure SSL encryption](https://help.aliyun.com/document_detail/84898.html).
      * >  To specify the earliest supported SSL version, you can call the [ModifyInstanceConfig](https://help.aliyun.com/document_detail/473844.html) operation to modify the required parameter.
+     *  *
+     * @param ModifyInstanceSSLRequest $request ModifyInstanceSSLRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyInstanceSSLRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyInstanceSSLResponse
-     *
-     * @param ModifyInstanceSSLRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return ModifyInstanceSSLResponse
+     * @return ModifyInstanceSSLResponse ModifyInstanceSSLResponse
      */
     public function modifyInstanceSSLWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->SSLEnabled) {
-            @$query['SSLEnabled'] = $request->SSLEnabled;
+        if (!Utils::isUnset($request->SSLEnabled)) {
+            $query['SSLEnabled'] = $request->SSLEnabled;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyInstanceSSL',
@@ -10521,19 +8441,14 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Enables Transport Layer Security (TLS) for a Tair (Redis OSS-compatible) instance.
-     *
-     * @remarks
-     * You can also configure SSL encryption in the console. For more information, see [Configure SSL encryption](https://help.aliyun.com/document_detail/84898.html).
+     * @summary Enables Transport Layer Security (TLS) for a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @description You can also configure SSL encryption in the console. For more information, see [Configure SSL encryption](https://help.aliyun.com/document_detail/84898.html).
      * >  To specify the earliest supported SSL version, you can call the [ModifyInstanceConfig](https://help.aliyun.com/document_detail/473844.html) operation to modify the required parameter.
+     *  *
+     * @param ModifyInstanceSSLRequest $request ModifyInstanceSSLRequest
      *
-     * @param request - ModifyInstanceSSLRequest
-     *
-     * @returns ModifyInstanceSSLResponse
-     *
-     * @param ModifyInstanceSSLRequest $request
-     *
-     * @return ModifyInstanceSSLResponse
+     * @return ModifyInstanceSSLResponse ModifyInstanceSSLResponse
      */
     public function modifyInstanceSSL($request)
     {
@@ -10543,131 +8458,99 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Changes the configurations of a Tair (Redis OSS-compatible) instance.
+     * @summary Changes the configurations of a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @description >  For more information about the procedure, impacts, limits, and fees of this operation, see [Change the configurations of an instance](https://help.aliyun.com/document_detail/26353.html).
+     *  *
+     * @param ModifyInstanceSpecRequest $request ModifyInstanceSpecRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * >  For more information about the procedure, impacts, limits, and fees of this operation, see [Change the configurations of an instance](https://help.aliyun.com/document_detail/26353.html).
-     *
-     * @param request - ModifyInstanceSpecRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyInstanceSpecResponse
-     *
-     * @param ModifyInstanceSpecRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return ModifyInstanceSpecResponse
+     * @return ModifyInstanceSpecResponse ModifyInstanceSpecResponse
      */
     public function modifyInstanceSpecWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->autoPay) {
-            @$query['AutoPay'] = $request->autoPay;
+        if (!Utils::isUnset($request->autoPay)) {
+            $query['AutoPay'] = $request->autoPay;
         }
-
-        if (null !== $request->businessInfo) {
-            @$query['BusinessInfo'] = $request->businessInfo;
+        if (!Utils::isUnset($request->businessInfo)) {
+            $query['BusinessInfo'] = $request->businessInfo;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->couponNo) {
-            @$query['CouponNo'] = $request->couponNo;
+        if (!Utils::isUnset($request->couponNo)) {
+            $query['CouponNo'] = $request->couponNo;
         }
-
-        if (null !== $request->effectiveTime) {
-            @$query['EffectiveTime'] = $request->effectiveTime;
+        if (!Utils::isUnset($request->effectiveTime)) {
+            $query['EffectiveTime'] = $request->effectiveTime;
         }
-
-        if (null !== $request->forceTrans) {
-            @$query['ForceTrans'] = $request->forceTrans;
+        if (!Utils::isUnset($request->forceTrans)) {
+            $query['ForceTrans'] = $request->forceTrans;
         }
-
-        if (null !== $request->forceUpgrade) {
-            @$query['ForceUpgrade'] = $request->forceUpgrade;
+        if (!Utils::isUnset($request->forceUpgrade)) {
+            $query['ForceUpgrade'] = $request->forceUpgrade;
         }
-
-        if (null !== $request->instanceClass) {
-            @$query['InstanceClass'] = $request->instanceClass;
+        if (!Utils::isUnset($request->instanceClass)) {
+            $query['InstanceClass'] = $request->instanceClass;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->majorVersion) {
-            @$query['MajorVersion'] = $request->majorVersion;
+        if (!Utils::isUnset($request->majorVersion)) {
+            $query['MajorVersion'] = $request->majorVersion;
         }
-
-        if (null !== $request->nodeType) {
-            @$query['NodeType'] = $request->nodeType;
+        if (!Utils::isUnset($request->nodeType)) {
+            $query['NodeType'] = $request->nodeType;
         }
-
-        if (null !== $request->orderType) {
-            @$query['OrderType'] = $request->orderType;
+        if (!Utils::isUnset($request->orderType)) {
+            $query['OrderType'] = $request->orderType;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->readOnlyCount) {
-            @$query['ReadOnlyCount'] = $request->readOnlyCount;
+        if (!Utils::isUnset($request->readOnlyCount)) {
+            $query['ReadOnlyCount'] = $request->readOnlyCount;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->replicaCount) {
-            @$query['ReplicaCount'] = $request->replicaCount;
+        if (!Utils::isUnset($request->replicaCount)) {
+            $query['ReplicaCount'] = $request->replicaCount;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->shardCount) {
-            @$query['ShardCount'] = $request->shardCount;
+        if (!Utils::isUnset($request->shardCount)) {
+            $query['ShardCount'] = $request->shardCount;
         }
-
-        if (null !== $request->slaveReadOnlyCount) {
-            @$query['SlaveReadOnlyCount'] = $request->slaveReadOnlyCount;
+        if (!Utils::isUnset($request->slaveReadOnlyCount)) {
+            $query['SlaveReadOnlyCount'] = $request->slaveReadOnlyCount;
         }
-
-        if (null !== $request->slaveReplicaCount) {
-            @$query['SlaveReplicaCount'] = $request->slaveReplicaCount;
+        if (!Utils::isUnset($request->slaveReplicaCount)) {
+            $query['SlaveReplicaCount'] = $request->slaveReplicaCount;
         }
-
-        if (null !== $request->sourceBiz) {
-            @$query['SourceBiz'] = $request->sourceBiz;
+        if (!Utils::isUnset($request->sourceBiz)) {
+            $query['SourceBiz'] = $request->sourceBiz;
         }
-
-        if (null !== $request->storage) {
-            @$query['Storage'] = $request->storage;
+        if (!Utils::isUnset($request->storage)) {
+            $query['Storage'] = $request->storage;
         }
-
-        if (null !== $request->storageType) {
-            @$query['StorageType'] = $request->storageType;
+        if (!Utils::isUnset($request->storageType)) {
+            $query['StorageType'] = $request->storageType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyInstanceSpec',
@@ -10685,18 +8568,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Changes the configurations of a Tair (Redis OSS-compatible) instance.
+     * @summary Changes the configurations of a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @description >  For more information about the procedure, impacts, limits, and fees of this operation, see [Change the configurations of an instance](https://help.aliyun.com/document_detail/26353.html).
+     *  *
+     * @param ModifyInstanceSpecRequest $request ModifyInstanceSpecRequest
      *
-     * @remarks
-     * >  For more information about the procedure, impacts, limits, and fees of this operation, see [Change the configurations of an instance](https://help.aliyun.com/document_detail/26353.html).
-     *
-     * @param request - ModifyInstanceSpecRequest
-     *
-     * @returns ModifyInstanceSpecResponse
-     *
-     * @param ModifyInstanceSpecRequest $request
-     *
-     * @return ModifyInstanceSpecResponse
+     * @return ModifyInstanceSpecResponse ModifyInstanceSpecResponse
      */
     public function modifyInstanceSpec($request)
     {
@@ -10706,67 +8584,51 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Enables transparent data encryption (TDE) for a Tair (Redis OSS-compatible) instance. You can use existing custom keys.
+     * @summary Enables transparent data encryption (TDE) for a Tair (Redis OSS-compatible) instance. You can use existing custom keys.
+     *  *
+     * @description > For more information about TDE and the impact of TDE, see [Enable TDE](https://help.aliyun.com/document_detail/265913.html).
+     *  *
+     * @param ModifyInstanceTDERequest $request ModifyInstanceTDERequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * > For more information about TDE and the impact of TDE, see [Enable TDE](https://help.aliyun.com/document_detail/265913.html).
-     *
-     * @param request - ModifyInstanceTDERequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyInstanceTDEResponse
-     *
-     * @param ModifyInstanceTDERequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return ModifyInstanceTDEResponse
+     * @return ModifyInstanceTDEResponse ModifyInstanceTDEResponse
      */
     public function modifyInstanceTDEWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->encryptionKey) {
-            @$query['EncryptionKey'] = $request->encryptionKey;
+        if (!Utils::isUnset($request->encryptionKey)) {
+            $query['EncryptionKey'] = $request->encryptionKey;
         }
-
-        if (null !== $request->encryptionName) {
-            @$query['EncryptionName'] = $request->encryptionName;
+        if (!Utils::isUnset($request->encryptionName)) {
+            $query['EncryptionName'] = $request->encryptionName;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->roleArn) {
-            @$query['RoleArn'] = $request->roleArn;
+        if (!Utils::isUnset($request->roleArn)) {
+            $query['RoleArn'] = $request->roleArn;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->TDEStatus) {
-            @$query['TDEStatus'] = $request->TDEStatus;
+        if (!Utils::isUnset($request->TDEStatus)) {
+            $query['TDEStatus'] = $request->TDEStatus;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyInstanceTDE',
@@ -10784,18 +8646,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Enables transparent data encryption (TDE) for a Tair (Redis OSS-compatible) instance. You can use existing custom keys.
+     * @summary Enables transparent data encryption (TDE) for a Tair (Redis OSS-compatible) instance. You can use existing custom keys.
+     *  *
+     * @description > For more information about TDE and the impact of TDE, see [Enable TDE](https://help.aliyun.com/document_detail/265913.html).
+     *  *
+     * @param ModifyInstanceTDERequest $request ModifyInstanceTDERequest
      *
-     * @remarks
-     * > For more information about TDE and the impact of TDE, see [Enable TDE](https://help.aliyun.com/document_detail/265913.html).
-     *
-     * @param request - ModifyInstanceTDERequest
-     *
-     * @returns ModifyInstanceTDEResponse
-     *
-     * @param ModifyInstanceTDERequest $request
-     *
-     * @return ModifyInstanceTDEResponse
+     * @return ModifyInstanceTDEResponse ModifyInstanceTDEResponse
      */
     public function modifyInstanceTDE($request)
     {
@@ -10805,56 +8662,43 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Enables or disables password-free access for a Tair (Redis OSS-compatible) instance. This way, you can connect to a database in a convenient and secure manner.
-     *
-     * @remarks
-     * When the password-free access feature is enabled, Elastic Compute Service (ECS) instances in the same virtual private cloud (VPC) can connect to the Tair instance without a password. You can also use the username and password to connect to the Tair instance.
+     * @summary Enables or disables password-free access for a Tair (Redis OSS-compatible) instance. This way, you can connect to a database in a convenient and secure manner.
+     *  *
+     * @description When the password-free access feature is enabled, Elastic Compute Service (ECS) instances in the same virtual private cloud (VPC) can connect to the Tair instance without a password. You can also use the username and password to connect to the Tair instance.
      * > The Tair instance is deployed in a VPC. For more information, see [Enable password-free access](https://help.aliyun.com/document_detail/85168.html).
+     *  *
+     * @param ModifyInstanceVpcAuthModeRequest $request ModifyInstanceVpcAuthModeRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyInstanceVpcAuthModeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyInstanceVpcAuthModeResponse
-     *
-     * @param ModifyInstanceVpcAuthModeRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return ModifyInstanceVpcAuthModeResponse
+     * @return ModifyInstanceVpcAuthModeResponse ModifyInstanceVpcAuthModeResponse
      */
     public function modifyInstanceVpcAuthModeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->vpcAuthMode) {
-            @$query['VpcAuthMode'] = $request->vpcAuthMode;
+        if (!Utils::isUnset($request->vpcAuthMode)) {
+            $query['VpcAuthMode'] = $request->vpcAuthMode;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyInstanceVpcAuthMode',
@@ -10872,19 +8716,14 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Enables or disables password-free access for a Tair (Redis OSS-compatible) instance. This way, you can connect to a database in a convenient and secure manner.
-     *
-     * @remarks
-     * When the password-free access feature is enabled, Elastic Compute Service (ECS) instances in the same virtual private cloud (VPC) can connect to the Tair instance without a password. You can also use the username and password to connect to the Tair instance.
+     * @summary Enables or disables password-free access for a Tair (Redis OSS-compatible) instance. This way, you can connect to a database in a convenient and secure manner.
+     *  *
+     * @description When the password-free access feature is enabled, Elastic Compute Service (ECS) instances in the same virtual private cloud (VPC) can connect to the Tair instance without a password. You can also use the username and password to connect to the Tair instance.
      * > The Tair instance is deployed in a VPC. For more information, see [Enable password-free access](https://help.aliyun.com/document_detail/85168.html).
+     *  *
+     * @param ModifyInstanceVpcAuthModeRequest $request ModifyInstanceVpcAuthModeRequest
      *
-     * @param request - ModifyInstanceVpcAuthModeRequest
-     *
-     * @returns ModifyInstanceVpcAuthModeResponse
-     *
-     * @param ModifyInstanceVpcAuthModeRequest $request
-     *
-     * @return ModifyInstanceVpcAuthModeResponse
+     * @return ModifyInstanceVpcAuthModeResponse ModifyInstanceVpcAuthModeResponse
      */
     public function modifyInstanceVpcAuthMode($request)
     {
@@ -10894,60 +8733,46 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Temporarily adjusts the internal bandwidth of a Tair (Redis OSS-compatible) instance that is deployed in a dedicated cluster.
-     *
-     * @remarks
-     * >
+     * @summary Temporarily adjusts the internal bandwidth of a Tair (Redis OSS-compatible) instance that is deployed in a dedicated cluster.
+     *  *
+     * @description >
      * *   This operation is applicable only to an instance that is deployed in a dedicated cluster. To adjust the bandwidth of a standard instance, call the [EnableAdditionalBandwidth](https://help.aliyun.com/document_detail/473771.html) operation.
+     *  *
+     * @param ModifyIntranetAttributeRequest $request ModifyIntranetAttributeRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyIntranetAttributeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyIntranetAttributeResponse
-     *
-     * @param ModifyIntranetAttributeRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return ModifyIntranetAttributeResponse
+     * @return ModifyIntranetAttributeResponse ModifyIntranetAttributeResponse
      */
     public function modifyIntranetAttributeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->bandWidth) {
-            @$query['BandWidth'] = $request->bandWidth;
+        if (!Utils::isUnset($request->bandWidth)) {
+            $query['BandWidth'] = $request->bandWidth;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->nodeId) {
-            @$query['NodeId'] = $request->nodeId;
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyIntranetAttribute',
@@ -10965,19 +8790,14 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Temporarily adjusts the internal bandwidth of a Tair (Redis OSS-compatible) instance that is deployed in a dedicated cluster.
-     *
-     * @remarks
-     * >
+     * @summary Temporarily adjusts the internal bandwidth of a Tair (Redis OSS-compatible) instance that is deployed in a dedicated cluster.
+     *  *
+     * @description >
      * *   This operation is applicable only to an instance that is deployed in a dedicated cluster. To adjust the bandwidth of a standard instance, call the [EnableAdditionalBandwidth](https://help.aliyun.com/document_detail/473771.html) operation.
+     *  *
+     * @param ModifyIntranetAttributeRequest $request ModifyIntranetAttributeRequest
      *
-     * @param request - ModifyIntranetAttributeRequest
-     *
-     * @returns ModifyIntranetAttributeResponse
-     *
-     * @param ModifyIntranetAttributeRequest $request
-     *
-     * @return ModifyIntranetAttributeResponse
+     * @return ModifyIntranetAttributeResponse ModifyIntranetAttributeResponse
      */
     public function modifyIntranetAttribute($request)
     {
@@ -10987,68 +8807,52 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Modifies the settings of a parameter template.
+     * @summary Modifies the settings of a parameter template.
+     *  *
+     * @param ModifyParameterGroupRequest $request ModifyParameterGroupRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyParameterGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyParameterGroupResponse
-     *
-     * @param ModifyParameterGroupRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return ModifyParameterGroupResponse
+     * @return ModifyParameterGroupResponse ModifyParameterGroupResponse
      */
     public function modifyParameterGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->category) {
-            @$query['Category'] = $request->category;
+        if (!Utils::isUnset($request->category)) {
+            $query['Category'] = $request->category;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->parameterGroupDesc) {
-            @$query['ParameterGroupDesc'] = $request->parameterGroupDesc;
+        if (!Utils::isUnset($request->parameterGroupDesc)) {
+            $query['ParameterGroupDesc'] = $request->parameterGroupDesc;
         }
-
-        if (null !== $request->parameterGroupId) {
-            @$query['ParameterGroupId'] = $request->parameterGroupId;
+        if (!Utils::isUnset($request->parameterGroupId)) {
+            $query['ParameterGroupId'] = $request->parameterGroupId;
         }
-
-        if (null !== $request->parameterGroupName) {
-            @$query['ParameterGroupName'] = $request->parameterGroupName;
+        if (!Utils::isUnset($request->parameterGroupName)) {
+            $query['ParameterGroupName'] = $request->parameterGroupName;
         }
-
-        if (null !== $request->parameters) {
-            @$query['Parameters'] = $request->parameters;
+        if (!Utils::isUnset($request->parameters)) {
+            $query['Parameters'] = $request->parameters;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyParameterGroup',
@@ -11066,15 +8870,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Modifies the settings of a parameter template.
+     * @summary Modifies the settings of a parameter template.
+     *  *
+     * @param ModifyParameterGroupRequest $request ModifyParameterGroupRequest
      *
-     * @param request - ModifyParameterGroupRequest
-     *
-     * @returns ModifyParameterGroupResponse
-     *
-     * @param ModifyParameterGroupRequest $request
-     *
-     * @return ModifyParameterGroupResponse
+     * @return ModifyParameterGroupResponse ModifyParameterGroupResponse
      */
     public function modifyParameterGroup($request)
     {
@@ -11084,60 +8884,46 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Changes the resource group to which a Tair (Redis OSS-compatible) instance belongs.
-     *
-     * @remarks
-     * You can also perform this operation in the [Resource Management](https://resourcemanager.console.aliyun.com/resource-center) console. For more information, see [Transfer resources across resource groups](https://help.aliyun.com/document_detail/94487.html).
+     * @summary Changes the resource group to which a Tair (Redis OSS-compatible) instance belongs.
+     *  *
+     * @description You can also perform this operation in the [Resource Management](https://resourcemanager.console.aliyun.com/resource-center) console. For more information, see [Transfer resources across resource groups](https://help.aliyun.com/document_detail/94487.html).
      * >  Resource Group allows you to sort resources owned by your Alibaba Cloud account into groups. This simplifies the resource and permission management within your Alibaba Cloud account. For more information, see [What is Resource Management?](https://help.aliyun.com/document_detail/94475.html)
+     *  *
+     * @param ModifyResourceGroupRequest $request ModifyResourceGroupRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyResourceGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyResourceGroupResponse
-     *
-     * @param ModifyResourceGroupRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return ModifyResourceGroupResponse
+     * @return ModifyResourceGroupResponse ModifyResourceGroupResponse
      */
     public function modifyResourceGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyResourceGroup',
@@ -11155,19 +8941,14 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Changes the resource group to which a Tair (Redis OSS-compatible) instance belongs.
-     *
-     * @remarks
-     * You can also perform this operation in the [Resource Management](https://resourcemanager.console.aliyun.com/resource-center) console. For more information, see [Transfer resources across resource groups](https://help.aliyun.com/document_detail/94487.html).
+     * @summary Changes the resource group to which a Tair (Redis OSS-compatible) instance belongs.
+     *  *
+     * @description You can also perform this operation in the [Resource Management](https://resourcemanager.console.aliyun.com/resource-center) console. For more information, see [Transfer resources across resource groups](https://help.aliyun.com/document_detail/94487.html).
      * >  Resource Group allows you to sort resources owned by your Alibaba Cloud account into groups. This simplifies the resource and permission management within your Alibaba Cloud account. For more information, see [What is Resource Management?](https://help.aliyun.com/document_detail/94475.html)
+     *  *
+     * @param ModifyResourceGroupRequest $request ModifyResourceGroupRequest
      *
-     * @param request - ModifyResourceGroupRequest
-     *
-     * @returns ModifyResourceGroupResponse
-     *
-     * @param ModifyResourceGroupRequest $request
-     *
-     * @return ModifyResourceGroupResponse
+     * @return ModifyResourceGroupResponse ModifyResourceGroupResponse
      */
     public function modifyResourceGroup($request)
     {
@@ -11177,55 +8958,42 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Resets the security groups that are added to the whitelists of a Tair (Redis OSS-compatible) instance.
+     * @summary Resets the security groups that are added to the whitelists of a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @description > After you call this operation, the security groups that are added to the whitelists of the Tair instance are deleted, and the security group specified by the **SecurityGroupId** parameter is added to the whitelists. For more information about how to reset security groups in the Tair console, see [Add security groups](https://help.aliyun.com/document_detail/148267.html).
+     *  *
+     * @param ModifySecurityGroupConfigurationRequest $request ModifySecurityGroupConfigurationRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * > After you call this operation, the security groups that are added to the whitelists of the Tair instance are deleted, and the security group specified by the **SecurityGroupId** parameter is added to the whitelists. For more information about how to reset security groups in the Tair console, see [Add security groups](https://help.aliyun.com/document_detail/148267.html).
-     *
-     * @param request - ModifySecurityGroupConfigurationRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifySecurityGroupConfigurationResponse
-     *
-     * @param ModifySecurityGroupConfigurationRequest $request
-     * @param RuntimeOptions                          $runtime
-     *
-     * @return ModifySecurityGroupConfigurationResponse
+     * @return ModifySecurityGroupConfigurationResponse ModifySecurityGroupConfigurationResponse
      */
     public function modifySecurityGroupConfigurationWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityGroupId) {
-            @$query['SecurityGroupId'] = $request->securityGroupId;
+        if (!Utils::isUnset($request->securityGroupId)) {
+            $query['SecurityGroupId'] = $request->securityGroupId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifySecurityGroupConfiguration',
@@ -11243,18 +9011,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Resets the security groups that are added to the whitelists of a Tair (Redis OSS-compatible) instance.
+     * @summary Resets the security groups that are added to the whitelists of a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @description > After you call this operation, the security groups that are added to the whitelists of the Tair instance are deleted, and the security group specified by the **SecurityGroupId** parameter is added to the whitelists. For more information about how to reset security groups in the Tair console, see [Add security groups](https://help.aliyun.com/document_detail/148267.html).
+     *  *
+     * @param ModifySecurityGroupConfigurationRequest $request ModifySecurityGroupConfigurationRequest
      *
-     * @remarks
-     * > After you call this operation, the security groups that are added to the whitelists of the Tair instance are deleted, and the security group specified by the **SecurityGroupId** parameter is added to the whitelists. For more information about how to reset security groups in the Tair console, see [Add security groups](https://help.aliyun.com/document_detail/148267.html).
-     *
-     * @param request - ModifySecurityGroupConfigurationRequest
-     *
-     * @returns ModifySecurityGroupConfigurationResponse
-     *
-     * @param ModifySecurityGroupConfigurationRequest $request
-     *
-     * @return ModifySecurityGroupConfigurationResponse
+     * @return ModifySecurityGroupConfigurationResponse ModifySecurityGroupConfigurationResponse
      */
     public function modifySecurityGroupConfiguration($request)
     {
@@ -11264,67 +9027,51 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Modifies the IP address whitelists of a Tair (Redis OSS-compatible) instance.
+     * @summary Modifies the IP address whitelists of a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @description You can also modify the whitelists of an instance in the Tair (Redis OSS-compatible) console. For more information, see [Configure a whitelist for an instance](https://help.aliyun.com/document_detail/56464.html).
+     *  *
+     * @param ModifySecurityIpsRequest $request ModifySecurityIpsRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can also modify the whitelists of an instance in the Tair (Redis OSS-compatible) console. For more information, see [Configure a whitelist for an instance](https://help.aliyun.com/document_detail/56464.html).
-     *
-     * @param request - ModifySecurityIpsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifySecurityIpsResponse
-     *
-     * @param ModifySecurityIpsRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return ModifySecurityIpsResponse
+     * @return ModifySecurityIpsResponse ModifySecurityIpsResponse
      */
     public function modifySecurityIpsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->modifyMode) {
-            @$query['ModifyMode'] = $request->modifyMode;
+        if (!Utils::isUnset($request->modifyMode)) {
+            $query['ModifyMode'] = $request->modifyMode;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityIpGroupAttribute) {
-            @$query['SecurityIpGroupAttribute'] = $request->securityIpGroupAttribute;
+        if (!Utils::isUnset($request->securityIpGroupAttribute)) {
+            $query['SecurityIpGroupAttribute'] = $request->securityIpGroupAttribute;
         }
-
-        if (null !== $request->securityIpGroupName) {
-            @$query['SecurityIpGroupName'] = $request->securityIpGroupName;
+        if (!Utils::isUnset($request->securityIpGroupName)) {
+            $query['SecurityIpGroupName'] = $request->securityIpGroupName;
         }
-
-        if (null !== $request->securityIps) {
-            @$query['SecurityIps'] = $request->securityIps;
+        if (!Utils::isUnset($request->securityIps)) {
+            $query['SecurityIps'] = $request->securityIps;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifySecurityIps',
@@ -11342,18 +9089,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Modifies the IP address whitelists of a Tair (Redis OSS-compatible) instance.
+     * @summary Modifies the IP address whitelists of a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @description You can also modify the whitelists of an instance in the Tair (Redis OSS-compatible) console. For more information, see [Configure a whitelist for an instance](https://help.aliyun.com/document_detail/56464.html).
+     *  *
+     * @param ModifySecurityIpsRequest $request ModifySecurityIpsRequest
      *
-     * @remarks
-     * You can also modify the whitelists of an instance in the Tair (Redis OSS-compatible) console. For more information, see [Configure a whitelist for an instance](https://help.aliyun.com/document_detail/56464.html).
-     *
-     * @param request - ModifySecurityIpsRequest
-     *
-     * @returns ModifySecurityIpsResponse
-     *
-     * @param ModifySecurityIpsRequest $request
-     *
-     * @return ModifySecurityIpsResponse
+     * @return ModifySecurityIpsResponse ModifySecurityIpsResponse
      */
     public function modifySecurityIps($request)
     {
@@ -11363,56 +9105,43 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * 修改TairCustom实例基本参数.
+     * @summary 修改TairCustom实例基本参数
+     *  *
+     * @param ModifyTairKVCacheCustomInstanceAttributeRequest $request ModifyTairKVCacheCustomInstanceAttributeRequest
+     * @param RuntimeOptions                                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyTairKVCacheCustomInstanceAttributeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyTairKVCacheCustomInstanceAttributeResponse
-     *
-     * @param ModifyTairKVCacheCustomInstanceAttributeRequest $request
-     * @param RuntimeOptions                                  $runtime
-     *
-     * @return ModifyTairKVCacheCustomInstanceAttributeResponse
+     * @return ModifyTairKVCacheCustomInstanceAttributeResponse ModifyTairKVCacheCustomInstanceAttributeResponse
      */
     public function modifyTairKVCacheCustomInstanceAttributeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->instanceName) {
-            @$query['InstanceName'] = $request->instanceName;
+        if (!Utils::isUnset($request->instanceName)) {
+            $query['InstanceName'] = $request->instanceName;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->sourceBiz) {
-            @$query['SourceBiz'] = $request->sourceBiz;
+        if (!Utils::isUnset($request->sourceBiz)) {
+            $query['SourceBiz'] = $request->sourceBiz;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyTairKVCacheCustomInstanceAttribute',
@@ -11430,15 +9159,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * 修改TairCustom实例基本参数.
+     * @summary 修改TairCustom实例基本参数
+     *  *
+     * @param ModifyTairKVCacheCustomInstanceAttributeRequest $request ModifyTairKVCacheCustomInstanceAttributeRequest
      *
-     * @param request - ModifyTairKVCacheCustomInstanceAttributeRequest
-     *
-     * @returns ModifyTairKVCacheCustomInstanceAttributeResponse
-     *
-     * @param ModifyTairKVCacheCustomInstanceAttributeRequest $request
-     *
-     * @return ModifyTairKVCacheCustomInstanceAttributeResponse
+     * @return ModifyTairKVCacheCustomInstanceAttributeResponse ModifyTairKVCacheCustomInstanceAttributeResponse
      */
     public function modifyTairKVCacheCustomInstanceAttribute($request)
     {
@@ -11448,56 +9173,43 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Modifies the task information, such as the task execution time.
+     * @summary Modifies the task information, such as the task execution time.
+     *  *
+     * @param ModifyTaskInfoRequest $request ModifyTaskInfoRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyTaskInfoRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyTaskInfoResponse
-     *
-     * @param ModifyTaskInfoRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return ModifyTaskInfoResponse
+     * @return ModifyTaskInfoResponse ModifyTaskInfoResponse
      */
     public function modifyTaskInfoWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->actionParams) {
-            @$query['ActionParams'] = $request->actionParams;
+        if (!Utils::isUnset($request->actionParams)) {
+            $query['ActionParams'] = $request->actionParams;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->stepName) {
-            @$query['StepName'] = $request->stepName;
+        if (!Utils::isUnset($request->stepName)) {
+            $query['StepName'] = $request->stepName;
         }
-
-        if (null !== $request->taskAction) {
-            @$query['TaskAction'] = $request->taskAction;
+        if (!Utils::isUnset($request->taskAction)) {
+            $query['TaskAction'] = $request->taskAction;
         }
-
-        if (null !== $request->taskId) {
-            @$query['TaskId'] = $request->taskId;
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyTaskInfo',
@@ -11515,15 +9227,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Modifies the task information, such as the task execution time.
+     * @summary Modifies the task information, such as the task execution time.
+     *  *
+     * @param ModifyTaskInfoRequest $request ModifyTaskInfoRequest
      *
-     * @param request - ModifyTaskInfoRequest
-     *
-     * @returns ModifyTaskInfoResponse
-     *
-     * @param ModifyTaskInfoRequest $request
-     *
-     * @return ModifyTaskInfoResponse
+     * @return ModifyTaskInfoResponse ModifyTaskInfoResponse
      */
     public function modifyTaskInfo($request)
     {
@@ -11533,51 +9241,39 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Releases the private endpoint of an ApsaraDB for Redis cluster instance.
+     * @summary Releases the private endpoint of an ApsaraDB for Redis cluster instance.
+     *  *
+     * @description In direct connection mode, clients can bypass proxy nodes and use private endpoints to connect to ApsaraDB for Redis instances. This is similar to the connection to a native Redis cluster. The direct connection mode can reduce communication overheads and the response time of ApsaraDB for Redis. For more information, see [Enable the direct connection mode](https://help.aliyun.com/document_detail/146901.html).
+     *  *
+     * @param ReleaseDirectConnectionRequest $request ReleaseDirectConnectionRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * In direct connection mode, clients can bypass proxy nodes and use private endpoints to connect to ApsaraDB for Redis instances. This is similar to the connection to a native Redis cluster. The direct connection mode can reduce communication overheads and the response time of ApsaraDB for Redis. For more information, see [Enable the direct connection mode](https://help.aliyun.com/document_detail/146901.html).
-     *
-     * @param request - ReleaseDirectConnectionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ReleaseDirectConnectionResponse
-     *
-     * @param ReleaseDirectConnectionRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return ReleaseDirectConnectionResponse
+     * @return ReleaseDirectConnectionResponse ReleaseDirectConnectionResponse
      */
     public function releaseDirectConnectionWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ReleaseDirectConnection',
@@ -11595,18 +9291,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Releases the private endpoint of an ApsaraDB for Redis cluster instance.
+     * @summary Releases the private endpoint of an ApsaraDB for Redis cluster instance.
+     *  *
+     * @description In direct connection mode, clients can bypass proxy nodes and use private endpoints to connect to ApsaraDB for Redis instances. This is similar to the connection to a native Redis cluster. The direct connection mode can reduce communication overheads and the response time of ApsaraDB for Redis. For more information, see [Enable the direct connection mode](https://help.aliyun.com/document_detail/146901.html).
+     *  *
+     * @param ReleaseDirectConnectionRequest $request ReleaseDirectConnectionRequest
      *
-     * @remarks
-     * In direct connection mode, clients can bypass proxy nodes and use private endpoints to connect to ApsaraDB for Redis instances. This is similar to the connection to a native Redis cluster. The direct connection mode can reduce communication overheads and the response time of ApsaraDB for Redis. For more information, see [Enable the direct connection mode](https://help.aliyun.com/document_detail/146901.html).
-     *
-     * @param request - ReleaseDirectConnectionRequest
-     *
-     * @returns ReleaseDirectConnectionResponse
-     *
-     * @param ReleaseDirectConnectionRequest $request
-     *
-     * @return ReleaseDirectConnectionResponse
+     * @return ReleaseDirectConnectionResponse ReleaseDirectConnectionResponse
      */
     public function releaseDirectConnection($request)
     {
@@ -11616,55 +9307,42 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Releases the public endpoint of a Tair (Redis OSS-compatible) instance.
+     * @summary Releases the public endpoint of a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @description You can also release the public endpoint for an instance in the Tair (Redis OSS-compatible) console. For more information, see [Release public endpoints](https://help.aliyun.com/document_detail/125424.html).
+     *  *
+     * @param ReleaseInstancePublicConnectionRequest $request ReleaseInstancePublicConnectionRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can also release the public endpoint for an instance in the Tair (Redis OSS-compatible) console. For more information, see [Release public endpoints](https://help.aliyun.com/document_detail/125424.html).
-     *
-     * @param request - ReleaseInstancePublicConnectionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ReleaseInstancePublicConnectionResponse
-     *
-     * @param ReleaseInstancePublicConnectionRequest $request
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return ReleaseInstancePublicConnectionResponse
+     * @return ReleaseInstancePublicConnectionResponse ReleaseInstancePublicConnectionResponse
      */
     public function releaseInstancePublicConnectionWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->currentConnectionString) {
-            @$query['CurrentConnectionString'] = $request->currentConnectionString;
+        if (!Utils::isUnset($request->currentConnectionString)) {
+            $query['CurrentConnectionString'] = $request->currentConnectionString;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ReleaseInstancePublicConnection',
@@ -11682,18 +9360,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Releases the public endpoint of a Tair (Redis OSS-compatible) instance.
+     * @summary Releases the public endpoint of a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @description You can also release the public endpoint for an instance in the Tair (Redis OSS-compatible) console. For more information, see [Release public endpoints](https://help.aliyun.com/document_detail/125424.html).
+     *  *
+     * @param ReleaseInstancePublicConnectionRequest $request ReleaseInstancePublicConnectionRequest
      *
-     * @remarks
-     * You can also release the public endpoint for an instance in the Tair (Redis OSS-compatible) console. For more information, see [Release public endpoints](https://help.aliyun.com/document_detail/125424.html).
-     *
-     * @param request - ReleaseInstancePublicConnectionRequest
-     *
-     * @returns ReleaseInstancePublicConnectionResponse
-     *
-     * @param ReleaseInstancePublicConnectionRequest $request
-     *
-     * @return ReleaseInstancePublicConnectionResponse
+     * @return ReleaseInstancePublicConnectionResponse ReleaseInstancePublicConnectionResponse
      */
     public function releaseInstancePublicConnection($request)
     {
@@ -11703,51 +9376,39 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Removes a child instance from a distributed instance.
+     * @summary Removes a child instance from a distributed instance.
+     *  *
+     * @description The operation that you want to perform. Set the value to **RemoveSubInstance**.
+     *  *
+     * @param RemoveSubInstanceRequest $request RemoveSubInstanceRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * The operation that you want to perform. Set the value to **RemoveSubInstance**.
-     *
-     * @param request - RemoveSubInstanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns RemoveSubInstanceResponse
-     *
-     * @param RemoveSubInstanceRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return RemoveSubInstanceResponse
+     * @return RemoveSubInstanceResponse RemoveSubInstanceResponse
      */
     public function removeSubInstanceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'RemoveSubInstance',
@@ -11765,18 +9426,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Removes a child instance from a distributed instance.
+     * @summary Removes a child instance from a distributed instance.
+     *  *
+     * @description The operation that you want to perform. Set the value to **RemoveSubInstance**.
+     *  *
+     * @param RemoveSubInstanceRequest $request RemoveSubInstanceRequest
      *
-     * @remarks
-     * The operation that you want to perform. Set the value to **RemoveSubInstance**.
-     *
-     * @param request - RemoveSubInstanceRequest
-     *
-     * @returns RemoveSubInstanceResponse
-     *
-     * @param RemoveSubInstanceRequest $request
-     *
-     * @return RemoveSubInstanceResponse
+     * @return RemoveSubInstanceResponse RemoveSubInstanceResponse
      */
     public function removeSubInstance($request)
     {
@@ -11786,67 +9442,51 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * This operation is not recommended now. The billing method for bandwidth of a Tair (Redis OSS-compatible) instance is changed to pay-as-you-go.
+     * @summary This operation is not recommended now. The billing method for bandwidth of a Tair (Redis OSS-compatible) instance is changed to pay-as-you-go.
+     *  *
+     * @description You can adjust the bandwidth of an instance in the Tair (Redis OSS-compatible) console. For more information, see [Adjust the bandwidth of an instance](https://help.aliyun.com/document_detail/102588.html). You can also call the [EnableAdditionalBandwidth](https://help.aliyun.com/document_detail/473771.html) operation to purchase bandwidth for an instance.
+     *  *
+     * @param RenewAdditionalBandwidthRequest $request RenewAdditionalBandwidthRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can adjust the bandwidth of an instance in the Tair (Redis OSS-compatible) console. For more information, see [Adjust the bandwidth of an instance](https://help.aliyun.com/document_detail/102588.html). You can also call the [EnableAdditionalBandwidth](https://help.aliyun.com/document_detail/473771.html) operation to purchase bandwidth for an instance.
-     *
-     * @param request - RenewAdditionalBandwidthRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns RenewAdditionalBandwidthResponse
-     *
-     * @param RenewAdditionalBandwidthRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return RenewAdditionalBandwidthResponse
+     * @return RenewAdditionalBandwidthResponse RenewAdditionalBandwidthResponse
      */
     public function renewAdditionalBandwidthWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->autoPay) {
-            @$query['AutoPay'] = $request->autoPay;
+        if (!Utils::isUnset($request->autoPay)) {
+            $query['AutoPay'] = $request->autoPay;
         }
-
-        if (null !== $request->couponNo) {
-            @$query['CouponNo'] = $request->couponNo;
+        if (!Utils::isUnset($request->couponNo)) {
+            $query['CouponNo'] = $request->couponNo;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->orderTimeLength) {
-            @$query['OrderTimeLength'] = $request->orderTimeLength;
+        if (!Utils::isUnset($request->orderTimeLength)) {
+            $query['OrderTimeLength'] = $request->orderTimeLength;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->sourceBiz) {
-            @$query['SourceBiz'] = $request->sourceBiz;
+        if (!Utils::isUnset($request->sourceBiz)) {
+            $query['SourceBiz'] = $request->sourceBiz;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'RenewAdditionalBandwidth',
@@ -11864,18 +9504,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * This operation is not recommended now. The billing method for bandwidth of a Tair (Redis OSS-compatible) instance is changed to pay-as-you-go.
+     * @summary This operation is not recommended now. The billing method for bandwidth of a Tair (Redis OSS-compatible) instance is changed to pay-as-you-go.
+     *  *
+     * @description You can adjust the bandwidth of an instance in the Tair (Redis OSS-compatible) console. For more information, see [Adjust the bandwidth of an instance](https://help.aliyun.com/document_detail/102588.html). You can also call the [EnableAdditionalBandwidth](https://help.aliyun.com/document_detail/473771.html) operation to purchase bandwidth for an instance.
+     *  *
+     * @param RenewAdditionalBandwidthRequest $request RenewAdditionalBandwidthRequest
      *
-     * @remarks
-     * You can adjust the bandwidth of an instance in the Tair (Redis OSS-compatible) console. For more information, see [Adjust the bandwidth of an instance](https://help.aliyun.com/document_detail/102588.html). You can also call the [EnableAdditionalBandwidth](https://help.aliyun.com/document_detail/473771.html) operation to purchase bandwidth for an instance.
-     *
-     * @param request - RenewAdditionalBandwidthRequest
-     *
-     * @returns RenewAdditionalBandwidthResponse
-     *
-     * @param RenewAdditionalBandwidthRequest $request
-     *
-     * @return RenewAdditionalBandwidthResponse
+     * @return RenewAdditionalBandwidthResponse RenewAdditionalBandwidthResponse
      */
     public function renewAdditionalBandwidth($request)
     {
@@ -11885,87 +9520,66 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Renews an ApsaraDB for Redis instance.
+     * @summary Renews an ApsaraDB for Redis instance.
+     *  *
+     * @description This operation is applicable only to subscription instances.
+     *  *
+     * @param RenewInstanceRequest $request RenewInstanceRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * This operation is applicable only to subscription instances.
-     *
-     * @param request - RenewInstanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns RenewInstanceResponse
-     *
-     * @param RenewInstanceRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return RenewInstanceResponse
+     * @return RenewInstanceResponse RenewInstanceResponse
      */
     public function renewInstanceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->autoPay) {
-            @$query['AutoPay'] = $request->autoPay;
+        if (!Utils::isUnset($request->autoPay)) {
+            $query['AutoPay'] = $request->autoPay;
         }
-
-        if (null !== $request->autoRenew) {
-            @$query['AutoRenew'] = $request->autoRenew;
+        if (!Utils::isUnset($request->autoRenew)) {
+            $query['AutoRenew'] = $request->autoRenew;
         }
-
-        if (null !== $request->businessInfo) {
-            @$query['BusinessInfo'] = $request->businessInfo;
+        if (!Utils::isUnset($request->businessInfo)) {
+            $query['BusinessInfo'] = $request->businessInfo;
         }
-
-        if (null !== $request->capacity) {
-            @$query['Capacity'] = $request->capacity;
+        if (!Utils::isUnset($request->capacity)) {
+            $query['Capacity'] = $request->capacity;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->couponNo) {
-            @$query['CouponNo'] = $request->couponNo;
+        if (!Utils::isUnset($request->couponNo)) {
+            $query['CouponNo'] = $request->couponNo;
         }
-
-        if (null !== $request->fromApp) {
-            @$query['FromApp'] = $request->fromApp;
+        if (!Utils::isUnset($request->fromApp)) {
+            $query['FromApp'] = $request->fromApp;
         }
-
-        if (null !== $request->instanceClass) {
-            @$query['InstanceClass'] = $request->instanceClass;
+        if (!Utils::isUnset($request->instanceClass)) {
+            $query['InstanceClass'] = $request->instanceClass;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->period) {
-            @$query['Period'] = $request->period;
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'RenewInstance',
@@ -11983,18 +9597,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Renews an ApsaraDB for Redis instance.
+     * @summary Renews an ApsaraDB for Redis instance.
+     *  *
+     * @description This operation is applicable only to subscription instances.
+     *  *
+     * @param RenewInstanceRequest $request RenewInstanceRequest
      *
-     * @remarks
-     * This operation is applicable only to subscription instances.
-     *
-     * @param request - RenewInstanceRequest
-     *
-     * @returns RenewInstanceResponse
-     *
-     * @param RenewInstanceRequest $request
-     *
-     * @return RenewInstanceResponse
+     * @return RenewInstanceResponse RenewInstanceResponse
      */
     public function renewInstance($request)
     {
@@ -12004,63 +9613,48 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Resets the password of an account for a Tair (Redis OSS-compatible) instance.
+     * @summary Resets the password of an account for a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @description >  Only Tair (Redis OSS-compatible) instances of Redis 4.0 or later are supported.
+     *  *
+     * @param ResetAccountPasswordRequest $request ResetAccountPasswordRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * >  Only Tair (Redis OSS-compatible) instances of Redis 4.0 or later are supported.
-     *
-     * @param request - ResetAccountPasswordRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ResetAccountPasswordResponse
-     *
-     * @param ResetAccountPasswordRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return ResetAccountPasswordResponse
+     * @return ResetAccountPasswordResponse ResetAccountPasswordResponse
      */
     public function resetAccountPasswordWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountName) {
-            @$query['AccountName'] = $request->accountName;
+        if (!Utils::isUnset($request->accountName)) {
+            $query['AccountName'] = $request->accountName;
         }
-
-        if (null !== $request->accountPassword) {
-            @$query['AccountPassword'] = $request->accountPassword;
+        if (!Utils::isUnset($request->accountPassword)) {
+            $query['AccountPassword'] = $request->accountPassword;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->sourceBiz) {
-            @$query['SourceBiz'] = $request->sourceBiz;
+        if (!Utils::isUnset($request->sourceBiz)) {
+            $query['SourceBiz'] = $request->sourceBiz;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ResetAccountPassword',
@@ -12078,18 +9672,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Resets the password of an account for a Tair (Redis OSS-compatible) instance.
+     * @summary Resets the password of an account for a Tair (Redis OSS-compatible) instance.
+     *  *
+     * @description >  Only Tair (Redis OSS-compatible) instances of Redis 4.0 or later are supported.
+     *  *
+     * @param ResetAccountPasswordRequest $request ResetAccountPasswordRequest
      *
-     * @remarks
-     * >  Only Tair (Redis OSS-compatible) instances of Redis 4.0 or later are supported.
-     *
-     * @param request - ResetAccountPasswordRequest
-     *
-     * @returns ResetAccountPasswordResponse
-     *
-     * @param ResetAccountPasswordRequest $request
-     *
-     * @return ResetAccountPasswordResponse
+     * @return ResetAccountPasswordResponse ResetAccountPasswordResponse
      */
     public function resetAccountPassword($request)
     {
@@ -12099,56 +9688,43 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * 重置TairCustom上主机密码
+     * @summary 重置TairCustom上主机密码
+     *  *
+     * @param ResetTairKVCacheCustomInstancePasswordRequest $request ResetTairKVCacheCustomInstancePasswordRequest
+     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ResetTairKVCacheCustomInstancePasswordRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ResetTairKVCacheCustomInstancePasswordResponse
-     *
-     * @param ResetTairKVCacheCustomInstancePasswordRequest $request
-     * @param RuntimeOptions                                $runtime
-     *
-     * @return ResetTairKVCacheCustomInstancePasswordResponse
+     * @return ResetTairKVCacheCustomInstancePasswordResponse ResetTairKVCacheCustomInstancePasswordResponse
      */
     public function resetTairKVCacheCustomInstancePasswordWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->password) {
-            @$query['Password'] = $request->password;
+        if (!Utils::isUnset($request->password)) {
+            $query['Password'] = $request->password;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->sourceBiz) {
-            @$query['SourceBiz'] = $request->sourceBiz;
+        if (!Utils::isUnset($request->sourceBiz)) {
+            $query['SourceBiz'] = $request->sourceBiz;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ResetTairKVCacheCustomInstancePassword',
@@ -12166,15 +9742,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * 重置TairCustom上主机密码
+     * @summary 重置TairCustom上主机密码
+     *  *
+     * @param ResetTairKVCacheCustomInstancePasswordRequest $request ResetTairKVCacheCustomInstancePasswordRequest
      *
-     * @param request - ResetTairKVCacheCustomInstancePasswordRequest
-     *
-     * @returns ResetTairKVCacheCustomInstancePasswordResponse
-     *
-     * @param ResetTairKVCacheCustomInstancePasswordRequest $request
-     *
-     * @return ResetTairKVCacheCustomInstancePasswordResponse
+     * @return ResetTairKVCacheCustomInstancePasswordResponse ResetTairKVCacheCustomInstancePasswordResponse
      */
     public function resetTairKVCacheCustomInstancePassword($request)
     {
@@ -12184,60 +9756,46 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * 变配TairCustom的主机的磁盘.
+     * @summary 变配TairCustom的主机的磁盘
+     *  *
+     * @param ResizeTairKVCacheCustomInstanceDiskRequest $request ResizeTairKVCacheCustomInstanceDiskRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ResizeTairKVCacheCustomInstanceDiskRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ResizeTairKVCacheCustomInstanceDiskResponse
-     *
-     * @param ResizeTairKVCacheCustomInstanceDiskRequest $request
-     * @param RuntimeOptions                             $runtime
-     *
-     * @return ResizeTairKVCacheCustomInstanceDiskResponse
+     * @return ResizeTairKVCacheCustomInstanceDiskResponse ResizeTairKVCacheCustomInstanceDiskResponse
      */
     public function resizeTairKVCacheCustomInstanceDiskWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->autoPay) {
-            @$query['AutoPay'] = $request->autoPay;
+        if (!Utils::isUnset($request->autoPay)) {
+            $query['AutoPay'] = $request->autoPay;
         }
-
-        if (null !== $request->diskId) {
-            @$query['DiskId'] = $request->diskId;
+        if (!Utils::isUnset($request->diskId)) {
+            $query['DiskId'] = $request->diskId;
         }
-
-        if (null !== $request->diskSize) {
-            @$query['DiskSize'] = $request->diskSize;
+        if (!Utils::isUnset($request->diskSize)) {
+            $query['DiskSize'] = $request->diskSize;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ResizeTairKVCacheCustomInstanceDisk',
@@ -12255,15 +9813,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * 变配TairCustom的主机的磁盘.
+     * @summary 变配TairCustom的主机的磁盘
+     *  *
+     * @param ResizeTairKVCacheCustomInstanceDiskRequest $request ResizeTairKVCacheCustomInstanceDiskRequest
      *
-     * @param request - ResizeTairKVCacheCustomInstanceDiskRequest
-     *
-     * @returns ResizeTairKVCacheCustomInstanceDiskResponse
-     *
-     * @param ResizeTairKVCacheCustomInstanceDiskRequest $request
-     *
-     * @return ResizeTairKVCacheCustomInstanceDiskResponse
+     * @return ResizeTairKVCacheCustomInstanceDiskResponse ResizeTairKVCacheCustomInstanceDiskResponse
      */
     public function resizeTairKVCacheCustomInstanceDisk($request)
     {
@@ -12273,56 +9827,43 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Restarts a running ApsaraDB for Redis instance.
+     * @summary Restarts a running ApsaraDB for Redis instance.
+     *  *
+     * @param RestartInstanceRequest $request RestartInstanceRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - RestartInstanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns RestartInstanceResponse
-     *
-     * @param RestartInstanceRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return RestartInstanceResponse
+     * @return RestartInstanceResponse RestartInstanceResponse
      */
     public function restartInstanceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->effectiveTime) {
-            @$query['EffectiveTime'] = $request->effectiveTime;
+        if (!Utils::isUnset($request->effectiveTime)) {
+            $query['EffectiveTime'] = $request->effectiveTime;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->upgradeMinorVersion) {
-            @$query['UpgradeMinorVersion'] = $request->upgradeMinorVersion;
+        if (!Utils::isUnset($request->upgradeMinorVersion)) {
+            $query['UpgradeMinorVersion'] = $request->upgradeMinorVersion;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'RestartInstance',
@@ -12340,15 +9881,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Restarts a running ApsaraDB for Redis instance.
+     * @summary Restarts a running ApsaraDB for Redis instance.
+     *  *
+     * @param RestartInstanceRequest $request RestartInstanceRequest
      *
-     * @param request - RestartInstanceRequest
-     *
-     * @returns RestartInstanceResponse
-     *
-     * @param RestartInstanceRequest $request
-     *
-     * @return RestartInstanceResponse
+     * @return RestartInstanceResponse RestartInstanceResponse
      */
     public function restartInstance($request)
     {
@@ -12358,48 +9895,37 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * 重启TairCustom的主机.
+     * @summary 重启TairCustom的主机
+     *  *
+     * @param RestartTairKVCacheCustomInstanceRequest $request RestartTairKVCacheCustomInstanceRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - RestartTairKVCacheCustomInstanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns RestartTairKVCacheCustomInstanceResponse
-     *
-     * @param RestartTairKVCacheCustomInstanceRequest $request
-     * @param RuntimeOptions                          $runtime
-     *
-     * @return RestartTairKVCacheCustomInstanceResponse
+     * @return RestartTairKVCacheCustomInstanceResponse RestartTairKVCacheCustomInstanceResponse
      */
     public function restartTairKVCacheCustomInstanceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'RestartTairKVCacheCustomInstance',
@@ -12417,15 +9943,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * 重启TairCustom的主机.
+     * @summary 重启TairCustom的主机
+     *  *
+     * @param RestartTairKVCacheCustomInstanceRequest $request RestartTairKVCacheCustomInstanceRequest
      *
-     * @param request - RestartTairKVCacheCustomInstanceRequest
-     *
-     * @returns RestartTairKVCacheCustomInstanceResponse
-     *
-     * @param RestartTairKVCacheCustomInstanceRequest $request
-     *
-     * @return RestartTairKVCacheCustomInstanceResponse
+     * @return RestartTairKVCacheCustomInstanceResponse RestartTairKVCacheCustomInstanceResponse
      */
     public function restartTairKVCacheCustomInstance($request)
     {
@@ -12435,72 +9957,55 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Restores the data in a backup file to a specified Tair (Redis OSS-compatible) instance.
-     *
-     * @remarks
-     *   If your instance is a [DRAM-based instance](https://help.aliyun.com/document_detail/126164.html) or a [persistent memory-optimized instance](https://help.aliyun.com/document_detail/183956.html) and has the [data flashback](https://help.aliyun.com/document_detail/148479.html) feature enabled, you can call this operation to restore the entire instance or specific keys to a specific point in time accurate to the second. This way, you can achieve more fine-grained data restoration.
+     * @summary Restores the data in a backup file to a specified Tair (Redis OSS-compatible) instance.
+     *  *
+     * @description *   If your instance is a [DRAM-based instance](https://help.aliyun.com/document_detail/126164.html) or a [persistent memory-optimized instance](https://help.aliyun.com/document_detail/183956.html) and has the [data flashback](https://help.aliyun.com/document_detail/148479.html) feature enabled, you can call this operation to restore the entire instance or specific keys to a specific point in time accurate to the second. This way, you can achieve more fine-grained data restoration.
      * *   For other types of instances, we recommend that you call the [CreateInstance](https://help.aliyun.com/document_detail/473757.html) or [CreateTairInstance](https://help.aliyun.com/document_detail/473770.html) operation to restore the backup data to a new instance.
+     *  *
+     * @param RestoreInstanceRequest $request RestoreInstanceRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - RestoreInstanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns RestoreInstanceResponse
-     *
-     * @param RestoreInstanceRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return RestoreInstanceResponse
+     * @return RestoreInstanceResponse RestoreInstanceResponse
      */
     public function restoreInstanceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->backupId) {
-            @$query['BackupId'] = $request->backupId;
+        if (!Utils::isUnset($request->backupId)) {
+            $query['BackupId'] = $request->backupId;
         }
-
-        if (null !== $request->filterKey) {
-            @$query['FilterKey'] = $request->filterKey;
+        if (!Utils::isUnset($request->filterKey)) {
+            $query['FilterKey'] = $request->filterKey;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->restoreTime) {
-            @$query['RestoreTime'] = $request->restoreTime;
+        if (!Utils::isUnset($request->restoreTime)) {
+            $query['RestoreTime'] = $request->restoreTime;
         }
-
-        if (null !== $request->restoreType) {
-            @$query['RestoreType'] = $request->restoreType;
+        if (!Utils::isUnset($request->restoreType)) {
+            $query['RestoreType'] = $request->restoreType;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->timeShift) {
-            @$query['TimeShift'] = $request->timeShift;
+        if (!Utils::isUnset($request->timeShift)) {
+            $query['TimeShift'] = $request->timeShift;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'RestoreInstance',
@@ -12518,19 +10023,14 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Restores the data in a backup file to a specified Tair (Redis OSS-compatible) instance.
-     *
-     * @remarks
-     *   If your instance is a [DRAM-based instance](https://help.aliyun.com/document_detail/126164.html) or a [persistent memory-optimized instance](https://help.aliyun.com/document_detail/183956.html) and has the [data flashback](https://help.aliyun.com/document_detail/148479.html) feature enabled, you can call this operation to restore the entire instance or specific keys to a specific point in time accurate to the second. This way, you can achieve more fine-grained data restoration.
+     * @summary Restores the data in a backup file to a specified Tair (Redis OSS-compatible) instance.
+     *  *
+     * @description *   If your instance is a [DRAM-based instance](https://help.aliyun.com/document_detail/126164.html) or a [persistent memory-optimized instance](https://help.aliyun.com/document_detail/183956.html) and has the [data flashback](https://help.aliyun.com/document_detail/148479.html) feature enabled, you can call this operation to restore the entire instance or specific keys to a specific point in time accurate to the second. This way, you can achieve more fine-grained data restoration.
      * *   For other types of instances, we recommend that you call the [CreateInstance](https://help.aliyun.com/document_detail/473757.html) or [CreateTairInstance](https://help.aliyun.com/document_detail/473770.html) operation to restore the backup data to a new instance.
+     *  *
+     * @param RestoreInstanceRequest $request RestoreInstanceRequest
      *
-     * @param request - RestoreInstanceRequest
-     *
-     * @returns RestoreInstanceResponse
-     *
-     * @param RestoreInstanceRequest $request
-     *
-     * @return RestoreInstanceResponse
+     * @return RestoreInstanceResponse RestoreInstanceResponse
      */
     public function restoreInstance($request)
     {
@@ -12540,48 +10040,37 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * 启动TairCustom的主机.
+     * @summary 启动TairCustom的主机
+     *  *
+     * @param StartTairKVCacheCustomInstanceRequest $request StartTairKVCacheCustomInstanceRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - StartTairKVCacheCustomInstanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns StartTairKVCacheCustomInstanceResponse
-     *
-     * @param StartTairKVCacheCustomInstanceRequest $request
-     * @param RuntimeOptions                        $runtime
-     *
-     * @return StartTairKVCacheCustomInstanceResponse
+     * @return StartTairKVCacheCustomInstanceResponse StartTairKVCacheCustomInstanceResponse
      */
     public function startTairKVCacheCustomInstanceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'StartTairKVCacheCustomInstance',
@@ -12599,15 +10088,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * 启动TairCustom的主机.
+     * @summary 启动TairCustom的主机
+     *  *
+     * @param StartTairKVCacheCustomInstanceRequest $request StartTairKVCacheCustomInstanceRequest
      *
-     * @param request - StartTairKVCacheCustomInstanceRequest
-     *
-     * @returns StartTairKVCacheCustomInstanceResponse
-     *
-     * @param StartTairKVCacheCustomInstanceRequest $request
-     *
-     * @return StartTairKVCacheCustomInstanceResponse
+     * @return StartTairKVCacheCustomInstanceResponse StartTairKVCacheCustomInstanceResponse
      */
     public function startTairKVCacheCustomInstance($request)
     {
@@ -12617,48 +10102,37 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * 停止TairCustom的主机.
+     * @summary 停止TairCustom的主机
+     *  *
+     * @param StopTairKVCacheCustomInstanceRequest $request StopTairKVCacheCustomInstanceRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - StopTairKVCacheCustomInstanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns StopTairKVCacheCustomInstanceResponse
-     *
-     * @param StopTairKVCacheCustomInstanceRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return StopTairKVCacheCustomInstanceResponse
+     * @return StopTairKVCacheCustomInstanceResponse StopTairKVCacheCustomInstanceResponse
      */
     public function stopTairKVCacheCustomInstanceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'StopTairKVCacheCustomInstance',
@@ -12676,15 +10150,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * 停止TairCustom的主机.
+     * @summary 停止TairCustom的主机
+     *  *
+     * @param StopTairKVCacheCustomInstanceRequest $request StopTairKVCacheCustomInstanceRequest
      *
-     * @param request - StopTairKVCacheCustomInstanceRequest
-     *
-     * @returns StopTairKVCacheCustomInstanceResponse
-     *
-     * @param StopTairKVCacheCustomInstanceRequest $request
-     *
-     * @return StopTairKVCacheCustomInstanceResponse
+     * @return StopTairKVCacheCustomInstanceResponse StopTairKVCacheCustomInstanceResponse
      */
     public function stopTairKVCacheCustomInstance($request)
     {
@@ -12694,67 +10164,52 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Performs a master-replica switchover to switch node roles. This operation is applicable to disaster recovery drills and nearby access to applications that are deployed across zones.
-     *
-     * @remarks
-     * > For more information about nearby access to applications that are deployed across zones, see [Switch node roles](https://help.aliyun.com/document_detail/164222.html).
+     * @summary Performs a master-replica switchover to switch node roles. This operation is applicable to disaster recovery drills and nearby access to applications that are deployed across zones.
+     *  *
+     * @description > For more information about nearby access to applications that are deployed across zones, see [Switch node roles](https://help.aliyun.com/document_detail/164222.html).
      * The instance must be a Redis Open-Source Edition instance or Tair (Enterprise Edition) [DRAM-based](https://help.aliyun.com/document_detail/126164.html) instance that uses local disks.
      * A call to this operation has the following impacts on your instance:
      * *   The data shards in the instance may change to the read-only state and experience transient connections within seconds. Make sure that your application is configured to automatically reconnect to the instance.
      * *   If the instance enters the switching state, you cannot manage this instance. For example, you cannot modify the instance configurations or migrate the instance to another zone.
+     *  *
+     * @param SwitchInstanceHARequest $request SwitchInstanceHARequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - SwitchInstanceHARequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns SwitchInstanceHAResponse
-     *
-     * @param SwitchInstanceHARequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return SwitchInstanceHAResponse
+     * @return SwitchInstanceHAResponse SwitchInstanceHAResponse
      */
     public function switchInstanceHAWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->nodeId) {
-            @$query['NodeId'] = $request->nodeId;
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->switchMode) {
-            @$query['SwitchMode'] = $request->switchMode;
+        if (!Utils::isUnset($request->switchMode)) {
+            $query['SwitchMode'] = $request->switchMode;
         }
-
-        if (null !== $request->switchType) {
-            @$query['SwitchType'] = $request->switchType;
+        if (!Utils::isUnset($request->switchType)) {
+            $query['SwitchType'] = $request->switchType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'SwitchInstanceHA',
@@ -12772,22 +10227,17 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Performs a master-replica switchover to switch node roles. This operation is applicable to disaster recovery drills and nearby access to applications that are deployed across zones.
-     *
-     * @remarks
-     * > For more information about nearby access to applications that are deployed across zones, see [Switch node roles](https://help.aliyun.com/document_detail/164222.html).
+     * @summary Performs a master-replica switchover to switch node roles. This operation is applicable to disaster recovery drills and nearby access to applications that are deployed across zones.
+     *  *
+     * @description > For more information about nearby access to applications that are deployed across zones, see [Switch node roles](https://help.aliyun.com/document_detail/164222.html).
      * The instance must be a Redis Open-Source Edition instance or Tair (Enterprise Edition) [DRAM-based](https://help.aliyun.com/document_detail/126164.html) instance that uses local disks.
      * A call to this operation has the following impacts on your instance:
      * *   The data shards in the instance may change to the read-only state and experience transient connections within seconds. Make sure that your application is configured to automatically reconnect to the instance.
      * *   If the instance enters the switching state, you cannot manage this instance. For example, you cannot modify the instance configurations or migrate the instance to another zone.
+     *  *
+     * @param SwitchInstanceHARequest $request SwitchInstanceHARequest
      *
-     * @param request - SwitchInstanceHARequest
-     *
-     * @returns SwitchInstanceHAResponse
-     *
-     * @param SwitchInstanceHARequest $request
-     *
-     * @return SwitchInstanceHAResponse
+     * @return SwitchInstanceHAResponse SwitchInstanceHAResponse
      */
     public function switchInstanceHA($request)
     {
@@ -12797,54 +10247,42 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Enables or disables the proxy mode for a Tair (Redis OSS-compatible) cluster instance in a dedicated cluster.
-     *
-     * @remarks
-     * For more information about the proxy mode, see [Features of proxy servers](https://help.aliyun.com/document_detail/142959.html). Before you call this operation, make sure that the following requirements are met:
+     * @summary Enables or disables the proxy mode for a Tair (Redis OSS-compatible) cluster instance in a dedicated cluster.
+     *  *
+     * @description For more information about the proxy mode, see [Features of proxy servers](https://help.aliyun.com/document_detail/142959.html). Before you call this operation, make sure that the following requirements are met:
      * *   The instance is created by using a dedicated cluster. For more information, see [What is ApsaraDB for MyBase?](https://help.aliyun.com/document_detail/141455.html)
      * *   The instance uses the [cluster architecture](https://help.aliyun.com/document_detail/52228.html).
      * >  Before you call the SwitchInstanceProxy operation, you must call the [DescribeDedicatedClusterInstanceList](https://help.aliyun.com/document_detail/473867.html) operation and view the value of the **ProxyCount** response parameter to check whether the proxy mode is enabled. A value of 0 indicates that the proxy mode is disabled. A value that is greater than 0 indicates that the proxy mode is enabled.
+     *  *
+     * @param SwitchInstanceProxyRequest $request SwitchInstanceProxyRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - SwitchInstanceProxyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns SwitchInstanceProxyResponse
-     *
-     * @param SwitchInstanceProxyRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return SwitchInstanceProxyResponse
+     * @return SwitchInstanceProxyResponse SwitchInstanceProxyResponse
      */
     public function switchInstanceProxyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'SwitchInstanceProxy',
@@ -12862,21 +10300,16 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Enables or disables the proxy mode for a Tair (Redis OSS-compatible) cluster instance in a dedicated cluster.
-     *
-     * @remarks
-     * For more information about the proxy mode, see [Features of proxy servers](https://help.aliyun.com/document_detail/142959.html). Before you call this operation, make sure that the following requirements are met:
+     * @summary Enables or disables the proxy mode for a Tair (Redis OSS-compatible) cluster instance in a dedicated cluster.
+     *  *
+     * @description For more information about the proxy mode, see [Features of proxy servers](https://help.aliyun.com/document_detail/142959.html). Before you call this operation, make sure that the following requirements are met:
      * *   The instance is created by using a dedicated cluster. For more information, see [What is ApsaraDB for MyBase?](https://help.aliyun.com/document_detail/141455.html)
      * *   The instance uses the [cluster architecture](https://help.aliyun.com/document_detail/52228.html).
      * >  Before you call the SwitchInstanceProxy operation, you must call the [DescribeDedicatedClusterInstanceList](https://help.aliyun.com/document_detail/473867.html) operation and view the value of the **ProxyCount** response parameter to check whether the proxy mode is enabled. A value of 0 indicates that the proxy mode is disabled. A value that is greater than 0 indicates that the proxy mode is enabled.
+     *  *
+     * @param SwitchInstanceProxyRequest $request SwitchInstanceProxyRequest
      *
-     * @param request - SwitchInstanceProxyRequest
-     *
-     * @returns SwitchInstanceProxyResponse
-     *
-     * @param SwitchInstanceProxyRequest $request
-     *
-     * @return SwitchInstanceProxyResponse
+     * @return SwitchInstanceProxyResponse SwitchInstanceProxyResponse
      */
     public function switchInstanceProxy($request)
     {
@@ -12886,36 +10319,28 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Switches an instance from the current zone to the specified zone in the event of a fault.
+     * @summary Switches an instance from the current zone to the specified zone in the event of a fault.
+     *  *
+     * @param SwitchInstanceZoneFailOverRequest $request SwitchInstanceZoneFailOverRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - SwitchInstanceZoneFailOverRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns SwitchInstanceZoneFailOverResponse
-     *
-     * @param SwitchInstanceZoneFailOverRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return SwitchInstanceZoneFailOverResponse
+     * @return SwitchInstanceZoneFailOverResponse SwitchInstanceZoneFailOverResponse
      */
     public function switchInstanceZoneFailOverWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->siteFaultTime) {
-            @$query['SiteFaultTime'] = $request->siteFaultTime;
+        if (!Utils::isUnset($request->siteFaultTime)) {
+            $query['SiteFaultTime'] = $request->siteFaultTime;
         }
-
-        if (null !== $request->targetZoneId) {
-            @$query['TargetZoneId'] = $request->targetZoneId;
+        if (!Utils::isUnset($request->targetZoneId)) {
+            $query['TargetZoneId'] = $request->targetZoneId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'SwitchInstanceZoneFailOver',
@@ -12933,15 +10358,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Switches an instance from the current zone to the specified zone in the event of a fault.
+     * @summary Switches an instance from the current zone to the specified zone in the event of a fault.
+     *  *
+     * @param SwitchInstanceZoneFailOverRequest $request SwitchInstanceZoneFailOverRequest
      *
-     * @param request - SwitchInstanceZoneFailOverRequest
-     *
-     * @returns SwitchInstanceZoneFailOverResponse
-     *
-     * @param SwitchInstanceZoneFailOverRequest $request
-     *
-     * @return SwitchInstanceZoneFailOverResponse
+     * @return SwitchInstanceZoneFailOverResponse SwitchInstanceZoneFailOverResponse
      */
     public function switchInstanceZoneFailOver($request)
     {
@@ -12951,68 +10372,52 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Changes the VPC or vSwitch of a Tair (Redis OSS-compatible) instance. If the instance is deployed in the classic network, the network type of the instance is changed from the classic network to VPC.
+     * @summary Changes the VPC or vSwitch of a Tair (Redis OSS-compatible) instance. If the instance is deployed in the classic network, the network type of the instance is changed from the classic network to VPC.
+     *  *
+     * @param SwitchNetworkRequest $request SwitchNetworkRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - SwitchNetworkRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns SwitchNetworkResponse
-     *
-     * @param SwitchNetworkRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return SwitchNetworkResponse
+     * @return SwitchNetworkResponse SwitchNetworkResponse
      */
     public function switchNetworkWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->classicExpiredDays) {
-            @$query['ClassicExpiredDays'] = $request->classicExpiredDays;
+        if (!Utils::isUnset($request->classicExpiredDays)) {
+            $query['ClassicExpiredDays'] = $request->classicExpiredDays;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->retainClassic) {
-            @$query['RetainClassic'] = $request->retainClassic;
+        if (!Utils::isUnset($request->retainClassic)) {
+            $query['RetainClassic'] = $request->retainClassic;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->targetNetworkType) {
-            @$query['TargetNetworkType'] = $request->targetNetworkType;
+        if (!Utils::isUnset($request->targetNetworkType)) {
+            $query['TargetNetworkType'] = $request->targetNetworkType;
         }
-
-        if (null !== $request->vSwitchId) {
-            @$query['VSwitchId'] = $request->vSwitchId;
+        if (!Utils::isUnset($request->vSwitchId)) {
+            $query['VSwitchId'] = $request->vSwitchId;
         }
-
-        if (null !== $request->vpcId) {
-            @$query['VpcId'] = $request->vpcId;
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'SwitchNetwork',
@@ -13030,15 +10435,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Changes the VPC or vSwitch of a Tair (Redis OSS-compatible) instance. If the instance is deployed in the classic network, the network type of the instance is changed from the classic network to VPC.
+     * @summary Changes the VPC or vSwitch of a Tair (Redis OSS-compatible) instance. If the instance is deployed in the classic network, the network type of the instance is changed from the classic network to VPC.
+     *  *
+     * @param SwitchNetworkRequest $request SwitchNetworkRequest
      *
-     * @param request - SwitchNetworkRequest
-     *
-     * @returns SwitchNetworkResponse
-     *
-     * @param SwitchNetworkRequest $request
-     *
-     * @return SwitchNetworkResponse
+     * @return SwitchNetworkResponse SwitchNetworkResponse
      */
     public function switchNetwork($request)
     {
@@ -13048,60 +10449,46 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Disables configuration changes for a Tair (Redis OSS-compatible) instance before you use Data Transmission Service (DTS) to migrate or synchronize data of the instance. This prevents migration and synchronization task failures due to configuration changes.
+     * @summary Disables configuration changes for a Tair (Redis OSS-compatible) instance before you use Data Transmission Service (DTS) to migrate or synchronize data of the instance. This prevents migration and synchronization task failures due to configuration changes.
+     *  *
+     * @param SyncDtsStatusRequest $request SyncDtsStatusRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - SyncDtsStatusRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns SyncDtsStatusResponse
-     *
-     * @param SyncDtsStatusRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return SyncDtsStatusResponse
+     * @return SyncDtsStatusResponse SyncDtsStatusResponse
      */
     public function syncDtsStatusWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->status) {
-            @$query['Status'] = $request->status;
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
         }
-
-        if (null !== $request->taskId) {
-            @$query['TaskId'] = $request->taskId;
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'SyncDtsStatus',
@@ -13119,15 +10506,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Disables configuration changes for a Tair (Redis OSS-compatible) instance before you use Data Transmission Service (DTS) to migrate or synchronize data of the instance. This prevents migration and synchronization task failures due to configuration changes.
+     * @summary Disables configuration changes for a Tair (Redis OSS-compatible) instance before you use Data Transmission Service (DTS) to migrate or synchronize data of the instance. This prevents migration and synchronization task failures due to configuration changes.
+     *  *
+     * @param SyncDtsStatusRequest $request SyncDtsStatusRequest
      *
-     * @param request - SyncDtsStatusRequest
-     *
-     * @returns SyncDtsStatusResponse
-     *
-     * @param SyncDtsStatusRequest $request
-     *
-     * @return SyncDtsStatusResponse
+     * @return SyncDtsStatusResponse SyncDtsStatusResponse
      */
     public function syncDtsStatus($request)
     {
@@ -13137,65 +10520,51 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Adds tags to Tair (Redis OSS-compatible) instances.
-     *
-     * @remarks
-     * If you have a large number of instances, you can create multiple tags and add these tags to the instances. Then, you can filter instances by tag.
+     * @summary Adds tags to Tair (Redis OSS-compatible) instances.
+     *  *
+     * @description If you have a large number of instances, you can create multiple tags and add these tags to the instances. Then, you can filter instances by tag.
      * *   A tag consists of a key and a value. Each key must be unique in a region for an Alibaba Cloud account. Different keys can be mapped to the same value.
      * *   If the tag that you specify does not exist, this tag is automatically created and added to the specified instance.
      * *   If the key of the specified tag is the same as that of an existing tag, the specified tag overwrites the existing tag.
      * *   You can add up to 20 tags to each instance.
      * *   You can add tags to up to 50 instances in each request.
      * You can also add tags to instances in the Tair (Redis OSS-compatible) console. For more information, see [Create a tag](https://help.aliyun.com/document_detail/118779.html).
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - TagResourcesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns TagResourcesResponse
-     *
-     * @param TagResourcesRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceId) {
-            @$query['ResourceId'] = $request->resourceId;
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->resourceType) {
-            @$query['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'TagResources',
@@ -13213,24 +10582,19 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Adds tags to Tair (Redis OSS-compatible) instances.
-     *
-     * @remarks
-     * If you have a large number of instances, you can create multiple tags and add these tags to the instances. Then, you can filter instances by tag.
+     * @summary Adds tags to Tair (Redis OSS-compatible) instances.
+     *  *
+     * @description If you have a large number of instances, you can create multiple tags and add these tags to the instances. Then, you can filter instances by tag.
      * *   A tag consists of a key and a value. Each key must be unique in a region for an Alibaba Cloud account. Different keys can be mapped to the same value.
      * *   If the tag that you specify does not exist, this tag is automatically created and added to the specified instance.
      * *   If the key of the specified tag is the same as that of an existing tag, the specified tag overwrites the existing tag.
      * *   You can add up to 20 tags to each instance.
      * *   You can add tags to up to 50 instances in each request.
      * You can also add tags to instances in the Tair (Redis OSS-compatible) console. For more information, see [Create a tag](https://help.aliyun.com/document_detail/118779.html).
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
      *
-     * @param request - TagResourcesRequest
-     *
-     * @returns TagResourcesResponse
-     *
-     * @param TagResourcesRequest $request
-     *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -13240,73 +10604,56 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Changes the billing method of a Tair (Redis OSS-compatible) instance from subscription to pay-as-you-go or from pay-as-you-go to subscription.
-     *
-     * @remarks
-     * Before you call this operation, make sure that you understand relevant precautions and billing rules. For more information, see the following topics:
+     * @summary Changes the billing method of a Tair (Redis OSS-compatible) instance from subscription to pay-as-you-go or from pay-as-you-go to subscription.
+     *  *
+     * @description Before you call this operation, make sure that you understand relevant precautions and billing rules. For more information, see the following topics:
      * *   [Change the billing method to subscription](https://help.aliyun.com/document_detail/54542.html).
      * *   [Change the billing method to pay-as-you-go](https://help.aliyun.com/document_detail/211549.html).
+     *  *
+     * @param TransformInstanceChargeTypeRequest $request TransformInstanceChargeTypeRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - TransformInstanceChargeTypeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns TransformInstanceChargeTypeResponse
-     *
-     * @param TransformInstanceChargeTypeRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return TransformInstanceChargeTypeResponse
+     * @return TransformInstanceChargeTypeResponse TransformInstanceChargeTypeResponse
      */
     public function transformInstanceChargeTypeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->autoPay) {
-            @$query['AutoPay'] = $request->autoPay;
+        if (!Utils::isUnset($request->autoPay)) {
+            $query['AutoPay'] = $request->autoPay;
         }
-
-        if (null !== $request->autoRenew) {
-            @$query['AutoRenew'] = $request->autoRenew;
+        if (!Utils::isUnset($request->autoRenew)) {
+            $query['AutoRenew'] = $request->autoRenew;
         }
-
-        if (null !== $request->autoRenewPeriod) {
-            @$query['AutoRenewPeriod'] = $request->autoRenewPeriod;
+        if (!Utils::isUnset($request->autoRenewPeriod)) {
+            $query['AutoRenewPeriod'] = $request->autoRenewPeriod;
         }
-
-        if (null !== $request->chargeType) {
-            @$query['ChargeType'] = $request->chargeType;
+        if (!Utils::isUnset($request->chargeType)) {
+            $query['ChargeType'] = $request->chargeType;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->period) {
-            @$query['Period'] = $request->period;
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'TransformInstanceChargeType',
@@ -13324,20 +10671,15 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Changes the billing method of a Tair (Redis OSS-compatible) instance from subscription to pay-as-you-go or from pay-as-you-go to subscription.
-     *
-     * @remarks
-     * Before you call this operation, make sure that you understand relevant precautions and billing rules. For more information, see the following topics:
+     * @summary Changes the billing method of a Tair (Redis OSS-compatible) instance from subscription to pay-as-you-go or from pay-as-you-go to subscription.
+     *  *
+     * @description Before you call this operation, make sure that you understand relevant precautions and billing rules. For more information, see the following topics:
      * *   [Change the billing method to subscription](https://help.aliyun.com/document_detail/54542.html).
      * *   [Change the billing method to pay-as-you-go](https://help.aliyun.com/document_detail/211549.html).
+     *  *
+     * @param TransformInstanceChargeTypeRequest $request TransformInstanceChargeTypeRequest
      *
-     * @param request - TransformInstanceChargeTypeRequest
-     *
-     * @returns TransformInstanceChargeTypeResponse
-     *
-     * @param TransformInstanceChargeTypeRequest $request
-     *
-     * @return TransformInstanceChargeTypeResponse
+     * @return TransformInstanceChargeTypeResponse TransformInstanceChargeTypeResponse
      */
     public function transformInstanceChargeType($request)
     {
@@ -13347,68 +10689,52 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Changes a pay-as-you-go Tair (Redis OSS-compatible) instance to a subscription instance.
-     *
-     * @remarks
-     * For more information about how to change the billing method in the Tair (Redis OSS-compatible) console, see [Switch to subscription](https://help.aliyun.com/document_detail/54542.html).
+     * @summary Changes a pay-as-you-go Tair (Redis OSS-compatible) instance to a subscription instance.
+     *  *
+     * @description For more information about how to change the billing method in the Tair (Redis OSS-compatible) console, see [Switch to subscription](https://help.aliyun.com/document_detail/54542.html).
      * >  You cannot change the billing method of a Tair (Redis OSS-compatible) instance from subscription to pay-as-you-go.
+     *  *
+     * @param TransformToPrePaidRequest $request TransformToPrePaidRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - TransformToPrePaidRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns TransformToPrePaidResponse
-     *
-     * @param TransformToPrePaidRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return TransformToPrePaidResponse
+     * @return TransformToPrePaidResponse TransformToPrePaidResponse
      */
     public function transformToPrePaidWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->autoPay) {
-            @$query['AutoPay'] = $request->autoPay;
+        if (!Utils::isUnset($request->autoPay)) {
+            $query['AutoPay'] = $request->autoPay;
         }
-
-        if (null !== $request->autoRenew) {
-            @$query['AutoRenew'] = $request->autoRenew;
+        if (!Utils::isUnset($request->autoRenew)) {
+            $query['AutoRenew'] = $request->autoRenew;
         }
-
-        if (null !== $request->autoRenewPeriod) {
-            @$query['AutoRenewPeriod'] = $request->autoRenewPeriod;
+        if (!Utils::isUnset($request->autoRenewPeriod)) {
+            $query['AutoRenewPeriod'] = $request->autoRenewPeriod;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->period) {
-            @$query['Period'] = $request->period;
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'TransformToPrePaid',
@@ -13426,19 +10752,14 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Changes a pay-as-you-go Tair (Redis OSS-compatible) instance to a subscription instance.
-     *
-     * @remarks
-     * For more information about how to change the billing method in the Tair (Redis OSS-compatible) console, see [Switch to subscription](https://help.aliyun.com/document_detail/54542.html).
+     * @summary Changes a pay-as-you-go Tair (Redis OSS-compatible) instance to a subscription instance.
+     *  *
+     * @description For more information about how to change the billing method in the Tair (Redis OSS-compatible) console, see [Switch to subscription](https://help.aliyun.com/document_detail/54542.html).
      * >  You cannot change the billing method of a Tair (Redis OSS-compatible) instance from subscription to pay-as-you-go.
+     *  *
+     * @param TransformToPrePaidRequest $request TransformToPrePaidRequest
      *
-     * @param request - TransformToPrePaidRequest
-     *
-     * @returns TransformToPrePaidResponse
-     *
-     * @param TransformToPrePaidRequest $request
-     *
-     * @return TransformToPrePaidResponse
+     * @return TransformToPrePaidResponse TransformToPrePaidResponse
      */
     public function transformToPrePaid($request)
     {
@@ -13448,48 +10769,37 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Removes the write lock from an instance. After the instance is unlocked, it supports both read and write operations.
+     * @summary Removes the write lock from an instance. After the instance is unlocked, it supports both read and write operations.
+     *  *
+     * @param UnlockDBInstanceWriteRequest $request UnlockDBInstanceWriteRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UnlockDBInstanceWriteRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UnlockDBInstanceWriteResponse
-     *
-     * @param UnlockDBInstanceWriteRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return UnlockDBInstanceWriteResponse
+     * @return UnlockDBInstanceWriteResponse UnlockDBInstanceWriteResponse
      */
     public function unlockDBInstanceWriteWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UnlockDBInstanceWrite',
@@ -13507,15 +10817,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Removes the write lock from an instance. After the instance is unlocked, it supports both read and write operations.
+     * @summary Removes the write lock from an instance. After the instance is unlocked, it supports both read and write operations.
+     *  *
+     * @param UnlockDBInstanceWriteRequest $request UnlockDBInstanceWriteRequest
      *
-     * @param request - UnlockDBInstanceWriteRequest
-     *
-     * @returns UnlockDBInstanceWriteResponse
-     *
-     * @param UnlockDBInstanceWriteRequest $request
-     *
-     * @return UnlockDBInstanceWriteResponse
+     * @return UnlockDBInstanceWriteResponse UnlockDBInstanceWriteResponse
      */
     public function unlockDBInstanceWrite($request)
     {
@@ -13525,65 +10831,50 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Removes tags from Tair (Redis OSS-compatible) instances.
-     *
-     * @remarks
-     *   You can remove up to 20 tags at a time.
+     * @summary Removes tags from Tair (Redis OSS-compatible) instances.
+     *  *
+     * @description *   You can remove up to 20 tags at a time.
      * *   If a tag is removed from an instance and is not added to other instances, the tag is deleted.
      * You can also remove tags from instances in the Tair (Redis OSS-compatible) console. For more information, see [Remove a tag](https://help.aliyun.com/document_detail/119157.html).
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UntagResourcesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UntagResourcesResponse
-     *
-     * @param UntagResourcesRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResourcesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->all) {
-            @$query['All'] = $request->all;
+        if (!Utils::isUnset($request->all)) {
+            $query['All'] = $request->all;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceId) {
-            @$query['ResourceId'] = $request->resourceId;
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->resourceType) {
-            @$query['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
         }
-
-        if (null !== $request->tagKey) {
-            @$query['TagKey'] = $request->tagKey;
+        if (!Utils::isUnset($request->tagKey)) {
+            $query['TagKey'] = $request->tagKey;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UntagResources',
@@ -13601,20 +10892,15 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Removes tags from Tair (Redis OSS-compatible) instances.
-     *
-     * @remarks
-     *   You can remove up to 20 tags at a time.
+     * @summary Removes tags from Tair (Redis OSS-compatible) instances.
+     *  *
+     * @description *   You can remove up to 20 tags at a time.
      * *   If a tag is removed from an instance and is not added to other instances, the tag is deleted.
      * You can also remove tags from instances in the Tair (Redis OSS-compatible) console. For more information, see [Remove a tag](https://help.aliyun.com/document_detail/119157.html).
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
      *
-     * @param request - UntagResourcesRequest
-     *
-     * @returns UntagResourcesResponse
-     *
-     * @param UntagResourcesRequest $request
-     *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResources($request)
     {

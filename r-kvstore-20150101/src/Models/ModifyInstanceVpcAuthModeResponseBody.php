@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyInstanceVpcAuthModeResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example ABAF95F6-35C1-4177-AF3A-70969EBD****
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class ModifyInstanceVpcAuthModeResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class ModifyInstanceVpcAuthModeResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyInstanceVpcAuthModeResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

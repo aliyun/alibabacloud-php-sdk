@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribePriceResponseBody\order\depreciateInfo\contractActivity;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class optionIds extends Model
 {
@@ -16,47 +16,29 @@ class optionIds extends Model
         'optionId' => 'OptionId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->optionId)) {
-            Model::validateArray($this->optionId);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->optionId) {
-            if (\is_array($this->optionId)) {
-                $res['OptionId'] = [];
-                $n1 = 0;
-                foreach ($this->optionId as $item1) {
-                    $res['OptionId'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['OptionId'] = $this->optionId;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return optionIds
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OptionId'])) {
             if (!empty($map['OptionId'])) {
-                $model->optionId = [];
-                $n1 = 0;
-                foreach ($map['OptionId'] as $item1) {
-                    $model->optionId[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->optionId = $map['OptionId'];
             }
         }
 

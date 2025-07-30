@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeClusterBackupListResponseBody\clusterBackups\backups;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class extraInfo extends Model
 {
     /**
+     * @description The engine version.
+     *
+     * @example 5.0
+     *
      * @var string
      */
     public $custinsDbVersion;
@@ -16,12 +20,9 @@ class extraInfo extends Model
         'custinsDbVersion' => 'CustinsDbVersion',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->custinsDbVersion) {
@@ -31,11 +32,11 @@ class extraInfo extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return extraInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

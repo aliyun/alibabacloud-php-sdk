@@ -4,79 +4,127 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribePriceResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribePriceResponseBody\order\coupons;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribePriceResponseBody\order\depreciateInfo;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribePriceResponseBody\order\ruleIds;
+use AlibabaCloud\Tea\Model;
 
 class order extends Model
 {
     /**
+     * @description The order code.
+     *
+     * @example ""
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description Details about coupons.
+     *
      * @var coupons
      */
     public $coupons;
 
     /**
+     * @description The currency used for payment. A value of CNY is used when the order was generated on the China site (aliyun.com), and a value of USD is used when the order was generated on the international site (alibabacloud.com).
+     *
+     * @example CNY
+     *
      * @var string
      */
     public $currency;
 
     /**
+     * @description The activity information.
+     *
      * @var depreciateInfo
      */
     public $depreciateInfo;
 
     /**
+     * @description The discount amount of the order.
+     *
+     * @example 0.21
+     *
      * @var string
      */
     public $discountAmount;
 
     /**
+     * @description The service fees of the order.
+     *
+     * @example 0.1
+     *
      * @var string
      */
     public $handlingFeeAmount;
 
     /**
+     * @description Indicates whether eligibility for the contracted discount is met.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $isContractActivity;
 
     /**
+     * @description The information about the order.
+     *
+     * @example ""
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The original price of the order.
+     *
+     * @example 0.21
+     *
      * @var string
      */
     public $originalAmount;
 
     /**
+     * @description The rule IDs.
+     *
      * @var ruleIds
      */
     public $ruleIds;
 
     /**
+     * @description Indicates whether the discount information is displayed.
+     *
      * @var bool
      */
     public $showDiscountInfo;
 
     /**
+     * @description The discount.
+     *
+     * @example ****
+     *
      * @var int
      */
     public $standDiscountPrice;
 
     /**
+     * @description The discounted price.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $standPrice;
 
     /**
+     * @description The transaction price of the order.
+     *
+     * @example 10
+     *
      * @var string
      */
     public $tradeAmount;
@@ -97,75 +145,50 @@ class order extends Model
         'tradeAmount' => 'TradeAmount',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->coupons) {
-            $this->coupons->validate();
-        }
-        if (null !== $this->depreciateInfo) {
-            $this->depreciateInfo->validate();
-        }
-        if (null !== $this->ruleIds) {
-            $this->ruleIds->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-
         if (null !== $this->coupons) {
-            $res['Coupons'] = null !== $this->coupons ? $this->coupons->toArray($noStream) : $this->coupons;
+            $res['Coupons'] = null !== $this->coupons ? $this->coupons->toMap() : null;
         }
-
         if (null !== $this->currency) {
             $res['Currency'] = $this->currency;
         }
-
         if (null !== $this->depreciateInfo) {
-            $res['DepreciateInfo'] = null !== $this->depreciateInfo ? $this->depreciateInfo->toArray($noStream) : $this->depreciateInfo;
+            $res['DepreciateInfo'] = null !== $this->depreciateInfo ? $this->depreciateInfo->toMap() : null;
         }
-
         if (null !== $this->discountAmount) {
             $res['DiscountAmount'] = $this->discountAmount;
         }
-
         if (null !== $this->handlingFeeAmount) {
             $res['HandlingFeeAmount'] = $this->handlingFeeAmount;
         }
-
         if (null !== $this->isContractActivity) {
             $res['IsContractActivity'] = $this->isContractActivity;
         }
-
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
-
         if (null !== $this->originalAmount) {
             $res['OriginalAmount'] = $this->originalAmount;
         }
-
         if (null !== $this->ruleIds) {
-            $res['RuleIds'] = null !== $this->ruleIds ? $this->ruleIds->toArray($noStream) : $this->ruleIds;
+            $res['RuleIds'] = null !== $this->ruleIds ? $this->ruleIds->toMap() : null;
         }
-
         if (null !== $this->showDiscountInfo) {
             $res['ShowDiscountInfo'] = $this->showDiscountInfo;
         }
-
         if (null !== $this->standDiscountPrice) {
             $res['StandDiscountPrice'] = $this->standDiscountPrice;
         }
-
         if (null !== $this->standPrice) {
             $res['StandPrice'] = $this->standPrice;
         }
-
         if (null !== $this->tradeAmount) {
             $res['TradeAmount'] = $this->tradeAmount;
         }
@@ -173,66 +196,53 @@ class order extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return order
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-
         if (isset($map['Coupons'])) {
             $model->coupons = coupons::fromMap($map['Coupons']);
         }
-
         if (isset($map['Currency'])) {
             $model->currency = $map['Currency'];
         }
-
         if (isset($map['DepreciateInfo'])) {
             $model->depreciateInfo = depreciateInfo::fromMap($map['DepreciateInfo']);
         }
-
         if (isset($map['DiscountAmount'])) {
             $model->discountAmount = $map['DiscountAmount'];
         }
-
         if (isset($map['HandlingFeeAmount'])) {
             $model->handlingFeeAmount = $map['HandlingFeeAmount'];
         }
-
         if (isset($map['IsContractActivity'])) {
             $model->isContractActivity = $map['IsContractActivity'];
         }
-
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
-
         if (isset($map['OriginalAmount'])) {
             $model->originalAmount = $map['OriginalAmount'];
         }
-
         if (isset($map['RuleIds'])) {
             $model->ruleIds = ruleIds::fromMap($map['RuleIds']);
         }
-
         if (isset($map['ShowDiscountInfo'])) {
             $model->showDiscountInfo = $map['ShowDiscountInfo'];
         }
-
         if (isset($map['StandDiscountPrice'])) {
             $model->standDiscountPrice = $map['StandDiscountPrice'];
         }
-
         if (isset($map['StandPrice'])) {
             $model->standPrice = $map['StandPrice'];
         }
-
         if (isset($map['TradeAmount'])) {
             $model->tradeAmount = $map['TradeAmount'];
         }

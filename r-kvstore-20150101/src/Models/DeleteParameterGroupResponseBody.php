@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteParameterGroupResponseBody extends Model
 {
     /**
+     * @description The parameter template ID, which is globally unique.
+     *
+     * @example sys-001*****
+     *
      * @var string
      */
     public $paramGroupId;
 
     /**
+     * @description Id of the request
+     *
+     * @example 2BE6E619-A657-42E3-AD2D-18F8428A****
+     *
      * @var string
      */
     public $requestId;
@@ -22,18 +30,14 @@ class DeleteParameterGroupResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->paramGroupId) {
             $res['ParamGroupId'] = $this->paramGroupId;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -41,18 +45,17 @@ class DeleteParameterGroupResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteParameterGroupResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ParamGroupId'])) {
             $model->paramGroupId = $map['ParamGroupId'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

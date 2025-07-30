@@ -4,17 +4,23 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeAccountsResponseBody\accounts;
+use AlibabaCloud\Tea\Model;
 
 class DescribeAccountsResponseBody extends Model
 {
     /**
+     * @description Details about returned accounts of the instance.
+     *
      * @var accounts
      */
     public $accounts;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 6C9E114C-217C-4118-83C0-B4070222****
+     *
      * @var string
      */
     public $requestId;
@@ -23,21 +29,14 @@ class DescribeAccountsResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->accounts) {
-            $this->accounts->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->accounts) {
-            $res['Accounts'] = null !== $this->accounts ? $this->accounts->toArray($noStream) : $this->accounts;
+            $res['Accounts'] = null !== $this->accounts ? $this->accounts->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,18 +44,17 @@ class DescribeAccountsResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeAccountsResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Accounts'])) {
             $model->accounts = accounts::fromMap($map['Accounts']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

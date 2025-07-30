@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteBackupResponseBody extends Model
 {
     /**
+     * @example F14475F4-644E-51EA-B1E8-E4D442093D0C
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +18,9 @@ class DeleteBackupResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +30,11 @@ class DeleteBackupResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteBackupResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,21 +4,33 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeSecurityIpsResponseBody\securityIpGroups;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class securityIpGroup extends Model
 {
     /**
+     * @description The attribute of the whitelist. This parameter is empty by default.
+     *
+     * >  If the instance is authorized to use a service such as Database Autonomy Service (DAS), Data Management (DMS), or Data Transmission Service (DTS), this service automatically generates a **hidden** whitelist for the instance. This type of whitelists cannot be modified or deleted.
+     *
+     * @example hidden
+     *
      * @var string
      */
     public $securityIpGroupAttribute;
 
     /**
+     * @description The name of the whitelist.
+     *
+     * @example default
+     *
      * @var string
      */
     public $securityIpGroupName;
 
     /**
+     * @description The IP addresses in the whitelist. A maximum of 1,000 IP addresses can be specified in a whitelist.
+     *
      * @var string
      */
     public $securityIpList;
@@ -28,22 +40,17 @@ class securityIpGroup extends Model
         'securityIpList' => 'SecurityIpList',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->securityIpGroupAttribute) {
             $res['SecurityIpGroupAttribute'] = $this->securityIpGroupAttribute;
         }
-
         if (null !== $this->securityIpGroupName) {
             $res['SecurityIpGroupName'] = $this->securityIpGroupName;
         }
-
         if (null !== $this->securityIpList) {
             $res['SecurityIpList'] = $this->securityIpList;
         }
@@ -51,22 +58,20 @@ class securityIpGroup extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return securityIpGroup
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SecurityIpGroupAttribute'])) {
             $model->securityIpGroupAttribute = $map['SecurityIpGroupAttribute'];
         }
-
         if (isset($map['SecurityIpGroupName'])) {
             $model->securityIpGroupName = $map['SecurityIpGroupName'];
         }
-
         if (isset($map['SecurityIpList'])) {
             $model->securityIpList = $map['SecurityIpList'];
         }

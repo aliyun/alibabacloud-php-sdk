@@ -4,28 +4,40 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeLogicInstanceTopologyResponseBody\redisProxyList;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeLogicInstanceTopologyResponseBody\redisShardList;
+use AlibabaCloud\Tea\Model;
 
 class DescribeLogicInstanceTopologyResponseBody extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example r-bp1zxszhcgatnx****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The detailed proxy information, including information about proxy nodes.
+     *
      * @var redisProxyList
      */
     public $redisProxyList;
 
     /**
+     * @description Details of data shards, which includes node information such as NodeInfo.
+     *
      * @var redisShardList
      */
     public $redisShardList;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 794120D1-E0CF-4713-BAE4-EBAEA04506AF
+     *
      * @var string
      */
     public $requestId;
@@ -36,32 +48,20 @@ class DescribeLogicInstanceTopologyResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->redisProxyList) {
-            $this->redisProxyList->validate();
-        }
-        if (null !== $this->redisShardList) {
-            $this->redisShardList->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->redisProxyList) {
-            $res['RedisProxyList'] = null !== $this->redisProxyList ? $this->redisProxyList->toArray($noStream) : $this->redisProxyList;
+            $res['RedisProxyList'] = null !== $this->redisProxyList ? $this->redisProxyList->toMap() : null;
         }
-
         if (null !== $this->redisShardList) {
-            $res['RedisShardList'] = null !== $this->redisShardList ? $this->redisShardList->toArray($noStream) : $this->redisShardList;
+            $res['RedisShardList'] = null !== $this->redisShardList ? $this->redisShardList->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -69,26 +69,23 @@ class DescribeLogicInstanceTopologyResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeLogicInstanceTopologyResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['RedisProxyList'])) {
             $model->redisProxyList = redisProxyList::fromMap($map['RedisProxyList']);
         }
-
         if (isset($map['RedisShardList'])) {
             $model->redisShardList = redisShardList::fromMap($map['RedisShardList']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

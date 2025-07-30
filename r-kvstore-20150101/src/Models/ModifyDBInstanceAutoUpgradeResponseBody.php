@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyDBInstanceAutoUpgradeResponseBody extends Model
 {
     /**
+     * @description ID of the request.
+     *
+     * @example 2FF6158E-3394-4A90-B634-79C49184****
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class ModifyDBInstanceAutoUpgradeResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class ModifyDBInstanceAutoUpgradeResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyDBInstanceAutoUpgradeResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

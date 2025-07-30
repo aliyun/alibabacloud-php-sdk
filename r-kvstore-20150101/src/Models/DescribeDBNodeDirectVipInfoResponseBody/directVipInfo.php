@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeDBNodeDirectVipInfoResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeDBNodeDirectVipInfoResponseBody\directVipInfo\vipInfo;
+use AlibabaCloud\Tea\Model;
 
 class directVipInfo extends Model
 {
@@ -17,24 +17,17 @@ class directVipInfo extends Model
         'vipInfo' => 'VipInfo',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->vipInfo)) {
-            Model::validateArray($this->vipInfo);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->vipInfo) {
-            if (\is_array($this->vipInfo)) {
-                $res['VipInfo'] = [];
-                $n1 = 0;
-                foreach ($this->vipInfo as $item1) {
-                    $res['VipInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['VipInfo'] = [];
+            if (null !== $this->vipInfo && \is_array($this->vipInfo)) {
+                $n = 0;
+                foreach ($this->vipInfo as $item) {
+                    $res['VipInfo'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -42,21 +35,20 @@ class directVipInfo extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return directVipInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['VipInfo'])) {
             if (!empty($map['VipInfo'])) {
                 $model->vipInfo = [];
-                $n1 = 0;
-                foreach ($map['VipInfo'] as $item1) {
-                    $model->vipInfo[$n1] = vipInfo::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['VipInfo'] as $item) {
+                    $model->vipInfo[$n++] = null !== $item ? vipInfo::fromMap($item) : $item;
                 }
             }
         }

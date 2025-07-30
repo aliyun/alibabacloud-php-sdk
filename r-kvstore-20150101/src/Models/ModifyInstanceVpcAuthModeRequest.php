@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyInstanceVpcAuthModeRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * This parameter is required.
+     *
+     * @example r-bp1zxszhcgatnx****
+     *
      * @var string
      */
     public $instanceId;
@@ -39,6 +45,17 @@ class ModifyInstanceVpcAuthModeRequest extends Model
     public $securityToken;
 
     /**
+     * @description Specifies whether to disable password-free access. Valid values:
+     *
+     *   **Open**: disables password-free access.
+     *   **Close**: enables password-free access.
+     *
+     * >  Default value: **Open**.
+     *
+     * This parameter is required.
+     *
+     * @example Close
+     *
      * @var string
      */
     public $vpcAuthMode;
@@ -52,38 +69,29 @@ class ModifyInstanceVpcAuthModeRequest extends Model
         'vpcAuthMode' => 'VpcAuthMode',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
-
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
-
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
-
         if (null !== $this->vpcAuthMode) {
             $res['VpcAuthMode'] = $this->vpcAuthMode;
         }
@@ -91,38 +99,32 @@ class ModifyInstanceVpcAuthModeRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyInstanceVpcAuthModeRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
-
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
-
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }
-
         if (isset($map['VpcAuthMode'])) {
             $model->vpcAuthMode = $map['VpcAuthMode'];
         }

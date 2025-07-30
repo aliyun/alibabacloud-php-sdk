@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateCacheAnalysisTaskResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example BBC1E3D6-7C88-4DF5-9A3D-0DB1E6D9****
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class CreateCacheAnalysisTaskResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class CreateCacheAnalysisTaskResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateCacheAnalysisTaskResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

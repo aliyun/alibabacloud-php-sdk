@@ -4,17 +4,27 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeAvailableResourceResponseBody\availableZones\availableZone\supportedEngines\supportedEngine\supportedEditionTypes\supportedEditionType\supportedSeriesTypes\supportedSeriesType\supportedEngineVersions\supportedEngineVersion\supportedArchitectureTypes;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeAvailableResourceResponseBody\availableZones\availableZone\supportedEngines\supportedEngine\supportedEditionTypes\supportedEditionType\supportedSeriesTypes\supportedSeriesType\supportedEngineVersions\supportedEngineVersion\supportedArchitectureTypes\supportedArchitectureType\supportedShardNumbers;
+use AlibabaCloud\Tea\Model;
 
 class supportedArchitectureType extends Model
 {
     /**
+     * @description The architecture of the instance. Valid values:
+     *
+     *   **standard**: standard architecture
+     *   **cluster**: cluster architecture
+     *   **rwsplit**: read/write splitting architecture
+     *
+     * @example cluster
+     *
      * @var string
      */
     public $architecture;
 
     /**
+     * @description The numbers of available shards.
+     *
      * @var supportedShardNumbers
      */
     public $supportedShardNumbers;
@@ -23,40 +33,32 @@ class supportedArchitectureType extends Model
         'supportedShardNumbers' => 'SupportedShardNumbers',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->supportedShardNumbers) {
-            $this->supportedShardNumbers->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->architecture) {
             $res['Architecture'] = $this->architecture;
         }
-
         if (null !== $this->supportedShardNumbers) {
-            $res['SupportedShardNumbers'] = null !== $this->supportedShardNumbers ? $this->supportedShardNumbers->toArray($noStream) : $this->supportedShardNumbers;
+            $res['SupportedShardNumbers'] = null !== $this->supportedShardNumbers ? $this->supportedShardNumbers->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return supportedArchitectureType
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Architecture'])) {
             $model->architecture = $map['Architecture'];
         }
-
         if (isset($map['SupportedShardNumbers'])) {
             $model->supportedShardNumbers = supportedShardNumbers::fromMap($map['SupportedShardNumbers']);
         }

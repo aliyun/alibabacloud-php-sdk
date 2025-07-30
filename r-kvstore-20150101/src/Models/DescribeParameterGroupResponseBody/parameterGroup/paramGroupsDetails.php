@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeParameterGroupResponseBody\parameterGroup;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class paramGroupsDetails extends Model
 {
     /**
+     * @description The name of the parameter.
+     *
+     * @example timeout
+     *
      * @var string
      */
     public $paramName;
 
     /**
+     * @description The value of the parameter.
+     *
+     * @example 1000
+     *
      * @var string
      */
     public $paramValue;
@@ -22,18 +30,14 @@ class paramGroupsDetails extends Model
         'paramValue' => 'ParamValue',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->paramName) {
             $res['ParamName'] = $this->paramName;
         }
-
         if (null !== $this->paramValue) {
             $res['ParamValue'] = $this->paramValue;
         }
@@ -41,18 +45,17 @@ class paramGroupsDetails extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return paramGroupsDetails
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ParamName'])) {
             $model->paramName = $map['ParamName'];
         }
-
         if (isset($map['ParamValue'])) {
             $model->paramValue = $map['ParamValue'];
         }

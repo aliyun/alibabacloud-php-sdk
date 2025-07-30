@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ReleaseDirectConnectionResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 5D622714-AEDD-4609-9167-F5DDD3D1****
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class ReleaseDirectConnectionResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class ReleaseDirectConnectionResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ReleaseDirectConnectionResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

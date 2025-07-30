@@ -4,17 +4,23 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeParameterGroupResponseBody\parameterGroup;
+use AlibabaCloud\Tea\Model;
 
 class DescribeParameterGroupResponseBody extends Model
 {
     /**
+     * @description The information about the parameter template.
+     *
      * @var parameterGroup
      */
     public $parameterGroup;
 
     /**
+     * @description The request ID.
+     *
+     * @example A501A191-BD70-5E50-98A9-C2A486A82****
+     *
      * @var string
      */
     public $requestId;
@@ -23,21 +29,14 @@ class DescribeParameterGroupResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->parameterGroup) {
-            $this->parameterGroup->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->parameterGroup) {
-            $res['ParameterGroup'] = null !== $this->parameterGroup ? $this->parameterGroup->toArray($noStream) : $this->parameterGroup;
+            $res['ParameterGroup'] = null !== $this->parameterGroup ? $this->parameterGroup->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,18 +44,17 @@ class DescribeParameterGroupResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeParameterGroupResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ParameterGroup'])) {
             $model->parameterGroup = parameterGroup::fromMap($map['ParameterGroup']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

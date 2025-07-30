@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class AllocateInstancePublicConnectionResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 20C8341E-B5AD-4B24-BD82-D73241522ABF
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class AllocateInstancePublicConnectionResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class AllocateInstancePublicConnectionResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return AllocateInstancePublicConnectionResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

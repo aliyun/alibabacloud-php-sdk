@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeParameterGroupRequest extends Model
 {
@@ -19,11 +19,21 @@ class DescribeParameterGroupRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the parameter template.
+     *
+     * This parameter is required.
+     *
+     * @example rpg-sys-00*****
+     *
      * @var string
      */
     public $parameterGroupId;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-beijing
+     *
      * @var string
      */
     public $regionId;
@@ -52,38 +62,29 @@ class DescribeParameterGroupRequest extends Model
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
-
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-
         if (null !== $this->parameterGroupId) {
             $res['ParameterGroupId'] = $this->parameterGroupId;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
-
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
@@ -91,38 +92,32 @@ class DescribeParameterGroupRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeParameterGroupRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
-
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-
         if (isset($map['ParameterGroupId'])) {
             $model->parameterGroupId = $map['ParameterGroupId'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
-
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }

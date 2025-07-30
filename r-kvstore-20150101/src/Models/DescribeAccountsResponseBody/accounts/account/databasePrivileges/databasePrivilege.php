@@ -4,11 +4,18 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeAccountsResponseBody\accounts\account\databasePrivileges;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class databasePrivilege extends Model
 {
     /**
+     * @description The permission of the account. Default value: RoleReadWrite. Valid values:
+     *
+     *   **RoleReadOnly**: The account has the read-only permissions.
+     *   **RoleReadWrite**: The account has the read and write permissions.
+     *
+     * @example RoleReadWrite
+     *
      * @var string
      */
     public $accountPrivilege;
@@ -16,12 +23,9 @@ class databasePrivilege extends Model
         'accountPrivilege' => 'AccountPrivilege',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->accountPrivilege) {
@@ -31,11 +35,11 @@ class databasePrivilege extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return databasePrivilege
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeAvailableResourceResponseBody\availableZones\availableZone\supportedEngines\supportedEngine;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeAvailableResourceResponseBody\availableZones\availableZone\supportedEngines\supportedEngine\supportedEditionTypes\supportedEditionType;
+use AlibabaCloud\Tea\Model;
 
 class supportedEditionTypes extends Model
 {
@@ -17,24 +17,17 @@ class supportedEditionTypes extends Model
         'supportedEditionType' => 'SupportedEditionType',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->supportedEditionType)) {
-            Model::validateArray($this->supportedEditionType);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->supportedEditionType) {
-            if (\is_array($this->supportedEditionType)) {
-                $res['SupportedEditionType'] = [];
-                $n1 = 0;
-                foreach ($this->supportedEditionType as $item1) {
-                    $res['SupportedEditionType'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['SupportedEditionType'] = [];
+            if (null !== $this->supportedEditionType && \is_array($this->supportedEditionType)) {
+                $n = 0;
+                foreach ($this->supportedEditionType as $item) {
+                    $res['SupportedEditionType'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -42,21 +35,20 @@ class supportedEditionTypes extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return supportedEditionTypes
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SupportedEditionType'])) {
             if (!empty($map['SupportedEditionType'])) {
                 $model->supportedEditionType = [];
-                $n1 = 0;
-                foreach ($map['SupportedEditionType'] as $item1) {
-                    $model->supportedEditionType[$n1] = supportedEditionType::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['SupportedEditionType'] as $item) {
+                    $model->supportedEditionType[$n++] = null !== $item ? supportedEditionType::fromMap($item) : $item;
                 }
             }
         }
