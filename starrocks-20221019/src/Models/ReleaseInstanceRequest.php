@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\Starrocks\V20221019\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ReleaseInstanceRequest extends Model
 {
     /**
+     * @description The instance ID.
+     *
+     * This parameter is required.
+     *
+     * @example c-b25e21e24388****
+     *
      * @var string
      */
     public $instanceId;
@@ -16,12 +22,9 @@ class ReleaseInstanceRequest extends Model
         'instanceId' => 'InstanceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceId) {
@@ -31,11 +34,11 @@ class ReleaseInstanceRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ReleaseInstanceRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

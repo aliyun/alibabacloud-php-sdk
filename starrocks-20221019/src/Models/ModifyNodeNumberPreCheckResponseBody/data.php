@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Starrocks\V20221019\Models\ModifyNodeNumberPreCheckResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description Indicates whether the number of nodes can be modified.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $allow;
 
     /**
+     * @description The reason why the number of nodes cannot be modified.
+     *
+     * @example Failed to find node group[ng-3d5ce6454354****].
+     *
      * @var string
      */
     public $reason;
@@ -22,18 +30,14 @@ class data extends Model
         'reason' => 'Reason',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->allow) {
             $res['Allow'] = $this->allow;
         }
-
         if (null !== $this->reason) {
             $res['Reason'] = $this->reason;
         }
@@ -41,18 +45,17 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Allow'])) {
             $model->allow = $map['Allow'];
         }
-
         if (isset($map['Reason'])) {
             $model->reason = $map['Reason'];
         }

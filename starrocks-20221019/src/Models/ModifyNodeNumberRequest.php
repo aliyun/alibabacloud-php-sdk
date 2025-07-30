@@ -4,16 +4,28 @@
 
 namespace AlibabaCloud\SDK\Starrocks\V20221019\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyNodeNumberRequest extends Model
 {
     /**
+     * @description The instance ID.
+     *
+     * This parameter is required.
+     *
+     * @example c-b25e21e24388****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The warehouse ID.
+     *
+     * This parameter is required.
+     *
+     * @example ng-3d5ce6454354****
+     *
      * @var string
      */
     public $nodeGroupId;
@@ -24,6 +36,12 @@ class ModifyNodeNumberRequest extends Model
     public $promotionOptionNo;
 
     /**
+     * @description The number of nodes to which you want to change to.
+     *
+     * This parameter is required.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $target;
@@ -34,26 +52,20 @@ class ModifyNodeNumberRequest extends Model
         'target' => 'Target',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->nodeGroupId) {
             $res['NodeGroupId'] = $this->nodeGroupId;
         }
-
         if (null !== $this->promotionOptionNo) {
             $res['PromotionOptionNo'] = $this->promotionOptionNo;
         }
-
         if (null !== $this->target) {
             $res['Target'] = $this->target;
         }
@@ -61,26 +73,23 @@ class ModifyNodeNumberRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyNodeNumberRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['NodeGroupId'])) {
             $model->nodeGroupId = $map['NodeGroupId'];
         }
-
         if (isset($map['PromotionOptionNo'])) {
             $model->promotionOptionNo = $map['PromotionOptionNo'];
         }
-
         if (isset($map['Target'])) {
             $model->target = $map['Target'];
         }
