@@ -305,6 +305,11 @@ class CreateApplicationShrinkRequest extends Model
     /**
      * @var string
      */
+    public $headlessPvtzDiscoverySvc;
+
+    /**
+     * @var string
+     */
     public $html;
 
     /**
@@ -962,6 +967,7 @@ class CreateApplicationShrinkRequest extends Model
         'enableSidecarResourceIsolated' => 'EnableSidecarResourceIsolated',
         'envs' => 'Envs',
         'gpuConfig' => 'GpuConfig',
+        'headlessPvtzDiscoverySvc' => 'HeadlessPvtzDiscoverySvc',
         'html' => 'Html',
         'imagePullSecrets' => 'ImagePullSecrets',
         'imageUrl' => 'ImageUrl',
@@ -1097,6 +1103,9 @@ class CreateApplicationShrinkRequest extends Model
         }
         if (null !== $this->gpuConfig) {
             $res['GpuConfig'] = $this->gpuConfig;
+        }
+        if (null !== $this->headlessPvtzDiscoverySvc) {
+            $res['HeadlessPvtzDiscoverySvc'] = $this->headlessPvtzDiscoverySvc;
         }
         if (null !== $this->html) {
             $res['Html'] = $this->html;
@@ -1346,6 +1355,9 @@ class CreateApplicationShrinkRequest extends Model
         }
         if (isset($map['GpuConfig'])) {
             $model->gpuConfig = $map['GpuConfig'];
+        }
+        if (isset($map['HeadlessPvtzDiscoverySvc'])) {
+            $model->headlessPvtzDiscoverySvc = $map['HeadlessPvtzDiscoverySvc'];
         }
         if (isset($map['Html'])) {
             $model->html = $map['Html'];

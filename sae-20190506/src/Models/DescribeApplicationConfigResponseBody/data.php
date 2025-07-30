@@ -113,6 +113,11 @@ class data extends Model
     public $clusterId;
 
     /**
+     * @var string
+     */
+    public $cmsServiceId;
+
+    /**
      * @description The command that is used to start the image. The command must be an existing executable object in the container. Example:
      *
      * ```
@@ -316,6 +321,11 @@ class data extends Model
      * @var string
      */
     public $gpuType;
+
+    /**
+     * @var string
+     */
+    public $headlessPvtzDiscovery;
 
     /**
      * @var string
@@ -1007,6 +1017,7 @@ class data extends Model
         'baseAppId' => 'BaseAppId',
         'batchWaitTime' => 'BatchWaitTime',
         'clusterId' => 'ClusterId',
+        'cmsServiceId' => 'CmsServiceId',
         'command' => 'Command',
         'commandArgs' => 'CommandArgs',
         'configMapMountDesc' => 'ConfigMapMountDesc',
@@ -1025,6 +1036,7 @@ class data extends Model
         'envs' => 'Envs',
         'gpuCount' => 'GpuCount',
         'gpuType' => 'GpuType',
+        'headlessPvtzDiscovery' => 'HeadlessPvtzDiscovery',
         'html' => 'Html',
         'imagePullSecrets' => 'ImagePullSecrets',
         'imageUrl' => 'ImageUrl',
@@ -1123,6 +1135,9 @@ class data extends Model
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+        if (null !== $this->cmsServiceId) {
+            $res['CmsServiceId'] = $this->cmsServiceId;
+        }
         if (null !== $this->command) {
             $res['Command'] = $this->command;
         }
@@ -1182,6 +1197,9 @@ class data extends Model
         }
         if (null !== $this->gpuType) {
             $res['GpuType'] = $this->gpuType;
+        }
+        if (null !== $this->headlessPvtzDiscovery) {
+            $res['HeadlessPvtzDiscovery'] = $this->headlessPvtzDiscovery;
         }
         if (null !== $this->html) {
             $res['Html'] = $this->html;
@@ -1444,6 +1462,9 @@ class data extends Model
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+        if (isset($map['CmsServiceId'])) {
+            $model->cmsServiceId = $map['CmsServiceId'];
+        }
         if (isset($map['Command'])) {
             $model->command = $map['Command'];
         }
@@ -1503,6 +1524,9 @@ class data extends Model
         }
         if (isset($map['GpuType'])) {
             $model->gpuType = $map['GpuType'];
+        }
+        if (isset($map['HeadlessPvtzDiscovery'])) {
+            $model->headlessPvtzDiscovery = $map['HeadlessPvtzDiscovery'];
         }
         if (isset($map['Html'])) {
             $model->html = $map['Html'];
