@@ -34,6 +34,11 @@ class CreateIndexShrinkRequest extends Model
     public $columnsShrink;
 
     /**
+     * @var string
+     */
+    public $createIndexType;
+
+    /**
      * @description >  This parameter is not available. Do not specify this parameter.
      *
      * @var string
@@ -66,6 +71,11 @@ class CreateIndexShrinkRequest extends Model
      * @var string
      */
     public $embeddingModelName;
+
+    /**
+     * @var bool
+     */
+    public $enableRewrite;
 
     /**
      * @description The name of the knowledge base. The name must be 1 to 20 characters in length and can contain characters classified as letter in Unicode, including English letters, Chinese characters, digits, among others. The name can also contain colons (:), underscores (_), periods (.), and hyphens (-).
@@ -205,6 +215,11 @@ class CreateIndexShrinkRequest extends Model
     /**
      * @var string
      */
+    public $tableIdsShrink;
+
+    /**
+     * @var string
+     */
     public $chunkMode;
 
     /**
@@ -220,10 +235,12 @@ class CreateIndexShrinkRequest extends Model
         'categoryIdsShrink' => 'CategoryIds',
         'chunkSize' => 'ChunkSize',
         'columnsShrink' => 'Columns',
+        'createIndexType' => 'CreateIndexType',
         'dataSourceShrink' => 'DataSource',
         'description' => 'Description',
         'documentIdsShrink' => 'DocumentIds',
         'embeddingModelName' => 'EmbeddingModelName',
+        'enableRewrite' => 'EnableRewrite',
         'name' => 'Name',
         'overlapSize' => 'OverlapSize',
         'rerankMinScore' => 'RerankMinScore',
@@ -234,6 +251,7 @@ class CreateIndexShrinkRequest extends Model
         'sinkType' => 'SinkType',
         'sourceType' => 'SourceType',
         'structureType' => 'StructureType',
+        'tableIdsShrink' => 'TableIds',
         'chunkMode' => 'chunkMode',
         'enableHeaders' => 'enableHeaders',
         'metaExtractColumnsShrink' => 'metaExtractColumns',
@@ -253,6 +271,9 @@ class CreateIndexShrinkRequest extends Model
         if (null !== $this->columnsShrink) {
             $res['Columns'] = $this->columnsShrink;
         }
+        if (null !== $this->createIndexType) {
+            $res['CreateIndexType'] = $this->createIndexType;
+        }
         if (null !== $this->dataSourceShrink) {
             $res['DataSource'] = $this->dataSourceShrink;
         }
@@ -264,6 +285,9 @@ class CreateIndexShrinkRequest extends Model
         }
         if (null !== $this->embeddingModelName) {
             $res['EmbeddingModelName'] = $this->embeddingModelName;
+        }
+        if (null !== $this->enableRewrite) {
+            $res['EnableRewrite'] = $this->enableRewrite;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -295,6 +319,9 @@ class CreateIndexShrinkRequest extends Model
         if (null !== $this->structureType) {
             $res['StructureType'] = $this->structureType;
         }
+        if (null !== $this->tableIdsShrink) {
+            $res['TableIds'] = $this->tableIdsShrink;
+        }
         if (null !== $this->chunkMode) {
             $res['chunkMode'] = $this->chunkMode;
         }
@@ -325,6 +352,9 @@ class CreateIndexShrinkRequest extends Model
         if (isset($map['Columns'])) {
             $model->columnsShrink = $map['Columns'];
         }
+        if (isset($map['CreateIndexType'])) {
+            $model->createIndexType = $map['CreateIndexType'];
+        }
         if (isset($map['DataSource'])) {
             $model->dataSourceShrink = $map['DataSource'];
         }
@@ -336,6 +366,9 @@ class CreateIndexShrinkRequest extends Model
         }
         if (isset($map['EmbeddingModelName'])) {
             $model->embeddingModelName = $map['EmbeddingModelName'];
+        }
+        if (isset($map['EnableRewrite'])) {
+            $model->enableRewrite = $map['EnableRewrite'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
@@ -366,6 +399,9 @@ class CreateIndexShrinkRequest extends Model
         }
         if (isset($map['StructureType'])) {
             $model->structureType = $map['StructureType'];
+        }
+        if (isset($map['TableIds'])) {
+            $model->tableIdsShrink = $map['TableIds'];
         }
         if (isset($map['chunkMode'])) {
             $model->chunkMode = $map['chunkMode'];

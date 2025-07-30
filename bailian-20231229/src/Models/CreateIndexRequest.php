@@ -37,6 +37,11 @@ class CreateIndexRequest extends Model
     public $columns;
 
     /**
+     * @var string
+     */
+    public $createIndexType;
+
+    /**
      * @description >  This parameter is not available. Do not specify this parameter.
      *
      * @var dataSource
@@ -69,6 +74,11 @@ class CreateIndexRequest extends Model
      * @var string
      */
     public $embeddingModelName;
+
+    /**
+     * @var bool
+     */
+    public $enableRewrite;
 
     /**
      * @description The name of the knowledge base. The name must be 1 to 20 characters in length and can contain characters classified as letter in Unicode, including English letters, Chinese characters, digits, among others. The name can also contain colons (:), underscores (_), periods (.), and hyphens (-).
@@ -206,6 +216,11 @@ class CreateIndexRequest extends Model
     public $structureType;
 
     /**
+     * @var string[]
+     */
+    public $tableIds;
+
+    /**
      * @var string
      */
     public $chunkMode;
@@ -223,10 +238,12 @@ class CreateIndexRequest extends Model
         'categoryIds' => 'CategoryIds',
         'chunkSize' => 'ChunkSize',
         'columns' => 'Columns',
+        'createIndexType' => 'CreateIndexType',
         'dataSource' => 'DataSource',
         'description' => 'Description',
         'documentIds' => 'DocumentIds',
         'embeddingModelName' => 'EmbeddingModelName',
+        'enableRewrite' => 'EnableRewrite',
         'name' => 'Name',
         'overlapSize' => 'OverlapSize',
         'rerankMinScore' => 'RerankMinScore',
@@ -237,6 +254,7 @@ class CreateIndexRequest extends Model
         'sinkType' => 'SinkType',
         'sourceType' => 'SourceType',
         'structureType' => 'StructureType',
+        'tableIds' => 'TableIds',
         'chunkMode' => 'chunkMode',
         'enableHeaders' => 'enableHeaders',
         'metaExtractColumns' => 'metaExtractColumns',
@@ -262,6 +280,9 @@ class CreateIndexRequest extends Model
                 }
             }
         }
+        if (null !== $this->createIndexType) {
+            $res['CreateIndexType'] = $this->createIndexType;
+        }
         if (null !== $this->dataSource) {
             $res['DataSource'] = null !== $this->dataSource ? $this->dataSource->toMap() : null;
         }
@@ -273,6 +294,9 @@ class CreateIndexRequest extends Model
         }
         if (null !== $this->embeddingModelName) {
             $res['EmbeddingModelName'] = $this->embeddingModelName;
+        }
+        if (null !== $this->enableRewrite) {
+            $res['EnableRewrite'] = $this->enableRewrite;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -303,6 +327,9 @@ class CreateIndexRequest extends Model
         }
         if (null !== $this->structureType) {
             $res['StructureType'] = $this->structureType;
+        }
+        if (null !== $this->tableIds) {
+            $res['TableIds'] = $this->tableIds;
         }
         if (null !== $this->chunkMode) {
             $res['chunkMode'] = $this->chunkMode;
@@ -348,6 +375,9 @@ class CreateIndexRequest extends Model
                 }
             }
         }
+        if (isset($map['CreateIndexType'])) {
+            $model->createIndexType = $map['CreateIndexType'];
+        }
         if (isset($map['DataSource'])) {
             $model->dataSource = dataSource::fromMap($map['DataSource']);
         }
@@ -361,6 +391,9 @@ class CreateIndexRequest extends Model
         }
         if (isset($map['EmbeddingModelName'])) {
             $model->embeddingModelName = $map['EmbeddingModelName'];
+        }
+        if (isset($map['EnableRewrite'])) {
+            $model->enableRewrite = $map['EnableRewrite'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
@@ -391,6 +424,11 @@ class CreateIndexRequest extends Model
         }
         if (isset($map['StructureType'])) {
             $model->structureType = $map['StructureType'];
+        }
+        if (isset($map['TableIds'])) {
+            if (!empty($map['TableIds'])) {
+                $model->tableIds = $map['TableIds'];
+            }
         }
         if (isset($map['chunkMode'])) {
             $model->chunkMode = $map['chunkMode'];

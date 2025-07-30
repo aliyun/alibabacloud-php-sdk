@@ -33,6 +33,11 @@ class SubmitIndexAddDocumentsJobRequest extends Model
     public $documentIds;
 
     /**
+     * @var bool
+     */
+    public $enableHeaders;
+
+    /**
      * @description The primary key ID of the knowledge base, which is the `Data.Id` parameter returned by the [CreateIndex](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation.
      *
      * This parameter is required.
@@ -73,6 +78,7 @@ class SubmitIndexAddDocumentsJobRequest extends Model
         'chunkMode' => 'ChunkMode',
         'chunkSize' => 'ChunkSize',
         'documentIds' => 'DocumentIds',
+        'enableHeaders' => 'EnableHeaders',
         'indexId' => 'IndexId',
         'overlapSize' => 'OverlapSize',
         'separator' => 'Separator',
@@ -95,6 +101,9 @@ class SubmitIndexAddDocumentsJobRequest extends Model
         }
         if (null !== $this->documentIds) {
             $res['DocumentIds'] = $this->documentIds;
+        }
+        if (null !== $this->enableHeaders) {
+            $res['EnableHeaders'] = $this->enableHeaders;
         }
         if (null !== $this->indexId) {
             $res['IndexId'] = $this->indexId;
@@ -135,6 +144,9 @@ class SubmitIndexAddDocumentsJobRequest extends Model
             if (!empty($map['DocumentIds'])) {
                 $model->documentIds = $map['DocumentIds'];
             }
+        }
+        if (isset($map['EnableHeaders'])) {
+            $model->enableHeaders = $map['EnableHeaders'];
         }
         if (isset($map['IndexId'])) {
             $model->indexId = $map['IndexId'];

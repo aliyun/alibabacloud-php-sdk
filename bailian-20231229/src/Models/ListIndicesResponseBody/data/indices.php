@@ -18,6 +18,11 @@ class indices extends Model
     public $chunkSize;
 
     /**
+     * @var string
+     */
+    public $confgModel;
+
+    /**
      * @description The description of the knowledge base.
      *
      * @example If each RAM user belongs to a RAM group, the configuration is considered compliant.
@@ -43,6 +48,11 @@ class indices extends Model
      * @var string
      */
     public $embeddingModelName;
+
+    /**
+     * @var bool
+     */
+    public $enableRewrite;
 
     /**
      * @description The primary key ID of the knowledge base, which is the `Data.Id` parameter returned by the [CreateIndex](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation.
@@ -172,9 +182,11 @@ class indices extends Model
     public $structureType;
     protected $_name = [
         'chunkSize' => 'ChunkSize',
+        'confgModel' => 'ConfgModel',
         'description' => 'Description',
         'documentIds' => 'DocumentIds',
         'embeddingModelName' => 'EmbeddingModelName',
+        'enableRewrite' => 'EnableRewrite',
         'id' => 'Id',
         'name' => 'Name',
         'overlapSize' => 'OverlapSize',
@@ -196,6 +208,9 @@ class indices extends Model
         if (null !== $this->chunkSize) {
             $res['ChunkSize'] = $this->chunkSize;
         }
+        if (null !== $this->confgModel) {
+            $res['ConfgModel'] = $this->confgModel;
+        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
@@ -204,6 +219,9 @@ class indices extends Model
         }
         if (null !== $this->embeddingModelName) {
             $res['EmbeddingModelName'] = $this->embeddingModelName;
+        }
+        if (null !== $this->enableRewrite) {
+            $res['EnableRewrite'] = $this->enableRewrite;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
@@ -253,6 +271,9 @@ class indices extends Model
         if (isset($map['ChunkSize'])) {
             $model->chunkSize = $map['ChunkSize'];
         }
+        if (isset($map['ConfgModel'])) {
+            $model->confgModel = $map['ConfgModel'];
+        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
@@ -263,6 +284,9 @@ class indices extends Model
         }
         if (isset($map['EmbeddingModelName'])) {
             $model->embeddingModelName = $map['EmbeddingModelName'];
+        }
+        if (isset($map['EnableRewrite'])) {
+            $model->enableRewrite = $map['EnableRewrite'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];

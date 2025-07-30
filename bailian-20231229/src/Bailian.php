@@ -522,6 +522,9 @@ class Bailian extends OpenApiClient
         if (!Utils::isUnset($tmpReq->documentIds)) {
             $request->documentIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->documentIds, 'DocumentIds', 'json');
         }
+        if (!Utils::isUnset($tmpReq->tableIds)) {
+            $request->tableIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tableIds, 'TableIds', 'json');
+        }
         if (!Utils::isUnset($tmpReq->metaExtractColumns)) {
             $request->metaExtractColumnsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->metaExtractColumns, 'metaExtractColumns', 'json');
         }
@@ -535,6 +538,9 @@ class Bailian extends OpenApiClient
         if (!Utils::isUnset($request->columnsShrink)) {
             $query['Columns'] = $request->columnsShrink;
         }
+        if (!Utils::isUnset($request->createIndexType)) {
+            $query['CreateIndexType'] = $request->createIndexType;
+        }
         if (!Utils::isUnset($request->dataSourceShrink)) {
             $query['DataSource'] = $request->dataSourceShrink;
         }
@@ -546,6 +552,9 @@ class Bailian extends OpenApiClient
         }
         if (!Utils::isUnset($request->embeddingModelName)) {
             $query['EmbeddingModelName'] = $request->embeddingModelName;
+        }
+        if (!Utils::isUnset($request->enableRewrite)) {
+            $query['EnableRewrite'] = $request->enableRewrite;
         }
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
@@ -576,6 +585,9 @@ class Bailian extends OpenApiClient
         }
         if (!Utils::isUnset($request->structureType)) {
             $query['StructureType'] = $request->structureType;
+        }
+        if (!Utils::isUnset($request->tableIdsShrink)) {
+            $query['TableIds'] = $request->tableIdsShrink;
         }
         if (!Utils::isUnset($request->chunkMode)) {
             $query['chunkMode'] = $request->chunkMode;
@@ -2226,6 +2238,9 @@ class Bailian extends OpenApiClient
         }
         if (!Utils::isUnset($request->documentIdsShrink)) {
             $query['DocumentIds'] = $request->documentIdsShrink;
+        }
+        if (!Utils::isUnset($request->enableHeaders)) {
+            $query['EnableHeaders'] = $request->enableHeaders;
         }
         if (!Utils::isUnset($request->indexId)) {
             $query['IndexId'] = $request->indexId;
