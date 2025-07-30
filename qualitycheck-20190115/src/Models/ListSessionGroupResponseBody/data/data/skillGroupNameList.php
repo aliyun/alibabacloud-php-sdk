@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListSessionGroupResponseBody\data\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class skillGroupNameList extends Model
 {
@@ -16,45 +16,29 @@ class skillGroupNameList extends Model
         'skillGroupNameList' => 'SkillGroupNameList',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->skillGroupNameList)) {
-            Model::validateArray($this->skillGroupNameList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->skillGroupNameList) {
-            if (\is_array($this->skillGroupNameList)) {
-                $res['SkillGroupNameList'] = [];
-                $n1 = 0;
-                foreach ($this->skillGroupNameList as $item1) {
-                    $res['SkillGroupNameList'][$n1++] = $item1;
-                }
-            }
+            $res['SkillGroupNameList'] = $this->skillGroupNameList;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return skillGroupNameList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SkillGroupNameList'])) {
             if (!empty($map['SkillGroupNameList'])) {
-                $model->skillGroupNameList = [];
-                $n1 = 0;
-                foreach ($map['SkillGroupNameList'] as $item1) {
-                    $model->skillGroupNameList[$n1++] = $item1;
-                }
+                $model->skillGroupNameList = $map['SkillGroupNameList'];
             }
         }
 

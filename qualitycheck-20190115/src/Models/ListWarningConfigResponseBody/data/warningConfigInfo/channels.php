@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListWarningConfigResponseBody\data\warningConfigInfo;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListWarningConfigResponseBody\data\warningConfigInfo\channels\channel;
+use AlibabaCloud\Tea\Model;
 
 class channels extends Model
 {
@@ -17,23 +17,17 @@ class channels extends Model
         'channel' => 'Channel',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->channel)) {
-            Model::validateArray($this->channel);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->channel) {
-            if (\is_array($this->channel)) {
-                $res['Channel'] = [];
-                $n1 = 0;
-                foreach ($this->channel as $item1) {
-                    $res['Channel'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Channel'] = [];
+            if (null !== $this->channel && \is_array($this->channel)) {
+                $n = 0;
+                foreach ($this->channel as $item) {
+                    $res['Channel'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +35,20 @@ class channels extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return channels
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Channel'])) {
             if (!empty($map['Channel'])) {
                 $model->channel = [];
-                $n1 = 0;
-                foreach ($map['Channel'] as $item1) {
-                    $model->channel[$n1++] = channel::fromMap($item1);
+                $n = 0;
+                foreach ($map['Channel'] as $item) {
+                    $model->channel[$n++] = null !== $item ? channel::fromMap($item) : $item;
                 }
             }
         }

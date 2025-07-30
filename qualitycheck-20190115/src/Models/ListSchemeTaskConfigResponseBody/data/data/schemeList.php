@@ -4,36 +4,29 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListSchemeTaskConfigResponseBody\data\data;
 
-use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListSchemeTaskConfigResponseBody\data\data\schemeList\schemeList;
+use AlibabaCloud\Tea\Model;
 
 class schemeList extends Model
 {
     /**
-     * @var schemeList[]
+     * @var schemeList\schemeList[]
      */
     public $schemeList;
     protected $_name = [
         'schemeList' => 'SchemeList',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->schemeList)) {
-            Model::validateArray($this->schemeList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->schemeList) {
-            if (\is_array($this->schemeList)) {
-                $res['SchemeList'] = [];
-                $n1 = 0;
-                foreach ($this->schemeList as $item1) {
-                    $res['SchemeList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['SchemeList'] = [];
+            if (null !== $this->schemeList && \is_array($this->schemeList)) {
+                $n = 0;
+                foreach ($this->schemeList as $item) {
+                    $res['SchemeList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +34,20 @@ class schemeList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return schemeList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SchemeList'])) {
             if (!empty($map['SchemeList'])) {
                 $model->schemeList = [];
-                $n1 = 0;
-                foreach ($map['SchemeList'] as $item1) {
-                    $model->schemeList[$n1++] = self::fromMap($item1);
+                $n = 0;
+                foreach ($map['SchemeList'] as $item) {
+                    $model->schemeList[$n++] = null !== $item ? schemeList\schemeList::fromMap($item) : $item;
                 }
             }
         }

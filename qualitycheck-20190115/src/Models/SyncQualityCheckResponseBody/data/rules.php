@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\SyncQualityCheckResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\SyncQualityCheckResponseBody\data\rules\hit;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\SyncQualityCheckResponseBody\data\rules\ruleInfoBase;
+use AlibabaCloud\Tea\Model;
 
 class rules extends Model
 {
@@ -16,6 +16,8 @@ class rules extends Model
     public $hit;
 
     /**
+     * @example 232232
+     *
      * @var string
      */
     public $rid;
@@ -36,38 +38,26 @@ class rules extends Model
         'ruleName' => 'RuleName',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->hit)) {
-            Model::validateArray($this->hit);
-        }
-        if (null !== $this->ruleInfoBase) {
-            $this->ruleInfoBase->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->hit) {
-            if (\is_array($this->hit)) {
-                $res['Hit'] = [];
-                $n1 = 0;
-                foreach ($this->hit as $item1) {
-                    $res['Hit'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Hit'] = [];
+            if (null !== $this->hit && \is_array($this->hit)) {
+                $n = 0;
+                foreach ($this->hit as $item) {
+                    $res['Hit'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->rid) {
             $res['Rid'] = $this->rid;
         }
-
         if (null !== $this->ruleInfoBase) {
-            $res['RuleInfoBase'] = null !== $this->ruleInfoBase ? $this->ruleInfoBase->toArray($noStream) : $this->ruleInfoBase;
+            $res['RuleInfoBase'] = null !== $this->ruleInfoBase ? $this->ruleInfoBase->toMap() : null;
         }
-
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
         }
@@ -75,32 +65,29 @@ class rules extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return rules
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Hit'])) {
             if (!empty($map['Hit'])) {
                 $model->hit = [];
-                $n1 = 0;
-                foreach ($map['Hit'] as $item1) {
-                    $model->hit[$n1++] = hit::fromMap($item1);
+                $n = 0;
+                foreach ($map['Hit'] as $item) {
+                    $model->hit[$n++] = null !== $item ? hit::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['Rid'])) {
             $model->rid = $map['Rid'];
         }
-
         if (isset($map['RuleInfoBase'])) {
             $model->ruleInfoBase = ruleInfoBase::fromMap($map['RuleInfoBase']);
         }
-
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];
         }

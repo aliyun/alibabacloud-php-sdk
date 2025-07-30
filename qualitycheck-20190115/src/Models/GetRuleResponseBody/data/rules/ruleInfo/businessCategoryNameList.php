@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetRuleResponseBody\data\rules\ruleInfo;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class businessCategoryNameList extends Model
 {
@@ -16,45 +16,29 @@ class businessCategoryNameList extends Model
         'businessCategoryNameList' => 'BusinessCategoryNameList',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->businessCategoryNameList)) {
-            Model::validateArray($this->businessCategoryNameList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->businessCategoryNameList) {
-            if (\is_array($this->businessCategoryNameList)) {
-                $res['BusinessCategoryNameList'] = [];
-                $n1 = 0;
-                foreach ($this->businessCategoryNameList as $item1) {
-                    $res['BusinessCategoryNameList'][$n1++] = $item1;
-                }
-            }
+            $res['BusinessCategoryNameList'] = $this->businessCategoryNameList;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return businessCategoryNameList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BusinessCategoryNameList'])) {
             if (!empty($map['BusinessCategoryNameList'])) {
-                $model->businessCategoryNameList = [];
-                $n1 = 0;
-                foreach ($map['BusinessCategoryNameList'] as $item1) {
-                    $model->businessCategoryNameList[$n1++] = $item1;
-                }
+                $model->businessCategoryNameList = $map['BusinessCategoryNameList'];
             }
         }
 

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetRuleCategoryResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetRuleCategoryResponseBody\data\ruleCountInfo;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -17,23 +17,17 @@ class data extends Model
         'ruleCountInfo' => 'RuleCountInfo',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->ruleCountInfo)) {
-            Model::validateArray($this->ruleCountInfo);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->ruleCountInfo) {
-            if (\is_array($this->ruleCountInfo)) {
-                $res['RuleCountInfo'] = [];
-                $n1 = 0;
-                foreach ($this->ruleCountInfo as $item1) {
-                    $res['RuleCountInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['RuleCountInfo'] = [];
+            if (null !== $this->ruleCountInfo && \is_array($this->ruleCountInfo)) {
+                $n = 0;
+                foreach ($this->ruleCountInfo as $item) {
+                    $res['RuleCountInfo'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +35,20 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RuleCountInfo'])) {
             if (!empty($map['RuleCountInfo'])) {
                 $model->ruleCountInfo = [];
-                $n1 = 0;
-                foreach ($map['RuleCountInfo'] as $item1) {
-                    $model->ruleCountInfo[$n1++] = ruleCountInfo::fromMap($item1);
+                $n = 0;
+                foreach ($map['RuleCountInfo'] as $item) {
+                    $model->ruleCountInfo[$n++] = null !== $item ? ruleCountInfo::fromMap($item) : $item;
                 }
             }
         }

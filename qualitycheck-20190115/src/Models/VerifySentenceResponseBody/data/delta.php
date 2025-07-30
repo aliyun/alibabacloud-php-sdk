@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\VerifySentenceResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\VerifySentenceResponseBody\data\delta\source;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\VerifySentenceResponseBody\data\delta\target;
+use AlibabaCloud\Tea\Model;
 
 class delta extends Model
 {
@@ -21,6 +21,8 @@ class delta extends Model
     public $target;
 
     /**
+     * @example CHANGE
+     *
      * @var string
      */
     public $type;
@@ -30,28 +32,17 @@ class delta extends Model
         'type' => 'Type',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->source) {
-            $this->source->validate();
-        }
-        if (null !== $this->target) {
-            $this->target->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->source) {
-            $res['Source'] = null !== $this->source ? $this->source->toArray($noStream) : $this->source;
+            $res['Source'] = null !== $this->source ? $this->source->toMap() : null;
         }
-
         if (null !== $this->target) {
-            $res['Target'] = null !== $this->target ? $this->target->toArray($noStream) : $this->target;
+            $res['Target'] = null !== $this->target ? $this->target->toMap() : null;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -59,22 +50,20 @@ class delta extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return delta
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Source'])) {
             $model->source = source::fromMap($map['Source']);
         }
-
         if (isset($map['Target'])) {
             $model->target = target::fromMap($map['Target']);
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

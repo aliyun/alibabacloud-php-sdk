@@ -4,14 +4,16 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\TestRuleV4ResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ConditionBasicInfo;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\TestRuleV4ResponseBody\data\hitRuleReviewInfoList\branchInfoList;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\TestRuleV4ResponseBody\data\hitRuleReviewInfoList\conditionHitInfoList;
+use AlibabaCloud\Tea\Model;
 
 class hitRuleReviewInfoList extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $branchHitId;
@@ -37,21 +39,29 @@ class hitRuleReviewInfoList extends Model
     public $judgeNodeName;
 
     /**
+     * @example a&&b
+     *
      * @var string
      */
     public $lambda;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $matched;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $nodeType;
 
     /**
+     * @example 451
+     *
      * @var int
      */
     public $rid;
@@ -62,16 +72,22 @@ class hitRuleReviewInfoList extends Model
     public $ruleName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $ruleScoreType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $scoreNumType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $taskFlowId;
@@ -91,89 +107,65 @@ class hitRuleReviewInfoList extends Model
         'taskFlowId' => 'TaskFlowId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->branchInfoList)) {
-            Model::validateArray($this->branchInfoList);
-        }
-        if (\is_array($this->conditionHitInfoList)) {
-            Model::validateArray($this->conditionHitInfoList);
-        }
-        if (\is_array($this->conditionInfoList)) {
-            Model::validateArray($this->conditionInfoList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->branchHitId) {
             $res['BranchHitId'] = $this->branchHitId;
         }
-
         if (null !== $this->branchInfoList) {
-            if (\is_array($this->branchInfoList)) {
-                $res['BranchInfoList'] = [];
-                $n1 = 0;
-                foreach ($this->branchInfoList as $item1) {
-                    $res['BranchInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['BranchInfoList'] = [];
+            if (null !== $this->branchInfoList && \is_array($this->branchInfoList)) {
+                $n = 0;
+                foreach ($this->branchInfoList as $item) {
+                    $res['BranchInfoList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->conditionHitInfoList) {
-            if (\is_array($this->conditionHitInfoList)) {
-                $res['ConditionHitInfoList'] = [];
-                $n1 = 0;
-                foreach ($this->conditionHitInfoList as $item1) {
-                    $res['ConditionHitInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['ConditionHitInfoList'] = [];
+            if (null !== $this->conditionHitInfoList && \is_array($this->conditionHitInfoList)) {
+                $n = 0;
+                foreach ($this->conditionHitInfoList as $item) {
+                    $res['ConditionHitInfoList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->conditionInfoList) {
-            if (\is_array($this->conditionInfoList)) {
-                $res['ConditionInfoList'] = [];
-                $n1 = 0;
-                foreach ($this->conditionInfoList as $item1) {
-                    $res['ConditionInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['ConditionInfoList'] = [];
+            if (null !== $this->conditionInfoList && \is_array($this->conditionInfoList)) {
+                $n = 0;
+                foreach ($this->conditionInfoList as $item) {
+                    $res['ConditionInfoList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->judgeNodeName) {
             $res['JudgeNodeName'] = $this->judgeNodeName;
         }
-
         if (null !== $this->lambda) {
             $res['Lambda'] = $this->lambda;
         }
-
         if (null !== $this->matched) {
             $res['Matched'] = $this->matched;
         }
-
         if (null !== $this->nodeType) {
             $res['NodeType'] = $this->nodeType;
         }
-
         if (null !== $this->rid) {
             $res['Rid'] = $this->rid;
         }
-
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
         }
-
         if (null !== $this->ruleScoreType) {
             $res['RuleScoreType'] = $this->ruleScoreType;
         }
-
         if (null !== $this->scoreNumType) {
             $res['ScoreNumType'] = $this->scoreNumType;
         }
-
         if (null !== $this->taskFlowId) {
             $res['TaskFlowId'] = $this->taskFlowId;
         }
@@ -181,80 +173,68 @@ class hitRuleReviewInfoList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return hitRuleReviewInfoList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BranchHitId'])) {
             $model->branchHitId = $map['BranchHitId'];
         }
-
         if (isset($map['BranchInfoList'])) {
             if (!empty($map['BranchInfoList'])) {
                 $model->branchInfoList = [];
-                $n1 = 0;
-                foreach ($map['BranchInfoList'] as $item1) {
-                    $model->branchInfoList[$n1++] = branchInfoList::fromMap($item1);
+                $n = 0;
+                foreach ($map['BranchInfoList'] as $item) {
+                    $model->branchInfoList[$n++] = null !== $item ? branchInfoList::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['ConditionHitInfoList'])) {
             if (!empty($map['ConditionHitInfoList'])) {
                 $model->conditionHitInfoList = [];
-                $n1 = 0;
-                foreach ($map['ConditionHitInfoList'] as $item1) {
-                    $model->conditionHitInfoList[$n1++] = conditionHitInfoList::fromMap($item1);
+                $n = 0;
+                foreach ($map['ConditionHitInfoList'] as $item) {
+                    $model->conditionHitInfoList[$n++] = null !== $item ? conditionHitInfoList::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['ConditionInfoList'])) {
             if (!empty($map['ConditionInfoList'])) {
                 $model->conditionInfoList = [];
-                $n1 = 0;
-                foreach ($map['ConditionInfoList'] as $item1) {
-                    $model->conditionInfoList[$n1++] = ConditionBasicInfo::fromMap($item1);
+                $n = 0;
+                foreach ($map['ConditionInfoList'] as $item) {
+                    $model->conditionInfoList[$n++] = null !== $item ? ConditionBasicInfo::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['JudgeNodeName'])) {
             $model->judgeNodeName = $map['JudgeNodeName'];
         }
-
         if (isset($map['Lambda'])) {
             $model->lambda = $map['Lambda'];
         }
-
         if (isset($map['Matched'])) {
             $model->matched = $map['Matched'];
         }
-
         if (isset($map['NodeType'])) {
             $model->nodeType = $map['NodeType'];
         }
-
         if (isset($map['Rid'])) {
             $model->rid = $map['Rid'];
         }
-
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];
         }
-
         if (isset($map['RuleScoreType'])) {
             $model->ruleScoreType = $map['RuleScoreType'];
         }
-
         if (isset($map['ScoreNumType'])) {
             $model->scoreNumType = $map['ScoreNumType'];
         }
-
         if (isset($map['TaskFlowId'])) {
             $model->taskFlowId = $map['TaskFlowId'];
         }

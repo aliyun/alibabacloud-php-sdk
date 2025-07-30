@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultToReviewResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultToReviewResponseBody\data\reviewHistoryList\reviewHistory;
+use AlibabaCloud\Tea\Model;
 
 class reviewHistoryList extends Model
 {
@@ -17,23 +17,17 @@ class reviewHistoryList extends Model
         'reviewHistory' => 'ReviewHistory',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->reviewHistory)) {
-            Model::validateArray($this->reviewHistory);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->reviewHistory) {
-            if (\is_array($this->reviewHistory)) {
-                $res['ReviewHistory'] = [];
-                $n1 = 0;
-                foreach ($this->reviewHistory as $item1) {
-                    $res['ReviewHistory'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['ReviewHistory'] = [];
+            if (null !== $this->reviewHistory && \is_array($this->reviewHistory)) {
+                $n = 0;
+                foreach ($this->reviewHistory as $item) {
+                    $res['ReviewHistory'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +35,20 @@ class reviewHistoryList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return reviewHistoryList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ReviewHistory'])) {
             if (!empty($map['ReviewHistory'])) {
                 $model->reviewHistory = [];
-                $n1 = 0;
-                foreach ($map['ReviewHistory'] as $item1) {
-                    $model->reviewHistory[$n1++] = reviewHistory::fromMap($item1);
+                $n = 0;
+                foreach ($map['ReviewHistory'] as $item) {
+                    $model->reviewHistory[$n++] = null !== $item ? reviewHistory::fromMap($item) : $item;
                 }
             }
         }

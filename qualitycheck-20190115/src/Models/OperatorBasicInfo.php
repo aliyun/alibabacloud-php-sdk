@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\OperatorBasicInfo\param;
+use AlibabaCloud\Tea\Model;
 
 class OperatorBasicInfo extends Model
 {
@@ -53,41 +53,29 @@ class OperatorBasicInfo extends Model
         'userGroup' => 'UserGroup',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->param) {
-            $this->param->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->oid) {
             $res['Oid'] = $this->oid;
         }
-
         if (null !== $this->param) {
-            $res['Param'] = null !== $this->param ? $this->param->toArray($noStream) : $this->param;
+            $res['Param'] = null !== $this->param ? $this->param->toMap() : null;
         }
-
         if (null !== $this->qualityCheckType) {
             $res['QualityCheckType'] = $this->qualityCheckType;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
-
         if (null !== $this->userGroup) {
             $res['UserGroup'] = $this->userGroup;
         }
@@ -95,38 +83,32 @@ class OperatorBasicInfo extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return OperatorBasicInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['Oid'])) {
             $model->oid = $map['Oid'];
         }
-
         if (isset($map['Param'])) {
             $model->param = param::fromMap($map['Param']);
         }
-
         if (isset($map['QualityCheckType'])) {
             $model->qualityCheckType = $map['QualityCheckType'];
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
-
         if (isset($map['UserGroup'])) {
             $model->userGroup = $map['UserGroup'];
         }

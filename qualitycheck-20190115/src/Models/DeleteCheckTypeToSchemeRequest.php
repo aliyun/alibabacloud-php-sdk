@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteCheckTypeToSchemeRequest extends Model
 {
     /**
+     * @example 123456
+     *
      * @var int
      */
     public $baseMeAgentId;
 
     /**
+     * @example {"schemeId":"1376","checkType":"4"}
+     *
      * @var string
      */
     public $jsonStr;
@@ -22,18 +26,14 @@ class DeleteCheckTypeToSchemeRequest extends Model
         'jsonStr' => 'JsonStr',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->baseMeAgentId) {
             $res['BaseMeAgentId'] = $this->baseMeAgentId;
         }
-
         if (null !== $this->jsonStr) {
             $res['JsonStr'] = $this->jsonStr;
         }
@@ -41,18 +41,17 @@ class DeleteCheckTypeToSchemeRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteCheckTypeToSchemeRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BaseMeAgentId'])) {
             $model->baseMeAgentId = $map['BaseMeAgentId'];
         }
-
         if (isset($map['JsonStr'])) {
             $model->jsonStr = $map['JsonStr'];
         }

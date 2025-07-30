@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetRuleV4Request extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $ruleId;
@@ -16,12 +18,9 @@ class GetRuleV4Request extends Model
         'ruleId' => 'RuleId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->ruleId) {
@@ -31,11 +30,11 @@ class GetRuleV4Request extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetRuleV4Request
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

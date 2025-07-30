@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListWarningStrategyConfigResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -46,34 +46,26 @@ class data extends Model
         'name' => 'Name',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->intervalTime) {
             $res['IntervalTime'] = $this->intervalTime;
         }
-
         if (null !== $this->lambda) {
             $res['Lambda'] = $this->lambda;
         }
-
         if (null !== $this->level) {
             $res['Level'] = $this->level;
         }
-
         if (null !== $this->maxNumber) {
             $res['MaxNumber'] = $this->maxNumber;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -81,34 +73,29 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['IntervalTime'])) {
             $model->intervalTime = $map['IntervalTime'];
         }
-
         if (isset($map['Lambda'])) {
             $model->lambda = $map['Lambda'];
         }
-
         if (isset($map['Level'])) {
             $model->level = $map['Level'];
         }
-
         if (isset($map['MaxNumber'])) {
             $model->maxNumber = $map['MaxNumber'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

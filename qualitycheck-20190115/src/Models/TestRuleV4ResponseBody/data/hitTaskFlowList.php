@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\TestRuleV4ResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\TaskGraphFlow;
+use AlibabaCloud\Tea\Model;
 
 class hitTaskFlowList extends Model
 {
@@ -15,6 +15,8 @@ class hitTaskFlowList extends Model
     public $graphFlow;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $rid;
@@ -29,25 +31,17 @@ class hitTaskFlowList extends Model
         'taskFlowType' => 'TaskFlowType',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->graphFlow) {
-            $this->graphFlow->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->graphFlow) {
-            $res['GraphFlow'] = null !== $this->graphFlow ? $this->graphFlow->toArray($noStream) : $this->graphFlow;
+            $res['GraphFlow'] = null !== $this->graphFlow ? $this->graphFlow->toMap() : null;
         }
-
         if (null !== $this->rid) {
             $res['Rid'] = $this->rid;
         }
-
         if (null !== $this->taskFlowType) {
             $res['TaskFlowType'] = $this->taskFlowType;
         }
@@ -55,22 +49,20 @@ class hitTaskFlowList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return hitTaskFlowList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GraphFlow'])) {
             $model->graphFlow = TaskGraphFlow::fromMap($map['GraphFlow']);
         }
-
         if (isset($map['Rid'])) {
             $model->rid = $map['Rid'];
         }
-
         if (isset($map['TaskFlowType'])) {
             $model->taskFlowType = $map['TaskFlowType'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetRuleDetailResponseBody\data\conditions\conditionBasicInfo;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetRuleDetailResponseBody\data\conditions\conditionBasicInfo\operators\operatorBasicInfo;
+use AlibabaCloud\Tea\Model;
 
 class operators extends Model
 {
@@ -17,23 +17,17 @@ class operators extends Model
         'operatorBasicInfo' => 'OperatorBasicInfo',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->operatorBasicInfo)) {
-            Model::validateArray($this->operatorBasicInfo);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->operatorBasicInfo) {
-            if (\is_array($this->operatorBasicInfo)) {
-                $res['OperatorBasicInfo'] = [];
-                $n1 = 0;
-                foreach ($this->operatorBasicInfo as $item1) {
-                    $res['OperatorBasicInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['OperatorBasicInfo'] = [];
+            if (null !== $this->operatorBasicInfo && \is_array($this->operatorBasicInfo)) {
+                $n = 0;
+                foreach ($this->operatorBasicInfo as $item) {
+                    $res['OperatorBasicInfo'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +35,20 @@ class operators extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return operators
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OperatorBasicInfo'])) {
             if (!empty($map['OperatorBasicInfo'])) {
                 $model->operatorBasicInfo = [];
-                $n1 = 0;
-                foreach ($map['OperatorBasicInfo'] as $item1) {
-                    $model->operatorBasicInfo[$n1++] = operatorBasicInfo::fromMap($item1);
+                $n = 0;
+                foreach ($map['OperatorBasicInfo'] as $item) {
+                    $model->operatorBasicInfo[$n++] = null !== $item ? operatorBasicInfo::fromMap($item) : $item;
                 }
             }
         }

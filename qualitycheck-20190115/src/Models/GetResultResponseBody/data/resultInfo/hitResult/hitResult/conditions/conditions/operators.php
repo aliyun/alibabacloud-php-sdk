@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultResponseBody\data\resultInfo\hitResult\hitResult\conditions\conditions;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultResponseBody\data\resultInfo\hitResult\hitResult\conditions\conditions\operators\operator;
+use AlibabaCloud\Tea\Model;
 
 class operators extends Model
 {
@@ -17,23 +17,17 @@ class operators extends Model
         'operator' => 'Operator',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->operator)) {
-            Model::validateArray($this->operator);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->operator) {
-            if (\is_array($this->operator)) {
-                $res['Operator'] = [];
-                $n1 = 0;
-                foreach ($this->operator as $item1) {
-                    $res['Operator'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Operator'] = [];
+            if (null !== $this->operator && \is_array($this->operator)) {
+                $n = 0;
+                foreach ($this->operator as $item) {
+                    $res['Operator'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +35,20 @@ class operators extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return operators
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Operator'])) {
             if (!empty($map['Operator'])) {
                 $model->operator = [];
-                $n1 = 0;
-                foreach ($map['Operator'] as $item1) {
-                    $model->operator[$n1++] = operator::fromMap($item1);
+                $n = 0;
+                foreach ($map['Operator'] as $item) {
+                    $model->operator[$n++] = null !== $item ? operator::fromMap($item) : $item;
                 }
             }
         }

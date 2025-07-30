@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetRuleDetailResponseBody\data\conditions\conditionBasicInfo\operators\operatorBasicInfo\param;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class pvalues extends Model
 {
@@ -16,45 +16,29 @@ class pvalues extends Model
         'pvalues' => 'Pvalues',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->pvalues)) {
-            Model::validateArray($this->pvalues);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->pvalues) {
-            if (\is_array($this->pvalues)) {
-                $res['Pvalues'] = [];
-                $n1 = 0;
-                foreach ($this->pvalues as $item1) {
-                    $res['Pvalues'][$n1++] = $item1;
-                }
-            }
+            $res['Pvalues'] = $this->pvalues;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return pvalues
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Pvalues'])) {
             if (!empty($map['Pvalues'])) {
-                $model->pvalues = [];
-                $n1 = 0;
-                foreach ($map['Pvalues'] as $item1) {
-                    $model->pvalues[$n1++] = $item1;
-                }
+                $model->pvalues = $map['Pvalues'];
             }
         }
 

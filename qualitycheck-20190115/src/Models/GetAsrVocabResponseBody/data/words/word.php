@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetAsrVocabResponseBody\data\words;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class word extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $weight;
@@ -22,18 +24,14 @@ class word extends Model
         'word' => 'Word',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->weight) {
             $res['Weight'] = $this->weight;
         }
-
         if (null !== $this->word) {
             $res['Word'] = $this->word;
         }
@@ -41,18 +39,17 @@ class word extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return word
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Weight'])) {
             $model->weight = $map['Weight'];
         }
-
         if (isset($map['Word'])) {
             $model->word = $map['Word'];
         }

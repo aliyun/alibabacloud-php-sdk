@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetNextResultToVerifyResponseBody\data\dialogues\dialogue\deltas\delta;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetNextResultToVerifyResponseBody\data\dialogues\dialogue\deltas\delta\target\line;
+use AlibabaCloud\Tea\Model;
 
 class target extends Model
 {
@@ -15,6 +15,8 @@ class target extends Model
     public $line;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $position;
@@ -23,21 +25,14 @@ class target extends Model
         'position' => 'Position',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->line) {
-            $this->line->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->line) {
-            $res['Line'] = null !== $this->line ? $this->line->toArray($noStream) : $this->line;
+            $res['Line'] = null !== $this->line ? $this->line->toMap() : null;
         }
-
         if (null !== $this->position) {
             $res['Position'] = $this->position;
         }
@@ -45,18 +40,17 @@ class target extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return target
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Line'])) {
             $model->line = line::fromMap($map['Line']);
         }
-
         if (isset($map['Position'])) {
             $model->position = $map['Position'];
         }

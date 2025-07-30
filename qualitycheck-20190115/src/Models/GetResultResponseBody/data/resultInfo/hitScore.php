@@ -4,36 +4,29 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultResponseBody\data\resultInfo;
 
-use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultResponseBody\data\resultInfo\hitScore\hitScore;
+use AlibabaCloud\Tea\Model;
 
 class hitScore extends Model
 {
     /**
-     * @var hitScore[]
+     * @var hitScore\hitScore[]
      */
     public $hitScore;
     protected $_name = [
         'hitScore' => 'HitScore',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->hitScore)) {
-            Model::validateArray($this->hitScore);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->hitScore) {
-            if (\is_array($this->hitScore)) {
-                $res['HitScore'] = [];
-                $n1 = 0;
-                foreach ($this->hitScore as $item1) {
-                    $res['HitScore'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['HitScore'] = [];
+            if (null !== $this->hitScore && \is_array($this->hitScore)) {
+                $n = 0;
+                foreach ($this->hitScore as $item) {
+                    $res['HitScore'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +34,20 @@ class hitScore extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return hitScore
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HitScore'])) {
             if (!empty($map['HitScore'])) {
                 $model->hitScore = [];
-                $n1 = 0;
-                foreach ($map['HitScore'] as $item1) {
-                    $model->hitScore[$n1++] = self::fromMap($item1);
+                $n = 0;
+                foreach ($map['HitScore'] as $item) {
+                    $model->hitScore[$n++] = null !== $item ? hitScore\hitScore::fromMap($item) : $item;
                 }
             }
         }

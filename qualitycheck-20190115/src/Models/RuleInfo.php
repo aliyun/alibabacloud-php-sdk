@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class RuleInfo extends Model
 {
@@ -340,260 +340,179 @@ class RuleInfo extends Model
         'weight' => 'Weight',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->businessCategoryNameList)) {
-            Model::validateArray($this->businessCategoryNameList);
-        }
-        if (\is_array($this->dialogues)) {
-            Model::validateArray($this->dialogues);
-        }
-        if (null !== $this->schemeCheckType) {
-            $this->schemeCheckType->validate();
-        }
-        if (\is_array($this->triggers)) {
-            Model::validateArray($this->triggers);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->autoReview) {
             $res['AutoReview'] = $this->autoReview;
         }
-
         if (null !== $this->businessCategoryNameList) {
-            if (\is_array($this->businessCategoryNameList)) {
-                $res['BusinessCategoryNameList'] = [];
-                $n1 = 0;
-                foreach ($this->businessCategoryNameList as $item1) {
-                    $res['BusinessCategoryNameList'][$n1++] = $item1;
-                }
-            }
+            $res['BusinessCategoryNameList'] = $this->businessCategoryNameList;
         }
-
         if (null !== $this->checkType) {
             $res['CheckType'] = $this->checkType;
         }
-
         if (null !== $this->comments) {
             $res['Comments'] = $this->comments;
         }
-
         if (null !== $this->configType) {
             $res['ConfigType'] = $this->configType;
         }
-
         if (null !== $this->createEmpName) {
             $res['CreateEmpName'] = $this->createEmpName;
         }
-
         if (null !== $this->createEmpid) {
             $res['CreateEmpid'] = $this->createEmpid;
         }
-
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-
         if (null !== $this->deny) {
             $res['Deny'] = $this->deny;
         }
-
         if (null !== $this->dialogues) {
-            if (\is_array($this->dialogues)) {
-                $res['Dialogues'] = [];
-                $n1 = 0;
-                foreach ($this->dialogues as $item1) {
-                    $res['Dialogues'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Dialogues'] = [];
+            if (null !== $this->dialogues && \is_array($this->dialogues)) {
+                $n = 0;
+                foreach ($this->dialogues as $item) {
+                    $res['Dialogues'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->effective) {
             $res['Effective'] = $this->effective;
         }
-
         if (null !== $this->effectiveEndTime) {
             $res['EffectiveEndTime'] = $this->effectiveEndTime;
         }
-
         if (null !== $this->effectiveStartTime) {
             $res['EffectiveStartTime'] = $this->effectiveStartTime;
         }
-
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
-
         if (null !== $this->externalProperty) {
             $res['ExternalProperty'] = $this->externalProperty;
         }
-
         if (null !== $this->fullCycle) {
             $res['FullCycle'] = $this->fullCycle;
         }
-
         if (null !== $this->graphFlow) {
             $res['GraphFlow'] = $this->graphFlow;
         }
-
         if (null !== $this->isDelete) {
             $res['IsDelete'] = $this->isDelete;
         }
-
         if (null !== $this->isOnline) {
             $res['IsOnline'] = $this->isOnline;
         }
-
         if (null !== $this->lambda) {
             $res['Lambda'] = $this->lambda;
         }
-
         if (null !== $this->lastUpdateEmpName) {
             $res['LastUpdateEmpName'] = $this->lastUpdateEmpName;
         }
-
         if (null !== $this->lastUpdateEmpid) {
             $res['LastUpdateEmpid'] = $this->lastUpdateEmpid;
         }
-
         if (null !== $this->lastUpdateTime) {
             $res['LastUpdateTime'] = $this->lastUpdateTime;
         }
-
         if (null !== $this->level) {
             $res['Level'] = $this->level;
         }
-
         if (null !== $this->meet) {
             $res['Meet'] = $this->meet;
         }
-
         if (null !== $this->modifyType) {
             $res['ModifyType'] = $this->modifyType;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->operationMode) {
             $res['OperationMode'] = $this->operationMode;
         }
-
         if (null !== $this->qualityCheckType) {
             $res['QualityCheckType'] = $this->qualityCheckType;
         }
-
         if (null !== $this->rid) {
             $res['Rid'] = $this->rid;
         }
-
         if (null !== $this->ruleCategoryName) {
             $res['RuleCategoryName'] = $this->ruleCategoryName;
         }
-
         if (null !== $this->ruleScoreType) {
             $res['RuleScoreType'] = $this->ruleScoreType;
         }
-
         if (null !== $this->ruleType) {
             $res['RuleType'] = $this->ruleType;
         }
-
         if (null !== $this->schemeCheckType) {
-            $res['SchemeCheckType'] = null !== $this->schemeCheckType ? $this->schemeCheckType->toArray($noStream) : $this->schemeCheckType;
+            $res['SchemeCheckType'] = null !== $this->schemeCheckType ? $this->schemeCheckType->toMap() : null;
         }
-
         if (null !== $this->schemeId) {
             $res['SchemeId'] = $this->schemeId;
         }
-
         if (null !== $this->schemeName) {
             $res['SchemeName'] = $this->schemeName;
         }
-
         if (null !== $this->schemeRuleMappingId) {
             $res['SchemeRuleMappingId'] = $this->schemeRuleMappingId;
         }
-
         if (null !== $this->scoreDeleted) {
             $res['ScoreDeleted'] = $this->scoreDeleted;
         }
-
         if (null !== $this->scoreId) {
             $res['ScoreId'] = $this->scoreId;
         }
-
         if (null !== $this->scoreName) {
             $res['ScoreName'] = $this->scoreName;
         }
-
         if (null !== $this->scoreNum) {
             $res['ScoreNum'] = $this->scoreNum;
         }
-
         if (null !== $this->scoreNumType) {
             $res['ScoreNumType'] = $this->scoreNumType;
         }
-
         if (null !== $this->scoreRuleHitType) {
             $res['ScoreRuleHitType'] = $this->scoreRuleHitType;
         }
-
         if (null !== $this->scoreSubId) {
             $res['ScoreSubId'] = $this->scoreSubId;
         }
-
         if (null !== $this->scoreSubName) {
             $res['ScoreSubName'] = $this->scoreSubName;
         }
-
         if (null !== $this->scoreType) {
             $res['ScoreType'] = $this->scoreType;
         }
-
         if (null !== $this->sortIndex) {
             $res['SortIndex'] = $this->sortIndex;
         }
-
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
-
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-
         if (null !== $this->targetType) {
             $res['TargetType'] = $this->targetType;
         }
-
         if (null !== $this->taskFlowId) {
             $res['TaskFlowId'] = $this->taskFlowId;
         }
-
         if (null !== $this->taskFlowType) {
             $res['TaskFlowType'] = $this->taskFlowType;
         }
-
         if (null !== $this->triggers) {
-            if (\is_array($this->triggers)) {
-                $res['Triggers'] = [];
-                $n1 = 0;
-                foreach ($this->triggers as $item1) {
-                    $res['Triggers'][$n1++] = $item1;
-                }
-            }
+            $res['Triggers'] = $this->triggers;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
-
         if (null !== $this->weight) {
             $res['Weight'] = $this->weight;
         }
@@ -601,248 +520,186 @@ class RuleInfo extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return RuleInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AutoReview'])) {
             $model->autoReview = $map['AutoReview'];
         }
-
         if (isset($map['BusinessCategoryNameList'])) {
             if (!empty($map['BusinessCategoryNameList'])) {
-                $model->businessCategoryNameList = [];
-                $n1 = 0;
-                foreach ($map['BusinessCategoryNameList'] as $item1) {
-                    $model->businessCategoryNameList[$n1++] = $item1;
-                }
+                $model->businessCategoryNameList = $map['BusinessCategoryNameList'];
             }
         }
-
         if (isset($map['CheckType'])) {
             $model->checkType = $map['CheckType'];
         }
-
         if (isset($map['Comments'])) {
             $model->comments = $map['Comments'];
         }
-
         if (isset($map['ConfigType'])) {
             $model->configType = $map['ConfigType'];
         }
-
         if (isset($map['CreateEmpName'])) {
             $model->createEmpName = $map['CreateEmpName'];
         }
-
         if (isset($map['CreateEmpid'])) {
             $model->createEmpid = $map['CreateEmpid'];
         }
-
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
-
         if (isset($map['Deny'])) {
             $model->deny = $map['Deny'];
         }
-
         if (isset($map['Dialogues'])) {
             if (!empty($map['Dialogues'])) {
                 $model->dialogues = [];
-                $n1 = 0;
-                foreach ($map['Dialogues'] as $item1) {
-                    $model->dialogues[$n1++] = RuleTestDialogue::fromMap($item1);
+                $n = 0;
+                foreach ($map['Dialogues'] as $item) {
+                    $model->dialogues[$n++] = null !== $item ? RuleTestDialogue::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['Effective'])) {
             $model->effective = $map['Effective'];
         }
-
         if (isset($map['EffectiveEndTime'])) {
             $model->effectiveEndTime = $map['EffectiveEndTime'];
         }
-
         if (isset($map['EffectiveStartTime'])) {
             $model->effectiveStartTime = $map['EffectiveStartTime'];
         }
-
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
-
         if (isset($map['ExternalProperty'])) {
             $model->externalProperty = $map['ExternalProperty'];
         }
-
         if (isset($map['FullCycle'])) {
             $model->fullCycle = $map['FullCycle'];
         }
-
         if (isset($map['GraphFlow'])) {
             $model->graphFlow = $map['GraphFlow'];
         }
-
         if (isset($map['IsDelete'])) {
             $model->isDelete = $map['IsDelete'];
         }
-
         if (isset($map['IsOnline'])) {
             $model->isOnline = $map['IsOnline'];
         }
-
         if (isset($map['Lambda'])) {
             $model->lambda = $map['Lambda'];
         }
-
         if (isset($map['LastUpdateEmpName'])) {
             $model->lastUpdateEmpName = $map['LastUpdateEmpName'];
         }
-
         if (isset($map['LastUpdateEmpid'])) {
             $model->lastUpdateEmpid = $map['LastUpdateEmpid'];
         }
-
         if (isset($map['LastUpdateTime'])) {
             $model->lastUpdateTime = $map['LastUpdateTime'];
         }
-
         if (isset($map['Level'])) {
             $model->level = $map['Level'];
         }
-
         if (isset($map['Meet'])) {
             $model->meet = $map['Meet'];
         }
-
         if (isset($map['ModifyType'])) {
             $model->modifyType = $map['ModifyType'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['OperationMode'])) {
             $model->operationMode = $map['OperationMode'];
         }
-
         if (isset($map['QualityCheckType'])) {
             $model->qualityCheckType = $map['QualityCheckType'];
         }
-
         if (isset($map['Rid'])) {
             $model->rid = $map['Rid'];
         }
-
         if (isset($map['RuleCategoryName'])) {
             $model->ruleCategoryName = $map['RuleCategoryName'];
         }
-
         if (isset($map['RuleScoreType'])) {
             $model->ruleScoreType = $map['RuleScoreType'];
         }
-
         if (isset($map['RuleType'])) {
             $model->ruleType = $map['RuleType'];
         }
-
         if (isset($map['SchemeCheckType'])) {
             $model->schemeCheckType = SchemeCheckType::fromMap($map['SchemeCheckType']);
         }
-
         if (isset($map['SchemeId'])) {
             $model->schemeId = $map['SchemeId'];
         }
-
         if (isset($map['SchemeName'])) {
             $model->schemeName = $map['SchemeName'];
         }
-
         if (isset($map['SchemeRuleMappingId'])) {
             $model->schemeRuleMappingId = $map['SchemeRuleMappingId'];
         }
-
         if (isset($map['ScoreDeleted'])) {
             $model->scoreDeleted = $map['ScoreDeleted'];
         }
-
         if (isset($map['ScoreId'])) {
             $model->scoreId = $map['ScoreId'];
         }
-
         if (isset($map['ScoreName'])) {
             $model->scoreName = $map['ScoreName'];
         }
-
         if (isset($map['ScoreNum'])) {
             $model->scoreNum = $map['ScoreNum'];
         }
-
         if (isset($map['ScoreNumType'])) {
             $model->scoreNumType = $map['ScoreNumType'];
         }
-
         if (isset($map['ScoreRuleHitType'])) {
             $model->scoreRuleHitType = $map['ScoreRuleHitType'];
         }
-
         if (isset($map['ScoreSubId'])) {
             $model->scoreSubId = $map['ScoreSubId'];
         }
-
         if (isset($map['ScoreSubName'])) {
             $model->scoreSubName = $map['ScoreSubName'];
         }
-
         if (isset($map['ScoreType'])) {
             $model->scoreType = $map['ScoreType'];
         }
-
         if (isset($map['SortIndex'])) {
             $model->sortIndex = $map['SortIndex'];
         }
-
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
-
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-
         if (isset($map['TargetType'])) {
             $model->targetType = $map['TargetType'];
         }
-
         if (isset($map['TaskFlowId'])) {
             $model->taskFlowId = $map['TaskFlowId'];
         }
-
         if (isset($map['TaskFlowType'])) {
             $model->taskFlowType = $map['TaskFlowType'];
         }
-
         if (isset($map['Triggers'])) {
             if (!empty($map['Triggers'])) {
-                $model->triggers = [];
-                $n1 = 0;
-                foreach ($map['Triggers'] as $item1) {
-                    $model->triggers[$n1++] = $item1;
-                }
+                $model->triggers = $map['Triggers'];
             }
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
-
         if (isset($map['Weight'])) {
             $model->weight = $map['Weight'];
         }

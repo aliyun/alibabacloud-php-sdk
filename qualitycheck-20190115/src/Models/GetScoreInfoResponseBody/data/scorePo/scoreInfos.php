@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetScoreInfoResponseBody\data\scorePo;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetScoreInfoResponseBody\data\scorePo\scoreInfos\scoreParam;
+use AlibabaCloud\Tea\Model;
 
 class scoreInfos extends Model
 {
@@ -17,23 +17,17 @@ class scoreInfos extends Model
         'scoreParam' => 'ScoreParam',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->scoreParam)) {
-            Model::validateArray($this->scoreParam);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->scoreParam) {
-            if (\is_array($this->scoreParam)) {
-                $res['ScoreParam'] = [];
-                $n1 = 0;
-                foreach ($this->scoreParam as $item1) {
-                    $res['ScoreParam'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['ScoreParam'] = [];
+            if (null !== $this->scoreParam && \is_array($this->scoreParam)) {
+                $n = 0;
+                foreach ($this->scoreParam as $item) {
+                    $res['ScoreParam'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +35,20 @@ class scoreInfos extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return scoreInfos
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ScoreParam'])) {
             if (!empty($map['ScoreParam'])) {
                 $model->scoreParam = [];
-                $n1 = 0;
-                foreach ($map['ScoreParam'] as $item1) {
-                    $model->scoreParam[$n1++] = scoreParam::fromMap($item1);
+                $n = 0;
+                foreach ($map['ScoreParam'] as $item) {
+                    $model->scoreParam[$n++] = null !== $item ? scoreParam::fromMap($item) : $item;
                 }
             }
         }

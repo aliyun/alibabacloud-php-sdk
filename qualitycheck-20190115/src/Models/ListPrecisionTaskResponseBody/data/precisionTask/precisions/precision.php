@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListPrecisionTaskResponseBody\data\precisionTask\precisions;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class precision extends Model
 {
     /**
+     * @example 2020-03-10 20:26:29
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 2321
+     *
      * @var int
      */
     public $modelId;
@@ -24,16 +28,22 @@ class precision extends Model
     public $modelName;
 
     /**
+     * @example 0.98
+     *
      * @var float
      */
     public $precision;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @example 7C1DEF5F-2C18-4D36-99C6-8C276F781796
+     *
      * @var string
      */
     public $taskId;
@@ -46,34 +56,26 @@ class precision extends Model
         'taskId' => 'TaskId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-
         if (null !== $this->modelId) {
             $res['ModelId'] = $this->modelId;
         }
-
         if (null !== $this->modelName) {
             $res['ModelName'] = $this->modelName;
         }
-
         if (null !== $this->precision) {
             $res['Precision'] = $this->precision;
         }
-
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -81,34 +83,29 @@ class precision extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return precision
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
-
         if (isset($map['ModelId'])) {
             $model->modelId = $map['ModelId'];
         }
-
         if (isset($map['ModelName'])) {
             $model->modelName = $map['ModelName'];
         }
-
         if (isset($map['Precision'])) {
             $model->precision = $map['Precision'];
         }
-
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListSessionGroupResponseBody\data\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class customerServiceNameList extends Model
 {
@@ -16,45 +16,29 @@ class customerServiceNameList extends Model
         'customerServiceNameList' => 'CustomerServiceNameList',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->customerServiceNameList)) {
-            Model::validateArray($this->customerServiceNameList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->customerServiceNameList) {
-            if (\is_array($this->customerServiceNameList)) {
-                $res['CustomerServiceNameList'] = [];
-                $n1 = 0;
-                foreach ($this->customerServiceNameList as $item1) {
-                    $res['CustomerServiceNameList'][$n1++] = $item1;
-                }
-            }
+            $res['CustomerServiceNameList'] = $this->customerServiceNameList;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return customerServiceNameList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CustomerServiceNameList'])) {
             if (!empty($map['CustomerServiceNameList'])) {
-                $model->customerServiceNameList = [];
-                $n1 = 0;
-                foreach ($map['CustomerServiceNameList'] as $item1) {
-                    $model->customerServiceNameList[$n1++] = $item1;
-                }
+                $model->customerServiceNameList = $map['CustomerServiceNameList'];
             }
         }
 

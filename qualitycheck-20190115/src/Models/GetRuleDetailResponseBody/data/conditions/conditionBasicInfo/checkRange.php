@@ -4,13 +4,15 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetRuleDetailResponseBody\data\conditions\conditionBasicInfo;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetRuleDetailResponseBody\data\conditions\conditionBasicInfo\checkRange\anchor;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetRuleDetailResponseBody\data\conditions\conditionBasicInfo\checkRange\range;
+use AlibabaCloud\Tea\Model;
 
 class checkRange extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $absolute;
@@ -36,32 +38,20 @@ class checkRange extends Model
         'role' => 'Role',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->anchor) {
-            $this->anchor->validate();
-        }
-        if (null !== $this->range) {
-            $this->range->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->absolute) {
             $res['Absolute'] = $this->absolute;
         }
-
         if (null !== $this->anchor) {
-            $res['Anchor'] = null !== $this->anchor ? $this->anchor->toArray($noStream) : $this->anchor;
+            $res['Anchor'] = null !== $this->anchor ? $this->anchor->toMap() : null;
         }
-
         if (null !== $this->range) {
-            $res['Range'] = null !== $this->range ? $this->range->toArray($noStream) : $this->range;
+            $res['Range'] = null !== $this->range ? $this->range->toMap() : null;
         }
-
         if (null !== $this->role) {
             $res['Role'] = $this->role;
         }
@@ -69,26 +59,23 @@ class checkRange extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return checkRange
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Absolute'])) {
             $model->absolute = $map['Absolute'];
         }
-
         if (isset($map['Anchor'])) {
             $model->anchor = anchor::fromMap($map['Anchor']);
         }
-
         if (isset($map['Range'])) {
             $model->range = range::fromMap($map['Range']);
         }
-
         if (isset($map['Role'])) {
             $model->role = $map['Role'];
         }

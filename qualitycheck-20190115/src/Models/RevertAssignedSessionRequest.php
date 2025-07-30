@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class RevertAssignedSessionRequest extends Model
 {
     /**
+     * @description baseMeAgentId
+     *
      * @var int
      */
     public $baseMeAgentId;
 
     /**
+     * @example {"isSchemeData":1,"searchParam":{"schemeTaskConfigId":1,"sourceDataType":1,"startTime":"2022-09-20 00:00:00","endTime":"2022-09-26 23:59:59"}}
+     *
      * @var string
      */
     public $jsonStr;
@@ -22,18 +26,14 @@ class RevertAssignedSessionRequest extends Model
         'jsonStr' => 'jsonStr',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->baseMeAgentId) {
             $res['BaseMeAgentId'] = $this->baseMeAgentId;
         }
-
         if (null !== $this->jsonStr) {
             $res['jsonStr'] = $this->jsonStr;
         }
@@ -41,18 +41,17 @@ class RevertAssignedSessionRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return RevertAssignedSessionRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BaseMeAgentId'])) {
             $model->baseMeAgentId = $map['BaseMeAgentId'];
         }
-
         if (isset($map['jsonStr'])) {
             $model->jsonStr = $map['jsonStr'];
         }

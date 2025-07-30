@@ -4,36 +4,29 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetWarningStrategyConfigResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetWarningStrategyConfigResponseBody\data\warningStrategyList\warningStrategyList;
+use AlibabaCloud\Tea\Model;
 
 class warningStrategyList extends Model
 {
     /**
-     * @var warningStrategyList[]
+     * @var warningStrategyList\warningStrategyList[]
      */
     public $warningStrategyList;
     protected $_name = [
         'warningStrategyList' => 'warningStrategyList',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->warningStrategyList)) {
-            Model::validateArray($this->warningStrategyList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->warningStrategyList) {
-            if (\is_array($this->warningStrategyList)) {
-                $res['warningStrategyList'] = [];
-                $n1 = 0;
-                foreach ($this->warningStrategyList as $item1) {
-                    $res['warningStrategyList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['warningStrategyList'] = [];
+            if (null !== $this->warningStrategyList && \is_array($this->warningStrategyList)) {
+                $n = 0;
+                foreach ($this->warningStrategyList as $item) {
+                    $res['warningStrategyList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +34,20 @@ class warningStrategyList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return warningStrategyList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['warningStrategyList'])) {
             if (!empty($map['warningStrategyList'])) {
                 $model->warningStrategyList = [];
-                $n1 = 0;
-                foreach ($map['warningStrategyList'] as $item1) {
-                    $model->warningStrategyList[$n1++] = self::fromMap($item1);
+                $n = 0;
+                foreach ($map['warningStrategyList'] as $item) {
+                    $model->warningStrategyList[$n++] = null !== $item ? warningStrategyList\warningStrategyList::fromMap($item) : $item;
                 }
             }
         }

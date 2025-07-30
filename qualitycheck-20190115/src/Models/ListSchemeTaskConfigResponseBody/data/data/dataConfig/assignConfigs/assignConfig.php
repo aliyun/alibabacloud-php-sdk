@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListSchemeTaskConfigResponseBody\data\data\dataConfig\assignConfigs;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListSchemeTaskConfigResponseBody\data\data\dataConfig\assignConfigs\assignConfig\assignConfigContests;
+use AlibabaCloud\Tea\Model;
 
 class assignConfig extends Model
 {
@@ -17,29 +17,23 @@ class assignConfig extends Model
         'assignConfigContests' => 'AssignConfigContests',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->assignConfigContests) {
-            $this->assignConfigContests->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->assignConfigContests) {
-            $res['AssignConfigContests'] = null !== $this->assignConfigContests ? $this->assignConfigContests->toArray($noStream) : $this->assignConfigContests;
+            $res['AssignConfigContests'] = null !== $this->assignConfigContests ? $this->assignConfigContests->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return assignConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ConditionBasicInfo\checkRange;
+use AlibabaCloud\Tea\Model;
 
 class ConditionBasicInfo extends Model
 {
@@ -65,58 +65,41 @@ class ConditionBasicInfo extends Model
         'userGroup' => 'UserGroup',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->checkRange) {
-            $this->checkRange->validate();
-        }
-        if (\is_array($this->operators)) {
-            Model::validateArray($this->operators);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->checkRange) {
-            $res['Check_range'] = null !== $this->checkRange ? $this->checkRange->toArray($noStream) : $this->checkRange;
+            $res['Check_range'] = null !== $this->checkRange ? $this->checkRange->toMap() : null;
         }
-
         if (null !== $this->cid) {
             $res['Cid'] = $this->cid;
         }
-
         if (null !== $this->exclusion) {
             $res['Exclusion'] = $this->exclusion;
         }
-
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->lambda) {
             $res['Lambda'] = $this->lambda;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->operators) {
-            if (\is_array($this->operators)) {
-                $res['Operators'] = [];
-                $n1 = 0;
-                foreach ($this->operators as $item1) {
-                    $res['Operators'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Operators'] = [];
+            if (null !== $this->operators && \is_array($this->operators)) {
+                $n = 0;
+                foreach ($this->operators as $item) {
+                    $res['Operators'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->rid) {
             $res['Rid'] = $this->rid;
         }
-
         if (null !== $this->userGroup) {
             $res['UserGroup'] = $this->userGroup;
         }
@@ -124,52 +107,44 @@ class ConditionBasicInfo extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ConditionBasicInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Check_range'])) {
             $model->checkRange = checkRange::fromMap($map['Check_range']);
         }
-
         if (isset($map['Cid'])) {
             $model->cid = $map['Cid'];
         }
-
         if (isset($map['Exclusion'])) {
             $model->exclusion = $map['Exclusion'];
         }
-
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['Lambda'])) {
             $model->lambda = $map['Lambda'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['Operators'])) {
             if (!empty($map['Operators'])) {
                 $model->operators = [];
-                $n1 = 0;
-                foreach ($map['Operators'] as $item1) {
-                    $model->operators[$n1++] = OperatorBasicInfo::fromMap($item1);
+                $n = 0;
+                foreach ($map['Operators'] as $item) {
+                    $model->operators[$n++] = null !== $item ? OperatorBasicInfo::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['Rid'])) {
             $model->rid = $map['Rid'];
         }
-
         if (isset($map['UserGroup'])) {
             $model->userGroup = $map['UserGroup'];
         }

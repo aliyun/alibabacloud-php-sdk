@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListTaskAssignRulesResponseBody\data\taskAssignRuleInfo;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListTaskAssignRulesResponseBody\data\taskAssignRuleInfo\reviewers\reviewer;
+use AlibabaCloud\Tea\Model;
 
 class reviewers extends Model
 {
@@ -17,23 +17,17 @@ class reviewers extends Model
         'reviewer' => 'Reviewer',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->reviewer)) {
-            Model::validateArray($this->reviewer);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->reviewer) {
-            if (\is_array($this->reviewer)) {
-                $res['Reviewer'] = [];
-                $n1 = 0;
-                foreach ($this->reviewer as $item1) {
-                    $res['Reviewer'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Reviewer'] = [];
+            if (null !== $this->reviewer && \is_array($this->reviewer)) {
+                $n = 0;
+                foreach ($this->reviewer as $item) {
+                    $res['Reviewer'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +35,20 @@ class reviewers extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return reviewers
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Reviewer'])) {
             if (!empty($map['Reviewer'])) {
                 $model->reviewer = [];
-                $n1 = 0;
-                foreach ($map['Reviewer'] as $item1) {
-                    $model->reviewer[$n1++] = reviewer::fromMap($item1);
+                $n = 0;
+                foreach ($map['Reviewer'] as $item) {
+                    $model->reviewer[$n++] = null !== $item ? reviewer::fromMap($item) : $item;
                 }
             }
         }

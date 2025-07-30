@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetRuleDetailResponseBody\data\rules\ruleBasicInfo;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetRuleDetailResponseBody\data\rules\ruleBasicInfo\businessCategories\businessCategoryBasicInfo;
+use AlibabaCloud\Tea\Model;
 
 class businessCategories extends Model
 {
@@ -17,23 +17,17 @@ class businessCategories extends Model
         'businessCategoryBasicInfo' => 'BusinessCategoryBasicInfo',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->businessCategoryBasicInfo)) {
-            Model::validateArray($this->businessCategoryBasicInfo);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->businessCategoryBasicInfo) {
-            if (\is_array($this->businessCategoryBasicInfo)) {
-                $res['BusinessCategoryBasicInfo'] = [];
-                $n1 = 0;
-                foreach ($this->businessCategoryBasicInfo as $item1) {
-                    $res['BusinessCategoryBasicInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['BusinessCategoryBasicInfo'] = [];
+            if (null !== $this->businessCategoryBasicInfo && \is_array($this->businessCategoryBasicInfo)) {
+                $n = 0;
+                foreach ($this->businessCategoryBasicInfo as $item) {
+                    $res['BusinessCategoryBasicInfo'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +35,20 @@ class businessCategories extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return businessCategories
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BusinessCategoryBasicInfo'])) {
             if (!empty($map['BusinessCategoryBasicInfo'])) {
                 $model->businessCategoryBasicInfo = [];
-                $n1 = 0;
-                foreach ($map['BusinessCategoryBasicInfo'] as $item1) {
-                    $model->businessCategoryBasicInfo[$n1++] = businessCategoryBasicInfo::fromMap($item1);
+                $n = 0;
+                foreach ($map['BusinessCategoryBasicInfo'] as $item) {
+                    $model->businessCategoryBasicInfo[$n++] = null !== $item ? businessCategoryBasicInfo::fromMap($item) : $item;
                 }
             }
         }

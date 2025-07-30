@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetRuleDetailResponseBody\data\rules;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetRuleDetailResponseBody\data\rules\ruleBasicInfo\businessCategories;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetRuleDetailResponseBody\data\rules\ruleBasicInfo\triggers;
+use AlibabaCloud\Tea\Model;
 
 class ruleBasicInfo extends Model
 {
@@ -16,11 +16,15 @@ class ruleBasicInfo extends Model
     public $businessCategories;
 
     /**
+     * @example 4
+     *
      * @var string
      */
     public $rid;
 
     /**
+     * @example 7&&!8
+     *
      * @var string
      */
     public $ruleLambda;
@@ -36,59 +40,44 @@ class ruleBasicInfo extends Model
         'triggers' => 'Triggers',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->businessCategories) {
-            $this->businessCategories->validate();
-        }
-        if (null !== $this->triggers) {
-            $this->triggers->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->businessCategories) {
-            $res['BusinessCategories'] = null !== $this->businessCategories ? $this->businessCategories->toArray($noStream) : $this->businessCategories;
+            $res['BusinessCategories'] = null !== $this->businessCategories ? $this->businessCategories->toMap() : null;
         }
-
         if (null !== $this->rid) {
             $res['Rid'] = $this->rid;
         }
-
         if (null !== $this->ruleLambda) {
             $res['RuleLambda'] = $this->ruleLambda;
         }
-
         if (null !== $this->triggers) {
-            $res['Triggers'] = null !== $this->triggers ? $this->triggers->toArray($noStream) : $this->triggers;
+            $res['Triggers'] = null !== $this->triggers ? $this->triggers->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ruleBasicInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BusinessCategories'])) {
             $model->businessCategories = businessCategories::fromMap($map['BusinessCategories']);
         }
-
         if (isset($map['Rid'])) {
             $model->rid = $map['Rid'];
         }
-
         if (isset($map['RuleLambda'])) {
             $model->ruleLambda = $map['RuleLambda'];
         }
-
         if (isset($map['Triggers'])) {
             $model->triggers = triggers::fromMap($map['Triggers']);
         }

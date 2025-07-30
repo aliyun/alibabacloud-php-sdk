@@ -4,42 +4,56 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListTaskAssignRulesResponseBody\data\taskAssignRuleInfo;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListTaskAssignRulesResponseBody\data\taskAssignRuleInfo\samplingMode\samplingModeAgents;
+use AlibabaCloud\Tea\Model;
 
 class samplingMode extends Model
 {
     /**
+     * @example 60
+     *
      * @var int
      */
     public $anyNumberOfDraws;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $designated;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $dimension;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $limit;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $numberOfDraws;
 
     /**
+     * @example 0.1
+     *
      * @var float
      */
     public $proportion;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $randomInspectionNumber;
@@ -59,88 +73,68 @@ class samplingMode extends Model
         'samplingModeAgents' => 'SamplingModeAgents',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->samplingModeAgents) {
-            $this->samplingModeAgents->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->anyNumberOfDraws) {
             $res['AnyNumberOfDraws'] = $this->anyNumberOfDraws;
         }
-
         if (null !== $this->designated) {
             $res['Designated'] = $this->designated;
         }
-
         if (null !== $this->dimension) {
             $res['Dimension'] = $this->dimension;
         }
-
         if (null !== $this->limit) {
             $res['Limit'] = $this->limit;
         }
-
         if (null !== $this->numberOfDraws) {
             $res['NumberOfDraws'] = $this->numberOfDraws;
         }
-
         if (null !== $this->proportion) {
             $res['Proportion'] = $this->proportion;
         }
-
         if (null !== $this->randomInspectionNumber) {
             $res['RandomInspectionNumber'] = $this->randomInspectionNumber;
         }
-
         if (null !== $this->samplingModeAgents) {
-            $res['SamplingModeAgents'] = null !== $this->samplingModeAgents ? $this->samplingModeAgents->toArray($noStream) : $this->samplingModeAgents;
+            $res['SamplingModeAgents'] = null !== $this->samplingModeAgents ? $this->samplingModeAgents->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return samplingMode
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AnyNumberOfDraws'])) {
             $model->anyNumberOfDraws = $map['AnyNumberOfDraws'];
         }
-
         if (isset($map['Designated'])) {
             $model->designated = $map['Designated'];
         }
-
         if (isset($map['Dimension'])) {
             $model->dimension = $map['Dimension'];
         }
-
         if (isset($map['Limit'])) {
             $model->limit = $map['Limit'];
         }
-
         if (isset($map['NumberOfDraws'])) {
             $model->numberOfDraws = $map['NumberOfDraws'];
         }
-
         if (isset($map['Proportion'])) {
             $model->proportion = $map['Proportion'];
         }
-
         if (isset($map['RandomInspectionNumber'])) {
             $model->randomInspectionNumber = $map['RandomInspectionNumber'];
         }
-
         if (isset($map['SamplingModeAgents'])) {
             $model->samplingModeAgents = samplingModeAgents::fromMap($map['SamplingModeAgents']);
         }

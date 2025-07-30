@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetScoreInfoResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetScoreInfoResponseBody\data\scorePo;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -17,23 +17,17 @@ class data extends Model
         'scorePo' => 'ScorePo',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->scorePo)) {
-            Model::validateArray($this->scorePo);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->scorePo) {
-            if (\is_array($this->scorePo)) {
-                $res['ScorePo'] = [];
-                $n1 = 0;
-                foreach ($this->scorePo as $item1) {
-                    $res['ScorePo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['ScorePo'] = [];
+            if (null !== $this->scorePo && \is_array($this->scorePo)) {
+                $n = 0;
+                foreach ($this->scorePo as $item) {
+                    $res['ScorePo'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +35,20 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ScorePo'])) {
             if (!empty($map['ScorePo'])) {
                 $model->scorePo = [];
-                $n1 = 0;
-                foreach ($map['ScorePo'] as $item1) {
-                    $model->scorePo[$n1++] = scorePo::fromMap($item1);
+                $n = 0;
+                foreach ($map['ScorePo'] as $item) {
+                    $model->scorePo[$n++] = null !== $item ? scorePo::fromMap($item) : $item;
                 }
             }
         }

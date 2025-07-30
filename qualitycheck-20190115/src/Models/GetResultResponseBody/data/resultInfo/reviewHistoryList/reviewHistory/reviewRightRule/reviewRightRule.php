@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultResponseBody\data\resultInfo\reviewHistoryList\reviewHistory\reviewRightRule;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class reviewRightRule extends Model
 {
@@ -22,18 +22,14 @@ class reviewRightRule extends Model
         'ruleName' => 'ruleName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->rid) {
             $res['rid'] = $this->rid;
         }
-
         if (null !== $this->ruleName) {
             $res['ruleName'] = $this->ruleName;
         }
@@ -41,18 +37,17 @@ class reviewRightRule extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return reviewRightRule
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['rid'])) {
             $model->rid = $map['rid'];
         }
-
         if (isset($map['ruleName'])) {
             $model->ruleName = $map['ruleName'];
         }

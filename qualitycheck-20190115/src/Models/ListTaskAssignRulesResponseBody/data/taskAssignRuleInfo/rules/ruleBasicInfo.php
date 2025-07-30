@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListTaskAssignRulesResponseBody\data\taskAssignRuleInfo\rules;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ruleBasicInfo extends Model
 {
@@ -14,6 +14,8 @@ class ruleBasicInfo extends Model
     public $name;
 
     /**
+     * @example 2312
+     *
      * @var string
      */
     public $rid;
@@ -22,18 +24,14 @@ class ruleBasicInfo extends Model
         'rid' => 'Rid',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->rid) {
             $res['Rid'] = $this->rid;
         }
@@ -41,18 +39,17 @@ class ruleBasicInfo extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ruleBasicInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['Rid'])) {
             $model->rid = $map['Rid'];
         }

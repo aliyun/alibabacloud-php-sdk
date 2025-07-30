@@ -4,12 +4,12 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListTaskAssignRulesResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListTaskAssignRulesResponseBody\data\taskAssignRuleInfo\agents;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListTaskAssignRulesResponseBody\data\taskAssignRuleInfo\reviewers;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListTaskAssignRulesResponseBody\data\taskAssignRuleInfo\rules;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListTaskAssignRulesResponseBody\data\taskAssignRuleInfo\samplingMode;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListTaskAssignRulesResponseBody\data\taskAssignRuleInfo\skillGroups;
+use AlibabaCloud\Tea\Model;
 
 class taskAssignRuleInfo extends Model
 {
@@ -19,51 +19,71 @@ class taskAssignRuleInfo extends Model
     public $agents;
 
     /**
+     * @example XX
+     *
      * @var string
      */
     public $agentsStr;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $assignmentType;
 
     /**
+     * @example 39600
+     *
      * @var int
      */
     public $callTimeEnd;
 
     /**
+     * @example 39600
+     *
      * @var int
      */
     public $callTimeStart;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $callType;
 
     /**
+     * @example 2019-07-12T14:47Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 400
+     *
      * @var int
      */
     public $durationMax;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $durationMin;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $enabled;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $priority;
@@ -74,6 +94,8 @@ class taskAssignRuleInfo extends Model
     public $reviewers;
 
     /**
+     * @example 23
+     *
      * @var int
      */
     public $ruleId;
@@ -99,11 +121,15 @@ class taskAssignRuleInfo extends Model
     public $skillGroups;
 
     /**
+     * @example XX
+     *
      * @var string
      */
     public $skillGroupsStr;
 
     /**
+     * @example 2019-07-12T14:47Z
+     *
      * @var string
      */
     public $updateTime;
@@ -129,101 +155,65 @@ class taskAssignRuleInfo extends Model
         'updateTime' => 'UpdateTime',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->agents) {
-            $this->agents->validate();
-        }
-        if (null !== $this->reviewers) {
-            $this->reviewers->validate();
-        }
-        if (null !== $this->rules) {
-            $this->rules->validate();
-        }
-        if (null !== $this->samplingMode) {
-            $this->samplingMode->validate();
-        }
-        if (null !== $this->skillGroups) {
-            $this->skillGroups->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->agents) {
-            $res['Agents'] = null !== $this->agents ? $this->agents->toArray($noStream) : $this->agents;
+            $res['Agents'] = null !== $this->agents ? $this->agents->toMap() : null;
         }
-
         if (null !== $this->agentsStr) {
             $res['AgentsStr'] = $this->agentsStr;
         }
-
         if (null !== $this->assignmentType) {
             $res['AssignmentType'] = $this->assignmentType;
         }
-
         if (null !== $this->callTimeEnd) {
             $res['CallTimeEnd'] = $this->callTimeEnd;
         }
-
         if (null !== $this->callTimeStart) {
             $res['CallTimeStart'] = $this->callTimeStart;
         }
-
         if (null !== $this->callType) {
             $res['CallType'] = $this->callType;
         }
-
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-
         if (null !== $this->durationMax) {
             $res['DurationMax'] = $this->durationMax;
         }
-
         if (null !== $this->durationMin) {
             $res['DurationMin'] = $this->durationMin;
         }
-
         if (null !== $this->enabled) {
             $res['Enabled'] = $this->enabled;
         }
-
         if (null !== $this->priority) {
             $res['Priority'] = $this->priority;
         }
-
         if (null !== $this->reviewers) {
-            $res['Reviewers'] = null !== $this->reviewers ? $this->reviewers->toArray($noStream) : $this->reviewers;
+            $res['Reviewers'] = null !== $this->reviewers ? $this->reviewers->toMap() : null;
         }
-
         if (null !== $this->ruleId) {
             $res['RuleId'] = $this->ruleId;
         }
-
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
         }
-
         if (null !== $this->rules) {
-            $res['Rules'] = null !== $this->rules ? $this->rules->toArray($noStream) : $this->rules;
+            $res['Rules'] = null !== $this->rules ? $this->rules->toMap() : null;
         }
-
         if (null !== $this->samplingMode) {
-            $res['SamplingMode'] = null !== $this->samplingMode ? $this->samplingMode->toArray($noStream) : $this->samplingMode;
+            $res['SamplingMode'] = null !== $this->samplingMode ? $this->samplingMode->toMap() : null;
         }
-
         if (null !== $this->skillGroups) {
-            $res['SkillGroups'] = null !== $this->skillGroups ? $this->skillGroups->toArray($noStream) : $this->skillGroups;
+            $res['SkillGroups'] = null !== $this->skillGroups ? $this->skillGroups->toMap() : null;
         }
-
         if (null !== $this->skillGroupsStr) {
             $res['SkillGroupsStr'] = $this->skillGroupsStr;
         }
-
         if (null !== $this->updateTime) {
             $res['UpdateTime'] = $this->updateTime;
         }
@@ -231,86 +221,68 @@ class taskAssignRuleInfo extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return taskAssignRuleInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Agents'])) {
             $model->agents = agents::fromMap($map['Agents']);
         }
-
         if (isset($map['AgentsStr'])) {
             $model->agentsStr = $map['AgentsStr'];
         }
-
         if (isset($map['AssignmentType'])) {
             $model->assignmentType = $map['AssignmentType'];
         }
-
         if (isset($map['CallTimeEnd'])) {
             $model->callTimeEnd = $map['CallTimeEnd'];
         }
-
         if (isset($map['CallTimeStart'])) {
             $model->callTimeStart = $map['CallTimeStart'];
         }
-
         if (isset($map['CallType'])) {
             $model->callType = $map['CallType'];
         }
-
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
-
         if (isset($map['DurationMax'])) {
             $model->durationMax = $map['DurationMax'];
         }
-
         if (isset($map['DurationMin'])) {
             $model->durationMin = $map['DurationMin'];
         }
-
         if (isset($map['Enabled'])) {
             $model->enabled = $map['Enabled'];
         }
-
         if (isset($map['Priority'])) {
             $model->priority = $map['Priority'];
         }
-
         if (isset($map['Reviewers'])) {
             $model->reviewers = reviewers::fromMap($map['Reviewers']);
         }
-
         if (isset($map['RuleId'])) {
             $model->ruleId = $map['RuleId'];
         }
-
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];
         }
-
         if (isset($map['Rules'])) {
             $model->rules = rules::fromMap($map['Rules']);
         }
-
         if (isset($map['SamplingMode'])) {
             $model->samplingMode = samplingMode::fromMap($map['SamplingMode']);
         }
-
         if (isset($map['SkillGroups'])) {
             $model->skillGroups = skillGroups::fromMap($map['SkillGroups']);
         }
-
         if (isset($map['SkillGroupsStr'])) {
             $model->skillGroupsStr = $map['SkillGroupsStr'];
         }
-
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];
         }

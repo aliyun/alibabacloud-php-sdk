@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListWarningConfigResponseBody\data\warningConfigInfo;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListWarningConfigResponseBody\data\warningConfigInfo\ruleList\warningRule;
+use AlibabaCloud\Tea\Model;
 
 class ruleList extends Model
 {
@@ -17,23 +17,17 @@ class ruleList extends Model
         'warningRule' => 'WarningRule',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->warningRule)) {
-            Model::validateArray($this->warningRule);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->warningRule) {
-            if (\is_array($this->warningRule)) {
-                $res['WarningRule'] = [];
-                $n1 = 0;
-                foreach ($this->warningRule as $item1) {
-                    $res['WarningRule'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['WarningRule'] = [];
+            if (null !== $this->warningRule && \is_array($this->warningRule)) {
+                $n = 0;
+                foreach ($this->warningRule as $item) {
+                    $res['WarningRule'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +35,20 @@ class ruleList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ruleList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['WarningRule'])) {
             if (!empty($map['WarningRule'])) {
                 $model->warningRule = [];
-                $n1 = 0;
-                foreach ($map['WarningRule'] as $item1) {
-                    $model->warningRule[$n1++] = warningRule::fromMap($item1);
+                $n = 0;
+                foreach ($map['WarningRule'] as $item) {
+                    $model->warningRule[$n++] = null !== $item ? warningRule::fromMap($item) : $item;
                 }
             }
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListSchemeTaskConfigResponseBody\data\data\dataConfig;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListSchemeTaskConfigResponseBody\data\data\dataConfig\assignConfigs\assignConfig;
+use AlibabaCloud\Tea\Model;
 
 class assignConfigs extends Model
 {
@@ -17,23 +17,17 @@ class assignConfigs extends Model
         'assignConfig' => 'AssignConfig',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->assignConfig)) {
-            Model::validateArray($this->assignConfig);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->assignConfig) {
-            if (\is_array($this->assignConfig)) {
-                $res['AssignConfig'] = [];
-                $n1 = 0;
-                foreach ($this->assignConfig as $item1) {
-                    $res['AssignConfig'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['AssignConfig'] = [];
+            if (null !== $this->assignConfig && \is_array($this->assignConfig)) {
+                $n = 0;
+                foreach ($this->assignConfig as $item) {
+                    $res['AssignConfig'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +35,20 @@ class assignConfigs extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return assignConfigs
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AssignConfig'])) {
             if (!empty($map['AssignConfig'])) {
                 $model->assignConfig = [];
-                $n1 = 0;
-                foreach ($map['AssignConfig'] as $item1) {
-                    $model->assignConfig[$n1++] = assignConfig::fromMap($item1);
+                $n = 0;
+                foreach ($map['AssignConfig'] as $item) {
+                    $model->assignConfig[$n++] = null !== $item ? assignConfig::fromMap($item) : $item;
                 }
             }
         }

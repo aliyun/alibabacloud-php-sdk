@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\NextNodeSituations\conditionGroup;
+use AlibabaCloud\Tea\Model;
 
 class NextNodeSituations extends Model
 {
@@ -23,27 +23,20 @@ class NextNodeSituations extends Model
         'type' => 'Type',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->conditionGroup)) {
-            Model::validateArray($this->conditionGroup);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->conditionGroup) {
-            if (\is_array($this->conditionGroup)) {
-                $res['ConditionGroup'] = [];
-                $n1 = 0;
-                foreach ($this->conditionGroup as $item1) {
-                    $res['ConditionGroup'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['ConditionGroup'] = [];
+            if (null !== $this->conditionGroup && \is_array($this->conditionGroup)) {
+                $n = 0;
+                foreach ($this->conditionGroup as $item) {
+                    $res['ConditionGroup'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -51,24 +44,23 @@ class NextNodeSituations extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return NextNodeSituations
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConditionGroup'])) {
             if (!empty($map['ConditionGroup'])) {
                 $model->conditionGroup = [];
-                $n1 = 0;
-                foreach ($map['ConditionGroup'] as $item1) {
-                    $model->conditionGroup[$n1++] = conditionGroup::fromMap($item1);
+                $n = 0;
+                foreach ($map['ConditionGroup'] as $item) {
+                    $model->conditionGroup[$n++] = null !== $item ? conditionGroup::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

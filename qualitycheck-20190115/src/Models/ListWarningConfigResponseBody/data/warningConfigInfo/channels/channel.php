@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListWarningConfigResponseBody\data\warningConfigInfo\channels;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class channel extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $type;
 
     /**
+     * @example oapi.dingtalk.com/robot/send?access_token=c55628f700eb9ad2a3ca
+     *
      * @var string
      */
     public $url;
@@ -22,18 +26,14 @@ class channel extends Model
         'url' => 'Url',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
-
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
@@ -41,18 +41,17 @@ class channel extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return channel
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
-
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultResponseBody\data\resultInfo\reviewTypeIdList\reviewTypeIdList;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class reviewKeyIdList extends Model
 {
@@ -16,45 +16,29 @@ class reviewKeyIdList extends Model
         'reviewKeyIdList' => 'ReviewKeyIdList',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->reviewKeyIdList)) {
-            Model::validateArray($this->reviewKeyIdList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->reviewKeyIdList) {
-            if (\is_array($this->reviewKeyIdList)) {
-                $res['ReviewKeyIdList'] = [];
-                $n1 = 0;
-                foreach ($this->reviewKeyIdList as $item1) {
-                    $res['ReviewKeyIdList'][$n1++] = $item1;
-                }
-            }
+            $res['ReviewKeyIdList'] = $this->reviewKeyIdList;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return reviewKeyIdList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ReviewKeyIdList'])) {
             if (!empty($map['ReviewKeyIdList'])) {
-                $model->reviewKeyIdList = [];
-                $n1 = 0;
-                foreach ($map['ReviewKeyIdList'] as $item1) {
-                    $model->reviewKeyIdList[$n1++] = $item1;
-                }
+                $model->reviewKeyIdList = $map['ReviewKeyIdList'];
             }
         }
 

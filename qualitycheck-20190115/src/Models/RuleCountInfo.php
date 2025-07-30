@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class RuleCountInfo extends Model
 {
@@ -292,225 +292,155 @@ class RuleCountInfo extends Model
         'userGroup' => 'UserGroup',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->businessCategoryBasicInfoList)) {
-            Model::validateArray($this->businessCategoryBasicInfoList);
-        }
-        if (\is_array($this->businessCategoryNameList)) {
-            Model::validateArray($this->businessCategoryNameList);
-        }
-        if (\is_array($this->businessRange)) {
-            Model::validateArray($this->businessRange);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->autoReview) {
             $res['AutoReview'] = $this->autoReview;
         }
-
         if (null !== $this->businessCategoryBasicInfoList) {
-            if (\is_array($this->businessCategoryBasicInfoList)) {
-                $res['BusinessCategoryBasicInfoList'] = [];
-                $n1 = 0;
-                foreach ($this->businessCategoryBasicInfoList as $item1) {
-                    $res['BusinessCategoryBasicInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['BusinessCategoryBasicInfoList'] = [];
+            if (null !== $this->businessCategoryBasicInfoList && \is_array($this->businessCategoryBasicInfoList)) {
+                $n = 0;
+                foreach ($this->businessCategoryBasicInfoList as $item) {
+                    $res['BusinessCategoryBasicInfoList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->businessCategoryNameList) {
-            if (\is_array($this->businessCategoryNameList)) {
-                $res['BusinessCategoryNameList'] = [];
-                $n1 = 0;
-                foreach ($this->businessCategoryNameList as $item1) {
-                    $res['BusinessCategoryNameList'][$n1++] = $item1;
-                }
-            }
+            $res['BusinessCategoryNameList'] = $this->businessCategoryNameList;
         }
-
         if (null !== $this->businessRange) {
-            if (\is_array($this->businessRange)) {
-                $res['BusinessRange'] = [];
-                $n1 = 0;
-                foreach ($this->businessRange as $item1) {
-                    $res['BusinessRange'][$n1++] = $item1;
-                }
-            }
+            $res['BusinessRange'] = $this->businessRange;
         }
-
         if (null !== $this->checkNumber) {
             $res['CheckNumber'] = $this->checkNumber;
         }
-
         if (null !== $this->comments) {
             $res['Comments'] = $this->comments;
         }
-
         if (null !== $this->createEmpName) {
             $res['CreateEmpName'] = $this->createEmpName;
         }
-
         if (null !== $this->createEmpid) {
             $res['CreateEmpid'] = $this->createEmpid;
         }
-
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-
         if (null !== $this->deny) {
             $res['Deny'] = $this->deny;
         }
-
         if (null !== $this->effective) {
             $res['Effective'] = $this->effective;
         }
-
         if (null !== $this->effectiveEndTime) {
             $res['EffectiveEndTime'] = $this->effectiveEndTime;
         }
-
         if (null !== $this->effectiveStartTime) {
             $res['EffectiveStartTime'] = $this->effectiveStartTime;
         }
-
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
-
         if (null !== $this->fullCycle) {
             $res['FullCycle'] = $this->fullCycle;
         }
-
         if (null !== $this->graphFlow) {
             $res['GraphFlow'] = $this->graphFlow;
         }
-
         if (null !== $this->hitNumber) {
             $res['HitNumber'] = $this->hitNumber;
         }
-
         if (null !== $this->hitRate) {
             $res['HitRate'] = $this->hitRate;
         }
-
         if (null !== $this->hitRealViolationRate) {
             $res['HitRealViolationRate'] = $this->hitRealViolationRate;
         }
-
         if (null !== $this->isDelete) {
             $res['IsDelete'] = $this->isDelete;
         }
-
         if (null !== $this->isSelect) {
             $res['IsSelect'] = $this->isSelect;
         }
-
         if (null !== $this->jobName) {
             $res['JobName'] = $this->jobName;
         }
-
         if (null !== $this->lastUpdateEmpName) {
             $res['LastUpdateEmpName'] = $this->lastUpdateEmpName;
         }
-
         if (null !== $this->lastUpdateEmpid) {
             $res['LastUpdateEmpid'] = $this->lastUpdateEmpid;
         }
-
         if (null !== $this->lastUpdateTime) {
             $res['LastUpdateTime'] = $this->lastUpdateTime;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->operationMode) {
             $res['OperationMode'] = $this->operationMode;
         }
-
         if (null !== $this->preReviewNumber) {
             $res['PreReviewNumber'] = $this->preReviewNumber;
         }
-
         if (null !== $this->problemNumber) {
             $res['ProblemNumber'] = $this->problemNumber;
         }
-
         if (null !== $this->qualityCheckType) {
             $res['QualityCheckType'] = $this->qualityCheckType;
         }
-
         if (null !== $this->realViolationNumber) {
             $res['RealViolationNumber'] = $this->realViolationNumber;
         }
-
         if (null !== $this->reviewAccuracyRate) {
             $res['ReviewAccuracyRate'] = $this->reviewAccuracyRate;
         }
-
         if (null !== $this->reviewNumber) {
             $res['ReviewNumber'] = $this->reviewNumber;
         }
-
         if (null !== $this->reviewRate) {
             $res['ReviewRate'] = $this->reviewRate;
         }
-
         if (null !== $this->reviewStatusName) {
             $res['ReviewStatusName'] = $this->reviewStatusName;
         }
-
         if (null !== $this->rid) {
             $res['Rid'] = $this->rid;
         }
-
         if (null !== $this->ruleScoreSingleType) {
             $res['RuleScoreSingleType'] = $this->ruleScoreSingleType;
         }
-
         if (null !== $this->ruleScoreType) {
             $res['RuleScoreType'] = $this->ruleScoreType;
         }
-
         if (null !== $this->ruleType) {
             $res['RuleType'] = $this->ruleType;
         }
-
         if (null !== $this->scoreSubId) {
             $res['ScoreSubId'] = $this->scoreSubId;
         }
-
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
-
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-
         if (null !== $this->targetType) {
             $res['TargetType'] = $this->targetType;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
-
         if (null !== $this->typeName) {
             $res['TypeName'] = $this->typeName;
         }
-
         if (null !== $this->unReviewNumber) {
             $res['UnReviewNumber'] = $this->unReviewNumber;
         }
-
         if (null !== $this->userGroup) {
             $res['UserGroup'] = $this->userGroup;
         }
@@ -518,216 +448,162 @@ class RuleCountInfo extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return RuleCountInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AutoReview'])) {
             $model->autoReview = $map['AutoReview'];
         }
-
         if (isset($map['BusinessCategoryBasicInfoList'])) {
             if (!empty($map['BusinessCategoryBasicInfoList'])) {
                 $model->businessCategoryBasicInfoList = [];
-                $n1 = 0;
-                foreach ($map['BusinessCategoryBasicInfoList'] as $item1) {
-                    $model->businessCategoryBasicInfoList[$n1++] = BusinessCategoryBasicInfo::fromMap($item1);
+                $n = 0;
+                foreach ($map['BusinessCategoryBasicInfoList'] as $item) {
+                    $model->businessCategoryBasicInfoList[$n++] = null !== $item ? BusinessCategoryBasicInfo::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['BusinessCategoryNameList'])) {
             if (!empty($map['BusinessCategoryNameList'])) {
-                $model->businessCategoryNameList = [];
-                $n1 = 0;
-                foreach ($map['BusinessCategoryNameList'] as $item1) {
-                    $model->businessCategoryNameList[$n1++] = $item1;
-                }
+                $model->businessCategoryNameList = $map['BusinessCategoryNameList'];
             }
         }
-
         if (isset($map['BusinessRange'])) {
             if (!empty($map['BusinessRange'])) {
-                $model->businessRange = [];
-                $n1 = 0;
-                foreach ($map['BusinessRange'] as $item1) {
-                    $model->businessRange[$n1++] = $item1;
-                }
+                $model->businessRange = $map['BusinessRange'];
             }
         }
-
         if (isset($map['CheckNumber'])) {
             $model->checkNumber = $map['CheckNumber'];
         }
-
         if (isset($map['Comments'])) {
             $model->comments = $map['Comments'];
         }
-
         if (isset($map['CreateEmpName'])) {
             $model->createEmpName = $map['CreateEmpName'];
         }
-
         if (isset($map['CreateEmpid'])) {
             $model->createEmpid = $map['CreateEmpid'];
         }
-
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
-
         if (isset($map['Deny'])) {
             $model->deny = $map['Deny'];
         }
-
         if (isset($map['Effective'])) {
             $model->effective = $map['Effective'];
         }
-
         if (isset($map['EffectiveEndTime'])) {
             $model->effectiveEndTime = $map['EffectiveEndTime'];
         }
-
         if (isset($map['EffectiveStartTime'])) {
             $model->effectiveStartTime = $map['EffectiveStartTime'];
         }
-
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
-
         if (isset($map['FullCycle'])) {
             $model->fullCycle = $map['FullCycle'];
         }
-
         if (isset($map['GraphFlow'])) {
             $model->graphFlow = $map['GraphFlow'];
         }
-
         if (isset($map['HitNumber'])) {
             $model->hitNumber = $map['HitNumber'];
         }
-
         if (isset($map['HitRate'])) {
             $model->hitRate = $map['HitRate'];
         }
-
         if (isset($map['HitRealViolationRate'])) {
             $model->hitRealViolationRate = $map['HitRealViolationRate'];
         }
-
         if (isset($map['IsDelete'])) {
             $model->isDelete = $map['IsDelete'];
         }
-
         if (isset($map['IsSelect'])) {
             $model->isSelect = $map['IsSelect'];
         }
-
         if (isset($map['JobName'])) {
             $model->jobName = $map['JobName'];
         }
-
         if (isset($map['LastUpdateEmpName'])) {
             $model->lastUpdateEmpName = $map['LastUpdateEmpName'];
         }
-
         if (isset($map['LastUpdateEmpid'])) {
             $model->lastUpdateEmpid = $map['LastUpdateEmpid'];
         }
-
         if (isset($map['LastUpdateTime'])) {
             $model->lastUpdateTime = $map['LastUpdateTime'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['OperationMode'])) {
             $model->operationMode = $map['OperationMode'];
         }
-
         if (isset($map['PreReviewNumber'])) {
             $model->preReviewNumber = $map['PreReviewNumber'];
         }
-
         if (isset($map['ProblemNumber'])) {
             $model->problemNumber = $map['ProblemNumber'];
         }
-
         if (isset($map['QualityCheckType'])) {
             $model->qualityCheckType = $map['QualityCheckType'];
         }
-
         if (isset($map['RealViolationNumber'])) {
             $model->realViolationNumber = $map['RealViolationNumber'];
         }
-
         if (isset($map['ReviewAccuracyRate'])) {
             $model->reviewAccuracyRate = $map['ReviewAccuracyRate'];
         }
-
         if (isset($map['ReviewNumber'])) {
             $model->reviewNumber = $map['ReviewNumber'];
         }
-
         if (isset($map['ReviewRate'])) {
             $model->reviewRate = $map['ReviewRate'];
         }
-
         if (isset($map['ReviewStatusName'])) {
             $model->reviewStatusName = $map['ReviewStatusName'];
         }
-
         if (isset($map['Rid'])) {
             $model->rid = $map['Rid'];
         }
-
         if (isset($map['RuleScoreSingleType'])) {
             $model->ruleScoreSingleType = $map['RuleScoreSingleType'];
         }
-
         if (isset($map['RuleScoreType'])) {
             $model->ruleScoreType = $map['RuleScoreType'];
         }
-
         if (isset($map['RuleType'])) {
             $model->ruleType = $map['RuleType'];
         }
-
         if (isset($map['ScoreSubId'])) {
             $model->scoreSubId = $map['ScoreSubId'];
         }
-
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
-
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-
         if (isset($map['TargetType'])) {
             $model->targetType = $map['TargetType'];
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
-
         if (isset($map['TypeName'])) {
             $model->typeName = $map['TypeName'];
         }
-
         if (isset($map['UnReviewNumber'])) {
             $model->unReviewNumber = $map['UnReviewNumber'];
         }
-
         if (isset($map['UserGroup'])) {
             $model->userGroup = $map['UserGroup'];
         }

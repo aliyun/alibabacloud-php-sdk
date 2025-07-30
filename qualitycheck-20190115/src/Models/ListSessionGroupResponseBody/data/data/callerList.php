@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListSessionGroupResponseBody\data\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class callerList extends Model
 {
@@ -16,45 +16,29 @@ class callerList extends Model
         'callerList' => 'CallerList',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->callerList)) {
-            Model::validateArray($this->callerList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->callerList) {
-            if (\is_array($this->callerList)) {
-                $res['CallerList'] = [];
-                $n1 = 0;
-                foreach ($this->callerList as $item1) {
-                    $res['CallerList'][$n1++] = $item1;
-                }
-            }
+            $res['CallerList'] = $this->callerList;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return callerList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CallerList'])) {
             if (!empty($map['CallerList'])) {
-                $model->callerList = [];
-                $n1 = 0;
-                foreach ($map['CallerList'] as $item1) {
-                    $model->callerList[$n1++] = $item1;
-                }
+                $model->callerList = $map['CallerList'];
             }
         }
 

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultToReviewResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultToReviewResponseBody\data\hitRuleReviewInfoList\hitRuleReviewInfo;
+use AlibabaCloud\Tea\Model;
 
 class hitRuleReviewInfoList extends Model
 {
@@ -17,23 +17,17 @@ class hitRuleReviewInfoList extends Model
         'hitRuleReviewInfo' => 'HitRuleReviewInfo',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->hitRuleReviewInfo)) {
-            Model::validateArray($this->hitRuleReviewInfo);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->hitRuleReviewInfo) {
-            if (\is_array($this->hitRuleReviewInfo)) {
-                $res['HitRuleReviewInfo'] = [];
-                $n1 = 0;
-                foreach ($this->hitRuleReviewInfo as $item1) {
-                    $res['HitRuleReviewInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['HitRuleReviewInfo'] = [];
+            if (null !== $this->hitRuleReviewInfo && \is_array($this->hitRuleReviewInfo)) {
+                $n = 0;
+                foreach ($this->hitRuleReviewInfo as $item) {
+                    $res['HitRuleReviewInfo'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +35,20 @@ class hitRuleReviewInfoList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return hitRuleReviewInfoList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HitRuleReviewInfo'])) {
             if (!empty($map['HitRuleReviewInfo'])) {
                 $model->hitRuleReviewInfo = [];
-                $n1 = 0;
-                foreach ($map['HitRuleReviewInfo'] as $item1) {
-                    $model->hitRuleReviewInfo[$n1++] = hitRuleReviewInfo::fromMap($item1);
+                $n = 0;
+                foreach ($map['HitRuleReviewInfo'] as $item) {
+                    $model->hitRuleReviewInfo[$n++] = null !== $item ? hitRuleReviewInfo::fromMap($item) : $item;
                 }
             }
         }

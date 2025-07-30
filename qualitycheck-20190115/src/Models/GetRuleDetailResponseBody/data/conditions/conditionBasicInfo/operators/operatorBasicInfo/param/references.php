@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetRuleDetailResponseBody\data\conditions\conditionBasicInfo\operators\operatorBasicInfo\param;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class references extends Model
 {
@@ -16,45 +16,29 @@ class references extends Model
         'reference' => 'Reference',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->reference)) {
-            Model::validateArray($this->reference);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->reference) {
-            if (\is_array($this->reference)) {
-                $res['Reference'] = [];
-                $n1 = 0;
-                foreach ($this->reference as $item1) {
-                    $res['Reference'][$n1++] = $item1;
-                }
-            }
+            $res['Reference'] = $this->reference;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return references
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Reference'])) {
             if (!empty($map['Reference'])) {
-                $model->reference = [];
-                $n1 = 0;
-                foreach ($map['Reference'] as $item1) {
-                    $model->reference[$n1++] = $item1;
-                }
+                $model->reference = $map['Reference'];
             }
         }
 

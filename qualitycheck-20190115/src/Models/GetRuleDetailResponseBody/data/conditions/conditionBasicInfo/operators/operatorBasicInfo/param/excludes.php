@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetRuleDetailResponseBody\data\conditions\conditionBasicInfo\operators\operatorBasicInfo\param;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class excludes extends Model
 {
@@ -16,45 +16,29 @@ class excludes extends Model
         'excludes' => 'Excludes',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->excludes)) {
-            Model::validateArray($this->excludes);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->excludes) {
-            if (\is_array($this->excludes)) {
-                $res['Excludes'] = [];
-                $n1 = 0;
-                foreach ($this->excludes as $item1) {
-                    $res['Excludes'][$n1++] = $item1;
-                }
-            }
+            $res['Excludes'] = $this->excludes;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return excludes
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Excludes'])) {
             if (!empty($map['Excludes'])) {
-                $model->excludes = [];
-                $n1 = 0;
-                foreach ($map['Excludes'] as $item1) {
-                    $model->excludes[$n1++] = $item1;
-                }
+                $model->excludes = $map['Excludes'];
             }
         }
 
