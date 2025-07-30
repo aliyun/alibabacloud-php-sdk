@@ -39,7 +39,9 @@ class applications extends Model
     public $applicationSourceType;
 
     /**
-     * @description 应用模板ID
+     * @description The application template ID.
+     *
+     * @example apt_xxx_xxx
      *
      * @var string
      */
@@ -76,10 +78,14 @@ class applications extends Model
      * @description The features that are supported by the application. The value is a JSON array. Valid values:
      *
      *   sso: The application supports SSO.
+     *   slo: The application supports SLO.
      *   provision: The application supports account synchronization.
      *   api_invoke: The application supports custom APIs.
+     *   m2m_client: The application supports M2M Client.
+     *   resource_server: The application supports Resource Server.
+     *   other: undertake.
      *
-     * @example ["sso", "provision"]
+     * @example ["sso","slo", "provision","api_invoke", "m2m_client","resource_server","other"]
      *
      * @var string
      */
@@ -104,11 +110,6 @@ class applications extends Model
     public $logoUrl;
 
     /**
-     * @var string
-     */
-    public $m2MClientStatus;
-
-    /**
      * @description The service code of the cloud service that manages the application template.
      *
      * @example rpa
@@ -116,16 +117,6 @@ class applications extends Model
      * @var string
      */
     public $managedServiceCode;
-
-    /**
-     * @var string
-     */
-    public $resourceServerIdentifier;
-
-    /**
-     * @var string
-     */
-    public $resourceServerStatus;
 
     /**
      * @description Indicates whether the application template is managed by a cloud service.
@@ -141,6 +132,7 @@ class applications extends Model
      *
      *   saml2: the Security Assertion Markup Language (SAML) 2.0 protocol.
      *   oidc: the OpenID Connect (OIDC) protocol.
+     *   oauth2/m2m: the OAuth2.0  protocol M2M.
      *
      * @example saml2
      *
@@ -151,8 +143,9 @@ class applications extends Model
     /**
      * @description The status of the application. Valid values:
      *
-     *   Enabled: The application is enabled.
-     *   Disabled: The application is disabled.
+     *   enabled: The application is enabled.
+     *   disabled: The application is disabled.
+     *   deleted: The application is deleted.
      *
      * @example enabled
      *
@@ -179,10 +172,7 @@ class applications extends Model
         'features' => 'Features',
         'instanceId' => 'InstanceId',
         'logoUrl' => 'LogoUrl',
-        'm2MClientStatus' => 'M2MClientStatus',
         'managedServiceCode' => 'ManagedServiceCode',
-        'resourceServerIdentifier' => 'ResourceServerIdentifier',
-        'resourceServerStatus' => 'ResourceServerStatus',
         'serviceManaged' => 'ServiceManaged',
         'ssoType' => 'SsoType',
         'status' => 'Status',
@@ -224,17 +214,8 @@ class applications extends Model
         if (null !== $this->logoUrl) {
             $res['LogoUrl'] = $this->logoUrl;
         }
-        if (null !== $this->m2MClientStatus) {
-            $res['M2MClientStatus'] = $this->m2MClientStatus;
-        }
         if (null !== $this->managedServiceCode) {
             $res['ManagedServiceCode'] = $this->managedServiceCode;
-        }
-        if (null !== $this->resourceServerIdentifier) {
-            $res['ResourceServerIdentifier'] = $this->resourceServerIdentifier;
-        }
-        if (null !== $this->resourceServerStatus) {
-            $res['ResourceServerStatus'] = $this->resourceServerStatus;
         }
         if (null !== $this->serviceManaged) {
             $res['ServiceManaged'] = $this->serviceManaged;
@@ -290,17 +271,8 @@ class applications extends Model
         if (isset($map['LogoUrl'])) {
             $model->logoUrl = $map['LogoUrl'];
         }
-        if (isset($map['M2MClientStatus'])) {
-            $model->m2MClientStatus = $map['M2MClientStatus'];
-        }
         if (isset($map['ManagedServiceCode'])) {
             $model->managedServiceCode = $map['ManagedServiceCode'];
-        }
-        if (isset($map['ResourceServerIdentifier'])) {
-            $model->resourceServerIdentifier = $map['ResourceServerIdentifier'];
-        }
-        if (isset($map['ResourceServerStatus'])) {
-            $model->resourceServerStatus = $map['ResourceServerStatus'];
         }
         if (isset($map['ServiceManaged'])) {
             $model->serviceManaged = $map['ServiceManaged'];

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class larkConfig extends Model
 {
     /**
+     * @description Lark (Feishu) app appId.
+     *
      * @example cli_xxxx
      *
      * @var string
@@ -16,6 +18,8 @@ class larkConfig extends Model
     public $appId;
 
     /**
+     * @description Lark (Feishu) app secret.
+     *
      * @example KiiLzh5Dueh4wbLxxxx
      *
      * @var string
@@ -23,11 +27,17 @@ class larkConfig extends Model
     public $appSecret;
 
     /**
+     * @description Lark (Feishu) encrypt key.
+     *
+     * @example 29003eb11d0a28b4802a6f02fb8aa25dff730e2ac26ffd200dxxxx
+     *
      * @var string
      */
     public $encryptKey;
 
     /**
+     * @description Lark (Feishu) enterprise number.
+     *
      * @example FSX123111xxx
      *
      * @var string
@@ -35,6 +45,10 @@ class larkConfig extends Model
     public $enterpriseNumber;
 
     /**
+     * @description Lark (Feishu)  verification token.
+     *
+     * @example 5ba9c127a7abe029003eb11d0a28b4802a6f02fb8aa25dff730e2ac26ffd200dxxxx
+     *
      * @var string
      */
     public $verificationToken;

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetNetworkAccessEndpointRequest extends Model
 {
     /**
-     * @description IDaaS EIAM实例的ID。
+     * @description The instance ID.
      *
      * This parameter is required.
      *
@@ -20,7 +20,7 @@ class GetNetworkAccessEndpointRequest extends Model
     public $instanceId;
 
     /**
-     * @description 专属网络端点ID。
+     * @description The unique identifier of the network access endpoint.
      *
      * This parameter is required.
      *

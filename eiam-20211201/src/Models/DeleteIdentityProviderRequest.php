@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteIdentityProviderRequest extends Model
 {
     /**
-     * @description IDaaS的身份提供方主键id
+     * @description Identity provider ID.
      *
      * This parameter is required.
      *
@@ -20,7 +20,7 @@ class DeleteIdentityProviderRequest extends Model
     public $identityProviderId;
 
     /**
-     * @description IDaaS EIAM的实例id
+     * @description The ID of the instance.
      *
      * This parameter is required.
      *

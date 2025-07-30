@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class ListEiamInstancesRequest extends Model
 {
     /**
-     * @description 实例ID列表，支持0到100个
+     * @description The instance ID list.
      *
      * @var string[]
      */
     public $instanceIds;
 
     /**
-     * @description 实例所属Region
+     * @description The region in which the instance resides.
      *
      * @example cn-hangzhou
      *

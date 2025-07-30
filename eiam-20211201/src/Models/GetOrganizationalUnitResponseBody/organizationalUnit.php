@@ -65,7 +65,7 @@ class organizationalUnit extends Model
     public $organizationalUnitId;
 
     /**
-     * @description 组织名称。
+     * @description The Name of the organizational unit.
      *
      * @example test_organizationalUnit_name
      *

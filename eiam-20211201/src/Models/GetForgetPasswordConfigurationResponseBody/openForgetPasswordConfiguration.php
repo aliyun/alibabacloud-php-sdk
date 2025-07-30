@@ -9,7 +9,11 @@ use AlibabaCloud\Tea\Model;
 class openForgetPasswordConfiguration extends Model
 {
     /**
-     * @description 表示忘记密码认证渠道。枚举取值:email(邮件)、sms(短信)
+     * @description The authentication channels. Valid values:
+     * email
+     * sms
+     * totp
+     * web_authn
      *
      * @var string[]
      */
@@ -43,7 +47,9 @@ class openForgetPasswordConfiguration extends Model
     public $enableSms;
 
     /**
-     * @description 表示忘记密码配置状态。枚举取值:enabled(开启)、disabled(禁用)
+     * @description The status of the forgot password feature. Valid values: enabled and disabled.
+     *
+     * @example enabled
      *
      * @var string
      */

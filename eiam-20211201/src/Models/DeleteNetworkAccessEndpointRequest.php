@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteNetworkAccessEndpointRequest extends Model
 {
     /**
-     * @description IDaaS EIAM实例的ID。
+     * @description The instance ID.
      *
      * This parameter is required.
      *
@@ -20,7 +20,7 @@ class DeleteNetworkAccessEndpointRequest extends Model
     public $instanceId;
 
     /**
-     * @description 专属网络端点ID。
+     * @description Network Access Endpoint ID.
      *
      * This parameter is required.
      *

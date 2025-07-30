@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class weComConfig extends Model
 {
     /**
-     * @description IDaaS EIAM 企业微信自建应用的Id
+     * @description The ID of the load generator. This parameter is disabled.
      *
      * @example 1242350
      *
@@ -18,7 +18,7 @@ class weComConfig extends Model
     public $agentId;
 
     /**
-     * @description 授权回调域
+     * @description Authorization callback domain.
      *
      * @example https://example.com/xxxx
      *
@@ -27,16 +27,16 @@ class weComConfig extends Model
     public $authorizeCallbackDomain;
 
     /**
-     * @description IDaaS EIAM 企业微信自建应用的corpId
+     * @description CorpId.
      *
-     * @example 3562012953454577801
+     * @example 356201295345457xxxxx
      *
      * @var string
      */
     public $corpId;
 
     /**
-     * @description IDaaS EIAM 企业微信自建应用的corpSecret
+     * @description Corp secret.
      *
      * @example weaseiszjskejskaj12sjeszojxxxx
      *
@@ -45,7 +45,7 @@ class weComConfig extends Model
     public $corpSecret;
 
     /**
-     * @description 可信域名
+     * @description Trusted domain.
      *
      * @example https://example.com
      *

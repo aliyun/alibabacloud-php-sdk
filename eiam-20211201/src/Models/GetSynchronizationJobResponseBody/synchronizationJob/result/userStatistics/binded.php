@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class binded extends Model
 {
     /**
-     * @description 失败数目
+     * @description The number of failed items.
      *
      * @example 10
      *
@@ -18,7 +18,7 @@ class binded extends Model
     public $failed;
 
     /**
-     * @description 跳过数目
+     * @description The number of skipped items.
      *
      * @example 10
      *
@@ -27,7 +27,7 @@ class binded extends Model
     public $skipped;
 
     /**
-     * @description 成功数目
+     * @description The number of successful items.
      *
      * @example 10
      *
@@ -36,7 +36,7 @@ class binded extends Model
     public $success;
 
     /**
-     * @description 总共数目
+     * @description The total number of items.
      *
      * @example 10
      *

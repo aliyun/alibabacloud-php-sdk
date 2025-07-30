@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetSynchronizationJobRequest extends Model
 {
     /**
-     * @description IDaaS EIAM实例的ID。
+     * @description The instance ID.
      *
      * This parameter is required.
      *
@@ -20,7 +20,7 @@ class GetSynchronizationJobRequest extends Model
     public $instanceId;
 
     /**
-     * @description 同步任务ID
+     * @description The ID of the synchronization job.
      *
      * This parameter is required.
      *

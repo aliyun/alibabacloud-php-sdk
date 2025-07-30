@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListIdentityProvidersRequest extends Model
 {
     /**
-     * @description IDaaS EIAM实例的ID。
+     * @description The instance ID.
      *
      * This parameter is required.
      *
@@ -20,7 +20,7 @@ class ListIdentityProvidersRequest extends Model
     public $instanceId;
 
     /**
-     * @description 当前查询的列表页码，默认为1。
+     * @description The number of the page to return.
      *
      * @example 1
      *
@@ -29,7 +29,7 @@ class ListIdentityProvidersRequest extends Model
     public $pageNumber;
 
     /**
-     * @description 当前查询的列表页码，默认为20。
+     * @description The number of entries to return on each page.
      *
      * @example 20
      *

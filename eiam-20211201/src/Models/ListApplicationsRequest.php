@@ -50,6 +50,10 @@ class ListApplicationsRequest extends Model
     public $instanceId;
 
     /**
+     * @description Used to determine whether M2M client identity is enabled.
+     * - enabled
+     * - disabled
+     *
      * @example enabled
      *
      * @var string
@@ -75,6 +79,10 @@ class ListApplicationsRequest extends Model
     public $pageSize;
 
     /**
+     * @description Used to determine whether the ResourceServer capability is enabled.
+     * - enabled
+     * - disabled
+     *
      * @example enabled
      *
      * @var string
@@ -82,6 +90,11 @@ class ListApplicationsRequest extends Model
     public $resourceServerStatus;
 
     /**
+     * @description SSO type.
+     * - oidc
+     * - saml2
+     * - oauth2/m2m
+     *
      * @example oauth2/m2m
      *
      * @var string

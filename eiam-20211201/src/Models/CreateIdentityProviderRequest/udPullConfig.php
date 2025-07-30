@@ -11,7 +11,11 @@ use AlibabaCloud\Tea\Model;
 class udPullConfig extends Model
 {
     /**
-     * @description 是否支持组同步，默认为disabled
+     * @description Whether group synchronization is supported. The default value is disabled. Possible values:
+     *
+     * - Disabled: disabled
+     *
+     * - Enabled: enabled
      *
      * @example disabled
      *
@@ -20,7 +24,11 @@ class udPullConfig extends Model
     public $groupSyncStatus;
 
     /**
-     * @description 增量回调状态，是否处理来自IdP的增量回调数据
+     * @description Incremental callback status, indicating whether to process incremental callback data from the IdP. Possible values:
+     *
+     * - Disabled: disabled
+     *
+     * - Enabled: enabled
      *
      * @example disabled
      *
@@ -29,11 +37,18 @@ class udPullConfig extends Model
     public $incrementalCallbackStatus;
 
     /**
+     * @description Scheduled configuration verification.
+     *
      * @var periodicSyncConfig
      */
     public $periodicSyncConfig;
 
     /**
+     * @description Periodic check status, indicating whether to periodically check the data differences between EIAM and the identity provider. Possible values:
+     * - Disabled: disabled
+     *
+     * - Enabled: enabled
+     *
      * @example disabled
      *
      * @var string
@@ -41,9 +56,7 @@ class udPullConfig extends Model
     public $periodicSyncStatus;
 
     /**
-     * @description 同步入配置信息
-     *
-     * This parameter is required.
+     * @description Synchronization scope configuration information.
      *
      * @var udSyncScopeConfig
      */

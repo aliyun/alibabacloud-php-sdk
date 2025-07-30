@@ -10,14 +10,18 @@ use AlibabaCloud\Tea\Model;
 class bindingConfig extends Model
 {
     /**
-     * @description 自动匹配账户的规则
+     * @description List of rules for automatically matching accounts.
      *
      * @var autoMatchUserProfileExpressions[]
      */
     public $autoMatchUserProfileExpressions;
 
     /**
-     * @description 自动匹配账户是否开启
+     * @description Whether automatic account matching is enabled. Value range:
+     *
+     * - Disabled: disabled
+     *
+     * - Enabled: enabled
      *
      * @example disabled
      *
@@ -26,7 +30,10 @@ class bindingConfig extends Model
     public $autoMatchUserStatus;
 
     /**
-     * @description 用户手动绑定账户功能是否开启
+     * @description Whether the user manual account binding function is enabled. Value range:
+     * - Disabled: disabled
+     *
+     * - Enabled: enabled
      *
      * @example enabled
      *

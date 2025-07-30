@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class attributeStatements extends Model
 {
     /**
-     * @description The attribute name.
+     * @description The name of the attribute in the SAML assertion.
      *
      * @example https://www.aliyun.com/SAML-Role/Attributes/RoleSessionName
      *
@@ -18,7 +18,7 @@ class attributeStatements extends Model
     public $attributeName;
 
     /**
-     * @description The expression that is used to generate the value of the attribute.
+     * @description The expression that is used to generate the value of the attribute in the SAML assertion.
      *
      * @example user.username
      *

@@ -10,6 +10,12 @@ use AlibabaCloud\Tea\Model;
 class udPullConfig extends Model
 {
     /**
+     * @description Whether to enable group synchronization. Possible values:
+     *
+     * Disabled: disabled
+     *
+     * Enabled: enabled
+     *
      * @example disabled
      *
      * @var string
@@ -17,7 +23,7 @@ class udPullConfig extends Model
     public $groupSyncStatus;
 
     /**
-     * @description 增量回调状态，是否处理来自IdP的增量回调数据
+     * @description Incremental callback status: Whether to process incremental callback data from the IdP.
      *
      * @example disabled
      *
@@ -26,7 +32,7 @@ class udPullConfig extends Model
     public $incrementalCallbackStatus;
 
     /**
-     * @description 同步入配置信息
+     * @description Inbound synchronization configuration Information.
      *
      * @var udSyncScopeConfig
      */

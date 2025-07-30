@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class applicationProvisioningScope extends Model
 {
     /**
-     * @description Synchronize the list of authorized groups
+     * @description Synchronize the list of authorized groups.
      *
      * @var string[]
      */
     public $groupIds;
 
     /**
-     * @description Instance Indicates the maximum quota number of authorized agents
+     * @description Instance Indicates the maximum quota number of authorized agents.
      *
      * @example 20
      *
@@ -32,7 +32,7 @@ class applicationProvisioningScope extends Model
     public $organizationalUnitIds;
 
     /**
-     * @description Indicates the quota number of used authorized agents
+     * @description Indicates the quota number of used authorized agents.
      *
      * @example 10
      *

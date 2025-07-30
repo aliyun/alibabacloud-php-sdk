@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class EnableApplicationSsoRequest extends Model
 {
     /**
-     * @description IDaaS的应用主键id
+     * @description The application ID.
      *
      * This parameter is required.
      *
@@ -20,7 +20,7 @@ class EnableApplicationSsoRequest extends Model
     public $applicationId;
 
     /**
-     * @description IDaaS EIAM的实例id
+     * @description The instance ID.
      *
      * This parameter is required.
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class filing extends Model
 {
     /**
-     * @description 域名关联的备案号，长度最大限制64。
+     * @description Record number associated with the domain name.
      *
      * @example 浙xx-xxxxxx
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ldapConfig extends Model
 {
     /**
-     * @description 管理员密码
+     * @description Administrator password.
      *
      * @example xxxx
      *
@@ -18,7 +18,7 @@ class ldapConfig extends Model
     public $administratorPassword;
 
     /**
-     * @description 管理员账号
+     * @description Administrator username.
      *
      * @example DC=example,DC=com
      *
@@ -27,7 +27,11 @@ class ldapConfig extends Model
     public $administratorUsername;
 
     /**
-     * @description 是否验证指纹证书
+     * @description Whether to verify the certificate fingerprint. Value range:
+     *
+     * - Disabled: disabled
+     *
+     * - Enabled: enabled
      *
      * @example enabled
      *
@@ -36,14 +40,14 @@ class ldapConfig extends Model
     public $certificateFingerprintStatus;
 
     /**
-     * @description 证书指纹列表
+     * @description List of certificate fingerprints.
      *
      * @var string[]
      */
     public $certificateFingerprints;
 
     /**
-     * @description 组成员标识
+     * @description Group member attribute name.
      *
      * @example member
      *
@@ -52,7 +56,7 @@ class ldapConfig extends Model
     public $groupMemberAttributeName;
 
     /**
-     * @description 组objectClass
+     * @description Group ObjectClass.
      *
      * @example group
      *
@@ -61,7 +65,7 @@ class ldapConfig extends Model
     public $groupObjectClass;
 
     /**
-     * @description 组自定义Filter
+     * @description Custom filter for Group ObjectClass.
      *
      * @example (|(cn=test)(group=test@test.com))
      *
@@ -70,7 +74,7 @@ class ldapConfig extends Model
     public $groupObjectClassCustomFilter;
 
     /**
-     * @description 通信协议
+     * @description Communication protocol.
      *
      * @example ldap
      *
@@ -79,7 +83,7 @@ class ldapConfig extends Model
     public $ldapProtocol;
 
     /**
-     * @description ad/ldap 服务器地址
+     * @description AD/LDAP server address.
      *
      * @example 123.xx.xx.89
      *
@@ -88,7 +92,7 @@ class ldapConfig extends Model
     public $ldapServerHost;
 
     /**
-     * @description 端口号
+     * @description AD/LDAP port number.
      *
      * @example 636
      *
@@ -97,7 +101,7 @@ class ldapConfig extends Model
     public $ldapServerPort;
 
     /**
-     * @description 组织objectClass
+     * @description Organization Unit ObjectClass.
      *
      * @example organizationUnit,top
      *
@@ -106,7 +110,10 @@ class ldapConfig extends Model
     public $organizationUnitObjectClass;
 
     /**
-     * @description startTls是否开启
+     * @description Whether startTLS is enabled. Value range:
+     * - Disabled: disabled
+     *
+     * - Enabled: enabled
      *
      * @example enabled
      *
@@ -115,7 +122,7 @@ class ldapConfig extends Model
     public $startTlsStatus;
 
     /**
-     * @description 用户登录标识
+     * @description User login identifier.
      *
      * @example userPrincipalName, mail
      *
@@ -124,7 +131,7 @@ class ldapConfig extends Model
     public $userLoginIdentifier;
 
     /**
-     * @description 用户objectClass
+     * @description User ObjectClass.
      *
      * @example person,user
      *
@@ -133,7 +140,7 @@ class ldapConfig extends Model
     public $userObjectClass;
 
     /**
-     * @description 用户自定义Filter
+     * @description Custom filter for User ObjectClass.
      *
      * @example (|(cn=test)(mail=test@test.com))
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class dingtalkAppConfig extends Model
 {
     /**
-     * @description 钉钉一方应用的AppKey
+     * @description AppKey of the DingTalk application.
      *
      * @example Xczngvfemo4e
      *
@@ -18,7 +18,7 @@ class dingtalkAppConfig extends Model
     public $appKey;
 
     /**
-     * @description 钉钉一方应用的AppSecret
+     * @description AppSecret of the DingTalk application.
      *
      * @example 5d405a12a6f84ad4ab05ee09axxxx
      *
@@ -27,7 +27,7 @@ class dingtalkAppConfig extends Model
     public $appSecret;
 
     /**
-     * @description 钉钉一方应用的corpId
+     * @description CorpId of the DingTalk application.
      *
      * @example 3075680424786133505
      *
@@ -36,18 +36,42 @@ class dingtalkAppConfig extends Model
     public $corpId;
 
     /**
-     * @description 钉钉版本
+     * @description DingTalk edition. Valid values:
+     *
+     * public_dingtalk – Standard DingTalk.
+     *
+     * private_dingtalk – Dedicated DingTalk.
      *
      * @example public_dingtalk
      *
      * @var string
      */
     public $dingtalkVersion;
+
+    /**
+     * @description DingTalk encrypt key.
+     *
+     * @example 29003eb11d0a28b4802a6f02fb8aa25dff730e2ac26ffd200dxxxx
+     *
+     * @var string
+     */
+    public $encryptKey;
+
+    /**
+     * @description DingTalk verification token.
+     *
+     * @example 5ba9c127a7abe029003eb11d0a28b4802a6f02fb8aa25dff730e2ac26ffd200dxxxx
+     *
+     * @var string
+     */
+    public $verificationToken;
     protected $_name = [
         'appKey' => 'AppKey',
         'appSecret' => 'AppSecret',
         'corpId' => 'CorpId',
         'dingtalkVersion' => 'DingtalkVersion',
+        'encryptKey' => 'EncryptKey',
+        'verificationToken' => 'VerificationToken',
     ];
 
     public function validate() {}
@@ -66,6 +90,12 @@ class dingtalkAppConfig extends Model
         }
         if (null !== $this->dingtalkVersion) {
             $res['DingtalkVersion'] = $this->dingtalkVersion;
+        }
+        if (null !== $this->encryptKey) {
+            $res['EncryptKey'] = $this->encryptKey;
+        }
+        if (null !== $this->verificationToken) {
+            $res['VerificationToken'] = $this->verificationToken;
         }
 
         return $res;
@@ -90,6 +120,12 @@ class dingtalkAppConfig extends Model
         }
         if (isset($map['DingtalkVersion'])) {
             $model->dingtalkVersion = $map['DingtalkVersion'];
+        }
+        if (isset($map['EncryptKey'])) {
+            $model->encryptKey = $map['EncryptKey'];
+        }
+        if (isset($map['VerificationToken'])) {
+            $model->verificationToken = $map['VerificationToken'];
         }
 
         return $model;

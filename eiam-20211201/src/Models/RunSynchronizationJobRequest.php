@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class RunSynchronizationJobRequest extends Model
 {
     /**
+     * @description Synchronization task description
+     *
      * @example 描述
      *
      * @var string
@@ -17,7 +19,7 @@ class RunSynchronizationJobRequest extends Model
     public $description;
 
     /**
-     * @description IDaaS EIAM实例的ID。
+     * @description The instance ID.
      *
      * This parameter is required.
      *
@@ -28,17 +30,23 @@ class RunSynchronizationJobRequest extends Model
     public $instanceId;
 
     /**
+     * @description Whether initialize password
+     *
+     * @example true
+     *
      * @var bool
      */
     public $passwordInitialization;
 
     /**
+     * @description Synchronization scope
+     *
      * @var synchronizationScopeConfig
      */
     public $synchronizationScopeConfig;
 
     /**
-     * @description 同步目标ID
+     * @description The ID of the synchronization destination.
      *
      * This parameter is required.
      *
@@ -49,7 +57,10 @@ class RunSynchronizationJobRequest extends Model
     public $targetId;
 
     /**
-     * @description 同步目标类型
+     * @description The type of the synchronization destination. Valid values:
+     *
+     *   identity_provider
+     *   application
      *
      * This parameter is required.
      *
@@ -60,6 +71,8 @@ class RunSynchronizationJobRequest extends Model
     public $targetType;
 
     /**
+     * @description User identity types
+     *
      * @var string[]
      */
     public $userIdentityTypes;

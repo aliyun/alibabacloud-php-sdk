@@ -44,7 +44,7 @@ class oidcSsoConfig extends Model
     public $grantScopes;
 
     /**
-     * @description The list of grant types that are supported for OIDC protocols.
+     * @description The authorization types that are supported for OIDC protocols.
      *
      * @example authorization_code
      *
@@ -62,7 +62,7 @@ class oidcSsoConfig extends Model
     public $idTokenEffectiveTime;
 
     /**
-     * @description The ID of the identity authentication source in password mode. Specify this parameter only when the value of the GrantTypes parameter includes the password mode.
+     * @description The ID of the identity authentication source in password mode. Configure this parameter only when the value of the GrantTypes parameter includes the password mode.
      *
      * @example ia_password
      *
@@ -71,7 +71,7 @@ class oidcSsoConfig extends Model
     public $passwordAuthenticationSourceId;
 
     /**
-     * @description Specifies whether time-based one-time password (TOTP) authentication is required in password mode. Specify this parameter only when the value of the GrantTypes parameter includes the password mode.
+     * @description Specifies whether time-based one-time password (TOTP) authentication is required in password mode. Configure this parameter only when the value of the GrantTypes parameter includes the password mode.
      *
      * @example true
      *
@@ -98,14 +98,14 @@ class oidcSsoConfig extends Model
     public $pkceRequired;
 
     /**
-     * @description The list of logout redirect URIs that are supported by the application.
+     * @description The logout redirect URIs that are supported by the application.
      *
      * @var string[]
      */
     public $postLogoutRedirectUris;
 
     /**
-     * @description The list of redirect URIs that are supported by the application.
+     * @description The redirect URIs that are supported by the application.
      *
      * @var string[]
      */
@@ -121,7 +121,7 @@ class oidcSsoConfig extends Model
     public $refreshTokenEffective;
 
     /**
-     * @description The response types that are supported by the application. Specify this parameter when the value of the GrantTypes parameter includes the implicit mode.
+     * @description The response types that are supported by the application. Configure this parameter when the value of the GrantTypes parameter includes the implicit mode.
      *
      * @example token id_token
      *
@@ -130,7 +130,7 @@ class oidcSsoConfig extends Model
     public $responseTypes;
 
     /**
-     * @description The custom expression that is used to generate the subject ID returned for the ID token.
+     * @description The custom expression that is used to calculate the subject ID returned for the ID token.
      *
      * @example user.userid
      *

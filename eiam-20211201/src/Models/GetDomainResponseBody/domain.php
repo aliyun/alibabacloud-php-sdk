@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class domain extends Model
 {
     /**
-     * @description 域名创建时间，Unix时间戳格式，单位为毫秒。
+     * @description The start time when the change order was created.
      *
      * @example 1649830226000
      *
@@ -19,7 +19,7 @@ class domain extends Model
     public $createTime;
 
     /**
-     * @description 是否默认域名。true表示实例默认域名，false表示非默认域名
+     * @description Whether it is the default domain.
      *
      * @example false
      *
@@ -28,7 +28,7 @@ class domain extends Model
     public $defaultDomain;
 
     /**
-     * @description 域名。
+     * @description The domain.
      *
      * @example login.example.com
      *
@@ -37,7 +37,7 @@ class domain extends Model
     public $domain;
 
     /**
-     * @description 域名ID。
+     * @description Domain ID.
      *
      * @example dm_examplexxxxx
      *
@@ -46,7 +46,10 @@ class domain extends Model
     public $domainId;
 
     /**
-     * @description 域名类型。枚举取值:system_init(系统初始化)、user_custom(用户自定义)。
+     * @description The type of the domain name. Valid values:
+     *
+     *   **system_init**: Initialize domain
+     *   **user_custom**: user custom domain
      *
      * @example system_init
      *
@@ -55,14 +58,14 @@ class domain extends Model
     public $domainType;
 
     /**
-     * @description 域名备案信息。
+     * @description Domain registration information.
      *
      * @var filing
      */
     public $filing;
 
     /**
-     * @description 实例ID。
+     * @description The instance ID.
      *
      * @example idaas_ue2jvisn35ea5lmthk267xxxxx
      *
@@ -71,7 +74,10 @@ class domain extends Model
     public $instanceId;
 
     /**
-     * @description 域名锁定状态。枚举取值:unlock(正常)、lockByLicense(因License限制不可用)。
+     * @description The lock status of the instance. Valid values:
+     *
+     *   **Unlock**: The instance is normal.
+     *   **lockByLicense**: Not available due to license restrictions.
      *
      * @example unlock
      *
@@ -80,7 +86,7 @@ class domain extends Model
     public $lockMode;
 
     /**
-     * @description 域名最近更新时间，Unix时间戳格式，单位为毫秒。
+     * @description The time when the service was updated.
      *
      * @example 1649830226000
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class pullProtectedRule extends Model
 {
     /**
-     * @description 同步保护规则-删除组数量
+     * @description Group Deletion Threshold: If the number of deleted groups exceeds this value, the synchronization task will be terminated.
      *
      * @example 10
      *
@@ -18,7 +18,7 @@ class pullProtectedRule extends Model
     public $groupDeletedThreshold;
 
     /**
-     * @description IDaaS EIAM 钉钉一方应用同步保护规则-删除组织数量
+     * @description Organization Deletion Threshold: If the number of deleted organizations exceeds this value, the synchronization task will be terminated.
      *
      * @example 10
      *
@@ -27,7 +27,7 @@ class pullProtectedRule extends Model
     public $organizationalUnitDeletedThreshold;
 
     /**
-     * @description IDaaS EIAM 钉钉一方应用同步保护规则-删除账户数量
+     * @description Account Deletion Threshold: If the number of deleted users exceeds this value, the synchronization task will be terminated.
      *
      * @example 30
      *

@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class autoUpdateUserConfig extends Model
 {
     /**
-     * @description 自动更新账户是否开启
+     * @description Whether auto-updating of accounts is enabled. Possible values:
+     * - Disabled: disabled
+     *
+     * - Enabled: enabled
      *
      * @example disabled
      *

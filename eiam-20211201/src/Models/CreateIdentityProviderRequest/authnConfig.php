@@ -9,9 +9,10 @@ use AlibabaCloud\Tea\Model;
 class authnConfig extends Model
 {
     /**
-     * @description 对应IdP是否支持认证
+     * @description Whether the corresponding IdP supports authentication. Value range:
+     * - Disabled: disabled
      *
-     * This parameter is required.
+     * - Enabled: enabled
      *
      * @example enabled
      *
@@ -20,7 +21,10 @@ class authnConfig extends Model
     public $authnStatus;
 
     /**
-     * @description 是否支持自动更新密码
+     * @description Whether automatic password update is supported. Value range:
+     * - Disabled: disabled
+     *
+     * - Enabled: enabled
      *
      * @example enabled
      *

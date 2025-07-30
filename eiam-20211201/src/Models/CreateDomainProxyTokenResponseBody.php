@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateDomainProxyTokenResponseBody extends Model
 {
     /**
+     * @description The ID of the proxy token of the domain name.
+     *
      * @example pt_mtohn73423stghoivjmi4jwxxx
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateDomainProxyTokenResponseBody extends Model
     public $domainProxyTokenId;
 
     /**
+     * @description The request ID.
+     *
      * @example 0441BD79-92F3-53AA-8657-F8CE4A2B912A
      *
      * @var string

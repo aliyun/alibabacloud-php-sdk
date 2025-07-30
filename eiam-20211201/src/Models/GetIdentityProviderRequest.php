@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetIdentityProviderRequest extends Model
 {
     /**
-     * @description IDaaS的身份提供方主键id
+     * @description Identity provider ID.
      *
      * This parameter is required.
      *
@@ -20,7 +20,7 @@ class GetIdentityProviderRequest extends Model
     public $identityProviderId;
 
     /**
-     * @description IDaaS EIAM实例的ID。
+     * @description The instance ID.
      *
      * This parameter is required.
      *

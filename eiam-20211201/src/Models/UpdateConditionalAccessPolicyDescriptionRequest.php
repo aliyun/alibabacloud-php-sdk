@@ -9,6 +9,15 @@ use AlibabaCloud\Tea\Model;
 class UpdateConditionalAccessPolicyDescriptionRequest extends Model
 {
     /**
+     * @description Idp client token.
+     *
+     * @example client-examplexxx
+     *
+     * @var string
+     */
+    public $clientToken;
+
+    /**
      * @description Conditional Access Policy ID
      *
      * This parameter is required.
@@ -41,6 +50,7 @@ class UpdateConditionalAccessPolicyDescriptionRequest extends Model
      */
     public $instanceId;
     protected $_name = [
+        'clientToken' => 'ClientToken',
         'conditionalAccessPolicyId' => 'ConditionalAccessPolicyId',
         'description' => 'Description',
         'instanceId' => 'InstanceId',
@@ -51,6 +61,9 @@ class UpdateConditionalAccessPolicyDescriptionRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
         if (null !== $this->conditionalAccessPolicyId) {
             $res['ConditionalAccessPolicyId'] = $this->conditionalAccessPolicyId;
         }
@@ -72,6 +85,9 @@ class UpdateConditionalAccessPolicyDescriptionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
         if (isset($map['ConditionalAccessPolicyId'])) {
             $model->conditionalAccessPolicyId = $map['ConditionalAccessPolicyId'];
         }

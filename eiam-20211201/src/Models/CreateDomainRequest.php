@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class CreateDomainRequest extends Model
 {
     /**
-     * @description 域名。最大长度限制255，格式由数字、字母、横线（-）点（.）组成;
+     * @description The domain name of the website.
      *
      * This parameter is required.
      *
@@ -21,14 +21,14 @@ class CreateDomainRequest extends Model
     public $domain;
 
     /**
-     * @description 备案信息参数。
+     * @description Registration information parameters.
      *
      * @var filing
      */
     public $filing;
 
     /**
-     * @description IDaaS EIAM实例的ID。
+     * @description The instance ID.
      *
      * This parameter is required.
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetDomainDnsChallengeRequest extends Model
 {
     /**
-     * @description 域名。
+     * @description The domain name.
      *
      * This parameter is required.
      *
@@ -20,7 +20,7 @@ class GetDomainDnsChallengeRequest extends Model
     public $domain;
 
     /**
-     * @description IDaaS EIAM实例的ID。
+     * @description The instance ID.
      *
      * This parameter is required.
      *

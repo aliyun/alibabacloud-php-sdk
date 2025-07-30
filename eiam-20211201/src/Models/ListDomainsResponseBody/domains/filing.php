@@ -9,7 +9,9 @@ use AlibabaCloud\Tea\Model;
 class filing extends Model
 {
     /**
-     * @description 域名关联的备案号, 长度最大限制64。
+     * @description The ICP number associated with the domain name. Both the entity ICP number and website ICP number are supported.
+     *
+     * @example Zhexx-xxxxxx
      *
      * @var string
      */

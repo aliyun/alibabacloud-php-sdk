@@ -60,6 +60,8 @@ class application extends Model
     public $applicationTemplateId;
 
     /**
+     * @description Application visibility
+     *
      * @var string[]
      */
     public $applicationVisibility;
@@ -93,6 +95,11 @@ class application extends Model
      * @var int
      */
     public $createTime;
+
+    /**
+     * @var string
+     */
+    public $customSubjectStatus;
 
     /**
      * @description The description of the application.
@@ -135,6 +142,10 @@ class application extends Model
     public $logoUrl;
 
     /**
+     * @description M2M client status.
+     *
+     * @example enabled
+     *
      * @var string
      */
     public $m2MClientStatus;
@@ -149,11 +160,19 @@ class application extends Model
     public $managedServiceCode;
 
     /**
+     * @description Unique identifier of the resource server
+     *
+     * @example https://www.example.com
+     *
      * @var string
      */
     public $resourceServerIdentifier;
 
     /**
+     * @description Resource server status.
+     *
+     * @example disabled	enabled
+     *
      * @var string
      */
     public $resourceServerStatus;
@@ -209,6 +228,7 @@ class application extends Model
         'authorizationType' => 'AuthorizationType',
         'clientId' => 'ClientId',
         'createTime' => 'CreateTime',
+        'customSubjectStatus' => 'CustomSubjectStatus',
         'description' => 'Description',
         'features' => 'Features',
         'instanceId' => 'InstanceId',
@@ -254,6 +274,9 @@ class application extends Model
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->customSubjectStatus) {
+            $res['CustomSubjectStatus'] = $this->customSubjectStatus;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -331,6 +354,9 @@ class application extends Model
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['CustomSubjectStatus'])) {
+            $model->customSubjectStatus = $map['CustomSubjectStatus'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];

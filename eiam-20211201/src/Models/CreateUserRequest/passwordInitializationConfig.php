@@ -10,9 +10,8 @@ class passwordInitializationConfig extends Model
 {
     /**
      * @description Specifies whether to forcibly change the password status. Default value: disabled. Valid values:
-     *
-     *   enabled: forcibly changes the password status.
-     *   disabled: does not forcibly change the password status.
+     *   enabled:forcibly changes the password status.
+     * disabled: does not forcibly change the password status.
      *
      * @example enabled
      *
@@ -22,8 +21,7 @@ class passwordInitializationConfig extends Model
 
     /**
      * @description The priority of the password initialization policy. By default, this parameter does not take effect. Valid values:
-     *
-     *   global: The password initialization policy globally takes effect.
+     *   global:The password initialization policy globally takes effect.
      *   custom: The password initialization policy takes effect based on custom settings.
      *
      * @example global
@@ -34,8 +32,7 @@ class passwordInitializationConfig extends Model
 
     /**
      * @description The password initialization method. Set the value to random,
-     *
-     *   which indicates that the password is randomly generated.
+     *   whichindicates that the password is randomly generated.
      *
      * @example random
      *
@@ -44,7 +41,7 @@ class passwordInitializationConfig extends Model
     public $passwordInitializationType;
 
     /**
-     * @description The password notification methods.
+     * @description The value of the extended field. The value follows the limits on the properties of the extended field.
      *
      * @example sms
      *

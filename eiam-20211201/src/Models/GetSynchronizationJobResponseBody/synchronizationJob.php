@@ -10,7 +10,10 @@ use AlibabaCloud\Tea\Model;
 class synchronizationJob extends Model
 {
     /**
-     * @description 同步任务方向
+     * @description The direction of the synchronization job. Valid values:
+     *
+     *   ingress
+     *   egress
      *
      * @example ingress
      *
@@ -19,7 +22,7 @@ class synchronizationJob extends Model
     public $direction;
 
     /**
-     * @description 同步结束时间
+     * @description The end time of the synchronization. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
      * @example 1649830226000
      *
@@ -28,14 +31,14 @@ class synchronizationJob extends Model
     public $endTime;
 
     /**
-     * @description 同步任务结果
+     * @description The result of the synchronization job.
      *
      * @var result
      */
     public $result;
 
     /**
-     * @description 同步开始时间
+     * @description The start time of the synchronization. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
      * @example 1649830226000
      *
@@ -44,7 +47,13 @@ class synchronizationJob extends Model
     public $startTime;
 
     /**
-     * @description 同步任务状态
+     * @description The status of the synchronization job. Valid values:
+     *
+     *   pending
+     *   running
+     *   failed
+     *   partial_success
+     *   success
      *
      * @example running
      *
@@ -53,7 +62,7 @@ class synchronizationJob extends Model
     public $status;
 
     /**
-     * @description 同步任务ID
+     * @description The ID of the synchronization job.
      *
      * @example sync_0000347vjovtcf41li0fgsd98gn24q9nj9xxxxx
      *
@@ -62,7 +71,7 @@ class synchronizationJob extends Model
     public $synchronizationJobId;
 
     /**
-     * @description 同步目标ID
+     * @description The ID of the synchronization destination.
      *
      * @example idp_my664lwkhpicbyzirog3nxxxxx
      *
@@ -71,7 +80,10 @@ class synchronizationJob extends Model
     public $targetId;
 
     /**
-     * @description 同步目标类型
+     * @description The type of the synchronization destination. Valid values:
+     *
+     *   identity_provider
+     *   application
      *
      * @example identity_provider
      *
@@ -80,7 +92,10 @@ class synchronizationJob extends Model
     public $targetType;
 
     /**
-     * @description 同步触发类型
+     * @description The trigger type of the synchronization. Valid values:
+     *
+     *   auto
+     *   manual
      *
      * @example auto
      *

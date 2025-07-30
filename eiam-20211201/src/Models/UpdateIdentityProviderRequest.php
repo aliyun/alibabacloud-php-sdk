@@ -14,6 +14,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateIdentityProviderRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $clientToken;
+
+    /**
      * @description 钉钉出基本信息
      *
      * @var dingtalkAppConfig
@@ -93,6 +98,7 @@ class UpdateIdentityProviderRequest extends Model
      */
     public $weComConfig;
     protected $_name = [
+        'clientToken' => 'ClientToken',
         'dingtalkAppConfig' => 'DingtalkAppConfig',
         'identityProviderId' => 'IdentityProviderId',
         'identityProviderName' => 'IdentityProviderName',
@@ -110,6 +116,9 @@ class UpdateIdentityProviderRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
         if (null !== $this->dingtalkAppConfig) {
             $res['DingtalkAppConfig'] = null !== $this->dingtalkAppConfig ? $this->dingtalkAppConfig->toMap() : null;
         }
@@ -152,6 +161,9 @@ class UpdateIdentityProviderRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
         if (isset($map['DingtalkAppConfig'])) {
             $model->dingtalkAppConfig = dingtalkAppConfig::fromMap($map['DingtalkAppConfig']);
         }

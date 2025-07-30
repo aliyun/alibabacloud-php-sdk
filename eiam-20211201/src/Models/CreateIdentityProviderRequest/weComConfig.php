@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class weComConfig extends Model
 {
     /**
-     * @description 企业微信自建应用的Id
+     * @description Agent ID of the self-built WeCom application.
      *
      * @example 278231941749863339
      *
@@ -18,7 +18,7 @@ class weComConfig extends Model
     public $agentId;
 
     /**
-     * @description 授权回调域
+     * @description Authorization callback domain.
      *
      * @example https://xxx.aliyunidaas.com/xxxx
      *
@@ -27,7 +27,7 @@ class weComConfig extends Model
     public $authorizeCallbackDomain;
 
     /**
-     * @description 企业微信自建应用的corpId
+     * @description Corp ID of the self-built WeCom application.
      *
      * @example 3756043633237690761
      *
@@ -36,7 +36,7 @@ class weComConfig extends Model
     public $corpId;
 
     /**
-     * @description 企业微信自建应用的corpSecret
+     * @description Corp Secret of the self-built WeCom application.
      *
      * @example CSEHDddddddxxxxuxkJEHPveWRXBGqVqRsxxxx
      *
@@ -45,7 +45,7 @@ class weComConfig extends Model
     public $corpSecret;
 
     /**
-     * @description 可信域名
+     * @description Trusted domain.
      *
      * @example https://xxx.aliyunidaas.com/
      *

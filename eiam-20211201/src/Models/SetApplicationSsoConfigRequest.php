@@ -22,6 +22,10 @@ class SetApplicationSsoConfigRequest extends Model
     public $applicationId;
 
     /**
+     * @description Idp client token.
+     *
+     * @example client-examplexxx
+     *
      * @var string
      */
     public $clientToken;
@@ -66,7 +70,7 @@ class SetApplicationSsoConfigRequest extends Model
     public $oidcSsoConfig;
 
     /**
-     * @description The Security Assertion Markup Language (SAML)-based single sign-on (SSO) configuration attributes of the application.
+     * @description The Security Assertion Markup Language (SAML)-based SSO configuration attributes of the application.
      *
      * @var samlSsoConfig
      */

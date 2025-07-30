@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class pullProtectedRule extends Model
 {
     /**
-     * @description 同步保护规则-删除组数量
+     * @description Group deleted threshold
      *
      * @example 10
      *
@@ -18,7 +18,7 @@ class pullProtectedRule extends Model
     public $groupDeletedThreshold;
 
     /**
-     * @description 钉钉一方应用同步保护规则-删除组织数量
+     * @description OrganizationalUnit deleted threshold
      *
      * @example 10
      *
@@ -27,7 +27,7 @@ class pullProtectedRule extends Model
     public $organizationalUnitDeletedThreshold;
 
     /**
-     * @description 钉钉一方应用同步保护规则-删除账户数量
+     * @description User deleted threshold
      *
      * @example 30
      *

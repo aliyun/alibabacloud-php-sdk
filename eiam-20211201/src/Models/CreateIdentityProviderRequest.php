@@ -20,42 +20,51 @@ use AlibabaCloud\Tea\Model;
 class CreateIdentityProviderRequest extends Model
 {
     /**
-     * @description 认证配置
+     * @description Authentication configuration information.
      *
      * @var authnConfig
      */
     public $authnConfig;
 
     /**
-     * @description 自动创建账户账户规则配置。
+     * @description Auto-create account rule configuration.
      *
      * @var autoCreateUserConfig
      */
     public $autoCreateUserConfig;
 
     /**
-     * @description 自动更新账户规则配置。
+     * @description Auto-update account rule configuration.
      *
      * @var autoUpdateUserConfig
      */
     public $autoUpdateUserConfig;
 
     /**
-     * @description 账户绑定规则配置。
+     * @description OIDC identity provider account binding rule configuration.
      *
      * @var bindingConfig
      */
     public $bindingConfig;
 
     /**
-     * @description 钉钉配置
+     * @description Idp client token.
+     *
+     * @example client-token-example
+     *
+     * @var string
+     */
+    public $clientToken;
+
+    /**
+     * @description DingTalk configuration information.
      *
      * @var dingtalkAppConfig
      */
     public $dingtalkAppConfig;
 
     /**
-     * @description 身份提供方名称
+     * @description Identity provider name.
      *
      * This parameter is required.
      *
@@ -66,7 +75,23 @@ class CreateIdentityProviderRequest extends Model
     public $identityProviderName;
 
     /**
-     * @description 身份提供发类型
+     * @description Identity provider synchronization type.
+     *
+     * - Inbound to DingTalk: urn:alibaba:idaas:idp:alibaba:dingtalk:pull
+     *
+     * - Outbound to DingTalk: urn:alibaba:idaas:idp:alibaba:dingtalk:push
+     *
+     * - Inbound to WeCom: urn:alibaba:idaas:idp:tencent:wecom:pull
+     *
+     * - Inbound to Lark: urn:alibaba:idaas:idp:bytedance:lark:pull
+     *
+     * - Inbound to AD: urn:alibaba:idaas:idp:microsoft:ad:pull
+     *
+     * - Inbound to LDAP: urn:alibaba:idaas:idp:unknown:ldap:pull
+     *
+     * - Standard OIDC: urn:alibaba:idaas:idp:standard:oidc
+     *
+     * - SASE Custom OIDC: urn:alibaba:idaas:idp:alibaba:sase
      *
      * This parameter is required.
      *
@@ -77,7 +102,7 @@ class CreateIdentityProviderRequest extends Model
     public $identityProviderType;
 
     /**
-     * @description IDaaS EIAM实例的ID。
+     * @description Instance ID.
      *
      * This parameter is required.
      *
@@ -88,26 +113,30 @@ class CreateIdentityProviderRequest extends Model
     public $instanceId;
 
     /**
-     * @description 飞书配置
+     * @description Lark (Feishu) configuration information.
      *
      * @var larkConfig
      */
     public $larkConfig;
 
     /**
-     * @description AD/LDAP配置
+     * @description AD/LDAP configuration information.
      *
      * @var ldapConfig
      */
     public $ldapConfig;
 
     /**
+     * @description IdP logo url.
+     *
+     * @example xxxx-image://idaas_23aqr2ye554csg33dqpch5eu3q/tmp/d17d9adc-a943-45e7-ba0c-2838dddexxxxx
+     *
      * @var string
      */
     public $logoUrl;
 
     /**
-     * @description 网络端点ID
+     * @description The unique identifier of the network access endpoint.
      *
      * @example nae_examplexxxx
      *
@@ -116,28 +145,28 @@ class CreateIdentityProviderRequest extends Model
     public $networkAccessEndpointId;
 
     /**
-     * @description OIDC IdP配置。
+     * @description OIDC IdP configuration.
      *
      * @var oidcConfig
      */
     public $oidcConfig;
 
     /**
-     * @description 同步入配置
+     * @description Inbound synchronization configuration information.
      *
      * @var udPullConfig
      */
     public $udPullConfig;
 
     /**
-     * @description 同步出配置
+     * @description Outbound synchronization configuration information.
      *
      * @var udPushConfig
      */
     public $udPushConfig;
 
     /**
-     * @description WeCom配置
+     * @description WeCom configuration information.
      *
      * @var weComConfig
      */
@@ -147,6 +176,7 @@ class CreateIdentityProviderRequest extends Model
         'autoCreateUserConfig' => 'AutoCreateUserConfig',
         'autoUpdateUserConfig' => 'AutoUpdateUserConfig',
         'bindingConfig' => 'BindingConfig',
+        'clientToken' => 'ClientToken',
         'dingtalkAppConfig' => 'DingtalkAppConfig',
         'identityProviderName' => 'IdentityProviderName',
         'identityProviderType' => 'IdentityProviderType',
@@ -177,6 +207,9 @@ class CreateIdentityProviderRequest extends Model
         }
         if (null !== $this->bindingConfig) {
             $res['BindingConfig'] = null !== $this->bindingConfig ? $this->bindingConfig->toMap() : null;
+        }
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->dingtalkAppConfig) {
             $res['DingtalkAppConfig'] = null !== $this->dingtalkAppConfig ? $this->dingtalkAppConfig->toMap() : null;
@@ -237,6 +270,9 @@ class CreateIdentityProviderRequest extends Model
         }
         if (isset($map['BindingConfig'])) {
             $model->bindingConfig = bindingConfig::fromMap($map['BindingConfig']);
+        }
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['DingtalkAppConfig'])) {
             $model->dingtalkAppConfig = dingtalkAppConfig::fromMap($map['DingtalkAppConfig']);

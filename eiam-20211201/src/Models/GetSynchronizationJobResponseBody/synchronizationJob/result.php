@@ -13,44 +13,46 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description 同步结果错误码
+     * @description The error code corresponding to the error message.
      *
-     * @example ErrorCodeNotFound
+     * @example ResourceNotFound. SynchronizationJob
      *
      * @var string
      */
     public $errorCode;
 
     /**
-     * @description 同步结果错误信息描述
+     * @description The error message returned in the case of an error.
+     *
+     * @example The specified SynchronizationJob resource: %s not found.
      *
      * @var string
      */
     public $errorMessage;
 
     /**
-     * @description 组成员同步结果统计
+     * @description The group member synchronization result statistics.
      *
      * @var groupMemberStatistics
      */
     public $groupMemberStatistics;
 
     /**
-     * @description 组同步结果统计
+     * @description The group synchronization result statistics.
      *
      * @var groupStatistics
      */
     public $groupStatistics;
 
     /**
-     * @description 组织同步结果统计
+     * @description The organization synchronization result statistics.
      *
      * @var organizationalUnitStatistics
      */
     public $organizationalUnitStatistics;
 
     /**
-     * @description 用户同步结果统计
+     * @description The user synchronization result statistics.
      *
      * @var userStatistics
      */

@@ -9,18 +9,18 @@ use AlibabaCloud\Tea\Model;
 class authedUsers extends Model
 {
     /**
-     * @description 钉钉用户名称
+     * @description DingTalk user name.
      *
-     * @example 张三
+     * @example zhangsan
      *
      * @var string
      */
     public $name;
 
     /**
-     * @description 钉钉用户userId
+     * @description DingTalk user id.
      *
-     * @example 130308333929200479
+     * @example 13030833392920xxx
      *
      * @var string
      */

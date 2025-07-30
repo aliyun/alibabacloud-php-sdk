@@ -11,7 +11,18 @@ use AlibabaCloud\Tea\Model;
 class CreateUserRequest extends Model
 {
     /**
-     * @description The extended fields.
+     * @description The password initialization method. Set the value to random,
+     *
+     *   which indicates that the password is randomly generated.
+     *
+     * @example client-token-demo
+     *
+     * @var string
+     */
+    public $clientToken;
+
+    /**
+     * @description The custom extended fields.
      *
      * @example description
      *
@@ -20,7 +31,7 @@ class CreateUserRequest extends Model
     public $customFields;
 
     /**
-     * @description The description of the organizational unit. The description can be up to 256 characters in length.
+     * @description The description of the organization. The value can be up to 256 characters in length.
      *
      * @example description text
      *
@@ -38,7 +49,7 @@ class CreateUserRequest extends Model
     public $displayName;
 
     /**
-     * @description The email address of the user who owns the account. The email address prefix can contain letters, digits, underscores (_), periods (.), and hyphens (-).
+     * @description The name of the account. The name can be up to 64 characters in length and can contain letters, digits, underscores (_), periods (.), at signs (@), and hyphens (-).
      *
      * @example example@example.com
      *
@@ -47,7 +58,7 @@ class CreateUserRequest extends Model
     public $email;
 
     /**
-     * @description Specifies whether the email address is a trusted email address. This parameter is required if the Email parameter is specified. If you have no special business requirements, set this parameter to true.
+     * @description The description of the account. The description can be up to 256 characters in length.
      *
      * @example true
      *
@@ -56,7 +67,7 @@ class CreateUserRequest extends Model
     public $emailVerified;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * This parameter is required.
      *
@@ -67,16 +78,16 @@ class CreateUserRequest extends Model
     public $instanceId;
 
     /**
-     * @description The IDs of organizational units to which the account belongs. An account can belong to multiple organizational units.
+     * @description Specifies whether the mobile phone number is a trusted mobile phone number. This parameter is required if the PhoneNumber parameter is specified. If you have no special business requirements, set this parameter to true.
      *
      * @var string[]
      */
     public $organizationalUnitIds;
 
     /**
-     * @description The password of the account. For more information, view the password policy of the instance in the IDaaS console.
+     * @description The password of the account. For more information,view the password policyof the instanceinthe IDaaS console.
      *
-     * @example 123456
+     * @example 123456xxx
      *
      * @var string
      */
@@ -90,16 +101,16 @@ class CreateUserRequest extends Model
     public $passwordInitializationConfig;
 
     /**
-     * @description The mobile phone number, which contains 6 to 15 digits.
+     * @description The ID of the account.
      *
-     * @example 12345678901
+     * @example 12345678901xxx
      *
      * @var string
      */
     public $phoneNumber;
 
     /**
-     * @description Specifies whether the mobile phone number is a trusted mobile phone number. This parameter is required if the PhoneNumber parameter is specified. If you have no special business requirements, set this parameter to true.
+     * @description The email address of the user who owns the account. The email address prefix can contain letters, digits, underscores (_), periods (.), and hyphens (-).
      *
      * @example true
      *
@@ -108,7 +119,7 @@ class CreateUserRequest extends Model
     public $phoneNumberVerified;
 
     /**
-     * @description The country code of the mobile phone number. The country code contains only digits and does not contain a plus sign (+).
+     * @description The IDs of organizational units to which the account belongs. An account can belong to multiple organizational units.
      *
      * @example 86
      *
@@ -117,7 +128,7 @@ class CreateUserRequest extends Model
     public $phoneRegion;
 
     /**
-     * @description The ID of the primary organizational unit to which the account belongs.
+     * @description 主组织ID。
      *
      * This parameter is required.
      *
@@ -128,7 +139,7 @@ class CreateUserRequest extends Model
     public $primaryOrganizationalUnitId;
 
     /**
-     * @description The external ID of the account. The external ID can be used to associate the account with an external system. The external ID can be up to 64 characters in length. If you do not specify an external ID for the account, the ID of the account is used as the external ID by default.
+     * @description The display name of the account. The display name can be up to 64 characters in length.
      *
      * @example user_d6sbsuumeta4h66ec3il7yxxxx
      *
@@ -137,7 +148,7 @@ class CreateUserRequest extends Model
     public $userExternalId;
 
     /**
-     * @description The name of the account. The name can be up to 64 characters in length and can contain letters, digits, underscores (_), periods (.), at signs (@), and hyphens (-).
+     * @description The name of the extended field. You must create the extended field in advance. To create an extended field, log on to the IDaaS console. In the left-side navigation pane, choose Accounts > Extended Fields, and then click Create Field on the Extended Fields page.
      *
      * This parameter is required.
      *
@@ -147,6 +158,7 @@ class CreateUserRequest extends Model
      */
     public $username;
     protected $_name = [
+        'clientToken' => 'ClientToken',
         'customFields' => 'CustomFields',
         'description' => 'Description',
         'displayName' => 'DisplayName',
@@ -169,6 +181,9 @@ class CreateUserRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
         if (null !== $this->customFields) {
             $res['CustomFields'] = [];
             if (null !== $this->customFields && \is_array($this->customFields)) {
@@ -232,6 +247,9 @@ class CreateUserRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
         if (isset($map['CustomFields'])) {
             if (!empty($map['CustomFields'])) {
                 $model->customFields = [];

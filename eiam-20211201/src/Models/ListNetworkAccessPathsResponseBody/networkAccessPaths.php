@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class networkAccessPaths extends Model
 {
     /**
-     * @description 专属网络端点访问路径创建时间，Unix时间戳格式，单位为毫秒。
+     * @description The creation time.
      *
      * @example 1649830226000
      *
@@ -18,7 +18,7 @@ class networkAccessPaths extends Model
     public $createTime;
 
     /**
-     * @description 实例ID。
+     * @description The instance ID.
      *
      * @example idaas_ue2jvisn35ea5lmthk267xxxxx
      *
@@ -27,7 +27,7 @@ class networkAccessPaths extends Model
     public $instanceId;
 
     /**
-     * @description 专属网络端点ID。
+     * @description Network access endpoint ID.
      *
      * @example nae_examplexxx
      *
@@ -36,7 +36,7 @@ class networkAccessPaths extends Model
     public $networkAccessEndpointId;
 
     /**
-     * @description 专属网络端点访问路径ID。
+     * @description Network access path ID
      *
      * @example nap_examplexxx
      *
@@ -45,7 +45,7 @@ class networkAccessPaths extends Model
     public $networkAccessPathId;
 
     /**
-     * @description 专属网络端点访问路径使用的ENI ID。
+     * @description Network interface ID
      *
      * @example eni-examplexxx
      *
@@ -54,7 +54,7 @@ class networkAccessPaths extends Model
     public $networkInterfaceId;
 
     /**
-     * @description 专属网络端点访问路径使用的ENI私网地址。
+     * @description The private IP address.
      *
      * @example cn-hangzhou
      *
@@ -63,7 +63,7 @@ class networkAccessPaths extends Model
     public $privateIpAddress;
 
     /**
-     * @description 专属网络端点访问路径状态。
+     * @description Network access path status
      *
      * @example running
      *
@@ -72,7 +72,7 @@ class networkAccessPaths extends Model
     public $status;
 
     /**
-     * @description 专属网络端点访问路径最近更新时间，Unix时间戳格式，单位为毫秒。
+     * @description The update time.
      *
      * @example 1649830226000
      *
@@ -81,7 +81,7 @@ class networkAccessPaths extends Model
     public $updateTime;
 
     /**
-     * @description 专属网络端点访问路径的ENI归属的交换机ID。
+     * @description The ID of a vSwitch.
      *
      * @example vsw-examplexxx
      *

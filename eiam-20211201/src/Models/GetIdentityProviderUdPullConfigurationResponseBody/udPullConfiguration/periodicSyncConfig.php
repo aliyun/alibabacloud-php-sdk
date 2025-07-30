@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class periodicSyncConfig extends Model
 {
     /**
+     * @description Cron expression
+     *
      * @example 0 45 1 * * ?
      *
      * @var string
@@ -16,11 +18,17 @@ class periodicSyncConfig extends Model
     public $periodicSyncCron;
 
     /**
+     * @description Execution time slots, for example 3,5, meaning the task runs once between 03:00–04:00 and once between 05:00–06:00.
+     *
+     * @example [3,5]
+     *
      * @var int
      */
     public $periodicSyncTimes;
 
     /**
+     * @description type
+     *
      * @example cron
      *
      * @var string

@@ -9,16 +9,16 @@ use AlibabaCloud\Tea\Model;
 class larkConfig extends Model
 {
     /**
-     * @description IDaaS EIAM 飞书自建应用的corpId
+     * @description The application ID.
      *
-     * @example cli_a7a99f53a317100c
+     * @example cli_a7a99f53a317xxxx
      *
      * @var string
      */
     public $appId;
 
     /**
-     * @description IDaaS EIAM 飞书自建应用的AppSecret
+     * @description The creation time.
      *
      * @example ***
      *
@@ -27,12 +27,16 @@ class larkConfig extends Model
     public $appSecret;
 
     /**
+     * @description Feishu encryptKey.
+     *
+     * @example c5db46da8d4b751a7878e5d670402fb60e4d2391de3fa01f7c9e6353f6d1xxxxx
+     *
      * @var string
      */
     public $encryptKey;
 
     /**
-     * @description IDaaS EIAM 飞书企业编码
+     * @description Feishu enterprise code.
      *
      * @example FX1231xxxx
      *
@@ -41,6 +45,10 @@ class larkConfig extends Model
     public $enterpriseNumber;
 
     /**
+     * @description Feishu verificationToken.
+     *
+     * @example c5db46da8d4b751a7878e5d670402fb60e4d2391de3fa01f7c9e6353f6d1xxxxx
+     *
      * @var string
      */
     public $verificationToken;

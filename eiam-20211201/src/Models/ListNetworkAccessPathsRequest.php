@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListNetworkAccessPathsRequest extends Model
 {
     /**
-     * @description IDaaS EIAM实例的ID。
+     * @description The instance ID.
      *
      * This parameter is required.
      *
@@ -20,7 +20,7 @@ class ListNetworkAccessPathsRequest extends Model
     public $instanceId;
 
     /**
-     * @description 专属网络端点ID。
+     * @description Network access endpoint ID.
      *
      * This parameter is required.
      *

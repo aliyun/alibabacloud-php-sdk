@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateNetworkAccessEndpointRequest extends Model
 {
     /**
-     * @description 保证请求幂等性。从您的客户端生成一个参数值，确保不同请求间该参数值唯一。ClientToken只支持ASCII字符，且不能超过64个字符。
+     * @description Idempotent token.
      *
      * @example client-token-example
      *
@@ -18,7 +18,7 @@ class CreateNetworkAccessEndpointRequest extends Model
     public $clientToken;
 
     /**
-     * @description IDaaS EIAM实例的ID。
+     * @description The region ID of the VPC.
      *
      * This parameter is required.
      *
@@ -29,18 +29,18 @@ class CreateNetworkAccessEndpointRequest extends Model
     public $instanceId;
 
     /**
-     * @description 专属网络端点名称。
+     * @description Private network endpoint name.
      *
      * This parameter is required.
      *
-     * @example xx业务VPC访问端点
+     * @example eiam-vpc-access-endpoint
      *
      * @var string
      */
     public $networkAccessEndpointName;
 
     /**
-     * @description 专属网络端点连接的指定vSwitch。
+     * @description The IDs of vSwitches.
      *
      * @example vsw-examplexxx
      *
@@ -49,7 +49,7 @@ class CreateNetworkAccessEndpointRequest extends Model
     public $vSwitchIds;
 
     /**
-     * @description 专属网络端点连接的VpcID。
+     * @description The ID of the VPC.
      *
      * This parameter is required.
      *
@@ -60,7 +60,7 @@ class CreateNetworkAccessEndpointRequest extends Model
     public $vpcId;
 
     /**
-     * @description 专属网络端点连接的VpcID所属地域，该地域取值必须在ListNetworkAccessEndpointAvailableRegions接口中返回。
+     * @description The region ID of the outbound VPC.
      *
      * This parameter is required.
      *

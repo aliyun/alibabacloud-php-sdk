@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class networkAccessEndpoint extends Model
 {
     /**
-     * @description 专属网络端点创建时间，Unix时间戳格式，单位为毫秒。
+     * @description The time when the baseline was created.
      *
      * @example 1649830226000
      *
@@ -18,7 +18,8 @@ class networkAccessEndpoint extends Model
     public $createTime;
 
     /**
-     * @description 网络访问端私网出口IP地址列表。
+     * @description Public egress ip address range of the dedicated network endpoint
+     * This field is returned only when NetworkEndpointType is set to private.
      *
      * @example 172.168.x.x
      *
@@ -27,7 +28,8 @@ class networkAccessEndpoint extends Model
     public $egressPrivateIpAddresses;
 
     /**
-     * @description 网络访问端点公网出口IP地址段
+     * @description Public egress ip address range of the shared network endpoint
+     * This field is returned only when networkEndpointType is set to shared.
      *
      * @example 8.xx.xx.xxx/27
      *
@@ -36,7 +38,7 @@ class networkAccessEndpoint extends Model
     public $egressPublicIpAddresses;
 
     /**
-     * @description 实例ID。
+     * @description Instance ID.
      *
      * @example idaas_ue2jvisn35ea5lmthk267xxxxx
      *
@@ -45,7 +47,7 @@ class networkAccessEndpoint extends Model
     public $instanceId;
 
     /**
-     * @description 专属网络端点ID。
+     * @description The unique identifier of the network access endpoint.
      *
      * @example nae_examplexxx
      *
@@ -54,16 +56,21 @@ class networkAccessEndpoint extends Model
     public $networkAccessEndpointId;
 
     /**
-     * @description 专属网络端点名称。
+     * @description Private network endpoint name.
      *
-     * @example xx业务VPC访问端点
+     * @example xx business VPC access endpoint
      *
      * @var string
      */
     public $networkAccessEndpointName;
 
     /**
-     * @description 专属网络端点连接的类型。
+     * @description Type of the Network Endpoint
+     * Possible values:
+     *
+     * shared: Shared network endpoint
+     *
+     * private: Dedicated network endpoint
      *
      * @example private
      *
@@ -72,7 +79,7 @@ class networkAccessEndpoint extends Model
     public $networkAccessEndpointType;
 
     /**
-     * @description 专属网络端点使用的安全组ID。
+     * @description The ID of the destination security group.
      *
      * @example sg-examplexxx
      *
@@ -81,7 +88,16 @@ class networkAccessEndpoint extends Model
     public $securityGroupId;
 
     /**
-     * @description 专属网络端点状态。
+     * @description Status of the Network Endpoint
+     * Possible values:
+     *
+     * pending: Pending initialization
+     *
+     * creating: Being created
+     *
+     * running: Running
+     *
+     * deleting: Being deleted
      *
      * @example running
      *
@@ -90,7 +106,7 @@ class networkAccessEndpoint extends Model
     public $status;
 
     /**
-     * @description 专属网络端点最近更新时间，Unix时间戳格式，单位为毫秒。
+     * @description The time when the endpoint was updated.
      *
      * @example 1649830226000
      *
@@ -99,7 +115,7 @@ class networkAccessEndpoint extends Model
     public $updateTime;
 
     /**
-     * @description 专属网络端点连接的指定vSwitch列表。
+     * @description List of specified vSwitches associated with the dedicated network endpoint connection.
      *
      * @example vsw-examplexxx
      *
@@ -108,7 +124,7 @@ class networkAccessEndpoint extends Model
     public $vSwitchIds;
 
     /**
-     * @description 专属网络端点连接的VpcID。
+     * @description The ID of the virtual private cloud (VPC).
      *
      * @example vpc-examplexxx
      *
@@ -117,7 +133,7 @@ class networkAccessEndpoint extends Model
     public $vpcId;
 
     /**
-     * @description 专属网络端点连接的Vpc所属地域。
+     * @description The region ID of the outbound virtual private cloud (VPC).
      *
      * @example cn-hangzhou
      *

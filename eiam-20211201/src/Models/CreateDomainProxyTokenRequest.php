@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateDomainProxyTokenRequest extends Model
 {
     /**
-     * @description 域名ID。
+     * @description The ID of the domain name.
      *
      * This parameter is required.
      *
@@ -20,7 +20,7 @@ class CreateDomainProxyTokenRequest extends Model
     public $domainId;
 
     /**
-     * @description IDaaS EIAM实例的ID。
+     * @description The instance ID.
      *
      * This parameter is required.
      *

@@ -13,7 +13,7 @@ use AlibabaCloud\Tea\Model;
 class SetIdentityProviderUdPullConfigurationRequest extends Model
 {
     /**
-     * @description 组同步状态
+     * @description Group synchronization status.
      *
      * @example disabled
      *
@@ -22,7 +22,7 @@ class SetIdentityProviderUdPullConfigurationRequest extends Model
     public $groupSyncStatus;
 
     /**
-     * @description IDaaS的身份提供方主键id
+     * @description Identity provider ID
      *
      * This parameter is required.
      *
@@ -33,7 +33,7 @@ class SetIdentityProviderUdPullConfigurationRequest extends Model
     public $identityProviderId;
 
     /**
-     * @description 增量回调状态，是否处理来自IdP的增量回调数据
+     * @description Incremental callback status, whether to process incremental callback data from IdP.
      *
      * This parameter is required.
      *
@@ -44,7 +44,7 @@ class SetIdentityProviderUdPullConfigurationRequest extends Model
     public $incrementalCallbackStatus;
 
     /**
-     * @description IDaaS EIAM实例的ID。
+     * @description The instance ID.
      *
      * This parameter is required.
      *
@@ -55,18 +55,22 @@ class SetIdentityProviderUdPullConfigurationRequest extends Model
     public $instanceId;
 
     /**
-     * @description ldap同步侧相关配置信息
+     * @description Ldap ud pull config
      *
      * @var ldapUdPullConfig
      */
     public $ldapUdPullConfig;
 
     /**
+     * @description Periodic synchronize config
+     *
      * @var periodicSyncConfig
      */
     public $periodicSyncConfig;
 
     /**
+     * @description Periodic synchronize status
+     *
      * @example disabled
      *
      * @var string
@@ -74,14 +78,14 @@ class SetIdentityProviderUdPullConfigurationRequest extends Model
     public $periodicSyncStatus;
 
     /**
-     * @description 同步入保护规则,根据IdP的type做解析
+     * @description Synchronize protected rule
      *
      * @var pullProtectedRule
      */
     public $pullProtectedRule;
 
     /**
-     * @description 同步入配置信息
+     * @description Synchronize configuration information.
      *
      * @var udSyncScopeConfig
      */

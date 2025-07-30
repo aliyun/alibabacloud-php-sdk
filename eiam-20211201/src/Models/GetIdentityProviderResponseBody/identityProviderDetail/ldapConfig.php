@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ldapConfig extends Model
 {
     /**
-     * @description 管理员密码
+     * @description Administrator password.
      *
      * @example XXXX
      *
@@ -18,7 +18,7 @@ class ldapConfig extends Model
     public $administratorPassword;
 
     /**
-     * @description 管理员账号
+     * @description Administrator username.
      *
      * @example example.com
      *
@@ -27,7 +27,7 @@ class ldapConfig extends Model
     public $administratorUsername;
 
     /**
-     * @description 是否验证指纹证书
+     * @description Whether to verify the fingerprint certificate.
      *
      * @example enabled
      *
@@ -36,14 +36,14 @@ class ldapConfig extends Model
     public $certificateFingerprintStatus;
 
     /**
-     * @description 证书指纹列表
+     * @description Certificate fingerprint list.
      *
      * @var string[]
      */
     public $certificateFingerprints;
 
     /**
-     * @description 通信协议
+     * @description Ldap protocol.
      *
      * @example ldap
      *
@@ -52,7 +52,7 @@ class ldapConfig extends Model
     public $ldapProtocol;
 
     /**
-     * @description ad/ldap 服务器地址
+     * @description ldap server host.
      *
      * @example 127.xx.xx.100
      *
@@ -61,7 +61,7 @@ class ldapConfig extends Model
     public $ldapServerHost;
 
     /**
-     * @description ad/ldap 服务器地址
+     * @description ldap server port.
      *
      * @example 389
      *
@@ -70,7 +70,7 @@ class ldapConfig extends Model
     public $ldapServerPort;
 
     /**
-     * @description startTls是否开启
+     * @description StartTls status.
      *
      * @example enabled
      *

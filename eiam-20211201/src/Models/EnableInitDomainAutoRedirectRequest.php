@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class EnableInitDomainAutoRedirectRequest extends Model
 {
     /**
-     * @description IDaaS EIAM实例的ID。
+     * @description The instance ID.
      *
      * This parameter is required.
      *

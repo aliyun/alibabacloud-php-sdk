@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class authedDepartmentIds extends Model
 {
     /**
-     * @description 钉钉部门Id
+     * @description Department ID.
      *
      * @example 123xxx444
      *
@@ -18,9 +18,9 @@ class authedDepartmentIds extends Model
     public $deptId;
 
     /**
-     * @description 钉钉部门名称
+     * @description Department name.
      *
-     * @example 测试部门
+     * @example test_xxx
      *
      * @var string
      */

@@ -11,21 +11,21 @@ use AlibabaCloud\Tea\Model;
 class oidcConfig extends Model
 {
     /**
-     * @description OIDC客户端认证配置。
+     * @description OIDC client authentication configuration.
      *
      * @var authnParam
      */
     public $authnParam;
 
     /**
-     * @description OIDC 端点配置。
+     * @description OIDC endpoint configuration.
      *
      * @var endpointConfig
      */
     public $endpointConfig;
 
     /**
-     * @description OIDC标准参数，如profile、email等
+     * @description OIDC grant scopes collection.
      *
      * @example openid
      *
@@ -34,7 +34,7 @@ class oidcConfig extends Model
     public $grantScopes;
 
     /**
-     * @description OIDC授权类型。
+     * @description OIDC grant type.
      *
      * @example authorization_code
      *
@@ -43,7 +43,11 @@ class oidcConfig extends Model
     public $grantType;
 
     /**
-     * @description 支持的PKCE算法类型。
+     * @description PKCE algorithm. Possible values:
+     *
+     * - SHA256: S256
+     *
+     * - Plain text: plain
      *
      * @example S256
      *
@@ -52,7 +56,7 @@ class oidcConfig extends Model
     public $pkceChallengeMethod;
 
     /**
-     * @description AuthorizationCode授权模式下是否使用PKCE。
+     * @description Whether to use PKCE in the AuthorizationCode grant mode.
      *
      * @example true
      *

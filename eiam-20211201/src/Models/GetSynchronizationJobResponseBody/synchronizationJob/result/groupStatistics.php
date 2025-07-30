@@ -15,42 +15,42 @@ use AlibabaCloud\Tea\Model;
 class groupStatistics extends Model
 {
     /**
-     * @description 绑定结果统计
+     * @description The binding result statistics.
      *
      * @var binded
      */
     public $binded;
 
     /**
-     * @description 创建结果统计
+     * @description The creation result statistics.
      *
      * @var created
      */
     public $created;
 
     /**
-     * @description 删除结果统计
+     * @description The deletion result statistics.
      *
      * @var deleted
      */
     public $deleted;
 
     /**
-     * @description 推送结果统计
+     * @description The notification result statistics.
      *
      * @var pushed
      */
     public $pushed;
 
     /**
-     * @description 相同结果统计
+     * @description The result statistics about identical groups.
      *
      * @var same
      */
     public $same;
 
     /**
-     * @description 更新结果统计
+     * @description The update result statistics.
      *
      * @var updated
      */

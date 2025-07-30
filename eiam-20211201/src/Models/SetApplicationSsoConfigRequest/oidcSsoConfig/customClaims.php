@@ -18,7 +18,7 @@ class customClaims extends Model
     public $claimName;
 
     /**
-     * @description The expression that is used to generate the value of the claim.
+     * @description The expression that is used to calculate the value of the claim.
      *
      * @example user.dict.applicationRole
      *

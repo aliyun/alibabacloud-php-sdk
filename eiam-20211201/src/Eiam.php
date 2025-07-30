@@ -345,11 +345,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return AddUserToOrganizationalUnitsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddUserToOrganizationalUnitsResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddUserToOrganizationalUnitsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -401,11 +398,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return AddUsersToGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddUsersToGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddUsersToGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -457,11 +451,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return AuthorizeApplicationToGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AuthorizeApplicationToGroupsResponse::fromMap($this->execute($params, $req, $runtime));
+        return AuthorizeApplicationToGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -513,11 +504,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return AuthorizeApplicationToOrganizationalUnitsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AuthorizeApplicationToOrganizationalUnitsResponse::fromMap($this->execute($params, $req, $runtime));
+        return AuthorizeApplicationToOrganizationalUnitsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -569,11 +557,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return AuthorizeApplicationToUsersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AuthorizeApplicationToUsersResponse::fromMap($this->execute($params, $req, $runtime));
+        return AuthorizeApplicationToUsersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -639,11 +624,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateApplicationResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -694,11 +676,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateApplicationClientSecretResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateApplicationClientSecretResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateApplicationClientSecretResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -773,11 +752,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateConditionalAccessPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateConditionalAccessPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateConditionalAccessPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -797,7 +773,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 创建域名。
+     * @summary Creates a custom domain name for an Employee Identity and Access Management (EIAM) instance.
      *  *
      * @param CreateDomainRequest $request CreateDomainRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -831,15 +807,12 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateDomainResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateDomainResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建域名。
+     * @summary Creates a custom domain name for an Employee Identity and Access Management (EIAM) instance.
      *  *
      * @param CreateDomainRequest $request CreateDomainRequest
      *
@@ -853,7 +826,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 创建域名代理Token。
+     * @summary Creates a proxy token for a domain name of an Employee Identity and Access Management (EIAM) instance.
      *  *
      * @param CreateDomainProxyTokenRequest $request CreateDomainProxyTokenRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -884,15 +857,12 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateDomainProxyTokenResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateDomainProxyTokenResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateDomainProxyTokenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建域名代理Token。
+     * @summary Creates a proxy token for a domain name of an Employee Identity and Access Management (EIAM) instance.
      *  *
      * @param CreateDomainProxyTokenRequest $request CreateDomainProxyTokenRequest
      *
@@ -943,11 +913,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -965,7 +932,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 创建身份提供方
+     * @summary Create Identity Provider
      *  *
      * @param CreateIdentityProviderRequest $request CreateIdentityProviderRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -987,6 +954,9 @@ class Eiam extends OpenApiClient
         }
         if (!Utils::isUnset($request->bindingConfig)) {
             $query['BindingConfig'] = $request->bindingConfig;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->dingtalkAppConfig)) {
             $query['DingtalkAppConfig'] = $request->dingtalkAppConfig;
@@ -1038,15 +1008,12 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateIdentityProviderResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateIdentityProviderResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateIdentityProviderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建身份提供方
+     * @summary Create Identity Provider
      *  *
      * @param CreateIdentityProviderRequest $request CreateIdentityProviderRequest
      *
@@ -1088,11 +1055,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1110,7 +1074,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 创建一个专属网络端点。
+     * @summary Creates a dedicated endpoint.
      *  *
      * @param CreateNetworkAccessEndpointRequest $request CreateNetworkAccessEndpointRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -1153,15 +1117,12 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateNetworkAccessEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateNetworkAccessEndpointResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateNetworkAccessEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建一个专属网络端点。
+     * @summary Creates a dedicated endpoint.
      *  *
      * @param CreateNetworkAccessEndpointRequest $request CreateNetworkAccessEndpointRequest
      *
@@ -1215,11 +1176,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateOrganizationalUnitResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateOrganizationalUnitResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateOrganizationalUnitResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1248,6 +1206,9 @@ class Eiam extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
         if (!Utils::isUnset($request->customFields)) {
             $query['CustomFields'] = $request->customFields;
         }
@@ -1307,11 +1268,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateUserResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateUserResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1362,11 +1320,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteApplicationResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1420,11 +1375,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteApplicationClientSecretResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteApplicationClientSecretResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteApplicationClientSecretResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1475,11 +1427,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteConditionalAccessPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteConditionalAccessPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteConditionalAccessPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1499,7 +1448,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 删除域名。
+     * @summary Deletes a custom domain name of an Employee Identity and Access Management (EIAM) instance. You cannot delete the initial domain name and default domain name of the instance.
      *  *
      * @param DeleteDomainRequest $request DeleteDomainRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -1530,15 +1479,12 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteDomainResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteDomainResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除域名。
+     * @summary Deletes a custom domain name of an Employee Identity and Access Management (EIAM) instance. You cannot delete the initial domain name and default domain name of the instance.
      *  *
      * @param DeleteDomainRequest $request DeleteDomainRequest
      *
@@ -1552,7 +1498,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 删除指定域名代理Token，删除之前请保证代理Token处于禁用状态。
+     * @summary Deletes a proxy token for a domain name of an Employee Identity and Access Management (EIAM) instance. Only the proxy tokens in the disabled state can be deleted.
      *  *
      * @param DeleteDomainProxyTokenRequest $request DeleteDomainProxyTokenRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -1586,15 +1532,12 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteDomainProxyTokenResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteDomainProxyTokenResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteDomainProxyTokenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除指定域名代理Token，删除之前请保证代理Token处于禁用状态。
+     * @summary Deletes a proxy token for a domain name of an Employee Identity and Access Management (EIAM) instance. Only the proxy tokens in the disabled state can be deleted.
      *  *
      * @param DeleteDomainProxyTokenRequest $request DeleteDomainProxyTokenRequest
      *
@@ -1639,11 +1582,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1661,7 +1601,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 删除身份提供方
+     * @summary Delete identity provider
      *  *
      * @param DeleteIdentityProviderRequest $request DeleteIdentityProviderRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -1692,15 +1632,12 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteIdentityProviderResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteIdentityProviderResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteIdentityProviderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除身份提供方
+     * @summary Delete identity provider
      *  *
      * @param DeleteIdentityProviderRequest $request DeleteIdentityProviderRequest
      *
@@ -1744,11 +1681,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1768,7 +1702,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 删除一个专属网络端点。
+     * @summary Delete a network endpoint of a specific type.
      *  *
      * @param DeleteNetworkAccessEndpointRequest $request DeleteNetworkAccessEndpointRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -1799,15 +1733,12 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteNetworkAccessEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteNetworkAccessEndpointResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteNetworkAccessEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除一个专属网络端点。
+     * @summary Delete a network endpoint of a specific type.
      *  *
      * @param DeleteNetworkAccessEndpointRequest $request DeleteNetworkAccessEndpointRequest
      *
@@ -1852,11 +1783,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteOrganizationalUnitResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteOrganizationalUnitResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteOrganizationalUnitResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1905,11 +1833,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteOrganizationalUnitChildrenResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteOrganizationalUnitChildrenResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteOrganizationalUnitChildrenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1958,11 +1883,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteUserResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteUserResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2013,11 +1935,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DisableApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DisableApplicationResponse::fromMap($this->execute($params, $req, $runtime));
+        return DisableApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2068,11 +1987,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DisableApplicationApiInvokeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DisableApplicationApiInvokeResponse::fromMap($this->execute($params, $req, $runtime));
+        return DisableApplicationApiInvokeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2124,11 +2040,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DisableApplicationClientSecretResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DisableApplicationClientSecretResponse::fromMap($this->execute($params, $req, $runtime));
+        return DisableApplicationClientSecretResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2177,11 +2090,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DisableApplicationProvisioningResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DisableApplicationProvisioningResponse::fromMap($this->execute($params, $req, $runtime));
+        return DisableApplicationProvisioningResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2199,7 +2109,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 禁用应用SSO能力
+     * @summary Disables the single sign-on (SSO) feature for an Employee Identity and Access Management (EIAM) application. This way, employees cannot log on to the application by using SSO.
      *  *
      * @param DisableApplicationSsoRequest $request DisableApplicationSsoRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -2230,15 +2140,12 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DisableApplicationSsoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DisableApplicationSsoResponse::fromMap($this->execute($params, $req, $runtime));
+        return DisableApplicationSsoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 禁用应用SSO能力
+     * @summary Disables the single sign-on (SSO) feature for an Employee Identity and Access Management (EIAM) application. This way, employees cannot log on to the application by using SSO.
      *  *
      * @param DisableApplicationSsoRequest $request DisableApplicationSsoRequest
      *
@@ -2285,11 +2192,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DisableConditionalAccessPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DisableConditionalAccessPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return DisableConditionalAccessPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2309,7 +2213,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 禁用指定域名代理Token。
+     * @summary Disables a proxy token for a domain name of an Employee Identity and Access Management (EIAM) instance. After the proxy token is disabled, the domain name may not be used as expected.
      *  *
      * @param DisableDomainProxyTokenRequest $request DisableDomainProxyTokenRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -2343,15 +2247,12 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DisableDomainProxyTokenResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DisableDomainProxyTokenResponse::fromMap($this->execute($params, $req, $runtime));
+        return DisableDomainProxyTokenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 禁用指定域名代理Token。
+     * @summary Disables a proxy token for a domain name of an Employee Identity and Access Management (EIAM) instance. After the proxy token is disabled, the domain name may not be used as expected.
      *  *
      * @param DisableDomainProxyTokenRequest $request DisableDomainProxyTokenRequest
      *
@@ -2365,7 +2266,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 禁用同步入
+     * @summary Disable identity provider synchronization
      *  *
      * @param DisableIdentityProviderUdPullRequest $request DisableIdentityProviderUdPullRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
@@ -2396,15 +2297,12 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DisableIdentityProviderUdPullResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DisableIdentityProviderUdPullResponse::fromMap($this->execute($params, $req, $runtime));
+        return DisableIdentityProviderUdPullResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 禁用同步入
+     * @summary Disable identity provider synchronization
      *  *
      * @param DisableIdentityProviderUdPullRequest $request DisableIdentityProviderUdPullRequest
      *
@@ -2418,7 +2316,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 关闭初始化域名自动跳转。
+     * @summary Disables the feature of automatically redirecting the initial domain name to the default domain name for an Employee Identity and Access Management (EIAM) instance. After the feature is disabled, users who visit the portal page by using the initial domain name are not redirected to the default domain name.
      *  *
      * @param DisableInitDomainAutoRedirectRequest $request DisableInitDomainAutoRedirectRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
@@ -2446,15 +2344,12 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DisableInitDomainAutoRedirectResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DisableInitDomainAutoRedirectResponse::fromMap($this->execute($params, $req, $runtime));
+        return DisableInitDomainAutoRedirectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 关闭初始化域名自动跳转。
+     * @summary Disables the feature of automatically redirecting the initial domain name to the default domain name for an Employee Identity and Access Management (EIAM) instance. After the feature is disabled, users who visit the portal page by using the initial domain name are not redirected to the default domain name.
      *  *
      * @param DisableInitDomainAutoRedirectRequest $request DisableInitDomainAutoRedirectRequest
      *
@@ -2499,11 +2394,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DisableUserResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DisableUserResponse::fromMap($this->execute($params, $req, $runtime));
+        return DisableUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2552,11 +2444,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return EnableApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return EnableApplicationResponse::fromMap($this->execute($params, $req, $runtime));
+        return EnableApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2605,11 +2494,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return EnableApplicationApiInvokeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return EnableApplicationApiInvokeResponse::fromMap($this->execute($params, $req, $runtime));
+        return EnableApplicationApiInvokeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2661,11 +2547,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return EnableApplicationClientSecretResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return EnableApplicationClientSecretResponse::fromMap($this->execute($params, $req, $runtime));
+        return EnableApplicationClientSecretResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2714,11 +2597,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return EnableApplicationProvisioningResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return EnableApplicationProvisioningResponse::fromMap($this->execute($params, $req, $runtime));
+        return EnableApplicationProvisioningResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2736,7 +2616,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 启用应用SSO能力
+     * @summary Enables the single sign-on (SSO) feature for an Employee Identity and Access Management (EIAM) application.
      *  *
      * @param EnableApplicationSsoRequest $request EnableApplicationSsoRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -2767,15 +2647,12 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return EnableApplicationSsoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return EnableApplicationSsoResponse::fromMap($this->execute($params, $req, $runtime));
+        return EnableApplicationSsoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 启用应用SSO能力
+     * @summary Enables the single sign-on (SSO) feature for an Employee Identity and Access Management (EIAM) application.
      *  *
      * @param EnableApplicationSsoRequest $request EnableApplicationSsoRequest
      *
@@ -2822,11 +2699,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return EnableConditionalAccessPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return EnableConditionalAccessPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return EnableConditionalAccessPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2846,7 +2720,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 启用指定域名代理Token。
+     * @summary Enables a proxy token for a domain name of an Employee Identity and Access Management (EIAM) instance. The proxy token is used to verify the security of the domain name.
      *  *
      * @param EnableDomainProxyTokenRequest $request EnableDomainProxyTokenRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -2880,15 +2754,12 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return EnableDomainProxyTokenResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return EnableDomainProxyTokenResponse::fromMap($this->execute($params, $req, $runtime));
+        return EnableDomainProxyTokenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 启用指定域名代理Token。
+     * @summary Enables a proxy token for a domain name of an Employee Identity and Access Management (EIAM) instance. The proxy token is used to verify the security of the domain name.
      *  *
      * @param EnableDomainProxyTokenRequest $request EnableDomainProxyTokenRequest
      *
@@ -2902,7 +2773,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 启用同步入
+     * @summary Enable identity provider synchronization.
      *  *
      * @param EnableIdentityProviderUdPullRequest $request EnableIdentityProviderUdPullRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
@@ -2933,15 +2804,12 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return EnableIdentityProviderUdPullResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return EnableIdentityProviderUdPullResponse::fromMap($this->execute($params, $req, $runtime));
+        return EnableIdentityProviderUdPullResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 启用同步入
+     * @summary Enable identity provider synchronization.
      *  *
      * @param EnableIdentityProviderUdPullRequest $request EnableIdentityProviderUdPullRequest
      *
@@ -2955,7 +2823,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 开启初始化域名自动跳转。开启后，访问初始化域名将会自动跳转至默认域名。
+     * @summary Enables the feature of automatically redirecting the initial domain name to the default domain name for an Employee Identity and Access Management (EIAM) instance.
      *  *
      * @param EnableInitDomainAutoRedirectRequest $request EnableInitDomainAutoRedirectRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
@@ -2983,15 +2851,12 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return EnableInitDomainAutoRedirectResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return EnableInitDomainAutoRedirectResponse::fromMap($this->execute($params, $req, $runtime));
+        return EnableInitDomainAutoRedirectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 开启初始化域名自动跳转。开启后，访问初始化域名将会自动跳转至默认域名。
+     * @summary Enables the feature of automatically redirecting the initial domain name to the default domain name for an Employee Identity and Access Management (EIAM) instance.
      *  *
      * @param EnableInitDomainAutoRedirectRequest $request EnableInitDomainAutoRedirectRequest
      *
@@ -3036,11 +2901,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return EnableUserResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return EnableUserResponse::fromMap($this->execute($params, $req, $runtime));
+        return EnableUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3089,11 +2951,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetApplicationResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3142,11 +3001,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetApplicationGrantScopeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetApplicationGrantScopeResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetApplicationGrantScopeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3195,11 +3051,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetApplicationProvisioningConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetApplicationProvisioningConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetApplicationProvisioningConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3248,11 +3101,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetApplicationProvisioningScopeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetApplicationProvisioningScopeResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetApplicationProvisioningScopeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3301,11 +3151,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetApplicationSsoConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetApplicationSsoConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetApplicationSsoConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3356,11 +3203,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetConditionalAccessPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetConditionalAccessPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetConditionalAccessPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3380,7 +3224,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 查询一个域名的详细信息。
+     * @summary Queries the information about a domain name of an Employee Identity and Access Management (EIAM) instance.
      *  *
      * @param GetDomainRequest $request GetDomainRequest
      * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
@@ -3411,15 +3255,12 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetDomainResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDomainResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询一个域名的详细信息。
+     * @summary Queries the information about a domain name of an Employee Identity and Access Management (EIAM) instance.
      *  *
      * @param GetDomainRequest $request GetDomainRequest
      *
@@ -3433,7 +3274,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 查看域名的DNS Challenge记录。
+     * @summary Queries the domain name system (DNS) challenge records of a domain name of an Employee Identity and Access Management (EIAM) instance. The generated records are used to verify the ownership of the domain name.
      *  *
      * @param GetDomainDnsChallengeRequest $request GetDomainDnsChallengeRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -3464,15 +3305,12 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetDomainDnsChallengeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDomainDnsChallengeResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDomainDnsChallengeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查看域名的DNS Challenge记录。
+     * @summary Queries the domain name system (DNS) challenge records of a domain name of an Employee Identity and Access Management (EIAM) instance. The generated records are used to verify the ownership of the domain name.
      *  *
      * @param GetDomainDnsChallengeRequest $request GetDomainDnsChallengeRequest
      *
@@ -3514,11 +3352,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetForgetPasswordConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetForgetPasswordConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetForgetPasswordConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3567,11 +3402,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3589,7 +3421,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 获取身份提供方
+     * @summary Get identity provider
      *  *
      * @param GetIdentityProviderRequest $request GetIdentityProviderRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -3620,15 +3452,12 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetIdentityProviderResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetIdentityProviderResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetIdentityProviderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取身份提供方
+     * @summary Get identity provider
      *  *
      * @param GetIdentityProviderRequest $request GetIdentityProviderRequest
      *
@@ -3642,7 +3471,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 获取IdP同步入配置
+     * @summary Get IdP Inbound Synchronization Configuration Information
      *  *
      * @param GetIdentityProviderUdPullConfigurationRequest $request GetIdentityProviderUdPullConfigurationRequest
      * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
@@ -3673,15 +3502,12 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetIdentityProviderUdPullConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetIdentityProviderUdPullConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetIdentityProviderUdPullConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取IdP同步入配置
+     * @summary Get IdP Inbound Synchronization Configuration Information
      *  *
      * @param GetIdentityProviderUdPullConfigurationRequest $request GetIdentityProviderUdPullConfigurationRequest
      *
@@ -3723,11 +3549,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3775,11 +3598,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetInstanceLicenseResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetInstanceLicenseResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetInstanceLicenseResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3799,7 +3619,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 查询一个专属网络端点的详细信息。
+     * @summary Get Network Endpoint Information
      *  *
      * @param GetNetworkAccessEndpointRequest $request GetNetworkAccessEndpointRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -3830,15 +3650,12 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetNetworkAccessEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetNetworkAccessEndpointResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetNetworkAccessEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询一个专属网络端点的详细信息。
+     * @summary Get Network Endpoint Information
      *  *
      * @param GetNetworkAccessEndpointRequest $request GetNetworkAccessEndpointRequest
      *
@@ -3883,11 +3700,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetOrganizationalUnitResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetOrganizationalUnitResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetOrganizationalUnitResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3933,11 +3747,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetPasswordComplexityConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetPasswordComplexityConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetPasswordComplexityConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3983,11 +3794,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetPasswordExpirationConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetPasswordExpirationConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetPasswordExpirationConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4033,11 +3841,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetPasswordHistoryConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetPasswordHistoryConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetPasswordHistoryConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4083,11 +3888,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetPasswordInitializationConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetPasswordInitializationConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetPasswordInitializationConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4133,11 +3935,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetRootOrganizationalUnitResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetRootOrganizationalUnitResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetRootOrganizationalUnitResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4155,7 +3954,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 查询同步任务
+     * @summary Obtains the information about a single synchronization job.
      *  *
      * @param GetSynchronizationJobRequest $request GetSynchronizationJobRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -4186,15 +3985,12 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetSynchronizationJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetSynchronizationJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetSynchronizationJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询同步任务
+     * @summary Obtains the information about a single synchronization job.
      *  *
      * @param GetSynchronizationJobRequest $request GetSynchronizationJobRequest
      *
@@ -4239,11 +4035,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetUserResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetUserResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4292,11 +4085,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListApplicationClientSecretsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListApplicationClientSecretsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListApplicationClientSecretsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4369,11 +4159,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListApplicationsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListApplicationsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListApplicationsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4433,11 +4220,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListApplicationsForOrganizationalUnitResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListApplicationsForOrganizationalUnitResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListApplicationsForOrganizationalUnitResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4500,11 +4284,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListApplicationsForUserResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListApplicationsForUserResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListApplicationsForUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4561,11 +4342,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListConditionalAccessPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListConditionalAccessPoliciesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListConditionalAccessPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4618,11 +4396,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListConditionalAccessPoliciesForNetworkZoneResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListConditionalAccessPoliciesForNetworkZoneResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListConditionalAccessPoliciesForNetworkZoneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4642,7 +4417,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 列表查询域名代理Token信息。
+     * @summary Queries the proxy tokens of a domain name of an Employee Identity and Access Management (EIAM) instance.
      *  *
      * @param ListDomainProxyTokensRequest $request ListDomainProxyTokensRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -4673,15 +4448,12 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListDomainProxyTokensResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDomainProxyTokensResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDomainProxyTokensResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 列表查询域名代理Token信息。
+     * @summary Queries the proxy tokens of a domain name of an Employee Identity and Access Management (EIAM) instance.
      *  *
      * @param ListDomainProxyTokensRequest $request ListDomainProxyTokensRequest
      *
@@ -4695,7 +4467,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 列表查询域名记录。
+     * @summary Queries a list of domain names of an Employee Identity and Access Management (EIAM) instance. The list contains the initial domain name and custom domain names.
      *  *
      * @param ListDomainsRequest $request ListDomainsRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
@@ -4723,15 +4495,12 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDomainsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 列表查询域名记录。
+     * @summary Queries a list of domain names of an Employee Identity and Access Management (EIAM) instance. The list contains the initial domain name and custom domain names.
      *  *
      * @param ListDomainsRequest $request ListDomainsRequest
      *
@@ -4745,7 +4514,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 查询EIAM2.0/EIAM1.0实例列表
+     * @summary Queries the information about Employee Identity and Access Management (EIAM) V1.0 instances or EIAM V2.0 instances.
      *  *
      * @param ListEiamInstancesRequest $request ListEiamInstancesRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -4776,15 +4545,12 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListEiamInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListEiamInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListEiamInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询EIAM2.0/EIAM1.0实例列表
+     * @summary Queries the information about Employee Identity and Access Management (EIAM) V1.0 instances or EIAM V2.0 instances.
      *  *
      * @param ListEiamInstancesRequest $request ListEiamInstancesRequest
      *
@@ -4798,7 +4564,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 查询EIAM2.0/EIAM1.0地域列表
+     * @summary Queries the regions in which Employee Identity and Access Management (EIAM) V1.0 instances or EIAM V2.0 instances reside.
      *  *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
@@ -4818,15 +4584,12 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListEiamRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListEiamRegionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListEiamRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询EIAM2.0/EIAM1.0地域列表
+     * @summary Queries the regions in which Employee Identity and Access Management (EIAM) V1.0 instances or EIAM V2.0 instances reside.
      *  *
      * @return ListEiamRegionsResponse ListEiamRegionsResponse
      */
@@ -4884,11 +4647,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListGroupsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4946,11 +4706,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListGroupsForApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListGroupsForApplicationResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListGroupsForApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5005,11 +4762,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListGroupsForUserResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListGroupsForUserResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListGroupsForUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5027,7 +4781,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 查询身份提供方
+     * @summary Query the list of identity providers.
      *  *
      * @param ListIdentityProvidersRequest $request ListIdentityProvidersRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -5061,15 +4815,12 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListIdentityProvidersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListIdentityProvidersResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListIdentityProvidersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询身份提供方
+     * @summary Query the list of identity providers.
      *  *
      * @param ListIdentityProvidersRequest $request ListIdentityProvidersRequest
      *
@@ -5120,11 +4871,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5142,7 +4890,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 获取支持专属端点的region列表
+     * @summary Get a list of regions that support network access endpoints.
      *  *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
@@ -5162,15 +4910,12 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListNetworkAccessEndpointAvailableRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListNetworkAccessEndpointAvailableRegionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListNetworkAccessEndpointAvailableRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取支持专属端点的region列表
+     * @summary Get a list of regions that support network access endpoints.
      *  *
      * @return ListNetworkAccessEndpointAvailableRegionsResponse ListNetworkAccessEndpointAvailableRegionsResponse
      */
@@ -5210,11 +4955,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListNetworkAccessEndpointAvailableZonesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListNetworkAccessEndpointAvailableZonesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListNetworkAccessEndpointAvailableZonesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5278,11 +5020,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListNetworkAccessEndpointsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListNetworkAccessEndpointsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListNetworkAccessEndpointsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5300,7 +5039,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 列表查询某个网络访问端点下的访问路径。
+     * @summary List the access paths under a certain network access endpoint.
      *  *
      * @param ListNetworkAccessPathsRequest $request ListNetworkAccessPathsRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -5331,15 +5070,12 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListNetworkAccessPathsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListNetworkAccessPathsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListNetworkAccessPathsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 列表查询某个网络访问端点下的访问路径。
+     * @summary List the access paths under a certain network access endpoint.
      *  *
      * @param ListNetworkAccessPathsRequest $request ListNetworkAccessPathsRequest
      *
@@ -5353,7 +5089,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 查询组织的所有父级路径
+     * @summary Queries all parent organizations of an Employee Identity and Access Management (EIAM) organization.
      *  *
      * @param ListOrganizationalUnitParentsRequest $request ListOrganizationalUnitParentsRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
@@ -5384,15 +5120,12 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListOrganizationalUnitParentsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListOrganizationalUnitParentsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListOrganizationalUnitParentsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询组织的所有父级路径
+     * @summary Queries all parent organizations of an Employee Identity and Access Management (EIAM) organization.
      *  *
      * @param ListOrganizationalUnitParentsRequest $request ListOrganizationalUnitParentsRequest
      *
@@ -5452,11 +5185,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListOrganizationalUnitsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListOrganizationalUnitsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListOrganizationalUnitsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5514,11 +5244,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListOrganizationalUnitsForApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListOrganizationalUnitsForApplicationResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListOrganizationalUnitsForApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5556,11 +5283,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListRegionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5637,11 +5361,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListSynchronizationJobsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListSynchronizationJobsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListSynchronizationJobsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5726,11 +5447,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListUsersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListUsersResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListUsersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5788,11 +5506,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListUsersForApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListUsersForApplicationResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListUsersForApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5850,11 +5565,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListUsersForGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListUsersForGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListUsersForGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5906,11 +5618,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ObtainApplicationClientSecretResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ObtainApplicationClientSecretResponse::fromMap($this->execute($params, $req, $runtime));
+        return ObtainApplicationClientSecretResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5928,7 +5637,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 查看指定域名安全代理Token。
+     * @summary Queries the information about a proxy token of a domain name of an Employee Identity and Access Management (EIAM) instance.
      *  *
      * @param ObtainDomainProxyTokenRequest $request ObtainDomainProxyTokenRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -5962,15 +5671,12 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ObtainDomainProxyTokenResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ObtainDomainProxyTokenResponse::fromMap($this->execute($params, $req, $runtime));
+        return ObtainDomainProxyTokenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查看指定域名安全代理Token。
+     * @summary Queries the information about a proxy token of a domain name of an Employee Identity and Access Management (EIAM) instance.
      *  *
      * @param ObtainDomainProxyTokenRequest $request ObtainDomainProxyTokenRequest
      *
@@ -6018,11 +5724,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return RemoveUserFromOrganizationalUnitsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RemoveUserFromOrganizationalUnitsResponse::fromMap($this->execute($params, $req, $runtime));
+        return RemoveUserFromOrganizationalUnitsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6074,11 +5777,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return RemoveUsersFromGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RemoveUsersFromGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return RemoveUsersFromGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6130,11 +5830,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return RevokeApplicationFromGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RevokeApplicationFromGroupsResponse::fromMap($this->execute($params, $req, $runtime));
+        return RevokeApplicationFromGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6186,11 +5883,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return RevokeApplicationFromOrganizationalUnitsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RevokeApplicationFromOrganizationalUnitsResponse::fromMap($this->execute($params, $req, $runtime));
+        return RevokeApplicationFromOrganizationalUnitsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6242,11 +5936,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return RevokeApplicationFromUsersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RevokeApplicationFromUsersResponse::fromMap($this->execute($params, $req, $runtime));
+        return RevokeApplicationFromUsersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6264,7 +5955,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 运行同步任务
+     * @summary Creates a synchronization job and immediately runs the job.
      *  *
      * @param RunSynchronizationJobRequest $request RunSynchronizationJobRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -6310,15 +6001,12 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return RunSynchronizationJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RunSynchronizationJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return RunSynchronizationJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 运行同步任务
+     * @summary Creates a synchronization job and immediately runs the job.
      *  *
      * @param RunSynchronizationJobRequest $request RunSynchronizationJobRequest
      *
@@ -6366,11 +6054,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SetApplicationGrantScopeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetApplicationGrantScopeResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetApplicationGrantScopeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6431,11 +6116,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SetApplicationProvisioningConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetApplicationProvisioningConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetApplicationProvisioningConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6490,11 +6172,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SetApplicationProvisioningScopeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetApplicationProvisioningScopeResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetApplicationProvisioningScopeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6560,11 +6239,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SetApplicationSsoConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetApplicationSsoConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetApplicationSsoConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6584,7 +6260,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 设置默认域名。
+     * @summary Sets a domain name of an Employee Identity and Access Management (EIAM) instance as the default domain name.
      *  *
      * @param SetDefaultDomainRequest $request SetDefaultDomainRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -6615,15 +6291,12 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SetDefaultDomainResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetDefaultDomainResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetDefaultDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 设置默认域名。
+     * @summary Sets a domain name of an Employee Identity and Access Management (EIAM) instance as the default domain name.
      *  *
      * @param SetDefaultDomainRequest $request SetDefaultDomainRequest
      *
@@ -6671,11 +6344,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SetForgetPasswordConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetForgetPasswordConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetForgetPasswordConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6693,7 +6363,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 修改IdP同步入配置
+     * @summary Update IdP synchronization configuration.
      *  *
      * @param SetIdentityProviderUdPullConfigurationRequest $request SetIdentityProviderUdPullConfigurationRequest
      * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
@@ -6745,15 +6415,12 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SetIdentityProviderUdPullConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetIdentityProviderUdPullConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetIdentityProviderUdPullConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 修改IdP同步入配置
+     * @summary Update IdP synchronization configuration.
      *  *
      * @param SetIdentityProviderUdPullConfigurationRequest $request SetIdentityProviderUdPullConfigurationRequest
      *
@@ -6801,11 +6468,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SetPasswordComplexityConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetPasswordComplexityConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetPasswordComplexityConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6875,11 +6539,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SetPasswordExpirationConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetPasswordExpirationConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetPasswordExpirationConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6931,11 +6592,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SetPasswordHistoryConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetPasswordHistoryConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetPasswordHistoryConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6993,11 +6651,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SetPasswordInitializationConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetPasswordInitializationConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetPasswordInitializationConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7049,11 +6704,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SetUserPrimaryOrganizationalUnitResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetUserPrimaryOrganizationalUnitResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetUserPrimaryOrganizationalUnitResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7102,11 +6754,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UnlockUserResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UnlockUserResponse::fromMap($this->execute($params, $req, $runtime));
+        return UnlockUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7158,11 +6807,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateApplicationAuthorizationTypeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateApplicationAuthorizationTypeResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateApplicationAuthorizationTypeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7214,11 +6860,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateApplicationDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateApplicationDescriptionResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateApplicationDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7249,6 +6892,9 @@ class Eiam extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
         if (!Utils::isUnset($request->conditionalAccessPolicyId)) {
             $query['ConditionalAccessPolicyId'] = $request->conditionalAccessPolicyId;
         }
@@ -7284,11 +6930,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateConditionalAccessPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateConditionalAccessPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateConditionalAccessPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7321,6 +6964,9 @@ class Eiam extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
         if (!Utils::isUnset($request->conditionalAccessPolicyId)) {
             $query['ConditionalAccessPolicyId'] = $request->conditionalAccessPolicyId;
         }
@@ -7344,11 +6990,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateConditionalAccessPolicyDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateConditionalAccessPolicyDescriptionResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateConditionalAccessPolicyDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7405,11 +7048,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7461,11 +7101,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateGroupDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateGroupDescriptionResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateGroupDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7494,6 +7131,9 @@ class Eiam extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
         if (!Utils::isUnset($request->dingtalkAppConfig)) {
             $query['DingtalkAppConfig'] = $request->dingtalkAppConfig;
         }
@@ -7538,11 +7178,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateIdentityProviderResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateIdentityProviderResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateIdentityProviderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7591,11 +7228,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateInstanceDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateInstanceDescriptionResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateInstanceDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7647,11 +7281,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateNetworkAccessEndpointNameResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateNetworkAccessEndpointNameResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateNetworkAccessEndpointNameResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7703,11 +7334,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateOrganizationalUnitResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateOrganizationalUnitResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateOrganizationalUnitResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7759,11 +7387,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateOrganizationalUnitDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateOrganizationalUnitDescriptionResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateOrganizationalUnitDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7815,11 +7440,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateOrganizationalUnitParentIdResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateOrganizationalUnitParentIdResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateOrganizationalUnitParentIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7892,11 +7514,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateUserResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateUserResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7948,11 +7567,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateUserDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateUserDescriptionResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateUserDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8010,11 +7626,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateUserPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateUserPasswordResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateUserPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

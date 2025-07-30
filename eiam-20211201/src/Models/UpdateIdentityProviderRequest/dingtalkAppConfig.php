@@ -11,8 +11,6 @@ class dingtalkAppConfig extends Model
     /**
      * @description 钉钉一方应用的AppKey
      *
-     * This parameter is required.
-     *
      * @example 49nyeaqumk7f
      *
      * @var string
@@ -22,16 +20,26 @@ class dingtalkAppConfig extends Model
     /**
      * @description 钉钉一方应用的AppSecret
      *
-     * This parameter is required.
-     *
      * @example 86nozWFL2CxgwnhKiXaG8dN4keLPkUNc5xxxx
      *
      * @var string
      */
     public $appSecret;
+
+    /**
+     * @var string
+     */
+    public $encryptKey;
+
+    /**
+     * @var string
+     */
+    public $verificationToken;
     protected $_name = [
         'appKey' => 'AppKey',
         'appSecret' => 'AppSecret',
+        'encryptKey' => 'EncryptKey',
+        'verificationToken' => 'VerificationToken',
     ];
 
     public function validate() {}
@@ -44,6 +52,12 @@ class dingtalkAppConfig extends Model
         }
         if (null !== $this->appSecret) {
             $res['AppSecret'] = $this->appSecret;
+        }
+        if (null !== $this->encryptKey) {
+            $res['EncryptKey'] = $this->encryptKey;
+        }
+        if (null !== $this->verificationToken) {
+            $res['VerificationToken'] = $this->verificationToken;
         }
 
         return $res;
@@ -62,6 +76,12 @@ class dingtalkAppConfig extends Model
         }
         if (isset($map['AppSecret'])) {
             $model->appSecret = $map['AppSecret'];
+        }
+        if (isset($map['EncryptKey'])) {
+            $model->encryptKey = $map['EncryptKey'];
+        }
+        if (isset($map['VerificationToken'])) {
+            $model->verificationToken = $map['VerificationToken'];
         }
 
         return $model;

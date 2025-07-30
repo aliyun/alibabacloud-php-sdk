@@ -13,7 +13,12 @@ use AlibabaCloud\Tea\Model;
 class udPullConfiguration extends Model
 {
     /**
-     * @description 组同步状态
+     * @description Group Synchronization Status
+     * Possible values:
+     *
+     * Disabled: disabled
+     *
+     * Enabled: enabled
      *
      * @example enabled
      *
@@ -22,7 +27,7 @@ class udPullConfiguration extends Model
     public $groupSyncStatus;
 
     /**
-     * @description IDaaS EIAM 身份提供方ID
+     * @description Identity provider ID
      *
      * @example idp_my664lwkhpicbyzirog3xxxxx
      *
@@ -31,7 +36,7 @@ class udPullConfiguration extends Model
     public $identityProviderId;
 
     /**
-     * @description 增量回调状态，是否处理来自IdP的增量回调数据
+     * @description Incremental Callback Status: Whether to process incremental callback data from the IdP
      *
      * @example enabled
      *
@@ -40,7 +45,7 @@ class udPullConfiguration extends Model
     public $incrementalCallbackStatus;
 
     /**
-     * @description IDaaS EIAM 实例Id
+     * @description The ID of the instance.
      *
      * @example idaas_ue2jvisn35ea5lmthk267xxxxx
      *
@@ -49,18 +54,26 @@ class udPullConfiguration extends Model
     public $instanceId;
 
     /**
-     * @description ldap同步侧相关配置信息
+     * @description LDAP Synchronization Side Related Configuration Information
      *
      * @var ldapUdPullConfig
      */
     public $ldapUdPullConfig;
 
     /**
+     * @description Scheduled sync configuration
+     *
      * @var periodicSyncConfig
      */
     public $periodicSyncConfig;
 
     /**
+     * @description Scheduled Validation Status: Whether to periodically validate data discrepancies between IDaaS and the Identity Provider. Possible values:
+     *
+     * Disabled: disabled
+     *
+     * Enabled: enabled
+     *
      * @example enabled
      *
      * @var string
@@ -68,14 +81,14 @@ class udPullConfiguration extends Model
     public $periodicSyncStatus;
 
     /**
-     * @description 同步入用户映射字段配置列表
+     * @description Inbound Synchronization Protection Rule Configuration
      *
      * @var pullProtectedRule
      */
     public $pullProtectedRule;
 
     /**
-     * @description 同步入配置信息
+     * @description Synchronization Scope Configuration Information
      *
      * @var udSyncScopeConfig
      */

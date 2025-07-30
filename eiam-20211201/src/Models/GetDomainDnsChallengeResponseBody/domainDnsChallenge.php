@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class domainDnsChallenge extends Model
 {
     /**
-     * @description DNS challenge名称。
+     * @description The name of the DNS challenge record.
      *
      * @example _idaas-challenge.${domain}
      *
@@ -18,7 +18,7 @@ class domainDnsChallenge extends Model
     public $dnsChallengeName;
 
     /**
-     * @description DNS challenge值。
+     * @description The value of the DNS challenge record.
      *
      * @example exmple123xxx
      *
@@ -27,9 +27,9 @@ class domainDnsChallenge extends Model
     public $dnsChallengeValue;
 
     /**
-     * @description DNS记录类型。
+     * @description The type of the DNS challenge record.
      *
-     * @example 枚举，目前只支持TXT类型
+     * @example txt
      *
      * @var string
      */

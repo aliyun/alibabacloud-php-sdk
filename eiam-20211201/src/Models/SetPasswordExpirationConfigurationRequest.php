@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetPasswordExpirationConfigurationRequest extends Model
 {
     /**
+     * @description Effective authentication sourceIds
+     *
      * @var string[]
      */
     public $effectiveAuthenticationSourceIds;

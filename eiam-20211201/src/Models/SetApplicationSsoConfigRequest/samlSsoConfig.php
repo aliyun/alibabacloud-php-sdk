@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class samlSsoConfig extends Model
 {
     /**
-     * @description Specifies whether to calculate the signature for the assertion. You cannot set ResponseSigned and AssertionSigned to false at the same time.
+     * @description Specifies whether to calculate the signature for the assertion. You cannot set the ResponseSigned and AssertionSigned parameters to false at the same time. Valid values:
      *
      *   true
      *   false
@@ -39,14 +39,25 @@ class samlSsoConfig extends Model
     public $defaultRelayState;
 
     /**
+     * @description IdP entityId.
+     *
+     * @example https://example.com/
+     *
      * @var string
      */
     public $idPEntityId;
 
     /**
-     * @description The Format attribute of the NameID element in the SAML assertion. Valid values:
+     * @description The format of the NameID element in the SAML assertion. Valid values:
      *
      *   urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified: No format is specified. How to resolve the NameID element depends on the application.
+     *   urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress: The NameID element must be an email address.
+     *   urn:oasis:names:tc:SAML:2.0:nameid-format:persistent: The NameID element must be persistent.
+     *   urn:oasis:names:tc:SAML:2.0:nameid-format:transient: The NameID element must be transient.
+     *
+     * Valid values:
+     *
+     *   urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified: No format is specified. This is the default value.
      *   urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress: The NameID element must be an email address.
      *   urn:oasis:names:tc:SAML:2.0:nameid-format:persistent: The NameID element must be persistent.
      *   urn:oasis:names:tc:SAML:2.0:nameid-format:transient: The NameID element must be transient.
@@ -67,12 +78,14 @@ class samlSsoConfig extends Model
     public $nameIdValueExpression;
 
     /**
+     * @description Optional relayStates
+     *
      * @var optionalRelayStates[]
      */
     public $optionalRelayStates;
 
     /**
-     * @description Specifies whether to calculate the signature for the response. You cannot set ResponseSigned and AssertionSigned to false at the same time.
+     * @description Specifies whether to calculate the signature for the response. You cannot set the ResponseSigned and AssertionSigned parameters to false at the same time. Valid values:
      *
      *   true
      *   false
@@ -86,21 +99,9 @@ class samlSsoConfig extends Model
     /**
      * @description The algorithm that is used to calculate the signature for the SAML assertion.
      *
-     * Enumeration value:
+     * Valid value:
      *
-     *   RSA-SHA256
-     *
-     * <!-- -->
-     *
-     * :
-     *
-     * <!-- -->
-     *
-     * the Rivest-Shamir-Adleman (RSA)-Secure Hash Algorithm 256 (SHA-256) algorithm
-     *
-     * <!-- -->
-     *
-     * .
+     *   RSA-SHA256: the Rivest-Shamir-Adleman (RSA)-Secure Hash Algorithm 256 (SHA-256) algorithm.
      *
      * @example RSA-SHA256
      *

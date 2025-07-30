@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RunSynchronizationJobResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 0441BD79-92F3-53AA-8657-F8CE4A2B912A
      *
      * @var string
@@ -16,6 +18,8 @@ class RunSynchronizationJobResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the synchronization job.
+     *
      * @example sync_0000347vjovtcf41li0fgsd98gn24q9nj9xxxxx
      *
      * @var string

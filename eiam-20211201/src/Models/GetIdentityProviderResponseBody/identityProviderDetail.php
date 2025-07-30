@@ -17,7 +17,10 @@ use AlibabaCloud\Tea\Model;
 class identityProviderDetail extends Model
 {
     /**
-     * @description 高阶配置能力
+     * @description Advanced configuration capability.
+     * Value range:
+     * Disabled: disabled
+     * Enable: enabled
      *
      * @example disabled
      *
@@ -26,7 +29,23 @@ class identityProviderDetail extends Model
     public $advancedStatus;
 
     /**
-     * @description IDaaS EIAM 对应的认证来源产品，okta or google or azure ad
+     * @description The corresponding identity provider product, e.g., Okta, Google, or Azure AD. Possible values:
+     *
+     * DingTalk: urn:alibaba:idaas:idp:alibaba:dingtalk
+     *
+     * LDAP: urn:alibaba:idaas:idp:unknown:ldap
+     *
+     * Alibaba Cloud IDaaS: urn:alibaba:idaas:idp:alibaba:idaas
+     *
+     * WeCom (Enterprise WeChat): urn:alibaba:idaas:idp:tencent:wecom
+     *
+     * Lark (Feishu): urn:alibaba:idaas:idp:bytedance:lark
+     *
+     * Active Directory: urn:alibaba:idaas:idp:microsoft:ad
+     *
+     * Azure Active Directory: urn:alibaba:idaas:idp:microsoft:aad
+     *
+     * Alibaba Cloud SASE: urn:alibaba:idaas:idp:alibaba:sase
      *
      * @example urn:alibaba:idaas:idp:bytedance:lark
      *
@@ -35,7 +54,11 @@ class identityProviderDetail extends Model
     public $authnSourceSupplier;
 
     /**
-     * @description IDaaS EIAM 认证方式类型 oidc or saml
+     * @description Authentication type — OIDC or SAML. Possible values:
+     *
+     * OIDC: urn:alibaba:idaas:authntype:oidc
+     *
+     * SAML: urn:alibaba:idaas:authntype:saml2
      *
      * @example urn:alibaba:idaas:authntype:oidc
      *
@@ -44,7 +67,9 @@ class identityProviderDetail extends Model
     public $authnSourceType;
 
     /**
-     * @description IDaaS EIAM 对应IdP是否支持认证
+     * @description Whether the corresponding IdP supports authentication. Value range:
+     * Disabled: disabled
+     * Enabled: enabled
      *
      * @example disabled
      *
@@ -53,7 +78,7 @@ class identityProviderDetail extends Model
     public $authnStatus;
 
     /**
-     * @description 创建时间
+     * @description The time when the version was created.
      *
      * @example 1726021079000
      *
@@ -62,7 +87,7 @@ class identityProviderDetail extends Model
     public $createTime;
 
     /**
-     * @description IDaaS EIAM 身份提供方描述
+     * @description Identity provider description.
      *
      * @example for poc test
      *
@@ -71,21 +96,21 @@ class identityProviderDetail extends Model
     public $description;
 
     /**
-     * @description 钉钉基础配置
+     * @description DingTalk Basic Configuration
      *
      * @var dingtalkAppConfig
      */
     public $dingtalkAppConfig;
 
     /**
-     * @description 钉钉同步配置
+     * @description DingTalk synchronous configuration.
      *
      * @var dingtalkProvisioningConfig
      */
     public $dingtalkProvisioningConfig;
 
     /**
-     * @description IDaaS EIAM 身份提供方外部ID
+     * @description Identity provider external ID.
      *
      * @example idp_xxxx
      *
@@ -94,16 +119,16 @@ class identityProviderDetail extends Model
     public $identityProviderExternalId;
 
     /**
-     * @description IDaaS EIAM 身份提供方ID
+     * @description Identity provider ID.
      *
-     * @example idp_mwpcwnhrimlr2horx7xgg7pp7y
+     * @example idp_mwpcwnhrimlr2horx7xgg7xxxx
      *
      * @var string
      */
     public $identityProviderId;
 
     /**
-     * @description IDaaS EIAM 身份提供方名称
+     * @description Identity provider name.
      *
      * @example test
      *
@@ -112,7 +137,7 @@ class identityProviderDetail extends Model
     public $identityProviderName;
 
     /**
-     * @description 身份提供方同步类型
+     * @description Identity provider type.
      *
      * @example urn:alibaba:idaas:idp:alibaba:dingtalk:push
      *
@@ -121,7 +146,7 @@ class identityProviderDetail extends Model
     public $identityProviderType;
 
     /**
-     * @description IDaaS EIAM 实例Id
+     * @description Instance ID.
      *
      * @example idaas_x2df3bak3uwnapqm6xxxx
      *
@@ -130,14 +155,14 @@ class identityProviderDetail extends Model
     public $instanceId;
 
     /**
-     * @description 飞书配置
+     * @description Lark configuration.
      *
      * @var larkConfig
      */
     public $larkConfig;
 
     /**
-     * @description 最后一次状态检查结果
+     * @description Last status check result.
      *
      * @example success
      *
@@ -146,14 +171,14 @@ class identityProviderDetail extends Model
     public $lastStatusCheckJobResult;
 
     /**
-     * @description AD/LDAP身份提供方相关信息
+     * @description AD/LDAP Identity provider information.
      *
      * @var ldapConfig
      */
     public $ldapConfig;
 
     /**
-     * @description 锁定原因
+     * @description The reason why write operations on the instance are locked.
      *
      * @example financial
      *
@@ -162,12 +187,16 @@ class identityProviderDetail extends Model
     public $lockReason;
 
     /**
+     * @description The URL of the application logo.
+     *
+     * @example https://img.alicdn.com/imgextra/i4/O1CN01OB8fJj22fpoZm4sd0_!!6000000007148-2-tps-149-xxx.png
+     *
      * @var string
      */
     public $logoUrl;
 
     /**
-     * @description 网络端点ID
+     * @description The unique identifier of the network access endpoint.
      *
      * @example nae_mx4vsadfe6govkqkwckxxxx
      *
@@ -176,21 +205,21 @@ class identityProviderDetail extends Model
     public $networkAccessEndpointId;
 
     /**
-     * @description OIDC IdP配置。
+     * @description OIDC IdP configuration.
      *
      * @var oidcConfig
      */
     public $oidcConfig;
 
     /**
-     * @description 同步入配置
+     * @description Sync in configuration.
      *
      * @var udPullConfig
      */
     public $udPullConfig;
 
     /**
-     * @description IDaaS EIAM 是否支持UD同步
+     * @description Indicates whether the IDaaS EIAM system supports UD (User Directory) synchronization.
      *
      * @example disabled
      *
@@ -199,14 +228,14 @@ class identityProviderDetail extends Model
     public $udPullStatus;
 
     /**
-     * @description 同步出配置
+     * @description Outbound synchronization configuration.
      *
      * @var udPushConfig
      */
     public $udPushConfig;
 
     /**
-     * @description 同步出能力
+     * @description Outbound synchronization capability.
      *
      * @example disabled
      *
@@ -215,7 +244,7 @@ class identityProviderDetail extends Model
     public $udPushStatus;
 
     /**
-     * @description 更新时间
+     * @description The time when the serviceInstance  was last updated.
      *
      * @example 1726021079000
      *
@@ -224,7 +253,7 @@ class identityProviderDetail extends Model
     public $updateTime;
 
     /**
-     * @description 企业微信
+     * @description WeCom configuration.
      *
      * @var weComConfig
      */

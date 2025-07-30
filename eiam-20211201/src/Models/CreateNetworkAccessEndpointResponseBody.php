@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateNetworkAccessEndpointResponseBody extends Model
 {
     /**
+     * @description The unique identifier of the network access endpoint.
+     *
      * @example nae_examplexxxx
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateNetworkAccessEndpointResponseBody extends Model
     public $networkAccessEndpointId;
 
     /**
+     * @description The request ID.
+     *
      * @example 0441BD79-92F3-53AA-8657-F8CE4A2B912A
      *
      * @var string

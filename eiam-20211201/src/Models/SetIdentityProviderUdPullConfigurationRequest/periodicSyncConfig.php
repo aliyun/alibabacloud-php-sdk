@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class periodicSyncConfig extends Model
 {
     /**
+     * @description Periodic synchronize cron
+     *
      * @example 0 45 1 * * ?
      *
      * @var string
@@ -16,11 +18,15 @@ class periodicSyncConfig extends Model
     public $periodicSyncCron;
 
     /**
+     * @description Periodic synchronize times
+     *
      * @var int[]
      */
     public $periodicSyncTimes;
 
     /**
+     * @description Periodic synchronize type
+     *
      * @example cron
      *
      * @var string

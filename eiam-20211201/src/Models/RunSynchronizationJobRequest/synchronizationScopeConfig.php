@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class synchronizationScopeConfig extends Model
 {
     /**
+     * @description The group IDs.
+     *
      * @var string[]
      */
     public $groupIds;
 
     /**
+     * @description The IDs of organizational units.
+     *
      * @var string[]
      */
     public $organizationalUnitIds;
 
     /**
+     * @description UserIds
+     *
      * @var string[]
      */
     public $userIds;

@@ -9,25 +9,25 @@ use AlibabaCloud\Tea\Model;
 class ldapUdPullConfig extends Model
 {
     /**
-     * @description 组成员标识
+     * @description Group member attribute name
      *
-     * @example member
+     * @example memberxxx
      *
      * @var string
      */
     public $groupMemberAttributeName;
 
     /**
-     * @description 组objectClass
+     * @description GroupObjectClass
      *
-     * @example group
+     * @example groupxxx
      *
      * @var string
      */
     public $groupObjectClass;
 
     /**
-     * @description 组自定义Filter
+     * @description GroupObjectClass custom filter
      *
      * @example (|(cn=test)(group=test@test.com))
      *
@@ -36,25 +36,25 @@ class ldapUdPullConfig extends Model
     public $groupObjectClassCustomFilter;
 
     /**
-     * @description 组织ObjectClass
+     * @description OrganizationUnitObjectClass
      *
-     * @example organizationUnit,top
+     * @example organizationUnitxxx,top
      *
      * @var string
      */
     public $organizationUnitObjectClass;
 
     /**
-     * @description 用户ObjectClass
+     * @description UserObjectClass
      *
-     * @example userPrincipalName, mail
+     * @example userPrincipalNamexxx, mail
      *
      * @var string
      */
     public $userObjectClass;
 
     /**
-     * @description 用户自定义Filter
+     * @description UserObjectClass custom filter
      *
      * @example (|(cn=test)(mail=test@test.com))
      *

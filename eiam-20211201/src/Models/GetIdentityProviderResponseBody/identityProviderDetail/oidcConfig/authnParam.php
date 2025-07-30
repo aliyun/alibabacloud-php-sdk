@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class authnParam extends Model
 {
     /**
-     * @description OIDC/oAuth2 认证方法。
+     * @description OIDC/OAuth2 authentication method.
      *
      * @example client_secret_post
      *
@@ -18,7 +18,7 @@ class authnParam extends Model
     public $authnMethod;
 
     /**
-     * @description OIDC/oAuth2 客户端ID。
+     * @description The client ID of the device whose access credential you want to query.
      *
      * @example mkv7rgt4d7i4u7zqtzev2mxxxx
      *
@@ -27,7 +27,7 @@ class authnParam extends Model
     public $clientId;
 
     /**
-     * @description OIDC/oAuth2 客户端密钥。
+     * @description The application secret registered with the OIDC authentication service.
      *
      * @example CSEHDddddddxxxxuxkJEHPveWRXBGqVqRsxxxx
      *

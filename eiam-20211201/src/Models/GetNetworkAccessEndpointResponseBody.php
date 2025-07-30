@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetNetworkAccessEndpointResponseBody extends Model
 {
     /**
+     * @description Network endpoint information.
+     *
      * @var networkAccessEndpoint
      */
     public $networkAccessEndpoint;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 0441BD79-92F3-53AA-8657-F8CE4A2B912A
      *
      * @var string

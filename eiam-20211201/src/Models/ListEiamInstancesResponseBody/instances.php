@@ -9,14 +9,16 @@ use AlibabaCloud\Tea\Model;
 class instances extends Model
 {
     /**
-     * @description 实例描述信息
+     * @description The instance description.
+     *
+     * @example instance test
      *
      * @var string
      */
     public $description;
 
     /**
-     * @description 实例developer私网域名地址
+     * @description The private domain name of the instance Developer API.
      *
      * @example eiam-developerapi-cn.vpc-proxy.aliyuncs.com
      *
@@ -25,7 +27,7 @@ class instances extends Model
     public $developerAPIPrivateDomain;
 
     /**
-     * @description 实例developer公网域名地址
+     * @description The public domain of the instance Developer API.
      *
      * @example eiam-developerapi.cn-hangzhou.aliyuncs.com
      *
@@ -34,7 +36,7 @@ class instances extends Model
     public $developerAPIPublicDomain;
 
     /**
-     * @description 实例id
+     * @description The instance ID.
      *
      * @example idaas_eypq6ljgyeuwmlw672sulxxxxx
      *
@@ -43,7 +45,7 @@ class instances extends Model
     public $instanceId;
 
     /**
-     * @description 实例状态，Pending(初始状态)、Creating(创建中)、Running(运行中)、Disabled(禁用)、CreateFailed(创建失败)
+     * @description The instance status.
      *
      * @example RUNNING
      *
@@ -52,7 +54,12 @@ class instances extends Model
     public $instanceStatus;
 
     /**
-     * @description 实例版本，EIAM2.0/ EIAM1.0
+     * @description The instance version.
+     *
+     * Valid values:
+     *
+     *   EIAM 2.0
+     *   EIAM 1.0
      *
      * @example EIAM 2.0
      *
@@ -61,7 +68,7 @@ class instances extends Model
     public $instanceVersion;
 
     /**
-     * @description 实例openApi私网域名地址
+     * @description The private domain of the instance OpenAPI.
      *
      * @example eiam-cn.vpc-proxy.aliyuncs.com
      *
@@ -70,7 +77,7 @@ class instances extends Model
     public $openAPIPrivateDomain;
 
     /**
-     * @description 实例openApi公网域名地址
+     * @description The public domain of the instance OpenAPI.
      *
      * @example eiam.cn-hangzhou.aliyuncs.com
      *
@@ -79,7 +86,7 @@ class instances extends Model
     public $openAPIPublicDomain;
 
     /**
-     * @description 实例域名地址
+     * @description The single sign-on (SSO) domain  of the instance.
      *
      * @example xxxx.aliyunidaas.com
      *
@@ -88,7 +95,7 @@ class instances extends Model
     public $SSODomain;
 
     /**
-     * @description 实例的创建时间
+     * @description The time when the instance was created.
      *
      * @example 1677810869300
      *

@@ -11,21 +11,21 @@ use AlibabaCloud\Tea\Model;
 class dingtalkProvisioningConfig extends Model
 {
     /**
-     * @description 授权的钉钉部门
+     * @description List of authorized DingTalk departments.
      *
      * @var authedDepartmentIds[]
      */
     public $authedDepartmentIds;
 
     /**
-     * @description 授权的钉钉账户列表
+     * @description Authorized DingTalk account list.
      *
      * @var authedUsers[]
      */
     public $authedUsers;
 
     /**
-     * @description 钉钉企业corpId
+     * @description DingTalk enterprise corpId.
      *
      * @example ding_xxxxx
      *
@@ -34,9 +34,9 @@ class dingtalkProvisioningConfig extends Model
     public $corpId;
 
     /**
-     * @description 钉钉企业名称
+     * @description The name of the company.
      *
-     * @example 测试企业
+     * @example test_xxx
      *
      * @var string
      */

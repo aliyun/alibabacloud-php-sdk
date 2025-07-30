@@ -9,9 +9,11 @@ use AlibabaCloud\Tea\Model;
 class autoMatchUserProfileExpressions extends Model
 {
     /**
-     * @description 表达式的类型
+     * @description Type of the expression. Value range:
      *
-     * This parameter is required.
+     * - Field: filed
+     *
+     * - Expression: expression
      *
      * @example filed
      *
@@ -20,9 +22,7 @@ class autoMatchUserProfileExpressions extends Model
     public $expressionMappingType;
 
     /**
-     * @description 映射属性取值表达式
-     *
-     * This parameter is required.
+     * @description Expression for the mapped attribute value.
      *
      * @example idpUser.phoneNumber
      *
@@ -31,9 +31,7 @@ class autoMatchUserProfileExpressions extends Model
     public $sourceValueExpression;
 
     /**
-     * @description 映射目标属性名称
-     *
-     * This parameter is required.
+     * @description Name of the target attribute.
      *
      * @example user.username
      *
@@ -42,7 +40,9 @@ class autoMatchUserProfileExpressions extends Model
     public $targetField;
 
     /**
-     * @description 映射目标属性名称
+     * @description Description of the target attribute.
+     *
+     * @example user.username
      *
      * @var string
      */

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class udPushConfig extends Model
 {
     /**
-     * @description 增量回调状态，是否处理来自IdP的增量回调数据
+     * @description Incremental callback status: Whether to process incremental callback data from the IdP.
      *
      * @example disabled
      *
@@ -19,7 +19,7 @@ class udPushConfig extends Model
     public $incrementalCallbackStatus;
 
     /**
-     * @description 同步出配置信息
+     * @description Outbound synchronization configuration Information.
      *
      * @var udSyncScopeConfigs[]
      */

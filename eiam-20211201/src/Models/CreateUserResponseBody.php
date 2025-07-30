@@ -18,7 +18,7 @@ class CreateUserResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the account.
+     * @description The ID of the request.
      *
      * @example user_d6sbsuumeta4h66ec3il7yxxxx
      *

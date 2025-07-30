@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class optionalRelayStates extends Model
 {
     /**
+     * @description RelayState displayName
+     *
+     * @example Ram
+     *
      * @var string
      */
     public $displayName;
 
     /**
+     * @description RelayState value
+     *
+     * @example https://example .aliyun.com
+     *
      * @var string
      */
     public $relayState;

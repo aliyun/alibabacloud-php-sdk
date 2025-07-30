@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class endpointConfig extends Model
 {
     /**
-     * @description oAuth2 授权端点。
+     * @description OIDC authorization endpoint.
      *
      * @example https://example.com/auth/authorize
      *
@@ -18,7 +18,7 @@ class endpointConfig extends Model
     public $authorizationEndpoint;
 
     /**
-     * @description OIDC issuer信息。
+     * @description OIDC issuer information.
      *
      * @example https://example.com/auth
      *
@@ -27,7 +27,7 @@ class endpointConfig extends Model
     public $issuer;
 
     /**
-     * @description OIDC jwks地址。
+     * @description OIDC jwks uri.
      *
      * @example https://example.com/auth/jwks
      *
@@ -36,7 +36,7 @@ class endpointConfig extends Model
     public $jwksUri;
 
     /**
-     * @description oAuth2 Token端点。
+     * @description OIDC token endpoint.
      *
      * @example https://example.com/auth/token
      *
@@ -45,7 +45,7 @@ class endpointConfig extends Model
     public $tokenEndpoint;
 
     /**
-     * @description OIDC 用户信息端点。
+     * @description OIDC user info endpoint.
      *
      * @example https://example.com/auth/userinfo
      *

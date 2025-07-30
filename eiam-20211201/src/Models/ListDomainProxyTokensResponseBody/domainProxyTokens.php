@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class domainProxyTokens extends Model
 {
     /**
-     * @description 域名代理Token创建时间，Unix时间戳格式，单位为毫秒。
+     * @description The time when the proxy token of the domain name was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
      * @example 1649830226000
      *
@@ -18,7 +18,7 @@ class domainProxyTokens extends Model
     public $createTime;
 
     /**
-     * @description 域名ID。
+     * @description The domain ID.
      *
      * @example dm_examplexxxx
      *
@@ -27,7 +27,7 @@ class domainProxyTokens extends Model
     public $domainId;
 
     /**
-     * @description 域名代理Token。
+     * @description The proxy token of the domain.
      *
      * @example PTxxxxxxxx
      *
@@ -36,7 +36,7 @@ class domainProxyTokens extends Model
     public $domainProxyToken;
 
     /**
-     * @description 域名代理Token ID。
+     * @description The ID of the proxy token of the domain.
      *
      * @example pt_examplexxxx
      *
@@ -45,7 +45,7 @@ class domainProxyTokens extends Model
     public $domainProxyTokenId;
 
     /**
-     * @description 实例ID。
+     * @description The instance ID.
      *
      * @example idaas_ue2jvisn35ea5lmthk267xxxxx
      *
@@ -54,7 +54,7 @@ class domainProxyTokens extends Model
     public $instanceId;
 
     /**
-     * @description 域名代理Token最近使用时间，Unix时间戳格式，单位为毫秒。
+     * @description The time when the proxy token of the domain name was last used. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
      * @example 1649830226000
      *
@@ -63,7 +63,10 @@ class domainProxyTokens extends Model
     public $lastUsedTime;
 
     /**
-     * @description token状态，枚举类型：(enabled）启用,（disabled）禁用。
+     * @description The state of the proxy token. Valid values:
+     *
+     *   enabled
+     *   disabled
      *
      * @example enabled
      *
@@ -72,7 +75,7 @@ class domainProxyTokens extends Model
     public $status;
 
     /**
-     * @description 域名代理Token最近更新时间，Unix时间戳格式，单位为毫秒。
+     * @description The time when the proxy token of the domain name was last updated. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
      * @example 1649830226000
      *

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListIdentityProvidersResponseBody extends Model
 {
     /**
+     * @description Identity provider information array.
+     *
      * @var identityProviders[]
      */
     public $identityProviders;
 
     /**
+     * @description The request ID.
+     *
      * @example 0441BD79-92F3-53AA-8657-F8CE4A2B912A
      *
      * @var string
@@ -22,6 +26,8 @@ class ListIdentityProvidersResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 100
      *
      * @var int

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class identityProviders extends Model
 {
     /**
-     * @description 高阶配置能力
+     * @description Advanced configuration capabilities
      *
      * @example disabled
      *
@@ -18,7 +18,16 @@ class identityProviders extends Model
     public $advancedStatus;
 
     /**
-     * @description IDaaS EIAM 对应的认证来源产品，okta or google or azure ad
+     * @description Authentication source product.
+     * - urn:alibaba:idaas:idp:okta:okta
+     * - urn:alibaba:idaas:idp:google:account
+     * - urn:alibaba:idaas:idp:microsoft:aad
+     * - urn:alibaba:idaas:idp:microsoft:ad
+     * - urn:alibaba:idaas:idp:bytedance:lark
+     * - urn:alibaba:idaas:idp:unknown:ldap
+     * - urn:alibaba:idaas:idp:alibaba:idaas
+     * - urn:alibaba:idaas:idp:tencent:wecom
+     * - urn:alibaba:idaas:idp:alibaba:aliyunram
      *
      * @example urn:alibaba:idaas:idp:bytedance:lark
      *
@@ -27,7 +36,9 @@ class identityProviders extends Model
     public $authnSourceSupplier;
 
     /**
-     * @description IDaaS EIAM 认证方式类型 oidc or saml
+     * @description Authentication method type.
+     * - urn:alibaba:idaas:authntype:oidc
+     * - urn:alibaba:idaas:authntype:saml2
      *
      * @example urn:alibaba:idaas:authntype:oidc
      *
@@ -36,7 +47,7 @@ class identityProviders extends Model
     public $authnSourceType;
 
     /**
-     * @description IDaaS EIAM 对应IdP是否支持认证
+     * @description Does the corresponding IdP support authentication.
      *
      * @example disabled
      *
@@ -45,6 +56,8 @@ class identityProviders extends Model
     public $authnStatus;
 
     /**
+     * @description The time when the instance was created.
+     *
      * @example 1712561597000
      *
      * @var int
@@ -52,23 +65,25 @@ class identityProviders extends Model
     public $createTime;
 
     /**
-     * @description IDaaS EIAM 身份提供方描述
+     * @description The description of the Identity provider.
+     *
+     * @example test
      *
      * @var string
      */
     public $description;
 
     /**
-     * @description IDaaS EIAM 身份提供方外部ID
+     * @description Identity provider external ID.
      *
-     * @example test_123
+     * @example test_123xxx
      *
      * @var string
      */
     public $identityProviderExternalId;
 
     /**
-     * @description IDaaS EIAM 身份提供方ID
+     * @description Identity provider ID.
      *
      * @example idp_m5b5wd5s2hpq4t6iaehhXXX
      *
@@ -77,14 +92,32 @@ class identityProviders extends Model
     public $identityProviderId;
 
     /**
-     * @description IDaaS EIAM 身份提供方名称
+     * @description Identity provider name.
+     *
+     * @example ceshi
      *
      * @var string
      */
     public $identityProviderName;
 
     /**
-     * @description 身份提供方同步类型
+     * @description Identity provider synchronization type.
+     *
+     * - Inbound to DingTalk: urn:alibaba:idaas:idp:alibaba:dingtalk:pull
+     *
+     * - Outbound to DingTalk: urn:alibaba:idaas:idp:alibaba:dingtalk:push
+     *
+     * - Inbound to WeCom: urn:alibaba:idaas:idp:tencent:wecom:pull
+     *
+     * - Inbound to Lark: urn:alibaba:idaas:idp:bytedance:lark:pull
+     *
+     * - Inbound to AD: urn:alibaba:idaas:idp:microsoft:ad:pull
+     *
+     * - Inbound to LDAP: urn:alibaba:idaas:idp:unknown:ldap:pull
+     *
+     * - Standard OIDC: urn:alibaba:idaas:idp:standard:oidc
+     *
+     * - SASE Custom OIDC: urn:alibaba:idaas:idp:alibaba:sase
      *
      * @example urn:alibaba:idaas:idp:bytedance:lark:pull
      *
@@ -93,7 +126,7 @@ class identityProviders extends Model
     public $identityProviderType;
 
     /**
-     * @description 增量回调状态，是否处理来自IdP的增量回调数据
+     * @description Incremental callback status, whether to process the incremental callback data from IdP.
      *
      * @example enabled
      *
@@ -102,7 +135,7 @@ class identityProviders extends Model
     public $incrementalCallbackStatus;
 
     /**
-     * @description IDaaS EIAM 实例Id
+     * @description The instance ID.
      *
      * @example idaas_pbf4dth34l2qb7mydpntXXX
      *
@@ -111,6 +144,8 @@ class identityProviders extends Model
     public $instanceId;
 
     /**
+     * @description Last status check result.
+     *
      * @example success
      *
      * @var string
@@ -118,15 +153,17 @@ class identityProviders extends Model
     public $lastStatusCheckJobResult;
 
     /**
-     * @description 锁定原因
+     * @description The reason why write operations are locked.
      *
-     * @example financial
+     * @example ConfigNotReady.UuidIsNul
      *
      * @var string
      */
     public $lockReason;
 
     /**
+     * @description IdP logo url.
+     *
      * @example https://cdn-cn-hangzhou.aliyunidaas.com/xx/logos/xx
      *
      * @var string
@@ -134,6 +171,8 @@ class identityProviders extends Model
     public $logoUrl;
 
     /**
+     * @description Regular verification status.
+     *
      * @example disabled
      *
      * @var string
@@ -141,7 +180,9 @@ class identityProviders extends Model
     public $periodicSyncStatus;
 
     /**
-     * @description IDaaS EIAM 是否支持UD同步
+     * @description Whether support UD synchronization.Values:
+     * - enabled
+     * - disabled
      *
      * @example disabled
      *
@@ -150,7 +191,7 @@ class identityProviders extends Model
     public $udPullStatus;
 
     /**
-     * @description 当支持ud_pullIDaaS侧UD中的范围
+     * @description When supporting the range in the UD of ud_pullIDaaS side.
      *
      * @example ou_2buqmxsa3ltyqkjgpwfijurXXX
      *
@@ -159,7 +200,7 @@ class identityProviders extends Model
     public $udPullTargetScope;
 
     /**
-     * @description 同步出能力
+     * @description Synchronize capabilities
      *
      * @example disabled
      *
@@ -168,6 +209,8 @@ class identityProviders extends Model
     public $udPushStatus;
 
     /**
+     * @description The time when the service was updated.
+     *
      * @example 1712561597000
      *
      * @var int

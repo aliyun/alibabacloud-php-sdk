@@ -9,18 +9,18 @@ use AlibabaCloud\Tea\Model;
 class parents extends Model
 {
     /**
-     * @description 组织ID
+     * @description The organization ID.
      *
-     * @example ou_4lag76zc2km5ssg5vsmm2lznvu
+     * @example ou_4lag76zc2km5ssg5vsmm2xxxx
      *
      * @var string
      */
     public $organizationalUnitId;
 
     /**
-     * @description 父组织ID
+     * @description The parent organization ID.
      *
-     * @example ou_x3beoyepv2ls5iwuge3xhjkwbm
+     * @example ou_x3beoyepv2ls5iwuge3xhjxxxx
      *
      * @var string
      */

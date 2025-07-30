@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class autoCreateUserConfig extends Model
 {
     /**
-     * @description 自动创建账户是否开启
+     * @description Whether auto-creation of accounts is enabled. Possible values:
+     * - Disabled: disabled
+     *
+     * - Enabled: enabled
      *
      * @example disabled
      *
@@ -18,6 +21,8 @@ class autoCreateUserConfig extends Model
     public $autoCreateUserStatus;
 
     /**
+     * @description Target organizational unit IDs collection.
+     *
      * @var string[]
      */
     public $targetOrganizationalUnitIds;

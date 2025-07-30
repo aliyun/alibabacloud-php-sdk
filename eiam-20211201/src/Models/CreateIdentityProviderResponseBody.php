@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateIdentityProviderResponseBody extends Model
 {
     /**
+     * @description Identity provider ID.
+     *
      * @example idp_mwpcwnhrimlr2horxXXXX
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateIdentityProviderResponseBody extends Model
     public $identityProviderId;
 
     /**
+     * @description The request ID.
+     *
      * @example 0441BD79-92F3-53AA-8657-F8CE4A2B912A
      *
      * @var string

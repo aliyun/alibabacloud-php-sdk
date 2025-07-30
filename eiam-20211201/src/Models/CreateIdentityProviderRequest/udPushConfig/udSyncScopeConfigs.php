@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class udSyncScopeConfigs extends Model
 {
     /**
-     * @description 同步来源节点
+     * @description List of source nodes for synchronization.
      *
      * @var string[]
      */
     public $sourceScopes;
 
     /**
-     * @description 同步目标节点
+     * @description Target node for synchronization.
      *
      * @example ou_lyhyy6p7yf7mdrdiq5xxxx
      *

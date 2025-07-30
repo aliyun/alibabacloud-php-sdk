@@ -9,7 +9,8 @@ use AlibabaCloud\Tea\Model;
 class filing extends Model
 {
     /**
-     * @description 域名关联的备案号, 长度最大限制64。
+     * @description <notice>The ICP filing number is only applicable for services in the China region.  For non-China regions, no validation or display of this record number will be performed.</notice>
+     * The ICP filing number associated with the domain name, with a maximum length of 64 characters.
      *
      * @var string
      */
