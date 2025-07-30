@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Paidlc\V20201203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class QuotaConfig extends Model
 {
@@ -40,30 +40,23 @@ class QuotaConfig extends Model
         'resourceLevel' => 'ResourceLevel',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->allowedMaxPriority) {
             $res['AllowedMaxPriority'] = $this->allowedMaxPriority;
         }
-
         if (null !== $this->enableDLC) {
             $res['EnableDLC'] = $this->enableDLC;
         }
-
         if (null !== $this->enableDSW) {
             $res['EnableDSW'] = $this->enableDSW;
         }
-
         if (null !== $this->enableTideResource) {
             $res['EnableTideResource'] = $this->enableTideResource;
         }
-
         if (null !== $this->resourceLevel) {
             $res['ResourceLevel'] = $this->resourceLevel;
         }
@@ -71,30 +64,26 @@ class QuotaConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return QuotaConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AllowedMaxPriority'])) {
             $model->allowedMaxPriority = $map['AllowedMaxPriority'];
         }
-
         if (isset($map['EnableDLC'])) {
             $model->enableDLC = $map['EnableDLC'];
         }
-
         if (isset($map['EnableDSW'])) {
             $model->enableDSW = $map['EnableDSW'];
         }
-
         if (isset($map['EnableTideResource'])) {
             $model->enableTideResource = $map['EnableTideResource'];
         }
-
         if (isset($map['ResourceLevel'])) {
             $model->resourceLevel = $map['ResourceLevel'];
         }

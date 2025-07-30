@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Paidlc\V20201203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetTokenResponseBody extends Model
 {
     /**
+     * @description The request ID, which is used to troubleshoot issues.
+     *
+     * @example 473469C7-AA6F-4DC5-B3DB-xxxxxxxx
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The sharing token, used to view the information about the shared job.
+     *
+     * @example eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9*****
+     *
      * @var string
      */
     public $token;
@@ -22,18 +30,14 @@ class GetTokenResponseBody extends Model
         'token' => 'Token',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->token) {
             $res['Token'] = $this->token;
         }
@@ -41,18 +45,17 @@ class GetTokenResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetTokenResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['Token'])) {
             $model->token = $map['Token'];
         }

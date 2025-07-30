@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\Paidlc\V20201203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class Member extends Model
 {
     /**
+     * @example ken_12345
+     *
      * @var string
      */
     public $memberId;
 
     /**
+     * @example WorkspaceAdmin
+     *
      * @var string
      */
     public $memberType;
@@ -22,18 +26,14 @@ class Member extends Model
         'memberType' => 'MemberType',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->memberId) {
             $res['MemberId'] = $this->memberId;
         }
-
         if (null !== $this->memberType) {
             $res['MemberType'] = $this->memberType;
         }
@@ -41,18 +41,17 @@ class Member extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return Member
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MemberId'])) {
             $model->memberId = $map['MemberId'];
         }
-
         if (isset($map['MemberType'])) {
             $model->memberType = $map['MemberType'];
         }

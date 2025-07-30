@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\Paidlc\V20201203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class SanityCheckResultItem extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $checkNumber;
 
     /**
+     * @example ”2023-11-30T16:47:30.378817+08:00"
+     *
      * @var string
      */
     public $finishedAt;
@@ -24,16 +28,22 @@ class SanityCheckResultItem extends Model
     public $message;
 
     /**
+     * @example CheckInit
+     *
      * @var string
      */
     public $phase;
 
     /**
+     * @example ”2023-11-30T16:47:30.343005+08:00“
+     *
      * @var string
      */
     public $startedAt;
 
     /**
+     * @example Succeeded
+     *
      * @var string
      */
     public $status;
@@ -46,34 +56,26 @@ class SanityCheckResultItem extends Model
         'status' => 'Status',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->checkNumber) {
             $res['CheckNumber'] = $this->checkNumber;
         }
-
         if (null !== $this->finishedAt) {
             $res['FinishedAt'] = $this->finishedAt;
         }
-
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
-
         if (null !== $this->phase) {
             $res['Phase'] = $this->phase;
         }
-
         if (null !== $this->startedAt) {
             $res['StartedAt'] = $this->startedAt;
         }
-
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -81,34 +83,29 @@ class SanityCheckResultItem extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return SanityCheckResultItem
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CheckNumber'])) {
             $model->checkNumber = $map['CheckNumber'];
         }
-
         if (isset($map['FinishedAt'])) {
             $model->finishedAt = $map['FinishedAt'];
         }
-
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
-
         if (isset($map['Phase'])) {
             $model->phase = $map['Phase'];
         }
-
         if (isset($map['StartedAt'])) {
             $model->startedAt = $map['StartedAt'];
         }
-
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

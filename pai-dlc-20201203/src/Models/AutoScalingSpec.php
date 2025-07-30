@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Paidlc\V20201203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class AutoScalingSpec extends Model
 {
@@ -16,12 +16,9 @@ class AutoScalingSpec extends Model
         'scalingStrategy' => 'ScalingStrategy',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->scalingStrategy) {
@@ -31,11 +28,11 @@ class AutoScalingSpec extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return AutoScalingSpec
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\Paidlc\V20201203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class EnvVar extends Model
 {
     /**
+     * @example ENABLE_DEBUG
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example true
+     *
      * @var string
      */
     public $value;
@@ -22,18 +26,14 @@ class EnvVar extends Model
         'value' => 'Value',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -41,18 +41,17 @@ class EnvVar extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return EnvVar
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

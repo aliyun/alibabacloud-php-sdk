@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Paidlc\V20201203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteTensorboardResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The TensorBoard ID.
+     *
+     * @example tensorboard-20210114104214-vf9lowjt3pso
+     *
      * @var string
      */
     public $tensorboardId;
@@ -22,18 +30,14 @@ class DeleteTensorboardResponseBody extends Model
         'tensorboardId' => 'TensorboardId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->tensorboardId) {
             $res['TensorboardId'] = $this->tensorboardId;
         }
@@ -41,18 +45,17 @@ class DeleteTensorboardResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteTensorboardResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['TensorboardId'])) {
             $model->tensorboardId = $map['TensorboardId'];
         }

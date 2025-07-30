@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Paidlc\V20201203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GPUDetail extends Model
 {
@@ -14,11 +14,15 @@ class GPUDetail extends Model
     public $GPU;
 
     /**
+     * @example Tesla-V100-32G
+     *
      * @var string
      */
     public $GPUType;
 
     /**
+     * @example nvidia.com/gpu-tesla-v100-sxm2-16gb
+     *
      * @var string
      */
     public $GPUTypeFullName;
@@ -28,22 +32,17 @@ class GPUDetail extends Model
         'GPUTypeFullName' => 'GPUTypeFullName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->GPU) {
             $res['GPU'] = $this->GPU;
         }
-
         if (null !== $this->GPUType) {
             $res['GPUType'] = $this->GPUType;
         }
-
         if (null !== $this->GPUTypeFullName) {
             $res['GPUTypeFullName'] = $this->GPUTypeFullName;
         }
@@ -51,22 +50,20 @@ class GPUDetail extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GPUDetail
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GPU'])) {
             $model->GPU = $map['GPU'];
         }
-
         if (isset($map['GPUType'])) {
             $model->GPUType = $map['GPUType'];
         }
-
         if (isset($map['GPUTypeFullName'])) {
             $model->GPUTypeFullName = $map['GPUTypeFullName'];
         }

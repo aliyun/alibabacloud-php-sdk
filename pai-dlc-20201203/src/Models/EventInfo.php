@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Paidlc\V20201203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class EventInfo extends Model
 {
@@ -40,30 +40,23 @@ class EventInfo extends Model
         'time' => 'Time',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
-
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->podId) {
             $res['PodId'] = $this->podId;
         }
-
         if (null !== $this->podUid) {
             $res['PodUid'] = $this->podUid;
         }
-
         if (null !== $this->time) {
             $res['Time'] = $this->time;
         }
@@ -71,30 +64,26 @@ class EventInfo extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return EventInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
-
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['PodId'])) {
             $model->podId = $map['PodId'];
         }
-
         if (isset($map['PodUid'])) {
             $model->podUid = $map['PodUid'];
         }
-
         if (isset($map['Time'])) {
             $model->time = $map['Time'];
         }

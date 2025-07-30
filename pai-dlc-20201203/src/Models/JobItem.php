@@ -4,14 +4,16 @@
 
 namespace AlibabaCloud\SDK\Paidlc\V20201203\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\JobItem\codeSource;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\JobItem\dataSources;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\JobItem\userVpc;
+use AlibabaCloud\Tea\Model;
 
 class JobItem extends Model
 {
     /**
+     * @example PUBLIC
+     *
      * @var string
      */
     public $accessibility;
@@ -37,11 +39,15 @@ class JobItem extends Model
     public $dataSources;
 
     /**
+     * @example tf-mnist-test
+     *
      * @var string
      */
     public $displayName;
 
     /**
+     * @example 3602
+     *
      * @var int
      */
     public $duration;
@@ -52,11 +58,15 @@ class JobItem extends Model
     public $elasticSpec;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $enablePreemptibleJob;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $enabledDebugger;
@@ -67,56 +77,78 @@ class JobItem extends Model
     public $envs;
 
     /**
+     * @example 2021-01-12T14:35:01Z
+     *
      * @var string
      */
     public $gmtCreateTime;
 
     /**
+     * @example 2021-01-12T14:35:01Z
+     *
      * @var string
      */
     public $gmtFailedTime;
 
     /**
+     * @example 2021-01-12T15:36:08Z
+     *
      * @var string
      */
     public $gmtFinishTime;
 
     /**
+     * @example 2021-01-12T15:36:08Z
+     *
      * @var string
      */
     public $gmtModifiedTime;
 
     /**
+     * @example 2021-01-12T14:35:01Z
+     *
      * @var string
      */
     public $gmtRunningTime;
 
     /**
+     * @example 2021-01-12T14:35:01Z
+     *
      * @var string
      */
     public $gmtStoppedTime;
 
     /**
+     * @example 2021-01-12T14:35:01Z
+     *
      * @var string
      */
     public $gmtSubmittedTime;
 
     /**
+     * @example 2021-01-12T14:35:01Z
+     *
      * @var string
      */
     public $gmtSuccessedTime;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isDeleted;
 
     /**
+     * @example dlc-20210126170216-mtl37ge7gkvdz
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $jobMaxRunningTimeMinutes;
@@ -127,11 +159,15 @@ class JobItem extends Model
     public $jobSpecs;
 
     /**
+     * @example TFJob
+     *
      * @var string
      */
     public $jobType;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $nodeCount;
@@ -147,61 +183,85 @@ class JobItem extends Model
     public $pods;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $priority;
 
     /**
+     * @example JobStoppedByUser
+     *
      * @var string
      */
     public $reasonCode;
 
     /**
+     * @example Job is stopped by user.
+     *
      * @var string
      */
     public $reasonMessage;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $requestCPU;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $requestGPU;
 
     /**
+     * @example 1Gi
+     *
      * @var string
      */
     public $requestMemory;
 
     /**
+     * @example dlc-quota
+     *
      * @var string
      */
     public $resourceId;
 
     /**
+     * @example L0
+     *
      * @var string
      */
     public $resourceLevel;
 
     /**
+     * @example my_resource_group
+     *
      * @var string
      */
     public $resourceName;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $resourceQuotaName;
 
     /**
+     * @example ECS
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $restartTimes;
@@ -212,6 +272,8 @@ class JobItem extends Model
     public $settings;
 
     /**
+     * @example Stopped
+     *
      * @var string
      */
     public $status;
@@ -222,6 +284,8 @@ class JobItem extends Model
     public $statusHistory;
 
     /**
+     * @example Restarting
+     *
      * @var string
      */
     public $subStatus;
@@ -237,6 +301,8 @@ class JobItem extends Model
     public $tenantId;
 
     /**
+     * @example /root/code/
+     *
      * @var string
      */
     public $thirdpartyLibDir;
@@ -247,46 +313,64 @@ class JobItem extends Model
     public $thirdpartyLibs;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $useOversoldResource;
 
     /**
+     * @example python /root/code/mnist.py
+     *
      * @var string
      */
     public $userCommand;
 
     /**
+     * @example 123456789
+     *
      * @var string
      */
     public $userId;
 
     /**
+     * @example ls
+     *
      * @var string
      */
     public $userScript;
 
     /**
+     * @example vpc-1
+     *
      * @var userVpc
      */
     public $userVpc;
 
     /**
+     * @example pai-dlc-role
+     *
      * @var string
      */
     public $username;
 
     /**
+     * @example /mnt/data
+     *
      * @var string
      */
     public $workingDir;
 
     /**
+     * @example 268
+     *
      * @var string
      */
     public $workspaceId;
 
     /**
+     * @example dlc-workspace
+     *
      * @var string
      */
     public $workspaceName;
@@ -349,319 +433,200 @@ class JobItem extends Model
         'workspaceName' => 'WorkspaceName',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->codeSource) {
-            $this->codeSource->validate();
-        }
-        if (null !== $this->credentialConfig) {
-            $this->credentialConfig->validate();
-        }
-        if (\is_array($this->dataSources)) {
-            Model::validateArray($this->dataSources);
-        }
-        if (null !== $this->elasticSpec) {
-            $this->elasticSpec->validate();
-        }
-        if (\is_array($this->envs)) {
-            Model::validateArray($this->envs);
-        }
-        if (\is_array($this->jobSpecs)) {
-            Model::validateArray($this->jobSpecs);
-        }
-        if (\is_array($this->nodeNames)) {
-            Model::validateArray($this->nodeNames);
-        }
-        if (\is_array($this->pods)) {
-            Model::validateArray($this->pods);
-        }
-        if (null !== $this->settings) {
-            $this->settings->validate();
-        }
-        if (\is_array($this->statusHistory)) {
-            Model::validateArray($this->statusHistory);
-        }
-        if (\is_array($this->systemEnvs)) {
-            Model::validateArray($this->systemEnvs);
-        }
-        if (\is_array($this->thirdpartyLibs)) {
-            Model::validateArray($this->thirdpartyLibs);
-        }
-        if (null !== $this->userVpc) {
-            $this->userVpc->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->accessibility) {
             $res['Accessibility'] = $this->accessibility;
         }
-
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
-
         if (null !== $this->codeSource) {
-            $res['CodeSource'] = null !== $this->codeSource ? $this->codeSource->toArray($noStream) : $this->codeSource;
+            $res['CodeSource'] = null !== $this->codeSource ? $this->codeSource->toMap() : null;
         }
-
         if (null !== $this->credentialConfig) {
-            $res['CredentialConfig'] = null !== $this->credentialConfig ? $this->credentialConfig->toArray($noStream) : $this->credentialConfig;
+            $res['CredentialConfig'] = null !== $this->credentialConfig ? $this->credentialConfig->toMap() : null;
         }
-
         if (null !== $this->dataSources) {
-            if (\is_array($this->dataSources)) {
-                $res['DataSources'] = [];
-                $n1 = 0;
-                foreach ($this->dataSources as $item1) {
-                    $res['DataSources'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['DataSources'] = [];
+            if (null !== $this->dataSources && \is_array($this->dataSources)) {
+                $n = 0;
+                foreach ($this->dataSources as $item) {
+                    $res['DataSources'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->displayName) {
             $res['DisplayName'] = $this->displayName;
         }
-
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
         }
-
         if (null !== $this->elasticSpec) {
-            $res['ElasticSpec'] = null !== $this->elasticSpec ? $this->elasticSpec->toArray($noStream) : $this->elasticSpec;
+            $res['ElasticSpec'] = null !== $this->elasticSpec ? $this->elasticSpec->toMap() : null;
         }
-
         if (null !== $this->enablePreemptibleJob) {
             $res['EnablePreemptibleJob'] = $this->enablePreemptibleJob;
         }
-
         if (null !== $this->enabledDebugger) {
             $res['EnabledDebugger'] = $this->enabledDebugger;
         }
-
         if (null !== $this->envs) {
-            if (\is_array($this->envs)) {
-                $res['Envs'] = [];
-                foreach ($this->envs as $key1 => $value1) {
-                    $res['Envs'][$key1] = $value1;
-                }
-            }
+            $res['Envs'] = $this->envs;
         }
-
         if (null !== $this->gmtCreateTime) {
             $res['GmtCreateTime'] = $this->gmtCreateTime;
         }
-
         if (null !== $this->gmtFailedTime) {
             $res['GmtFailedTime'] = $this->gmtFailedTime;
         }
-
         if (null !== $this->gmtFinishTime) {
             $res['GmtFinishTime'] = $this->gmtFinishTime;
         }
-
         if (null !== $this->gmtModifiedTime) {
             $res['GmtModifiedTime'] = $this->gmtModifiedTime;
         }
-
         if (null !== $this->gmtRunningTime) {
             $res['GmtRunningTime'] = $this->gmtRunningTime;
         }
-
         if (null !== $this->gmtStoppedTime) {
             $res['GmtStoppedTime'] = $this->gmtStoppedTime;
         }
-
         if (null !== $this->gmtSubmittedTime) {
             $res['GmtSubmittedTime'] = $this->gmtSubmittedTime;
         }
-
         if (null !== $this->gmtSuccessedTime) {
             $res['GmtSuccessedTime'] = $this->gmtSuccessedTime;
         }
-
         if (null !== $this->isDeleted) {
             $res['IsDeleted'] = $this->isDeleted;
         }
-
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
         }
-
         if (null !== $this->jobMaxRunningTimeMinutes) {
             $res['JobMaxRunningTimeMinutes'] = $this->jobMaxRunningTimeMinutes;
         }
-
         if (null !== $this->jobSpecs) {
-            if (\is_array($this->jobSpecs)) {
-                $res['JobSpecs'] = [];
-                $n1 = 0;
-                foreach ($this->jobSpecs as $item1) {
-                    $res['JobSpecs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['JobSpecs'] = [];
+            if (null !== $this->jobSpecs && \is_array($this->jobSpecs)) {
+                $n = 0;
+                foreach ($this->jobSpecs as $item) {
+                    $res['JobSpecs'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->jobType) {
             $res['JobType'] = $this->jobType;
         }
-
         if (null !== $this->nodeCount) {
             $res['NodeCount'] = $this->nodeCount;
         }
-
         if (null !== $this->nodeNames) {
-            if (\is_array($this->nodeNames)) {
-                $res['NodeNames'] = [];
-                $n1 = 0;
-                foreach ($this->nodeNames as $item1) {
-                    $res['NodeNames'][$n1++] = $item1;
-                }
-            }
+            $res['NodeNames'] = $this->nodeNames;
         }
-
         if (null !== $this->pods) {
-            if (\is_array($this->pods)) {
-                $res['Pods'] = [];
-                $n1 = 0;
-                foreach ($this->pods as $item1) {
-                    $res['Pods'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Pods'] = [];
+            if (null !== $this->pods && \is_array($this->pods)) {
+                $n = 0;
+                foreach ($this->pods as $item) {
+                    $res['Pods'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->priority) {
             $res['Priority'] = $this->priority;
         }
-
         if (null !== $this->reasonCode) {
             $res['ReasonCode'] = $this->reasonCode;
         }
-
         if (null !== $this->reasonMessage) {
             $res['ReasonMessage'] = $this->reasonMessage;
         }
-
         if (null !== $this->requestCPU) {
             $res['RequestCPU'] = $this->requestCPU;
         }
-
         if (null !== $this->requestGPU) {
             $res['RequestGPU'] = $this->requestGPU;
         }
-
         if (null !== $this->requestMemory) {
             $res['RequestMemory'] = $this->requestMemory;
         }
-
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
         }
-
         if (null !== $this->resourceLevel) {
             $res['ResourceLevel'] = $this->resourceLevel;
         }
-
         if (null !== $this->resourceName) {
             $res['ResourceName'] = $this->resourceName;
         }
-
         if (null !== $this->resourceQuotaName) {
             $res['ResourceQuotaName'] = $this->resourceQuotaName;
         }
-
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
-
         if (null !== $this->restartTimes) {
             $res['RestartTimes'] = $this->restartTimes;
         }
-
         if (null !== $this->settings) {
-            $res['Settings'] = null !== $this->settings ? $this->settings->toArray($noStream) : $this->settings;
+            $res['Settings'] = null !== $this->settings ? $this->settings->toMap() : null;
         }
-
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-
         if (null !== $this->statusHistory) {
-            if (\is_array($this->statusHistory)) {
-                $res['StatusHistory'] = [];
-                $n1 = 0;
-                foreach ($this->statusHistory as $item1) {
-                    $res['StatusHistory'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['StatusHistory'] = [];
+            if (null !== $this->statusHistory && \is_array($this->statusHistory)) {
+                $n = 0;
+                foreach ($this->statusHistory as $item) {
+                    $res['StatusHistory'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->subStatus) {
             $res['SubStatus'] = $this->subStatus;
         }
-
         if (null !== $this->systemEnvs) {
-            if (\is_array($this->systemEnvs)) {
-                $res['SystemEnvs'] = [];
-                foreach ($this->systemEnvs as $key1 => $value1) {
-                    $res['SystemEnvs'][$key1] = $value1;
-                }
-            }
+            $res['SystemEnvs'] = $this->systemEnvs;
         }
-
         if (null !== $this->tenantId) {
             $res['TenantId'] = $this->tenantId;
         }
-
         if (null !== $this->thirdpartyLibDir) {
             $res['ThirdpartyLibDir'] = $this->thirdpartyLibDir;
         }
-
         if (null !== $this->thirdpartyLibs) {
-            if (\is_array($this->thirdpartyLibs)) {
-                $res['ThirdpartyLibs'] = [];
-                $n1 = 0;
-                foreach ($this->thirdpartyLibs as $item1) {
-                    $res['ThirdpartyLibs'][$n1++] = $item1;
-                }
-            }
+            $res['ThirdpartyLibs'] = $this->thirdpartyLibs;
         }
-
         if (null !== $this->useOversoldResource) {
             $res['UseOversoldResource'] = $this->useOversoldResource;
         }
-
         if (null !== $this->userCommand) {
             $res['UserCommand'] = $this->userCommand;
         }
-
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
-
         if (null !== $this->userScript) {
             $res['UserScript'] = $this->userScript;
         }
-
         if (null !== $this->userVpc) {
-            $res['UserVpc'] = null !== $this->userVpc ? $this->userVpc->toArray($noStream) : $this->userVpc;
+            $res['UserVpc'] = null !== $this->userVpc ? $this->userVpc->toMap() : null;
         }
-
         if (null !== $this->username) {
             $res['Username'] = $this->username;
         }
-
         if (null !== $this->workingDir) {
             $res['WorkingDir'] = $this->workingDir;
         }
-
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
-
         if (null !== $this->workspaceName) {
             $res['WorkspaceName'] = $this->workspaceName;
         }
@@ -669,280 +634,207 @@ class JobItem extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return JobItem
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Accessibility'])) {
             $model->accessibility = $map['Accessibility'];
         }
-
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
-
         if (isset($map['CodeSource'])) {
             $model->codeSource = codeSource::fromMap($map['CodeSource']);
         }
-
         if (isset($map['CredentialConfig'])) {
             $model->credentialConfig = CredentialConfig::fromMap($map['CredentialConfig']);
         }
-
         if (isset($map['DataSources'])) {
             if (!empty($map['DataSources'])) {
                 $model->dataSources = [];
-                $n1 = 0;
-                foreach ($map['DataSources'] as $item1) {
-                    $model->dataSources[$n1++] = dataSources::fromMap($item1);
+                $n = 0;
+                foreach ($map['DataSources'] as $item) {
+                    $model->dataSources[$n++] = null !== $item ? dataSources::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['DisplayName'])) {
             $model->displayName = $map['DisplayName'];
         }
-
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
         }
-
         if (isset($map['ElasticSpec'])) {
             $model->elasticSpec = JobElasticSpec::fromMap($map['ElasticSpec']);
         }
-
         if (isset($map['EnablePreemptibleJob'])) {
             $model->enablePreemptibleJob = $map['EnablePreemptibleJob'];
         }
-
         if (isset($map['EnabledDebugger'])) {
             $model->enabledDebugger = $map['EnabledDebugger'];
         }
-
         if (isset($map['Envs'])) {
-            if (!empty($map['Envs'])) {
-                $model->envs = [];
-                foreach ($map['Envs'] as $key1 => $value1) {
-                    $model->envs[$key1] = $value1;
-                }
-            }
+            $model->envs = $map['Envs'];
         }
-
         if (isset($map['GmtCreateTime'])) {
             $model->gmtCreateTime = $map['GmtCreateTime'];
         }
-
         if (isset($map['GmtFailedTime'])) {
             $model->gmtFailedTime = $map['GmtFailedTime'];
         }
-
         if (isset($map['GmtFinishTime'])) {
             $model->gmtFinishTime = $map['GmtFinishTime'];
         }
-
         if (isset($map['GmtModifiedTime'])) {
             $model->gmtModifiedTime = $map['GmtModifiedTime'];
         }
-
         if (isset($map['GmtRunningTime'])) {
             $model->gmtRunningTime = $map['GmtRunningTime'];
         }
-
         if (isset($map['GmtStoppedTime'])) {
             $model->gmtStoppedTime = $map['GmtStoppedTime'];
         }
-
         if (isset($map['GmtSubmittedTime'])) {
             $model->gmtSubmittedTime = $map['GmtSubmittedTime'];
         }
-
         if (isset($map['GmtSuccessedTime'])) {
             $model->gmtSuccessedTime = $map['GmtSuccessedTime'];
         }
-
         if (isset($map['IsDeleted'])) {
             $model->isDeleted = $map['IsDeleted'];
         }
-
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
         }
-
         if (isset($map['JobMaxRunningTimeMinutes'])) {
             $model->jobMaxRunningTimeMinutes = $map['JobMaxRunningTimeMinutes'];
         }
-
         if (isset($map['JobSpecs'])) {
             if (!empty($map['JobSpecs'])) {
                 $model->jobSpecs = [];
-                $n1 = 0;
-                foreach ($map['JobSpecs'] as $item1) {
-                    $model->jobSpecs[$n1++] = JobSpec::fromMap($item1);
+                $n = 0;
+                foreach ($map['JobSpecs'] as $item) {
+                    $model->jobSpecs[$n++] = null !== $item ? JobSpec::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['JobType'])) {
             $model->jobType = $map['JobType'];
         }
-
         if (isset($map['NodeCount'])) {
             $model->nodeCount = $map['NodeCount'];
         }
-
         if (isset($map['NodeNames'])) {
             if (!empty($map['NodeNames'])) {
-                $model->nodeNames = [];
-                $n1 = 0;
-                foreach ($map['NodeNames'] as $item1) {
-                    $model->nodeNames[$n1++] = $item1;
-                }
+                $model->nodeNames = $map['NodeNames'];
             }
         }
-
         if (isset($map['Pods'])) {
             if (!empty($map['Pods'])) {
                 $model->pods = [];
-                $n1 = 0;
-                foreach ($map['Pods'] as $item1) {
-                    $model->pods[$n1++] = PodItem::fromMap($item1);
+                $n = 0;
+                foreach ($map['Pods'] as $item) {
+                    $model->pods[$n++] = null !== $item ? PodItem::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['Priority'])) {
             $model->priority = $map['Priority'];
         }
-
         if (isset($map['ReasonCode'])) {
             $model->reasonCode = $map['ReasonCode'];
         }
-
         if (isset($map['ReasonMessage'])) {
             $model->reasonMessage = $map['ReasonMessage'];
         }
-
         if (isset($map['RequestCPU'])) {
             $model->requestCPU = $map['RequestCPU'];
         }
-
         if (isset($map['RequestGPU'])) {
             $model->requestGPU = $map['RequestGPU'];
         }
-
         if (isset($map['RequestMemory'])) {
             $model->requestMemory = $map['RequestMemory'];
         }
-
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
         }
-
         if (isset($map['ResourceLevel'])) {
             $model->resourceLevel = $map['ResourceLevel'];
         }
-
         if (isset($map['ResourceName'])) {
             $model->resourceName = $map['ResourceName'];
         }
-
         if (isset($map['ResourceQuotaName'])) {
             $model->resourceQuotaName = $map['ResourceQuotaName'];
         }
-
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }
-
         if (isset($map['RestartTimes'])) {
             $model->restartTimes = $map['RestartTimes'];
         }
-
         if (isset($map['Settings'])) {
             $model->settings = JobSettings::fromMap($map['Settings']);
         }
-
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-
         if (isset($map['StatusHistory'])) {
             if (!empty($map['StatusHistory'])) {
                 $model->statusHistory = [];
-                $n1 = 0;
-                foreach ($map['StatusHistory'] as $item1) {
-                    $model->statusHistory[$n1++] = StatusTransitionItem::fromMap($item1);
+                $n = 0;
+                foreach ($map['StatusHistory'] as $item) {
+                    $model->statusHistory[$n++] = null !== $item ? StatusTransitionItem::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['SubStatus'])) {
             $model->subStatus = $map['SubStatus'];
         }
-
         if (isset($map['SystemEnvs'])) {
-            if (!empty($map['SystemEnvs'])) {
-                $model->systemEnvs = [];
-                foreach ($map['SystemEnvs'] as $key1 => $value1) {
-                    $model->systemEnvs[$key1] = $value1;
-                }
-            }
+            $model->systemEnvs = $map['SystemEnvs'];
         }
-
         if (isset($map['TenantId'])) {
             $model->tenantId = $map['TenantId'];
         }
-
         if (isset($map['ThirdpartyLibDir'])) {
             $model->thirdpartyLibDir = $map['ThirdpartyLibDir'];
         }
-
         if (isset($map['ThirdpartyLibs'])) {
             if (!empty($map['ThirdpartyLibs'])) {
-                $model->thirdpartyLibs = [];
-                $n1 = 0;
-                foreach ($map['ThirdpartyLibs'] as $item1) {
-                    $model->thirdpartyLibs[$n1++] = $item1;
-                }
+                $model->thirdpartyLibs = $map['ThirdpartyLibs'];
             }
         }
-
         if (isset($map['UseOversoldResource'])) {
             $model->useOversoldResource = $map['UseOversoldResource'];
         }
-
         if (isset($map['UserCommand'])) {
             $model->userCommand = $map['UserCommand'];
         }
-
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }
-
         if (isset($map['UserScript'])) {
             $model->userScript = $map['UserScript'];
         }
-
         if (isset($map['UserVpc'])) {
             $model->userVpc = userVpc::fromMap($map['UserVpc']);
         }
-
         if (isset($map['Username'])) {
             $model->username = $map['Username'];
         }
-
         if (isset($map['WorkingDir'])) {
             $model->workingDir = $map['WorkingDir'];
         }
-
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }
-
         if (isset($map['WorkspaceName'])) {
             $model->workspaceName = $map['WorkspaceName'];
         }

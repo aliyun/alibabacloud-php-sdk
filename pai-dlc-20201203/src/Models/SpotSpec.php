@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Paidlc\V20201203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class SpotSpec extends Model
 {
@@ -28,22 +28,17 @@ class SpotSpec extends Model
         'spotStrategy' => 'SpotStrategy',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->spotDiscountLimit) {
             $res['SpotDiscountLimit'] = $this->spotDiscountLimit;
         }
-
         if (null !== $this->spotPriceLimit) {
             $res['SpotPriceLimit'] = $this->spotPriceLimit;
         }
-
         if (null !== $this->spotStrategy) {
             $res['SpotStrategy'] = $this->spotStrategy;
         }
@@ -51,22 +46,20 @@ class SpotSpec extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return SpotSpec
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SpotDiscountLimit'])) {
             $model->spotDiscountLimit = $map['SpotDiscountLimit'];
         }
-
         if (isset($map['SpotPriceLimit'])) {
             $model->spotPriceLimit = $map['SpotPriceLimit'];
         }
-
         if (isset($map['SpotStrategy'])) {
             $model->spotStrategy = $map['SpotStrategy'];
         }

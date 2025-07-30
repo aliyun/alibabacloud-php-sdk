@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Paidlc\V20201203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class JobSpec extends Model
 {
@@ -19,6 +19,8 @@ class JobSpec extends Model
     public $autoScalingSpec;
 
     /**
+     * @example ecs.c6.large
+     *
      * @var string
      */
     public $ecsSpec;
@@ -29,6 +31,8 @@ class JobSpec extends Model
     public $extraPodSpec;
 
     /**
+     * @example registry.cn-hangzhou.aliyuncs.com/pai-dlc/tensorflow-training:1.12.2PAI-cpu-py27-ubuntu16.04
+     *
      * @var string
      */
     public $image;
@@ -39,6 +43,8 @@ class JobSpec extends Model
     public $imageConfig;
 
     /**
+     * @deprecated
+     *
      * @var bool
      */
     public $isCheif;
@@ -54,6 +60,8 @@ class JobSpec extends Model
     public $localMountSpecs;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $podCount;
@@ -79,11 +87,17 @@ class JobSpec extends Model
     public $spotSpec;
 
     /**
+     * @example Worker
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example false
+     *
+     * @deprecated
+     *
      * @var bool
      */
     public $useSpotInstance;
@@ -106,104 +120,62 @@ class JobSpec extends Model
         'useSpotInstance' => 'UseSpotInstance',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->assignNodeSpec) {
-            $this->assignNodeSpec->validate();
-        }
-        if (null !== $this->autoScalingSpec) {
-            $this->autoScalingSpec->validate();
-        }
-        if (null !== $this->extraPodSpec) {
-            $this->extraPodSpec->validate();
-        }
-        if (null !== $this->imageConfig) {
-            $this->imageConfig->validate();
-        }
-        if (\is_array($this->localMountSpecs)) {
-            Model::validateArray($this->localMountSpecs);
-        }
-        if (null !== $this->resourceConfig) {
-            $this->resourceConfig->validate();
-        }
-        if (null !== $this->serviceSpec) {
-            $this->serviceSpec->validate();
-        }
-        if (null !== $this->spotSpec) {
-            $this->spotSpec->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->assignNodeSpec) {
-            $res['AssignNodeSpec'] = null !== $this->assignNodeSpec ? $this->assignNodeSpec->toArray($noStream) : $this->assignNodeSpec;
+            $res['AssignNodeSpec'] = null !== $this->assignNodeSpec ? $this->assignNodeSpec->toMap() : null;
         }
-
         if (null !== $this->autoScalingSpec) {
-            $res['AutoScalingSpec'] = null !== $this->autoScalingSpec ? $this->autoScalingSpec->toArray($noStream) : $this->autoScalingSpec;
+            $res['AutoScalingSpec'] = null !== $this->autoScalingSpec ? $this->autoScalingSpec->toMap() : null;
         }
-
         if (null !== $this->ecsSpec) {
             $res['EcsSpec'] = $this->ecsSpec;
         }
-
         if (null !== $this->extraPodSpec) {
-            $res['ExtraPodSpec'] = null !== $this->extraPodSpec ? $this->extraPodSpec->toArray($noStream) : $this->extraPodSpec;
+            $res['ExtraPodSpec'] = null !== $this->extraPodSpec ? $this->extraPodSpec->toMap() : null;
         }
-
         if (null !== $this->image) {
             $res['Image'] = $this->image;
         }
-
         if (null !== $this->imageConfig) {
-            $res['ImageConfig'] = null !== $this->imageConfig ? $this->imageConfig->toArray($noStream) : $this->imageConfig;
+            $res['ImageConfig'] = null !== $this->imageConfig ? $this->imageConfig->toMap() : null;
         }
-
         if (null !== $this->isCheif) {
             $res['IsCheif'] = $this->isCheif;
         }
-
         if (null !== $this->isChief) {
             $res['IsChief'] = $this->isChief;
         }
-
         if (null !== $this->localMountSpecs) {
-            if (\is_array($this->localMountSpecs)) {
-                $res['LocalMountSpecs'] = [];
-                $n1 = 0;
-                foreach ($this->localMountSpecs as $item1) {
-                    $res['LocalMountSpecs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['LocalMountSpecs'] = [];
+            if (null !== $this->localMountSpecs && \is_array($this->localMountSpecs)) {
+                $n = 0;
+                foreach ($this->localMountSpecs as $item) {
+                    $res['LocalMountSpecs'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->podCount) {
             $res['PodCount'] = $this->podCount;
         }
-
         if (null !== $this->resourceConfig) {
-            $res['ResourceConfig'] = null !== $this->resourceConfig ? $this->resourceConfig->toArray($noStream) : $this->resourceConfig;
+            $res['ResourceConfig'] = null !== $this->resourceConfig ? $this->resourceConfig->toMap() : null;
         }
-
         if (null !== $this->restartPolicy) {
             $res['RestartPolicy'] = $this->restartPolicy;
         }
-
         if (null !== $this->serviceSpec) {
-            $res['ServiceSpec'] = null !== $this->serviceSpec ? $this->serviceSpec->toArray($noStream) : $this->serviceSpec;
+            $res['ServiceSpec'] = null !== $this->serviceSpec ? $this->serviceSpec->toMap() : null;
         }
-
         if (null !== $this->spotSpec) {
-            $res['SpotSpec'] = null !== $this->spotSpec ? $this->spotSpec->toArray($noStream) : $this->spotSpec;
+            $res['SpotSpec'] = null !== $this->spotSpec ? $this->spotSpec->toMap() : null;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
-
         if (null !== $this->useSpotInstance) {
             $res['UseSpotInstance'] = $this->useSpotInstance;
         }
@@ -211,80 +183,65 @@ class JobSpec extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return JobSpec
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AssignNodeSpec'])) {
             $model->assignNodeSpec = AssignNodeSpec::fromMap($map['AssignNodeSpec']);
         }
-
         if (isset($map['AutoScalingSpec'])) {
             $model->autoScalingSpec = AutoScalingSpec::fromMap($map['AutoScalingSpec']);
         }
-
         if (isset($map['EcsSpec'])) {
             $model->ecsSpec = $map['EcsSpec'];
         }
-
         if (isset($map['ExtraPodSpec'])) {
             $model->extraPodSpec = ExtraPodSpec::fromMap($map['ExtraPodSpec']);
         }
-
         if (isset($map['Image'])) {
             $model->image = $map['Image'];
         }
-
         if (isset($map['ImageConfig'])) {
             $model->imageConfig = ImageConfig::fromMap($map['ImageConfig']);
         }
-
         if (isset($map['IsCheif'])) {
             $model->isCheif = $map['IsCheif'];
         }
-
         if (isset($map['IsChief'])) {
             $model->isChief = $map['IsChief'];
         }
-
         if (isset($map['LocalMountSpecs'])) {
             if (!empty($map['LocalMountSpecs'])) {
                 $model->localMountSpecs = [];
-                $n1 = 0;
-                foreach ($map['LocalMountSpecs'] as $item1) {
-                    $model->localMountSpecs[$n1++] = LocalMountSpec::fromMap($item1);
+                $n = 0;
+                foreach ($map['LocalMountSpecs'] as $item) {
+                    $model->localMountSpecs[$n++] = null !== $item ? LocalMountSpec::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['PodCount'])) {
             $model->podCount = $map['PodCount'];
         }
-
         if (isset($map['ResourceConfig'])) {
             $model->resourceConfig = ResourceConfig::fromMap($map['ResourceConfig']);
         }
-
         if (isset($map['RestartPolicy'])) {
             $model->restartPolicy = $map['RestartPolicy'];
         }
-
         if (isset($map['ServiceSpec'])) {
             $model->serviceSpec = ServiceSpec::fromMap($map['ServiceSpec']);
         }
-
         if (isset($map['SpotSpec'])) {
             $model->spotSpec = SpotSpec::fromMap($map['SpotSpec']);
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
-
         if (isset($map['UseSpotInstance'])) {
             $model->useSpotInstance = $map['UseSpotInstance'];
         }

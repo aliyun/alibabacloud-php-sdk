@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Paidlc\V20201203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class NodeMetric extends Model
 {
@@ -14,6 +14,8 @@ class NodeMetric extends Model
     public $metrics;
 
     /**
+     * @example asi_xxx
+     *
      * @var string
      */
     public $nodeName;
@@ -22,27 +24,20 @@ class NodeMetric extends Model
         'nodeName' => 'NodeName',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->metrics)) {
-            Model::validateArray($this->metrics);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->metrics) {
-            if (\is_array($this->metrics)) {
-                $res['Metrics'] = [];
-                $n1 = 0;
-                foreach ($this->metrics as $item1) {
-                    $res['Metrics'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Metrics'] = [];
+            if (null !== $this->metrics && \is_array($this->metrics)) {
+                $n = 0;
+                foreach ($this->metrics as $item) {
+                    $res['Metrics'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->nodeName) {
             $res['NodeName'] = $this->nodeName;
         }
@@ -50,24 +45,23 @@ class NodeMetric extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return NodeMetric
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Metrics'])) {
             if (!empty($map['Metrics'])) {
                 $model->metrics = [];
-                $n1 = 0;
-                foreach ($map['Metrics'] as $item1) {
-                    $model->metrics[$n1++] = Metric::fromMap($item1);
+                $n = 0;
+                foreach ($map['Metrics'] as $item) {
+                    $model->metrics[$n++] = null !== $item ? Metric::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['NodeName'])) {
             $model->nodeName = $map['NodeName'];
         }

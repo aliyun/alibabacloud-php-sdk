@@ -4,21 +4,31 @@
 
 namespace AlibabaCloud\SDK\Paidlc\V20201203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListJobSanityCheckResultsResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 1AC9xxx-3xxx-5xxx2-xxxx-FA5
+     *
      * @var string
      */
     public $requestID;
 
     /**
+     * @description The sanity check results.
+     *
      * @var SanityCheckResultItem[][]
      */
     public $sanityCheckResults;
 
     /**
+     * @description The total number of results that meet the filter conditions.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $totalCount;
@@ -28,37 +38,17 @@ class ListJobSanityCheckResultsResponseBody extends Model
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->sanityCheckResults)) {
-            Model::validateArray($this->sanityCheckResults);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestID) {
             $res['RequestID'] = $this->requestID;
         }
-
         if (null !== $this->sanityCheckResults) {
-            if (\is_array($this->sanityCheckResults)) {
-                $res['SanityCheckResults'] = [];
-                $n1 = 0;
-                foreach ($this->sanityCheckResults as $item1) {
-                    if (\is_array($item1)) {
-                        $res['SanityCheckResults'][$n1++] = [];
-                        $n2 = 0;
-                        foreach ($item1 as $item2) {
-                            $res['SanityCheckResults'][$n1++][$n2++] = null !== $item2 ? $item2->toArray($noStream) : $item2;
-                        }
-                    }
-                }
-            }
+            $res['SanityCheckResults'] = $this->sanityCheckResults;
         }
-
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -66,34 +56,22 @@ class ListJobSanityCheckResultsResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListJobSanityCheckResultsResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestID'])) {
             $model->requestID = $map['RequestID'];
         }
-
         if (isset($map['SanityCheckResults'])) {
             if (!empty($map['SanityCheckResults'])) {
-                $model->sanityCheckResults = [];
-                $n1 = 0;
-                foreach ($map['SanityCheckResults'] as $item1) {
-                    if (!empty($item1)) {
-                        $model->sanityCheckResults[$n1++] = [];
-                        $n2 = 0;
-                        foreach ($item1 as $item2) {
-                            $model->sanityCheckResults[$n1++][$n2++] = SanityCheckResultItem::fromMap($item2);
-                        }
-                    }
-                }
+                $model->sanityCheckResults = $map['SanityCheckResults'];
             }
         }
-
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

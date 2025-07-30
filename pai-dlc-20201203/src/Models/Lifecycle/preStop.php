@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Paidlc\V20201203\Models\Lifecycle;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\Lifecycle\preStop\exec;
+use AlibabaCloud\Tea\Model;
 
 class preStop extends Model
 {
@@ -17,29 +17,23 @@ class preStop extends Model
         'exec' => 'Exec',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->exec) {
-            $this->exec->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->exec) {
-            $res['Exec'] = null !== $this->exec ? $this->exec->toArray($noStream) : $this->exec;
+            $res['Exec'] = null !== $this->exec ? $this->exec->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return preStop
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

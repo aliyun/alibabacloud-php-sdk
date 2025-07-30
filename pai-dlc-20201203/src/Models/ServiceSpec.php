@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Paidlc\V20201203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ServiceSpec extends Model
 {
@@ -14,7 +14,7 @@ class ServiceSpec extends Model
     public $defaultPort;
 
     /**
-     * @var int
+     * @var int[]
      */
     public $extraPorts;
 
@@ -28,22 +28,17 @@ class ServiceSpec extends Model
         'serviceMode' => 'ServiceMode',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->defaultPort) {
             $res['DefaultPort'] = $this->defaultPort;
         }
-
         if (null !== $this->extraPorts) {
             $res['ExtraPorts'] = $this->extraPorts;
         }
-
         if (null !== $this->serviceMode) {
             $res['ServiceMode'] = $this->serviceMode;
         }
@@ -51,22 +46,22 @@ class ServiceSpec extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ServiceSpec
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DefaultPort'])) {
             $model->defaultPort = $map['DefaultPort'];
         }
-
         if (isset($map['ExtraPorts'])) {
-            $model->extraPorts = $map['ExtraPorts'];
+            if (!empty($map['ExtraPorts'])) {
+                $model->extraPorts = $map['ExtraPorts'];
+            }
         }
-
         if (isset($map['ServiceMode'])) {
             $model->serviceMode = $map['ServiceMode'];
         }

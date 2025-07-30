@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Paidlc\V20201203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetJobRequest extends Model
 {
     /**
+     * @description Specifies whether to return the job details. Default value: true.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $needDetail;
@@ -16,12 +20,9 @@ class GetJobRequest extends Model
         'needDetail' => 'NeedDetail',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->needDetail) {
@@ -31,11 +32,11 @@ class GetJobRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetJobRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

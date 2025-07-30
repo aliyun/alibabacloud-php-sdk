@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Paidlc\V20201203\Models\Lifecycle\preStop;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class exec extends Model
 {
@@ -16,45 +16,29 @@ class exec extends Model
         'command' => 'Command',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->command)) {
-            Model::validateArray($this->command);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->command) {
-            if (\is_array($this->command)) {
-                $res['Command'] = [];
-                $n1 = 0;
-                foreach ($this->command as $item1) {
-                    $res['Command'][$n1++] = $item1;
-                }
-            }
+            $res['Command'] = $this->command;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return exec
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Command'])) {
             if (!empty($map['Command'])) {
-                $model->command = [];
-                $n1 = 0;
-                foreach ($map['Command'] as $item1) {
-                    $model->command[$n1++] = $item1;
-                }
+                $model->command = $map['Command'];
             }
         }
 

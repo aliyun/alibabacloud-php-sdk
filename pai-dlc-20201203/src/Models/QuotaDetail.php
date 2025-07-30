@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\Paidlc\V20201203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class QuotaDetail extends Model
 {
     /**
+     * @example 2
+     *
      * @var string
      */
     public $CPU;
 
     /**
+     * @example 5
+     *
      * @var string
      */
     public $GPU;
@@ -24,16 +28,22 @@ class QuotaDetail extends Model
     public $GPUDetails;
 
     /**
+     * @example Tesla-V100
+     *
      * @var string
      */
     public $GPUType;
 
     /**
+     * @example nvidia.com/gpu
+     *
      * @var string
      */
     public $GPUTypeFullName;
 
     /**
+     * @example 10Gi
+     *
      * @var string
      */
     public $memory;
@@ -46,43 +56,32 @@ class QuotaDetail extends Model
         'memory' => 'Memory',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->GPUDetails)) {
-            Model::validateArray($this->GPUDetails);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->CPU) {
             $res['CPU'] = $this->CPU;
         }
-
         if (null !== $this->GPU) {
             $res['GPU'] = $this->GPU;
         }
-
         if (null !== $this->GPUDetails) {
-            if (\is_array($this->GPUDetails)) {
-                $res['GPUDetails'] = [];
-                $n1 = 0;
-                foreach ($this->GPUDetails as $item1) {
-                    $res['GPUDetails'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['GPUDetails'] = [];
+            if (null !== $this->GPUDetails && \is_array($this->GPUDetails)) {
+                $n = 0;
+                foreach ($this->GPUDetails as $item) {
+                    $res['GPUDetails'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->GPUType) {
             $res['GPUType'] = $this->GPUType;
         }
-
         if (null !== $this->GPUTypeFullName) {
             $res['GPUTypeFullName'] = $this->GPUTypeFullName;
         }
-
         if (null !== $this->memory) {
             $res['Memory'] = $this->memory;
         }
@@ -90,40 +89,35 @@ class QuotaDetail extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return QuotaDetail
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CPU'])) {
             $model->CPU = $map['CPU'];
         }
-
         if (isset($map['GPU'])) {
             $model->GPU = $map['GPU'];
         }
-
         if (isset($map['GPUDetails'])) {
             if (!empty($map['GPUDetails'])) {
                 $model->GPUDetails = [];
-                $n1 = 0;
-                foreach ($map['GPUDetails'] as $item1) {
-                    $model->GPUDetails[$n1++] = GPUDetail::fromMap($item1);
+                $n = 0;
+                foreach ($map['GPUDetails'] as $item) {
+                    $model->GPUDetails[$n++] = null !== $item ? GPUDetail::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['GPUType'])) {
             $model->GPUType = $map['GPUType'];
         }
-
         if (isset($map['GPUTypeFullName'])) {
             $model->GPUTypeFullName = $map['GPUTypeFullName'];
         }
-
         if (isset($map['Memory'])) {
             $model->memory = $map['Memory'];
         }

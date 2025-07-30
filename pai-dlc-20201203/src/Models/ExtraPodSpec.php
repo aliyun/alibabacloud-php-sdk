@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Paidlc\V20201203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ExtraPodSpec extends Model
 {
@@ -19,11 +19,15 @@ class ExtraPodSpec extends Model
     public $lifecycle;
 
     /**
+     * @deprecated
+     *
      * @var string[]
      */
     public $podAnnotations;
 
     /**
+     * @deprecated
+     *
      * @var string[]
      */
     public $podLabels;
@@ -46,80 +50,38 @@ class ExtraPodSpec extends Model
         'sideCarContainers' => 'SideCarContainers',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->initContainers)) {
-            Model::validateArray($this->initContainers);
-        }
-        if (null !== $this->lifecycle) {
-            $this->lifecycle->validate();
-        }
-        if (\is_array($this->podAnnotations)) {
-            Model::validateArray($this->podAnnotations);
-        }
-        if (\is_array($this->podLabels)) {
-            Model::validateArray($this->podLabels);
-        }
-        if (\is_array($this->sharedVolumeMountPaths)) {
-            Model::validateArray($this->sharedVolumeMountPaths);
-        }
-        if (\is_array($this->sideCarContainers)) {
-            Model::validateArray($this->sideCarContainers);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->initContainers) {
-            if (\is_array($this->initContainers)) {
-                $res['InitContainers'] = [];
-                $n1 = 0;
-                foreach ($this->initContainers as $item1) {
-                    $res['InitContainers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['InitContainers'] = [];
+            if (null !== $this->initContainers && \is_array($this->initContainers)) {
+                $n = 0;
+                foreach ($this->initContainers as $item) {
+                    $res['InitContainers'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->lifecycle) {
-            $res['Lifecycle'] = null !== $this->lifecycle ? $this->lifecycle->toArray($noStream) : $this->lifecycle;
+            $res['Lifecycle'] = null !== $this->lifecycle ? $this->lifecycle->toMap() : null;
         }
-
         if (null !== $this->podAnnotations) {
-            if (\is_array($this->podAnnotations)) {
-                $res['PodAnnotations'] = [];
-                foreach ($this->podAnnotations as $key1 => $value1) {
-                    $res['PodAnnotations'][$key1] = $value1;
-                }
-            }
+            $res['PodAnnotations'] = $this->podAnnotations;
         }
-
         if (null !== $this->podLabels) {
-            if (\is_array($this->podLabels)) {
-                $res['PodLabels'] = [];
-                foreach ($this->podLabels as $key1 => $value1) {
-                    $res['PodLabels'][$key1] = $value1;
-                }
-            }
+            $res['PodLabels'] = $this->podLabels;
         }
-
         if (null !== $this->sharedVolumeMountPaths) {
-            if (\is_array($this->sharedVolumeMountPaths)) {
-                $res['SharedVolumeMountPaths'] = [];
-                $n1 = 0;
-                foreach ($this->sharedVolumeMountPaths as $item1) {
-                    $res['SharedVolumeMountPaths'][$n1++] = $item1;
-                }
-            }
+            $res['SharedVolumeMountPaths'] = $this->sharedVolumeMountPaths;
         }
-
         if (null !== $this->sideCarContainers) {
-            if (\is_array($this->sideCarContainers)) {
-                $res['SideCarContainers'] = [];
-                $n1 = 0;
-                foreach ($this->sideCarContainers as $item1) {
-                    $res['SideCarContainers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['SideCarContainers'] = [];
+            if (null !== $this->sideCarContainers && \is_array($this->sideCarContainers)) {
+                $n = 0;
+                foreach ($this->sideCarContainers as $item) {
+                    $res['SideCarContainers'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -127,62 +89,43 @@ class ExtraPodSpec extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ExtraPodSpec
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InitContainers'])) {
             if (!empty($map['InitContainers'])) {
                 $model->initContainers = [];
-                $n1 = 0;
-                foreach ($map['InitContainers'] as $item1) {
-                    $model->initContainers[$n1++] = ContainerSpec::fromMap($item1);
+                $n = 0;
+                foreach ($map['InitContainers'] as $item) {
+                    $model->initContainers[$n++] = null !== $item ? ContainerSpec::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['Lifecycle'])) {
             $model->lifecycle = Lifecycle::fromMap($map['Lifecycle']);
         }
-
         if (isset($map['PodAnnotations'])) {
-            if (!empty($map['PodAnnotations'])) {
-                $model->podAnnotations = [];
-                foreach ($map['PodAnnotations'] as $key1 => $value1) {
-                    $model->podAnnotations[$key1] = $value1;
-                }
-            }
+            $model->podAnnotations = $map['PodAnnotations'];
         }
-
         if (isset($map['PodLabels'])) {
-            if (!empty($map['PodLabels'])) {
-                $model->podLabels = [];
-                foreach ($map['PodLabels'] as $key1 => $value1) {
-                    $model->podLabels[$key1] = $value1;
-                }
-            }
+            $model->podLabels = $map['PodLabels'];
         }
-
         if (isset($map['SharedVolumeMountPaths'])) {
             if (!empty($map['SharedVolumeMountPaths'])) {
-                $model->sharedVolumeMountPaths = [];
-                $n1 = 0;
-                foreach ($map['SharedVolumeMountPaths'] as $item1) {
-                    $model->sharedVolumeMountPaths[$n1++] = $item1;
-                }
+                $model->sharedVolumeMountPaths = $map['SharedVolumeMountPaths'];
             }
         }
-
         if (isset($map['SideCarContainers'])) {
             if (!empty($map['SideCarContainers'])) {
                 $model->sideCarContainers = [];
-                $n1 = 0;
-                foreach ($map['SideCarContainers'] as $item1) {
-                    $model->sideCarContainers[$n1++] = ContainerSpec::fromMap($item1);
+                $n = 0;
+                foreach ($map['SideCarContainers'] as $item) {
+                    $model->sideCarContainers[$n++] = null !== $item ? ContainerSpec::fromMap($item) : $item;
                 }
             }
         }
