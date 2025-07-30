@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class AddLiveStreamMergeResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $message;
+
+    /**
      * @description The request ID.
      *
      * @example 16A96B9A-F203-4EC5-8E43-CB92E68F****
@@ -17,6 +22,7 @@ class AddLiveStreamMergeResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
+        'message' => 'Message',
         'requestId' => 'RequestId',
     ];
 
@@ -25,6 +31,9 @@ class AddLiveStreamMergeResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -40,6 +49,9 @@ class AddLiveStreamMergeResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

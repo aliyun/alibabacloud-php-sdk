@@ -90,6 +90,16 @@ class liveStreamMerge extends Model
     public $inStreamName2;
 
     /**
+     * @var string
+     */
+    public $liveMerger;
+
+    /**
+     * @var string
+     */
+    public $mergeParameters;
+
+    /**
      * @description The streaming protocol.
      *
      * @example rtmp
@@ -134,6 +144,8 @@ class liveStreamMerge extends Model
         'inAppName2' => 'InAppName2',
         'inStreamName1' => 'InStreamName1',
         'inStreamName2' => 'InStreamName2',
+        'liveMerger' => 'LiveMerger',
+        'mergeParameters' => 'MergeParameters',
         'protocol' => 'Protocol',
         'startTime' => 'StartTime',
         'streamName' => 'StreamName',
@@ -171,6 +183,12 @@ class liveStreamMerge extends Model
         }
         if (null !== $this->inStreamName2) {
             $res['InStreamName2'] = $this->inStreamName2;
+        }
+        if (null !== $this->liveMerger) {
+            $res['LiveMerger'] = $this->liveMerger;
+        }
+        if (null !== $this->mergeParameters) {
+            $res['MergeParameters'] = $this->mergeParameters;
         }
         if (null !== $this->protocol) {
             $res['Protocol'] = $this->protocol;
@@ -222,6 +240,12 @@ class liveStreamMerge extends Model
         }
         if (isset($map['InStreamName2'])) {
             $model->inStreamName2 = $map['InStreamName2'];
+        }
+        if (isset($map['LiveMerger'])) {
+            $model->liveMerger = $map['LiveMerger'];
+        }
+        if (isset($map['MergeParameters'])) {
+            $model->mergeParameters = $map['MergeParameters'];
         }
         if (isset($map['Protocol'])) {
             $model->protocol = $map['Protocol'];

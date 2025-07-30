@@ -3186,6 +3186,12 @@ class Live extends OpenApiClient
         if (!Utils::isUnset($request->inStreamName2)) {
             $query['InStreamName2'] = $request->inStreamName2;
         }
+        if (!Utils::isUnset($request->liveMerger)) {
+            $query['LiveMerger'] = $request->liveMerger;
+        }
+        if (!Utils::isUnset($request->mergeParameters)) {
+            $query['MergeParameters'] = $request->mergeParameters;
+        }
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
         }

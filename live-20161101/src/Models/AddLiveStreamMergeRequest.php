@@ -90,6 +90,16 @@ class AddLiveStreamMergeRequest extends Model
     public $inStreamName2;
 
     /**
+     * @var string
+     */
+    public $liveMerger;
+
+    /**
+     * @var string
+     */
+    public $mergeParameters;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -142,6 +152,8 @@ class AddLiveStreamMergeRequest extends Model
         'inAppName2' => 'InAppName2',
         'inStreamName1' => 'InStreamName1',
         'inStreamName2' => 'InStreamName2',
+        'liveMerger' => 'LiveMerger',
+        'mergeParameters' => 'MergeParameters',
         'ownerId' => 'OwnerId',
         'protocol' => 'Protocol',
         'regionId' => 'RegionId',
@@ -174,6 +186,12 @@ class AddLiveStreamMergeRequest extends Model
         }
         if (null !== $this->inStreamName2) {
             $res['InStreamName2'] = $this->inStreamName2;
+        }
+        if (null !== $this->liveMerger) {
+            $res['LiveMerger'] = $this->liveMerger;
+        }
+        if (null !== $this->mergeParameters) {
+            $res['MergeParameters'] = $this->mergeParameters;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
@@ -222,6 +240,12 @@ class AddLiveStreamMergeRequest extends Model
         }
         if (isset($map['InStreamName2'])) {
             $model->inStreamName2 = $map['InStreamName2'];
+        }
+        if (isset($map['LiveMerger'])) {
+            $model->liveMerger = $map['LiveMerger'];
+        }
+        if (isset($map['MergeParameters'])) {
+            $model->mergeParameters = $map['MergeParameters'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
