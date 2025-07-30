@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20201002\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ReportEdsAgentInfoRequest extends Model
 {
@@ -34,26 +34,20 @@ class ReportEdsAgentInfoRequest extends Model
         'edsAgentInfo' => 'EdsAgentInfo',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->aliUid) {
             $res['AliUid'] = $this->aliUid;
         }
-
         if (null !== $this->desktopId) {
             $res['DesktopId'] = $this->desktopId;
         }
-
         if (null !== $this->ecsInstanceId) {
             $res['EcsInstanceId'] = $this->ecsInstanceId;
         }
-
         if (null !== $this->edsAgentInfo) {
             $res['EdsAgentInfo'] = $this->edsAgentInfo;
         }
@@ -61,26 +55,23 @@ class ReportEdsAgentInfoRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ReportEdsAgentInfoRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AliUid'])) {
             $model->aliUid = $map['AliUid'];
         }
-
         if (isset($map['DesktopId'])) {
             $model->desktopId = $map['DesktopId'];
         }
-
         if (isset($map['EcsInstanceId'])) {
             $model->ecsInstanceId = $map['EcsInstanceId'];
         }
-
         if (isset($map['EdsAgentInfo'])) {
             $model->edsAgentInfo = $map['EdsAgentInfo'];
         }

@@ -4,46 +4,92 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20201002\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ChangePasswordRequest extends Model
 {
     /**
+     * @description The client ID. The system generates a unique ID for each client.
+     *
+     * This parameter is required.
+     *
+     * @example 42f6645a-9c3c-4772-be2a-cc5f5732****
+     *
      * @var string
      */
     public $clientId;
 
     /**
+     * @description The user ID.
+     *
+     * This parameter is required.
+     *
+     * @example liming
+     *
      * @var string
      */
     public $endUserId;
 
     /**
+     * @description The logon token.
+     *
+     * This parameter is required.
+     *
+     * @example v18101ac6a9e69c66b04a163031680463660b4b216cd758f34b60b9ad6a7c7f7334b83dd8f75eef4209c68f9f1080b****
+     *
      * @var string
      */
     public $loginToken;
 
     /**
+     * @description The new password.
+     *
+     * This parameter is required.
+     *
+     * @example 67436290
+     *
      * @var string
      */
     public $newPassword;
 
     /**
+     * @description The office network ID.
+     *
+     * This parameter is required.
+     *
+     * @example cn-shanghai+dir-227468****
+     *
      * @var string
      */
     public $officeSiteId;
 
     /**
+     * @description The current password.
+     *
+     * This parameter is required.
+     *
+     * @example 12345678
+     *
      * @var string
      */
     public $oldPassword;
 
     /**
+     * @description The region ID.
+     *
+     * This parameter is required.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The session ID.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $sessionId;
@@ -58,42 +104,32 @@ class ChangePasswordRequest extends Model
         'sessionId' => 'SessionId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->clientId) {
             $res['ClientId'] = $this->clientId;
         }
-
         if (null !== $this->endUserId) {
             $res['EndUserId'] = $this->endUserId;
         }
-
         if (null !== $this->loginToken) {
             $res['LoginToken'] = $this->loginToken;
         }
-
         if (null !== $this->newPassword) {
             $res['NewPassword'] = $this->newPassword;
         }
-
         if (null !== $this->officeSiteId) {
             $res['OfficeSiteId'] = $this->officeSiteId;
         }
-
         if (null !== $this->oldPassword) {
             $res['OldPassword'] = $this->oldPassword;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->sessionId) {
             $res['SessionId'] = $this->sessionId;
         }
@@ -101,42 +137,35 @@ class ChangePasswordRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ChangePasswordRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientId'])) {
             $model->clientId = $map['ClientId'];
         }
-
         if (isset($map['EndUserId'])) {
             $model->endUserId = $map['EndUserId'];
         }
-
         if (isset($map['LoginToken'])) {
             $model->loginToken = $map['LoginToken'];
         }
-
         if (isset($map['NewPassword'])) {
             $model->newPassword = $map['NewPassword'];
         }
-
         if (isset($map['OfficeSiteId'])) {
             $model->officeSiteId = $map['OfficeSiteId'];
         }
-
         if (isset($map['OldPassword'])) {
             $model->oldPassword = $map['OldPassword'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['SessionId'])) {
             $model->sessionId = $map['SessionId'];
         }
