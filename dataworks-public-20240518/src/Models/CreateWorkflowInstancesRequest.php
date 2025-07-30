@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateWorkflowInstancesRequest\defaultRunProperties;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateWorkflowInstancesRequest\periods;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateWorkflowInstancesRequest\tags;
 use AlibabaCloud\Tea\Model;
 
 class CreateWorkflowInstancesRequest extends Model
@@ -77,6 +78,16 @@ class CreateWorkflowInstancesRequest extends Model
     public $projectId;
 
     /**
+     * @var string
+     */
+    public $tagCreationPolicy;
+
+    /**
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
      * @description The task-specific parameters. The value is in the JSON format. The key specifies the task ID. You can call the GetTask operation to obtain the format of the value by querying the script parameters.
      *
      * @example {
@@ -134,6 +145,8 @@ class CreateWorkflowInstancesRequest extends Model
         'name' => 'Name',
         'periods' => 'Periods',
         'projectId' => 'ProjectId',
+        'tagCreationPolicy' => 'TagCreationPolicy',
+        'tags' => 'Tags',
         'taskParameters' => 'TaskParameters',
         'type' => 'Type',
         'workflowId' => 'WorkflowId',
@@ -165,6 +178,18 @@ class CreateWorkflowInstancesRequest extends Model
         }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
+        }
+        if (null !== $this->tagCreationPolicy) {
+            $res['TagCreationPolicy'] = $this->tagCreationPolicy;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->taskParameters) {
             $res['TaskParameters'] = $this->taskParameters;
@@ -210,6 +235,18 @@ class CreateWorkflowInstancesRequest extends Model
         }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
+        }
+        if (isset($map['TagCreationPolicy'])) {
+            $model->tagCreationPolicy = $map['TagCreationPolicy'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['TaskParameters'])) {
             $model->taskParameters = $map['TaskParameters'];

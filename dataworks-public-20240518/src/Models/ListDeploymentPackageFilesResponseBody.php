@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListDeploymentPackageFilesResponseBody extends Model
 {
     /**
-     * @description The pagination information.
+     * @description The pagination details.
      *
      * @var pagingInfo
      */

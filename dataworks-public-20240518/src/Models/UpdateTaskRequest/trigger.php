@@ -54,8 +54,6 @@ class trigger extends Model
      *   Scheduler: scheduling cycle-based trigger
      *   Manual: manual trigger
      *
-     * This parameter is required.
-     *
      * @example Scheduler
      *
      * @var string

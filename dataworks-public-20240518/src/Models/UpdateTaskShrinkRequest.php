@@ -85,8 +85,6 @@ class UpdateTaskShrinkRequest extends Model
     /**
      * @description The name.
      *
-     * This parameter is required.
-     *
      * @example SQL node
      *
      * @var string
@@ -102,8 +100,6 @@ class UpdateTaskShrinkRequest extends Model
 
     /**
      * @description The account ID of the task owner.
-     *
-     * This parameter is required.
      *
      * @example 1000
      *
@@ -127,8 +123,6 @@ class UpdateTaskShrinkRequest extends Model
      *   FailureAllowed: The task can be rerun only after it fails to run.
      *   AllAllowed: The task can be rerun regardless of whether the task is successfully run or fails to run.
      *
-     * This parameter is required.
-     *
      * @example AllAllowed
      *
      * @var string
@@ -146,8 +140,6 @@ class UpdateTaskShrinkRequest extends Model
 
     /**
      * @description The configurations of the runtime environment, such as the resource group information.
-     *
-     * This parameter is required.
      *
      * @var string
      */
@@ -178,8 +170,6 @@ class UpdateTaskShrinkRequest extends Model
 
     /**
      * @description The trigger method.
-     *
-     * This parameter is required.
      *
      * @var string
      */

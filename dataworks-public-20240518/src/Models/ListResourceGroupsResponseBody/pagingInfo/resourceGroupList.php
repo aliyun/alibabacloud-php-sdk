@@ -108,12 +108,12 @@ class resourceGroupList extends Model
     public $remark;
 
     /**
-     * @description The type of the resource group. Valid values:
+     * @description Resource group types:
      *
-     *   CommonV2: serverless resource group
-     *   ExclusiveDataIntegration: exclusive resource group for Data Integration
-     *   ExclusiveScheduler: exclusive resource group for scheduling
-     *   ExclusiveDataService: exclusive resource group for DataService Studio
+     *   CommonV2: Serverless resource group
+     *   ExclusiveDataIntegration: Exclusive resource group for Data Integration
+     *   ExclusiveScheduler: Exclusive resource group for scheduling
+     *   ExclusiveDataService: Exclusive resource group for DataService Studio
      *
      * @example CommonV2
      *

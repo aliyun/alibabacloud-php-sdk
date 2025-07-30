@@ -29,8 +29,6 @@ class runtimeResource extends Model
     /**
      * @description The ID of the resource group for scheduling configured for task running.
      *
-     * This parameter is required.
-     *
      * @example S_res_group_524258031846018_1684XXXXXXXXX
      *
      * @var string

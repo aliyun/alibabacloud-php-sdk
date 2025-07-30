@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class pagingInfo extends Model
 {
     /**
-     * @description The details of the versions of the files to be deployed.
+     * @description The list of files pending deployment.
      *
      * @var deploymentPackageFiles[]
      */

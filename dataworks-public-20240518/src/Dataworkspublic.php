@@ -3080,6 +3080,9 @@ class Dataworkspublic extends OpenApiClient
         if (!Utils::isUnset($tmpReq->periods)) {
             $request->periodsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->periods, 'Periods', 'json');
         }
+        if (!Utils::isUnset($tmpReq->tags)) {
+            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        }
         $body = [];
         if (!Utils::isUnset($request->autoStartEnabled)) {
             $body['AutoStartEnabled'] = $request->autoStartEnabled;
@@ -3101,6 +3104,12 @@ class Dataworkspublic extends OpenApiClient
         }
         if (!Utils::isUnset($request->projectId)) {
             $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->tagCreationPolicy)) {
+            $body['TagCreationPolicy'] = $request->tagCreationPolicy;
+        }
+        if (!Utils::isUnset($request->tagsShrink)) {
+            $body['Tags'] = $request->tagsShrink;
         }
         if (!Utils::isUnset($request->taskParameters)) {
             $body['TaskParameters'] = $request->taskParameters;

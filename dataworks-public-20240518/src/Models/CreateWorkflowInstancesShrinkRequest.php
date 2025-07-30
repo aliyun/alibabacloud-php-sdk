@@ -75,6 +75,16 @@ class CreateWorkflowInstancesShrinkRequest extends Model
     public $projectId;
 
     /**
+     * @var string
+     */
+    public $tagCreationPolicy;
+
+    /**
+     * @var string
+     */
+    public $tagsShrink;
+
+    /**
      * @description The task-specific parameters. The value is in the JSON format. The key specifies the task ID. You can call the GetTask operation to obtain the format of the value by querying the script parameters.
      *
      * @example {
@@ -132,6 +142,8 @@ class CreateWorkflowInstancesShrinkRequest extends Model
         'name' => 'Name',
         'periodsShrink' => 'Periods',
         'projectId' => 'ProjectId',
+        'tagCreationPolicy' => 'TagCreationPolicy',
+        'tagsShrink' => 'Tags',
         'taskParameters' => 'TaskParameters',
         'type' => 'Type',
         'workflowId' => 'WorkflowId',
@@ -163,6 +175,12 @@ class CreateWorkflowInstancesShrinkRequest extends Model
         }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
+        }
+        if (null !== $this->tagCreationPolicy) {
+            $res['TagCreationPolicy'] = $this->tagCreationPolicy;
+        }
+        if (null !== $this->tagsShrink) {
+            $res['Tags'] = $this->tagsShrink;
         }
         if (null !== $this->taskParameters) {
             $res['TaskParameters'] = $this->taskParameters;
@@ -208,6 +226,12 @@ class CreateWorkflowInstancesShrinkRequest extends Model
         }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
+        }
+        if (isset($map['TagCreationPolicy'])) {
+            $model->tagCreationPolicy = $map['TagCreationPolicy'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tagsShrink = $map['Tags'];
         }
         if (isset($map['TaskParameters'])) {
             $model->taskParameters = $map['TaskParameters'];
