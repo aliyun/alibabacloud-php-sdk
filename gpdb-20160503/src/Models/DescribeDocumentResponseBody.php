@@ -36,6 +36,11 @@ class DescribeDocumentResponseBody extends Model
     public $documentLoader;
 
     /**
+     * @var string
+     */
+    public $documentLoaderResultFileUrl;
+
+    /**
      * @description File extension.
      *
      * @example txt
@@ -157,6 +162,7 @@ class DescribeDocumentResponseBody extends Model
         'chunkFileUrl' => 'ChunkFileUrl',
         'docsCount' => 'DocsCount',
         'documentLoader' => 'DocumentLoader',
+        'documentLoaderResultFileUrl' => 'DocumentLoaderResultFileUrl',
         'fileExt' => 'FileExt',
         'fileMd5' => 'FileMd5',
         'fileMtime' => 'FileMtime',
@@ -185,6 +191,9 @@ class DescribeDocumentResponseBody extends Model
         }
         if (null !== $this->documentLoader) {
             $res['DocumentLoader'] = $this->documentLoader;
+        }
+        if (null !== $this->documentLoaderResultFileUrl) {
+            $res['DocumentLoaderResultFileUrl'] = $this->documentLoaderResultFileUrl;
         }
         if (null !== $this->fileExt) {
             $res['FileExt'] = $this->fileExt;
@@ -245,6 +254,9 @@ class DescribeDocumentResponseBody extends Model
         }
         if (isset($map['DocumentLoader'])) {
             $model->documentLoader = $map['DocumentLoader'];
+        }
+        if (isset($map['DocumentLoaderResultFileUrl'])) {
+            $model->documentLoaderResultFileUrl = $map['DocumentLoaderResultFileUrl'];
         }
         if (isset($map['FileExt'])) {
             $model->fileExt = $map['FileExt'];

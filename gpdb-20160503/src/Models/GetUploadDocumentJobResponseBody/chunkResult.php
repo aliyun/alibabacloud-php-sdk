@@ -18,6 +18,11 @@ class chunkResult extends Model
     public $chunkFileUrl;
 
     /**
+     * @var string
+     */
+    public $documentLoaderResultFileUrl;
+
+    /**
      * @description The URL of the file that does not contain metadata after chunking. The validity period of the URL is 2 hours. The file is in the TXT format. Each line is a chunk. The file can be easily used for embedding.
      *
      * @example http://xxx/test.txt
@@ -27,6 +32,7 @@ class chunkResult extends Model
     public $plainChunkFileUrl;
     protected $_name = [
         'chunkFileUrl' => 'ChunkFileUrl',
+        'documentLoaderResultFileUrl' => 'DocumentLoaderResultFileUrl',
         'plainChunkFileUrl' => 'PlainChunkFileUrl',
     ];
 
@@ -37,6 +43,9 @@ class chunkResult extends Model
         $res = [];
         if (null !== $this->chunkFileUrl) {
             $res['ChunkFileUrl'] = $this->chunkFileUrl;
+        }
+        if (null !== $this->documentLoaderResultFileUrl) {
+            $res['DocumentLoaderResultFileUrl'] = $this->documentLoaderResultFileUrl;
         }
         if (null !== $this->plainChunkFileUrl) {
             $res['PlainChunkFileUrl'] = $this->plainChunkFileUrl;
@@ -55,6 +64,9 @@ class chunkResult extends Model
         $model = new self();
         if (isset($map['ChunkFileUrl'])) {
             $model->chunkFileUrl = $map['ChunkFileUrl'];
+        }
+        if (isset($map['DocumentLoaderResultFileUrl'])) {
+            $model->documentLoaderResultFileUrl = $map['DocumentLoaderResultFileUrl'];
         }
         if (isset($map['PlainChunkFileUrl'])) {
             $model->plainChunkFileUrl = $map['PlainChunkFileUrl'];
