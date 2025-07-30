@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Cas\V20200630\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListRevokeCertificateRequest extends Model
 {
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The number of revoked certificates to return on each page. Default value: **20**.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $showSize;
@@ -22,18 +30,14 @@ class ListRevokeCertificateRequest extends Model
         'showSize' => 'ShowSize',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
-
         if (null !== $this->showSize) {
             $res['ShowSize'] = $this->showSize;
         }
@@ -41,18 +45,17 @@ class ListRevokeCertificateRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListRevokeCertificateRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
-
         if (isset($map['ShowSize'])) {
             $model->showSize = $map['ShowSize'];
         }

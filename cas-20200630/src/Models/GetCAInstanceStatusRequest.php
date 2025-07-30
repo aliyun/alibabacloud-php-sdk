@@ -4,16 +4,26 @@
 
 namespace AlibabaCloud\SDK\Cas\V20200630\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetCAInstanceStatusRequest extends Model
 {
     /**
+     * @description The unique identifier of the certificate.
+     *
+     * @example 160ae6bb538d538c70c01f81dcf2****
+     *
      * @var string
      */
     public $identifier;
 
     /**
+     * @description The ID of the private CA instance.
+     *
+     * >  After you purchase a private CA instance by using the [SSL Certificates Service console](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist), you can click **Details** for the private CA instance on the **Private Certificates** page to query the ID of the private CA instance.
+     *
+     * @example cas-member-0hmi****
+     *
      * @var string
      */
     public $instanceId;
@@ -22,18 +32,14 @@ class GetCAInstanceStatusRequest extends Model
         'instanceId' => 'InstanceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->identifier) {
             $res['Identifier'] = $this->identifier;
         }
-
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -41,18 +47,17 @@ class GetCAInstanceStatusRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetCAInstanceStatusRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Identifier'])) {
             $model->identifier = $map['Identifier'];
         }
-
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

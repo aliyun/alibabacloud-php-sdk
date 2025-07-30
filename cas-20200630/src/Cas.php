@@ -4,7 +4,8 @@
 
 namespace AlibabaCloud\SDK\Cas\V20200630;
 
-use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Cas\V20200630\Models\CreateClientCertificateRequest;
 use AlibabaCloud\SDK\Cas\V20200630\Models\CreateClientCertificateResponse;
 use AlibabaCloud\SDK\Cas\V20200630\Models\CreateClientCertificateWithCsrRequest;
@@ -46,10 +47,11 @@ use AlibabaCloud\SDK\Cas\V20200630\Models\UpdateCACertificateStatusRequest;
 use AlibabaCloud\SDK\Cas\V20200630\Models\UpdateCACertificateStatusResponse;
 use AlibabaCloud\SDK\Cas\V20200630\Models\UploadPcaCertToCasRequest;
 use AlibabaCloud\SDK\Cas\V20200630\Models\UploadPcaCertToCasResponse;
+use AlibabaCloud\Tea\Utils\Utils;
+use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
-use Darabonba\OpenApi\Utils;
 
 class Cas extends OpenApiClient
 {
@@ -127,109 +129,85 @@ class Cas extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (null !== $endpoint) {
+        if (!Utils::empty_($endpoint)) {
             return $endpoint;
         }
-
-        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
+        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
             return @$endpointMap[$regionId];
         }
 
-        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * Issues a client certificate by using a system-generated certificate signing request (CSR) file.
-     *
-     * @remarks
-     * Before you call this operation, make sure that you have created a root certificate authority (CA) certificate by calling the [CreateRootCACertificate](~~CreateRootCACertificate~~) operation and an intermediate CA certificate by calling the [CreateSubCACertificate](~~CreateRootCACertificate~~) operation. Only intermediate CA certificates can issue client certificates.
+     * @summary Issues a client certificate by using a system-generated certificate signing request (CSR) file.
+     *  *
+     * @description Before you call this operation, make sure that you have created a root certificate authority (CA) certificate by calling the [CreateRootCACertificate](~~CreateRootCACertificate~~) operation and an intermediate CA certificate by calling the [CreateSubCACertificate](~~CreateRootCACertificate~~) operation. Only intermediate CA certificates can issue client certificates.
      * ## QPS limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param CreateClientCertificateRequest $request CreateClientCertificateRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateClientCertificateRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateClientCertificateResponse
-     *
-     * @param CreateClientCertificateRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return CreateClientCertificateResponse
+     * @return CreateClientCertificateResponse CreateClientCertificateResponse
      */
     public function createClientCertificateWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->afterTime) {
-            @$query['AfterTime'] = $request->afterTime;
+        if (!Utils::isUnset($request->afterTime)) {
+            $query['AfterTime'] = $request->afterTime;
         }
-
-        if (null !== $request->algorithm) {
-            @$query['Algorithm'] = $request->algorithm;
+        if (!Utils::isUnset($request->algorithm)) {
+            $query['Algorithm'] = $request->algorithm;
         }
-
-        if (null !== $request->beforeTime) {
-            @$query['BeforeTime'] = $request->beforeTime;
+        if (!Utils::isUnset($request->beforeTime)) {
+            $query['BeforeTime'] = $request->beforeTime;
         }
-
-        if (null !== $request->commonName) {
-            @$query['CommonName'] = $request->commonName;
+        if (!Utils::isUnset($request->commonName)) {
+            $query['CommonName'] = $request->commonName;
         }
-
-        if (null !== $request->country) {
-            @$query['Country'] = $request->country;
+        if (!Utils::isUnset($request->country)) {
+            $query['Country'] = $request->country;
         }
-
-        if (null !== $request->days) {
-            @$query['Days'] = $request->days;
+        if (!Utils::isUnset($request->days)) {
+            $query['Days'] = $request->days;
         }
-
-        if (null !== $request->enableCrl) {
-            @$query['EnableCrl'] = $request->enableCrl;
+        if (!Utils::isUnset($request->enableCrl)) {
+            $query['EnableCrl'] = $request->enableCrl;
         }
-
-        if (null !== $request->immediately) {
-            @$query['Immediately'] = $request->immediately;
+        if (!Utils::isUnset($request->immediately)) {
+            $query['Immediately'] = $request->immediately;
         }
-
-        if (null !== $request->locality) {
-            @$query['Locality'] = $request->locality;
+        if (!Utils::isUnset($request->locality)) {
+            $query['Locality'] = $request->locality;
         }
-
-        if (null !== $request->months) {
-            @$query['Months'] = $request->months;
+        if (!Utils::isUnset($request->months)) {
+            $query['Months'] = $request->months;
         }
-
-        if (null !== $request->organization) {
-            @$query['Organization'] = $request->organization;
+        if (!Utils::isUnset($request->organization)) {
+            $query['Organization'] = $request->organization;
         }
-
-        if (null !== $request->organizationUnit) {
-            @$query['OrganizationUnit'] = $request->organizationUnit;
+        if (!Utils::isUnset($request->organizationUnit)) {
+            $query['OrganizationUnit'] = $request->organizationUnit;
         }
-
-        if (null !== $request->parentIdentifier) {
-            @$query['ParentIdentifier'] = $request->parentIdentifier;
+        if (!Utils::isUnset($request->parentIdentifier)) {
+            $query['ParentIdentifier'] = $request->parentIdentifier;
         }
-
-        if (null !== $request->sanType) {
-            @$query['SanType'] = $request->sanType;
+        if (!Utils::isUnset($request->sanType)) {
+            $query['SanType'] = $request->sanType;
         }
-
-        if (null !== $request->sanValue) {
-            @$query['SanValue'] = $request->sanValue;
+        if (!Utils::isUnset($request->sanValue)) {
+            $query['SanValue'] = $request->sanValue;
         }
-
-        if (null !== $request->state) {
-            @$query['State'] = $request->state;
+        if (!Utils::isUnset($request->state)) {
+            $query['State'] = $request->state;
         }
-
-        if (null !== $request->years) {
-            @$query['Years'] = $request->years;
+        if (!Utils::isUnset($request->years)) {
+            $query['Years'] = $request->years;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateClientCertificate',
@@ -247,20 +225,15 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Issues a client certificate by using a system-generated certificate signing request (CSR) file.
-     *
-     * @remarks
-     * Before you call this operation, make sure that you have created a root certificate authority (CA) certificate by calling the [CreateRootCACertificate](~~CreateRootCACertificate~~) operation and an intermediate CA certificate by calling the [CreateSubCACertificate](~~CreateRootCACertificate~~) operation. Only intermediate CA certificates can issue client certificates.
+     * @summary Issues a client certificate by using a system-generated certificate signing request (CSR) file.
+     *  *
+     * @description Before you call this operation, make sure that you have created a root certificate authority (CA) certificate by calling the [CreateRootCACertificate](~~CreateRootCACertificate~~) operation and an intermediate CA certificate by calling the [CreateSubCACertificate](~~CreateRootCACertificate~~) operation. Only intermediate CA certificates can issue client certificates.
      * ## QPS limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param CreateClientCertificateRequest $request CreateClientCertificateRequest
      *
-     * @param request - CreateClientCertificateRequest
-     *
-     * @returns CreateClientCertificateResponse
-     *
-     * @param CreateClientCertificateRequest $request
-     *
-     * @return CreateClientCertificateResponse
+     * @return CreateClientCertificateResponse CreateClientCertificateResponse
      */
     public function createClientCertificate($request)
     {
@@ -270,101 +243,77 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Issues a client certificate by using a custom certificate signing request (CSR) file.
-     *
-     * @remarks
-     * Before you call this operation, make sure that you have created a root certificate authority (CA) certificate by calling the [CreateRootCACertificate](https://help.aliyun.com/document_detail/328093.html) operation and an intermediate CA certificate by calling the [CreateSubCACertificate](https://help.aliyun.com/document_detail/328094.html) operation. Only intermediate CA certificates can be used to issue client certificates.
+     * @summary Issues a client certificate by using a custom certificate signing request (CSR) file.
+     *  *
+     * @description Before you call this operation, make sure that you have created a root certificate authority (CA) certificate by calling the [CreateRootCACertificate](https://help.aliyun.com/document_detail/328093.html) operation and an intermediate CA certificate by calling the [CreateSubCACertificate](https://help.aliyun.com/document_detail/328094.html) operation. Only intermediate CA certificates can be used to issue client certificates.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param CreateClientCertificateWithCsrRequest $request CreateClientCertificateWithCsrRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateClientCertificateWithCsrRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateClientCertificateWithCsrResponse
-     *
-     * @param CreateClientCertificateWithCsrRequest $request
-     * @param RuntimeOptions                        $runtime
-     *
-     * @return CreateClientCertificateWithCsrResponse
+     * @return CreateClientCertificateWithCsrResponse CreateClientCertificateWithCsrResponse
      */
     public function createClientCertificateWithCsrWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->afterTime) {
-            @$query['AfterTime'] = $request->afterTime;
+        if (!Utils::isUnset($request->afterTime)) {
+            $query['AfterTime'] = $request->afterTime;
         }
-
-        if (null !== $request->algorithm) {
-            @$query['Algorithm'] = $request->algorithm;
+        if (!Utils::isUnset($request->algorithm)) {
+            $query['Algorithm'] = $request->algorithm;
         }
-
-        if (null !== $request->beforeTime) {
-            @$query['BeforeTime'] = $request->beforeTime;
+        if (!Utils::isUnset($request->beforeTime)) {
+            $query['BeforeTime'] = $request->beforeTime;
         }
-
-        if (null !== $request->commonName) {
-            @$query['CommonName'] = $request->commonName;
+        if (!Utils::isUnset($request->commonName)) {
+            $query['CommonName'] = $request->commonName;
         }
-
-        if (null !== $request->country) {
-            @$query['Country'] = $request->country;
+        if (!Utils::isUnset($request->country)) {
+            $query['Country'] = $request->country;
         }
-
-        if (null !== $request->csr) {
-            @$query['Csr'] = $request->csr;
+        if (!Utils::isUnset($request->csr)) {
+            $query['Csr'] = $request->csr;
         }
-
-        if (null !== $request->days) {
-            @$query['Days'] = $request->days;
+        if (!Utils::isUnset($request->days)) {
+            $query['Days'] = $request->days;
         }
-
-        if (null !== $request->enableCrl) {
-            @$query['EnableCrl'] = $request->enableCrl;
+        if (!Utils::isUnset($request->enableCrl)) {
+            $query['EnableCrl'] = $request->enableCrl;
         }
-
-        if (null !== $request->immediately) {
-            @$query['Immediately'] = $request->immediately;
+        if (!Utils::isUnset($request->immediately)) {
+            $query['Immediately'] = $request->immediately;
         }
-
-        if (null !== $request->locality) {
-            @$query['Locality'] = $request->locality;
+        if (!Utils::isUnset($request->locality)) {
+            $query['Locality'] = $request->locality;
         }
-
-        if (null !== $request->months) {
-            @$query['Months'] = $request->months;
+        if (!Utils::isUnset($request->months)) {
+            $query['Months'] = $request->months;
         }
-
-        if (null !== $request->organization) {
-            @$query['Organization'] = $request->organization;
+        if (!Utils::isUnset($request->organization)) {
+            $query['Organization'] = $request->organization;
         }
-
-        if (null !== $request->organizationUnit) {
-            @$query['OrganizationUnit'] = $request->organizationUnit;
+        if (!Utils::isUnset($request->organizationUnit)) {
+            $query['OrganizationUnit'] = $request->organizationUnit;
         }
-
-        if (null !== $request->parentIdentifier) {
-            @$query['ParentIdentifier'] = $request->parentIdentifier;
+        if (!Utils::isUnset($request->parentIdentifier)) {
+            $query['ParentIdentifier'] = $request->parentIdentifier;
         }
-
-        if (null !== $request->sanType) {
-            @$query['SanType'] = $request->sanType;
+        if (!Utils::isUnset($request->sanType)) {
+            $query['SanType'] = $request->sanType;
         }
-
-        if (null !== $request->sanValue) {
-            @$query['SanValue'] = $request->sanValue;
+        if (!Utils::isUnset($request->sanValue)) {
+            $query['SanValue'] = $request->sanValue;
         }
-
-        if (null !== $request->state) {
-            @$query['State'] = $request->state;
+        if (!Utils::isUnset($request->state)) {
+            $query['State'] = $request->state;
         }
-
-        if (null !== $request->years) {
-            @$query['Years'] = $request->years;
+        if (!Utils::isUnset($request->years)) {
+            $query['Years'] = $request->years;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateClientCertificateWithCsr',
@@ -382,20 +331,15 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Issues a client certificate by using a custom certificate signing request (CSR) file.
-     *
-     * @remarks
-     * Before you call this operation, make sure that you have created a root certificate authority (CA) certificate by calling the [CreateRootCACertificate](https://help.aliyun.com/document_detail/328093.html) operation and an intermediate CA certificate by calling the [CreateSubCACertificate](https://help.aliyun.com/document_detail/328094.html) operation. Only intermediate CA certificates can be used to issue client certificates.
+     * @summary Issues a client certificate by using a custom certificate signing request (CSR) file.
+     *  *
+     * @description Before you call this operation, make sure that you have created a root certificate authority (CA) certificate by calling the [CreateRootCACertificate](https://help.aliyun.com/document_detail/328093.html) operation and an intermediate CA certificate by calling the [CreateSubCACertificate](https://help.aliyun.com/document_detail/328094.html) operation. Only intermediate CA certificates can be used to issue client certificates.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param CreateClientCertificateWithCsrRequest $request CreateClientCertificateWithCsrRequest
      *
-     * @param request - CreateClientCertificateWithCsrRequest
-     *
-     * @returns CreateClientCertificateWithCsrResponse
-     *
-     * @param CreateClientCertificateWithCsrRequest $request
-     *
-     * @return CreateClientCertificateWithCsrResponse
+     * @return CreateClientCertificateWithCsrResponse CreateClientCertificateWithCsrResponse
      */
     public function createClientCertificateWithCsr($request)
     {
@@ -405,10 +349,9 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Issues a certificate based on the specified key usage, extended key usage, and name and alias of the entity that uses the certificate.
-     *
-     * @remarks
-     * By default, the name of the entity is obtained from the certificate signing request (CSR) of the certificate that you want to issue. If you specify a different name for the entity, the name of the entity in the CSR becomes invalid. The specified name is used to issue the certificate.
+     * @summary Issues a certificate based on the specified key usage, extended key usage, and name and alias of the entity that uses the certificate.
+     *  *
+     * @description By default, the name of the entity is obtained from the certificate signing request (CSR) of the certificate that you want to issue. If you specify a different name for the entity, the name of the entity in the CSR becomes invalid. The specified name is used to issue the certificate.
      * You must specify the key usage and extended key usage based on the certificate type. The following list describes common certificate types:
      * *   Server certificate
      * Key usage: digitalSignature or keyEncipherment
@@ -423,47 +366,36 @@ class Cas extends OpenApiClient
      * Key usage: digitalSignature or contentCommitment
      * Extended key usage: emailProtection
      * Note: Compliant certificate authorities (CAs) are managed by third-party authorities. This operation is not supported for compliant CAs.
+     *  *
+     * @param CreateCustomCertificateRequest $request CreateCustomCertificateRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateCustomCertificateRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateCustomCertificateResponse
-     *
-     * @param CreateCustomCertificateRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return CreateCustomCertificateResponse
+     * @return CreateCustomCertificateResponse CreateCustomCertificateResponse
      */
     public function createCustomCertificateWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->apiPassthrough) {
-            @$query['ApiPassthrough'] = $request->apiPassthrough;
+        if (!Utils::isUnset($request->apiPassthrough)) {
+            $query['ApiPassthrough'] = $request->apiPassthrough;
         }
-
-        if (null !== $request->csr) {
-            @$query['Csr'] = $request->csr;
+        if (!Utils::isUnset($request->csr)) {
+            $query['Csr'] = $request->csr;
         }
-
-        if (null !== $request->enableCrl) {
-            @$query['EnableCrl'] = $request->enableCrl;
+        if (!Utils::isUnset($request->enableCrl)) {
+            $query['EnableCrl'] = $request->enableCrl;
         }
-
-        if (null !== $request->immediately) {
-            @$query['Immediately'] = $request->immediately;
+        if (!Utils::isUnset($request->immediately)) {
+            $query['Immediately'] = $request->immediately;
         }
-
-        if (null !== $request->parentIdentifier) {
-            @$query['ParentIdentifier'] = $request->parentIdentifier;
+        if (!Utils::isUnset($request->parentIdentifier)) {
+            $query['ParentIdentifier'] = $request->parentIdentifier;
         }
-
-        if (null !== $request->validity) {
-            @$query['Validity'] = $request->validity;
+        if (!Utils::isUnset($request->validity)) {
+            $query['Validity'] = $request->validity;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateCustomCertificate',
@@ -481,10 +413,9 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Issues a certificate based on the specified key usage, extended key usage, and name and alias of the entity that uses the certificate.
-     *
-     * @remarks
-     * By default, the name of the entity is obtained from the certificate signing request (CSR) of the certificate that you want to issue. If you specify a different name for the entity, the name of the entity in the CSR becomes invalid. The specified name is used to issue the certificate.
+     * @summary Issues a certificate based on the specified key usage, extended key usage, and name and alias of the entity that uses the certificate.
+     *  *
+     * @description By default, the name of the entity is obtained from the certificate signing request (CSR) of the certificate that you want to issue. If you specify a different name for the entity, the name of the entity in the CSR becomes invalid. The specified name is used to issue the certificate.
      * You must specify the key usage and extended key usage based on the certificate type. The following list describes common certificate types:
      * *   Server certificate
      * Key usage: digitalSignature or keyEncipherment
@@ -499,14 +430,10 @@ class Cas extends OpenApiClient
      * Key usage: digitalSignature or contentCommitment
      * Extended key usage: emailProtection
      * Note: Compliant certificate authorities (CAs) are managed by third-party authorities. This operation is not supported for compliant CAs.
+     *  *
+     * @param CreateCustomCertificateRequest $request CreateCustomCertificateRequest
      *
-     * @param request - CreateCustomCertificateRequest
-     *
-     * @returns CreateCustomCertificateResponse
-     *
-     * @param CreateCustomCertificateRequest $request
-     *
-     * @return CreateCustomCertificateResponse
+     * @return CreateCustomCertificateResponse CreateCustomCertificateResponse
      */
     public function createCustomCertificate($request)
     {
@@ -516,34 +443,27 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Revokes a client certificate or a server certificate.
-     *
-     * @remarks
-     * After a client certificate or a server certificate is revoked, the client or the server on which the certificate is installed cannot establish HTTPS connections with other devices.
+     * @summary Revokes a client certificate or a server certificate.
+     *  *
+     * @description After a client certificate or a server certificate is revoked, the client or the server on which the certificate is installed cannot establish HTTPS connections with other devices.
      * After a client certificate or a server certificate is revoked, you can call the [DeleteClientCertificate](https://help.aliyun.com/document_detail/330880.html) operation to permanently delete the certificate.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param CreateRevokeClientCertificateRequest $request CreateRevokeClientCertificateRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateRevokeClientCertificateRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateRevokeClientCertificateResponse
-     *
-     * @param CreateRevokeClientCertificateRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return CreateRevokeClientCertificateResponse
+     * @return CreateRevokeClientCertificateResponse CreateRevokeClientCertificateResponse
      */
     public function createRevokeClientCertificateWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->identifier) {
-            @$query['Identifier'] = $request->identifier;
+        if (!Utils::isUnset($request->identifier)) {
+            $query['Identifier'] = $request->identifier;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateRevokeClientCertificate',
@@ -561,21 +481,16 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Revokes a client certificate or a server certificate.
-     *
-     * @remarks
-     * After a client certificate or a server certificate is revoked, the client or the server on which the certificate is installed cannot establish HTTPS connections with other devices.
+     * @summary Revokes a client certificate or a server certificate.
+     *  *
+     * @description After a client certificate or a server certificate is revoked, the client or the server on which the certificate is installed cannot establish HTTPS connections with other devices.
      * After a client certificate or a server certificate is revoked, you can call the [DeleteClientCertificate](https://help.aliyun.com/document_detail/330880.html) operation to permanently delete the certificate.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param CreateRevokeClientCertificateRequest $request CreateRevokeClientCertificateRequest
      *
-     * @param request - CreateRevokeClientCertificateRequest
-     *
-     * @returns CreateRevokeClientCertificateResponse
-     *
-     * @param CreateRevokeClientCertificateRequest $request
-     *
-     * @return CreateRevokeClientCertificateResponse
+     * @return CreateRevokeClientCertificateResponse CreateRevokeClientCertificateResponse
      */
     public function createRevokeClientCertificate($request)
     {
@@ -585,62 +500,51 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Creates a root certificate authority (CA) certificate.
-     *
-     * @remarks
-     * You can call the CreateRootCACertificate operation to create a self-signed root CA certificate. A root CA certificate is the trust anchor in a chain of trust for private certificates that are used within an enterprise. You must create a root CA certificate before you can use the root CA certificate to issue intermediate CA certificates. Then, you can use the intermediate CA certificates to issue client certificates and server certificates.
+     * @summary Creates a root certificate authority (CA) certificate.
+     *  *
+     * @description You can call the CreateRootCACertificate operation to create a self-signed root CA certificate. A root CA certificate is the trust anchor in a chain of trust for private certificates that are used within an enterprise. You must create a root CA certificate before you can use the root CA certificate to issue intermediate CA certificates. Then, you can use the intermediate CA certificates to issue client certificates and server certificates.
      * Before you call this operation, make sure that you have purchased a private root CA instance by using the [Certificate Management Service console](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist). For more information, see [Create a private CA](https://help.aliyun.com/document_detail/208553.html).
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param CreateRootCACertificateRequest $request CreateRootCACertificateRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateRootCACertificateRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateRootCACertificateResponse
-     *
-     * @param CreateRootCACertificateRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return CreateRootCACertificateResponse
+     * @return CreateRootCACertificateResponse CreateRootCACertificateResponse
      */
     public function createRootCACertificateWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->algorithm) {
-            @$query['Algorithm'] = $request->algorithm;
+        if (!Utils::isUnset($request->algorithm)) {
+            $query['Algorithm'] = $request->algorithm;
         }
-
-        if (null !== $request->commonName) {
-            @$query['CommonName'] = $request->commonName;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->countryCode) {
-            @$query['CountryCode'] = $request->countryCode;
+        if (!Utils::isUnset($request->commonName)) {
+            $query['CommonName'] = $request->commonName;
         }
-
-        if (null !== $request->locality) {
-            @$query['Locality'] = $request->locality;
+        if (!Utils::isUnset($request->countryCode)) {
+            $query['CountryCode'] = $request->countryCode;
         }
-
-        if (null !== $request->organization) {
-            @$query['Organization'] = $request->organization;
+        if (!Utils::isUnset($request->locality)) {
+            $query['Locality'] = $request->locality;
         }
-
-        if (null !== $request->organizationUnit) {
-            @$query['OrganizationUnit'] = $request->organizationUnit;
+        if (!Utils::isUnset($request->organization)) {
+            $query['Organization'] = $request->organization;
         }
-
-        if (null !== $request->state) {
-            @$query['State'] = $request->state;
+        if (!Utils::isUnset($request->organizationUnit)) {
+            $query['OrganizationUnit'] = $request->organizationUnit;
         }
-
-        if (null !== $request->years) {
-            @$query['Years'] = $request->years;
+        if (!Utils::isUnset($request->state)) {
+            $query['State'] = $request->state;
         }
-
+        if (!Utils::isUnset($request->years)) {
+            $query['Years'] = $request->years;
+        }
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateRootCACertificate',
@@ -658,21 +562,16 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Creates a root certificate authority (CA) certificate.
-     *
-     * @remarks
-     * You can call the CreateRootCACertificate operation to create a self-signed root CA certificate. A root CA certificate is the trust anchor in a chain of trust for private certificates that are used within an enterprise. You must create a root CA certificate before you can use the root CA certificate to issue intermediate CA certificates. Then, you can use the intermediate CA certificates to issue client certificates and server certificates.
+     * @summary Creates a root certificate authority (CA) certificate.
+     *  *
+     * @description You can call the CreateRootCACertificate operation to create a self-signed root CA certificate. A root CA certificate is the trust anchor in a chain of trust for private certificates that are used within an enterprise. You must create a root CA certificate before you can use the root CA certificate to issue intermediate CA certificates. Then, you can use the intermediate CA certificates to issue client certificates and server certificates.
      * Before you call this operation, make sure that you have purchased a private root CA instance by using the [Certificate Management Service console](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist). For more information, see [Create a private CA](https://help.aliyun.com/document_detail/208553.html).
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param CreateRootCACertificateRequest $request CreateRootCACertificateRequest
      *
-     * @param request - CreateRootCACertificateRequest
-     *
-     * @returns CreateRootCACertificateResponse
-     *
-     * @param CreateRootCACertificateRequest $request
-     *
-     * @return CreateRootCACertificateResponse
+     * @return CreateRootCACertificateResponse CreateRootCACertificateResponse
      */
     public function createRootCACertificate($request)
     {
@@ -682,93 +581,71 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Issues a server certificate by using a system-generated certificate signing request (CSR) file.
-     *
-     * @remarks
-     * Before you call this operation, make sure that you have created a root certificate authority (CA) certificate by calling the [CreateRootCACertificate](https://help.aliyun.com/document_detail/328093.html) operation and an intermediate CA certificate by calling the [CreateSubCACertificate](https://help.aliyun.com/document_detail/328094.html) operation. Only intermediate CA certificates can be used to issue server certificates.
+     * @summary Issues a server certificate by using a system-generated certificate signing request (CSR) file.
+     *  *
+     * @description Before you call this operation, make sure that you have created a root certificate authority (CA) certificate by calling the [CreateRootCACertificate](https://help.aliyun.com/document_detail/328093.html) operation and an intermediate CA certificate by calling the [CreateSubCACertificate](https://help.aliyun.com/document_detail/328094.html) operation. Only intermediate CA certificates can be used to issue server certificates.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param CreateServerCertificateRequest $request CreateServerCertificateRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateServerCertificateRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateServerCertificateResponse
-     *
-     * @param CreateServerCertificateRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return CreateServerCertificateResponse
+     * @return CreateServerCertificateResponse CreateServerCertificateResponse
      */
     public function createServerCertificateWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->afterTime) {
-            @$query['AfterTime'] = $request->afterTime;
+        if (!Utils::isUnset($request->afterTime)) {
+            $query['AfterTime'] = $request->afterTime;
         }
-
-        if (null !== $request->algorithm) {
-            @$query['Algorithm'] = $request->algorithm;
+        if (!Utils::isUnset($request->algorithm)) {
+            $query['Algorithm'] = $request->algorithm;
         }
-
-        if (null !== $request->beforeTime) {
-            @$query['BeforeTime'] = $request->beforeTime;
+        if (!Utils::isUnset($request->beforeTime)) {
+            $query['BeforeTime'] = $request->beforeTime;
         }
-
-        if (null !== $request->commonName) {
-            @$query['CommonName'] = $request->commonName;
+        if (!Utils::isUnset($request->commonName)) {
+            $query['CommonName'] = $request->commonName;
         }
-
-        if (null !== $request->country) {
-            @$query['Country'] = $request->country;
+        if (!Utils::isUnset($request->country)) {
+            $query['Country'] = $request->country;
         }
-
-        if (null !== $request->days) {
-            @$query['Days'] = $request->days;
+        if (!Utils::isUnset($request->days)) {
+            $query['Days'] = $request->days;
         }
-
-        if (null !== $request->domain) {
-            @$query['Domain'] = $request->domain;
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
         }
-
-        if (null !== $request->enableCrl) {
-            @$query['EnableCrl'] = $request->enableCrl;
+        if (!Utils::isUnset($request->enableCrl)) {
+            $query['EnableCrl'] = $request->enableCrl;
         }
-
-        if (null !== $request->immediately) {
-            @$query['Immediately'] = $request->immediately;
+        if (!Utils::isUnset($request->immediately)) {
+            $query['Immediately'] = $request->immediately;
         }
-
-        if (null !== $request->locality) {
-            @$query['Locality'] = $request->locality;
+        if (!Utils::isUnset($request->locality)) {
+            $query['Locality'] = $request->locality;
         }
-
-        if (null !== $request->months) {
-            @$query['Months'] = $request->months;
+        if (!Utils::isUnset($request->months)) {
+            $query['Months'] = $request->months;
         }
-
-        if (null !== $request->organization) {
-            @$query['Organization'] = $request->organization;
+        if (!Utils::isUnset($request->organization)) {
+            $query['Organization'] = $request->organization;
         }
-
-        if (null !== $request->organizationUnit) {
-            @$query['OrganizationUnit'] = $request->organizationUnit;
+        if (!Utils::isUnset($request->organizationUnit)) {
+            $query['OrganizationUnit'] = $request->organizationUnit;
         }
-
-        if (null !== $request->parentIdentifier) {
-            @$query['ParentIdentifier'] = $request->parentIdentifier;
+        if (!Utils::isUnset($request->parentIdentifier)) {
+            $query['ParentIdentifier'] = $request->parentIdentifier;
         }
-
-        if (null !== $request->state) {
-            @$query['State'] = $request->state;
+        if (!Utils::isUnset($request->state)) {
+            $query['State'] = $request->state;
         }
-
-        if (null !== $request->years) {
-            @$query['Years'] = $request->years;
+        if (!Utils::isUnset($request->years)) {
+            $query['Years'] = $request->years;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateServerCertificate',
@@ -786,20 +663,15 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Issues a server certificate by using a system-generated certificate signing request (CSR) file.
-     *
-     * @remarks
-     * Before you call this operation, make sure that you have created a root certificate authority (CA) certificate by calling the [CreateRootCACertificate](https://help.aliyun.com/document_detail/328093.html) operation and an intermediate CA certificate by calling the [CreateSubCACertificate](https://help.aliyun.com/document_detail/328094.html) operation. Only intermediate CA certificates can be used to issue server certificates.
+     * @summary Issues a server certificate by using a system-generated certificate signing request (CSR) file.
+     *  *
+     * @description Before you call this operation, make sure that you have created a root certificate authority (CA) certificate by calling the [CreateRootCACertificate](https://help.aliyun.com/document_detail/328093.html) operation and an intermediate CA certificate by calling the [CreateSubCACertificate](https://help.aliyun.com/document_detail/328094.html) operation. Only intermediate CA certificates can be used to issue server certificates.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param CreateServerCertificateRequest $request CreateServerCertificateRequest
      *
-     * @param request - CreateServerCertificateRequest
-     *
-     * @returns CreateServerCertificateResponse
-     *
-     * @param CreateServerCertificateRequest $request
-     *
-     * @return CreateServerCertificateResponse
+     * @return CreateServerCertificateResponse CreateServerCertificateResponse
      */
     public function createServerCertificate($request)
     {
@@ -809,96 +681,73 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Issues a server certificate by using a custom certificate signing request (CSR) file.
-     *
-     * @remarks
-     * ## Usage notes
+     * @summary Issues a server certificate by using a custom certificate signing request (CSR) file.
+     *  *
+     * @description ## Usage notes
      * Before you call this operation, make sure that you have created a root certificate authority (CA) certificate by calling the [CreateRootCACertificate](https://help.aliyun.com/document_detail/328093.html) operation and an intermediate CA certificate by calling the [CreateSubCACertificate](https://help.aliyun.com/document_detail/328094.html) operation. Only intermediate CA certificates can be used to issue server certificates.
+     *  *
+     * @param CreateServerCertificateWithCsrRequest $request CreateServerCertificateWithCsrRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateServerCertificateWithCsrRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateServerCertificateWithCsrResponse
-     *
-     * @param CreateServerCertificateWithCsrRequest $request
-     * @param RuntimeOptions                        $runtime
-     *
-     * @return CreateServerCertificateWithCsrResponse
+     * @return CreateServerCertificateWithCsrResponse CreateServerCertificateWithCsrResponse
      */
     public function createServerCertificateWithCsrWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->afterTime) {
-            @$query['AfterTime'] = $request->afterTime;
+        if (!Utils::isUnset($request->afterTime)) {
+            $query['AfterTime'] = $request->afterTime;
         }
-
-        if (null !== $request->algorithm) {
-            @$query['Algorithm'] = $request->algorithm;
+        if (!Utils::isUnset($request->algorithm)) {
+            $query['Algorithm'] = $request->algorithm;
         }
-
-        if (null !== $request->beforeTime) {
-            @$query['BeforeTime'] = $request->beforeTime;
+        if (!Utils::isUnset($request->beforeTime)) {
+            $query['BeforeTime'] = $request->beforeTime;
         }
-
-        if (null !== $request->commonName) {
-            @$query['CommonName'] = $request->commonName;
+        if (!Utils::isUnset($request->commonName)) {
+            $query['CommonName'] = $request->commonName;
         }
-
-        if (null !== $request->country) {
-            @$query['Country'] = $request->country;
+        if (!Utils::isUnset($request->country)) {
+            $query['Country'] = $request->country;
         }
-
-        if (null !== $request->csr) {
-            @$query['Csr'] = $request->csr;
+        if (!Utils::isUnset($request->csr)) {
+            $query['Csr'] = $request->csr;
         }
-
-        if (null !== $request->days) {
-            @$query['Days'] = $request->days;
+        if (!Utils::isUnset($request->days)) {
+            $query['Days'] = $request->days;
         }
-
-        if (null !== $request->domain) {
-            @$query['Domain'] = $request->domain;
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
         }
-
-        if (null !== $request->enableCrl) {
-            @$query['EnableCrl'] = $request->enableCrl;
+        if (!Utils::isUnset($request->enableCrl)) {
+            $query['EnableCrl'] = $request->enableCrl;
         }
-
-        if (null !== $request->immediately) {
-            @$query['Immediately'] = $request->immediately;
+        if (!Utils::isUnset($request->immediately)) {
+            $query['Immediately'] = $request->immediately;
         }
-
-        if (null !== $request->locality) {
-            @$query['Locality'] = $request->locality;
+        if (!Utils::isUnset($request->locality)) {
+            $query['Locality'] = $request->locality;
         }
-
-        if (null !== $request->months) {
-            @$query['Months'] = $request->months;
+        if (!Utils::isUnset($request->months)) {
+            $query['Months'] = $request->months;
         }
-
-        if (null !== $request->organization) {
-            @$query['Organization'] = $request->organization;
+        if (!Utils::isUnset($request->organization)) {
+            $query['Organization'] = $request->organization;
         }
-
-        if (null !== $request->organizationUnit) {
-            @$query['OrganizationUnit'] = $request->organizationUnit;
+        if (!Utils::isUnset($request->organizationUnit)) {
+            $query['OrganizationUnit'] = $request->organizationUnit;
         }
-
-        if (null !== $request->parentIdentifier) {
-            @$query['ParentIdentifier'] = $request->parentIdentifier;
+        if (!Utils::isUnset($request->parentIdentifier)) {
+            $query['ParentIdentifier'] = $request->parentIdentifier;
         }
-
-        if (null !== $request->state) {
-            @$query['State'] = $request->state;
+        if (!Utils::isUnset($request->state)) {
+            $query['State'] = $request->state;
         }
-
-        if (null !== $request->years) {
-            @$query['Years'] = $request->years;
+        if (!Utils::isUnset($request->years)) {
+            $query['Years'] = $request->years;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateServerCertificateWithCsr',
@@ -916,19 +765,14 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Issues a server certificate by using a custom certificate signing request (CSR) file.
-     *
-     * @remarks
-     * ## Usage notes
+     * @summary Issues a server certificate by using a custom certificate signing request (CSR) file.
+     *  *
+     * @description ## Usage notes
      * Before you call this operation, make sure that you have created a root certificate authority (CA) certificate by calling the [CreateRootCACertificate](https://help.aliyun.com/document_detail/328093.html) operation and an intermediate CA certificate by calling the [CreateSubCACertificate](https://help.aliyun.com/document_detail/328094.html) operation. Only intermediate CA certificates can be used to issue server certificates.
+     *  *
+     * @param CreateServerCertificateWithCsrRequest $request CreateServerCertificateWithCsrRequest
      *
-     * @param request - CreateServerCertificateWithCsrRequest
-     *
-     * @returns CreateServerCertificateWithCsrResponse
-     *
-     * @param CreateServerCertificateWithCsrRequest $request
-     *
-     * @return CreateServerCertificateWithCsrResponse
+     * @return CreateServerCertificateWithCsrResponse CreateServerCertificateWithCsrResponse
      */
     public function createServerCertificateWithCsr($request)
     {
@@ -938,82 +782,63 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Creates an intermediate certificate authority (CA) certificate.
-     *
-     * @remarks
-     * You can call this operation to issue an intermediate certificate authority (CA) certificate by using an existing root CA certificate. Intermediate CA certificates can be used to issue client certificates and server certificates.
+     * @summary Creates an intermediate certificate authority (CA) certificate.
+     *  *
+     * @description You can call this operation to issue an intermediate certificate authority (CA) certificate by using an existing root CA certificate. Intermediate CA certificates can be used to issue client certificates and server certificates.
      * Before you call this operation, make sure that you have issued a root CA certificate by calling the [CreateRootCACertificate] operation.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param CreateSubCACertificateRequest $request CreateSubCACertificateRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateSubCACertificateRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateSubCACertificateResponse
-     *
-     * @param CreateSubCACertificateRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return CreateSubCACertificateResponse
+     * @return CreateSubCACertificateResponse CreateSubCACertificateResponse
      */
     public function createSubCACertificateWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->algorithm) {
-            @$query['Algorithm'] = $request->algorithm;
+        if (!Utils::isUnset($request->algorithm)) {
+            $query['Algorithm'] = $request->algorithm;
         }
-
-        if (null !== $request->commonName) {
-            @$query['CommonName'] = $request->commonName;
+        if (!Utils::isUnset($request->commonName)) {
+            $query['CommonName'] = $request->commonName;
         }
-
-        if (null !== $request->countryCode) {
-            @$query['CountryCode'] = $request->countryCode;
+        if (!Utils::isUnset($request->countryCode)) {
+            $query['CountryCode'] = $request->countryCode;
         }
-
-        if (null !== $request->crlDay) {
-            @$query['CrlDay'] = $request->crlDay;
+        if (!Utils::isUnset($request->crlDay)) {
+            $query['CrlDay'] = $request->crlDay;
         }
-
-        if (null !== $request->enableCrl) {
-            @$query['EnableCrl'] = $request->enableCrl;
+        if (!Utils::isUnset($request->enableCrl)) {
+            $query['EnableCrl'] = $request->enableCrl;
         }
-
-        if (null !== $request->extendedKeyUsages) {
-            @$query['ExtendedKeyUsages'] = $request->extendedKeyUsages;
+        if (!Utils::isUnset($request->extendedKeyUsages)) {
+            $query['ExtendedKeyUsages'] = $request->extendedKeyUsages;
         }
-
-        if (null !== $request->locality) {
-            @$query['Locality'] = $request->locality;
+        if (!Utils::isUnset($request->locality)) {
+            $query['Locality'] = $request->locality;
         }
-
-        if (null !== $request->organization) {
-            @$query['Organization'] = $request->organization;
+        if (!Utils::isUnset($request->organization)) {
+            $query['Organization'] = $request->organization;
         }
-
-        if (null !== $request->organizationUnit) {
-            @$query['OrganizationUnit'] = $request->organizationUnit;
+        if (!Utils::isUnset($request->organizationUnit)) {
+            $query['OrganizationUnit'] = $request->organizationUnit;
         }
-
-        if (null !== $request->parentIdentifier) {
-            @$query['ParentIdentifier'] = $request->parentIdentifier;
+        if (!Utils::isUnset($request->parentIdentifier)) {
+            $query['ParentIdentifier'] = $request->parentIdentifier;
         }
-
-        if (null !== $request->pathLenConstraint) {
-            @$query['PathLenConstraint'] = $request->pathLenConstraint;
+        if (!Utils::isUnset($request->pathLenConstraint)) {
+            $query['PathLenConstraint'] = $request->pathLenConstraint;
         }
-
-        if (null !== $request->state) {
-            @$query['State'] = $request->state;
+        if (!Utils::isUnset($request->state)) {
+            $query['State'] = $request->state;
         }
-
-        if (null !== $request->years) {
-            @$query['Years'] = $request->years;
+        if (!Utils::isUnset($request->years)) {
+            $query['Years'] = $request->years;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateSubCACertificate',
@@ -1031,21 +856,16 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Creates an intermediate certificate authority (CA) certificate.
-     *
-     * @remarks
-     * You can call this operation to issue an intermediate certificate authority (CA) certificate by using an existing root CA certificate. Intermediate CA certificates can be used to issue client certificates and server certificates.
+     * @summary Creates an intermediate certificate authority (CA) certificate.
+     *  *
+     * @description You can call this operation to issue an intermediate certificate authority (CA) certificate by using an existing root CA certificate. Intermediate CA certificates can be used to issue client certificates and server certificates.
      * Before you call this operation, make sure that you have issued a root CA certificate by calling the [CreateRootCACertificate] operation.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param CreateSubCACertificateRequest $request CreateSubCACertificateRequest
      *
-     * @param request - CreateSubCACertificateRequest
-     *
-     * @returns CreateSubCACertificateResponse
-     *
-     * @param CreateSubCACertificateRequest $request
-     *
-     * @return CreateSubCACertificateResponse
+     * @return CreateSubCACertificateResponse CreateSubCACertificateResponse
      */
     public function createSubCACertificate($request)
     {
@@ -1055,33 +875,26 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Deletes a client certificate or a server certificate that is revoked.
-     *
-     * @remarks
-     * Before you call this operation, you must call the [CreateRevokeClientCertificate](https://help.aliyun.com/document_detail/330876.html) operation to revoke a client certificate or a server certificate.
+     * @summary Deletes a client certificate or a server certificate that is revoked.
+     *  *
+     * @description Before you call this operation, you must call the [CreateRevokeClientCertificate](https://help.aliyun.com/document_detail/330876.html) operation to revoke a client certificate or a server certificate.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DeleteClientCertificateRequest $request DeleteClientCertificateRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteClientCertificateRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteClientCertificateResponse
-     *
-     * @param DeleteClientCertificateRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DeleteClientCertificateResponse
+     * @return DeleteClientCertificateResponse DeleteClientCertificateResponse
      */
     public function deleteClientCertificateWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->identifier) {
-            @$query['Identifier'] = $request->identifier;
+        if (!Utils::isUnset($request->identifier)) {
+            $query['Identifier'] = $request->identifier;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteClientCertificate',
@@ -1099,20 +912,15 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Deletes a client certificate or a server certificate that is revoked.
-     *
-     * @remarks
-     * Before you call this operation, you must call the [CreateRevokeClientCertificate](https://help.aliyun.com/document_detail/330876.html) operation to revoke a client certificate or a server certificate.
+     * @summary Deletes a client certificate or a server certificate that is revoked.
+     *  *
+     * @description Before you call this operation, you must call the [CreateRevokeClientCertificate](https://help.aliyun.com/document_detail/330876.html) operation to revoke a client certificate or a server certificate.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DeleteClientCertificateRequest $request DeleteClientCertificateRequest
      *
-     * @param request - DeleteClientCertificateRequest
-     *
-     * @returns DeleteClientCertificateResponse
-     *
-     * @param DeleteClientCertificateRequest $request
-     *
-     * @return DeleteClientCertificateResponse
+     * @return DeleteClientCertificateResponse DeleteClientCertificateResponse
      */
     public function deleteClientCertificate($request)
     {
@@ -1122,34 +930,27 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Queries the details about a root certificate authority (CA) certificate or an intermediate CA certificate.
-     *
-     * @remarks
-     * You can call the DescribeCACertificate operation to query the details about a root CA certificate or an intermediate CA certificate by using the unique identifier of the root CA certificate or intermediate CA certificate. The details include the serial number, user information, and content of a CA certificate.
+     * @summary Queries the details about a root certificate authority (CA) certificate or an intermediate CA certificate.
+     *  *
+     * @description You can call the DescribeCACertificate operation to query the details about a root CA certificate or an intermediate CA certificate by using the unique identifier of the root CA certificate or intermediate CA certificate. The details include the serial number, user information, and content of a CA certificate.
      * Before you call this operation, make sure that you have created a root CA by calling the [CreateRootCACertificate] operation or an intermediate CA certificate by calling the [CreateSubCACertificate] operation.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeCACertificateRequest $request DescribeCACertificateRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeCACertificateRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeCACertificateResponse
-     *
-     * @param DescribeCACertificateRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DescribeCACertificateResponse
+     * @return DescribeCACertificateResponse DescribeCACertificateResponse
      */
     public function describeCACertificateWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->identifier) {
-            @$query['Identifier'] = $request->identifier;
+        if (!Utils::isUnset($request->identifier)) {
+            $query['Identifier'] = $request->identifier;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeCACertificate',
@@ -1167,21 +968,16 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Queries the details about a root certificate authority (CA) certificate or an intermediate CA certificate.
-     *
-     * @remarks
-     * You can call the DescribeCACertificate operation to query the details about a root CA certificate or an intermediate CA certificate by using the unique identifier of the root CA certificate or intermediate CA certificate. The details include the serial number, user information, and content of a CA certificate.
+     * @summary Queries the details about a root certificate authority (CA) certificate or an intermediate CA certificate.
+     *  *
+     * @description You can call the DescribeCACertificate operation to query the details about a root CA certificate or an intermediate CA certificate by using the unique identifier of the root CA certificate or intermediate CA certificate. The details include the serial number, user information, and content of a CA certificate.
      * Before you call this operation, make sure that you have created a root CA by calling the [CreateRootCACertificate] operation or an intermediate CA certificate by calling the [CreateSubCACertificate] operation.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeCACertificateRequest $request DescribeCACertificateRequest
      *
-     * @param request - DescribeCACertificateRequest
-     *
-     * @returns DescribeCACertificateResponse
-     *
-     * @param DescribeCACertificateRequest $request
-     *
-     * @return DescribeCACertificateResponse
+     * @return DescribeCACertificateResponse DescribeCACertificateResponse
      */
     public function describeCACertificate($request)
     {
@@ -1191,21 +987,15 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Queries the number of certificate authority (CA) certificates that you create.
-     *
-     * @remarks
-     * You can call the DescribeCACertificateCount operation to query the number of created CA certificates, which includes root CA certificates and intermediate CA certificates.
+     * @summary Queries the number of certificate authority (CA) certificates that you create.
+     *  *
+     * @description You can call the DescribeCACertificateCount operation to query the number of created CA certificates, which includes root CA certificates and intermediate CA certificates.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeCACertificateCountRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeCACertificateCountResponse
-     *
-     * @param RuntimeOptions $runtime
-     *
-     * @return DescribeCACertificateCountResponse
+     * @return DescribeCACertificateCountResponse DescribeCACertificateCountResponse
      */
     public function describeCACertificateCountWithOptions($runtime)
     {
@@ -1226,16 +1016,13 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Queries the number of certificate authority (CA) certificates that you create.
-     *
-     * @remarks
-     * You can call the DescribeCACertificateCount operation to query the number of created CA certificates, which includes root CA certificates and intermediate CA certificates.
+     * @summary Queries the number of certificate authority (CA) certificates that you create.
+     *  *
+     * @description You can call the DescribeCACertificateCount operation to query the number of created CA certificates, which includes root CA certificates and intermediate CA certificates.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
-     * @returns DescribeCACertificateCountResponse
-     *
-     * @return DescribeCACertificateCountResponse
+     *  *
+     * @return DescribeCACertificateCountResponse DescribeCACertificateCountResponse
      */
     public function describeCACertificateCount()
     {
@@ -1245,57 +1032,44 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Queries the details about all root certificate authority (CA) certificates and intermediate CA certificates.
-     *
-     * @remarks
-     * You can call the DescribeCACertificateList operation to perform a paged query of the details about all CA certificates that you create. The details include the unique identifier, serial number, user information, and content of each root CA certificate or intermediate CA certificate.
+     * @summary Queries the details about all root certificate authority (CA) certificates and intermediate CA certificates.
+     *  *
+     * @description You can call the DescribeCACertificateList operation to perform a paged query of the details about all CA certificates that you create. The details include the unique identifier, serial number, user information, and content of each root CA certificate or intermediate CA certificate.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeCACertificateListRequest $request DescribeCACertificateListRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeCACertificateListRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeCACertificateListResponse
-     *
-     * @param DescribeCACertificateListRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DescribeCACertificateListResponse
+     * @return DescribeCACertificateListResponse DescribeCACertificateListResponse
      */
     public function describeCACertificateListWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->caStatus) {
-            @$query['CaStatus'] = $request->caStatus;
+        if (!Utils::isUnset($request->caStatus)) {
+            $query['CaStatus'] = $request->caStatus;
         }
-
-        if (null !== $request->certType) {
-            @$query['CertType'] = $request->certType;
+        if (!Utils::isUnset($request->certType)) {
+            $query['CertType'] = $request->certType;
         }
-
-        if (null !== $request->currentPage) {
-            @$query['CurrentPage'] = $request->currentPage;
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
         }
-
-        if (null !== $request->identifier) {
-            @$query['Identifier'] = $request->identifier;
+        if (!Utils::isUnset($request->identifier)) {
+            $query['Identifier'] = $request->identifier;
         }
-
-        if (null !== $request->issuerType) {
-            @$query['IssuerType'] = $request->issuerType;
+        if (!Utils::isUnset($request->issuerType)) {
+            $query['IssuerType'] = $request->issuerType;
         }
-
-        if (null !== $request->showSize) {
-            @$query['ShowSize'] = $request->showSize;
+        if (!Utils::isUnset($request->showSize)) {
+            $query['ShowSize'] = $request->showSize;
         }
-
-        if (null !== $request->validStatus) {
-            @$query['ValidStatus'] = $request->validStatus;
+        if (!Utils::isUnset($request->validStatus)) {
+            $query['ValidStatus'] = $request->validStatus;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeCACertificateList',
@@ -1313,20 +1087,15 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Queries the details about all root certificate authority (CA) certificates and intermediate CA certificates.
-     *
-     * @remarks
-     * You can call the DescribeCACertificateList operation to perform a paged query of the details about all CA certificates that you create. The details include the unique identifier, serial number, user information, and content of each root CA certificate or intermediate CA certificate.
+     * @summary Queries the details about all root certificate authority (CA) certificates and intermediate CA certificates.
+     *  *
+     * @description You can call the DescribeCACertificateList operation to perform a paged query of the details about all CA certificates that you create. The details include the unique identifier, serial number, user information, and content of each root CA certificate or intermediate CA certificate.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeCACertificateListRequest $request DescribeCACertificateListRequest
      *
-     * @param request - DescribeCACertificateListRequest
-     *
-     * @returns DescribeCACertificateListResponse
-     *
-     * @param DescribeCACertificateListRequest $request
-     *
-     * @return DescribeCACertificateListResponse
+     * @return DescribeCACertificateListResponse DescribeCACertificateListResponse
      */
     public function describeCACertificateList($request)
     {
@@ -1336,10 +1105,9 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Queries the encrypted private key of a client certificate or a server certificate.
-     *
-     * @remarks
-     * ## Usage notes
+     * @summary Queries the encrypted private key of a client certificate or a server certificate.
+     *  *
+     * @description ## Usage notes
      * You can call the DescribeCertificatePrivateKey operation to obtain the encrypted private key of a client certificate or a server certificate. The certificate is issued based on a system-generated certificate signing request (CSR). Before you call this operation, make sure that you have issued a client certificate or a server certificate by calling the following operation:
      * *   [CreateClientCertificate](https://help.aliyun.com/document_detail/330873.html)
      * *   [CreateServerCertificate](https://help.aliyun.com/document_detail/330877.html)
@@ -1350,31 +1118,24 @@ class Cas extends OpenApiClient
      * >  You can call the [DescribeClientCertificate] operation to query the encryption algorithm type of a client certificate or a server certificate.
      * ## Limits
      * You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeCertificatePrivateKeyRequest $request DescribeCertificatePrivateKeyRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeCertificatePrivateKeyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeCertificatePrivateKeyResponse
-     *
-     * @param DescribeCertificatePrivateKeyRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return DescribeCertificatePrivateKeyResponse
+     * @return DescribeCertificatePrivateKeyResponse DescribeCertificatePrivateKeyResponse
      */
     public function describeCertificatePrivateKeyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->encryptedCode) {
-            @$query['EncryptedCode'] = $request->encryptedCode;
+        if (!Utils::isUnset($request->encryptedCode)) {
+            $query['EncryptedCode'] = $request->encryptedCode;
         }
-
-        if (null !== $request->identifier) {
-            @$query['Identifier'] = $request->identifier;
+        if (!Utils::isUnset($request->identifier)) {
+            $query['Identifier'] = $request->identifier;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeCertificatePrivateKey',
@@ -1392,10 +1153,9 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Queries the encrypted private key of a client certificate or a server certificate.
-     *
-     * @remarks
-     * ## Usage notes
+     * @summary Queries the encrypted private key of a client certificate or a server certificate.
+     *  *
+     * @description ## Usage notes
      * You can call the DescribeCertificatePrivateKey operation to obtain the encrypted private key of a client certificate or a server certificate. The certificate is issued based on a system-generated certificate signing request (CSR). Before you call this operation, make sure that you have issued a client certificate or a server certificate by calling the following operation:
      * *   [CreateClientCertificate](https://help.aliyun.com/document_detail/330873.html)
      * *   [CreateServerCertificate](https://help.aliyun.com/document_detail/330877.html)
@@ -1406,14 +1166,10 @@ class Cas extends OpenApiClient
      * >  You can call the [DescribeClientCertificate] operation to query the encryption algorithm type of a client certificate or a server certificate.
      * ## Limits
      * You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeCertificatePrivateKeyRequest $request DescribeCertificatePrivateKeyRequest
      *
-     * @param request - DescribeCertificatePrivateKeyRequest
-     *
-     * @returns DescribeCertificatePrivateKeyResponse
-     *
-     * @param DescribeCertificatePrivateKeyRequest $request
-     *
-     * @return DescribeCertificatePrivateKeyResponse
+     * @return DescribeCertificatePrivateKeyResponse DescribeCertificatePrivateKeyResponse
      */
     public function describeCertificatePrivateKey($request)
     {
@@ -1423,10 +1179,9 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Queries the details about a client certificate or a server certificate by using the unique identifier of the certificate.
-     *
-     * @remarks
-     * You can call the DescribeClientCertificate operation to query the details about a client certificate or a server certificate by using the unique identifier of the certificate. The details include the serial number, user information, content, and status of each certificate.
+     * @summary Queries the details about a client certificate or a server certificate by using the unique identifier of the certificate.
+     *  *
+     * @description You can call the DescribeClientCertificate operation to query the details about a client certificate or a server certificate by using the unique identifier of the certificate. The details include the serial number, user information, content, and status of each certificate.
      * Before you call this operation, make sure that you have created a client certificate or a server certificate.
      * For more information about how to call an operation to create a client certificate, see the following topics:
      * *   [CreateClientCertificate](https://help.aliyun.com/document_detail/330873.html)
@@ -1436,27 +1191,21 @@ class Cas extends OpenApiClient
      * *   [CreateServerCertificateWithCsr](https://help.aliyun.com/document_detail/330878.html)
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeClientCertificateRequest $request DescribeClientCertificateRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeClientCertificateRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeClientCertificateResponse
-     *
-     * @param DescribeClientCertificateRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DescribeClientCertificateResponse
+     * @return DescribeClientCertificateResponse DescribeClientCertificateResponse
      */
     public function describeClientCertificateWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->identifier) {
-            @$query['Identifier'] = $request->identifier;
+        if (!Utils::isUnset($request->identifier)) {
+            $query['Identifier'] = $request->identifier;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeClientCertificate',
@@ -1474,10 +1223,9 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Queries the details about a client certificate or a server certificate by using the unique identifier of the certificate.
-     *
-     * @remarks
-     * You can call the DescribeClientCertificate operation to query the details about a client certificate or a server certificate by using the unique identifier of the certificate. The details include the serial number, user information, content, and status of each certificate.
+     * @summary Queries the details about a client certificate or a server certificate by using the unique identifier of the certificate.
+     *  *
+     * @description You can call the DescribeClientCertificate operation to query the details about a client certificate or a server certificate by using the unique identifier of the certificate. The details include the serial number, user information, content, and status of each certificate.
      * Before you call this operation, make sure that you have created a client certificate or a server certificate.
      * For more information about how to call an operation to create a client certificate, see the following topics:
      * *   [CreateClientCertificate](https://help.aliyun.com/document_detail/330873.html)
@@ -1487,14 +1235,10 @@ class Cas extends OpenApiClient
      * *   [CreateServerCertificateWithCsr](https://help.aliyun.com/document_detail/330878.html)
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeClientCertificateRequest $request DescribeClientCertificateRequest
      *
-     * @param request - DescribeClientCertificateRequest
-     *
-     * @returns DescribeClientCertificateResponse
-     *
-     * @param DescribeClientCertificateRequest $request
-     *
-     * @return DescribeClientCertificateResponse
+     * @return DescribeClientCertificateResponse DescribeClientCertificateResponse
      */
     public function describeClientCertificate($request)
     {
@@ -1504,33 +1248,26 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Queries the status information about client certificates and server certificates by using the unique identifiers of the certificates.
-     *
-     * @remarks
-     * You can call the DescribeClientCertificateStatus operation to query the status information about multiple client certificates or server certificates at a time by using the unique identifiers of the certificates. For example, you can check whether a certificate is revoked.
+     * @summary Queries the status information about client certificates and server certificates by using the unique identifiers of the certificates.
+     *  *
+     * @description You can call the DescribeClientCertificateStatus operation to query the status information about multiple client certificates or server certificates at a time by using the unique identifiers of the certificates. For example, you can check whether a certificate is revoked.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeClientCertificateStatusRequest $request DescribeClientCertificateStatusRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeClientCertificateStatusRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeClientCertificateStatusResponse
-     *
-     * @param DescribeClientCertificateStatusRequest $request
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return DescribeClientCertificateStatusResponse
+     * @return DescribeClientCertificateStatusResponse DescribeClientCertificateStatusResponse
      */
     public function describeClientCertificateStatusWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->identifier) {
-            @$query['Identifier'] = $request->identifier;
+        if (!Utils::isUnset($request->identifier)) {
+            $query['Identifier'] = $request->identifier;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeClientCertificateStatus',
@@ -1548,20 +1285,15 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Queries the status information about client certificates and server certificates by using the unique identifiers of the certificates.
-     *
-     * @remarks
-     * You can call the DescribeClientCertificateStatus operation to query the status information about multiple client certificates or server certificates at a time by using the unique identifiers of the certificates. For example, you can check whether a certificate is revoked.
+     * @summary Queries the status information about client certificates and server certificates by using the unique identifiers of the certificates.
+     *  *
+     * @description You can call the DescribeClientCertificateStatus operation to query the status information about multiple client certificates or server certificates at a time by using the unique identifiers of the certificates. For example, you can check whether a certificate is revoked.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeClientCertificateStatusRequest $request DescribeClientCertificateStatusRequest
      *
-     * @param request - DescribeClientCertificateStatusRequest
-     *
-     * @returns DescribeClientCertificateStatusResponse
-     *
-     * @param DescribeClientCertificateStatusRequest $request
-     *
-     * @return DescribeClientCertificateStatusResponse
+     * @return DescribeClientCertificateStatusResponse DescribeClientCertificateStatusResponse
      */
     public function describeClientCertificateStatus($request)
     {
@@ -1571,37 +1303,29 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Queries the status information about a private root certificate authority (CA) instance or a private intermediate CA instance that you purchase by using the Certificate Management Service console.
-     *
-     * @remarks
-     * ## Usage notes
+     * @summary Queries the status information about a private root certificate authority (CA) instance or a private intermediate CA instance that you purchase by using the Certificate Management Service console.
+     *  *
+     * @description ## Usage notes
      * You can call the GetCAInstanceStatus operation to query the status information of a private CA instance by using the ID of the instance. The instance is purchased by using the SSL Certificates Service console. The status information includes the status of the private CA instance, the number of certificates that can be issued by using the private CA instance, and the number of issued certificates.
      * Before you call this operation, make sure that you have purchased a private CA by using the [SSL Certificates Service console](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist). For more information, see [Create a private CA](https://help.aliyun.com/document_detail/208553.html).
+     *  *
+     * @param GetCAInstanceStatusRequest $request GetCAInstanceStatusRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetCAInstanceStatusRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetCAInstanceStatusResponse
-     *
-     * @param GetCAInstanceStatusRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return GetCAInstanceStatusResponse
+     * @return GetCAInstanceStatusResponse GetCAInstanceStatusResponse
      */
     public function getCAInstanceStatusWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->identifier) {
-            @$query['Identifier'] = $request->identifier;
+        if (!Utils::isUnset($request->identifier)) {
+            $query['Identifier'] = $request->identifier;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetCAInstanceStatus',
@@ -1619,20 +1343,15 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Queries the status information about a private root certificate authority (CA) instance or a private intermediate CA instance that you purchase by using the Certificate Management Service console.
-     *
-     * @remarks
-     * ## Usage notes
+     * @summary Queries the status information about a private root certificate authority (CA) instance or a private intermediate CA instance that you purchase by using the Certificate Management Service console.
+     *  *
+     * @description ## Usage notes
      * You can call the GetCAInstanceStatus operation to query the status information of a private CA instance by using the ID of the instance. The instance is purchased by using the SSL Certificates Service console. The status information includes the status of the private CA instance, the number of certificates that can be issued by using the private CA instance, and the number of issued certificates.
      * Before you call this operation, make sure that you have purchased a private CA by using the [SSL Certificates Service console](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist). For more information, see [Create a private CA](https://help.aliyun.com/document_detail/208553.html).
+     *  *
+     * @param GetCAInstanceStatusRequest $request GetCAInstanceStatusRequest
      *
-     * @param request - GetCAInstanceStatusRequest
-     *
-     * @returns GetCAInstanceStatusResponse
-     *
-     * @param GetCAInstanceStatusRequest $request
-     *
-     * @return GetCAInstanceStatusResponse
+     * @return GetCAInstanceStatusResponse GetCAInstanceStatusResponse
      */
     public function getCAInstanceStatus($request)
     {
@@ -1642,60 +1361,46 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * 获取证书列表.
+     * @summary 获取证书列表
+     *  *
+     * @param ListCertRequest $request ListCertRequest
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListCertRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListCertResponse
-     *
-     * @param ListCertRequest $request
-     * @param RuntimeOptions  $runtime
-     *
-     * @return ListCertResponse
+     * @return ListCertResponse ListCertResponse
      */
     public function listCertWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->afterDate) {
-            @$query['AfterDate'] = $request->afterDate;
+        if (!Utils::isUnset($request->afterDate)) {
+            $query['AfterDate'] = $request->afterDate;
         }
-
-        if (null !== $request->beforeDate) {
-            @$query['BeforeDate'] = $request->beforeDate;
+        if (!Utils::isUnset($request->beforeDate)) {
+            $query['BeforeDate'] = $request->beforeDate;
         }
-
-        if (null !== $request->currentPage) {
-            @$query['CurrentPage'] = $request->currentPage;
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
         }
-
-        if (null !== $request->instanceUuid) {
-            @$query['InstanceUuid'] = $request->instanceUuid;
+        if (!Utils::isUnset($request->instanceUuid)) {
+            $query['InstanceUuid'] = $request->instanceUuid;
         }
-
-        if (null !== $request->maxResults) {
-            @$query['MaxResults'] = $request->maxResults;
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
         }
-
-        if (null !== $request->nextToken) {
-            @$query['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
         }
-
-        if (null !== $request->showSize) {
-            @$query['ShowSize'] = $request->showSize;
+        if (!Utils::isUnset($request->showSize)) {
+            $query['ShowSize'] = $request->showSize;
         }
-
-        if (null !== $request->status) {
-            @$query['Status'] = $request->status;
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
         }
-
-        if (null !== $request->type) {
-            @$query['Type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListCert',
@@ -1713,15 +1418,11 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * 获取证书列表.
+     * @summary 获取证书列表
+     *  *
+     * @param ListCertRequest $request ListCertRequest
      *
-     * @param request - ListCertRequest
-     *
-     * @returns ListCertResponse
-     *
-     * @param ListCertRequest $request
-     *
-     * @return ListCertResponse
+     * @return ListCertResponse ListCertResponse
      */
     public function listCert($request)
     {
@@ -1731,41 +1432,32 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Queries the details about all client certificates and server certificates.
-     *
-     * @remarks
-     * You can call the ListClientCertificate operation to perform a paged query of the details about all client certificates and server certificates that you create. The details include the unique identifier, serial number, user information, content, and status of each certificate.
+     * @summary Queries the details about all client certificates and server certificates.
+     *  *
+     * @description You can call the ListClientCertificate operation to perform a paged query of the details about all client certificates and server certificates that you create. The details include the unique identifier, serial number, user information, content, and status of each certificate.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param ListClientCertificateRequest $request ListClientCertificateRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListClientCertificateRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListClientCertificateResponse
-     *
-     * @param ListClientCertificateRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return ListClientCertificateResponse
+     * @return ListClientCertificateResponse ListClientCertificateResponse
      */
     public function listClientCertificateWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->currentPage) {
-            @$query['CurrentPage'] = $request->currentPage;
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
         }
-
-        if (null !== $request->identifier) {
-            @$query['Identifier'] = $request->identifier;
+        if (!Utils::isUnset($request->identifier)) {
+            $query['Identifier'] = $request->identifier;
         }
-
-        if (null !== $request->showSize) {
-            @$query['ShowSize'] = $request->showSize;
+        if (!Utils::isUnset($request->showSize)) {
+            $query['ShowSize'] = $request->showSize;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListClientCertificate',
@@ -1783,20 +1475,15 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Queries the details about all client certificates and server certificates.
-     *
-     * @remarks
-     * You can call the ListClientCertificate operation to perform a paged query of the details about all client certificates and server certificates that you create. The details include the unique identifier, serial number, user information, content, and status of each certificate.
+     * @summary Queries the details about all client certificates and server certificates.
+     *  *
+     * @description You can call the ListClientCertificate operation to perform a paged query of the details about all client certificates and server certificates that you create. The details include the unique identifier, serial number, user information, content, and status of each certificate.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param ListClientCertificateRequest $request ListClientCertificateRequest
      *
-     * @param request - ListClientCertificateRequest
-     *
-     * @returns ListClientCertificateResponse
-     *
-     * @param ListClientCertificateRequest $request
-     *
-     * @return ListClientCertificateResponse
+     * @return ListClientCertificateResponse ListClientCertificateResponse
      */
     public function listClientCertificate($request)
     {
@@ -1806,37 +1493,29 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Queries the details about all client certificates and server certificates that are revoked.
-     *
-     * @remarks
-     * You can call the ListRevokeCertificate operation to perform a paged query of the details about all revoked client certificates and server certificates. The details include the unique identifier, serial number, and revocation date of each certificate.
+     * @summary Queries the details about all client certificates and server certificates that are revoked.
+     *  *
+     * @description You can call the ListRevokeCertificate operation to perform a paged query of the details about all revoked client certificates and server certificates. The details include the unique identifier, serial number, and revocation date of each certificate.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param ListRevokeCertificateRequest $request ListRevokeCertificateRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListRevokeCertificateRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListRevokeCertificateResponse
-     *
-     * @param ListRevokeCertificateRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return ListRevokeCertificateResponse
+     * @return ListRevokeCertificateResponse ListRevokeCertificateResponse
      */
     public function listRevokeCertificateWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->currentPage) {
-            @$query['CurrentPage'] = $request->currentPage;
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
         }
-
-        if (null !== $request->showSize) {
-            @$query['ShowSize'] = $request->showSize;
+        if (!Utils::isUnset($request->showSize)) {
+            $query['ShowSize'] = $request->showSize;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListRevokeCertificate',
@@ -1854,20 +1533,15 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Queries the details about all client certificates and server certificates that are revoked.
-     *
-     * @remarks
-     * You can call the ListRevokeCertificate operation to perform a paged query of the details about all revoked client certificates and server certificates. The details include the unique identifier, serial number, and revocation date of each certificate.
+     * @summary Queries the details about all client certificates and server certificates that are revoked.
+     *  *
+     * @description You can call the ListRevokeCertificate operation to perform a paged query of the details about all revoked client certificates and server certificates. The details include the unique identifier, serial number, and revocation date of each certificate.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param ListRevokeCertificateRequest $request ListRevokeCertificateRequest
      *
-     * @param request - ListRevokeCertificateRequest
-     *
-     * @returns ListRevokeCertificateResponse
-     *
-     * @param ListRevokeCertificateRequest $request
-     *
-     * @return ListRevokeCertificateResponse
+     * @return ListRevokeCertificateResponse ListRevokeCertificateResponse
      */
     public function listRevokeCertificate($request)
     {
@@ -1877,38 +1551,33 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Changes the status of a root certificate authority (CA) certificate or an intermediate CA certificate from ISSUE to REVOKE.
-     *
-     * @remarks
-     * After a CA certificate is created, the CA certificate is in the ISSUE state by default. You can call the UpdateCACertificateStatus operation to change the status of a CA certificate from ISSUE to REVOKE. If a CA certificate is in the ISSUE state, the CA certificate can be used to issue certificates. If a CA certificate is in the REVOKE state, the CA certificate cannot be used to issue certificates, and the certificates that are issued from the CA certificate become invalid.
+     * @summary Changes the status of a root certificate authority (CA) certificate or an intermediate CA certificate from ISSUE to REVOKE.
+     *  *
+     * @description After a CA certificate is created, the CA certificate is in the ISSUE state by default. You can call the UpdateCACertificateStatus operation to change the status of a CA certificate from ISSUE to REVOKE. If a CA certificate is in the ISSUE state, the CA certificate can be used to issue certificates. If a CA certificate is in the REVOKE state, the CA certificate cannot be used to issue certificates, and the certificates that are issued from the CA certificate become invalid.
      * Before you call this operation, make sure that you have created a root CA by calling the [CreateRootCACertificate] operation or an intermediate CA certificate by calling the [CreateSubCACertificate] operation.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param UpdateCACertificateStatusRequest $request UpdateCACertificateStatusRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateCACertificateStatusRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateCACertificateStatusResponse
-     *
-     * @param UpdateCACertificateStatusRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return UpdateCACertificateStatusResponse
+     * @return UpdateCACertificateStatusResponse UpdateCACertificateStatusResponse
      */
     public function updateCACertificateStatusWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->identifier) {
-            @$query['Identifier'] = $request->identifier;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->status) {
-            @$query['Status'] = $request->status;
+        if (!Utils::isUnset($request->identifier)) {
+            $query['Identifier'] = $request->identifier;
         }
-
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateCACertificateStatus',
@@ -1926,21 +1595,16 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Changes the status of a root certificate authority (CA) certificate or an intermediate CA certificate from ISSUE to REVOKE.
-     *
-     * @remarks
-     * After a CA certificate is created, the CA certificate is in the ISSUE state by default. You can call the UpdateCACertificateStatus operation to change the status of a CA certificate from ISSUE to REVOKE. If a CA certificate is in the ISSUE state, the CA certificate can be used to issue certificates. If a CA certificate is in the REVOKE state, the CA certificate cannot be used to issue certificates, and the certificates that are issued from the CA certificate become invalid.
+     * @summary Changes the status of a root certificate authority (CA) certificate or an intermediate CA certificate from ISSUE to REVOKE.
+     *  *
+     * @description After a CA certificate is created, the CA certificate is in the ISSUE state by default. You can call the UpdateCACertificateStatus operation to change the status of a CA certificate from ISSUE to REVOKE. If a CA certificate is in the ISSUE state, the CA certificate can be used to issue certificates. If a CA certificate is in the REVOKE state, the CA certificate cannot be used to issue certificates, and the certificates that are issued from the CA certificate become invalid.
      * Before you call this operation, make sure that you have created a root CA by calling the [CreateRootCACertificate] operation or an intermediate CA certificate by calling the [CreateSubCACertificate] operation.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param UpdateCACertificateStatusRequest $request UpdateCACertificateStatusRequest
      *
-     * @param request - UpdateCACertificateStatusRequest
-     *
-     * @returns UpdateCACertificateStatusResponse
-     *
-     * @param UpdateCACertificateStatusRequest $request
-     *
-     * @return UpdateCACertificateStatusResponse
+     * @return UpdateCACertificateStatusResponse UpdateCACertificateStatusResponse
      */
     public function updateCACertificateStatus($request)
     {
@@ -1950,28 +1614,22 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * 上传pca证书到SSL上传证书.
+     * @summary 上传pca证书到SSL上传证书
+     *  *
+     * @param UploadPcaCertToCasRequest $request UploadPcaCertToCasRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UploadPcaCertToCasRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UploadPcaCertToCasResponse
-     *
-     * @param UploadPcaCertToCasRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return UploadPcaCertToCasResponse
+     * @return UploadPcaCertToCasResponse UploadPcaCertToCasResponse
      */
     public function uploadPcaCertToCasWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->ids) {
-            @$query['Ids'] = $request->ids;
+        if (!Utils::isUnset($request->ids)) {
+            $query['Ids'] = $request->ids;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UploadPcaCertToCas',
@@ -1989,15 +1647,11 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * 上传pca证书到SSL上传证书.
+     * @summary 上传pca证书到SSL上传证书
+     *  *
+     * @param UploadPcaCertToCasRequest $request UploadPcaCertToCasRequest
      *
-     * @param request - UploadPcaCertToCasRequest
-     *
-     * @returns UploadPcaCertToCasResponse
-     *
-     * @param UploadPcaCertToCasRequest $request
-     *
-     * @return UploadPcaCertToCasResponse
+     * @return UploadPcaCertToCasResponse UploadPcaCertToCasResponse
      */
     public function uploadPcaCertToCas($request)
     {

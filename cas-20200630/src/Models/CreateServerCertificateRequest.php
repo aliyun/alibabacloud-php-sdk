@@ -4,86 +4,192 @@
 
 namespace AlibabaCloud\SDK\Cas\V20200630\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateServerCertificateRequest extends Model
 {
     /**
+     * @description The expiration time of the server certificate. This value is a UNIX timestamp. Unit: seconds.
+     *
+     * >  The **BeforeTime** and **AfterTime** parameters must be both empty or both specified.
+     *
+     * @example 1665819958
+     *
      * @var int
      */
     public $afterTime;
 
     /**
+     * @description The key algorithm of the server certificate. The key algorithm is in the `<Encryption algorithm>_<Key length>` format. Valid values:
+     *
+     *   **RSA_1024**: The signature algorithm is Sha256WithRSA.
+     *   **RSA_2048**: The signature algorithm is Sha256WithRSA.
+     *   **RSA_4096**: The signature algorithm is Sha256WithRSA.
+     *   **ECC_256**: The signature algorithm is Sha256WithECDSA.
+     *   **ECC_384**: The signature algorithm is Sha256WithECDSA.
+     *   **ECC_512**: The signature algorithm is Sha256WithECDSA.
+     *   **SM2_256**: The signature algorithm is SM3WithSM2.
+     *
+     * The encryption algorithm of the server certificate must be the same as the encryption algorithm of the intermediate CA certificate. The key length can be different. For example, if the key algorithm of the intermediate CA certificate is RSA_2048, the key algorithm of the server certificate must be RSA_1024, RSA_2048, or RSA_4096.
+     *
+     * >  You can call the [DescribeCACertificate](https://help.aliyun.com/document_detail/328096.html) operation to query the key algorithm of an intermediate CA certificate.
+     *
+     * This parameter is required.
+     *
+     * @example RSA_2048
+     *
      * @var string
      */
     public $algorithm;
 
     /**
+     * @description The issuance time of the server certificate. This value is a UNIX timestamp. The default value is the time when you call this operation. Unit: seconds.
+     *
+     * >  The **BeforeTime** and **AfterTime** parameters must be both empty or both specified.
+     *
+     * @example 1634283958
+     *
      * @var int
      */
     public $beforeTime;
 
     /**
+     * @description The name of the certificate user. The user of a server certificate is a server. We recommend that you enter the domain name or IP address of the server.
+     *
+     * This parameter is required.
+     *
+     * @example www.example.com
+     *
      * @var string
      */
     public $commonName;
 
     /**
+     * @description The code of the country in which the organization is located, such as CN or US.
+     *
+     * @example CN
+     *
      * @var string
      */
     public $country;
 
     /**
+     * @description The validity period of the server certificate. Unit: days. You must specify at least one of the **Days**, **BeforeTime**, and **AfterTime** parameters. The **BeforeTime** and **AfterTime** parameters must be both empty or both specified. The following list describes how to specify these parameters:
+     *
+     *   If you specify the **Days** parameter, you can specify both the **BeforeTime** and **AfterTime** parameters or leave them both empty.
+     *   If you do not specify the **Days** parameter, you must specify both the **BeforeTime** and **AfterTime** parameters.
+     *
+     * >
+     *
+     *   If you specify the **Days**, **BeforeTime**, and **AfterTime** parameters together, the validity period of the server certificate is determined by the value of the **Days** parameter.
+     *
+     *   The validity period of the server certificate cannot exceed the validity period of the intermediate CA certificate. You can call the [DescribeCACertificate](https://help.aliyun.com/document_detail/328096.html) operation to query the validity period of an intermediate CA certificate.
+     *
+     * @example 365
+     *
      * @var int
      */
     public $days;
 
     /**
+     * @description The additional domain names and additional IP addresses of the server certificate. After you add additional domain names and additional IP addresses to a certificate, you can apply the certificate to the domain names and IP addresses.
+     *
+     * Separate multiple domain names and multiple IP addresses with commas (,).
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @description include the CRL address.
+     *
+     * - 0- No
+     * - 1- Yes
+     *
+     * @example 1
+     *
      * @var int
      */
     public $enableCrl;
 
     /**
+     * @description Specifies whether to return the certificate. Valid values:
+     *
+     *   **0**: does not return the certificate. This is the default value.
+     *   **1**: returns the certificate.
+     *   **2**: returns the certificate and the certificate chain of the certificate.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $immediately;
 
     /**
+     * @description The name of the city in which the organization is located. The value can contain letters. The default value is the name of the city in which the organization is located. The organization is associated with the intermediate CA certificate from which the certificate is issued.
+     *
+     * @example Hangzhou
+     *
      * @var string
      */
     public $locality;
 
     /**
+     * @description The validity period of the server certificate. Unit: months.
+     *
+     * @example 12
+     *
      * @var int
      */
     public $months;
 
     /**
+     * @description The name of the organization. Default value: Alibaba Inc.
+     *
+     * @example Alibaba Cloud
+     *
      * @var string
      */
     public $organization;
 
     /**
+     * @description The name of the department. Default value: Aliyun CDN.
+     *
+     * @example IT
+     *
      * @var string
      */
     public $organizationUnit;
 
     /**
+     * @description The unique identifier of the intermediate CA certificate from which the server certificate is issued.
+     *
+     * >  You can call the [DescribeCACertificateList](https://help.aliyun.com/document_detail/328095.html) operation to query the unique identifier of an intermediate CA certificate.
+     *
+     * This parameter is required.
+     *
+     * @example 271ae6bb538d538c70c01f81dg3****
+     *
      * @var string
      */
     public $parentIdentifier;
 
     /**
+     * @description The province, municipality, or autonomous region in which the organization is located. The value can contain letters. The default value is the name of the province, municipality, or autonomous region in which the organization is located. The organization is associated with the intermediate CA certificate from which the certificate is issued.
+     *
+     * @example Zhejiang
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @description The validity period of the server certificate. Unit: years.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $years;
@@ -106,74 +212,56 @@ class CreateServerCertificateRequest extends Model
         'years' => 'Years',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->afterTime) {
             $res['AfterTime'] = $this->afterTime;
         }
-
         if (null !== $this->algorithm) {
             $res['Algorithm'] = $this->algorithm;
         }
-
         if (null !== $this->beforeTime) {
             $res['BeforeTime'] = $this->beforeTime;
         }
-
         if (null !== $this->commonName) {
             $res['CommonName'] = $this->commonName;
         }
-
         if (null !== $this->country) {
             $res['Country'] = $this->country;
         }
-
         if (null !== $this->days) {
             $res['Days'] = $this->days;
         }
-
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
-
         if (null !== $this->enableCrl) {
             $res['EnableCrl'] = $this->enableCrl;
         }
-
         if (null !== $this->immediately) {
             $res['Immediately'] = $this->immediately;
         }
-
         if (null !== $this->locality) {
             $res['Locality'] = $this->locality;
         }
-
         if (null !== $this->months) {
             $res['Months'] = $this->months;
         }
-
         if (null !== $this->organization) {
             $res['Organization'] = $this->organization;
         }
-
         if (null !== $this->organizationUnit) {
             $res['OrganizationUnit'] = $this->organizationUnit;
         }
-
         if (null !== $this->parentIdentifier) {
             $res['ParentIdentifier'] = $this->parentIdentifier;
         }
-
         if (null !== $this->state) {
             $res['State'] = $this->state;
         }
-
         if (null !== $this->years) {
             $res['Years'] = $this->years;
         }
@@ -181,74 +269,59 @@ class CreateServerCertificateRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateServerCertificateRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AfterTime'])) {
             $model->afterTime = $map['AfterTime'];
         }
-
         if (isset($map['Algorithm'])) {
             $model->algorithm = $map['Algorithm'];
         }
-
         if (isset($map['BeforeTime'])) {
             $model->beforeTime = $map['BeforeTime'];
         }
-
         if (isset($map['CommonName'])) {
             $model->commonName = $map['CommonName'];
         }
-
         if (isset($map['Country'])) {
             $model->country = $map['Country'];
         }
-
         if (isset($map['Days'])) {
             $model->days = $map['Days'];
         }
-
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
-
         if (isset($map['EnableCrl'])) {
             $model->enableCrl = $map['EnableCrl'];
         }
-
         if (isset($map['Immediately'])) {
             $model->immediately = $map['Immediately'];
         }
-
         if (isset($map['Locality'])) {
             $model->locality = $map['Locality'];
         }
-
         if (isset($map['Months'])) {
             $model->months = $map['Months'];
         }
-
         if (isset($map['Organization'])) {
             $model->organization = $map['Organization'];
         }
-
         if (isset($map['OrganizationUnit'])) {
             $model->organizationUnit = $map['OrganizationUnit'];
         }
-
         if (isset($map['ParentIdentifier'])) {
             $model->parentIdentifier = $map['ParentIdentifier'];
         }
-
         if (isset($map['State'])) {
             $model->state = $map['State'];
         }
-
         if (isset($map['Years'])) {
             $model->years = $map['Years'];
         }

@@ -4,17 +4,23 @@
 
 namespace AlibabaCloud\SDK\Cas\V20200630\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cas\V20200630\Models\DescribeClientCertificateStatusResponseBody\certificateStatus;
+use AlibabaCloud\Tea\Model;
 
 class DescribeClientCertificateStatusResponseBody extends Model
 {
     /**
+     * @description An array that consists of the status information about the certificates.
+     *
      * @var certificateStatus[]
      */
     public $certificateStatus;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 15C66C7B-671A-4297-9187-2C4477247A74
+     *
      * @var string
      */
     public $requestId;
@@ -23,28 +29,20 @@ class DescribeClientCertificateStatusResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->certificateStatus)) {
-            Model::validateArray($this->certificateStatus);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->certificateStatus) {
-            if (\is_array($this->certificateStatus)) {
-                $res['CertificateStatus'] = [];
-                $n1 = 0;
-                foreach ($this->certificateStatus as $item1) {
-                    $res['CertificateStatus'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['CertificateStatus'] = [];
+            if (null !== $this->certificateStatus && \is_array($this->certificateStatus)) {
+                $n = 0;
+                foreach ($this->certificateStatus as $item) {
+                    $res['CertificateStatus'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,25 +50,23 @@ class DescribeClientCertificateStatusResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeClientCertificateStatusResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CertificateStatus'])) {
             if (!empty($map['CertificateStatus'])) {
                 $model->certificateStatus = [];
-                $n1 = 0;
-                foreach ($map['CertificateStatus'] as $item1) {
-                    $model->certificateStatus[$n1] = certificateStatus::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['CertificateStatus'] as $item) {
+                    $model->certificateStatus[$n++] = null !== $item ? certificateStatus::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
