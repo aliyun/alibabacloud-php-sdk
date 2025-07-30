@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Edsuser\V20210308\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class RemoveGroupResponseBody extends Model
 {
     /**
+     * @example 42FE70D8-4336-471B-8314-CCCFCE41****
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +18,9 @@ class RemoveGroupResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +30,11 @@ class RemoveGroupResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return RemoveGroupResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\Edsuser\V20210308\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateResourceGroupRequest extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $isResourceGroupWithOfficeSite;
 
     /**
+     * @example AliyunConsole
+     *
      * @var string
      */
     public $platform;
@@ -28,22 +32,17 @@ class CreateResourceGroupRequest extends Model
         'resourceGroupName' => 'ResourceGroupName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->isResourceGroupWithOfficeSite) {
             $res['IsResourceGroupWithOfficeSite'] = $this->isResourceGroupWithOfficeSite;
         }
-
         if (null !== $this->platform) {
             $res['Platform'] = $this->platform;
         }
-
         if (null !== $this->resourceGroupName) {
             $res['ResourceGroupName'] = $this->resourceGroupName;
         }
@@ -51,22 +50,20 @@ class CreateResourceGroupRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateResourceGroupRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IsResourceGroupWithOfficeSite'])) {
             $model->isResourceGroupWithOfficeSite = $map['IsResourceGroupWithOfficeSite'];
         }
-
         if (isset($map['Platform'])) {
             $model->platform = $map['Platform'];
         }
-
         if (isset($map['ResourceGroupName'])) {
             $model->resourceGroupName = $map['ResourceGroupName'];
         }

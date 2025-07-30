@@ -4,17 +4,21 @@
 
 namespace AlibabaCloud\SDK\Edsuser\V20210308\Models\RemoveUsersResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\RemoveUsersResponseBody\removeUsersResult\failedUsers;
+use AlibabaCloud\Tea\Model;
 
 class removeUsersResult extends Model
 {
     /**
+     * @description The convenience users that failed to be removed.
+     *
      * @var failedUsers[]
      */
     public $failedUsers;
 
     /**
+     * @description The convenience users that were removed.
+     *
      * @var string[]
      */
     public $removedUsers;
@@ -23,72 +27,47 @@ class removeUsersResult extends Model
         'removedUsers' => 'RemovedUsers',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->failedUsers)) {
-            Model::validateArray($this->failedUsers);
-        }
-        if (\is_array($this->removedUsers)) {
-            Model::validateArray($this->removedUsers);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->failedUsers) {
-            if (\is_array($this->failedUsers)) {
-                $res['FailedUsers'] = [];
-                $n1 = 0;
-                foreach ($this->failedUsers as $item1) {
-                    $res['FailedUsers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['FailedUsers'] = [];
+            if (null !== $this->failedUsers && \is_array($this->failedUsers)) {
+                $n = 0;
+                foreach ($this->failedUsers as $item) {
+                    $res['FailedUsers'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->removedUsers) {
-            if (\is_array($this->removedUsers)) {
-                $res['RemovedUsers'] = [];
-                $n1 = 0;
-                foreach ($this->removedUsers as $item1) {
-                    $res['RemovedUsers'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['RemovedUsers'] = $this->removedUsers;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return removeUsersResult
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FailedUsers'])) {
             if (!empty($map['FailedUsers'])) {
                 $model->failedUsers = [];
-                $n1 = 0;
-                foreach ($map['FailedUsers'] as $item1) {
-                    $model->failedUsers[$n1] = failedUsers::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['FailedUsers'] as $item) {
+                    $model->failedUsers[$n++] = null !== $item ? failedUsers::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['RemovedUsers'])) {
             if (!empty($map['RemovedUsers'])) {
-                $model->removedUsers = [];
-                $n1 = 0;
-                foreach ($map['RemovedUsers'] as $item1) {
-                    $model->removedUsers[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->removedUsers = $map['RemovedUsers'];
             }
         }
 

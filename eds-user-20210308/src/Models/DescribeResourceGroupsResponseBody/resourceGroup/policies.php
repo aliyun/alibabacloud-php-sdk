@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeResourceGroupsResponseBody\resourceGroup;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class policies extends Model
 {
     /**
+     * @example pl-a8jnatl8kjasb***
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example False
+     *
      * @var bool
      */
     public $isDefault;
@@ -28,22 +32,17 @@ class policies extends Model
         'name' => 'Name',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->isDefault) {
             $res['IsDefault'] = $this->isDefault;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -51,22 +50,20 @@ class policies extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return policies
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['IsDefault'])) {
             $model->isDefault = $map['IsDefault'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Edsuser\V20210308\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class RemoveOrgResponseBody extends Model
 {
     /**
+     * @example 6C352609-EE7F-5603-B5E6-57C3EDDD****
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +18,9 @@ class RemoveOrgResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +30,11 @@ class RemoveOrgResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return RemoveOrgResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

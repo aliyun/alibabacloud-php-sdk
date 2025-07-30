@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Edsuser\V20210308\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class LockMfaDeviceResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 42FE70D8-4336-471B-8314-CCCFCE4159FD
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class LockMfaDeviceResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class LockMfaDeviceResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return LockMfaDeviceResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

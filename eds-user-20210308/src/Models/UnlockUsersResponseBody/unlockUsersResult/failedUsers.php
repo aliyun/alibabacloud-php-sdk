@@ -4,21 +4,33 @@
 
 namespace AlibabaCloud\SDK\Edsuser\V20210308\Models\UnlockUsersResponseBody\unlockUsersResult;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class failedUsers extends Model
 {
     /**
+     * @description The ID of the convenience user that failed to be unlocked.
+     *
+     * @example test123
+     *
      * @var string
      */
     public $endUserId;
 
     /**
+     * @description The error code.
+     *
+     * @example InvalidUsername
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The error message.
+     *
+     * @example test123 is an invalid username.
+     *
      * @var string
      */
     public $errorMessage;
@@ -28,22 +40,17 @@ class failedUsers extends Model
         'errorMessage' => 'ErrorMessage',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->endUserId) {
             $res['EndUserId'] = $this->endUserId;
         }
-
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
-
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
@@ -51,22 +58,20 @@ class failedUsers extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return failedUsers
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EndUserId'])) {
             $model->endUserId = $map['EndUserId'];
         }
-
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
-
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }

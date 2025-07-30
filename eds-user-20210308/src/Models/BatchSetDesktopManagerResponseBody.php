@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Edsuser\V20210308\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class BatchSetDesktopManagerResponseBody extends Model
 {
     /**
+     * @example 868B8926-2E7A-5BE7-9897-E811E994****
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +18,9 @@ class BatchSetDesktopManagerResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +30,11 @@ class BatchSetDesktopManagerResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return BatchSetDesktopManagerResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

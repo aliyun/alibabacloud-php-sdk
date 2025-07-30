@@ -4,16 +4,22 @@
 
 namespace AlibabaCloud\SDK\Edsuser\V20210308\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyOrgRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example org-76joc57khvnhdh***
+     *
      * @var string
      */
     public $orgId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $orgName;
@@ -22,18 +28,14 @@ class ModifyOrgRequest extends Model
         'orgName' => 'OrgName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->orgId) {
             $res['OrgId'] = $this->orgId;
         }
-
         if (null !== $this->orgName) {
             $res['OrgName'] = $this->orgName;
         }
@@ -41,18 +43,17 @@ class ModifyOrgRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyOrgRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OrgId'])) {
             $model->orgId = $map['OrgId'];
         }
-
         if (isset($map['OrgName'])) {
             $model->orgName = $map['OrgName'];
         }

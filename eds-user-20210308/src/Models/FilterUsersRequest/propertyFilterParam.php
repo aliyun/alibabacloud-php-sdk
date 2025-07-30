@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Edsuser\V20210308\Models\FilterUsersRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class propertyFilterParam extends Model
 {
     /**
+     * @description The ID of the property.
+     *
+     * @example 123
+     *
      * @var int
      */
     public $propertyId;
 
     /**
+     * @description The IDs of the property values.
+     *
+     * @example test
+     *
      * @var string
      */
     public $propertyValueIds;
@@ -22,18 +30,14 @@ class propertyFilterParam extends Model
         'propertyValueIds' => 'PropertyValueIds',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->propertyId) {
             $res['PropertyId'] = $this->propertyId;
         }
-
         if (null !== $this->propertyValueIds) {
             $res['PropertyValueIds'] = $this->propertyValueIds;
         }
@@ -41,18 +45,17 @@ class propertyFilterParam extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return propertyFilterParam
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PropertyId'])) {
             $model->propertyId = $map['PropertyId'];
         }
-
         if (isset($map['PropertyValueIds'])) {
             $model->propertyValueIds = $map['PropertyValueIds'];
         }

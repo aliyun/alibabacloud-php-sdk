@@ -4,17 +4,23 @@
 
 namespace AlibabaCloud\SDK\Edsuser\V20210308\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\ResetUserPasswordResponseBody\resetUsersResult;
+use AlibabaCloud\Tea\Model;
 
 class ResetUserPasswordResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 32D05B39-E6EE-4D7A-9FD0-762A26859D0D
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The result of resetting the password of the convenience user.
+     *
      * @var resetUsersResult
      */
     public $resetUsersResult;
@@ -23,40 +29,32 @@ class ResetUserPasswordResponseBody extends Model
         'resetUsersResult' => 'ResetUsersResult',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->resetUsersResult) {
-            $this->resetUsersResult->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->resetUsersResult) {
-            $res['ResetUsersResult'] = null !== $this->resetUsersResult ? $this->resetUsersResult->toArray($noStream) : $this->resetUsersResult;
+            $res['ResetUsersResult'] = null !== $this->resetUsersResult ? $this->resetUsersResult->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ResetUserPasswordResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['ResetUsersResult'])) {
             $model->resetUsersResult = resetUsersResult::fromMap($map['ResetUsersResult']);
         }

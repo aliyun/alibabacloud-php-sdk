@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Edsuser\V20210308\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class RemoveMfaDeviceResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example FB550AAB-FB36-4A91-93F6-F4374AF65403
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class RemoveMfaDeviceResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class RemoveMfaDeviceResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return RemoveMfaDeviceResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

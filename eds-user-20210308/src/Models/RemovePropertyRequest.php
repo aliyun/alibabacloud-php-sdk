@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\Edsuser\V20210308\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class RemovePropertyRequest extends Model
 {
     /**
+     * @description The ID of the property. You can call the [ListProperty](https://help.aliyun.com/document_detail/410890.html) operation to query the property ID.
+     *
+     * This parameter is required.
+     *
+     * @example 390
+     *
      * @var int
      */
     public $propertyId;
@@ -16,12 +22,9 @@ class RemovePropertyRequest extends Model
         'propertyId' => 'PropertyId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->propertyId) {
@@ -31,11 +34,11 @@ class RemovePropertyRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return RemovePropertyRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

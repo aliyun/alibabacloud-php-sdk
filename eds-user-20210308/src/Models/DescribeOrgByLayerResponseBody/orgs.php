@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeOrgByLayerResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class orgs extends Model
 {
     /**
+     * @example org-1mox****
+     *
      * @var string
      */
     public $orgId;
@@ -19,6 +21,8 @@ class orgs extends Model
     public $orgName;
 
     /**
+     * @example org-ezqr****
+     *
      * @var string
      */
     public $parentOrgId;
@@ -28,22 +32,17 @@ class orgs extends Model
         'parentOrgId' => 'ParentOrgId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->orgId) {
             $res['OrgId'] = $this->orgId;
         }
-
         if (null !== $this->orgName) {
             $res['OrgName'] = $this->orgName;
         }
-
         if (null !== $this->parentOrgId) {
             $res['ParentOrgId'] = $this->parentOrgId;
         }
@@ -51,22 +50,20 @@ class orgs extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return orgs
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OrgId'])) {
             $model->orgId = $map['OrgId'];
         }
-
         if (isset($map['OrgName'])) {
             $model->orgName = $map['OrgName'];
         }
-
         if (isset($map['ParentOrgId'])) {
             $model->parentOrgId = $map['ParentOrgId'];
         }

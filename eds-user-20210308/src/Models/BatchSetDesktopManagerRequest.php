@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\Edsuser\V20210308\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class BatchSetDesktopManagerRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var string
      */
     public $isDesktopManager;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $users;
@@ -22,55 +26,35 @@ class BatchSetDesktopManagerRequest extends Model
         'users' => 'Users',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->users)) {
-            Model::validateArray($this->users);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->isDesktopManager) {
             $res['IsDesktopManager'] = $this->isDesktopManager;
         }
-
         if (null !== $this->users) {
-            if (\is_array($this->users)) {
-                $res['Users'] = [];
-                $n1 = 0;
-                foreach ($this->users as $item1) {
-                    $res['Users'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['Users'] = $this->users;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return BatchSetDesktopManagerRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IsDesktopManager'])) {
             $model->isDesktopManager = $map['IsDesktopManager'];
         }
-
         if (isset($map['Users'])) {
             if (!empty($map['Users'])) {
-                $model->users = [];
-                $n1 = 0;
-                foreach ($map['Users'] as $item1) {
-                    $model->users[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->users = $map['Users'];
             }
         }
 

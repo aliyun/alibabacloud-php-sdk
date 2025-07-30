@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeResourceGroupsResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeResourceGroupsResponseBody\resourceGroup\appRules;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeResourceGroupsResponseBody\resourceGroup\policies;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeResourceGroupsResponseBody\resourceGroup\timers;
+use AlibabaCloud\Tea\Model;
 
 class resourceGroup extends Model
 {
@@ -17,11 +17,15 @@ class resourceGroup extends Model
     public $appRules;
 
     /**
+     * @example 3
+     *
      * @var string
      */
     public $authCount;
 
     /**
+     * @example 2022-11-29T17:25:40.000000000Z
+     *
      * @var string
      */
     public $createTime;
@@ -32,11 +36,15 @@ class resourceGroup extends Model
     public $policies;
 
     /**
+     * @example 119
+     *
      * @var string
      */
     public $resourceCount;
 
     /**
+     * @example rg-cyo0il2pzge1***
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -61,72 +69,50 @@ class resourceGroup extends Model
         'timers' => 'Timers',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->appRules)) {
-            Model::validateArray($this->appRules);
-        }
-        if (\is_array($this->policies)) {
-            Model::validateArray($this->policies);
-        }
-        if (\is_array($this->timers)) {
-            Model::validateArray($this->timers);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appRules) {
-            if (\is_array($this->appRules)) {
-                $res['AppRules'] = [];
-                $n1 = 0;
-                foreach ($this->appRules as $item1) {
-                    $res['AppRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['AppRules'] = [];
+            if (null !== $this->appRules && \is_array($this->appRules)) {
+                $n = 0;
+                foreach ($this->appRules as $item) {
+                    $res['AppRules'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->authCount) {
             $res['AuthCount'] = $this->authCount;
         }
-
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-
         if (null !== $this->policies) {
-            if (\is_array($this->policies)) {
-                $res['Policies'] = [];
-                $n1 = 0;
-                foreach ($this->policies as $item1) {
-                    $res['Policies'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Policies'] = [];
+            if (null !== $this->policies && \is_array($this->policies)) {
+                $n = 0;
+                foreach ($this->policies as $item) {
+                    $res['Policies'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->resourceCount) {
             $res['ResourceCount'] = $this->resourceCount;
         }
-
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
-
         if (null !== $this->resourceGroupName) {
             $res['ResourceGroupName'] = $this->resourceGroupName;
         }
-
         if (null !== $this->timers) {
-            if (\is_array($this->timers)) {
-                $res['Timers'] = [];
-                $n1 = 0;
-                foreach ($this->timers as $item1) {
-                    $res['Timers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Timers'] = [];
+            if (null !== $this->timers && \is_array($this->timers)) {
+                $n = 0;
+                foreach ($this->timers as $item) {
+                    $res['Timers'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -134,63 +120,53 @@ class resourceGroup extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return resourceGroup
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppRules'])) {
             if (!empty($map['AppRules'])) {
                 $model->appRules = [];
-                $n1 = 0;
-                foreach ($map['AppRules'] as $item1) {
-                    $model->appRules[$n1] = appRules::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['AppRules'] as $item) {
+                    $model->appRules[$n++] = null !== $item ? appRules::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['AuthCount'])) {
             $model->authCount = $map['AuthCount'];
         }
-
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
-
         if (isset($map['Policies'])) {
             if (!empty($map['Policies'])) {
                 $model->policies = [];
-                $n1 = 0;
-                foreach ($map['Policies'] as $item1) {
-                    $model->policies[$n1] = policies::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Policies'] as $item) {
+                    $model->policies[$n++] = null !== $item ? policies::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['ResourceCount'])) {
             $model->resourceCount = $map['ResourceCount'];
         }
-
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
-
         if (isset($map['ResourceGroupName'])) {
             $model->resourceGroupName = $map['ResourceGroupName'];
         }
-
         if (isset($map['Timers'])) {
             if (!empty($map['Timers'])) {
                 $model->timers = [];
-                $n1 = 0;
-                foreach ($map['Timers'] as $item1) {
-                    $model->timers[$n1] = timers::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Timers'] as $item) {
+                    $model->timers[$n++] = null !== $item ? timers::fromMap($item) : $item;
                 }
             }
         }

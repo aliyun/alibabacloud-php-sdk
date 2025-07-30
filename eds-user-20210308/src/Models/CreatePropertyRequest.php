@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Edsuser\V20210308\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreatePropertyRequest extends Model
 {
     /**
+     * @description The property name.
+     *
+     * This parameter is required.
+     *
+     * @example department
+     *
      * @var string
      */
     public $propertyKey;
 
     /**
+     * @description The values of the property. You can specify up to 50 values for a property.
+     *
      * @var string[]
      */
     public $propertyValues;
@@ -22,55 +30,35 @@ class CreatePropertyRequest extends Model
         'propertyValues' => 'PropertyValues',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->propertyValues)) {
-            Model::validateArray($this->propertyValues);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->propertyKey) {
             $res['PropertyKey'] = $this->propertyKey;
         }
-
         if (null !== $this->propertyValues) {
-            if (\is_array($this->propertyValues)) {
-                $res['PropertyValues'] = [];
-                $n1 = 0;
-                foreach ($this->propertyValues as $item1) {
-                    $res['PropertyValues'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['PropertyValues'] = $this->propertyValues;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreatePropertyRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PropertyKey'])) {
             $model->propertyKey = $map['PropertyKey'];
         }
-
         if (isset($map['PropertyValues'])) {
             if (!empty($map['PropertyValues'])) {
-                $model->propertyValues = [];
-                $n1 = 0;
-                foreach ($map['PropertyValues'] as $item1) {
-                    $model->propertyValues[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->propertyValues = $map['PropertyValues'];
             }
         }
 

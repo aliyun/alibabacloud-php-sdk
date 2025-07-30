@@ -4,18 +4,22 @@
 
 namespace AlibabaCloud\SDK\Edsuser\V20210308\Models\CreatePropertyResponseBody\createResult;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\CreatePropertyResponseBody\createResult\savePropertyValueModel\failedPropertyValues;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\CreatePropertyResponseBody\createResult\savePropertyValueModel\savePropertyValues;
+use AlibabaCloud\Tea\Model;
 
 class savePropertyValueModel extends Model
 {
     /**
+     * @description The property values that failed to be created.
+     *
      * @var failedPropertyValues[]
      */
     public $failedPropertyValues;
 
     /**
+     * @description Details of the property values that were created.
+     *
      * @var savePropertyValues[]
      */
     public $savePropertyValues;
@@ -24,38 +28,26 @@ class savePropertyValueModel extends Model
         'savePropertyValues' => 'SavePropertyValues',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->failedPropertyValues)) {
-            Model::validateArray($this->failedPropertyValues);
-        }
-        if (\is_array($this->savePropertyValues)) {
-            Model::validateArray($this->savePropertyValues);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->failedPropertyValues) {
-            if (\is_array($this->failedPropertyValues)) {
-                $res['FailedPropertyValues'] = [];
-                $n1 = 0;
-                foreach ($this->failedPropertyValues as $item1) {
-                    $res['FailedPropertyValues'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['FailedPropertyValues'] = [];
+            if (null !== $this->failedPropertyValues && \is_array($this->failedPropertyValues)) {
+                $n = 0;
+                foreach ($this->failedPropertyValues as $item) {
+                    $res['FailedPropertyValues'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->savePropertyValues) {
-            if (\is_array($this->savePropertyValues)) {
-                $res['SavePropertyValues'] = [];
-                $n1 = 0;
-                foreach ($this->savePropertyValues as $item1) {
-                    $res['SavePropertyValues'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['SavePropertyValues'] = [];
+            if (null !== $this->savePropertyValues && \is_array($this->savePropertyValues)) {
+                $n = 0;
+                foreach ($this->savePropertyValues as $item) {
+                    $res['SavePropertyValues'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -63,32 +55,29 @@ class savePropertyValueModel extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return savePropertyValueModel
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FailedPropertyValues'])) {
             if (!empty($map['FailedPropertyValues'])) {
                 $model->failedPropertyValues = [];
-                $n1 = 0;
-                foreach ($map['FailedPropertyValues'] as $item1) {
-                    $model->failedPropertyValues[$n1] = failedPropertyValues::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['FailedPropertyValues'] as $item) {
+                    $model->failedPropertyValues[$n++] = null !== $item ? failedPropertyValues::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['SavePropertyValues'])) {
             if (!empty($map['SavePropertyValues'])) {
                 $model->savePropertyValues = [];
-                $n1 = 0;
-                foreach ($map['SavePropertyValues'] as $item1) {
-                    $model->savePropertyValues[$n1] = savePropertyValues::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['SavePropertyValues'] as $item) {
+                    $model->savePropertyValues[$n++] = null !== $item ? savePropertyValues::fromMap($item) : $item;
                 }
             }
         }

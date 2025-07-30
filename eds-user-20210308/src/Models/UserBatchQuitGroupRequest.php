@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Edsuser\V20210308\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UserBatchQuitGroupRequest extends Model
 {
@@ -14,6 +14,8 @@ class UserBatchQuitGroupRequest extends Model
     public $endUserIds;
 
     /**
+     * @example ug-lkuvalovhnlxvv****
+     *
      * @var string
      */
     public $groupId;
@@ -22,28 +24,14 @@ class UserBatchQuitGroupRequest extends Model
         'groupId' => 'GroupId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->endUserIds)) {
-            Model::validateArray($this->endUserIds);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->endUserIds) {
-            if (\is_array($this->endUserIds)) {
-                $res['EndUserIds'] = [];
-                $n1 = 0;
-                foreach ($this->endUserIds as $item1) {
-                    $res['EndUserIds'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['EndUserIds'] = $this->endUserIds;
         }
-
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
@@ -51,25 +39,19 @@ class UserBatchQuitGroupRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UserBatchQuitGroupRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EndUserIds'])) {
             if (!empty($map['EndUserIds'])) {
-                $model->endUserIds = [];
-                $n1 = 0;
-                foreach ($map['EndUserIds'] as $item1) {
-                    $model->endUserIds[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->endUserIds = $map['EndUserIds'];
             }
         }
-
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }

@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Edsuser\V20210308\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UserBatchJoinGroupResponseBody extends Model
 {
     /**
+     * @example 7A2C3803-C975-5871-A232-80A91009****
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +18,9 @@ class UserBatchJoinGroupResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +30,11 @@ class UserBatchJoinGroupResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UserBatchJoinGroupResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

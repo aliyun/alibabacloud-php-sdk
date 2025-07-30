@@ -4,17 +4,21 @@
 
 namespace AlibabaCloud\SDK\Edsuser\V20210308\Models\LockUsersResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\LockUsersResponseBody\lockUsersResult\failedUsers;
+use AlibabaCloud\Tea\Model;
 
 class lockUsersResult extends Model
 {
     /**
+     * @description The convenience users that failed to be locked.
+     *
      * @var failedUsers[]
      */
     public $failedUsers;
 
     /**
+     * @description The convenience users that were locked.
+     *
      * @var string[]
      */
     public $lockedUsers;
@@ -23,72 +27,47 @@ class lockUsersResult extends Model
         'lockedUsers' => 'LockedUsers',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->failedUsers)) {
-            Model::validateArray($this->failedUsers);
-        }
-        if (\is_array($this->lockedUsers)) {
-            Model::validateArray($this->lockedUsers);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->failedUsers) {
-            if (\is_array($this->failedUsers)) {
-                $res['FailedUsers'] = [];
-                $n1 = 0;
-                foreach ($this->failedUsers as $item1) {
-                    $res['FailedUsers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['FailedUsers'] = [];
+            if (null !== $this->failedUsers && \is_array($this->failedUsers)) {
+                $n = 0;
+                foreach ($this->failedUsers as $item) {
+                    $res['FailedUsers'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->lockedUsers) {
-            if (\is_array($this->lockedUsers)) {
-                $res['LockedUsers'] = [];
-                $n1 = 0;
-                foreach ($this->lockedUsers as $item1) {
-                    $res['LockedUsers'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['LockedUsers'] = $this->lockedUsers;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return lockUsersResult
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FailedUsers'])) {
             if (!empty($map['FailedUsers'])) {
                 $model->failedUsers = [];
-                $n1 = 0;
-                foreach ($map['FailedUsers'] as $item1) {
-                    $model->failedUsers[$n1] = failedUsers::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['FailedUsers'] as $item) {
+                    $model->failedUsers[$n++] = null !== $item ? failedUsers::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['LockedUsers'])) {
             if (!empty($map['LockedUsers'])) {
-                $model->lockedUsers = [];
-                $n1 = 0;
-                foreach ($map['LockedUsers'] as $item1) {
-                    $model->lockedUsers[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->lockedUsers = $map['LockedUsers'];
             }
         }
 

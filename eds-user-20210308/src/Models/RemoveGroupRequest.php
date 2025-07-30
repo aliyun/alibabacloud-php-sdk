@@ -4,43 +4,56 @@
 
 namespace AlibabaCloud\SDK\Edsuser\V20210308\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class RemoveGroupRequest extends Model
 {
     /**
+     * @example ug-12341234****
+     *
      * @var string
      */
     public $groupId;
+
+    /**
+     * @var string[]
+     */
+    public $groupIds;
     protected $_name = [
         'groupId' => 'GroupId',
+        'groupIds' => 'GroupIds',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
+        if (null !== $this->groupIds) {
+            $res['GroupIds'] = $this->groupIds;
+        }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return RemoveGroupRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
+        }
+        if (isset($map['GroupIds'])) {
+            if (!empty($map['GroupIds'])) {
+                $model->groupIds = $map['GroupIds'];
+            }
         }
 
         return $model;

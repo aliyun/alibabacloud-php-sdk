@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Edsuser\V20210308\Models\UpdatePropertyResponseBody\updateResult\savePropertyValueModel;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class savePropertyValues extends Model
 {
     /**
+     * @description The value of the property.
+     *
+     * @example testvalue2
+     *
      * @var string
      */
     public $propertyValue;
 
     /**
+     * @description The ID of the property value.
+     *
+     * @example 978
+     *
      * @var int
      */
     public $propertyValueId;
@@ -22,18 +30,14 @@ class savePropertyValues extends Model
         'propertyValueId' => 'PropertyValueId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->propertyValue) {
             $res['PropertyValue'] = $this->propertyValue;
         }
-
         if (null !== $this->propertyValueId) {
             $res['PropertyValueId'] = $this->propertyValueId;
         }
@@ -41,18 +45,17 @@ class savePropertyValues extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return savePropertyValues
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PropertyValue'])) {
             $model->propertyValue = $map['PropertyValue'];
         }
-
         if (isset($map['PropertyValueId'])) {
             $model->propertyValueId = $map['PropertyValueId'];
         }

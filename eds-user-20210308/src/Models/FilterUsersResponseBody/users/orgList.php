@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Edsuser\V20210308\Models\FilterUsersResponseBody\users;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class orgList extends Model
 {
@@ -28,22 +28,17 @@ class orgList extends Model
         'orgNamePath' => 'OrgNamePath',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->orgId) {
             $res['OrgId'] = $this->orgId;
         }
-
         if (null !== $this->orgName) {
             $res['OrgName'] = $this->orgName;
         }
-
         if (null !== $this->orgNamePath) {
             $res['OrgNamePath'] = $this->orgNamePath;
         }
@@ -51,22 +46,20 @@ class orgList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return orgList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OrgId'])) {
             $model->orgId = $map['OrgId'];
         }
-
         if (isset($map['OrgName'])) {
             $model->orgName = $map['OrgName'];
         }
-
         if (isset($map['OrgNamePath'])) {
             $model->orgNamePath = $map['OrgNamePath'];
         }

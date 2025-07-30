@@ -4,17 +4,23 @@
 
 namespace AlibabaCloud\SDK\Edsuser\V20210308\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\UnlockUsersResponseBody\unlockUsersResult;
+use AlibabaCloud\Tea\Model;
 
 class UnlockUsersResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 023F4EC4-3602-4A3E-A514-4970847D59DB
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The result of unlocking the convenience user.
+     *
      * @var unlockUsersResult
      */
     public $unlockUsersResult;
@@ -23,40 +29,32 @@ class UnlockUsersResponseBody extends Model
         'unlockUsersResult' => 'UnlockUsersResult',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->unlockUsersResult) {
-            $this->unlockUsersResult->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->unlockUsersResult) {
-            $res['UnlockUsersResult'] = null !== $this->unlockUsersResult ? $this->unlockUsersResult->toArray($noStream) : $this->unlockUsersResult;
+            $res['UnlockUsersResult'] = null !== $this->unlockUsersResult ? $this->unlockUsersResult->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UnlockUsersResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['UnlockUsersResult'])) {
             $model->unlockUsersResult = unlockUsersResult::fromMap($map['UnlockUsersResult']);
         }

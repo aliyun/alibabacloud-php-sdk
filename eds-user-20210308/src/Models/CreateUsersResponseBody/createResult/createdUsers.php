@@ -4,31 +4,51 @@
 
 namespace AlibabaCloud\SDK\Edsuser\V20210308\Models\CreateUsersResponseBody\createResult;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class createdUsers extends Model
 {
     /**
+     * @description The email address of the end user.
+     *
+     * @example username@example.com
+     *
      * @var string
      */
     public $email;
 
     /**
+     * @description The name of the end user.
+     *
+     * @example test1
+     *
      * @var string
      */
     public $endUserId;
 
     /**
+     * @description The mobile number of the end user.
+     *
+     * @example 1381111****
+     *
      * @var string
      */
     public $phone;
 
     /**
+     * @description The display name of the end user.
+     *
+     * @example Bean
+     *
      * @var string
      */
     public $realNickName;
 
     /**
+     * @description The remarks of the end user.
+     *
+     * @example remark1
+     *
      * @var string
      */
     public $remark;
@@ -40,30 +60,23 @@ class createdUsers extends Model
         'remark' => 'Remark',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->email) {
             $res['Email'] = $this->email;
         }
-
         if (null !== $this->endUserId) {
             $res['EndUserId'] = $this->endUserId;
         }
-
         if (null !== $this->phone) {
             $res['Phone'] = $this->phone;
         }
-
         if (null !== $this->realNickName) {
             $res['RealNickName'] = $this->realNickName;
         }
-
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
         }
@@ -71,30 +84,26 @@ class createdUsers extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return createdUsers
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Email'])) {
             $model->email = $map['Email'];
         }
-
         if (isset($map['EndUserId'])) {
             $model->endUserId = $map['EndUserId'];
         }
-
         if (isset($map['Phone'])) {
             $model->phone = $map['Phone'];
         }
-
         if (isset($map['RealNickName'])) {
             $model->realNickName = $map['RealNickName'];
         }
-
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
         }

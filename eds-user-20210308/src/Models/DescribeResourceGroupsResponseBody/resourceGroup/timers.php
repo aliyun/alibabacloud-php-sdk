@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeResourceGroupsResponseBody\resourceGroup;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class timers extends Model
 {
@@ -14,6 +14,8 @@ class timers extends Model
     public $bindStatus;
 
     /**
+     * @example t-asdzx0mbjhg***
+     *
      * @var string
      */
     public $id;
@@ -34,26 +36,20 @@ class timers extends Model
         'timerStatus' => 'TimerStatus',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->bindStatus) {
             $res['BindStatus'] = $this->bindStatus;
         }
-
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->timerStatus) {
             $res['TimerStatus'] = $this->timerStatus;
         }
@@ -61,26 +57,23 @@ class timers extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return timers
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BindStatus'])) {
             $model->bindStatus = $map['BindStatus'];
         }
-
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['TimerStatus'])) {
             $model->timerStatus = $map['TimerStatus'];
         }

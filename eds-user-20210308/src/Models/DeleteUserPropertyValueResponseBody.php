@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Edsuser\V20210308\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteUserPropertyValueResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example D6C62E40-F937-5803-B008-92E813399BA5
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class DeleteUserPropertyValueResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class DeleteUserPropertyValueResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteUserPropertyValueResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
