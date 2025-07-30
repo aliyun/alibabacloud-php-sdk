@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Selectdb\V20230522\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CheckCreateDBInstanceResponseBody extends Model
 {
     /**
+     * @example ADF42B18-43FD-5100-83A9-BE81AB70C863
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +18,9 @@ class CheckCreateDBInstanceResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +30,11 @@ class CheckCreateDBInstanceResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CheckCreateDBInstanceResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

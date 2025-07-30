@@ -4,26 +4,48 @@
 
 namespace AlibabaCloud\SDK\Selectdb\V20230522\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class EnDisableScalingRulesRequest extends Model
 {
     /**
+     * @description The cluster ID.
+     *
+     * This parameter is required.
+     *
+     * @example selectdb-cn-nwy3jv1oa02-be
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The instance ID.
+     *
+     * This parameter is required.
+     *
+     * @example selectdb-cn-7213cjv****
+     *
      * @var string
      */
     public $dbInstanceId;
 
     /**
+     * @description The cloud service.
+     *
+     * @example selectdb
+     *
      * @var string
      */
     public $product;
 
     /**
+     * @description The region ID.
+     *
+     * This parameter is required.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -34,6 +56,17 @@ class EnDisableScalingRulesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description Specifies whether to enable the scheduled scaling policy.
+     *
+     * Valid values:
+     *
+     *   true
+     *   false
+     *
+     * This parameter is required.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $scalingRulesEnable;
@@ -46,34 +79,26 @@ class EnDisableScalingRulesRequest extends Model
         'scalingRulesEnable' => 'ScalingRulesEnable',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
-
         if (null !== $this->dbInstanceId) {
             $res['DbInstanceId'] = $this->dbInstanceId;
         }
-
         if (null !== $this->product) {
             $res['Product'] = $this->product;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-
         if (null !== $this->scalingRulesEnable) {
             $res['ScalingRulesEnable'] = $this->scalingRulesEnable;
         }
@@ -81,34 +106,29 @@ class EnDisableScalingRulesRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return EnDisableScalingRulesRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
-
         if (isset($map['DbInstanceId'])) {
             $model->dbInstanceId = $map['DbInstanceId'];
         }
-
         if (isset($map['Product'])) {
             $model->product = $map['Product'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-
         if (isset($map['ScalingRulesEnable'])) {
             $model->scalingRulesEnable = $map['ScalingRulesEnable'];
         }

@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\Selectdb\V20230522\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CheckServiceLinkedRoleResponseBody extends Model
 {
     /**
+     * @example False
+     *
      * @var bool
      */
     public $hasServiceLinkedRole;
 
     /**
+     * @example 1F455133-981E-5AD0-80EB-26EA1EF3C65F
+     *
      * @var string
      */
     public $requestId;
@@ -22,18 +26,14 @@ class CheckServiceLinkedRoleResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->hasServiceLinkedRole) {
             $res['HasServiceLinkedRole'] = $this->hasServiceLinkedRole;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -41,18 +41,17 @@ class CheckServiceLinkedRoleResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CheckServiceLinkedRoleResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HasServiceLinkedRole'])) {
             $model->hasServiceLinkedRole = $map['HasServiceLinkedRole'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

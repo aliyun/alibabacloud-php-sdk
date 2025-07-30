@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Selectdb\V20230522\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteDBClusterBindingResponseBody extends Model
 {
     /**
+     * @description Id of the request
+     *
+     * @example F8900A96-67F7-5274-A41B-7722E1ECF8C9
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class DeleteDBClusterBindingResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class DeleteDBClusterBindingResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteDBClusterBindingResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

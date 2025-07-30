@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Selectdb\V20230522\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\CreateDBClusterResponseBody\data;
+use AlibabaCloud\Tea\Model;
 
 class CreateDBClusterResponseBody extends Model
 {
@@ -15,6 +15,8 @@ class CreateDBClusterResponseBody extends Model
     public $data;
 
     /**
+     * @example F8900A96-67F7-5274-A41B-7722E1ECF8C9
+     *
      * @var string
      */
     public $requestId;
@@ -23,21 +25,14 @@ class CreateDBClusterResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->data) {
-            $this->data->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,18 +40,17 @@ class CreateDBClusterResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateDBClusterResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Data'])) {
             $model->data = data::fromMap($map['Data']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

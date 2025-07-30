@@ -4,32 +4,50 @@
 
 namespace AlibabaCloud\SDK\Selectdb\V20230522\Models\DescribeDBClusterConfigResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\DescribeDBClusterConfigResponseBody\data\params;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description The cluster ID.
+     *
+     * @example selectdb-cn-wny3li00g02-be
+     *
      * @var string
      */
     public $dbClusterId;
 
     /**
+     * @description The numeric ID of the instance.
+     *
+     * @example 6585
+     *
      * @var string
      */
     public $dbInstanceId;
 
     /**
+     * @description The instance ID.
+     *
+     * @example selectdb-cn-wny3li00g02
+     *
      * @var string
      */
     public $dbInstanceName;
 
     /**
+     * @description The details about each parameter returned.
+     *
      * @var params[]
      */
     public $params;
 
     /**
+     * @description The task ID.
+     *
+     * @example 107841167
+     *
      * @var int
      */
     public $taskId;
@@ -41,39 +59,29 @@ class data extends Model
         'taskId' => 'TaskId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->params)) {
-            Model::validateArray($this->params);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dbClusterId) {
             $res['DbClusterId'] = $this->dbClusterId;
         }
-
         if (null !== $this->dbInstanceId) {
             $res['DbInstanceId'] = $this->dbInstanceId;
         }
-
         if (null !== $this->dbInstanceName) {
             $res['DbInstanceName'] = $this->dbInstanceName;
         }
-
         if (null !== $this->params) {
-            if (\is_array($this->params)) {
-                $res['Params'] = [];
-                $n1 = 0;
-                foreach ($this->params as $item1) {
-                    $res['Params'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Params'] = [];
+            if (null !== $this->params && \is_array($this->params)) {
+                $n = 0;
+                foreach ($this->params as $item) {
+                    $res['Params'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -81,36 +89,32 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DbClusterId'])) {
             $model->dbClusterId = $map['DbClusterId'];
         }
-
         if (isset($map['DbInstanceId'])) {
             $model->dbInstanceId = $map['DbInstanceId'];
         }
-
         if (isset($map['DbInstanceName'])) {
             $model->dbInstanceName = $map['DbInstanceName'];
         }
-
         if (isset($map['Params'])) {
             if (!empty($map['Params'])) {
                 $model->params = [];
-                $n1 = 0;
-                foreach ($map['Params'] as $item1) {
-                    $model->params[$n1++] = params::fromMap($item1);
+                $n = 0;
+                foreach ($map['Params'] as $item) {
+                    $model->params[$n++] = null !== $item ? params::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

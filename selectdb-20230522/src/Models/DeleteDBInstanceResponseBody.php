@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Selectdb\V20230522\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteDBInstanceResponseBody extends Model
 {
     /**
+     * @example BD0D0B17-C145-5B91-BFC2-6791927EE973
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +18,9 @@ class DeleteDBInstanceResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +30,11 @@ class DeleteDBInstanceResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteDBInstanceResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

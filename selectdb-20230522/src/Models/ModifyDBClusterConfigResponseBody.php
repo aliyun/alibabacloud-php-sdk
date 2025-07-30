@@ -4,12 +4,14 @@
 
 namespace AlibabaCloud\SDK\Selectdb\V20230522\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\ModifyDBClusterConfigResponseBody\data;
+use AlibabaCloud\Tea\Model;
 
 class ModifyDBClusterConfigResponseBody extends Model
 {
     /**
+     * @example failed
+     *
      * @var string
      */
     public $accessDeniedDetail;
@@ -20,16 +22,26 @@ class ModifyDBClusterConfigResponseBody extends Model
     public $data;
 
     /**
+     * @description The dynamic code. This parameter is not returned.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $dynamicCode;
 
     /**
+     * @description The dynamic message. This parameter is not returned.
+     *
+     * @example An error occurred while processing your request.
+     *
      * @var string
      */
     public $dynamicMessage;
 
     /**
+     * @example BC854513-E85E-54F3-9842-B9CCD3308CDD
+     *
      * @var string
      */
     public $requestId;
@@ -41,33 +53,23 @@ class ModifyDBClusterConfigResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->data) {
-            $this->data->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->accessDeniedDetail) {
             $res['AccessDeniedDetail'] = $this->accessDeniedDetail;
         }
-
         if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
-
         if (null !== $this->dynamicCode) {
             $res['DynamicCode'] = $this->dynamicCode;
         }
-
         if (null !== $this->dynamicMessage) {
             $res['DynamicMessage'] = $this->dynamicMessage;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -75,30 +77,26 @@ class ModifyDBClusterConfigResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyDBClusterConfigResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccessDeniedDetail'])) {
             $model->accessDeniedDetail = $map['AccessDeniedDetail'];
         }
-
         if (isset($map['Data'])) {
             $model->data = data::fromMap($map['Data']);
         }
-
         if (isset($map['DynamicCode'])) {
             $model->dynamicCode = $map['DynamicCode'];
         }
-
         if (isset($map['DynamicMessage'])) {
             $model->dynamicMessage = $map['DynamicMessage'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
